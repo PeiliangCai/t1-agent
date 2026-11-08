@@ -1,0 +1,72 @@
+{
+  "schema_version": "s4-protocol-pause-concurrency-phase-1",
+  "generated_at": "2026-11-03T04:14:43.856493+00:00",
+  "counts": {
+    "tests": 2,
+    "pass": 2,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "typecheck_exit_code": 0,
+  "log": "docs/acceptance/s4/runtime-validation/protocol-pause-concurrency-phase/protocol-pause-concurrency-focused-tests.txt",
+  "observed": [
+    {
+      "test_evidence": "protocol_diagnostic_pause",
+      "requests": 1,
+      "state": "partial",
+      "saved_candidates": 1,
+      "error_code": "sdk_tool_argument_validation_failed_or_unclassified_tool_error",
+      "error_response_sha256": "3bc3382f20cb420697c21085dc16efa64b83e0eed9dfe4515d2e4c75827d7150",
+      "invalid_argument_sha256": "f37d0fd352c28556fbe9280d05b3ac24b6d119b9fa7b9b574f22c549c1c4a0f7",
+      "retries": 0,
+      "summary_started": false,
+      "persisted_pause_after_reopen": true
+    },
+    {
+      "test_evidence": "concurrent_document_cancellation_isolation",
+      "stop_mode": "cancel",
+      "streams_overlapped_before_stop": true,
+      "stopped_state": "cancelled",
+      "healthy_state": "completed",
+      "stopped_candidates": 1,
+      "healthy_candidates": 1,
+      "stopped_completed_blocks": 1,
+      "healthy_completed_blocks": 2,
+      "stopped_missing_blocks": 1,
+      "healthy_transport_remained_open_until_released": true,
+      "shared_requests": 5,
+      "stopped_requests": 2,
+      "healthy_requests": 3,
+      "shared_input_tokens": 33168,
+      "shared_output_tokens": 8272,
+      "conservative_missing_usage_requests": 1
+    },
+    {
+      "test_evidence": "concurrent_document_cancellation_isolation",
+      "stop_mode": "deadline",
+      "streams_overlapped_before_stop": true,
+      "stopped_state": "partial",
+      "healthy_state": "completed",
+      "stopped_candidates": 1,
+      "healthy_candidates": 1,
+      "stopped_completed_blocks": 1,
+      "healthy_completed_blocks": 2,
+      "stopped_missing_blocks": 1,
+      "healthy_transport_remained_open_until_released": true,
+      "shared_requests": 5,
+      "stopped_requests": 2,
+      "healthy_requests": 3,
+      "shared_input_tokens": 33168,
+      "shared_output_tokens": 8272,
+      "conservative_missing_usage_requests": 1
+    }
+  ],
+  "owned_source_sha256_after_tests_before_next_edit": {
+    "tests/extraction/runtime.test.ts": "e5588916bfe55909400824b4f35bffa3b88e8855a0e9ff7a6ee60fcf421ef8b1",
+    "tests/extraction/fixtures/runtime-responses.ts": "2a8ab15247b61febd0f31237be5f522745669ca5552ab269bf274711b77cee75"
+  },
+  "implementation_source_hashes_at_test_start": null,
+  "source_note": "The implementation owner changed an unrelated model category length bound after these tests completed. No implementation hash was captured at this phase start; historical implementation hashes are not inferred from the newer file.",
+  "simulation": "Installed Pi SDK; same in-process budget/store; overlapping synthetic loopback streams. No paid API call."
+}

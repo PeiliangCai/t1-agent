@@ -1,0 +1,89 @@
+{
+  "schema_version": "b0-revalidation-config-1",
+  "status": "prepared_pending_new_user_authorization",
+  "execute_model_calls": false,
+  "purpose": "s4_b0_revalidation_no_method_comparison",
+  "method": "B0",
+  "papers": [
+    {
+      "source_id": "L07",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json"
+    },
+    {
+      "source_id": "L01",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json"
+    },
+    {
+      "source_id": "L05",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json"
+    }
+  ],
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "catalog": {
+    "catalog_version": "medical-unavailable-1",
+    "status": "unavailable",
+    "fixture": false,
+    "cancers": [],
+    "image_types": [],
+    "features": [],
+    "bindings": []
+  },
+  "batch_options": {
+    "maxCodePoints": 8500,
+    "maxBlocks": 128,
+    "contextBlocks": 6
+  },
+  "proposed_limits": {
+    "requests": 128,
+    "input_tokens": 2500000,
+    "output_tokens": 160000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "response_model_alias_policy": {
+    "policy_id": "user-relayed-agicto-deployment-region-luna-20261103",
+    "source": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+    "exact_pairs": [
+      {
+        "requested_model": "gpt-6-luna",
+        "response_model": "igpt-6-luna"
+      },
+      {
+        "requested_model": "igpt-6-luna",
+        "response_model": "gpt-6-luna"
+      }
+    ]
+  },
+  "observation_spec": "docs/acceptance/s4-b0-revalidation-2026-11-08/source-observations.json"
+}

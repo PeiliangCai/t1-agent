@@ -1,0 +1,206 @@
+{
+  "schema_version": "s4-reliability-existing-evidence-interpretation-1",
+  "recorded_at": "2026-11-05T13:39:28.739500+00:00",
+  "trigger": "User asks why a final method is not yet determined and whether parsing/prompt quality causes the delay. Read-only interpretation of existing evidence; no new model call, source change, or broad statistics.",
+  "confirmed_vs_inference": [
+    {
+      "topic": "Prompt, model protocol and host engineering",
+      "confirmed": [
+        "Both new summary passes emitted both source_unit_ids and source_line_indices despite the explicit exclusive-selector contract; each rejected original call was followed by one actual same-session corrected call.",
+        "B0 then failed strict feature_name_not_in_evidence validation; exact rejected feature literal and failing-update identity were not retained, so they cannot be named or guessed.",
+        "Pre-fix host bugs were independently reproduced: cumulative historical source_units returned on each read, and explicit feature-target mismatch falling through to insert. These were engineering defects; the new F run preserved a same-identity proposed feature revision.",
+        "The source/range/human-approval validators stayed strict; the B0 failed summary saved no partial candidate/proposal versions.",
+        "There is a concrete prompt/validator disclosure gap: evidence-validation.ts requires feature_name_raw to occur literally in evidence or be null. The generic batch tool description says verbatim-or-null, but statementPolicy replaces the whole description and drops that sentence; the summary tool description also does not explicitly repeat the field constraint, while its schema is only nullableText. The batch user prompt does explicitly mention it; the summary pass relies on broader system original-text rules. This is a verified prompt omission/inconsistency, not proof of the exact failed feature cause."
+      ],
+      "inference_only": [
+        "A lengthy prompt and several selector/index conventions may increase instruction-following burden; a low-cost model may be less reliable at them. No prompt-only/model-only ablation has established either as the sole cause.",
+        "A feature literal mismatch could be transcription, source spelling/spacing, inappropriate feature naming, or another issue. The missing raw failed feature value prevents a specific explanation.",
+        "The verified field-constraint omission is a plausible contributor to the B0 literal-name rejection, but without its raw feature value or a controlled prompt-only comparison the direct causal link is unproved."
+      ],
+      "sources": [
+        "report.json#/separate_engineering_findings",
+        "revalidation-prepared/execution/L05-B0/whole-document-summary-attempt-0.json",
+        "revalidation-prepared/execution/L05-F/whole-document-summary-attempt-0.json",
+        "../01-exact-actual-arguments-replay.json",
+        "packages/agent/src/evidence-validation.ts",
+        "packages/agent/src/extraction-tools.ts",
+        "packages/agent/src/extraction-summary.ts",
+        "packages/agent/src/extraction-run.ts"
+      ]
+    },
+    {
+      "topic": "New B0 and F source overlap and versions",
+      "confirmed": [
+        "Only one current main original quote is exactly shared across B0 and F: the full AAH classification/dimension sentence, with identical source spans. B0 has5 other current candidate quotes; F has1 other conditional-diagnostic quote.",
+        "B0 has no pair of completely equal primary quotes in this new run, but there are2 pairs of overlapping Figure4 source spans; these are retained for human comparison, not automatically adjudicated as duplicates.",
+        "F has2 current activev2 records, their2 prior activev1 records, plus the AAH identity proposedv3. The AAH name changes from AAH to atypical adenomatous hyperplasia (AAH) in the proposal; full original/context/attribution/validation changes are retained.",
+        "The F summary text/issue codes are unapproved model suggestions, not permission to delete a candidate or inherit medical approval."
+      ],
+      "cross_group_exact_quote_pairs": [
+        {
+          "B0_record_id": "ev-665e6d5c21c450a61d71ec4120147537ecf894ad",
+          "F_record_id": "ev-a2b57836fef8fae12536a59193118708f5d55133",
+          "exact_primary_quote_equal": true,
+          "exact_quote_span_equal": true,
+          "quote_topic": "AAH classification plus less-than5mm dimension definition; original full sentence retained."
+        }
+      ],
+      "unique_primary_quote_counts_by_group": {
+        "L05-B0": 5,
+        "L05-F": 1
+      },
+      "source_overlap_pairs": [
+        {
+          "job_id": "L05-B0",
+          "record_ids": [
+            "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+            "ev-4459402383db68084beec0d6d0ccee07a3a631bf"
+          ],
+          "overlap_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000019",
+              "start": 37,
+              "end": 138
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000020",
+              "start": 0,
+              "end": 29
+            }
+          ],
+          "exact_primary_quote_equal": false,
+          "interpretation": "Mechanical overlapping source spans only; not an adjudicated duplicate and never automatically merged."
+        },
+        {
+          "job_id": "L05-B0",
+          "record_ids": [
+            "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+            "ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1"
+          ],
+          "overlap_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000018",
+              "start": 57,
+              "end": 142
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000019",
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "exact_primary_quote_equal": false,
+          "interpretation": "Mechanical overlapping source spans only; not an adjudicated duplicate and never automatically merged."
+        }
+      ],
+      "sources": [
+        "reader-manifest.json",
+        "source-version-audit.json"
+      ]
+    },
+    {
+      "topic": "PDF parser defects and attribution",
+      "confirmed": [
+        {
+          "document_id": "L01",
+          "ir_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L01/parser-result.json",
+          "parser_status": "partial",
+          "pages": 4,
+          "blocks": 409,
+          "decoded_pages": 4,
+          "failed_pages": [],
+          "failed_block_count": 0,
+          "unmapped_or_partial_units": 0,
+          "ambiguous_units": 2,
+          "image_text_unverified_pages": [
+            2
+          ],
+          "full_content_coverage_verified": false,
+          "fidelity_human_verified": false,
+          "reading_order": "native_candidate_order_unverified",
+          "table_structure": "native_candidate_output_unverified",
+          "structure_verified_by_human": false
+        },
+        {
+          "document_id": "L05",
+          "ir_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05/parser-result.json",
+          "parser_status": "partial",
+          "pages": 10,
+          "blocks": 615,
+          "decoded_pages": 10,
+          "failed_pages": [],
+          "failed_block_count": 0,
+          "unmapped_or_partial_units": 6,
+          "ambiguous_units": 8,
+          "image_text_unverified_pages": [
+            1,
+            4,
+            5,
+            6,
+            8
+          ],
+          "full_content_coverage_verified": false,
+          "fidelity_human_verified": false,
+          "reading_order": "native_candidate_order_unverified",
+          "table_structure": "native_candidate_output_unverified",
+          "structure_verified_by_human": false
+        }
+      ],
+      "judgment": "Both source text layers were decoded for every physical page and no source block is marked failed. Both IRs nevertheless remain partial due to native mapping/image-text and structural uncertainties. Decoded lines plus candidate native structure are stored separately; this is not evidence that all structure was lost.",
+      "not_proven": [
+        "No saved evidence connects the new dual-selector mistakes to parser defects; tool-returned selector IDs and exclusive rules existed.",
+        "No full failed feature literal is available to connect its mismatch to a particular PDF spelling, hyphenation, mapping or prompt error.",
+        "OCR/burned-in image text, multi-column order, table/header/footnote/caption relationships, whole-Figure completeness and true visual-description recall remain unquantified without targeted PDF/human checks. Candidate count cannot measure parser completeness."
+      ],
+      "sources": [
+        "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L01/parser-result.json",
+        "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05/parser-result.json",
+        "summary-read-result-audit.json"
+      ]
+    },
+    {
+      "topic": "Corpus and comparison limits",
+      "confirmed": [
+        "In the sealed L01 plan, F and R both dispatch344/409 source blocks with equal complete source-input fingerprints. R reuses F, is not an independent run, and its0 incremental calls are not a zero-cost advantage.",
+        "L05 dispatch counts are B0:615, F:524, R:525; this new approved batch executes only B0/F.",
+        "L01 concerns CT features and NSCLC immunotherapy response; L05 concerns lung ground-glass nodules and upgraded frozen pathology. Both are lung/CT development papers, not a multi-cancer/modality independent test set.",
+        "The sealed L05 F/R masks differ by only1 source block/140 code points: F524 blocks/22364 kept code points versus R525/22504. Thus these two rule conditions have very little empirical input separation in this corpus, even though their theoretical policies differ."
+      ],
+      "inference_only": [
+        "Their titles/abstracts indicate substantial study design, feature inventories, clinical/pathology and statistical material rather than a dedicated collection of visual-description sentences. Actual eligible-description density has not been annotated or measured."
+      ],
+      "not_proven": "Different candidate counts, or few candidates from these papers, do not establish recall, method superiority or parser failure. L01 equivalent F/R and L05 one-block separation cannot substantiate a broad ranking of the two theoretical preprocessing strategies.",
+      "sources": [
+        "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+        "docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json",
+        "evaluation/manifests/source-register.json"
+      ]
+    },
+    {
+      "topic": "What prior35 samples and11 comments establish",
+      "confirmed": [
+        "One ordinary user screened the old35 items (30 random plus5 risk cases), with11 comments. The feedback identified concrete original-sentence/context, table-support, caption/Figure Note and image-association issues and informed explicit business-rule repairs.",
+        "Those reviews bind the old output versions. The current8 candidates have0 human/medical/product approvals and do not inherit the old answers."
+      ],
+      "limit": "This feedback is useful for issue discovery and usability/source checks. It is not an independent medical gold set, a current-output accuracy estimate, a formal method winner, or evidence of full-paper recall.",
+      "sources": [
+        "docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json",
+        "runtime-data/agent-notes/current-docs-reconcile-2026-11-04.json#/user_feedback_repair_2026_11_05"
+      ]
+    },
+    {
+      "topic": "What can be decided now",
+      "judgment": "There is evidence to retain the current guarded engineering baseline and report this one F path as having completed its unapproved summary. There is not enough evidence to select a formal best input method/model. Do not change the default or call this S4 quality acceptance.",
+      "reasons": [
+        "B0 still failed summary; F omitted91 initially dispatched source blocks and has unresolved candidate relevance/context. Both parser statuses remain partial.",
+        "The three-method experiment has equivalence/reuse, limited development papers, once-per-new-group outcomes and no independent human quality assessment or frozen winner thresholds.",
+        "The host correctness improvements and source checks are real, but no-128k/fewer-calls is not proof of overall quality or a single-variable performance gain."
+      ],
+      "next_without_new_API": "Use the sealed source/version view to review relevance, complete context and the two source-overlap pairs. Separate known parsing defects from prompt/model/host defects before making further changes."
+    }
+  ],
+  "new_model_API_requests": 0,
+  "new_application_source_changes": 0,
+  "formal_review_round_added": false,
+  "last_updated_at": "2026-11-05T13:40:08.974750+00:00"
+}

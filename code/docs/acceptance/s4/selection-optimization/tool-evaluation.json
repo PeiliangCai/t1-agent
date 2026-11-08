@@ -1,0 +1,45 @@
+{
+  "schema_version": "s4-tool-evaluation-1",
+  "checked_at": "2026-11-03T12:38:29.586723+00:00",
+  "checked_by": "main_session_official_source_review",
+  "implementation_choice": "small_auditable_TypeScript_rules_on_existing_Docling_IR",
+  "new_external_dependencies": [],
+  "no_third_party_code_reused": true,
+  "projects": [
+    {
+      "name": "MedPMC",
+      "url": "https://github.com/Yale-BIDS-Chen-Lab/MedPMC/tree/main/data_curation/01_initial_screening",
+      "official_scope": "CPU PMC JATS XML figure/caption/body-reference extraction; later PubMedBERT filtering",
+      "this_experiment": "explicit marker link idea only; not installed/integrated; not arbitrary PDF parser"
+    },
+    {
+      "name": "RADEX",
+      "url": "https://github.com/ljhowell/radex",
+      "official_scope": "search-strategy proximity/OR expressions to regular expressions",
+      "this_experiment": "conceptual rule retrieval reference only; no dependency/code reuse"
+    },
+    {
+      "name": "RadText",
+      "url": "https://github.com/bionlplab/radtext",
+      "official_scope": "radiology NLP/RadLex and BioC report workflow, Java/spaCy dependencies",
+      "this_experiment": "not installed; YAML details and comprehensive medical coverage not verified"
+    },
+    {
+      "name": "SKET",
+      "url": "https://github.com/ExaNLP/sket",
+      "official_scope": "rules + pretrained models for colon/cervix/lung pathology reports; CPU/GPU deployment",
+      "this_experiment": "not integrated; paper-source-block domain differs"
+    }
+  ],
+  "model_source": {
+    "url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "context_window": 1050000,
+    "max_output_tokens_official": 128000,
+    "reasoning_effort": "medium",
+    "function_calling_with_reasoning": "Responses",
+    "experiment_output_cap": 8192,
+    "gateway_full_capacity_boundary_tested": false
+  },
+  "retrieval_terms_are_not_approved_medical_synonyms": true,
+  "pathology_feature_rules_have_only_synthetic_coverage": true
+}

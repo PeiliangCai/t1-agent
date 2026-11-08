@@ -1,0 +1,486 @@
+{
+  "schema_version": "0.2",
+  "is_example": true,
+  "workflow_status": "draft",
+  "execution_authorized": false,
+  "request_id": "illustrative-lung-ct-001",
+  "revision": 1,
+  "raw_request": "生成20份肺部肿瘤CT三维图文样本，病灶最大轴位长径10到20毫米，文字描述可见征象和病灶位置。",
+  "requirements": [
+    {
+      "id": "REQ01",
+      "label": "任务分支",
+      "key": "task_branch",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "lung_tumor_ct",
+      "unit": "",
+      "provenance": {
+        "kind": "example_user_text",
+        "quote": "肺部肿瘤CT",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "候选模型含肺部肿瘤类别；本项目尚未试跑"
+      }
+    },
+    {
+      "id": "REQ02",
+      "label": "目标合格数量",
+      "key": "target_accepted_count",
+      "kind": "dataset_constraint",
+      "feature_id": null,
+      "value": 20,
+      "unit": "volume",
+      "provenance": {
+        "kind": "example_user_text",
+        "quote": "20份",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "需实现并验证后启用"
+      }
+    },
+    {
+      "id": "REQ03",
+      "label": "最大轴位长径",
+      "key": "max_axial_diameter_mm",
+      "kind": "hard_constraint",
+      "feature_id": "GEO02",
+      "value": {
+        "min": 10.0,
+        "max": 20.0
+      },
+      "unit": "mm",
+      "provenance": {
+        "kind": "example_user_text",
+        "quote": "最大轴位长径10到20毫米",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "归一化大小参数需校准到测量结果；毫米硬约束能力尚未验证"
+      }
+    },
+    {
+      "id": "REQ04",
+      "label": "输出任务",
+      "key": "text_task",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "visible_findings_and_location",
+      "unit": "",
+      "provenance": {
+        "kind": "example_user_text",
+        "quote": "文字描述可见征象和病灶位置",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "需实现并验证后启用"
+      }
+    },
+    {
+      "id": "REQ05",
+      "label": "样本计数单位",
+      "key": "sample_unit",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "volume",
+      "unit": "",
+      "provenance": {
+        "kind": "example_user_text",
+        "quote": "三维图文样本",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "需实现并验证后启用"
+      }
+    },
+    {
+      "id": "REQ06",
+      "label": "图像体积尺寸",
+      "key": "output_size",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": [
+        512,
+        512,
+        256
+      ],
+      "unit": "voxel",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "尺寸与间距共同决定视野；需试跑检查完整解剖覆盖。"
+      }
+    },
+    {
+      "id": "REQ07",
+      "label": "体素间距",
+      "key": "spacing_mm",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": [
+        1.0,
+        1.0,
+        2.0
+      ],
+      "unit": "mm",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "为CT首版配置建议，非临床扫描规范。"
+      }
+    },
+    {
+      "id": "REQ08",
+      "label": "标注粒度",
+      "key": "annotation_granularity",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "病灶体素掩膜及派生定位框",
+      "unit": "",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "配套掩膜仍需与图像核对。"
+      }
+    },
+    {
+      "id": "REQ09",
+      "label": "文本语言",
+      "key": "text_language",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "zh-CN",
+      "unit": "",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "可改为英文或其他输出约定。"
+      }
+    },
+    {
+      "id": "REQ10",
+      "label": "文本标签",
+      "key": "text_label_format",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "可验证属性JSON及中文征象短句",
+      "unit": "",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "报告诊断与分期字段另行启用。"
+      }
+    },
+    {
+      "id": "REQ11",
+      "label": "保存格式",
+      "key": "save_formats",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": [
+        "NIfTI",
+        "JSONL",
+        "CSV"
+      ],
+      "unit": "",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "PNG切片导出作为可选项，保留医学主文件。"
+      }
+    },
+    {
+      "id": "REQ12",
+      "label": "生成并发数",
+      "key": "generation_concurrency",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": 1,
+      "unit": "任务",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "试跑后按显存和资源上限调整。"
+      }
+    },
+    {
+      "id": "REQ13",
+      "label": "阳性样本比例",
+      "key": "visible_lesion_fraction",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": 1.0,
+      "unit": "ratio",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "这里的阳性指目标病灶可见，不等于病理确诊癌症。"
+      }
+    },
+    {
+      "id": "REQ14",
+      "label": "阴性样本比例",
+      "key": "non_visible_target_fraction",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": 0.0,
+      "unit": "ratio",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "首版不自动构造健康患者标签；调整时明确阴性定义。"
+      }
+    },
+    {
+      "id": "REQ15",
+      "label": "交付数量上限",
+      "key": "output_count_cap",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": 20,
+      "unit": "volume",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "示例建议，独立于候选尝试预算。"
+      }
+    },
+    {
+      "id": "REQ16",
+      "label": "候选生成预算",
+      "key": "candidate_budget",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": 100,
+      "unit": "candidate_volume",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "每个候选体积计一次；后端内部重试另记账并受资源预算限制。"
+      }
+    },
+    {
+      "id": "REQ17",
+      "label": "生成后端",
+      "key": "generation_backend",
+      "kind": "parameter",
+      "feature_id": null,
+      "value": "MAISI MONAI bundle 候选，版本待试跑锁定",
+      "unit": "",
+      "provenance": {
+        "kind": "default_proposal",
+        "quote": "",
+        "note": "本文件为作者编写的需求示例"
+      },
+      "review": {
+        "state": "pending",
+        "action": null,
+        "event_id": null,
+        "confirmed_at": null,
+        "revision": 1
+      },
+      "capability": {
+        "state": "planned_unvalidated",
+        "note": "本建议不将MONAI bundle和NIM参数视为同一接口。"
+      }
+    }
+  ],
+  "distribution_constraints": [],
+  "compiler_preview": {
+    "state": "proposal_not_executable",
+    "generator": "MAISI candidate; exact backend and weight version not locked",
+    "decision_variables": [
+      {
+        "id": "relative_tumor_size",
+        "domain": "[0,1]",
+        "note": "文档中的归一化大小控制，非毫米值"
+      },
+      {
+        "id": "seed_or_noise",
+        "domain": "backend-dependent",
+        "note": "需后端支持；评估时固定种子集合或记录重复采样"
+      }
+    ],
+    "objectives": [],
+    "constraints": [
+      {
+        "requirement_id": "REQ03",
+        "evaluator_id": "GEO02",
+        "expression": "10 - d(x,m,A) <= 0; d(x,m,A) - 20 <= 0",
+        "state": "planned_unvalidated"
+      }
+    ],
+    "notes": "该示例只声明大小硬约束，没有替用户添加医学质量评分或任意软目标；工程质量检查仍需配置与验证。"
+  },
+  "approval_snapshot": null,
+  "blockers": [
+    "这是作者编写的示例，不是真实已确认任务",
+    "所有需求和默认项均未确认",
+    "生成后端、模型权重和资源配置未锁定或试跑",
+    "毫米测量、图像掩膜检查与医学复核流程未验证"
+  ],
+  "agent_input_ready": false
+}

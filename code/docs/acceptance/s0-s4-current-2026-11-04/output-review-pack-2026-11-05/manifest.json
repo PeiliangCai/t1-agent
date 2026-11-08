@@ -1,0 +1,712 @@
+{
+  "schema_version": "offline-output-review-distribution-1",
+  "pack_id": "cc939653193b71c047cdc1e3314f923b234ebef7aefbfaf2f8cbf9adfa20845f",
+  "generated_at": "2026-11-05T03:13:29.977Z",
+  "zip": {
+    "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip",
+    "sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+    "bytes": 4414357
+  },
+  "inner_manifest": {
+    "path": "pack-manifest.json",
+    "sha256": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3"
+  },
+  "workbook_path_in_zip": "核验表.xlsx",
+  "start_here": "完整解压ZIP后，先打开核验表.xlsx的说明页；黄色栏人工填写，无法判断选待核；另存核验表-已填写.xlsx。",
+  "random": {
+    "count": 30,
+    "per_actual_job": 6,
+    "jobs": [
+      {
+        "job_id": "L01-B0",
+        "count": 6
+      },
+      {
+        "job_id": "L01-F",
+        "count": 6
+      },
+      {
+        "job_id": "L05-B0",
+        "count": 6
+      },
+      {
+        "job_id": "L05-F",
+        "count": 6
+      },
+      {
+        "job_id": "L05-R",
+        "count": 6
+      }
+    ],
+    "seed": "t1-output-review-2026-11-05-random30-v1",
+    "algorithm": "unit_id=JSON.stringify([job_id,record_id,record_version,delivery_fingerprint]); job_seed=seed+\"/\"+job_id; rank=SHA256(job_seed+U+0000+unit_id); ascending hexadecimal rank (existing prepareOutputSample), then first N. Selection is without replacement within each actual job.",
+    "selected_version_units_sha256": "958cff0d633ca126e6a3b375f933ada16157826e06db749128b04dc5f17ce750",
+    "baseline_candidates": 148,
+    "independent_papers": 2,
+    "reuse": [
+      {
+        "job_id": "L01-R",
+        "representative_job_id": "L01-F",
+        "independent_model_run": false,
+        "extra_sample_count": 0,
+        "explanation": "等价输入复用，不作为第6次独立提取或额外样本；成本归属仍引用代表方法。"
+      }
+    ]
+  },
+  "risk": {
+    "count": 5,
+    "independent_from_random_statistics": true,
+    "version_scope": "summary experiment before/after; not baseline",
+    "records": [
+      {
+        "risk_id": "K01",
+        "job_id": "L01-B0",
+        "record_id": "ev-3f3f1c99cfeeb0d1d9f305389d1cd52137631a16",
+        "before_version": 3,
+        "after_version": 1,
+        "baseline_random_ids": []
+      },
+      {
+        "risk_id": "K02",
+        "job_id": "L05-R",
+        "record_id": "ev-71335950f9fc0cbe122fc1b7a32c53b1dae7d2ea",
+        "before_version": 4,
+        "after_version": 4,
+        "baseline_random_ids": []
+      },
+      {
+        "risk_id": "K03",
+        "job_id": "L05-R",
+        "record_id": "ev-8df3ed6d4e41c618039d54d05db95727d92de107",
+        "before_version": 1,
+        "after_version": 3,
+        "baseline_random_ids": []
+      },
+      {
+        "risk_id": "K04",
+        "job_id": "L05-R",
+        "record_id": "ev-bbd6d97f7251ad3803a5f6cfbf8de8994e4d9f0e",
+        "before_version": 1,
+        "after_version": 2,
+        "baseline_random_ids": []
+      },
+      {
+        "risk_id": "K05",
+        "job_id": "L05-R",
+        "record_id": "ev-f366a4b2cbaeea9c78cf64df27db286dfd96ad94",
+        "before_version": 2,
+        "after_version": 3,
+        "baseline_random_ids": []
+      }
+    ]
+  },
+  "contents": {
+    "worksheets": [
+      "说明",
+      "30条随机样本",
+      "原文与出处",
+      "5条实验风险"
+    ],
+    "source_pdfs": 2,
+    "original_image_assets": 1,
+    "source_fragment_rows": 286,
+    "archive_files": 6
+  },
+  "preservation": {
+    "protected_file_count": 380,
+    "before_sha256": "5b3dc77cc700dac4b8e58f8e15c109f1ba6fc1bdfba8789272fae0473fb972f8",
+    "after_sha256": "5b3dc77cc700dac4b8e58f8e15c109f1ba6fc1bdfba8789272fae0473fb972f8",
+    "all_protected_bytes_unchanged": true,
+    "frozen_runtime_source_count": 49,
+    "frozen_runtime_sources_unchanged": true,
+    "original_database_connections_opened": 0,
+    "original_source_or_result_writes": 0
+  },
+  "verification": {
+    "seed_reproduction": true,
+    "random_count": 30,
+    "count_per_actual_job": 6,
+    "risk_count": 5,
+    "random_and_risk_versions_separate": true,
+    "exact_literal_fragments_checked": 286,
+    "local_html_links_checked": 369,
+    "workbook_readback": {
+      "schema_version": "offline-output-review-readback-1",
+      "random_rows": 30,
+      "risk_rows": 5,
+      "random_signed_complete_rows": 0,
+      "risk_signed_complete_rows": 0,
+      "incomplete_rows": [],
+      "manual_nonempty_cells": 0,
+      "formula_cells": 0,
+      "source_literal_cells": 286,
+      "manual_total_cells": 425,
+      "immutable_hyperlinks_checked": 357,
+      "ooxml_decoded_control_cells": 14,
+      "ooxml_control_diagnostics": [
+        {
+          "cell": "原文与出处!J102",
+          "fragment_id": "F00101",
+          "owner_id": "S15",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J103",
+          "fragment_id": "F00102",
+          "owner_id": "S15",
+          "original_code_point_length": 25,
+          "openpyxl_value_length": 31,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 6,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J145",
+          "fragment_id": "F00144",
+          "owner_id": "S20",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J146",
+          "fragment_id": "F00145",
+          "owner_id": "S20",
+          "original_code_point_length": 25,
+          "openpyxl_value_length": 31,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 6,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2.2 _x0007_Group 2 vs group 3",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J156",
+          "fragment_id": "F00155",
+          "owner_id": "S22",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J157",
+          "fragment_id": "F00156",
+          "owner_id": "S22",
+          "original_code_point_length": 25,
+          "openpyxl_value_length": 31,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 6,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J236",
+          "fragment_id": "F00235",
+          "owner_id": "S29",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J237",
+          "fragment_id": "F00236",
+          "owner_id": "S29",
+          "original_code_point_length": 25,
+          "openpyxl_value_length": 31,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 6,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J244",
+          "fragment_id": "F00243",
+          "owner_id": "S30",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J245",
+          "fragment_id": "F00244",
+          "owner_id": "S30",
+          "original_code_point_length": 25,
+          "openpyxl_value_length": 31,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 6,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2.2 _x0007_Group 2 vs group 3",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J269",
+          "fragment_id": "F00268",
+          "owner_id": "K04",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J270",
+          "fragment_id": "F00269",
+          "owner_id": "K04",
+          "original_code_point_length": 13,
+          "openpyxl_value_length": 19,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 2,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "4 _x0007_Discussion",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J274",
+          "fragment_id": "F00273",
+          "owner_id": "K04",
+          "original_code_point_length": 51,
+          "openpyxl_value_length": 57,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 4,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        },
+        {
+          "cell": "原文与出处!J275",
+          "fragment_id": "F00274",
+          "owner_id": "K04",
+          "original_code_point_length": 13,
+          "openpyxl_value_length": 19,
+          "source_control_codepoints": [
+            {
+              "code_point_offset": 2,
+              "unicode": "U+0007"
+            }
+          ],
+          "ooxml_text_excerpt": "4 _x0007_Discussion",
+          "exact_equality_after_single_pass_ooxml_decode": true
+        }
+      ],
+      "product_export_approved": false,
+      "medical_quality_approved": false,
+      "application_review_events_written": 0,
+      "database_writes": 0,
+      "signature_authority": "user_supplied_workbook_fields_only_not_identity_authentication",
+      "stage_passed": false,
+      "accuracy": null,
+      "recall": null,
+      "random_unreviewed_or_incomplete_rows": 30,
+      "risk_unreviewed_or_incomplete_rows": 5,
+      "all_manual_fields_blank": true
+    },
+    "source_pdf_and_asset_hashes_checked": true,
+    "human_or_medical_checks_performed": 0,
+    "new_paid_requests": 0,
+    "ooxml_literal_authority": "Raw sharedStrings/inlineStr single-pass OOXML decoding; openpyxl unescaped display strings alone are not sufficient for source control characters. No source characters removed or replaced.",
+    "source_control_codepoints_preserved": true,
+    "actual_Office_or_other_spreadsheet_visual_display_verified": false,
+    "source_control_counts": {
+      "pack_fragment_rows": 14,
+      "unique_source_blocks": 4,
+      "interpretation": "Counts of pack fragment rows and distinct source blocks, not counts of independent PDF errors; original-PDF fidelity is unreviewed."
+    }
+  },
+  "zip_readback": {
+    "schema_version": "offline-output-review-readback-1",
+    "random_rows": 30,
+    "risk_rows": 5,
+    "random_signed_complete_rows": 0,
+    "risk_signed_complete_rows": 0,
+    "incomplete_rows": [],
+    "manual_nonempty_cells": 0,
+    "formula_cells": 0,
+    "source_literal_cells": 286,
+    "manual_total_cells": 425,
+    "immutable_hyperlinks_checked": 357,
+    "ooxml_decoded_control_cells": 14,
+    "ooxml_control_diagnostics": [
+      {
+        "cell": "原文与出处!J102",
+        "fragment_id": "F00101",
+        "owner_id": "S15",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J103",
+        "fragment_id": "F00102",
+        "owner_id": "S15",
+        "original_code_point_length": 25,
+        "openpyxl_value_length": 31,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 6,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J145",
+        "fragment_id": "F00144",
+        "owner_id": "S20",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J146",
+        "fragment_id": "F00145",
+        "owner_id": "S20",
+        "original_code_point_length": 25,
+        "openpyxl_value_length": 31,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 6,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2.2 _x0007_Group 2 vs group 3",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J156",
+        "fragment_id": "F00155",
+        "owner_id": "S22",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J157",
+        "fragment_id": "F00156",
+        "owner_id": "S22",
+        "original_code_point_length": 25,
+        "openpyxl_value_length": 31,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 6,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J236",
+        "fragment_id": "F00235",
+        "owner_id": "S29",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J237",
+        "fragment_id": "F00236",
+        "owner_id": "S29",
+        "original_code_point_length": 25,
+        "openpyxl_value_length": 31,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 6,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2.1 _x0007_Group 1 vs group 2",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J244",
+        "fragment_id": "F00243",
+        "owner_id": "S30",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J245",
+        "fragment_id": "F00244",
+        "owner_id": "S30",
+        "original_code_point_length": 25,
+        "openpyxl_value_length": 31,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 6,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2.2 _x0007_Group 2 vs group 3",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J269",
+        "fragment_id": "F00268",
+        "owner_id": "K04",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J270",
+        "fragment_id": "F00269",
+        "owner_id": "K04",
+        "original_code_point_length": 13,
+        "openpyxl_value_length": 19,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 2,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "4 _x0007_Discussion",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J274",
+        "fragment_id": "F00273",
+        "owner_id": "K04",
+        "original_code_point_length": 51,
+        "openpyxl_value_length": 57,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 4,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "3.2 _x0007_Correlation between FS upgrades and CT imaging",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      },
+      {
+        "cell": "原文与出处!J275",
+        "fragment_id": "F00274",
+        "owner_id": "K04",
+        "original_code_point_length": 13,
+        "openpyxl_value_length": 19,
+        "source_control_codepoints": [
+          {
+            "code_point_offset": 2,
+            "unicode": "U+0007"
+          }
+        ],
+        "ooxml_text_excerpt": "4 _x0007_Discussion",
+        "exact_equality_after_single_pass_ooxml_decode": true
+      }
+    ],
+    "product_export_approved": false,
+    "medical_quality_approved": false,
+    "application_review_events_written": 0,
+    "database_writes": 0,
+    "signature_authority": "user_supplied_workbook_fields_only_not_identity_authentication",
+    "stage_passed": false,
+    "accuracy": null,
+    "recall": null,
+    "random_unreviewed_or_incomplete_rows": 30,
+    "risk_unreviewed_or_incomplete_rows": 5,
+    "all_manual_fields_blank": true,
+    "archive_artifact_hashes_verified": 5,
+    "pack_id": "cc939653193b71c047cdc1e3314f923b234ebef7aefbfaf2f8cbf9adfa20845f"
+  },
+  "actual_human_reviewed_count": 0,
+  "new_paid_requests": 0,
+  "product_export_approved": false,
+  "medical_quality_approved": false,
+  "formal_sample_count": null,
+  "quality_thresholds": null,
+  "accuracy": null,
+  "recall": null,
+  "winner": null,
+  "inspect_returned_workbook": "在code/运行：.venv/bin/python scripts/lib/output-review-workbook.py inspect <本ZIP路径> <返回的已填写XLSX路径>；只读回核对，不写产品审批或原数据库。",
+  "limitations": [
+    "尚未进行真实人工/医学核验；此材料本身不是阶段验收。",
+    "PDF锚点可在部分阅读器中被忽略，须按标明物理页定位。",
+    "原始Figure目录inventory_complete=false；机械检查不等于人工整图核验。",
+    "源文本层的U+0007等控制字符原样保留并提示；Office/各表格软件实际视觉显示尚未验证，须回看PDF，不将控制字符当成已确认论文文字。",
+    "只记录工作样本，不冻结正式验收样本量/阈值，不声称医学准确率、全文召回或赢家。"
+  ],
+  "generator_sources": {
+    "scripts/prepare-output-review-pack.ts": "39c4bddf15ddca2be99e5ff14d016b05f268877d534990cf6be9e370c8276c36",
+    "scripts/lib/output-review-workbook.py": "3a41ada8cc22179c77ed1ee672fee4c2234c79b18c15be1d6a7938cbcc7c2d36",
+    "evaluation/src/output-review-pack.ts": "0ec3c3ffb34923ae46c87ab3aafe068598d2fc239b5b4548182a946d5ba289e4"
+  },
+  "post_generation_checks": {
+    "targeted_tests": [
+      {
+        "command": "bash scripts/with-node.sh npx tsx --test tests/evaluation/output-review-pack.test.ts",
+        "passed": 4,
+        "failed": 0,
+        "exit_code": 0
+      },
+      {
+        "command": ".venv/bin/python -m unittest discover -s tests/evaluation -p 'test_output_review_workbook.py' -v",
+        "passed": 5,
+        "failed": 0,
+        "exit_code": 0
+      }
+    ],
+    "root_types": {
+      "command": "bash scripts/with-node.sh npx tsc --noEmit",
+      "exit_code": 0
+    },
+    "independent_fresh_source_check": {
+      "baseline_record_version_and_content_fingerprints_matched": 30,
+      "independently_ranked_actual_jobs": 5,
+      "risk_arm_version_and_content_bindings_matched": 10,
+      "source_inputs_sha_verified": 29,
+      "prior_successful_draft_selection_units_unchanged": true,
+      "selected_version_units_sha256": "958cff0d633ca126e6a3b375f933ada16157826e06db749128b04dc5f17ce750",
+      "frozen_runtime_source_sha_verified": 49,
+      "original_ledger_sha_unchanged": true
+    },
+    "archive_integrity": {
+      "zip_crc_and_sha_verified": true,
+      "files": 6,
+      "pdf_physical_pages": {
+        "L01": 4,
+        "L05": 10
+      },
+      "fragment_physical_pages_within_actual_pdf": 286,
+      "original_image_assets_sha_and_dimensions_verified": 1
+    },
+    "links": {
+      "html_local_resources_and_anchors": 369,
+      "xlsx_immutable_hyperlinks": 357
+    },
+    "manual_fields": {
+      "total": 425,
+      "nonempty": 0,
+      "actual_human_reviewed": 0
+    },
+    "temporary_expanded_directories_removed": true,
+    "only_this_task_two_pyc_files_removed": true,
+    "browser_binary_available": false,
+    "browser_and_Office_visual_verification_performed": false,
+    "additional_paid_requests": 0,
+    "presentation_only_revision": {
+      "previous_zip_sha256": "949fac58a3a315a7d26a4e9d0e12b2d21b9c44e2d2f5a540480ac660ca8ccf61",
+      "current_zip_sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+      "same_seed_and_30_selection_units_sha256": "958cff0d633ca126e6a3b375f933ada16157826e06db749128b04dc5f17ce750",
+      "all_bound_selection_records_fragments_risks_figures_and_source_bindings_sha256": "7b8c6a4c560ba571c5c7107db704d039a486ec13b6060108558945cc811c2e66",
+      "bound_content_payload_identical_to_previous_zip": true,
+      "instructions_rows": 15,
+      "technical_tracking_removed_from_reviewer_instructions_and_index": true,
+      "judgment_fields_and_readback_semantics_unchanged": true,
+      "manual_cells_total": 425,
+      "manual_nonempty": 0,
+      "zip_crc_and_sha_verified": true,
+      "latest_targeted_tests_passed": 9,
+      "latest_root_types_exit_code": 0
+    }
+  }
+}

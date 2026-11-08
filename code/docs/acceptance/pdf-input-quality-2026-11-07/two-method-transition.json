@@ -1,0 +1,408 @@
+{
+  "schema_version": "two-method-transition-acceptance-1",
+  "recorded_at": "2026-11-07T14:01:44.012Z",
+  "status": "implemented_offline_checks_passed",
+  "current_methods": [
+    {
+      "condition": "B0",
+      "name": "单独智能体"
+    },
+    {
+      "condition": "F",
+      "name": "正向规则筛选＋智能体"
+    }
+  ],
+  "retired_current_conditions": [
+    "R",
+    "FR"
+  ],
+  "implementation": {
+    "changes": [
+      {
+        "path": "packages/agent/src/source-selection.ts",
+        "change": "modified",
+        "before_sha256": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+        "after_sha256": "571e8868facb2dc892401d4cb25dd9e49cd6da37613bbfd79e63d99970fc9e87"
+      },
+      {
+        "path": "packages/agent/src/method-comparison.ts",
+        "change": "modified",
+        "before_sha256": "517029a5d80229a8e876ca0c4c7a4af516d9ec2470d3644ca22d4775526bbbcb",
+        "after_sha256": "dcf85f8d1fba68598e15e11f55e81c1622d26253556b8537ffaa27e5d64a3b2d"
+      },
+      {
+        "path": "packages/agent/src/experiment-authorization.ts",
+        "change": "modified",
+        "before_sha256": "6e386339dd3787ef20dc820a6e234c470aa361240f1b019f3912852e7333352f",
+        "after_sha256": "af3aa2c5d3d88f69986f3c8ec8ce89598f6da7c03fd379b0ee11604ac2279cda"
+      },
+      {
+        "path": "scripts/compare-extraction-methods.ts",
+        "change": "modified",
+        "before_sha256": "8c3858f901e9cc3b7583eb309d3c6df4c71040449b5945929990029a01d8a881",
+        "after_sha256": "6ae8867b8c4fe4a2c7d6d78b82ca60f1ba7ef417a4a1c2edaa7fbce048820ffa"
+      },
+      {
+        "path": "scripts/extract-paper.ts",
+        "change": "modified",
+        "before_sha256": "ef48c049698858025340987d3c5d2199abde9c3baf22545d9eb4b65de0f23d9a",
+        "after_sha256": "c6e69037408788dd4c9201baaa69ebffb9d760a8d4a51f124957f306c2092d90"
+      },
+      {
+        "path": "scripts/prepare-feedback-revalidation.ts",
+        "change": "deleted",
+        "before_sha256": "dfea23d70f5788c59c0390e76ad90cf6ddb5a2c761910acb3e323a5d3c53a147"
+      },
+      {
+        "path": "scripts/retry-feedback-revalidation.ts",
+        "change": "deleted",
+        "before_sha256": "ee9d7f84df8710b06577656e2e1aeee76706c441276488494966fc6b724c7b84"
+      },
+      {
+        "path": "scripts/summary-reread-replay.ts",
+        "change": "modified",
+        "before_sha256": "43e34a5519c77a85dc82ee1b670d1f81a53c21281e21595a7d7a50d512897e51",
+        "after_sha256": "4895a086ecaf8579c43b2d9c995edd5830bf6f151f8ef074d2e33ec1386b79c8"
+      },
+      {
+        "path": "config/extraction-development.json",
+        "change": "modified",
+        "before_sha256": "8e8d0c1a2cb3a218acc772144c4542721c72895a9094cd70de9d47978a53e122",
+        "after_sha256": "0ab921c94e5c2392ef8abeb7dc5648d063387ce4f7ba450c302eafefa068b6d5"
+      },
+      {
+        "path": "tests/extraction/source-selection.test.ts",
+        "change": "modified",
+        "before_sha256": "83ea79f5241960c504cf36d10d3538b04748fe82213c8d472ca88da03bfed3e6",
+        "after_sha256": "27348decb07a0d36d27e15e814bb6b2f000799dd4404cd9e2b45f87caf3a0fd5"
+      },
+      {
+        "path": "tests/extraction/method-comparison.test.ts",
+        "change": "modified",
+        "before_sha256": "bfb92c5ec78cd301a7670275dae4b570ef8b7085b1d7b589dde9d8925fd2fec8",
+        "after_sha256": "6ab3f9275de2c33cc43d4f3e0325ca91f327435d425119896320894473da50ad"
+      },
+      {
+        "path": "tests/extraction/metric-context-revision.test.ts",
+        "change": "modified",
+        "before_sha256": "89cfaed9129ab44dda755d31720224f9e6e475766bef00e832ba9ab9a03a2747",
+        "after_sha256": "34984f084b68d2c4d37bf660bbf925488b98e1cc5995ff6adb6105735d9fda18"
+      },
+      {
+        "path": "tests/extraction/s4-reliability-preparation.test.ts",
+        "change": "modified",
+        "before_sha256": "d0eac0c825bcc7eba8a9a60ec3ecab4f18708b45acc820f58167b79848e54a2b",
+        "after_sha256": "eecfc48a09d0b3b16ad7fbef38a57b98f3daa30522162443f19eaa9dc7bb1979"
+      },
+      {
+        "path": "scripts/audit-method-comparison.ts",
+        "change": "modified",
+        "before_sha256": "9944fb41913cfaae465a9ad0d3130cb60659f61d76ed47e24e5375eaeafa6842",
+        "after_sha256": "0e8283423347c7c667938f8ef5bd1fb5d6e063400d099c8b5ed6a84411aaa0a0"
+      },
+      {
+        "path": "tests/extraction/comparison-audit.test.ts",
+        "change": "modified",
+        "before_sha256": "106037dd7c0c6ba6ba13b03c63b0ba7b6344fa3725e1d0e8dd6c230d1c35c19e",
+        "after_sha256": "4ae027a2a82fcd965d46809b3841045eb289f5d37b1109cb453f8b1d177f6c26"
+      },
+      {
+        "path": "config/two-method-comparison.json",
+        "change": "added",
+        "after_sha256": "b8ef8e14fb7d02a4ac89494346861e586904be4d4ae5e6fde66cf1d4ca6f7b62"
+      },
+      {
+        "path": "tests/extraction/two-method-transition.test.ts",
+        "change": "added",
+        "after_sha256": "17ebeff05f6193d799db1d2e305c3cc1ef0bd7f09e87e73b71308cf8d041d993"
+      }
+    ],
+    "deleted_reverse_behavior": [
+      "R/FR selector branches and reverse-only rule IDs",
+      "remove_irrelevant_agent comparison arm",
+      "historical feedback prepare/retry paid-execution drivers"
+    ],
+    "current_entrypoints": [
+      "selectSourceBlocks / runExtractionDocument: B0/F only",
+      "s4:compare prepare/execute: current two-method config/plan/auth only",
+      "extract-paper authorized run config: B0/F only",
+      "summary replay: current two-method parent and B0/F cohorts only"
+    ],
+    "default_config": "config/two-method-comparison.json",
+    "schemas": {
+      "config": "two-method-comparison-config-1",
+      "plan": "two-method-prepared-comparison-1",
+      "authorization": "two-method-authorization-1",
+      "revision": "two-method-revision-binding-1"
+    },
+    "source_selection_rule_version_unchanged": "s4-explainable-source-selection-1"
+  },
+  "frozen_B0_F_regression": {
+    "plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+    "plan_sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f",
+    "comparison": "Strict deep equality of source-selection manifests under the same frozen IR, including kept/deferred IDs, per-line text hashes, rules and digest; not a batch/context/model-payload equality claim.",
+    "papers": [
+      {
+        "document_id": "L01",
+        "ir_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L01/parser-result.json",
+        "ir_sha256": "f0446a29a034194ea2a6b78eb57b47b4f877ebc3a60308feae912b4e9d55b8dd",
+        "methods": [
+          {
+            "condition": "B0",
+            "kept": 409,
+            "deferred": 0,
+            "selection_sha256": "eafec39b6b3cd4c0608f47833e788161c4888fac38b7f7ac50da970b3b6be92a",
+            "full_source_selection_manifest_equal": true
+          },
+          {
+            "condition": "F",
+            "kept": 344,
+            "deferred": 65,
+            "selection_sha256": "166ba102c6043b3ae09deead3071284ab672c6abc60e15dc2d3965e3ee51926a",
+            "full_source_selection_manifest_equal": true
+          }
+        ]
+      },
+      {
+        "document_id": "L05",
+        "ir_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05/parser-result.json",
+        "ir_sha256": "72cdfd801fb46100573eaf94ad27edbb15133ff6490a8b0f3a762c07e3c86b83",
+        "methods": [
+          {
+            "condition": "B0",
+            "kept": 615,
+            "deferred": 0,
+            "selection_sha256": "fe72d1ca0b99268b43184ea62fdf34552753690d5fe8f5ff19f9cdf1db5ea450",
+            "full_source_selection_manifest_equal": true
+          },
+          {
+            "condition": "F",
+            "kept": 524,
+            "deferred": 91,
+            "selection_sha256": "e5fb793eb227f3fee40c366af9bdedd9c28f4988f8ea06d10339ca2c95b43f89",
+            "full_source_selection_manifest_equal": true
+          }
+        ]
+      }
+    ],
+    "L05_F_91_deferred_blocks_are_intentional_not_missing_reruns": true
+  },
+  "legacy_read_only": {
+    "retained": [
+      "LegacySourceSelectionCondition R/FR and excluded state for archived manifests",
+      "LegacyComparisonAuthorization old three-method and revision shapes",
+      "Frozen three-method plans, all_three_inputs_identical fields and historical R measurement/reuse attribution",
+      "Existing audit readers and all previously written review pages/feedback"
+    ],
+    "current_execution_of_legacy_plan_or_authorization_rejected": true,
+    "automatic_plan_migration": false,
+    "old_authorization_reused": false,
+    "offline_audit_presentation_samples": {
+      "frozen_three_method": {
+        "conditions": [
+          "B0",
+          "F",
+          "R"
+        ],
+        "label": "三方案",
+        "schema": "three-method-automatic-comparison-1",
+        "reuse": "L01-R → L01-F"
+      },
+      "new_two_method_fixture": {
+        "conditions": [
+          "B0",
+          "F"
+        ],
+        "label": "两方案",
+        "schema": "two-method-automatic-comparison-1",
+        "reuse": "F → B0 when inputs are equal"
+      }
+    },
+    "old_static_reports_rewritten": false
+  },
+  "checks": [
+    {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsx --test tests/extraction/source-selection.test.ts tests/extraction/method-comparison.test.ts tests/extraction/metric-context-revision.test.ts tests/extraction/comparison-audit.test.ts tests/extraction/summary-reread-replay.test.ts tests/extraction/two-method-transition.test.ts",
+      "tests": 33,
+      "passed": 33,
+      "failed": 0
+    },
+    {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsx --test tests/extraction/comparison-audit.test.ts tests/extraction/two-method-transition.test.ts",
+      "tests": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsc --noEmit",
+      "status": "passed",
+      "runs": 2
+    },
+    {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsx --test tests/extraction/s4-reliability-preparation.test.ts",
+      "tests": 3,
+      "passed": 3,
+      "failed": 0
+    }
+  ],
+  "offline_default_prepare": {
+    "command": "bash scripts/with-node.sh node --import tsx scripts/compare-extraction-methods.ts prepare --directory TEMPORARY_DIRECTORY (default config)",
+    "status": "passed",
+    "plan_schema": "two-method-prepared-comparison-1",
+    "prepared_plan_sha256": "d8c6c4d1065f7a7f165eabfeff0b44058a4c45361f0ece7ebdd10ff5c9d4f279",
+    "current_conditions": [
+      "B0",
+      "F"
+    ],
+    "common_versions": {
+      "source_evidence_unit_version": "literal-source-sentences-2",
+      "evidence_policy_version": "visual-statements-2",
+      "runtime_source_sha256": "cd5dab32b1de3db2b58758b63ca457e23caa4c3e5dd141d807c0f4f05fee2ed7"
+    },
+    "sources": [
+      {
+        "document_id": "L01",
+        "ir_path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/parser-result.json",
+        "ir_sha256": "3b62358dd9932e4bcaab6dde7d9e3e9af92faf1457f01706744c3769f19ddd78",
+        "figure_catalog_path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/figure-assets/catalog.json",
+        "figure_catalog_sha256": "0e3b81db688a55bd3fcfbf7cf26df87c4a955a8c04c6ed38ebefbe5dadee0567",
+        "parser_status": "partial",
+        "parser_config_digest": "9edd344fd57fc56940f878f2c647e3a5e39956050a244000336edf6a13e557b7",
+        "methods": [
+          {
+            "condition": "B0",
+            "kept": 409,
+            "deferred": 0,
+            "batches": 4,
+            "selection_sha256": "3a1bc1f1f942d903fa315dc9246a7a20a167fc057e3b24b84c6eb6858f502e9a",
+            "representative_job_id": null
+          },
+          {
+            "condition": "F",
+            "kept": 344,
+            "deferred": 65,
+            "batches": 3,
+            "selection_sha256": "9db9b5ddbd76bc5b43f3df539f6602031347bff9b6a5d099e730f79cf48c2f8c",
+            "representative_job_id": null
+          }
+        ]
+      },
+      {
+        "document_id": "L05",
+        "ir_path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/parser-result.json",
+        "ir_sha256": "1f041bc0d6b23766f43e6a8c925eeed0e04ceb378e5c6fb60d7812b01def32d1",
+        "figure_catalog_path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/catalog.json",
+        "figure_catalog_sha256": "28a08aaf83baf793408eb6e5e1b0204e91a6efce3881fd18c04178f12c99e2aa",
+        "parser_status": "partial",
+        "parser_config_digest": "9edd344fd57fc56940f878f2c647e3a5e39956050a244000336edf6a13e557b7",
+        "methods": [
+          {
+            "condition": "B0",
+            "kept": 615,
+            "deferred": 0,
+            "batches": 6,
+            "selection_sha256": "f17927e9cb00154e5abd3a90ca120455c97c0c71b29c9136a7f9c0d45bf3aa71",
+            "representative_job_id": null
+          },
+          {
+            "condition": "F",
+            "kept": 524,
+            "deferred": 91,
+            "batches": 5,
+            "selection_sha256": "3c0df717fdaf16f01aa4200cac6f782a5ef2bd19880b6c807dba2102c5bca559",
+            "representative_job_id": null
+          }
+        ]
+      }
+    ],
+    "new_derived_selected_block_ids_equal_frozen": true,
+    "authorization_template": {
+      "schema_version": "two-method-authorization-1",
+      "status": "pending_user_confirmation",
+      "authorization_id": null,
+      "user_confirmation_source": null,
+      "approved_at": null
+    },
+    "unsigned_execute_rejected": true,
+    "execution_directory_created": false,
+    "actual_unmodified_old_sources_rejected": true,
+    "stale_error_code": "comparison_requires_same_current_formal_parser",
+    "paid_calls": 0,
+    "source_provenance": "Frozen native output plus immutable raw anchors rebuilt with current PDF mapping; not fresh Docling inference or paid extraction.",
+    "input_quality_status": "pending_separate_validation",
+    "offline_preparation_is_input_quality_approval": false,
+    "historical_full_batches_or_payloads_unchanged_claimed": false,
+    "historical_vs_current_single_variable_method_gain_claimed": false,
+    "temporary_plan_and_template_removed": true
+  },
+  "protected_artifacts": {
+    "files_checked": 41,
+    "all_sha256_unchanged": true,
+    "sha256_by_path": {
+      "apps/pi-web/public/output-review/build-info.json": "e45cbb0eeb992406919969942b51cfc16f39c0f9ab4c5bcc3c4b232df6d15ba9",
+      "apps/pi-web/public/output-review/index.html": "3aee26d1caa65e9428b3a4913ead6c1beb2e19d7f6f58c88886455a8e43b6d38",
+      "apps/pi-web/public/output-review/pack-manifest.json": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+      "apps/pi-web/public/output-review/reliability-build.json": "5bb92ae3e703f818cfd5bd3143ef2da6824470434ba90bdabfc5f647a27351be",
+      "apps/pi-web/public/output-review/reliability-data-413fa83644c5.json": "413fa83644c519d8ca69056d34458dd6d7ed69ee19cd640a9fd4ea82af5afaa5",
+      "apps/pi-web/public/output-review/reliability-evidence-map.json": "232d7616b950169a9a3301f24391117236149821f7026f2b1febf461f97a60d9",
+      "apps/pi-web/public/output-review/reliability.html": "b2efb8005ba8d7babe2bdbc44bf9b6ae369851ebba23267178910d5a0cab04e9",
+      "apps/pi-web/public/output-review/revalidation-build.json": "a68173217caa23ef0d5a2521914c5bdcf256405766066168baea845682ea10fc",
+      "apps/pi-web/public/output-review/revalidation-data-a296a9e3ff6e.json": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+      "apps/pi-web/public/output-review/revalidation.html": "54c7448a53752c6e9a79fa55f8de9795f83d7aa700a62cde2faa225afce39b33",
+      "apps/pi-web/public/output-review/source-groups.json": "3bd4bdf8aaf55aadc28afc7be5c1ab057b1cece8ea34f0c1584dad9ff42f3fbb",
+      "apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+      "config/three-method-comparison.json": "dcf6b349996878b54911339f2d1934e9132293d17f3916717bbf13b1ef516b69",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json": "7a6f4038d199fe162e8d16ae756082d9d321abb6b69c8bac74caf547bc712ec7",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/authorization.json": "7a6f4038d199fe162e8d16ae756082d9d321abb6b69c8bac74caf547bc712ec7",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/report.json": "ceceed61c7f1464623b0c89cf7948376cb04f4d15032f649b0ecc64504e5a832",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/plan.json": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/analysis-addendum.json": "7a9c9029b2184db17b75b38cbc323645df495e1138ef05b8af0319ab0b00f035",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/reader-manifest.json": "413fa83644c519d8ca69056d34458dd6d7ed69ee19cd640a9fd4ea82af5afaa5",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json": "390cea6385ae3fd35a26ce8672c95b903438cd6894eab6aac78de2312b3d1f96",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/new-ledger-snapshot.json": "a5731ca72a25e6a28e5b04c86d0b6648499c1a222b8cdc0e5e9122e832284747",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json": "8a344f3dae21279268f094028972bec0e3a96e89f348e8e3c3865d741408056b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json": "492d87259cc62bb80b196f148017287c7aef31d0183e53be012935c15b1f4d82",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/new-ledger-snapshot.json": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/report.json": "9a267a15e1e79a8e0460b4f59bf884f0e3ad0f560ec6334c3309560221116085",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/authorization.json": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/report.json": "622664ab6c24d86baeab1dcccc042e7ed34ae5f9fd7de2ffb1f4453c99dbd258",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/authorization.json": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/report.json": "1c475d48f9a239100b4c65edac70094699b7ab3c58e8c20afdc3165806e53540",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+      "evaluation/corpus/development-candidates/L01.pdf": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "evaluation/corpus/development-candidates/L02.pdf": "14a37c26847110e3dce0fad50e95cec4459348b0c6da7ef793a1d333bd6e1c12",
+      "evaluation/corpus/development-candidates/L05.pdf": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "evaluation/corpus/development-candidates/L07.pdf": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "evaluation/corpus/development-candidates/MED03.pdf": "36038f5e0ad453343334326a3ba03e6c94e3687ca88574640d54be7056ffa760",
+      "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+      "runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+      "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb/call-ledger.json": "7ba30592e6e4313e677bf5d04d74a8b2e2ef6786f54ead99e9ce3fde84f4518f"
+    }
+  },
+  "authorization_and_limits": {
+    "new_paid_API_authorized": false,
+    "paid_API_calls": 0,
+    "historical_189_216_41_call_evidence_preserved": true,
+    "expired_November_5_deadline_and_remaining_23_calls_are_not_authorization": true,
+    "proposed_limits_are_unsigned": true,
+    "input_quality_approved": false,
+    "medical_quality_approved": false,
+    "method_winner": null,
+    "historical_vs_current_single_variable_gain_claimed": false
+  },
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds": 0
+  },
+  "scope_limit": "This report covers retiring current R/FR execution and preserving historical readers. New PDF mapping/table roles and literal-source-sentences-2 can change batches/context; old-vs-new pipeline results are not a single-variable method comparison. The current default IRs remain partial and offline preparation does not approve input quality or paid execution.",
+  "cleanup": {
+    "temporary_prepare_plans_and_unsigned_templates_removed": true,
+    "own_temporary_log": "runtime-data/agent-notes/two-method-transition-2026-11-07.json",
+    "own_temporary_log_removed_after_handoff": true,
+    "permanent_rules_or_other_agents_files_removed": false
+  }
+}

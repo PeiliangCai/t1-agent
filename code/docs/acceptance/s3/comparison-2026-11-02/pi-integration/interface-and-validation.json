@@ -1,0 +1,240 @@
+{
+  "current_final_evidence": {
+    "IR_generation": "runs/guarded-v4/reuse",
+    "Pi_reports": {
+      "docling-standard-cpu": "docling-standard-cpu-2026-11-02T16-01-57-753Z-5d7b585e/report.json",
+      "mineru-basic-onnx-cpu": "mineru-basic-onnx-cpu-2026-11-02T16-01-57-766Z-a85f1f18/report.json"
+    },
+    "verified_at_UTC": "2026-11-02T16:03:25.603447+00:00",
+    "status": "10_of_10_actual_Pi_replays_completed_all_partial_no_medical_candidates",
+    "native_models_rerun": false,
+    "paid_or_real_LLM_calls": 0,
+    "regression_note": "Guard-only final replay required no repeated unit/integration/parser runs; prior actual logs retained; core executor owns unified final core checks."
+  },
+  "pending": null,
+  "scope": "S3_real_PDF_Pi_read_only_engineering_integration",
+  "formal_s3_status_changed": false,
+  "formal_astra_reviews_used_in_parent_task": 3,
+  "new_formal_reviews_requested": 0,
+  "interfaces": {
+    "LocalStructuredPythonParserAdapter": "constructor({candidateId: docling-standard-cpu|mineru-basic-onnx-cpu,logDirectory?}); parseResult(ParserRequest,AbortSignal?) returns validated parser-result-2",
+    "prepareRealDocumentRun": "trusted bound RunInput + fileReference + Catalog + parser + RunStore; queued -> parsing -> extracting; failure/cancellation/unsupported preserved",
+    "RealDocumentTools": "the existing five restricted tool names; real source reads require matching run/document/SHA/text_version; no model path/CLI selector",
+    "executeRealDocumentRead": "actual or test session driver; validates source-read coverage and always leaves real successful probes partial; no real medical candidates"
+  },
+  "files_changed": [
+    "packages/agent/src/parser.ts",
+    "packages/agent/src/tools.ts",
+    "packages/agent/src/pi.ts",
+    "packages/agent/src/store.ts",
+    "packages/agent/src/index.ts",
+    "packages/agent/src/real-tools.ts",
+    "packages/agent/src/real-run.ts",
+    "tests/parser/real-pi.test.ts",
+    "tests/parser/helpers/mock-pi-model.ts",
+    "scripts/verify-s3-pi.ts",
+    "scripts/render-s3-pi-survey.py"
+  ],
+  "verification": [
+    {
+      "command": "bash scripts/with-node.sh npm run check",
+      "status": "passed",
+      "log": "check-final.log"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:unit",
+      "status": "passed",
+      "count": 15,
+      "log": "unit-regression.log"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:integration",
+      "status": "passed",
+      "count": 8,
+      "log": "integration-regression.log"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:parser",
+      "status": "passed",
+      "count": 17,
+      "log": "parser-final.log"
+    }
+  ],
+  "reports_available": [
+    "docling-parse-text-2026-11-02T15-22-04-519Z-96a54384/report.json",
+    "docling-standard-cpu-2026-11-02T15-22-40-581Z-a9e6bb80/report.json",
+    "docling-standard-cpu-2026-11-02T15-23-18-886Z-980cf859/report.json",
+    "docling-standard-cpu-2026-11-02T15-27-44-756Z-74d2c061/report.json",
+    "docling-standard-cpu-2026-11-02T15-34-40-059Z-a54aad3d/report.json",
+    "docling-standard-cpu-2026-11-02T15-37-19-705Z-cf5c1016/report.json",
+    "docling-standard-cpu-2026-11-02T15-48-09-859Z-cf0514ca/report.json",
+    "docling-standard-cpu-2026-11-02T16-01-57-753Z-5d7b585e/report.json",
+    "mineru-basic-onnx-cpu-2026-11-02T15-38-54-683Z-4ae7fbbc/report.json",
+    "mineru-basic-onnx-cpu-2026-11-02T15-45-58-456Z-9221b2b2/report.json",
+    "mineru-basic-onnx-cpu-2026-11-02T15-48-09-860Z-4875be00/report.json",
+    "mineru-basic-onnx-cpu-2026-11-02T16-01-57-766Z-a85f1f18/report.json",
+    "same-store-two-real-pdfs-aTdLxF/report.json",
+    "same-store-two-real-pdfs-lADx3V/report.json"
+  ],
+  "boundaries": [
+    "No formal parser default selected.",
+    "No paid/real model inference tested; only actual Pi SDK driven by scripted loopback responses.",
+    "No PDFs uploaded externally; original file bytes are SHA checked before and after.",
+    "Native processed/orig text is never treated as a literal source quote; code-point source segments retain boundaries and whole-line geometry.",
+    "Every successful real probe remains partial with 0 candidates; medical extraction and medical validation are unimplemented.",
+    "These five development PDFs are not independent acceptance data; S2 gold/review and S4 extraction are incomplete.",
+    "Real-model context-window capacity and autonomous tool-selection behavior are unverified."
+  ],
+  "initial_errors_and_fixes": [
+    {
+      "log": "check-initial.log",
+      "error": "TS test syntax: one extra closing parenthesis",
+      "fix": "removed extra closing parenthesis; subsequent typecheck and targeted/regression tests passed",
+      "fixed_log": "check-after-syntax-fix.log"
+    },
+    {
+      "log": "docling-five-pdf-full.log",
+      "error": "Benchmark parser results share run_id across different documents, causing UNIQUE runs.id with a shared replay store",
+      "fix": "Per-document replay stores retain original parser run_id unchanged; separate actual L01/L02 distinct-run parser+Pi test verifies same-store isolation",
+      "fixed_log": "docling-five-pdf-isolation-fix.log",
+      "same_store_evidence": "same-store-two-real-pdfs-lADx3V/report.json"
+    }
+  ],
+  "native_replay_boundary": "Each benchmark replay has its own SQLite store; it does not prove shared-store multi-run isolation. Separate actual parser/Pi L01/L02 runs share one SQLite in same-store-two-real-pdfs-lADx3V/.",
+  "subtask_status": "complete_final_guarded_v4_Pi_validation_and_31_page_survey",
+  "actual_direct_TS_CLI_native_bridges": {
+    "docling-standard-cpu": {
+      "report": "docling-standard-cpu-2026-11-02T15-23-18-886Z-980cf859/report.json",
+      "log": "docling-direct-cli-bridge-initial.log",
+      "document_id": "L01",
+      "state": "partial"
+    },
+    "mineru-basic-onnx-cpu": {
+      "report": "mineru-basic-onnx-cpu-2026-11-02T15-45-58-456Z-9221b2b2/report.json",
+      "log": "mineru-direct-cli-bridge-final.log",
+      "document_id": "L01",
+      "state": "partial",
+      "actual_parser_result_saved": true
+    }
+  },
+  "shared_store_actual_two_PDF_evidence": [
+    "same-store-two-real-pdfs-aTdLxF/report.json",
+    "same-store-two-real-pdfs-lADx3V/report.json"
+  ],
+  "assigned_AI_page_survey": {
+    "page_count": 31,
+    "actually_viewed_count": 31,
+    "findings": "../page-review/pi-executor-survey/page-findings.json",
+    "summary": "../page-review/pi-executor-survey/survey-summary.json",
+    "render_script": "scripts/render-s3-pi-survey.py",
+    "native_models_rerun_for_survey": false,
+    "medical_or_verbatim_gold_created": false,
+    "native_data_baseline": "guarded-v3/reuse; raw native artifacts unchanged in guarded-v4"
+  },
+  "replay_aggregate": {
+    "IR_generation": "guarded-v4",
+    "candidate_document_runs": 10,
+    "unique_original_development_PDFs": 5,
+    "physical_pages_in_original_corpus": 41,
+    "total_source_block_variant_reads": 7774,
+    "total_Pi_tool_start_end_events": 2112,
+    "total_scripted_model_requests": 40,
+    "paid_llm_calls": 0,
+    "native_models_rerun_for_replay": false,
+    "medical_candidates": 0,
+    "all_real_run_states": "partial",
+    "common_source_anchor_counts_are_not_native_completeness_proof": true
+  },
+  "historical_evidence": {
+    "final_guarded_v3_candidate_replays": {
+      "docling-standard-cpu": {
+        "report": "docling-standard-cpu-2026-11-02T15-48-09-859Z-cf0514ca/report.json",
+        "actual_Pi_SDK": "1.4.0",
+        "actual_native_results_replayed": 5,
+        "source_blocks_read": 3887,
+        "Pi_tool_execution_events": 1056,
+        "scripted_loopback_model_requests": 20,
+        "parser_result_origin": "actual_native_artifacts_rebuilt_into_guarded-v3_IR_no_new_native_performance_measurement",
+        "states": [
+          "partial",
+          "partial",
+          "partial",
+          "partial",
+          "partial"
+        ],
+        "medical_candidates_saved": 0,
+        "guard_metadata_checked_in_actual_Pi_response": true
+      },
+      "mineru-basic-onnx-cpu": {
+        "report": "mineru-basic-onnx-cpu-2026-11-02T15-48-09-860Z-4875be00/report.json",
+        "actual_Pi_SDK": "1.4.0",
+        "actual_native_results_replayed": 5,
+        "source_blocks_read": 3887,
+        "Pi_tool_execution_events": 1056,
+        "scripted_loopback_model_requests": 20,
+        "parser_result_origin": "actual_native_artifacts_rebuilt_into_guarded-v3_IR_no_new_native_performance_measurement",
+        "states": [
+          "partial",
+          "partial",
+          "partial",
+          "partial",
+          "partial"
+        ],
+        "medical_candidates_saved": 0,
+        "guard_metadata_checked_in_actual_Pi_response": true
+      }
+    },
+    "docling_guarded_final_report": "docling-standard-cpu-2026-11-02T15-37-19-705Z-cf5c1016/report.json",
+    "mineru_first_real_result_report": "mineru-basic-onnx-cpu-2026-11-02T15-38-54-683Z-4ae7fbbc/report.json",
+    "status": "retained_for_audit_superseded_by_current_guarded_v4_entry"
+  },
+  "final_guarded_v4_candidate_replays": {
+    "docling-standard-cpu": {
+      "report": "docling-standard-cpu-2026-11-02T16-01-57-753Z-5d7b585e/report.json",
+      "actual_Pi_SDK": "1.4.0",
+      "actual_native_results_replayed": 5,
+      "source_blocks_read": 3887,
+      "Pi_tool_start_end_events": 1056,
+      "scripted_loopback_model_requests": 20,
+      "states": [
+        "partial",
+        "partial",
+        "partial",
+        "partial",
+        "partial"
+      ],
+      "medical_candidates_saved": 0,
+      "guard_metadata_checked_in_actual_Pi_context": true
+    },
+    "mineru-basic-onnx-cpu": {
+      "report": "mineru-basic-onnx-cpu-2026-11-02T16-01-57-766Z-a85f1f18/report.json",
+      "actual_Pi_SDK": "1.4.0",
+      "actual_native_results_replayed": 5,
+      "source_blocks_read": 3887,
+      "Pi_tool_start_end_events": 1056,
+      "scripted_loopback_model_requests": 20,
+      "states": [
+        "partial",
+        "partial",
+        "partial",
+        "partial",
+        "partial"
+      ],
+      "medical_candidates_saved": 0,
+      "guard_metadata_checked_in_actual_Pi_context": true
+    }
+  },
+  "L07_p7_post_survey_guard_validation": {
+    "native_ref": "#/pictures/11",
+    "status": "conflict",
+    "caption_project_status": "rejected_conflict",
+    "usable_for_semantic_interpretation": false,
+    "native_link_retained": true,
+    "MRI_picture_12_caption_link_automatically_created": false,
+    "native_artifacts_same_as_guarded_v3": true,
+    "verified_in_actual_Pi_context": true,
+    "association_issues": [
+      "tiny_picture_and_remote_numbered_caption_geometry_conflict:a45c3e3097473bba-u-4ac7ed9d665ff888"
+    ]
+  }
+}

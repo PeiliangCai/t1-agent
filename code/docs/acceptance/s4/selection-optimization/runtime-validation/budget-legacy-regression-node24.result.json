@@ -1,0 +1,23 @@
+{
+  "name": "budget-legacy-regression-node24",
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "./node_modules/.bin/tsx",
+    "--test",
+    "--test-name-pattern=budget|provider input|request, input|explicit wall-clock|network guard|authorized operation caps",
+    "tests/extraction/runtime.test.ts"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 3.723,
+  "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.log",
+  "started_at": "2026-11-03T12:37:03.324271+00:00",
+  "test_summary": {
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  }
+}

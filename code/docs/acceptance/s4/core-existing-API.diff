@@ -1,0 +1,42 @@
+--- before-S4/package.json
++++ current/package.json
+@@ -27,7 +27,11 @@
+     "parse:pdf:structured": ".venv/bin/python services/pdf-parser/structured-cli.py parse",
+     "verify:s3:pi": "tsx scripts/verify-s3-pi.ts",
+     "test:parser": "tsx --test tests/parser/*.test.ts",
+-    "test:parser:python": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v"
++    "test:parser:python": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v",
++    "test:extraction": "tsx --test tests/extraction/*.test.ts",
++    "s4:probe": "tsx scripts/probe-s4-api.ts",
++    "s4:development": "tsx scripts/run-s4-development.ts",
++    "s4:contracts": "tsx scripts/export-s4-contracts.ts"
+   },
+   "devDependencies": {
+     "typescript": "7.0.2",
+--- before-S4/packages/contracts/src/index.ts
++++ current/packages/contracts/src/index.ts
+@@ -4,6 +4,7 @@
+ export * from './document-ir-v2.js';
+ import { StructuredDocumentIRSchema } from './document-ir-v3.js';
+ export * from './document-ir-v3.js';
++export * from './extraction-evidence.js';
+ 
+ const closed = { additionalProperties: false } as const;
+ const id = Type.String({ minLength: 1, maxLength: 160 });
+--- before-S4/packages/agent/src/index.ts
++++ current/packages/agent/src/index.ts
+@@ -7,3 +7,14 @@
+ export * from './parser-selection.js';
+ export * from './real-tools.js';
+ export * from './real-run.js';
++export * from './extraction-budget.js';
++export * from './extraction-pi.js';
++export * from './article-scope.js';
++export * from './extraction-store.js';
++export * from './extraction-tools.js';
++export * from './extraction-summary.js';
++export * from './summary-model-view.js';
++export * from './extraction-run.js';
++export * from './evidence-validation.js';
++export * from './scope-matching.js';
++export * from './reconciliation.js';

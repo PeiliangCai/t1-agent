@@ -1,0 +1,1534 @@
+{
+  "schema_version": "output-review-screening-results-1",
+  "questionnaire_version": "ordinary-screening-2026-11-05-v1",
+  "pack_id": "cc939653193b71c047cdc1e3314f923b234ebef7aefbfaf2f8cbf9adfa20845f",
+  "frozen_zip_sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+  "frozen_manifest_sha256": "9c88aede860464d5e32a53596e45e2e752ff8d290bc6244049aa6a7c9c76f80c",
+  "scope": "ordinary_user_screening_only",
+  "reviewer_role": "non_medical_user",
+  "reviewer_name": "阿良",
+  "created_at": "2026-11-05T04:16:25.877Z",
+  "updated_at": "2026-11-05T06:05:39.737Z",
+  "exported_at": "2026-11-05T06:08:53.338Z",
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "professional_review": {
+    "context": "pending",
+    "terminology": "pending",
+    "attribution": "pending",
+    "medical_pairing": "pending"
+  },
+  "items": [
+    {
+      "id": "S01",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-699bda01eeda34e307af246344b74f829c6cae2d",
+          "record_version": 1,
+          "source_record_sha256": "8f94a36a3fe8075c468608b720c75fda6a6eded29da7bc7cc8fda5d7110ea4e6",
+          "text_fingerprint": "9ec6fa023f1c81ee270608bb50e9ddc5d513f9dbbac0717a8223ab7c72899ac8",
+          "delivery_fingerprint": "d029ab782d081fcc5dfbf90e2d3c47cff924f2321067c66a6a07fcdbfc824d15",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:22:15.765Z",
+        "image_description": "2026-11-05T04:22:31.626Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "该样本中提取的是表格中的一些文字，与预期的有一些偏差。预期目标期望的是抽取论文中的“语句”段落中的对肿瘤图像特征的文本描述。当前表格其实不属于这一类。我觉得不应该单独提取表格中的文本描述，应该是有一个“语句”中对肿瘤图像特征进行了描述，然后该描述对特征的描述中有一些具体的值之类的数字等是引用的表格中的具体数字，那么这种情况下才需要去表格中把具体的特征值取出来。",
+      "updated_at": "2026-11-05T05:10:31.603Z",
+      "recorded_at": "2026-11-05T05:10:31.603Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S02",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-cf6c0db3be6834d7f46feabc76713a370f4d966e",
+          "record_version": 1,
+          "source_record_sha256": "c9f39d362ed7cf004f7c482c29ec3b2e13b4b1b860a66e22404b6fb6cc9e1d59",
+          "text_fingerprint": "b3dadce66a0ed1b5cb05fbb8c6e51e7880e3e99c490d83c491f27e91e5e4575c",
+          "delivery_fingerprint": "4ef2184693052676acee234501e924bc84be1f85ad44441b728df304af190564",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:48:59.193Z",
+        "image_description": "2026-11-05T05:11:06.300Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "表格中的文本和值",
+      "updated_at": "2026-11-05T05:11:15.761Z",
+      "recorded_at": "2026-11-05T05:11:15.761Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S03",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-c5a3c0030c3d4eff3280be7e92376fc28f509234",
+          "record_version": 1,
+          "source_record_sha256": "86c06e3071e823ae4548f635cfcf067d1a83b9d1275025f084c822127082e631",
+          "text_fingerprint": "44b3fb7c8ba118556c83526937fda4059346b554a7f5806d0d08e46919e3d79a",
+          "delivery_fingerprint": "5d43e5e374b89e1007e1c95d171802e98a200de599973dd22c1a402576c67a61",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:49:15.296Z",
+        "image_description": "2026-11-05T04:49:29.178Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "当前提取的样本，我觉得是一种一般性的特征表述，并不是针对某一张具体的医学影像的特征描述。这一类描述可以提取。\n我发现一个独立片段是一行内容，一句话可能会被截断，我想知道为什么不能以一个完整的句子作为一个独立片段呢？以一行内容作为一个独立片段的粒度有些太小了，这一点我觉得需要调整。",
+      "updated_at": "2026-11-05T05:11:28.118Z",
+      "recorded_at": "2026-11-05T05:11:28.118Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S04",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-29df3a16d4fdfbf06b7242df635e2434364cfad5",
+          "record_version": 1,
+          "source_record_sha256": "1c9fcecb6da333f28d2e1911b47cf5ec07a15f7743f980a4072a07f286bf8700",
+          "text_fingerprint": "6436493b35e0c3c4f3e29a69edec751fa63111684c9eefa9b6884bb4c2c05c98",
+          "delivery_fingerprint": "c9053cfe3be3045a66c098aac2878c8af97b83755b8fc102bf06abc6b0904518",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:52:12.311Z",
+        "image_description": "2026-11-05T04:52:14.426Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:11:29.218Z",
+      "recorded_at": "2026-11-05T05:11:29.218Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S05",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-f48579a35e76bd4daaa1f091d8d6ac430763b9ff",
+          "record_version": 1,
+          "source_record_sha256": "5669de61f3095d6bc840f077d5f16b93f77f495a6804f3af649bb051a70f7893",
+          "text_fingerprint": "ed756a8ddc996a8d87ba0e2792d5affe7288e681fe4c7c53a9e93b16329d18b7",
+          "delivery_fingerprint": "fd0ffa7237dfaf8737323a15cac9534f58a9a9871e4f27f6d5bc9fd69f53a207",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:52:19.062Z",
+        "image_description": "2026-11-05T04:52:19.435Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:11:30.518Z",
+      "recorded_at": "2026-11-05T05:11:30.518Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S06",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-87b7d5cbaeff725df532439dbf59865fbcf14e9d",
+          "record_version": 2,
+          "source_record_sha256": "d08bd804a3376653f97e0fe85e7f85d61626758cf69ba9d6434b72bcf07b2e30",
+          "text_fingerprint": "e63350cf8ff25ff9ac6ffa48a8c0d93bae70f38ecdc1a50397ce8f9e818f9f40",
+          "delivery_fingerprint": "10cbc3d3ae7d9a3cdd68188b67def6babb4d8a11eeefb38d6f4f6ef01b7751ff",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T04:52:43.545Z",
+        "image_description": "2026-11-05T05:10:03.438Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "是研究结论，而不是对医学图像特征的直接描述。",
+      "updated_at": "2026-11-05T05:11:55.157Z",
+      "recorded_at": "2026-11-05T05:11:55.157Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S07",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-e29455a6a748731ce47a940679d702d7ac606d17",
+          "record_version": 1,
+          "source_record_sha256": "f0faa859fe5284f174968522dff930919c362bde065a367286c117c7db7032f6",
+          "text_fingerprint": "f9e874e64c6473468c7852979c1972d14e5afbc3a6bc54f5f8e84154c77502aa",
+          "delivery_fingerprint": "d6ec000d4fd9a998cc323e8d9d97ec802396a3769d193f5183255dbb9de00cdb",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:11:58.447Z",
+        "image_description": "2026-11-05T05:11:59.432Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:12:00.114Z",
+      "recorded_at": "2026-11-05T05:12:00.114Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S08",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-68d056e391180393ce446a963b89be49db080bfd",
+          "record_version": 1,
+          "source_record_sha256": "4a92ab9b623975ecb9c8891e5a37496ffa48257b84a4ccac5ea67f873420f104",
+          "text_fingerprint": "acdbd98c6e2f3559bf10faa85a8a285eb538782c0a1f8f5a13a0c7c49b0b2cba",
+          "delivery_fingerprint": "3d7778d3150f6a9bd973b3759fbd4bf5c35501cb0cebb1cb4ee97cd8450de728",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:12:03.234Z",
+        "image_description": "2026-11-05T05:12:03.677Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:12:05.238Z",
+      "recorded_at": "2026-11-05T05:12:05.238Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S09",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-18a71bf739b2026921372f3048cbde481887f8ab",
+          "record_version": 1,
+          "source_record_sha256": "380c0f237017de221e06247cb33d168249815ce57707ae9d5c40cca79c76b56b",
+          "text_fingerprint": "1d91e68c27f383149474053807319ee9dbfde7d50d21da14f23132a16a30162a",
+          "delivery_fingerprint": "22cab5706a47dbb678b0406295bd3a52fe57aeeba49b6f239b38270657025c20",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:12:21.099Z",
+        "image_description": "2026-11-05T05:12:42.124Z",
+        "figure_match": "2026-11-05T05:12:52.408Z",
+        "risk_notice": null
+      },
+      "note": "提取的内容缺失，当前提取出来的原文片段是图片的“Figure Caption”，但图片下方还有“Figure Note”未被抽取。我觉得这个“Figure Note”则是对图像特征的描述，应该也需要被提取出来。",
+      "updated_at": "2026-11-05T05:26:42.506Z",
+      "recorded_at": "2026-11-05T05:26:42.506Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S10",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-3c22377bd6d99964e3bfa1f8753c8f8bfb55aac3",
+          "record_version": 1,
+          "source_record_sha256": "df661942a382d0eba403de0454b1466a26352cdd9277038d7f6578c4fda4edd9",
+          "text_fingerprint": "1bdd864bbe57573038d516be80c3e3c5bf268b119476fccd7e5f0299420d0206",
+          "delivery_fingerprint": "e752daa319f04a750018d9e28174176b8a6bd5a8c5900de7dfcb1dbef25cce4f",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:27:46.771Z",
+        "image_description": "2026-11-05T05:27:52.987Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:28:15.352Z",
+      "recorded_at": "2026-11-05T05:28:15.352Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S11",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-70f89913675260ff9b985eb228ec1d9e22b762aa",
+          "record_version": 3,
+          "source_record_sha256": "c693eee6025421edc942214e8cb1b5ee6f45930a7cbda444bbb81342decbd1d2",
+          "text_fingerprint": "7b45fcdff6195bb9028eecb07c29ca97ea3bb6aef98a35a0d69d322255aef892",
+          "delivery_fingerprint": "61d51c39d439a5dbbfaf69de5f1716b4d0c3ea99932af6223bcc717798490f7b",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:29:16.312Z",
+        "image_description": "2026-11-05T05:29:18.649Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "独立片段1是讲述评估人员设置。独立片段2是讲述图像的类型。独立片段3~8是讲述医学影像中需要评估的特征。均与具体的图像特征描述无关。\n必要上下文的内容也不是完整句子，而是被截断的内容，不过其倒是可以补充图像的一些信息，虽然说不是对图像特征的描述，但是其给出的图像来源患者的情况，这种信息我觉得还是有价值的。",
+      "updated_at": "2026-11-05T05:34:13.692Z",
+      "recorded_at": "2026-11-05T05:34:13.692Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S12",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-35e0b11fb4901d051a7bb20737179135a22462e6",
+          "record_version": 1,
+          "source_record_sha256": "d2b1a96aa8736087bbe702f1ea016714e93a81f4d8aebe49076bc68565fb47d0",
+          "text_fingerprint": "87f0a5cc31bca633fe09c6bf04d8121cac0be667b78fcd3b3ce377a7f01c032a",
+          "delivery_fingerprint": "15687e033e3db5bd353faf064fbddb19086a1d050104ac17b0ad86e34ad24ee6",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:34:16.211Z",
+        "image_description": "2026-11-05T05:34:16.779Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:34:18.931Z",
+      "recorded_at": "2026-11-05T05:34:18.931Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S13",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-336a2604376abb7a660c236417d2788bcec1e86c",
+          "record_version": 1,
+          "source_record_sha256": "8c7dd0de0c11e18b2822754e4c4f392883b06b2c87d9d8395e3ed9e8915f82e6",
+          "text_fingerprint": "35dd0aa9dac3b86e6c4988b64e2b91e47bad670483ee4569758444aa504ed462",
+          "delivery_fingerprint": "aadad09493376b587248ef8c18f5b078a7889b08fb49db1451abb0989b437b9c",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:34:19.556Z",
+        "image_description": "2026-11-05T05:34:20.114Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:34:20.903Z",
+      "recorded_at": "2026-11-05T05:34:20.903Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S14",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-731e5e1d7499ddc702382dc133eefa92319f0f33",
+          "record_version": 1,
+          "source_record_sha256": "47b239204bf9a672051f0dc441c95432b8dd254da01527afa16d263625c7dd68",
+          "text_fingerprint": "06b857b85ff77ea5f36fcf91d2360741c7f5952b93615c443800388ac3e7a97e",
+          "delivery_fingerprint": "f7987954b16f440d538497526ac6b052e7907ac71938171e5b880dbf26706080",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:34:32.498Z",
+        "image_description": "2026-11-05T05:34:32.835Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:34:33.325Z",
+      "recorded_at": "2026-11-05T05:34:33.325Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S15",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-e46bead5526dd1d8aec9dde20a1760e24a152c76",
+          "record_version": 1,
+          "source_record_sha256": "02b3409e34aa9c9695c6684a8d3abe2f7606205970a6acd35564b414b8285278",
+          "text_fingerprint": "029b4b96d0e1a522679029adecae83aef793a28491e7e451eb7d9daf3c6b25b5",
+          "delivery_fingerprint": "14a40c9f9c81fe78a6c7961130fe58cbc27a381b06cca5efc4025c9c8a495e03",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:38:40.212Z",
+        "image_description": "2026-11-05T05:46:19.295Z",
+        "figure_match": "2026-11-05T06:03:35.630Z",
+        "risk_notice": null
+      },
+      "note": "提取的内容像是在说实验时需要测量的量、需要分析的特征。并不是对肿瘤医学图像特征的文字描述，而且提取的图像是实验的一个图，而不是肿瘤医学影像，这和预期的完全不符合。",
+      "updated_at": "2026-11-05T06:03:36.902Z",
+      "recorded_at": "2026-11-05T06:03:36.902Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S16",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-3cbe88e880428b0a9288183e29a0a54d675f6d39",
+          "record_version": 3,
+          "source_record_sha256": "9832e2dea46ead86398f0b1a0fbd2a93665e430781e7e2ee22f2b6bec8f1a2ec",
+          "text_fingerprint": "eb5878f95b9b72ba58ea106e6d6f5f81b993565603e15444d0f6d1b9ce1cf5ff",
+          "delivery_fingerprint": "ff514cd1754143493665e700836e2ea3699d4e0ab0eec3a35b881634117a173e",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:48:23.932Z",
+        "image_description": "2026-11-05T05:48:24.378Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "是从表格中提取的某一行的内容，这和预期要求的对肿瘤医学图像特征的文字描述不一致。虽然说这个值确确实实是人体内某些量的测量值，甚至可能是用于判断肿瘤情况的一些特征，但和预期的确实也不符。",
+      "updated_at": "2026-11-05T05:50:49.628Z",
+      "recorded_at": "2026-11-05T05:50:49.628Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S17",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-7587ce68e09e4afdc209426b6cf15645a09a3fa8",
+          "record_version": 2,
+          "source_record_sha256": "19cb53eb6cc5f887948c8976a73a514c9bd80e0226ce79fce5d5ccd9017f658a",
+          "text_fingerprint": "8c0e98eb8a2cd8aefffd463759d756bbbc5e0da16a1fd1dbeb2801e9cecbd731",
+          "delivery_fingerprint": "16eea2d6885d858ef2fcb0027037ed141503e2f4993de04e280a250716792cd8",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:49:27.685Z",
+        "image_description": "2026-11-05T05:49:28.442Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:50:50.467Z",
+      "recorded_at": "2026-11-05T05:50:50.467Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S18",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-a1d8574e0281f63e0c7b73ffaaf855b9141082a3",
+          "record_version": 1,
+          "source_record_sha256": "5443f3c5ab7d662e530e4880b15e084bd3f9283df74511456f05b41034be4a7c",
+          "text_fingerprint": "712b3f5346aae887923b3edd25dff3a0283eb38cf9c3a5addf2f12d676d42f58",
+          "delivery_fingerprint": "560a6b7e198ece2fbfe8b975f09c36be9a930b7159c0020a659a5ab035f2bda2",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:50:51.462Z",
+        "image_description": "2026-11-05T05:51:08.147Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "独立片段2的前半部分内容就像是对肿瘤医学特征的文字描述，虽然没有对应具体的某一张图而且截取的片段不完整，缺少了前半部分。而独立片段1的则是一种分类标准，是一般性的结论。",
+      "updated_at": "2026-11-05T05:59:42.931Z",
+      "recorded_at": "2026-11-05T05:59:42.931Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S19",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-71cbe3c5625b93db5b95dafd888e50cd78d9f22e",
+          "record_version": 2,
+          "source_record_sha256": "f402e6776724e13739052f31cc5b0df4412edb2177a67377711029707f23a2c6",
+          "text_fingerprint": "4eaf7bf8dcf7e8a1ff6a00bb045236de878df31d81a6f7da782a33a25f4e6d2e",
+          "delivery_fingerprint": "0c8722d66ed719130f41139e32f0927178cdcdba80a26694798161efa1aad584",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T05:59:47.385Z",
+        "image_description": "2026-11-05T05:59:47.904Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T05:59:48.427Z",
+      "recorded_at": "2026-11-05T05:59:48.427Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S20",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-a24e0a1ca594935282ade5f25da3875698c4c3a2",
+          "record_version": 2,
+          "source_record_sha256": "d4a835a526c8135c218513c9550bdd0e2b547b0c623c2cc884b7af1dc5147639",
+          "text_fingerprint": "9bb9613898fc5bba4f45a1e14b8f1f007d77a0e7f8616fa5a7430240991adaa9",
+          "delivery_fingerprint": "de1c11d7e2357ec712e431774adec9be1ae63a8fc65c993d03175678cf648ba0",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:00:05.875Z",
+        "image_description": "2026-11-05T06:00:10.121Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "这是对两组实验的特征的一个比较，虽然说应该是具体图像中的特征值，但是和期望的肿瘤医学图像特征描述还是有区别。",
+      "updated_at": "2026-11-05T06:01:19.893Z",
+      "recorded_at": "2026-11-05T06:01:19.893Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S21",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-b6a8f3271fe3c7aba122c63aea6dc896a264c6d2",
+          "record_version": 1,
+          "source_record_sha256": "6619dfa9c4aabe5bba0c9b08705a337785aadb618dcbedeec60ed7404ca5cf6f",
+          "text_fingerprint": "a6dc834196654c977c284981aee5b5de2857aecee4de34bf452a1052294b14ed",
+          "delivery_fingerprint": "2c87aae32aea84c888654ee7d0fc2230f0cbfefc7e0375f6c137752961aa119b",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:01:32.615Z",
+        "image_description": "2026-11-05T06:01:38.833Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "截取的内容是实验设置",
+      "updated_at": "2026-11-05T06:02:03.845Z",
+      "recorded_at": "2026-11-05T06:02:03.845Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S22",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-72ecdae61a0ea779890469a28a82cefabefbde44",
+          "record_version": 3,
+          "source_record_sha256": "f57f83519b85f19673928768fecd2989e0a44b419f9c1707a381093b688b8e92",
+          "text_fingerprint": "34d59012263059748cb05a00a5873b1d6e90d4e63c0ee317fa6d341cd5618668",
+          "delivery_fingerprint": "9e8125bdd150e9d030709ecd08ad0d3cfb418c6235b97e454a13021d868f0810",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:16.437Z",
+        "image_description": "2026-11-05T06:02:16.959Z",
+        "figure_match": "2026-11-05T06:02:20.221Z",
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:21.076Z",
+      "recorded_at": "2026-11-05T06:02:21.076Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S23",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-cd9105fd0d0acf58c0360cb62deb884cd27b774d",
+          "record_version": 3,
+          "source_record_sha256": "820859817653ce2e88b23221c20a1038bf95767316e96327f3cbc71c2bd9c069",
+          "text_fingerprint": "3b89b81bcd8a4550bca96bfeb67755a62def0b07159aed6e04e6994933440c0b",
+          "delivery_fingerprint": "fe73314cd478ed0bd2636e2ae3dd98ded30b8dbca4e6ace4ce1601d4c2cbeb83",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:25.093Z",
+        "image_description": "2026-11-05T06:02:25.419Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:28.481Z",
+      "recorded_at": "2026-11-05T06:02:28.481Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S24",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-1db5356e38912db3a47d79959dea3fe45057de4a",
+          "record_version": 3,
+          "source_record_sha256": "c9001c7618e422ca47ca7d6e8761fb3a6d52b05f61667225a22f20c78c9a38dd",
+          "text_fingerprint": "151e560398afe8ae59a4db7b251c3c6f6c1bc8a8af4e20d1801c13b7cdc19a25",
+          "delivery_fingerprint": "b32b7218ce21baf1750362d0c78a0707e862413df0dd4645c3ac0c827b7bb720",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:30.761Z",
+        "image_description": "2026-11-05T06:02:31.085Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:31.535Z",
+      "recorded_at": "2026-11-05T06:02:31.535Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S25",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-f3f05e1dbce5f73d99d35301e10361a86c224855",
+          "record_version": 1,
+          "source_record_sha256": "e19e1e32dc417aa9b733452fa57946cbf0498922fad2e2fbf43b9b5425ff5c41",
+          "text_fingerprint": "49016df16e2703f6ff8a642ff3480b8b2167b049958ae0dab2263202a00bf02b",
+          "delivery_fingerprint": "7fed23c01fe56e9f4c1c74b7f31d138b5080a476855d6e3c41c4e927f49accd3",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:33.421Z",
+        "image_description": "2026-11-05T06:02:34.048Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:34.582Z",
+      "recorded_at": "2026-11-05T06:02:34.582Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S26",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-c868bf2b45ff47179aeb9ba357ba3706bc45b3a6",
+          "record_version": 1,
+          "source_record_sha256": "71bbe6f902f74eaef3f689decd0d13a27c1360d2eeb9a71c19e7c22ea3901113",
+          "text_fingerprint": "d8f85114f049a3dc0c53b549e8afbb4390c8fc863a3b2bb982de2b8b50965aec",
+          "delivery_fingerprint": "4ab7564fce163b04db04192cc0d90d4ca8fc83531e2042bd94eb620e79ea72e5",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:46.109Z",
+        "image_description": "2026-11-05T06:02:46.627Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:48.744Z",
+      "recorded_at": "2026-11-05T06:02:48.744Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S27",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-88eac2a8afaee6078ca116c952a89337eed05b1d",
+          "record_version": 1,
+          "source_record_sha256": "6b680e4f6ff4e3f58f85850b9cdc2d406dceca4f213462298c9f5ad7d81bb873",
+          "text_fingerprint": "edc417a2af82d47b6a1c7dfc460f34014caa4d69ac23489d02092dcdace0805e",
+          "delivery_fingerprint": "4322d10606e07f3e1fdcae8349a9e6a4f3d412b62801715cf456fc451b6936f4",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:51.288Z",
+        "image_description": "2026-11-05T06:02:51.570Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:02:52.344Z",
+      "recorded_at": "2026-11-05T06:02:52.344Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S28",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-48ff0f4b42cd7fe953e37f1c11ac285db5aba2d7",
+          "record_version": 1,
+          "source_record_sha256": "7d309971d5223db8595d44c41f897bca45e71cafaaa1df1429112bc46d2e2580",
+          "text_fingerprint": "f752fae5195c8e5d55be9d547a7522b2a8c095efdc581d72b3ab61383b9baa78",
+          "delivery_fingerprint": "2ff8a1cb0f2ce563c6d0304777fd07adef8657294f22f2aa535f6a6a66ceaae9",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:02:59.277Z",
+        "image_description": "2026-11-05T06:02:59.578Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:03:00.743Z",
+      "recorded_at": "2026-11-05T06:03:00.743Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S29",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-2bf70dbd1d23ea5c4d6af4de57b54819b5614684",
+          "record_version": 3,
+          "source_record_sha256": "b0fa527006135999142d0fa485b643a3253188bac74d7b19820c8bdfc0d980b4",
+          "text_fingerprint": "aaa95b71a00d7de0adb9881cefec6954ac62658a9fadc207dabc54f98bac2f18",
+          "delivery_fingerprint": "d9afbc7caaf8268ccb9db6d9847068742adf7cb421a70ca1e101b782ca6eaffe",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:03:07.743Z",
+        "image_description": "2026-11-05T06:03:08.514Z",
+        "figure_match": "2026-11-05T06:03:08.790Z",
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:03:09.280Z",
+      "recorded_at": "2026-11-05T06:03:09.280Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "S30",
+      "kind": "random",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-68b0d7369a61baa2844732fca1372bb7291bef08",
+          "record_version": 1,
+          "source_record_sha256": "cc39a22d46ff61bfdc9db74dfbd1c5e9fbce09660c38b2a0c088d7ff9f8c03ea",
+          "text_fingerprint": "c4d134d7580844d0d802eb1a46d288854128fa4d6c31db965d9f8dc99bc8ac64",
+          "delivery_fingerprint": "01db6aee8144461419f393a5293be2000d0770cd831cd6a32aef72869a238daf",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "answer_times": {
+        "text_match": "2026-11-05T06:03:14.710Z",
+        "image_description": "2026-11-05T06:03:15.084Z",
+        "figure_match": null,
+        "risk_notice": null
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:03:22.916Z",
+      "recorded_at": "2026-11-05T06:03:22.916Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "K01",
+      "kind": "risk",
+      "source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "fresh_matched_summary_experiment_before_after_not_baseline",
+        "baseline": null,
+        "before": {
+          "record_id": "ev-3f3f1c99cfeeb0d1d9f305389d1cd52137631a16",
+          "record_version": 3,
+          "source_record_sha256": "a32e09879800928322c2c28a7a09860388437b66c560ad650c5bc9f17bef40e3",
+          "text_fingerprint": "cf90aa6ad10161099ee274d45986a7c76b12eae06ee5be782fa7d0763c5c7e89",
+          "delivery_fingerprint": "8750db8e1a79acb486e6d338d3c2d4d9545a5f35a189b747e23abf7507dd53b9",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "after": {
+          "record_id": "ev-3f3f1c99cfeeb0d1d9f305389d1cd52137631a16",
+          "record_version": 1,
+          "source_record_sha256": "2a2537a0b02f7c7dbf1a9109ee64efd5ce4991fdc8ec21be2ef0d1074712ded5",
+          "text_fingerprint": "6738259820a5545e2c4d2fdd3fef4310e5ecef93848f40c05d74a3a0c70f8f8d",
+          "delivery_fingerprint": "37b56138aead7f612820c1dad757b7256f7f815f37e277b8a19d5332ebd3cb67",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        }
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "no_obvious_problem"
+      },
+      "answer_times": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "2026-11-05T06:04:33.085Z"
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:04:34.281Z",
+      "recorded_at": "2026-11-05T06:04:34.281Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "K02",
+      "kind": "risk",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "fresh_matched_summary_experiment_before_after_not_baseline",
+        "baseline": null,
+        "before": {
+          "record_id": "ev-71335950f9fc0cbe122fc1b7a32c53b1dae7d2ea",
+          "record_version": 4,
+          "source_record_sha256": "0831bb2181108844447fe78fe7ada7b1ea8a52212cf7bd87bea68bef80eac73b",
+          "text_fingerprint": "57cd5df610f01c4a6795963dda6b59b19a161657f164582cc7e7fa120c67f5a5",
+          "delivery_fingerprint": "2d1a6ed61c58421797487bb2db957f2eff5bd8a532cc863f9474b8abd536c72b",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "after": {
+          "record_id": "ev-71335950f9fc0cbe122fc1b7a32c53b1dae7d2ea",
+          "record_version": 4,
+          "source_record_sha256": "9aa79f53a974f8f253456c511aebb45a728080eacf7860420b7571a20a200bbe",
+          "text_fingerprint": "4125fa505ac52d1b4234efe90a8cf9a1eac65fce200edd6213d7eb960be8dfc3",
+          "delivery_fingerprint": "535a04123d9bb932861313208df09df9ff1dd5563f5155c28f6fbbff1dc2c8fc",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        }
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "no_obvious_problem"
+      },
+      "answer_times": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "2026-11-05T06:05:00.434Z"
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:05:02.459Z",
+      "recorded_at": "2026-11-05T06:05:02.459Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "K03",
+      "kind": "risk",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "fresh_matched_summary_experiment_before_after_not_baseline",
+        "baseline": null,
+        "before": {
+          "record_id": "ev-8df3ed6d4e41c618039d54d05db95727d92de107",
+          "record_version": 1,
+          "source_record_sha256": "147b07919bd6e4ab865ce0aaa3326a0d5e0d4166309767d0fdeb81df5f81c835",
+          "text_fingerprint": "c1d8a1cba60ad35a37911f993ee160e804967bb835f03644f683977d6512ced0",
+          "delivery_fingerprint": "a2d8425e97a457e922897731e86ee11b4b4b2b89031e3d03c9e67453705fb8a0",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "after": {
+          "record_id": "ev-8df3ed6d4e41c618039d54d05db95727d92de107",
+          "record_version": 3,
+          "source_record_sha256": "89fb4075173cfd5384a031e9d283add58122a65365d151f9c5204491beaac231",
+          "text_fingerprint": "fb34f6ca3106d0aa65356ca4a83fd9f36c84496c0daaaa81c41bdeefcbefed0f",
+          "delivery_fingerprint": "ba8f2e43fbb25a0260ca108c0288d303a05e3960bcfa30100859d4726de53b45",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        }
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "uncertain"
+      },
+      "answer_times": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "2026-11-05T06:05:20.833Z"
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:05:21.793Z",
+      "recorded_at": "2026-11-05T06:05:21.793Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "K04",
+      "kind": "risk",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "fresh_matched_summary_experiment_before_after_not_baseline",
+        "baseline": null,
+        "before": {
+          "record_id": "ev-bbd6d97f7251ad3803a5f6cfbf8de8994e4d9f0e",
+          "record_version": 1,
+          "source_record_sha256": "c872fe7f0216932e2bfca09e7aa22223ba09f06f99bc6a39eb56e010017a6846",
+          "text_fingerprint": "34f5e0e06533a682bf414bd34f2ef7d799692693147b378334a9b6cab8e19d4e",
+          "delivery_fingerprint": "e9e4c4f8f84b530c78452758caecd835ac0b295366ea461beddcb5772ebe70cb",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "after": {
+          "record_id": "ev-bbd6d97f7251ad3803a5f6cfbf8de8994e4d9f0e",
+          "record_version": 2,
+          "source_record_sha256": "31ac04087ef666f70bd2aa5263db8dd8cde86cffeb1af34f5fd0926985b9ef58",
+          "text_fingerprint": "fcc90588321cb66162656f9518bae2af5888cbb802686532e9b55152935441d0",
+          "delivery_fingerprint": "05810a35943d4c61e101e5a3dc6799e30a0c99dcf694e5133682abc1dca28085",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        }
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "uncertain"
+      },
+      "answer_times": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "2026-11-05T06:05:30.328Z"
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:05:30.873Z",
+      "recorded_at": "2026-11-05T06:05:30.873Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    },
+    {
+      "id": "K05",
+      "kind": "risk",
+      "source_binding": {
+        "job_id": "L05-R",
+        "version_scope": "fresh_matched_summary_experiment_before_after_not_baseline",
+        "baseline": null,
+        "before": {
+          "record_id": "ev-f366a4b2cbaeea9c78cf64df27db286dfd96ad94",
+          "record_version": 2,
+          "source_record_sha256": "81119441c9eb840fa34132fee4c5ef7ada29f0c5af5289029040e704dd7ef5b3",
+          "text_fingerprint": "33dc974df13c1e7ecaf7ffebb2730cdab5239f08da4963554e3ad4c713b34978",
+          "delivery_fingerprint": "55a7de6c25951a52fbe3e7ba8e218f779498292ba0cc2f4a3d604dd57d7e06d4",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "after": {
+          "record_id": "ev-f366a4b2cbaeea9c78cf64df27db286dfd96ad94",
+          "record_version": 3,
+          "source_record_sha256": "00bddc35b4ebd729d1843a2e333ec5865360390928e46fe451f399e42a04606d",
+          "text_fingerprint": "32695a819422dd41c86074905a3d6143822dda4ff74cf838d4ec85bf345c814a",
+          "delivery_fingerprint": "0bd6b0554bf04cab568eca671d715c7d12ee02553f37de45234bef632dccb563",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        }
+      },
+      "reviewer_role": "non_medical_user",
+      "disposition": "recorded",
+      "answers": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "uncertain"
+      },
+      "answer_times": {
+        "text_match": null,
+        "image_description": null,
+        "figure_match": null,
+        "risk_notice": "2026-11-05T06:05:39.128Z"
+      },
+      "note": "",
+      "updated_at": "2026-11-05T06:05:39.737Z",
+      "recorded_at": "2026-11-05T06:05:39.737Z",
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      }
+    }
+  ]
+}

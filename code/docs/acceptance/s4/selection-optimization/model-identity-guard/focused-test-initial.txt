@@ -1,0 +1,14 @@
+✔ literal mismatch preserves every raw observation and usage, and the halt survives later matching events and reopen (12.272437ms)
+✔ an absent model name stays unknown, never counts as a matched model or authenticated weights (3.229909ms)
+✔ a normal local SSE preserves the provider name verbatim and allows a matching session to finish (137.120264ms)
+✔ a mismatch on the final SSE response fails even when the session otherwise settled with no next request (34.505918ms)
+{"run_id":"identity-run-1","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":1}
+✔ a tool-complete response with an unapproved name cannot make a paper condition pass or launch summary/next paper (48.897334ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1060.490387

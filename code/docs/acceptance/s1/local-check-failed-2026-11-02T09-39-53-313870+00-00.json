@@ -1,0 +1,16 @@
+{
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "npm",
+    "run",
+    "check"
+  ],
+  "cwd": "/home/ecs-user/projects/t1-agent/code",
+  "started_at": "2026-11-02T09:39:53.313870+00:00",
+  "finished_at": "2026-11-02T09:39:54.177067+00:00",
+  "exit_code": 1,
+  "stdout": "\n> t1-agent@0.1.0 check\n> tsc --noEmit\n\npackages/agent/src/store.ts(38,62): error TS2322: Type 'RunState' is not assignable to type 'never'.\n  Type '\"cancelled\"' is not assignable to type 'never'.\n",
+  "stderr": "",
+  "real_api_calls": 0
+}

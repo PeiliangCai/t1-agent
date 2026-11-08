@@ -1,0 +1,47 @@
+{
+  "docling_parse_text_adapter": {
+    "package": "docling-parse",
+    "version": "7.24.2",
+    "status": "implemented_and_measured",
+    "IR": "DocumentIR v2",
+    "model_free": true,
+    "table_structure": "not_reconstructed",
+    "reading_order": "backend_textline_order_unverified",
+    "human_fidelity_verified": false,
+    "measurement": "code/docs/acceptance/s3/runs/2026-11-02T14-41-35-628654Z/summary.json"
+  },
+  "docling_standard_native": {
+    "package": "docling",
+    "version": "2.145.0",
+    "status": "native_probe_completed_quality_unverified",
+    "IR_adapter": "not_implemented_native_outputs_only",
+    "OCR": false,
+    "device": "cpu",
+    "quality_verified": false,
+    "measurement": "code/docs/acceptance/s3/standard/2026-11-02T14-44-31-863991Z/result.json",
+    "reading_order_fallback_warnings": [
+      {
+        "source_id": "L01",
+        "physical_page": 1,
+        "separator_candidates": 8907
+      },
+      {
+        "source_id": "L02",
+        "physical_page": 1,
+        "separator_candidates": 6758
+      }
+    ],
+    "warnings_log": "code/docs/acceptance/s3/standard-probe-console.log"
+  },
+  "mineru": {
+    "version": "4.1.4",
+    "status": "official_sources_verified_not_installed_or_run",
+    "cpu_basic_supported_by_official_docs": true,
+    "hardware_failure_claimed": false,
+    "reason_not_run": "本轮工程边界优先完成可复用文本/定位适配及一套完整Docling原生试跑。尚未建立MinerU隔离依赖、固定模型、本地服务配置与项目输出对齐；未声称当前CPU/内存无法运行。",
+    "independent_benchmark_or_quality_claim": null
+  },
+  "formal_parser_selected": false,
+  "same_condition_quality_comparison_completed": false,
+  "comparison_note": "Text backend fresh-process CLI timings versus native model-initialization/reused-converter timings have different capabilities and resource scopes. Not a Docling-versus-MinerU or same-condition fidelity comparison."
+}

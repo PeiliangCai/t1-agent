@@ -1,0 +1,421 @@
+{
+  "schema_version": "1",
+  "stage": "S1",
+  "status": "passed",
+  "real_model_call": true,
+  "fixture": true,
+  "medical_evidence": false,
+  "configuration": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-4.1-mini",
+    "api_key_present": true,
+    "purpose": "S1_interface_test_only"
+  },
+  "started_at": "2026-11-02T09:40:50.350Z",
+  "finished_at": "2026-11-02T09:41:32.197Z",
+  "pi_audit": {
+    "pi_version": "1.4.0",
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_template_count": 0,
+    "theme_count": 0,
+    "default_discovery_disabled": true,
+    "in_memory_credentials": true,
+    "in_memory_session": true
+  },
+  "run_input": {
+    "schema_version": "1",
+    "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+    "document_id": "engineering-fixture-3ca4f65b-59d0-47e6-99be-73fa21507e98",
+    "file_sha256": "5d401c16b40689a4d5ebe878b8f47ca801566b933a526a60e8ce306885b95071",
+    "fixture": true,
+    "scope": {
+      "scope_version": "1",
+      "cancers": {
+        "mode": "all",
+        "ids": []
+      },
+      "image_types": {
+        "mode": "all",
+        "ids": []
+      },
+      "features": {
+        "mode": "all",
+        "binding_ids": []
+      },
+      "catalog_version": "engineering-demo-1",
+      "matching_policy_version": "engineering-demo-1"
+    },
+    "rule_version": "engineering-fixture-rules-1",
+    "runtime_profile": {
+      "provider": "agicto",
+      "model_id": "gpt-4.1-mini",
+      "endpoint": "https://api.agicto.cn/v1",
+      "pi_version": "1.4.0",
+      "version": "s1-prototype-1"
+    }
+  },
+  "source_document_ir": {
+    "schema_version": "1",
+    "document_id": "engineering-fixture-3ca4f65b-59d0-47e6-99be-73fa21507e98",
+    "file_sha256": "5d401c16b40689a4d5ebe878b8f47ca801566b933a526a60e8ce306885b95071",
+    "fixture": true,
+    "evidence_kind": "engineering_fixture",
+    "title": "Human prepared engineering fixture; not a published paper",
+    "parser": {
+      "id": "fixture-adapter",
+      "version": "1",
+      "status": "fixture"
+    },
+    "text_version": "fixture-text-1",
+    "pages": [
+      {
+        "physical_page": null,
+        "printed_label": null,
+        "width": null,
+        "height": null,
+        "rotation": 0,
+        "coordinate_unit": null,
+        "ocr": false,
+        "status": "fixture_text_no_pdf_page"
+      }
+    ],
+    "blocks": [
+      {
+        "block_id": "demo-block-1",
+        "document_id": "engineering-fixture-3ca4f65b-59d0-47e6-99be-73fa21507e98",
+        "text_version": "fixture-text-1",
+        "text": "ENGINEERING FIXTURE ONLY — 人工文本 🧪. The sample shape has a blue rim measuring 7 mm. This text is not a medical paper or medical evidence.",
+        "page": null,
+        "type": "text",
+        "reading_order": 0,
+        "bbox": null
+      }
+    ],
+    "coverage": {
+      "expected_block_ids": [
+        "demo-block-1"
+      ],
+      "processed_block_ids": [],
+      "failed_block_ids": [],
+      "excluded": []
+    }
+  },
+  "tool_calls": [
+    {
+      "id": "call_0CT9J1YEbdJjRhGBHvx6bzUd",
+      "name": "get_document_context"
+    },
+    {
+      "id": "call_cFOML2KNvvUQUq5JvODqn0DL",
+      "name": "lookup_feature_bindings"
+    },
+    {
+      "id": "call_8T528ZRgyWvru6aImTcZPMqs",
+      "name": "read_document_blocks"
+    },
+    {
+      "id": "call_8B9FZpjAuhBulOgojsVAhTCL",
+      "name": "submit_candidate_records"
+    }
+  ],
+  "state": "completed",
+  "settled": true,
+  "events": [
+    {
+      "type": "assistant_message_end",
+      "stop_reason": "toolUse"
+    },
+    {
+      "type": "tool_execution_start",
+      "tool_name": "get_document_context",
+      "call_id": "call_0CT9J1YEbdJjRhGBHvx6bzUd"
+    },
+    {
+      "type": "tool_execution_end",
+      "tool_name": "get_document_context",
+      "call_id": "call_0CT9J1YEbdJjRhGBHvx6bzUd",
+      "is_error": false
+    },
+    {
+      "type": "tool_execution_start",
+      "tool_name": "lookup_feature_bindings",
+      "call_id": "call_cFOML2KNvvUQUq5JvODqn0DL"
+    },
+    {
+      "type": "tool_execution_end",
+      "tool_name": "lookup_feature_bindings",
+      "call_id": "call_cFOML2KNvvUQUq5JvODqn0DL",
+      "is_error": false
+    },
+    {
+      "type": "assistant_message_end",
+      "stop_reason": "toolUse"
+    },
+    {
+      "type": "tool_execution_start",
+      "tool_name": "read_document_blocks",
+      "call_id": "call_8T528ZRgyWvru6aImTcZPMqs"
+    },
+    {
+      "type": "tool_execution_end",
+      "tool_name": "read_document_blocks",
+      "call_id": "call_8T528ZRgyWvru6aImTcZPMqs",
+      "is_error": false
+    },
+    {
+      "type": "assistant_message_end",
+      "stop_reason": "toolUse"
+    },
+    {
+      "type": "tool_execution_start",
+      "tool_name": "submit_candidate_records",
+      "call_id": "call_8B9FZpjAuhBulOgojsVAhTCL"
+    },
+    {
+      "type": "tool_execution_end",
+      "tool_name": "submit_candidate_records",
+      "call_id": "call_8B9FZpjAuhBulOgojsVAhTCL",
+      "is_error": false
+    },
+    {
+      "type": "assistant_message_end",
+      "stop_reason": "stop"
+    },
+    {
+      "type": "agent_end"
+    },
+    {
+      "type": "agent_settled"
+    }
+  ],
+  "token_usage": [
+    {
+      "input": 641,
+      "output": 157,
+      "total": 798,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    {
+      "input": 1210,
+      "output": 79,
+      "total": 1289,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    {
+      "input": 1410,
+      "output": 104,
+      "total": 1514,
+      "cache_read": 0,
+      "cache_write": 0
+    },
+    {
+      "input": 1569,
+      "output": 32,
+      "total": 1601,
+      "cache_read": 0,
+      "cache_write": 0
+    }
+  ],
+  "assistant_requests_observed": 4,
+  "configured_automatic_retries": 0,
+  "configured_maximum_assistant_turns": 8,
+  "actual_cost": null,
+  "cost_status": "unknown_gateway_billing; internal_zero_price_placeholders_are_not_actual_cost",
+  "session_disposed": true,
+  "business_events": [
+    {
+      "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "seq": 1,
+      "type": "state",
+      "stage": "queued",
+      "summary": "Engineering fixture queued",
+      "timestamp": "2026-11-02T09:40:50.364Z",
+      "fixture": true
+    },
+    {
+      "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "seq": 2,
+      "type": "state",
+      "stage": "extracting",
+      "summary": "Engineering fixture state: extracting",
+      "timestamp": "2026-11-02T09:40:50.366Z",
+      "fixture": true
+    },
+    {
+      "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "seq": 3,
+      "type": "candidate",
+      "stage": "extracting",
+      "summary": "Located engineering fixture candidate saved; human review pending",
+      "timestamp": "2026-11-02T09:41:22.484Z",
+      "fixture": true,
+      "record_id": "fixture-8bee1b31b02fff1e2f6f84ca",
+      "record_version": 1
+    },
+    {
+      "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "seq": 4,
+      "type": "state",
+      "stage": "reconciling",
+      "summary": "Engineering fixture state: reconciling",
+      "timestamp": "2026-11-02T09:41:32.193Z",
+      "fixture": true
+    },
+    {
+      "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "seq": 5,
+      "type": "state",
+      "stage": "completed",
+      "summary": "Engineering fixture state: completed",
+      "timestamp": "2026-11-02T09:41:32.195Z",
+      "fixture": true
+    }
+  ],
+  "records": [
+    {
+      "record_id": "fixture-8bee1b31b02fff1e2f6f84ca",
+      "document_id": "engineering-fixture-3ca4f65b-59d0-47e6-99be-73fa21507e98",
+      "article_family_id": "engineering-fixture-3ca4f65b-59d0-47e6-99be-73fa21507e98",
+      "bibliographic_identity": {
+        "title": "Human prepared engineering fixture; not a published paper",
+        "authors": [],
+        "venue": null,
+        "year": null,
+        "doi": null,
+        "pmid": null,
+        "identity_status": "engineering_fixture"
+      },
+      "source_version": {
+        "file_sha256": "5d401c16b40689a4d5ebe878b8f47ca801566b933a526a60e8ce306885b95071",
+        "source_kind": "engineering_fixture",
+        "version": "1",
+        "obtained_at": "2026-11-02T09:41:22.483Z"
+      },
+      "document_access": "unavailable",
+      "source_location": {
+        "kind": "fixture_text",
+        "physical_page": null,
+        "block_id": "demo-block-1",
+        "bbox": null
+      },
+      "text_version": "fixture-text-1",
+      "original_quote": "The sample shape has a blue rim measuring 7 mm.",
+      "quote_span": {
+        "unit": "unicode_code_point",
+        "interval": "[start,end)",
+        "segments": [
+          {
+            "block_id": "demo-block-1",
+            "text_version": "fixture-text-1",
+            "start": 35,
+            "end": 82
+          }
+        ]
+      },
+      "context": {
+        "before": "ENGINEERING FIXTURE ONLY — 人工文本 🧪. ",
+        "after": " This text is not a medical paper or medical evidence.",
+        "status": "provided"
+      },
+      "disease_or_lesion": {
+        "value": null,
+        "status": "unknown",
+        "evidence": []
+      },
+      "modality": {
+        "value": null,
+        "status": "unknown",
+        "evidence": []
+      },
+      "sequence_or_phase": null,
+      "feature_name_raw": null,
+      "feature_category": "engineering_example",
+      "evidence_type": "engineering_fixture",
+      "assertion": {
+        "value": "unknown",
+        "original_wording": "The sample shape has a blue rim measuring 7 mm."
+      },
+      "applicability": {
+        "status": "unknown",
+        "original_wording": ""
+      },
+      "numeric_expressions": [],
+      "normalized_terms": [],
+      "translation_zh": null,
+      "evidence_validation": {
+        "quote_located": true,
+        "method": "exact_block_unicode_code_point_span",
+        "medical_semantics_verified": false,
+        "warnings": [
+          "ENGINEERING_FIXTURE_NOT_PAPER_EVIDENCE",
+          "medical_fields_unknown"
+        ]
+      },
+      "duplicate_and_conflict_links": [],
+      "extraction_trace": {
+        "run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+        "fixture": true,
+        "evidence_kind": "engineering_fixture",
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "engineering-demo-1",
+          "matching_policy_version": "engineering-demo-1"
+        },
+        "catalog_version": "engineering-demo-1",
+        "matching_policy_version": "engineering-demo-1",
+        "rule_version": "engineering-fixture-rules-1",
+        "pi_version": "1.4.0",
+        "provider": "agicto",
+        "model_id": "gpt-4.1-mini",
+        "parser_id": "fixture-adapter",
+        "parser_version": "1",
+        "read_block_ids": [
+          "demo-block-1"
+        ],
+        "tool_call_ids": [
+          "call_0CT9J1YEbdJjRhGBHvx6bzUd",
+          "call_cFOML2KNvvUQUq5JvODqn0DL",
+          "call_8T528ZRgyWvru6aImTcZPMqs",
+          "call_8B9FZpjAuhBulOgojsVAhTCL"
+        ]
+      },
+      "review_status": "pending",
+      "review_events": [],
+      "handoff_status": "candidate_only"
+    }
+  ],
+  "coverage": {
+    "expected_block_ids": [
+      "demo-block-1"
+    ],
+    "read_block_ids": [
+      "demo-block-1"
+    ]
+  },
+  "paper_exports_allowed": false,
+  "dependencies_lock_sha256": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22"
+}

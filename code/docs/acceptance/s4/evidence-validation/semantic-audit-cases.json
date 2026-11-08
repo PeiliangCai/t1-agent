@@ -1,0 +1,294 @@
+{
+  "schema_version": "s4-semantic-audit-cases-1",
+  "created_at": "2026-11-03T04:47:52.039243+00:00",
+  "purpose": "Source-bound development review questions; neutral prompts, not reference answers or a medical gold set",
+  "not_gold": true,
+  "medical_approval": false,
+  "human_medical_review_performed": false,
+  "formal_model_selected": false,
+  "stage_passed": false,
+  "review_execution_status": "not_run",
+  "cross_run_matching": "Match source_binding document_id/file_sha256/source_version/text_version plus source_fragments. Candidate IDs and original run IDs are lookup hints only.",
+  "source_provenance": {
+    "source_provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2/source-provenance.json",
+    "source_provenance_sha256": "7a2a6bef48fc26d782ff1b8ee3eafd3ad0c12fafff9eb9433125313a6506c8db",
+    "source_result_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2/result.json",
+    "source_result_sha256": "d180c98c7069705e0e63cd4105addde07774ff3c60120164c6a58227b8007e1f",
+    "source_parser_result_path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json",
+    "source_parser_result_sha256": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+    "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+    "protocol_version_of_source_run": "s4-unified-batch-lines-5",
+    "original_source_run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-06:13911dd7",
+    "source_run_strategy": "baseline",
+    "source_run_state": "partial",
+    "source_run_medical_approval": false
+  },
+  "cases": [
+    {
+      "case_id": "L01-acquisition-reconstruction-boundary-1",
+      "topic": "acquisition_reconstruction_vs_visual_feature",
+      "not_gold": true,
+      "medical_approval": false,
+      "development_only": true,
+      "independent_acceptance": false,
+      "source_binding": {
+        "document_id": "L01",
+        "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+      },
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000015",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "图像层厚5 mm，重建1.25 mm肺窗及纵隔窗。在治疗期",
+          "start": 0,
+          "end": 29,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            247.7568,
+            297.64339999999993,
+            256.3309730769231
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000009",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "1.2 方法",
+          "start": 0,
+          "end": 6,
+          "physical_page": 2,
+          "bbox": [
+            70.8661,
+            160.2199999999999,
+            110.8661,
+            168.1827473806751
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000010",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "CT 检查：所有患者术前一周内进行 CT 扫描，仪器",
+          "start": 0,
+          "end": 26,
+          "physical_page": 2,
+          "bbox": [
+            70.8661,
+            174.7568,
+            297.65020000000004,
+            183.3309730769231
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000011",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "采用东芝320排CT或GE 256排CT，包括胸部CT平扫",
+          "start": 0,
+          "end": 29,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            189.3567999999999,
+            297.64230000000003,
+            197.930973076923
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000012",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "及动、静脉两期增强扫描，增强扫描使用碘造影剂（优维显，",
+          "start": 0,
+          "end": 27,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            204.01999999999987,
+            302.6386000000001,
+            211.98274738067505
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000013",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "总量80～100 mL，注射速率3～4 mL/s），动脉期采用",
+          "start": 0,
+          "end": 31,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            218.55679999999995,
+            297.6378000000001,
+            227.13097307692306
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000014",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "监测法，阈值（80 HU）触发，静脉期在动脉期后25 s扫描。",
+          "start": 0,
+          "end": 31,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            233.15679999999998,
+            302.6378,
+            241.73097307692308
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000016",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "间每 2 个月（±2 周）通过检查评估肿瘤反应。",
+          "start": 0,
+          "end": 24,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            262.41999999999996,
+            254.5236000000001,
+            270.38274738067514
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "candidate_hints": [
+        {
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-06:13911dd7",
+          "record_id": "ev-ec8f274ea2aa08128c37b72400fb10a9257aebf3",
+          "version": 1,
+          "model_id": "gpt-6-astra",
+          "strategy": "baseline",
+          "role": "candidate_that_prompted_this_review_question",
+          "review_status_at_source_snapshot": "needs_context",
+          "candidate_id_is_only_a_lookup_hint": true
+        }
+      ],
+      "question": "请实际读取所列原始行及前后CT检查方法。5 mm与1.25 mm各自描述什么对象？按本任务的视觉证据边界，这段提出的是肿瘤/病灶图像表现、采集/重建条件、二者兼有，还是证据不足？请用原文说明哪些内容宜作为独立候选、必要语境或继续待核；保留数字、单位和限定，不把用户范围当论文事实，不自动作医学批准。",
+      "review_status": "not_run",
+      "review_results": [],
+      "expected_answer": null,
+      "reference_answer": null,
+      "source_note": "来源候选仍为needs_context；本case不预设该候选应保留、改类或排除。整行引文末尾“在治疗期”的续文在context_fragments中保留。"
+    },
+    {
+      "case_id": "L01-clinical-subclause-and-visual-association-1",
+      "topic": "clinical_treatment_prognosis_context_vs_visual_association",
+      "not_gold": true,
+      "medical_approval": false,
+      "development_only": true,
+      "independent_acceptance": false,
+      "source_binding": {
+        "document_id": "L01",
+        "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+      },
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "免疫联合治疗在进展期肺癌中具有较好预后效果",
+          "start": 22,
+          "end": 43,
+          "physical_page": 1,
+          "bbox": [
+            51.0236,
+            285.563,
+            561.2791000000003,
+            292.8786500488758
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "阻塞性肺炎等）检出情况差异亦无统计学意义（P ＞ 0.05）。仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+          "start": 0,
+          "end": 69,
+          "physical_page": 1,
+          "bbox": [
+            51.0236,
+            270.563,
+            565.5103999999998,
+            277.8786500488758
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+          "start": 0,
+          "end": 66,
+          "physical_page": 1,
+          "bbox": [
+            51.0236,
+            285.563,
+            561.2791000000003,
+            292.8786500488758
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000016",
+          "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+          "exact_quote": "瘤的影像特征，尤其是血管征可较好预测其治疗疗效，对于临床的提示及方案的制定具有较好的参考价值。",
+          "start": 0,
+          "end": 47,
+          "physical_page": 1,
+          "bbox": [
+            51.0236,
+            301.3668,
+            442.7035999999998,
+            308.13513527357395
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "candidate_hints": [
+        {
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-06:13911dd7",
+          "record_id": "ev-608ebd6b5c1dae8d6cbe2cf84c16b888d96f70b0",
+          "version": 1,
+          "model_id": "gpt-6-astra",
+          "strategy": "baseline",
+          "role": "candidate_contains_this_subclause_and_adjacent_CT_vascular_sign_association",
+          "review_status_at_source_snapshot": "needs_context",
+          "candidate_id_is_only_a_lookup_hint": true
+        }
+      ],
+      "question": "请实际读取所选治疗/预后子句及相邻CT、血管征原文。所选子句本身是否提出可独立抽取的肿瘤视觉表现或具有明确影像含义的测量？它与后续具名CT特征关联结论应怎样拆分，是否只保留为必要临床语境，或仍需补充原文？请分别指出文本依据、保留不确定性；不要预定收录或排除，也不要把candidate_hints当作已经认定的误抽。",
+      "review_status": "not_run",
+      "review_results": [],
+      "expected_answer": null,
+      "reference_answer": null,
+      "source_note": "这是实际原文中可定位的临床疗效/预后子句；相关候选同时含有明确CT/血管征内容。本case并不声称该临床子句曾被单独输出为视觉特征，也不把整个影像关联结论预判为无效。"
+    }
+  ],
+  "source_checks": {
+    "case_count": 2,
+    "all_focus_and_context_slices_exact_in_bound_IR": true,
+    "pdf_sha_and_text_version_bindings_match": true,
+    "offset_unit": "unicode_code_point",
+    "offset_interval": "[start,end)",
+    "geometry_precision": "whole_textline_not_exact_glyph",
+    "new_candidate_versions_written": 0,
+    "review_decisions_written": 0,
+    "new_paid_calls": 0,
+    "packages_tests_or_plan_changed": false
+  },
+  "review_reporting_rule": "When a later actual review executes, record its run/model/strategy, blocks actually read, source-backed reasoning summary and non-approved disposition separately. Until then review_results stays empty; do not claim discovered/corrected/passed."
+}

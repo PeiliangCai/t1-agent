@@ -1,0 +1,46 @@
+{
+  "schema_version": "requirement-revision-review-history-1",
+  "task": "new-user-requirement-revision-2026-11-04",
+  "used": 2,
+  "limit": 3,
+  "reviews": [
+    {
+      "round": 1,
+      "node": "planning",
+      "decision": "continue",
+      "text": "判断：继续。风险：1. 删减原文可能丢失否定或适用条件；2. 图号或子图错配会形成错误图文对；3. 没有完整参考答案时，无法直接证明召回率或零误抽，需要明确新的核验方式。",
+      "source": "/root initial task handoff"
+    },
+    {
+      "schema_version": "requirement-revision-formal-review-1",
+      "task": "new-user-requirement-revision-2026-11-04",
+      "round": 2,
+      "limit": 3,
+      "node": "final_engineering_delivery",
+      "decision": "continue",
+      "text": "判断：继续。风险：1. 原文定位校验不能替代相关性与语境的人工抽查；2. 多对象、矢量及复杂组图仍需核对，不能强行配对；3. 新协议尚未做付费模型实测，旧候选回放不能证明新策略最优。允许本轮工程交付，人工抽样验收仍待进行。",
+      "reviewer": "user-configured root GPT-6-Astra max; no extra review agent",
+      "received_from": "/root",
+      "recorded_at": "2026-11-04T10:13:35.831173+00:00",
+      "new_task_reviews_used": 2,
+      "old_S4_reviews": {
+        "used": 3,
+        "limit": 3,
+        "sealed": true
+      },
+      "engineering_delivery_allowed": true,
+      "human_sample_acceptance_performed": false,
+      "medical_quality_approved": false,
+      "stage_passed": false,
+      "evidence": "final-review-minimal.json",
+      "key_excerpts": "review-key-excerpts.txt",
+      "no_additional_application_test_or_API_after_review": true
+    }
+  ],
+  "historical_review_counters": {
+    "S0_S1": "3/3 sealed",
+    "S2": "2/3 historical",
+    "S3": "3/3 sealed",
+    "old_S4": "3/3 sealed"
+  }
+}

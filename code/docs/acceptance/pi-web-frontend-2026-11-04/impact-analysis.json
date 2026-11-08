@@ -1,0 +1,193 @@
+{
+  "schema_version": "pi-web-front-end-impact-1",
+  "status": "superseded_historical_draft",
+  "updated_at": "2026-11-04T12:19:00.050970+00:00",
+  "upstream": {
+    "repository": "https://github.com/agegr/pi-web",
+    "commit": "f130910abf662b506b2ef2f475fc21a2fe57badc",
+    "version": "0.15.0",
+    "license": "MIT",
+    "provenance": "../../../third_party/pi-web/UPSTREAM.json",
+    "license_file": "../../../third_party/pi-web/upstream/LICENSE",
+    "files": 1209,
+    "source_executed": false,
+    "dependencies_installed": false
+  },
+  "current_truth": {
+    "web": "React 19.3.1 + Vite 8.3.5 + PDF.js 6.5.438; optional S2 local manual annotation, not full S5",
+    "server": "Fastify 5.12.7; only S1 fixture catalog/run/records/SSE HTTP inspector",
+    "agent": "restricted Pi SDK 1.4.0; CLI CPU parser and extraction/delivery implemented separately",
+    "persistence": "SQLite stores + business events + local annotation draft key t1-human-workbench:v1",
+    "full_S5_implemented": false,
+    "medical_quality_approved": false
+  },
+  "architecture_difference": [
+    {
+      "area": "framework",
+      "upstream": "Next 16.4.4 App Router / React client components / Tailwind CSS4",
+      "current": "Vite React standalone frontend; Fastify business service"
+    },
+    {
+      "area": "agent",
+      "upstream": "Pi SDK1.5.0 live AgentSession, session JSONL, general prompt/tool/terminal/resources",
+      "current": "Pi SDK1.4.0 restricted business tools, immutable document/run bindings, no generic prompt endpoint"
+    },
+    {
+      "area": "events",
+      "upstream": "/api/agent/:id/events raw agent session events",
+      "current": "/api/runs/:runId/events typed, committed SQLite business events with seq"
+    },
+    {
+      "area": "source display",
+      "upstream": "generic Markdown/file preview and path based browsing",
+      "current": "exact paper fragments and original PDF with SHA256; Figure source bindings"
+    },
+    {
+      "area": "trust",
+      "upstream": "local coding workspace, OAuth/API keys/config, directory management, terminal",
+      "current": "T1 paper tasks and evidence; existing authorized source/asset IDs only"
+    }
+  ],
+  "choices": [
+    {
+      "id": "A",
+      "recommended": true,
+      "meaning": "Port substantial original pi-web React UI code into current Vite frontend; retain T1 Fastify and SDK",
+      "runtime_migration": false,
+      "benefit": "Reuse actual interactive code without importing coding backends or SDK upgrade",
+      "cost": "Adapt session semantics, Next routing/image references, locale and scoped CSS"
+    },
+    {
+      "id": "B",
+      "recommended": false,
+      "meaning": "Retain pi-web Next frontend project architecture and connect a T1 Fastify adapter",
+      "runtime_migration": true,
+      "benefit": "Keep upstream frontend project organization and Next routing model",
+      "cost": "New frontend build/deploy stack and additional dependencies; same T1 API/data adaptation still needed"
+    }
+  ],
+  "component_reuse": [
+    {
+      "upstream": [
+        "components/TabBar.tsx",
+        "components/FileIcons.tsx",
+        "lib/panel-tab-order.ts"
+      ],
+      "reuse": "Actual tab interaction, keyboard navigation and reordering; T1 document/evidence tabs",
+      "adaptation": "Relative imports, locale bridge, remove general terminal/agent/side kinds, TS strict indexed access"
+    },
+    {
+      "upstream": [
+        "components/ImagePreview.tsx"
+      ],
+      "reuse": "Original Figure native dialog, focus restore and Escape close",
+      "adaptation": "T1 locale and scoped image-preview CSS; only registered, verified sources"
+    },
+    {
+      "upstream": [
+        "hooks/useResizablePanel.ts",
+        "lib/panel-layout.ts"
+      ],
+      "reuse": "Actual pointer/keyboard panel resize with bounded persistent widths",
+      "adaptation": "Relative imports and T1 storage namespace; scope CSS variables to new root"
+    },
+    {
+      "upstream": [
+        "hooks/useIsMobile.ts",
+        "hooks/useViewportHeight.ts"
+      ],
+      "reuse": "Responsive layout and viewport handling",
+      "adaptation": "Do not mutate old annotation page globals; run only on new entry"
+    },
+    {
+      "upstream": [
+        "components/SidebarMenu.tsx",
+        "components/SidebarToast.tsx",
+        "components/SidebarIcons.tsx"
+      ],
+      "reuse": "Navigation menu and notice interactions",
+      "adaptation": "T1 business-only menu actions, scoped CSS; original callbacks never mapped to generic backend"
+    },
+    {
+      "upstream": [
+        "components/AppShell.tsx",
+        "components/SessionSidebar.tsx",
+        "components/SessionTree.tsx"
+      ],
+      "reuse": "Extract original panel/sidebar/tab layout and navigation view code as actual derived sources",
+      "adaptation": "Replace upstream session/file/agent hooks with T1 typed view-model/API; remove generic coding actions and next/navigation under A"
+    },
+    {
+      "upstream": [
+        "components/ChatWindow.tsx",
+        "components/MessageView.tsx",
+        "components/MarkdownBody.tsx"
+      ],
+      "reuse": "Inspect for event-view presentation only; no promise of wholesale migration",
+      "adaptation": "ChatWindow uses next/image and agent hooks; evidence original text MUST stay React text nodes, never Markdown"
+    },
+    {
+      "upstream": [
+        "app/globals.css"
+      ],
+      "reuse": "Extract licensed theme tokens and relevant tab/sidebar/dialog layout rules",
+      "adaptation": "No whole-file import: contains xterm/Tailwind imports and global selectors; isolate annotation and print CSS"
+    }
+  ],
+  "annotation_preservation": {
+    "files_unchanged_preferred": [
+      "apps/web/src/App.tsx",
+      "apps/web/src/domain.ts",
+      "apps/web/src/EvidenceEditor.tsx",
+      "apps/web/src/PrintPreview.tsx",
+      "apps/web/src/style.css"
+    ],
+    "storage_key": "t1-human-workbench:v1",
+    "backup_schema": "t1-human-workbench-backup-1",
+    "entry_plan": "Keep current src/main.tsx as annotation/offline build entry; add distinct workbench entry and annotation HTML routing with isolated CSS. Existing offline packager currently imports src/main.tsx and must keep building the legacy tool.",
+    "draft_migration_required": false,
+    "legacy_offline_artifacts": "Do not overwrite during new frontend build/test"
+  },
+  "scope": {
+    "deliver_now": [
+      "Locked upstream source/license and provenance",
+      "Real pi-web derived T1 frontend base",
+      "Read-only current authorized business/source outputs if verifiable",
+      "Capabilities/status/error/empty/reconnect UI",
+      "Retained independent S2 annotation entry"
+    ],
+    "future_unimplemented": [
+      "Generic PDF upload HTTP workflow",
+      "New paid-model extraction launch UI/API",
+      "Real persisted per-record medical approval and approved export workflow",
+      "Complete S5 end-to-end product acceptance"
+    ]
+  },
+  "verification_planned": [
+    "Source traceability and immutable upstream hash audit",
+    "Typecheck and production frontend build",
+    "Focused API source binding/path boundary/unknown ID tests",
+    "Browser: real evidence/plain text/source page/Figure only where pairing valid",
+    "Browser: unknown/empty/backend failure/reconnect and tag/resize interactions",
+    "Browser: old annotation draft/backup/print entry preserved",
+    "No paid API requests; original candidate/quality flags remain false"
+  ],
+  "decision_owner": "user via /root",
+  "formal_review": {
+    "schema_version": "pi-web-frontend-review-1",
+    "task": "pi-web frontend basis revision",
+    "round": 1,
+    "limit": 3,
+    "reviewer": "/root (gpt-6-astra max main session)",
+    "node": "before_implementation_plan",
+    "decision": "continue",
+    "risks": [
+      "pi-web 会话接口不能替代 T1 论文任务接口",
+      "只换样式不足以证明以 pi-web 为基础",
+      "界面运行不能代表完整 S5 流程"
+    ],
+    "parent_reported": true,
+    "prior_tasks_unchanged": true
+  },
+  "current_implementation": "implemented-contract.json"
+}

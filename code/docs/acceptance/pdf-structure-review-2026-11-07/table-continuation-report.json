@@ -1,0 +1,518 @@
+{
+  "schema_version": "table-continuation-report-1",
+  "status": "implemented_and_offline_verified_Table3_Table4_and_continuations_ready_for_user_page_review",
+  "scope": "Actual source-grid and continuation recovery; Docling CPU remains primary. No Prompt/method/model experiment. Engineering verification and user/medical approval are separate.",
+  "formal_review": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds": 0
+  },
+  "paid_API_calls": 0,
+  "LLM_calls": 0,
+  "table4": {
+    "source_id": "L05",
+    "physical_page": 7,
+    "PDF_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "failure_before": "Native15x7 joined N/Y and multiple variables/values into shared cells; one native value omitted16.19. Previous checkpoint isolated the bad grid but did not reconstruct it.",
+    "native_grid_retained": {
+      "rows": 15,
+      "cols": 7,
+      "semantic_authority": false
+    },
+    "source_grid_after": {
+      "rows": 25,
+      "cols": 7,
+      "header_rows": 2,
+      "data_baselines": 23,
+      "cells_including_merged_and_blank": 158,
+      "slots": 175,
+      "raw_nonspace_codepoints": 771,
+      "Logistic_colspan": 2,
+      "Group2_Group3_P_header_rowspan": 2,
+      "left_group_labels": "rowspan according to printed label/subcategory lane",
+      "P_and_other_printed_blanks": "not filled or extended with another row value",
+      "values_units_slashes_footnote": "original exact raw spans retained, including Diameter of nodule(mm), ±, *, /, and the original footnote wording"
+    },
+    "verification": "Printed segmented rule rails establish columns/header bands. Every nonspace raw character is uniquely mapped to original Docling PDF glyph coordinates and independently compared with PDFium characters inside each reconstructed cell; blank cells are checked as empty. Every175 slot is covered once. These are source/layout checks, not medical or whole-paper correctness.",
+    "production_effect": "IR retains native and source_grid separately. Actual model read uses the geometry-checked source_grid. Supporting evidence validates the union of checked-cell source spans across an entire raw line and separator whitespace, while rejecting unknown/non-table characters. Table text is still forbidden as primary evidence.",
+    "review_data": "tables/L05-Table4-grid.json",
+    "readable_table": "tables/L05-Table4-final.html"
+  },
+  "genericity": {
+    "no_production_paper_page_or_value_exception": true,
+    "second_viewed_table": {
+      "source_id": "L05",
+      "physical_page": 5,
+      "table": "Table2",
+      "rows": 10,
+      "cols": 8,
+      "cells": 70,
+      "nonspace_codepoints": 192,
+      "Before_After_colspan": 3,
+      "readable_table": "tables/L05-Table2-final.html"
+    },
+    "additional_letter_geometry_check": "L05 Table1 4x10/39cells/122 codepoints also passes; this is not a full table semantic approval.",
+    "negative_regressions": [
+      "Duplicate original glyph causes unresolved mapping; no first occurrence shortcut",
+      "Independent glyph/value disagreement blocks grid certification",
+      "Missing column-rule witnesses remain unresolved",
+      "Corrupt grid version/source/span references rejected",
+      "Different explicit cases and intervening headings cannot join"
+    ],
+    "region_and_title_negatives": [
+      "Two plausible rule-bounded regions do not choose first/largest",
+      "Missing rails cannot certify a truncated subset while source body glyphs remain outside it",
+      "Ambiguous numbered titles stay unresolved",
+      "Different header font/alignment without a separating rule is not silently promoted to a wrapped heading",
+      "NeighboringFig3 is rejected as Table3 reference and values"
+    ],
+    "scope_limit": "Checks cover the concrete repaired printed-rule layouts and original-source cells. They do not certify every possible table or full-paper medical meaning."
+  },
+  "continuations": {
+    "source_unit_version": "literal-source-sentences-4",
+    "checked_count": 8,
+    "checked": [
+      {
+        "case_id": "L01-continuation-e044f321ee",
+        "source_id": "L01",
+        "pages": [
+          1
+        ],
+        "native_refs": [
+          "#/texts/10",
+          "#/texts/11"
+        ],
+        "proof_method": "document_paragraph_indent_convention"
+      },
+      {
+        "case_id": "L01-continuation-44c944031c",
+        "source_id": "L01",
+        "pages": [
+          1,
+          2
+        ],
+        "native_refs": [
+          "#/texts/15",
+          "#/texts/19"
+        ],
+        "proof_method": "numbered_item_continues_through_page_or_column"
+      },
+      {
+        "case_id": "L07-continuation-0c24dc4dd1",
+        "source_id": "L07",
+        "pages": [
+          4
+        ],
+        "native_refs": [
+          "#/texts/74",
+          "#/texts/75"
+        ],
+        "proof_method": "explicit_unclosed_parenthesis_with_shared_figure_band"
+      },
+      {
+        "case_id": "L07-continuation-6cdbf91641",
+        "source_id": "L07",
+        "pages": [
+          6
+        ],
+        "native_refs": [
+          "#/texts/98",
+          "#/texts/99"
+        ],
+        "proof_method": "explicit_line_end_hyphen_with_shared_figure_band"
+      },
+      {
+        "case_id": "L07-continuation-d2ae8157db",
+        "source_id": "L07",
+        "pages": [
+          7
+        ],
+        "native_refs": [
+          "#/texts/113",
+          "#/texts/115"
+        ],
+        "proof_method": "printed_bullet_item_with_matching_hanging_indent"
+      },
+      {
+        "case_id": "L07-continuation-b05928da2b",
+        "source_id": "L07",
+        "pages": [
+          9,
+          10
+        ],
+        "native_refs": [
+          "#/texts/137",
+          "#/texts/141"
+        ],
+        "proof_method": "explicit_line_end_hyphen_in_body_flow"
+      },
+      {
+        "case_id": "L07-continuation-9d2555b748",
+        "source_id": "L07",
+        "pages": [
+          10
+        ],
+        "native_refs": [
+          "#/texts/148",
+          "#/texts/149"
+        ],
+        "proof_method": "printed_bullet_item_with_matching_hanging_indent"
+      },
+      {
+        "case_id": "L07-continuation-0a2b4909f8",
+        "source_id": "L07",
+        "pages": [
+          11
+        ],
+        "native_refs": [
+          "#/texts/168",
+          "#/texts/169"
+        ],
+        "proof_method": "printed_bullet_item_with_matching_hanging_indent"
+      }
+    ],
+    "effect": "Checked ordered source spans now form complete source sentences/paragraph relations and supply full boundary context through existing read/reread authorization. Cross-page/column locations stay distinct; source characters, 过/敏, pos-/teriorly and moni-/tored retain their original code points and hyphens.",
+    "proofs": [
+      "L01过/敏 uses consecutive printed（2）→（3）items plus exact source/font/page flow",
+      "L01跨栏 uses repeated source paragraph-indent convention, full last line, matching font and no heading/table/case boundary",
+      "L07Fig2 uses the open/closing source parenthesis and one shared Figure caption band",
+      "L07Fig3 and p9→10 use explicit printed split-word hyphens",
+      "L07p7/p10/p11 list flow uses the prior printed bullet, absence of a new bullet, and matching hanging indent relative to witnessed column rails"
+    ],
+    "not_used_as_sufficient_proof": "First-letter casing or geometric adjacency alone.",
+    "needs_user_review": [
+      {
+        "case_id": "L01-continuation-6bd96a14b1",
+        "source_id": "L01",
+        "pages": [
+          4
+        ],
+        "native_refs": [
+          "#/texts/69",
+          "#/texts/70"
+        ],
+        "reason": "no_explicit_split_word_enumeration_or_supported_indent_proof",
+        "status": "needs_user_review"
+      },
+      {
+        "case_id": "L07-continuation-2846906f1d",
+        "source_id": "L07",
+        "pages": [
+          13
+        ],
+        "native_refs": [
+          "#/texts/217",
+          "#/texts/218"
+        ],
+        "reason": "no_explicit_split_word_enumeration_or_supported_indent_proof",
+        "status": "needs_user_review"
+      }
+    ],
+    "unknown_scope": "Two bibliography continuation cases have no sufficient automatic proof; concrete original parts/pages are in the user review cases. They are not silently merged.",
+    "version_process": "Version3 introduced the8 checked continuation groups; version4 corrects active-table source roles/title provenance. Those8 continuation characters, hyphens and grouping implementation are unchanged."
+  },
+  "actual_tools": {
+    "evidence": "source-recovery-tool-check.json",
+    "model_read": "actual-tool-L05-Table4.json",
+    "active_grid": {
+      "grid_id": "sg-52cda4101bb1599f93a50db0",
+      "basis": "printed_rules_exact_raw_spans_and_independent_character_geometry",
+      "n_rows": 25,
+      "n_cols": 7,
+      "header_rows": 2,
+      "geometry_checked": true,
+      "human_approved": false
+    },
+    "whole_raw_line_support": "12.70 (± 4.69) 16.19 (± 5.79) < 0.001* < 0.001* 0.888",
+    "valid_support": "Accepted by actual read/submit/validator; this original statistical paragraph is only a citation-protocol test and remains needs_context with semantics unapproved.",
+    "negative_cases": [
+      "wrong table identity/reference rejected",
+      "ordinary body row as table values rejected"
+    ],
+    "medical_or_user_approved": false,
+    "product_records_created": false,
+    "context_limits": "24 paragraph/cell hints and16 heading hints, omissions explicit; original source lines are not truncated/reordered and no full IR is sent.",
+    "final_source_unit_version": "literal-source-sentences-4",
+    "final_L05_source_binding": {
+      "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f"
+    },
+    "Table3": {
+      "evidence": "source-recovery-tool-check.json:Table3",
+      "read_packet": "actual-tool-L05-Table3.json",
+      "accepted_title_lines": [
+        "Table 3 Univariate and",
+        "multivariate analysis between",
+        "group 1 and group 2"
+      ],
+      "whole_raw_line_support": "12.78(± 4.71)",
+      "neighboring_Figure_role": "figure_caption",
+      "review_status": "needs_context",
+      "medical_semantics_verified": false
+    },
+    "intermediate_unit3_evidence": [
+      "source-recovery-tool-check-unit3.json",
+      "actual-tool-L05-Table4-unit3.json"
+    ],
+    "intermediate_evidence_not_final_claim": true
+  },
+  "sources": [
+    {
+      "source_id": "L01",
+      "document_id": "L01",
+      "source_pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+      "text_version": "s3v3-79f276b4bbb797f3e7930714c614270a",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L01/parser-result.json",
+      "parser_result_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/paper-37340ec9-269d-4290-be92-f8cfebbcadf9/docling-standard-cpu-fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2.json",
+        "sha256": "fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2",
+        "format": "candidate_native_json"
+      },
+      "grids": [
+        {
+          "native_ref": "#/tables/0",
+          "native_rows": 6,
+          "native_cols": 8,
+          "source_grid_status": "source_conflict",
+          "source_rows": 7,
+          "source_cols": 8
+        },
+        {
+          "native_ref": "#/tables/1",
+          "native_rows": 18,
+          "native_cols": 5,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 18,
+          "source_cols": 5
+        }
+      ],
+      "checked_continuations": 2,
+      "unresolved_continuations": 1
+    },
+    {
+      "source_id": "L05",
+      "document_id": "L05",
+      "source_pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+      "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L05/parser-result.json",
+      "parser_result_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/paper-3c5c6972-a1be-4fd8-8964-334a8c4edf7c/docling-standard-cpu-cae7c6def0835c2f7e31cbf4b5dc5992008676bc77ad1395d5237b58e88f590b.json",
+        "sha256": "cae7c6def0835c2f7e31cbf4b5dc5992008676bc77ad1395d5237b58e88f590b",
+        "format": "candidate_native_json"
+      },
+      "grids": [
+        {
+          "native_ref": "#/tables/0",
+          "native_rows": 4,
+          "native_cols": 10,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 4,
+          "source_cols": 10
+        },
+        {
+          "native_ref": "#/tables/1",
+          "native_rows": 10,
+          "native_cols": 8,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 10,
+          "source_cols": 8
+        },
+        {
+          "native_ref": "#/tables/2",
+          "native_rows": 17,
+          "native_cols": 8,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 17,
+          "source_cols": 6
+        },
+        {
+          "native_ref": "#/tables/3",
+          "native_rows": 15,
+          "native_cols": 7,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 25,
+          "source_cols": 7
+        }
+      ],
+      "checked_continuations": 0,
+      "unresolved_continuations": 0
+    },
+    {
+      "source_id": "L07",
+      "document_id": "L07",
+      "source_pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "pdf_path": "evaluation/corpus/development-candidates/L07.pdf",
+      "text_version": "s3v3-24500f85160c6f49685ba2cb5f68d274",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L07/parser-result.json",
+      "parser_result_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/s3-cpu-comparison-reuse/docling-standard-cpu-15a8d628cf86f4b664b9a3e8b3e5b3bdf58428b5cec48761e4bc6d07c4314eb7.json",
+        "sha256": "15a8d628cf86f4b664b9a3e8b3e5b3bdf58428b5cec48761e4bc6d07c4314eb7",
+        "format": "candidate_native_json"
+      },
+      "grids": [],
+      "checked_continuations": 6,
+      "unresolved_continuations": 1
+    }
+  ],
+  "immutable_source_policy": {
+    "all_original_PDF_hashes_verified": true,
+    "native_artifact_hashes_verified": true,
+    "raw_blocks_IDs_text_geometry_normalization_identical": true,
+    "old_native_artifacts_paid_outputs_feedback_reports_modified": false,
+    "native_layout_inference_rerun": false,
+    "fresh_PDF_character_rule_verification": true,
+    "module_fingerprints": "structured.py config/text version include source_geometry.py,source_tables.py,source_continuations.py hashes and auxiliary backend/config versions; CLI snapshots and currentness guards also cover all3 helpers."
+  },
+  "regression": {
+    "Python_all": {
+      "passed": 45,
+      "failed": 0,
+      "log": "python-tests-unit4.log"
+    },
+    "TypeScript_parser": {
+      "passed": 21,
+      "failed": 0,
+      "log": "parser-typescript-unit4.log"
+    },
+    "new_actual_tool_tests": {
+      "passed": 5,
+      "failed": 0,
+      "test_file": "tests/extraction/pdf-source-recovery.test.ts",
+      "included_in_final_full": true
+    },
+    "TypeScript_compile": {
+      "passed": true,
+      "exit_code": 0,
+      "log": "typescript-unit4-final.log"
+    },
+    "initial_full_extraction": {
+      "passed": 247,
+      "failed": 1,
+      "total": 248,
+      "log": "extraction-tests.log",
+      "reason": "New helper SHA lookup ran before corpus admission; isolated forbidden-corpus test got ENOENT instead of the admission rejection."
+    },
+    "guard_fix": "CLI owner moved helper lookup after assertComparisonSourceUse, lazily cached once, and explicitly narrowed v3 config typing. Missing/drifting helper fingerprints still reject.",
+    "guard_targeted_recheck": {
+      "passed": 13,
+      "failed": 0,
+      "owner": "two_method_transition"
+    },
+    "final_full_extraction": {
+      "passed": 249,
+      "failed": 0,
+      "log": "extraction-tests-unit4.log",
+      "source_unit_version": "literal-source-sentences-4"
+    },
+    "initial_compile_evidence": [
+      "typescript.log",
+      "typescript-cli-before-fix.log"
+    ],
+    "quality_claim_limit": "Passing engineering tests is not model extraction quality, medical approval, full PDF fidelity or S3 acceptance.",
+    "final_unit3_checkpoint": {
+      "passed": 248,
+      "failed": 0,
+      "log": "extraction-tests-final.log",
+      "superseded_for_final_source_claim": true
+    }
+  },
+  "user_review_handoff": {
+    "cases": "review-cases-tables-continuations.json",
+    "case_count": 13,
+    "case_binding": "Each case binds original PDF SHA,new parser result SHA,text_version and exact source spans; all human_approved fields are false.",
+    "figure_page_owner": "two_method_transition",
+    "figure_catalogs": "figures/{L01,L05,L07}/figure-assets/catalog.json",
+    "default_config": "Figure/page owner synchronized new IR+explicit figure_catalog paths, with current helper fingerprints; no model run started.",
+    "questions": "Original row/column text and blanks; header/group spans; footnote completeness; source continuation identity/order/physical boundary. Uncertain or unreadable feedback is not approval.",
+    "table_cases": [
+      "Table4",
+      "Table2",
+      "Table3"
+    ],
+    "final_source_unit_version": "literal-source-sentences-4"
+  },
+  "reproduction": [
+    "bash scripts/with-node.sh npm run parser:contracts",
+    ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v",
+    "bash scripts/with-node.sh npm run test:parser",
+    "bash scripts/with-node.sh npm run test:extraction",
+    ".venv/bin/python scripts/repair-pdf-source-structure.py --output <fresh-directory-inside-code>"
+  ],
+  "cleanup": {
+    "removed_own_preview": "tables/L05-Table4-preview.html",
+    "retained": "Final bound source grids/HTML,cases,source manifest,actual tool evidence,meaningful initial failure/final pass logs and reproduction scripts.",
+    "temporary_agent_log_removed_at_handoff": true,
+    "old_archived_and_other_owner_files_deleted": false,
+    "own_task_temporary_log_removed_at_handoff": true,
+    "retained_unit3_small_process_evidence": true
+  },
+  "remaining": "User page feedback and resulting concrete corrections;2 explicit bibliography continuation cases remain unverified. Table3 is now actually repaired and reviewable. No full-paper medical/S3 approval or B0/F/model comparison is claimed or started.",
+  "final_source_unit_version": "literal-source-sentences-4",
+  "table3": {
+    "source_id": "L05",
+    "physical_page": 6,
+    "PDF_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "known_before_errors": [
+      "Native17x8 included the side Table3 title as a grid column",
+      "A phantom column split original12.78(±4.71)",
+      "Footnote was a grid row",
+      "Native caption pointed to neighboringFig3; that native link remains rejected"
+    ],
+    "before_evidence": [
+      "tables/L05-Table3-before.json",
+      "tables/L05-Table3-before.html"
+    ],
+    "previous_unresolved_reason": "printed_top_header_bottom_rules_not_resolved: native bbox[51.679,56.102,544.027,463.414] was too wide/tall; actual Table3 rails were present inside it.",
+    "actual_source_region": [
+      170.079605102,
+      58.03921777400001,
+      544.251987457,
+      277.13931543
+    ],
+    "region_proof": "Unique contained family of3 repeated segmented horizontal rails determines6 columns; title/footnote/neighboring Figure are excluded from cell selection. Multiple candidate families or source body glyphs outside the chosen family reject certification.",
+    "source_grid": {
+      "printed_baselines": 17,
+      "columns": 6,
+      "cells_including_merged_and_blank": 89,
+      "slots": 102,
+      "raw_nonspace_codepoints": 341,
+      "header_baselines": 2,
+      "logical_header_rows": 1,
+      "wrapped_header": "LASSO and Coefficient are one cell, rowspan2/colspan1; not a two-level child-column heading.",
+      "Group2_last_value": "12.78(± 4.71) stays in one source cell; original characters/spacing are not rewritten."
+    },
+    "title": {
+      "status": "geometry_checked_numbered_title",
+      "number": "3",
+      "original_lines": [
+        "Table 3 Univariate and",
+        "multivariate analysis between",
+        "group 1 and group 2"
+      ],
+      "proof": "Unique numbered source title aligned with the printed header band, with contiguous source lines individually verified against Docling glyph and independentPDFium text geometry.",
+      "native_wrong_Fig3_link": "Retained as rejected_conflict diagnostic; not used as active title."
+    },
+    "footnote": "Original separate Marked with * indicate statistical significance retained outside the grid.",
+    "production_effect": "Model read/supporting_tables now use the checked source title/grid and do not expose oldFig3 ID as an active table caption. Role classification marks trueTable3 title as table_caption and neighboringFig3 as figure_caption. Whole-line Table3 numeric support is accepted; neighboringFigure as reference or values rejects.",
+    "actual_tool_evidence": "source-recovery-tool-check.json:Table3",
+    "read_packet": "actual-tool-L05-Table3.json",
+    "review_data": "tables/L05-Table3-grid.json",
+    "readable_table": "tables/L05-Table3-final.html",
+    "human_or_medical_approval": false
+  },
+  "process_checkpoint": {
+    "unit3_report": "table-continuation-report-unit3-checkpoint.json",
+    "unit3_source_checkpoint": "source-checkpoint-unit3.json",
+    "Table3_known_error_led_to_actual_repair_before_user_delivery": true,
+    "original_247_of_248_failure_log_preserved": "extraction-tests.log",
+    "no_intermediate_full_IR_backups_created": true
+  }
+}

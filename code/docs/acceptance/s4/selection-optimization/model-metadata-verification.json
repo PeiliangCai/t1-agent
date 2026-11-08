@@ -1,0 +1,98 @@
+{
+  "schema_version": "s4-response-model-capture-verification-1",
+  "recorded_at": "2026-11-03T13:10:51.402681+00:00",
+  "applies_to_paid_snapshot": "8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981",
+  "inference_requests": 28,
+  "response_name_distribution": {
+    "gpt-6-luna": 26,
+    "igpt-6-luna": 2
+  },
+  "requested_name_distribution": {
+    "gpt-6-luna": 28
+  },
+  "mismatching_entries": [
+    {
+      "id": "9d8b53d0-af46-401b-acbb-6ebb156a08a0",
+      "purpose": "selection-2026-11-03T12-41-27-983Z-ca96493b:synthetic-probe:whole-document-summary",
+      "started_at": "2026-11-03T12:43:48.504Z",
+      "finished_at": "2026-11-03T12:43:58.715Z",
+      "model_id": "gpt-6-luna",
+      "requested_reasoning_effort": "medium",
+      "provider_response_model": "igpt-6-luna",
+      "provider_response_id": "resp_0a6b2699bbab1933016ae9d70ae0f08196b534c8b2b673a9d4",
+      "status": 200,
+      "payload_sha256": "67d42d3e3eaa3806f9b84933d9b3858e522d5a77b0bb83dfcfa28e019a120186",
+      "response_stream_sha256": "c22e83977dcff2bc3647fb76fd7486613c2c4418336f3332b908d538c71192fd",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "provider_usage": {
+        "input_tokens": 2625,
+        "input_tokens_details": {
+          "cache_write_tokens": 2622,
+          "cached_tokens": 0
+        },
+        "output_tokens": 134,
+        "output_tokens_details": {
+          "reasoning_tokens": 110
+        },
+        "total_tokens": 2759
+      }
+    },
+    {
+      "id": "f72c8126-df0a-4d0c-bbe6-eaa952864bf0",
+      "purpose": "selection-2026-11-03T12-41-27-983Z-ca96493b:L01-B0:batch-0001",
+      "started_at": "2026-11-03T12:47:54.707Z",
+      "finished_at": "2026-11-03T12:48:26.151Z",
+      "model_id": "gpt-6-luna",
+      "requested_reasoning_effort": "medium",
+      "provider_response_model": "igpt-6-luna",
+      "provider_response_id": "resp_048d304846fa6b1a016ae9d80a31588196bacf504d8a592d22",
+      "status": 200,
+      "payload_sha256": "6db532a3a15920d02699f5ff58f24b439d6a7d2a8072a8af680d4fa96682cfa3",
+      "response_stream_sha256": "40b21be2bf768104e37c0041ec840a76065d02b5be1c6524e64f9abb8577f1ce",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "provider_usage": {
+        "input_tokens": 8614,
+        "input_tokens_details": {
+          "cache_write_tokens": 8611,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1277,
+        "output_tokens_details": {
+          "reasoning_tokens": 650
+        },
+        "total_tokens": 9891
+      }
+    }
+  ],
+  "collection_path": [
+    "OpenAI SDK parses SSE.data with JSON.parse and yields event data",
+    "Pi processResponsesStream calls onProviderStreamEvent(event,model) before processing the event",
+    "Frozen extraction-pi.ts copies event.response.model directly; regex validates charset only, does not extract or add prefix"
+  ],
+  "local_prefix_addition_or_regex_extraction_bug_found": false,
+  "proof_limits": [
+    "No complete raw SSE body was persisted; complete-body SHA256 cannot independently reconstruct historical JSON",
+    "Recorded values establish parsed provider-event metadata, not provider alias semantics or actual model weights",
+    "No identity normalization applied; no claim that igpt-6-luna is equivalent"
+  ],
+  "source_files": [
+    {
+      "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-pi.ts",
+      "sha256": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924"
+    },
+    {
+      "path": "node_modules/@earendil-works/pi-ai/dist/api/openai-responses-shared.js",
+      "sha256": "eed025a4821b1e017dd024b930caf8fa11c7fe053a81efe11bd7d846fdc641d3"
+    },
+    {
+      "path": "node_modules/@earendil-works/pi-ai/dist/api/openai-responses.js",
+      "sha256": "002f15414b7c7b62a32610a8a915bdf1a01eed930b8b45d7691e8a5c475fa9b5"
+    },
+    {
+      "path": "node_modules/openai/core/streaming.mjs",
+      "sha256": "1b8fa8338dc28913351993382187962082f0af42c5274a009060de3263579842"
+    }
+  ],
+  "models_catalog": "model-catalog-readonly.json",
+  "alias_verified": false
+}

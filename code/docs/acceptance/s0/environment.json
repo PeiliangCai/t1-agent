@@ -1,0 +1,160 @@
+{
+  "captured_at": "2026-11-02T09:25:05.738857+00:00",
+  "project_root": "/home/ecs-user/projects/t1-agent",
+  "code_root": "/home/ecs-user/projects/t1-agent/code",
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+  "architecture": "x86_64",
+  "kernel": "6.8.0-147-generic",
+  "logical_cpus": 8,
+  "cpu_affinity_count": 8,
+  "cpu_model": "Intel(R) Xeon(R) 6982P-C",
+  "memory": {
+    "MemTotal": "32183384 kB",
+    "MemAvailable": "29766532 kB",
+    "SwapTotal": "0 kB"
+  },
+  "cgroup_ancestors": [
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice/session-32.scope",
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "pids.max": "max"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "pids.max": "82663"
+    },
+    {
+      "path": "/sys/fs/cgroup/user.slice",
+      "cpu.max": "max 100000",
+      "memory.max": "max",
+      "memory.high": "max",
+      "pids.max": "max"
+    },
+    {
+      "path": "/sys/fs/cgroup",
+      "cpuset.cpus.effective": "0-7"
+    }
+  ],
+  "cloud": {
+    "region": "cn-heyuan",
+    "zone": "cn-heyuan-c",
+    "instance_type": "ecs.g9i.2xlarge"
+  },
+  "disk_bytes": {
+    "total": 105286258688,
+    "used": 6038781952,
+    "free": 94734823424
+  },
+  "project_mount": {
+    "command": [
+      "findmnt",
+      "-T",
+      "/home/ecs-user/projects/t1-agent/code",
+      "-o",
+      "TARGET,SOURCE,FSTYPE,OPTIONS",
+      "--noheadings"
+    ],
+    "exit_code": 0,
+    "stdout": "/      /dev/nvme0n1p3 ext4   rw,relatime",
+    "stderr": ""
+  },
+  "gpu_pci_inventory": {
+    "command": [
+      "lspci"
+    ],
+    "exit_code": 0,
+    "stdout": "00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)\n00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]\n00:01.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 03)\n00:02.0 VGA compatible controller: Cirrus Logic GD 5446\n00:03.0 Communication controller: Red Hat, Inc. Virtio console\n00:04.0 Non-Volatile memory controller: Intel Corporation QEMU NVM Express Controller (rev 02)\n00:05.0 Ethernet controller: Red Hat, Inc. Virtio network device\n00:06.0 Unclassified device [00ff]: Red Hat, Inc. Virtio memory balloon\n00:1f.0 PCI bridge: Red Hat, Inc. QEMU PCI-PCI bridge\n01:1f.0 PCI bridge: Red Hat, Inc. QEMU PCI-PCI bridge\n02:1f.0 PCI bridge: Red Hat, Inc. QEMU PCI-PCI bridge\n03:1f.0 PCI bridge: Red Hat, Inc. QEMU PCI-PCI bridge\n04:1f.0 PCI bridge: Red Hat, Inc. QEMU PCI-PCI bridge",
+    "stderr": ""
+  },
+  "nvidia_smi": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=name,memory.total,driver_version",
+      "--format=csv,noheader"
+    ],
+    "available": false
+  },
+  "python": {
+    "command": [
+      "python3",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "Python 3.12.3",
+    "stderr": ""
+  },
+  "pip": {
+    "command": [
+      "python3",
+      "-m",
+      "pip",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "pip 24.0 from /usr/lib/python3/dist-packages/pip (python 3.12)",
+    "stderr": ""
+  },
+  "project_node": {
+    "command": [
+      "/home/ecs-user/projects/t1-agent/code/.tools/node/bin/node",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "v24.22.2",
+    "stderr": ""
+  },
+  "project_npm": {
+    "command": [
+      "bash",
+      "/home/ecs-user/projects/t1-agent/code/scripts/with-node.sh",
+      "npm",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "11.19.1",
+    "stderr": ""
+  },
+  "docker": {
+    "command": [
+      "docker",
+      "--version"
+    ],
+    "available": false
+  },
+  "compose": {
+    "command": [
+      "docker",
+      "compose",
+      "version"
+    ],
+    "available": false
+  },
+  "git": {
+    "command": [
+      "git",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "git version 2.43.0",
+    "stderr": ""
+  },
+  "gcc": {
+    "command": [
+      "gcc",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "stderr": ""
+  },
+  "python_sqlite_version": "3.45.1",
+  "separate_data_volume_verified": false,
+  "persistent_directory_plan": "runtime-data/ on current ext4 disk; bind mount and restart checks at S5/S7",
+  "docker_followup": "S7; not needed for the S1 local Node prototype",
+  "resource_sufficiency": "S1 engineering prototype only; real PDF/GPU sizing remains S3 benchmarking"
+}

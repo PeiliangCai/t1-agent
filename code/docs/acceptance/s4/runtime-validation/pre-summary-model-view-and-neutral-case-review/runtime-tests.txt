@@ -1,0 +1,52 @@
+✔ budget counts cache once, includes reasoning in output once, and retains unknown usage across reopen (15.407514ms)
+✔ provider input above a local payload estimate is explicit, and above reservation halts at the real limit (11.07759ms)
+✔ request, input, output and experiment-time boundaries reject before another network attempt (648.979833ms)
+✔ network guard rejects changed destination and model payload without counting a physical request (31.572014ms)
+✔ installed Pi Responses adapter reports cached input and reasoning without double counting (109.379778ms)
+✔ assigned source inventory is unique while overlapping context requires its own batch acknowledgement (4.224076ms)
+✔ tool boundary refuses a partial invalid read, foreign run, unknown tool, and forged source identity (8.882636ms)
+✔ continuation region is version-bound quarantine and remains an explicit uncovered source region (1.354154ms)
+✔ Pi has only business tools and forged calls cannot turn PDF instructions into trusted authority (44.769565ms)
+✔ candidate versions commit before their events, survive reopen, and repeated submission is idempotent (36.52708ms)
+✔ SQLite competing stale writers fail CAS atomically and cannot cross run boundaries (35.869912ms)
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (5.615303ms)
+✔ a human version stays active while repeated automatic updates preserve one idempotent proposal (10.742518ms)
+✔ a possible link to approved human evidence is stored only as an unapproved proposal (8.326693ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":0,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":3,"candidates":0,"requests":4}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0003","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":0,"requests":6}
+✔ full Pi run processes every assigned block once and explicitly completes zero-candidate batches (123.217412ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":2}
+✔ assistant stopping after delivered reads leaves a failed batch and a partial run (69.598026ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ transient model failures retry at most twice and retain already saved candidates with missing coverage (854.471872ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ HTTP 200 followed by stalled SSE hits the independent request deadline, retries twice and retains saved candidates (1093.730952ms)
+✔ an independent summary must review every candidate and its stored review never grants human approval (5.0466ms)
+✔ a looping local model cannot exceed the configured per-batch physical response limit (39.442526ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ cancellation after a candidate commit preserves it and cannot claim batch or document completion (48.395171ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ budget exhaustion after candidate persistence stops new requests and saves a partial result (62.378935ms)
+✔ selected cancer, modality or feature scope with an unavailable catalog blocks before model network (61.499776ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":2}
+✔ approved cancer and modality selections allow open extraction when the feature catalog is empty (76.064934ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":5,"expected_blocks":5,"candidates":4,"requests":4}
+✔ compact Pi submissions preserve full evidence, original conditions and numbers across multiple groups of three (90.074091ms)
+✔ compact Pi rejects unread evidence, out-of-range source indices, extra identity and legacy full submissions (29.573578ms)
+✔ compact indices cannot authorize a source block that was read in another batch (20.708192ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":1,"requests":2}
+✔ compact omitted medical observations stay unknown despite approved selected cancer and modality scope (77.951696ms)
+✔ Pi timeout aborts a held local response and preserves conservative request usage (86.281624ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4773.274803

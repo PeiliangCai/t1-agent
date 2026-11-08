@@ -1,0 +1,49 @@
+{
+  "schema_version": "t1-pi-web-user-decision-1",
+  "date": "2026-11-04",
+  "latest_user_exact_quote": "采用方案C",
+  "selected_option": "C",
+  "confirmed_meaning": "C仍为pi-web基座统一Next；本轮补齐此前完整答案要求取消后的遗留工具清理，活动完整参考答案准备UI/流程和Vite退役，不再迁移旧标注或建设离线兼容。历史资料留档，S2语料/抽样及真实抽取结果审核保留。",
+  "previous_context": {
+    "user_prior_criterion": "两种实现方式中哪种对 pi-web 源码的改动更小？哪种更小采用哪种吧。",
+    "root_prior_judgment": "B保留上游Next工程另保留Vite标注，随后用户要求暂停讨论",
+    "latest_choice_supersedes_prior_B": true,
+    "A_or_B_not_current_authority": true
+  },
+  "implementation_constraints": [
+    "code/apps/pi-web为唯一正式Next.js前端，保留pi-web结构与真实源码，必要修改逐文件留证",
+    "旧完整参考答案准备UI/流程retired/removed_from_active_product；取消原C标注迁入、草稿/备份/打印/PDF/离线兼容回归安排",
+    "原apps/web及迁移中间态/现有离线包、指南/模板、AI参考Excel等留档溯源；Vite运行构建退役",
+    "不是重新取消完整答案要求；不要求用户准备参考答案，不新增全文gold/召回门槛",
+    "S2语料清单、自动检查/抽样质量准备、真实结果人工审核及已审核逐条确认保留；医生补充与论文原文分开标来源",
+    "Fastify/受限Pi TypeScript SDK/SQLite/WAL/数据卷/SSE及原文/整幅Figure/图注契约保持",
+    "本轮仅前端基础与已有成果只读适配，完整S5上传抽取持久化人审和已审核导出仍待后续",
+    "无付费新模型实验"
+  ],
+  "formal_review": {
+    "task": "pi_web_frontend",
+    "used": 1,
+    "limit": 3,
+    "planning_text": "判断：继续。风险：1. pi-web 的会话接口不能直接替代 T1 的论文任务接口；2. 仅换样式不足以满足源码复用要求；3. 界面可运行不代表抽取、审核全流程已完成。按用户选择接入并保留来源测试。",
+    "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/formal-review-round1.json",
+    "prior_original_text_figure_task": "closed2/3",
+    "prior_S4": "sealed3/3"
+  },
+  "authority": "user explicit C relayed verbatim by root, supersedes paused B engineering interpretation",
+  "historical_C_scope_before_legacy_tool_cleanup": {
+    "confirmed_meaning": "统一Next.js，以pi-web工程为正式T1前端基座；原Vite标注工具迁入同一应用的可选页面，最终仅一套前端工程；离线标注包复用迁后的单一权威源码",
+    "implementation_constraints": [
+      "code/apps/pi-web为统一前端应用根",
+      "保留pi-web原工程与真实源码，尽量新增T1页面/受限接口适配；必要修改逐文件列明",
+      "原apps/web可选S2标注迁入Next同应用；Vite运行/构建退役，不保留第二套长期前端",
+      "标注单一权威源码复用于同应用页面和离线包，保留原草稿、备份、打印、PDF定位等功能",
+      "localStorage按origin隔离；同源原key可沿用，不同scheme/host/port用原入口备份与新入口导入迁移，不声称自动跨源读取",
+      "Fastify/Pi TypeScript SDK/SQLite/WAL/数据卷/SSE及原文/整图/人工审核契约保持",
+      "本轮只做前端基础和已有成果适配，完整S5上传启动模型抽取持久化审核与已审核导出继续待办",
+      "无付费新模型实验"
+    ],
+    "record_role": "superseded_history_only_not_current_work"
+  },
+  "latest_cleanup_user_exact_quote": "那将该“提前准备完整参考答案”的部分删除即可",
+  "cleanup_is_completion_of_previously_cancelled_requirement": true
+}

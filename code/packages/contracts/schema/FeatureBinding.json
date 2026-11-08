@@ -1,0 +1,60 @@
+{
+  "title": "FeatureBinding",
+  "type": "object",
+  "required": [
+    "binding_id",
+    "feature_id",
+    "cancer_ids",
+    "image_type_ids",
+    "sequence_or_phase_conditions",
+    "source",
+    "version"
+  ],
+  "properties": {
+    "binding_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "feature_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "cancer_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "uniqueItems": true
+    },
+    "image_type_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "uniqueItems": true
+    },
+    "sequence_or_phase_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    }
+  },
+  "additionalProperties": false
+}

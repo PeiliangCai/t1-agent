@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-11-02T14:00:06.484241+00:00",
+  "updated_at": "2026-11-02T14:00:07.759561+00:00",
+  "checks": [
+    {
+      "name": "export-contracts",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:export-contracts"
+      ],
+      "started_at": "2026-11-02T14:00:06.484241+00:00",
+      "finished_at": "2026-11-02T14:00:06.886941+00:00",
+      "duration_seconds": 0.403,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/export-contracts.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "check",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "check"
+      ],
+      "started_at": "2026-11-02T14:00:06.887199+00:00",
+      "finished_at": "2026-11-02T14:00:07.759455+00:00",
+      "duration_seconds": 0.872,
+      "exit_code": 1,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": false,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/check.log",
+      "real_api_calls": 0
+    }
+  ],
+  "all_expected_behaviors_passed": false,
+  "real_api_calls": 0,
+  "medical_quality_measured": false,
+  "S2_stage_passed": false
+}

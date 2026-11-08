@@ -1,0 +1,3221 @@
+{
+  "schema_version": "feedback-real-revalidation-audit-1",
+  "finalized_at": "2026-11-05T08:11:23.936Z",
+  "batch_id": "comparison-7aa93a47-ea59-4d36-807e-f5ff92ef52bd",
+  "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+  "runtime_sources_unchanged": 52,
+  "original_protected_files_unchanged": 34,
+  "source_evidence_unit_version": "literal-source-sentences-1",
+  "new_accounting": {
+    "physical_requests": 216,
+    "settled_requests": 216,
+    "input_tokens_including_cache_and_missing_usage_reservation": 1750064,
+    "output_tokens_including_reasoning_and_missing_usage_reservation": 59428,
+    "cache_read_tokens_included_in_input": 640367,
+    "reasoning_tokens_subset_already_in_output": 38428,
+    "missing_usage_requests": 0,
+    "response_model_status_counts": {
+      "matched": 216
+    },
+    "total_is_not_sum_of_method_rows": true,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "usage_totals": {
+    "requests": 117,
+    "input_tokens": 1050719,
+    "output_tokens": 30185,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "shared_usage_totals": {
+    "requests": 216,
+    "input_tokens": 1750064,
+    "output_tokens": 59428,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "round_started_with": {
+    "requests": 99,
+    "input_tokens": 699345,
+    "output_tokens": 29243,
+    "conservative_missing_usage_requests": 0,
+    "elapsed_seconds": 2505.002
+  },
+  "jobs": [
+    {
+      "job_id": "L01-B0",
+      "document_id": "L01",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 139.10289699700002,
+          "candidate_count": 2,
+          "requests": 15,
+          "input_tokens": 85164,
+          "output_tokens": 3782,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "73ced794a6b1ab45733d457527e339a7e3406c1d0c12f18597852e3037872fd9"
+        }
+      ],
+      "requests": 15,
+      "input_tokens": 85164,
+      "output_tokens": 3782,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/delivery.json",
+      "seconds": 139.10289699700002,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "81c39b235e5a81272edac101b9dc989c39df8915139cbdf75998bda7fce49265",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "L01-F",
+      "document_id": "L01",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 282.832082757,
+          "candidate_count": 2,
+          "requests": 17,
+          "input_tokens": 123536,
+          "output_tokens": 4507,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "4585c0197402f00fea4ee367b02d95308c80c7c650192b254025bd3a73af7a35"
+        }
+      ],
+      "requests": 17,
+      "input_tokens": 123536,
+      "output_tokens": 4507,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/delivery.json",
+      "seconds": 282.832082757,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "L01-R",
+      "document_id": "L01",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": false,
+      "reused_from_job_id": "L01-F",
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [],
+      "requests": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "representative_measurement": {
+        "requests": 17,
+        "input_tokens": 123536,
+        "output_tokens": 4507,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "seconds": 282.832082757
+      },
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "outcome_reason": "离线等价输入复用F最终实际产物；0新增调用不是零成本策略收益，非独立证据。",
+      "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927"
+    },
+    {
+      "job_id": "L05-B0",
+      "document_id": "L05",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+          "state": "partial",
+          "error": {
+            "type": "ContractError",
+            "code": "whole_document_summary_incomplete"
+          },
+          "seconds": 505.97817499100006,
+          "candidate_count": 3,
+          "requests": 33,
+          "input_tokens": 415093,
+          "output_tokens": 9286,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "a7064a1fb168312dda11f50cc70ecf04181ee497b23d501292f3bf09d338c8c2"
+        }
+      ],
+      "requests": 33,
+      "input_tokens": 415093,
+      "output_tokens": 9286,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/delivery.json",
+      "seconds": 505.97817499100006,
+      "summary_complete": false,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "whole_document_summary_incomplete；保留实际3条候选、失败链和全部耗费，不当汇总完成或质量通过。",
+      "notes": [
+        "汇总15响应中1次候选上下文读取、5次提交失败、11次源补读（2次错误），读源union615块/10页；未保存逐次参数，不能证明完全相同请求重复。",
+        "达到既有application_context_estimate_limit，汇总未完成；不提高限制、不追加新优化。",
+        "AAH主原文出现2条完全相同记录，全部保留；不能算两条有效描述。"
+      ],
+      "summary_diagnostic_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "317b0bbfc026a250cf9c0182977e923b13ecdfa57aa5c35f8758a257674691d3",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "L05-F",
+      "document_id": "L05",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 1,
+      "delivered_count": 1,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/result.json",
+          "state": "partial",
+          "error": {
+            "type": "ContractError",
+            "code": "model_tool_protocol_diagnostic_pause"
+          },
+          "seconds": 102.21972520799993,
+          "candidate_count": 1,
+          "requests": 7,
+          "input_tokens": 51652,
+          "output_tokens": 3437,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "a0b165978a567d03d32d1f83bd749d6f3c11fae95d42ed624d59bdbf7d5abc64",
+          "partial_records": [
+            {
+              "record_id": "ev-7db8040f75c69b00452ca5e93c46367fa6229c8f",
+              "record_version": 1,
+              "document_id": "L05",
+              "job_id": "L05-F",
+              "source_record_sha256": "fd538dd1644952de0a418f1a47a9ea9eaf41241d222a4ae0265ff2b1392c7aee",
+              "text_fingerprint": "172e12e42d815c87355b9254b5cfa88b364e787511ef5a47652eb5924e6b7e73",
+              "delivery_fingerprint": "a4dc591a5a44f5b90c70c3270f5c967af193adc662ec97add4f5748f550b9f0c",
+              "actual_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/delivery.json",
+              "original_groups": [
+                {
+                  "group_id": "su-000041-g1",
+                  "kind": "sentence",
+                  "source_type": "body",
+                  "segments": [
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000006",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 96,
+                      "end": 119,
+                      "exact_quote": " According to the clas-",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098693000004,
+                        70.884178711,
+                        544.20611578064,
+                        79.39413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    },
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000007",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 0,
+                      "end": 115,
+                      "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098692999975,
+                        83.384178711,
+                        544.07009866439,
+                        91.89413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    },
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000008",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 0,
+                      "end": 81,
+                      "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098692999975,
+                        95.884178711,
+                        544.1960986910894,
+                        104.39413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    }
+                  ],
+                  "display_joiner": "\n",
+                  "completeness": "complete",
+                  "boundary_reasons": [],
+                  "missing_source_spans": []
+                }
+              ],
+              "context_groups": [],
+              "figure_ids": [],
+              "figure_association": {
+                "status": "no_explicit_reference",
+                "figure_ids": [],
+                "proposed_figure_ids": [],
+                "exact_markers": [],
+                "reasons": [
+                  "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "review_status": "needs_context",
+              "automatic_checks": [
+                {
+                  "code": "partial_failed_attempt_retained",
+                  "status": "pending",
+                  "detail": "失败尝试已实际保存的候选，原样保留；不与最终路径合计为有效描述，不继承核验。"
+                }
+              ],
+              "human_approved": false,
+              "product_export_approved": false
+            }
+          ]
+        },
+        {
+          "attempt": 1,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+          "state": "partial",
+          "error": null,
+          "candidate_count": 1,
+          "seconds": 228.59091387799998,
+          "requests": 18,
+          "input_tokens": 111782,
+          "output_tokens": 2463,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/retry-report.json",
+          "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+          "result_sha256": "5ef42aeb924d44edef5484dec145cd022f42c637e84c3ae12be0696c21e7e66c"
+        }
+      ],
+      "requests": 25,
+      "input_tokens": 163434,
+      "output_tokens": 5900,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/delivery.json",
+      "seconds": 330.8106390859999,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "222bb49d95bd938563203f4082fb2eb02d16f85f8822177c7eb28ce3c897a8ed",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "L05-R",
+      "document_id": "L05",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 361.6846975770001,
+          "candidate_count": 3,
+          "requests": 27,
+          "input_tokens": 263492,
+          "output_tokens": 6710,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "60e50232ef7a4c88c7a5f0bac22b23005e060fc82db9272e6b9d8c2009990db1"
+        }
+      ],
+      "requests": 27,
+      "input_tokens": 263492,
+      "output_tokens": 6710,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/delivery.json",
+      "seconds": 361.6846975770001,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "eb6ef4f13dfadd9c339a86b5268f2a432e2602a3bc8bf81a06400a38f79f9605",
+      "medical_quality_approved": false
+    }
+  ],
+  "automatic_audits": [
+    {
+      "job_id": "L01-B0",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+      "actual_delivery_sha256": "28a31f02efab9f573636dcca483999087f8e98585a676b858d39557a364ece55",
+      "bound_source_and_actual_delivery_passed": true,
+      "primary_table_records": 0,
+      "incomplete_primary_statements": 0,
+      "supporting_table_records": 0,
+      "parser_status": "partial",
+      "candidate_count": 2,
+      "error": null,
+      "source_processing_complete": true,
+      "summary_complete": true,
+      "semantic_review_notes": [],
+      "diagnostics": []
+    },
+    {
+      "job_id": "L01-F",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+      "actual_delivery_sha256": "26862acd58b615ec79007999b60252fff8492ca0a7f3b6ef5b116ff54febd912",
+      "bound_source_and_actual_delivery_passed": true,
+      "primary_table_records": 0,
+      "incomplete_primary_statements": 0,
+      "supporting_table_records": 0,
+      "parser_status": "partial",
+      "candidate_count": 2,
+      "error": null,
+      "source_processing_complete": true,
+      "summary_complete": true,
+      "semantic_review_notes": [],
+      "diagnostics": []
+    },
+    {
+      "job_id": "L05-B0",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+      "actual_delivery_sha256": "3173849dfdd90a6d710c97442348eeaf9e0f1622c83b1c86b0fdad876bcde5d7",
+      "bound_source_and_actual_delivery_passed": true,
+      "primary_table_records": 0,
+      "incomplete_primary_statements": 0,
+      "supporting_table_records": 0,
+      "parser_status": "partial",
+      "candidate_count": 3,
+      "error": {
+        "type": "ContractError",
+        "code": "whole_document_summary_incomplete"
+      },
+      "source_processing_complete": true,
+      "summary_complete": false,
+      "semantic_review_notes": [
+        "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+      ],
+      "diagnostics": []
+    },
+    {
+      "job_id": "L05-F",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+      "actual_delivery_sha256": "48a379586fda8f27ef59c67ec4e7939fb69ab79ee203c261335c66c310b0ccfd",
+      "bound_source_and_actual_delivery_passed": true,
+      "primary_table_records": 0,
+      "incomplete_primary_statements": 0,
+      "supporting_table_records": 0,
+      "parser_status": "partial",
+      "candidate_count": 1,
+      "error": null,
+      "source_processing_complete": true,
+      "summary_complete": true,
+      "semantic_review_notes": [],
+      "diagnostics": []
+    },
+    {
+      "job_id": "L05-R",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+      "actual_delivery_sha256": "a2e957646a8ac293ebd9f0eb74462f9c8c19da308bdc222881888517298be920",
+      "bound_source_and_actual_delivery_passed": true,
+      "primary_table_records": 0,
+      "incomplete_primary_statements": 0,
+      "supporting_table_records": 0,
+      "parser_status": "partial",
+      "candidate_count": 3,
+      "error": null,
+      "source_processing_complete": true,
+      "summary_complete": true,
+      "semantic_review_notes": [
+        "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+      ],
+      "diagnostics": []
+    }
+  ],
+  "issues": [
+    {
+      "old_item_id": "S01",
+      "old_note": "该样本中提取的是表格中的一些文字，与预期的有一些偏差。预期目标期望的是抽取论文中的“语句”段落中的对肿瘤图像特征的文本描述。当前表格其实不属于这一类。我觉得不应该单独提取表格中的文本描述，应该是有一个“语句”中对肿瘤图像特征进行了描述，然后该描述对特征的描述中有一些具体的值之类的数字等是引用的表格中的具体数字，那么这种情况下才需要去表格中把具体的特征值取出来。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000125-g1",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000004",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "CT 特征",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                116.4292,
+                88.9867999999999,
+                144.6519,
+                95.84613846153843
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000126-g2",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000005",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 9,
+              "exact_quote": "有效组（n=31）",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                229.4826,
+                88.9867999999999,
+                285.4826,
+                95.87211769305964
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000127-g3",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000006",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 9,
+              "exact_quote": "无效组（n=19）",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                324.9968,
+                88.9867999999999,
+                380.9968,
+                95.87211769305964
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000176-g4",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000053",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 9,
+              "exact_quote": "钙化（有/无）/例",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                95.5405,
+                218.54489999999998,
+                165.5405,
+                224.91509790454018
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000177-g5",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000054",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "10/21",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                235.1759,
+                218.54489999999998,
+                255.1759,
+                224.91509790454018
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000178-g6",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000055",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 4,
+              "exact_quote": "9/10",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                334.6237,
+                218.54489999999998,
+                350.6237,
+                224.91509790454018
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000179-g7",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000056",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "1.142",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                432.05,
+                218.54489999999998,
+                452.05,
+                224.91509790454018
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000180-g8",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000057",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "0.285",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                512.137,
+                218.54489999999998,
+                532.137,
+                224.91509790454018
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-699bda01eeda34e307af246344b74f829c6cae2d",
+          "record_version": 1,
+          "source_record_sha256": "8f94a36a3fe8075c468608b720c75fda6a6eded29da7bc7cc8fda5d7110ea4e6",
+          "text_fingerprint": "9ec6fa023f1c81ee270608bb50e9ddc5d513f9dbbac0717a8223ab7c72899ac8",
+          "delivery_fingerprint": "d029ab782d081fcc5dfbf90e2d3c47cff924f2321067c66a6a07fcdbfc824d15",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "本轮最终五唯一产物机械识别的独立表格主记录共0；不推断表格数值行列语义归属。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S02",
+      "old_note": "表格中的文本和值",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000125-g1",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000004",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "CT 特征",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                116.4292,
+                88.9867999999999,
+                144.6519,
+                95.84613846153843
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000126-g2",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000005",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 9,
+              "exact_quote": "有效组（n=31）",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                229.4826,
+                88.9867999999999,
+                285.4826,
+                95.87211769305964
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000127-g3",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000006",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 9,
+              "exact_quote": "无效组（n=19）",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                324.9968,
+                88.9867999999999,
+                380.9968,
+                95.87211769305964
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000181-g4",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000058",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 14,
+              "exact_quote": "肿瘤内血管穿行（有/无）/例",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                75.5405,
+                231.3795,
+                185.5405,
+                237.7496979045402
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000182-g5",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000059",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "13/18",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                235.1759,
+                231.3795,
+                255.1759,
+                237.7496979045402
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000183-g6",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000060",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 4,
+              "exact_quote": "4/15",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                334.6237,
+                231.3795,
+                350.6237,
+                237.7496979045402
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000184-g7",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000061",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "2.289",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                432.05,
+                231.3795,
+                452.05,
+                237.7496979045402
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000185-g8",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000062",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "0.130",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                512.137,
+                231.3795,
+                532.137,
+                237.7496979045402
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-cf6c0db3be6834d7f46feabc76713a370f4d966e",
+          "record_version": 1,
+          "source_record_sha256": "c9f39d362ed7cf004f7c482c29ec3b2e13b4b1b860a66e22404b6fb6cc9e1d59",
+          "text_fingerprint": "b3dadce66a0ed1b5cb05fbb8c6e51e7880e3e99c490d83c491f27e91e5e4575c",
+          "delivery_fingerprint": "4ef2184693052676acee234501e924bc84be1f85ad44441b728df304af190564",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "本轮最终五唯一产物机械识别的独立表格主记录共0；不推断表格数值行列语义归属。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S03",
+      "old_note": "当前提取的样本，我觉得是一种一般性的特征表述，并不是针对某一张具体的医学影像的特征描述。这一类描述可以提取。\n我发现一个独立片段是一行内容，一句话可能会被截断，我想知道为什么不能以一个完整的句子作为一个独立片段呢？以一行内容作为一个独立片段的粒度有些太小了，这一点我觉得需要调整。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000225-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                70.8661,
+                654.0134999999999,
+                297.68030000000016,
+                662.587673076923
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                669.0767,
+                297.6726,
+                677.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000226-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 25,
+              "end": 29,
+              "exact_quote": "肺癌出现",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                699.0767,
+                302.63359999999983,
+                707.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 22,
+              "exact_quote": "其供血血管的基本形态学发生改变 [23] 。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                712.10038,
+                225.1836,
+                722.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-c5a3c0030c3d4eff3280be7e92376fc28f509234",
+          "record_version": 1,
+          "source_record_sha256": "86c06e3071e823ae4548f635cfcf067d1a83b9d1275025f084c822127082e631",
+          "text_fingerprint": "44b3fb7c8ba118556c83526937fda4059346b554a7f5806d0d08e46919e3d79a",
+          "delivery_fingerprint": "5d43e5e374b89e1007e1c95d171802e98a200de599973dd22c1a402576c67a61",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [
+        "ev-72ea454de9631813b8294380ca49ab20f9a2963e",
+        "ev-26d92e790647b0d9f0fff2381dde2ae8f811302f"
+      ],
+      "source_links": [
+        {
+          "record_id": "ev-72ea454de9631813b8294380ca49ab20f9a2963e",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        },
+        {
+          "record_id": "ev-26d92e790647b0d9f0fff2381dde2ae8f811302f",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        }
+      ],
+      "relation": "source_overlap_only",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "一般形态定义并未要求具体病例/图片；原not_like与允许提取备注均保留。新抽取的句范围逐条展示，不声称覆盖所有一般定义。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S06",
+      "old_note": "是研究结论，而不是对医学图像特征的直接描述。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000224-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000111",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "本研究显示，在接受联合化疗及免疫治疗的肺癌患者中，",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                609.0767,
+                297.6376,
+                617.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000112",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "影像征象与疗效具有相关性，其中血管征的出现是一个",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                624.0767,
+                297.6236000000001,
+                632.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000113",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 4,
+              "exact_quote": "自变量。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                639.0767,
+                91.0236,
+                647.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L01-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-87b7d5cbaeff725df532439dbf59865fbcf14e9d",
+          "record_version": 2,
+          "source_record_sha256": "d08bd804a3376653f97e0fe85e7f85d61626758cf69ba9d6434b72bcf07b2e30",
+          "text_fingerprint": "e63350cf8ff25ff9ac6ffa48a8c0d93bae70f38ecdc1a50397ce8f9e818f9f40",
+          "delivery_fingerprint": "10cbc3d3ae7d9a3cdd68188b67def6babb4d8a11eeefb38d6f4f6ef01b7751ff",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "纯结论、评估清单、实验设置不能仅凭视觉术语当形态描述；当前含测量/诊断关联的新句仍显式待核，不声称全部语义已排除。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S09",
+      "old_note": "提取的内容缺失，当前提取出来的原文片段是图片的“Figure Caption”，但图片下方还有“Figure Note”未被抽取。我觉得这个“Figure Note”则是对图像特征的描述，应该也需要被提取出来。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000120-g1",
+          "kind": "paragraph_fragment",
+          "source_type": "figure_caption",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 20,
+              "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                228.7417,
+                760.5129,
+                383.54169999999965,
+                767.0164622817229
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "sentence_end_unverified"
+          ],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-18a71bf739b2026921372f3048cbde481887f8ab",
+          "record_version": 1,
+          "source_record_sha256": "380c0f237017de221e06247cb33d168249815ce57707ae9d5c40cca79c76b56b",
+          "text_fingerprint": "1d91e68c27f383149474053807319ee9dbfde7d50d21da14f23132a16a30162a",
+          "delivery_fingerprint": "22cab5706a47dbb678b0406295bd3a52fe57aeeba49b6f239b38270657025c20",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [
+        "ev-3108898b27124e70e58261835b39a568c966e130",
+        "ev-d5f351672be573d2ee87d9658610740c58ee62ce"
+      ],
+      "source_links": [
+        {
+          "record_id": "ev-3108898b27124e70e58261835b39a568c966e130",
+          "primary_source_overlap": false,
+          "context_source_overlap": true
+        },
+        {
+          "record_id": "ev-d5f351672be573d2ee87d9658610740c58ee62ce",
+          "primary_source_overlap": false,
+          "context_source_overlap": true
+        }
+      ],
+      "relation": "source_overlap_only",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "旧Note原已在IR/其他候选出现；新L01 Figure1目录按原span保留Note与Caption，图资产像素未改。是否被新模型实际提取按新记录显示。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S11",
+      "old_note": "独立片段1是讲述评估人员设置。独立片段2是讲述图像的类型。独立片段3~8是讲述医学影像中需要评估的特征。均与具体的图像特征描述无关。\n必要上下文的内容也不是完整句子，而是被截断的内容，不过其倒是可以补充图像的一些信息，虽然说不是对图像特征的描述，但是其给出的图像来源患者的情况，这种信息我觉得还是有价值的。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L01",
+      "old_original_groups": [
+        {
+          "group_id": "su-000055-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000032",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "定性和定量的 CT 图像由两位放射学家独立评估（分",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                70.8662,
+                495.95679999999993,
+                297.6379,
+                504.53097307692303
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000033",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 35
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000034",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 6
+            }
+          ]
+        },
+        {
+          "group_id": "su-000057-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000037",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "获得横断位或冠状位、矢状位、最大密度投影等图像，",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                334.4882,
+                72.61999999999989,
+                566.2602,
+                80.58274738067507
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 27,
+              "exact_quote": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                87.15679999999998,
+                561.2486,
+                95.73097307692308
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000039",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 30,
+              "exact_quote": "叶征\" [17] 、团块、不规则形、类圆形）、清晰度（清晰、",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                99.84367999999995,
+                566.2601000000001,
+                109.78274738067512
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000040",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 30,
+              "exact_quote": "欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\" [18] 、",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                114.44367999999997,
+                566.2598,
+                124.38274738067514
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000041",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 29,
+              "exact_quote": "血管征 [19] 、坏死、钙化、血管穿行、支气管征、空洞、",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                129.04368,
+                561.2463999999997,
+                138.98274738067505
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000042",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 29,
+              "exact_quote": "血管、\"胸膜凹陷征\" [20] 、淋巴结肿大、肺内转移、远",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                143.64368000000002,
+                561.2573,
+                153.58274738067507
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000043",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 5,
+              "exact_quote": "处转移等。",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                160.2199999999999,
+                364.6457,
+                168.1827473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [
+        {
+          "group_id": "su-000038-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000068",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 13,
+              "exact_quote": "者均治疗 6 个月及以上。",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                314.6456,
+                642.634,
+                561.2604,
+                651.208173076923
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000067",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 8,
+              "end": 34
+            }
+          ]
+        },
+        {
+          "group_id": "su-000039-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000068",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 13,
+              "end": 32,
+              "exact_quote": "共有 50 例 NSCLC 患者最终纳",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                314.6456,
+                642.634,
+                561.2604,
+                651.208173076923
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000069",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 4
+            }
+          ]
+        }
+      ],
+      "old_source_binding": {
+        "job_id": "L01-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-70f89913675260ff9b985eb228ec1d9e22b762aa",
+          "record_version": 3,
+          "source_record_sha256": "c693eee6025421edc942214e8cb1b5ee6f45930a7cbda444bbb81342decbd1d2",
+          "text_fingerprint": "7b45fcdff6195bb9028eecb07c29ca97ea3bb6aef98a35a0d69d322255aef892",
+          "delivery_fingerprint": "61d51c39d439a5dbbfaf69de5f1716b4d0c3ea99932af6223bcc717798490f7b",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "纯结论、评估清单、实验设置不能仅凭视觉术语当形态描述；当前含测量/诊断关联的新句仍显式待核，不声称全部语义已排除。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S15",
+      "old_note": "提取的内容像是在说实验时需要测量的量、需要分析的特征。并不是对肿瘤医学图像特征的文字描述，而且提取的图像是实验的一个图，而不是肿瘤医学影像，这和预期的完全不符合。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "looks_matched",
+        "risk_notice": null
+      },
+      "document_id": "L05",
+      "old_original_groups": [
+        {
+          "group_id": "su-000182-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000010",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 113,
+              "exact_quote": "groups were subjected to univariate analysis, comparing features such as bronchial inflation signs, bubble signs,",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.01358566099992,
+                559.379814698,
+                544.2635856571806,
+                567.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000011",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 119,
+              "exact_quote": "vascular convergence signs, lobulation signs, spiculation signs, pleural traction signs, CTR > 0.5, and the diameter of",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.01358566099992,
+                571.879814698,
+                544.2726018309996,
+                580.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000012",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 8,
+              "exact_quote": "nodules.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.01361313099994,
+                584.379814698,
+                543.9836131386689,
+                592.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 83,
+              "end": 117
+            }
+          ]
+        },
+        {
+          "group_id": "su-000183-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000012",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 8,
+              "end": 117,
+              "exact_quote": " The results showed significant statistical differences between the two groups in the bronchus inflation sign",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.01361313099994,
+                584.379814698,
+                543.9836131386689,
+                592.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000013",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 124,
+              "exact_quote": "(P < 0.001), vascular convergence sign (P < 0.001), lobulation sign (P < 0.001), spiculation sign (P < 0.001), pleural trac-",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.01361313099994,
+                596.879814698,
+                544.233605791,
+                605.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000014",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 85,
+              "exact_quote": "tion sign (P = 0.001), CTR > 0.5 (P = 0.001), and the diameter of nodule (P < 0.001).",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.003617390999864,
+                609.379814698,
+                544.1616174043596,
+                617.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000184-g3",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000014",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 85,
+              "end": 118,
+              "exact_quote": " These features were incorporated",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.003617390999864,
+                609.379814698,
+                544.1616174043596,
+                617.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000015",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 26,
+              "exact_quote": "into the LASSO regression.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                50.993617390999816,
+                621.879814698,
+                544.2106079209996,
+                630.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000185-g4",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000015",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 26,
+              "end": 104,
+              "exact_quote": " (Fig. 2) The coefficients for the pleural traction sign and CTR > 0.5 were 0.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                50.993617390999816,
+                621.879814698,
+                544.2106079209996,
+                630.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000186-g5",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000015",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 104,
+              "end": 120,
+              "exact_quote": " (Table 3) After",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                50.993617390999816,
+                621.879814698,
+                544.2106079209996,
+                630.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000016",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 114
+            }
+          ]
+        }
+      ],
+      "old_context_groups": [
+        {
+          "group_id": "su-000177-g1",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 51,
+              "exact_quote": "3.2 \u0007Correlation between FS upgrades and CT imaging",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                471.205814698,
+                295.825301526798,
+                480.69308091723934
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "sentence_end_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000178-g2",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000006",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "3.2.1 \u0007Group 1 vs group 2",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                496.87981469799996,
+                151.022601531,
+                505.5216205670745
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "sentence_end_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000179-g3",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000007",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 112,
+              "exact_quote": "Initially, patients were matched 1:2 based on gender, age, body mass index (BMI), and smoking history using pro-",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                521.879814698,
+                544.2535899310001,
+                530.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 45,
+              "exact_quote": "pensity scores to reduce confounding factors.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                534.379814698,
+                544.5426015443712,
+                542.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000180-g4",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 45,
+              "end": 110,
+              "exact_quote": " After matching, Group 1 included 211 cases, and Group 2 included",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                534.379814698,
+                544.5426015443712,
+                542.8897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 10,
+              "exact_quote": "121 cases.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                546.879814698,
+                544.2325856629096,
+                555.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000181-g5",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 10,
+              "end": 83,
+              "exact_quote": " There was no significant difference in the four features after matching.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                546.879814698,
+                544.2325856629096,
+                555.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000182-g6",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 83,
+              "end": 117,
+              "exact_quote": " (Table 2) After matching, the two",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                546.879814698,
+                544.2325856629096,
+                555.3897726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000010",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 113
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000011",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 119
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000012",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 8
+            }
+          ]
+        }
+      ],
+      "old_source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-e46bead5526dd1d8aec9dde20a1760e24a152c76",
+          "record_version": 1,
+          "source_record_sha256": "02b3409e34aa9c9695c6684a8d3abe2f7606205970a6acd35564b414b8285278",
+          "text_fingerprint": "029b4b96d0e1a522679029adecae83aef793a28491e7e451eb7d9daf3c6b25b5",
+          "delivery_fingerprint": "14a40c9f9c81fe78a6c7961130fe58cbc27a381b06cca5efc4025c9c8a495e03",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "L05图2原图注明确LASSO实验用途；旧looks_matched不转为医学配图批准。当前实验图/医学用途仍待核。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S16",
+      "old_note": "是从表格中提取的某一行的内容，这和预期要求的对肿瘤医学图像特征的文字描述不一致。虽然说这个值确确实实是人体内某些量的测量值，甚至可能是用于判断肿瘤情况的一些特征，但和预期的确实也不符。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L05",
+      "old_original_groups": [
+        {
+          "group_id": "su-000459-g1",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000092",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 27,
+              "exact_quote": "Vascular convergence sign N",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                170.07189947050006,
+                247.02431542999943,
+                284.0738970055001,
+                254.2577797157138
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "native_source_mapping_unverified",
+            "sentence_start_unverified",
+            "source_unit_boundary_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000460-g2",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000093",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 10,
+              "exact_quote": "33 (25.8%)",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                322.7233970055001,
+                247.02431542999943,
+                359.6473970055001,
+                254.2577797157138
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000461-g3",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000094",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 10,
+              "exact_quote": "58 (15.6%)",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                384.5098970055001,
+                247.02431542999943,
+                421.4338970055001,
+                254.2577797157138
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000462-g4",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000095",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 12,
+              "exact_quote": "0.010* 0.852",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                446.5598970055001,
+                247.02431542999943,
+                498.8348970055001,
+                254.2577797157138
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "native_source_mapping_unverified",
+            "sentence_start_unverified",
+            "source_unit_boundary_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000463-g5",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000096",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 1,
+              "exact_quote": "/",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                524.5388970055001,
+                247.02431542999943,
+                527.4543970055,
+                254.2577797157138
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000464-g6",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000097",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 1,
+              "exact_quote": "Y",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                278.4808970055001,
+                259.5023154299994,
+                283.0793970055001,
+                266.73577971571376
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "native_source_mapping_unverified",
+            "sentence_start_unverified",
+            "source_unit_boundary_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000465-g7",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000098",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 10,
+              "exact_quote": "95 (74.2%)",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                322.7233970055001,
+                259.5023154299994,
+                359.6473970055001,
+                266.73577971571376
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000466-g8",
+          "kind": "table_cell",
+          "source_type": "table",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000099",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 11,
+              "exact_quote": "314 (84.4%)",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                380.1493970055001,
+                259.5023154299994,
+                421.4338970055001,
+                266.73577971571376
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "table_is_supporting_evidence_only"
+          ],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-3cbe88e880428b0a9288183e29a0a54d675f6d39",
+          "record_version": 3,
+          "source_record_sha256": "9832e2dea46ead86398f0b1a0fbd2a93665e430781e7e2ee22f2b6bec8f1a2ec",
+          "text_fingerprint": "eb5878f95b9b72ba58ea106e6d6f5f81b993565603e15444d0f6d1b9ce1cf5ff",
+          "delivery_fingerprint": "ff514cd1754143493665e700836e2ea3699d4e0ab0eec3a35b881634117a173e",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "本轮最终五唯一产物机械识别的独立表格主记录共0；不推断表格数值行列语义归属。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S18",
+      "old_note": "独立片段2的前半部分内容就像是对肿瘤医学特征的文字描述，虽然没有对应具体的某一张图而且截取的片段不完整，缺少了前半部分。而独立片段1的则是一种分类标准，是一般性的结论。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L05",
+      "old_original_groups": [
+        {
+          "group_id": "su-000041-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000007",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 115,
+              "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                83.384178711,
+                544.07009866439,
+                91.89413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 81,
+              "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                95.884178711,
+                544.1960986910894,
+                104.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000006",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 96,
+              "end": 119
+            }
+          ]
+        },
+        {
+          "group_id": "su-000042-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 81,
+              "end": 111,
+              "exact_quote": " Some studies suggest that the",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                95.884178711,
+                544.1960986910894,
+                104.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "incomplete",
+          "boundary_reasons": [
+            "selected_source_statement_incomplete"
+          ],
+          "missing_source_spans": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 87
+            }
+          ]
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L05-B0",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-a1d8574e0281f63e0c7b73ffaaf855b9141082a3",
+          "record_version": 1,
+          "source_record_sha256": "5443f3c5ab7d662e530e4880b15e084bd3f9283df74511456f05b41034be4a7c",
+          "text_fingerprint": "712b3f5346aae887923b3edd25dff3a0283eb38cf9c3a5addf2f12d676d42f58",
+          "delivery_fingerprint": "560a6b7e198ece2fbfe8b975f09c36be9a930b7159c0020a659a5ab035f2bda2",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [
+        "ev-16c328b29c2e257921ff5ac422a7c76550d98d4b",
+        "ev-8898c485e23592d93368ed1b92714d7f6d1ef70c",
+        "ev-f87f0c694fcafebfa1ca0d78c3b4ece5d5486241",
+        "ev-4e7337abb73f0bb243a243ae8a7c0101e86fefb1",
+        "ev-ceaa62fd9091b3ea6dfaea03e7dfee97b2313a80"
+      ],
+      "source_links": [
+        {
+          "record_id": "ev-16c328b29c2e257921ff5ac422a7c76550d98d4b",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        },
+        {
+          "record_id": "ev-8898c485e23592d93368ed1b92714d7f6d1ef70c",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        },
+        {
+          "record_id": "ev-f87f0c694fcafebfa1ca0d78c3b4ece5d5486241",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        },
+        {
+          "record_id": "ev-4e7337abb73f0bb243a243ae8a7c0101e86fefb1",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        },
+        {
+          "record_id": "ev-ceaa62fd9091b3ea6dfaea03e7dfee97b2313a80",
+          "primary_source_overlap": true,
+          "context_source_overlap": false
+        }
+      ],
+      "relation": "source_overlap_only",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "完整源句应保留分类语境及<5mm尺寸；已知缺句不补进旧记录，新记录按原始完整span展示。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S20",
+      "old_note": "这是对两组实验的特征的一个比较，虽然说应该是具体图像中的特征值，但是和期望的肿瘤医学图像特征描述还是有区别。",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "looks_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L05",
+      "old_original_groups": [
+        {
+          "group_id": "su-000177-g1",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 51,
+              "exact_quote": "3.2 \u0007Correlation between FS upgrades and CT imaging",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.023601531,
+                471.205814698,
+                295.825301526798,
+                480.69308091723934
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "sentence_end_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000258-g2",
+          "kind": "paragraph_fragment",
+          "source_type": "unknown",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "3.2.2 \u0007Group 2 vs group 3",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.023601531,
+                508.62981469799996,
+                151.022601531,
+                517.2716205670745
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "unverified",
+          "boundary_reasons": [
+            "sentence_end_unverified"
+          ],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000259-g3",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000006",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 122,
+              "exact_quote": "When comparing the features between Group 2 and Group 3, the results revealed statistically significant differences in the",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.023601531,
+                533.629814698,
+                544.1456015329101,
+                542.1397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000007",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 128,
+              "exact_quote": "signs of bronchial inflation sign (P < 0.001), vascular convergence sign (P = 0.010), lobulation sign (P < 0.001), pleural trac-",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.023601531,
+                546.129814698,
+                544.233600461,
+                554.6397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 108,
+              "exact_quote": "tion sign (P = 0.003), CTR > 0.5 (P < 0.001), and the diameter of nodule (P < 0.001) between the two groups.",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.003612060999956,
+                558.629814698,
+                544.3086105710299,
+                567.1397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000260-g4",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000008",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 108,
+              "end": 123,
+              "exact_quote": " These features",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.003612060999956,
+                558.629814698,
+                544.3086105710299,
+                567.1397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000009",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 120,
+              "exact_quote": "were included in the binary logistic regression, and ultimately, CTR > 0.5 and the diameter of nodule were identified as",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.0136105709999,
+                571.129814698,
+                544.1846085748205,
+                579.6397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000010",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 58,
+              "exact_quote": "independent risk factors for underestimating IAC patients.",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.01360964099996,
+                583.629814698,
+                544.2096021610008,
+                592.1397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000261-g5",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000010",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 58,
+              "end": 120,
+              "exact_quote": " CTR ≤ 0.5 and smaller nodule diameter are associated with the",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.01360964099996,
+                583.629814698,
+                544.2096021610008,
+                592.1397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000011",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 29,
+              "exact_quote": "underestimation of IAC in FS.",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.00360216100006,
+                596.129814698,
+                544.2236158910001,
+                604.6397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000262-g6",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000011",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 29,
+              "end": 109,
+              "exact_quote": " The AUC for the diameter of nodule was 0.681, with a cut-off value of 12.55 mm.",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.00360216100006,
+                596.129814698,
+                544.2236158910001,
+                604.6397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000263-g7",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000011",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 109,
+              "end": 120,
+              "exact_quote": " (Table 4).",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.00360216100006,
+                596.129814698,
+                544.2236158910001,
+                604.6397726811932
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-a24e0a1ca594935282ade5f25da3875698c4c3a2",
+          "record_version": 2,
+          "source_record_sha256": "d4a835a526c8135c218513c9550bdd0e2b547b0c623c2cc884b7af1dc5147639",
+          "text_fingerprint": "9bb9613898fc5bba4f45a1e14b8f1f007d77a0e7f8616fa5a7430240991adaa9",
+          "delivery_fingerprint": "de1c11d7e2357ec712e431774adec9be1ae63a8fc65c993d03175678cf648ba0",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "纯结论、评估清单、实验设置不能仅凭视觉术语当形态描述；当前含测量/诊断关联的新句仍显式待核，不声称全部语义已排除。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    },
+    {
+      "old_item_id": "S21",
+      "old_note": "截取的内容是实验设置",
+      "old_answers": {
+        "text_match": "found",
+        "image_description": "not_like",
+        "figure_match": "not_checked",
+        "risk_notice": null
+      },
+      "document_id": "L05",
+      "old_original_groups": [
+        {
+          "group_id": "su-000361-g1",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 74,
+              "exact_quote": "We focused our study on nodules posing diagnostic and surgical challenges.",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                51.023601531,
+                420.922813965,
+                544.2535899310001,
+                429.43277194819325
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000362-g2",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 74,
+              "end": 109,
+              "exact_quote": " Therefore, we excluded a consider-",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                51.023601531,
+                420.922813965,
+                544.2535899310001,
+                429.43277194819325
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000006",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 93,
+              "exact_quote": "able number of nodules with a diameter > 3 cm or pure solid nodules during subject selection.",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                51.023601531,
+                433.422813965,
+                544.0896004571796,
+                441.93277194819325
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        },
+        {
+          "group_id": "su-000363-g3",
+          "kind": "sentence",
+          "source_type": "body",
+          "segments": [
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000006",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 93,
+              "end": 113,
+              "exact_quote": " Due to their higher",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                51.023601531,
+                433.422813965,
+                544.0896004571796,
+                441.93277194819325
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0007-l000007",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 112,
+              "exact_quote": "malignancy, these nodules are more likely to be diagnosed as IAC during FS, thus enhancing the overall accuracy.",
+              "occurrence": 0,
+              "physical_page": 7,
+              "bbox": [
+                51.02360184099999,
+                445.922813965,
+                543.99260184864,
+                454.43277194819325
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "completeness": "complete",
+          "boundary_reasons": [],
+          "missing_source_spans": []
+        }
+      ],
+      "old_context_groups": [],
+      "old_source_binding": {
+        "job_id": "L05-F",
+        "version_scope": "original_baseline_current_active_version",
+        "baseline": {
+          "record_id": "ev-b6a8f3271fe3c7aba122c63aea6dc896a264c6d2",
+          "record_version": 1,
+          "source_record_sha256": "6619dfa9c4aabe5bba0c9b08705a337785aadb618dcbedeec60ed7404ca5cf6f",
+          "text_fingerprint": "a6dc834196654c977c284981aee5b5de2857aecee4de34bf452a1052294b14ed",
+          "delivery_fingerprint": "2c87aae32aea84c888654ee7d0fc2230f0cbfefc7e0375f6c137752961aa119b",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f"
+        },
+        "before": null,
+        "after": null
+      },
+      "new_record_ids": [],
+      "source_links": [],
+      "relation": "no_direct_match",
+      "automatic_observations": [
+        "仅原block/码点span重叠建立来源联系，不表示一对一修复、正确率或旧意见继承。",
+        "纯结论、评估清单、实验设置不能仅凭视觉术语当形态描述；当前含测量/诊断关联的新句仍显式待核，不声称全部语义已排除。"
+      ],
+      "old_feedback_inherited": false,
+      "medical_quality_approved": false
+    }
+  ],
+  "F_R_equivalence_checks": [
+    {
+      "document_id": "L01",
+      "F_R_input_digest_equal": true,
+      "all_batch_tool_schemas_context_and_read_views_equal_offline": true,
+      "batch_count": 3,
+      "compared_source": "Actual bound real-paper IR and unchanged 52 production sources; no extra provider call",
+      "F_actual_payload_evidence": [
+        {
+          "request_id": "df27e4af-0443-4dae-9849-20edffd68964",
+          "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+          "payload_bytes": 13446
+        },
+        {
+          "request_id": "d385bbef-55e0-440d-a47b-7f65eb778950",
+          "payload_sha256": "ddda65ad3a51ec739ac2e881100413f8473562ea0402d9e4a35934e0db732b59",
+          "payload_bytes": 14323
+        },
+        {
+          "request_id": "35616ffa-b61a-46ac-9674-bbbe6bd34723",
+          "payload_sha256": "233d02fa672906b3e18a01d7b7b3c9d82a94d579111f6df988a5a57995650e59",
+          "payload_bytes": 55181
+        },
+        {
+          "request_id": "ba61b7d0-e2a2-4bfc-96d4-1076d97885bd",
+          "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+          "payload_bytes": 13446
+        },
+        {
+          "request_id": "73501dcf-cd97-40a6-b63c-34ab3081111e",
+          "payload_sha256": "952e9c13500da7b989a6c8166b1f5a5fa6e1c5c82ad97da7054bfc2399801f6b",
+          "payload_bytes": 14323
+        },
+        {
+          "request_id": "c6d2019a-c6ba-4c6b-aedf-a7a2ef6d7b9a",
+          "payload_sha256": "f7d627aa4748023dfea024d9ccfd22dba412d42f09ece456a128588bf9ab8169",
+          "payload_bytes": 61921
+        },
+        {
+          "request_id": "2dac02e0-ec7b-4b4c-9f30-9c5f8bdbde17",
+          "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+          "payload_bytes": 13446
+        },
+        {
+          "request_id": "ce71e653-257e-42c7-aa5b-d3f3b2495adb",
+          "payload_sha256": "6d5cf14ec2bbe12e9cc7d6b668d8e3ef37645811a597d50626eaf9a5305c8de9",
+          "payload_bytes": 14322
+        },
+        {
+          "request_id": "17d1a749-9ec0-43f9-9f2f-d6c6e30b9ea7",
+          "payload_sha256": "997d5e2fe649c23e2aa6e53fe5f1545d47be3957d3435c2e71be69cb2125de27",
+          "payload_bytes": 51336
+        },
+        {
+          "request_id": "bd32ed84-cb5d-4183-a988-df144c2cd040",
+          "payload_sha256": "966acffe1a534c011881584b38874ce9d614f5df57b9b4c4f4c1190753785c64",
+          "payload_bytes": 13976
+        },
+        {
+          "request_id": "c5b4aa8d-1687-44c2-8b5d-8f1ab2f6d0b3",
+          "payload_sha256": "7883f1bd05aa77176335f0eccb1021876ab9a2e33339f4b99ba15de8afbcfcb2",
+          "payload_bytes": 28850
+        },
+        {
+          "request_id": "5a9d07dc-0546-44db-8899-56bb6f7f8dd1",
+          "payload_sha256": "6ea3f2447f90a0f66b653fd2d4dacae7b33dfed566fca5d214f94e7dc804ca5e",
+          "payload_bytes": 37681
+        },
+        {
+          "request_id": "2258b1a4-bdf0-4a57-a450-379de2b7eb07",
+          "payload_sha256": "e999b0037ce9a062edf91c425542904474ddabb47dcc798cee6408172185588c",
+          "payload_bytes": 41621
+        },
+        {
+          "request_id": "412599b8-9e60-4172-b759-3b25a024c01a",
+          "payload_sha256": "392f9d93ae3f1580fdbfa5ffc4bbb8d1fb9730e5dc547feabc0a9daefd5cb55f",
+          "payload_bytes": 47973
+        },
+        {
+          "request_id": "6803c6ca-c715-4055-a4df-bde0b2db50a4",
+          "payload_sha256": "c5e3c2c10c325d860efdb2d867a22e8fcc643e1343d3b7c5dd51805aae1f9270",
+          "payload_bytes": 54743
+        },
+        {
+          "request_id": "d6e54287-fe81-434a-a618-0b59d78be9b3",
+          "payload_sha256": "ff5b6faef323ed823b694efcc2802d25040ec4fc46655acd8cafe2fd144ebbc8",
+          "payload_bytes": 65945
+        },
+        {
+          "request_id": "0c125e3c-b77d-42f2-8c31-4b18481b6ada",
+          "payload_sha256": "ac70494c04558aec8d314ef4bd27643469f32d518585a1c22bc29a6b93659189",
+          "payload_bytes": 74460
+        }
+      ],
+      "second_independent_R_provider_payload_observed": false,
+      "full_body_replay_claimed": false
+    },
+    {
+      "document_id": "L05",
+      "F_R_input_digest_equal": false,
+      "independent_F_and_R_provider_runs_required": true
+    }
+  ],
+  "original_ledger": {
+    "path": "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+    "sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+    "requests": 189,
+    "unchanged": true
+  },
+  "combined_request_count": 405,
+  "original_wallclock": {
+    "start": "2026-11-05T06:55:03.968Z",
+    "deadline_utc": "2026-11-05T10:55:03.968Z",
+    "limits": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000,
+      "seconds": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    }
+  },
+  "protocol_failure_evidence": "tool-failure-reproduction.json; offline counterfactuals never enter actual outputs",
+  "body_replay_limit": "Ledger preserves real request/response hashes and sizes, not recoverable full HTTP request bodies. F/R equality is checked from bound input, batch/context and frozen model/tool code, not claimed as independently observed second paid output.",
+  "table_support_limit": "Only selected literal headers/values persist; full row/column semantics are not automatically reconstructed or approved.",
+  "business_scope_confirmation": "用户已确认CTR等计算定义仅作必要context、不独立交付；父轮当时待定的实际候选完整保留，子轮仅这一scope prompt变化。小实性成分/诊断低估关联句仍需重点核验。",
+  "multi_change_attribution": "Many corrections changed together. Differences from old outputs cannot be attributed to one factor; counts are not precision/recall or a method winner.",
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "winner": null,
+  "accuracy": null,
+  "recall": null,
+  "old_feedback_inherited": false,
+  "owner_lock_present": false,
+  "unsettled_requests": 0,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3
+}

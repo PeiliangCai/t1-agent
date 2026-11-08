@@ -1,0 +1,158 @@
+{
+  "schema_version": "s4-runtime-validation-summary-4",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T03:42:10.022633+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "post_hard_document_deadline_active_stream_cancellation_affected_tests_only",
+  "runtime_test_count": 6,
+  "runtime_test_inventory_in_file": 36,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/deadline-cancellation-focused-tests.txt",
+  "checks": [
+    {
+      "suite": "hard_document_deadline_and_related_cancellation_budget_checks",
+      "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='document deadline closes|host prompt deadline does not wait|HTTP 200 followed|cancellation after|Pi timeout|concurrent jobs' tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/deadline-cancellation-focused-tests.txt",
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 6,
+  "initial_document_check": {
+    "log": "docs/acceptance/s4/runtime-validation/document-deadline-focused-tests.txt",
+    "tests": 1,
+    "pass": 1,
+    "subset_of_current_checks": true,
+    "note": "Initial proof before adding the related regressions and delayed-SDK-settlement wrapper test; not an additional distinct test."
+  },
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/document-deadline-typecheck.txt"
+  },
+  "full_runtime_or_full_regression_repeated_after_document_deadline_fix": false,
+  "actual_deadline_observation": "docs/acceptance/s4/runtime-validation/document-deadline-observation.json",
+  "actual_delayed_sdk_observation": "docs/acceptance/s4/runtime-validation/delayed-sdk-settlement-observation.json",
+  "new_and_related_runtime_coverage": [
+    "A 600ms document deadline ends a run while the physical request still has its configured 120000ms deadline.",
+    "The latest observed run returned in 609ms; its stalled response was closed by the client 561ms after receipt, before fixture cleanup and without the server fail-safe.",
+    "One committed candidate and one explicitly completed block survive; two missing blocks remain explicit, and reopen restores the partial run and candidate.",
+    "No retry, summary or reconciling stage starts; no later model request or business event appears during a 350ms observation after stopping.",
+    "The interrupted HTTP 200 request retains nonzero conservative input/output reservation and an explicit missing-usage status.",
+    "A delayed SDK-prompt-settlement test wrapper is still pending when the host returns at 501ms for a 500ms deadline; the physical SSE response has already been closed.",
+    "The separate 80ms per-request stalled-SSE deadline, external cancellation and existing Pi timeout regressions still pass.",
+    "Two concurrent jobs sharing the same in-process budget instance cannot both reserve the final input allowance; only one reaches loopback and the other is denied before physical I/O.",
+    "A requested document deadline above the authorized 900000ms maximum is rejected before model network activity."
+  ],
+  "prior_line_index_regression": {
+    "version_scope": "post_host_bound_line_index_v3_affected_tests_and_compact_compatibility_only",
+    "generated_at": "2026-11-03T03:32:23.440219+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop",
+    "total_distinct_tests": 8,
+    "pass": 8,
+    "typecheck_exit_code": 0,
+    "source_snapshot_note": "Original hashes/logs and hash-verified owned test/fixture snapshots are preserved; no historical implementation source was reconstructed."
+  },
+  "prior_compact_regression": {
+    "version_scope": "post_compact_v2_model_tool_protocol_and_nonadjacent_source_warning_affected_tests_only",
+    "generated_at": "2026-11-03T03:22:13.077008+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol",
+    "total_distinct_tests": 29,
+    "pass": 29,
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes are preserved unchanged in the archived summary.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/source-snapshots",
+    "implementation_source_snapshots": "Not captured before the line-index change; no historical implementation source was reconstructed."
+  },
+  "prior_full_regression": {
+    "version_scope": "before_compact_model_tool_protocol",
+    "generated_at": "2026-11-03T03:15:02.582198+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+    "total_distinct_tests": 144,
+    "checks": {
+      "extraction": {
+        "tests": 73,
+        "pass": 73,
+        "fail": 0
+      },
+      "unit": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0
+      },
+      "integration": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0
+      },
+      "parser": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0
+      },
+      "evaluation": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0
+      }
+    },
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+  },
+  "historical_implementation_failures": [
+    {
+      "case": "External cancellation incorrectly emitted a retry event",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Unavailable catalog did not preflight an invalid selected cancer",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Repeated human-protected automatic update created another proposal",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/proposal-idempotency-failure.json",
+      "regression_passed": true
+    }
+  ],
+  "limitations": [
+    "Only these six affected tests and TypeScript checks were run after the hard document-stop change; all 36 runtime cases and the older full suites were not repeated.",
+    "The initial one-test proof is included in the six-test total; the separate historical 8, 29 and 144-test results belong to their archived source versions.",
+    "The delayed SDK-settlement wrapper deliberately simulates delayed promise completion; this agent did not reproduce the real gateway 921-second run or call a paid model.",
+    "The 600ms document and 500ms prompt deadlines exercise supported shorter limits and do not measure real 900-second document latency.",
+    "The concurrent-budget test covers one shared budget instance in one process; it does not establish cross-process or independent-ledger locking.",
+    "The post-stop quiet observation is bounded to 350ms; no indefinite background-liveness guarantee is inferred.",
+    "These are engineering tests, not medical correctness, recall, gold-annotation or billing validation."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "6a69642fb3a4a770f8db6738510029321df8dbd4d4b0868cbdde799267f64aaf",
+    "tests/extraction/fixtures/runtime-responses.ts": "cdda6bc4c02ab99cc51fe46c56048fa0b6d35059d6497061b7339753dac55e2b",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "377b85434ae0429893b0e4e406d706a623eb33da92b39aa79f7f66f01ef0040e",
+    "packages/agent/src/extraction-pi.ts": "793481b3ddfba087661ca75689790c069f1193d5e6d886acdbeb1c386f7066ca",
+    "packages/agent/src/extraction-run.ts": "55dfb8a2f9702721ebec12b8143450117a92af7cb632551873a6632c7c292616",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "5485d9ee8da3ffeac5c0e398bb0600ed97d3481c372a10244176f51721ede6fa",
+    "packages/agent/src/extraction-tools.ts": "8f035cd73512bb552c221e4b77cc2de3334f56b8226a40ca3b37dcd68eb611b1",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/extraction-protocol.ts": "f02821759dee31d03674309ef3575f2300d943e9edb86ece78bf78a3af2df8df"
+  }
+}

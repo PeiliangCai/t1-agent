@@ -1,0 +1,736 @@
+{
+  "schema_version": "s4-model-facing-tool-schema-controls-1",
+  "old_tool_schema_sha256": "b529779ed9edcc13ee338edd467f3f52faeafec9df4099e89f69df949a3b271d",
+  "new_tool_schema_sha256": "ae110a023ec26c75682d1ed3ec12fea9f8d26b3b6666d7b50057691ac8a71d90",
+  "changed_tools": [
+    "report_context_issue"
+  ],
+  "other_tools_unchanged": true,
+  "medical28field_contract_unchanged": true,
+  "batch_protocol": "s4-unified-batch-lines-6",
+  "old": [
+    {
+      "name": "get_document_context",
+      "description": "Get immutable scope, source identity and current assigned batch.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "read_document_blocks",
+      "description": "Read current assigned source lines and boundary context. Call with {} to read the whole batch once. Each line has a stable line_index for this batch; source_line_indices select entire original lines without recopying them. They are whole-line quotes, not minimal feature phrases.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "line_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "maxItems": 256,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "lookup_feature_bindings",
+      "description": "Read the explicit versioned catalog. An unavailable catalog does not restrict open extraction; drafts are never approved.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "submit_candidate_records",
+      "description": "Submit at most THREE candidates. ALL *_line_indices and each medical/numeric line_indices refer directly to the SAME source_lines.line_index table returned by read_document_blocks. There is no per-record renumbering. Host copies original lines and binds identity. No exact_quote/source_fragments/source_indices fields. feature_name_raw must be verbatim or null. Submit as needed; only accepted batch_complete=true completes the batch; records=[] is valid.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "records",
+          "batch_complete"
+        ],
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_line_indices",
+                "feature_name_raw",
+                "feature_category",
+                "evidence_type",
+                "assertion",
+                "origin"
+              ],
+              "properties": {
+                "source_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "minItems": 1,
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "context_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "feature_name_raw": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "feature_category": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "evidence_type": {
+                  "enum": [
+                    "feature_mention",
+                    "definition",
+                    "imaging_observation",
+                    "interpretive_condition",
+                    "association_conclusion"
+                  ]
+                },
+                "disease_or_lesion": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "modality": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sequence_or_phase": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "assertion": {
+                  "enum": [
+                    "affirmed",
+                    "negated",
+                    "uncertain",
+                    "conditional",
+                    "comparative",
+                    "unknown"
+                  ]
+                },
+                "assertion_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "condition_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "provenance_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "origin": {
+                  "enum": [
+                    "study_authors",
+                    "cited_research",
+                    "background_definition",
+                    "unclear"
+                  ]
+                },
+                "cited_references": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "numeric_expressions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "original_text",
+                      "unit_original",
+                      "line_indices"
+                    ],
+                    "properties": {
+                      "original_text": {
+                        "type": "string"
+                      },
+                      "unit_original": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "line_indices": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 255
+                        },
+                        "maxItems": 64,
+                        "uniqueItems": true
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "feature_binding_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "updates_record_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "maxItems": 3
+          },
+          "batch_complete": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "report_context_issue",
+      "description": "Report unresolved context, article attribution, scope or processing questions without inventing an answer.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "reason",
+          "block_ids"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "block_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 256,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "new": [
+    {
+      "name": "get_document_context",
+      "description": "Get immutable scope, source identity and current assigned batch.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "read_document_blocks",
+      "description": "Read current assigned source lines and boundary context. Call with {} to read the whole batch once. Each line has a stable line_index for this batch; source_line_indices select entire original lines without recopying them. They are whole-line quotes, not minimal feature phrases.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "line_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "maxItems": 256,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "lookup_feature_bindings",
+      "description": "Read the explicit versioned catalog. An unavailable catalog does not restrict open extraction; drafts are never approved.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "submit_candidate_records",
+      "description": "Submit at most THREE candidates. ALL *_line_indices and each medical/numeric line_indices refer directly to the SAME source_lines.line_index table returned by read_document_blocks. There is no per-record renumbering. Host copies original lines and binds identity. No exact_quote/source_fragments/source_indices fields. feature_name_raw must be verbatim or null. Submit as needed; only accepted batch_complete=true completes the batch; records=[] is valid.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "records",
+          "batch_complete"
+        ],
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_line_indices",
+                "feature_name_raw",
+                "feature_category",
+                "evidence_type",
+                "assertion",
+                "origin"
+              ],
+              "properties": {
+                "source_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "minItems": 1,
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "context_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "feature_name_raw": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "feature_category": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "evidence_type": {
+                  "enum": [
+                    "feature_mention",
+                    "definition",
+                    "imaging_observation",
+                    "interpretive_condition",
+                    "association_conclusion"
+                  ]
+                },
+                "disease_or_lesion": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "modality": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sequence_or_phase": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "value",
+                        "line_indices"
+                      ],
+                      "properties": {
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "line_indices": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "maxItems": 64,
+                          "uniqueItems": true
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "assertion": {
+                  "enum": [
+                    "affirmed",
+                    "negated",
+                    "uncertain",
+                    "conditional",
+                    "comparative",
+                    "unknown"
+                  ]
+                },
+                "assertion_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "condition_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "provenance_line_indices": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "maxItems": 64,
+                  "uniqueItems": true
+                },
+                "origin": {
+                  "enum": [
+                    "study_authors",
+                    "cited_research",
+                    "background_definition",
+                    "unclear"
+                  ]
+                },
+                "cited_references": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "numeric_expressions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "original_text",
+                      "unit_original",
+                      "line_indices"
+                    ],
+                    "properties": {
+                      "original_text": {
+                        "type": "string"
+                      },
+                      "unit_original": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "line_indices": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 255
+                        },
+                        "maxItems": 64,
+                        "uniqueItems": true
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "feature_binding_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "updates_record_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "maxItems": 3
+          },
+          "batch_complete": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "report_context_issue",
+      "description": "Report unresolved context or table/figure associations. Optional line_indices use the SAME returned source_lines table; omit to bind the assigned batch. This only records a diagnostic, never marks blocks read or extraction complete. No block_ids field exists.",
+      "parameters": {
+        "type": "object",
+        "required": [
+          "reason"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "line_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "maxItems": 256,
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ]
+}

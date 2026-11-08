@@ -1,0 +1,20 @@
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":5,"expected_blocks":5,"candidates":4,"requests":4}
+✔ compact Pi submissions preserve full evidence, original conditions and numbers across multiple groups of three (293.33677ms)
+✔ compact Pi rejects unread evidence, out-of-range source indices, extra identity and legacy full submissions (44.71428ms)
+✔ compact indices cannot authorize a source block that was read in another batch (25.083872ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":1,"requests":2}
+✔ compact omitted medical observations stay unknown despite approved selected cancer and modality scope (75.267372ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":4}
+✔ line-index Pi saves exact whole lines and all 28 fields while unsupported medical observations stay unknown (89.436654ms)
+✔ line-index Pi rejects unread lines, invalid selections and out-of-range indices without partial read authorization (36.320271ms)
+✔ line-index namespaces are batch-local and previous-batch lines cannot authorize current evidence (41.620967ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":1,"requests":2}
+✔ line-index nonadjacent source selection remains separate segments with an explicit review warning (76.259993ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1867.582325

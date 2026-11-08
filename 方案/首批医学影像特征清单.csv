@@ -1,0 +1,36 @@
+﻿特征ID,类别,名称,操作定义,值类型,单位,评估层级,来源ID,来源定位,计划阶段,生成支持情况,评价计划,实现状态
+META01,工程元数据,影像模态,CT 或 MRI；优先读取可靠元数据，缺失时由用户确认。,enum,,体积,ENG01;MOD01;MOD02,输入配置与元数据,P0,后端文档提供 CT；MRI 需其他后端,元数据核对；PNG 缺失时不可仅凭外观确认为模态。,planned_not_implemented
+META02,工程元数据,体积尺寸,三个空间轴上的体素数；与空间视野共同解释。,integer_vector,voxel,体积,ENG01;MOD01;MOD02,output_size,P0,后端文档提供配置，尚未试跑,检查维度及后端支持范围；不能仅缩小体积而忽略解剖覆盖。,planned_not_implemented
+META03,工程元数据,体素间距与仿射,记录三维间距、方向、原点及单位；不把层厚直接当作层间距。,geometry_metadata,mm,体积,ENG01;MOD01;MOD02,spacing 与空间元数据,P0,后端文档提供 spacing，尚未试跑,核对 NIfTI 仿射与单位；DICOM 结合切片位置和方向计算。,planned_not_implemented
+GEO01,工程几何,病灶体积,在确认的病灶掩膜中，前景体素数乘仿射三维线性部分行列式的绝对值。,number,mm3,病灶,ENG01;MOD01,工程度量，非临床诊断规则,P0,存在间接大小控制；实际体积需测量,先验证掩膜、仿射和单位；数值不得写成已经测得。,planned_not_implemented
+GEO02,工程几何,最大轴位长径,按确认的轴位重建，在每个轴位轮廓上计算最长面内距离，取最大值。,number,mm,病灶,ENG01;MED01,工程操作定义；与 MED01 面内尺寸概念相关,P0,存在间接大小控制；毫米范围需校准,明确轴位、插值、边界算法和间距；该定义不自动等于 RECIST 或平均直径。,planned_not_implemented
+GEO03,工程几何,病灶空间定位,保存病灶掩膜、体素框和世界坐标框；裁剪或重采样后同步变换。,geometry,voxel/mm,病灶,ENG01;MED01,轮廓与空间定位；具体坐标契约由本方案制定,P0,配套掩膜提供候选定位，需独立检查,坐标必须声明轴序、原点、方向及闭区间或半开区间约定。,planned_not_implemented
+GEO04,工程几何,目标病灶可见性,记录目标病灶在最终图像中的可见、不可见或不确定状态。,enum,,病灶,ENG01;MED01,标注与图像一致性检查,P0,候选病灶掩膜不能直接证明图像中病灶可见,独立图像检查并人工复核首批样本；掩膜非空不直接判为阳性。,planned_not_implemented
+GEO05,工程几何,掩膜连通域数量,在指定连通性与最小体积规则下计算前景连通域个数。,integer,个,体积,ENG01,工程操作定义,P0,掩膜产生后可计算；不承诺等于临床病灶数,连通性、最小体积和粘连处理先确认；临床多灶性另行审核。,planned_not_implemented
+LUNG01,肺部CT,病灶解剖部位,按左右肺、肺叶或其他明确粒度记录位置，未知时保留未知。,enum,,病灶,MED01;MED02,肺结节空间标注与胸部术语；细粒度词条待逐项核对,P1,精确肺叶控制未证实,需要可靠肺叶分割、空间方向和定位规则；世界坐标不直接等于肺叶。,planned_not_implemented
+LUNG02,肺部CT,实性程度与密度类型,保留来源体系中的 solidity/texture 定义；映射到实性、部分实性等类别需单独审定。,enum_or_ordinal,,病灶,MED01;MED02,MED01 主观特征段；术语映射待核对,P1,细粒度控制未证实,保留原始医师评分及标注体系，不能未经验证将序数分直接变成临床类别。,planned_not_implemented
+LUNG03,肺部CT,边缘清晰程度,按原始标注或经审定定义记录边缘表现。,ordinal,,病灶,MED01,原文 subjective characteristics 段,P1,精确控制未证实,拟用真实标注建立检查器；多医师分歧保留。,planned_not_implemented
+LUNG04,肺部CT,毛刺程度,记录 spiculation 的来源定义和原始评分。,ordinal,,病灶,MED01,原文 subjective characteristics 段,P1,精确控制未证实,需要有标注的特征检查器及人工审核；尚不支持自动保证。,planned_not_implemented
+LUNG05,肺部CT,分叶程度,记录 lobulation 的来源定义和原始评分。,ordinal,,病灶,MED01,原文 subjective characteristics 段,P1,精确控制未证实,需要特征检查器与人工审核；不能仅靠生成提示词认定满足。,planned_not_implemented
+LUNG06,肺部CT,球形程度评分,保留来源中的主观 sphericity 评分，与数学球形度另设字段。,ordinal,,病灶,MED01,原文 shape/sphericity 主观评分,P1,精确控制未证实,主观评分不能直接用几何球形度替代。,planned_not_implemented
+LUNG07,肺部CT,内部结构,按来源标注记录 internal structure；枚举值需随数据版本核对。,enum,,病灶,MED01,原文 subjective characteristics 段,P1,精确控制未证实,数据集标签核对后再建立识别与生成评估。,planned_not_implemented
+LUNG08,肺部CT,显著性评分,记录医师对病灶显著性的主观评分。,ordinal,,病灶,MED01,原文 subtlety 主观评分,P1,精确控制未证实,不把显著性评分解释为一般图像质量评分。,planned_not_implemented
+LUNG09,肺部CT,影像学恶性可能性评分,保留医师影像学怀疑程度及其来源，不作为病理确诊标签。,ordinal,,病灶,MED01,原文 likelihood of malignancy,P2,不作首版诊断控制目标,需要区分影像评分、临床诊断和病理证据；缺失证据不能补写。,planned_not_implemented
+COLON01,结肠癌CT,原发病灶部位,按结肠解剖分段描述，分类粒度由报告模板和用户共同明确。,enum,,病灶,MED03,Report 部分 lesion site,P1,支持结肠原发癌类别；精确分段控制未证实,MSD 肿瘤掩膜不自动提供可靠结肠分段，需要额外解剖标注。,planned_not_implemented
+COLON02,结肠癌CT,病灶形态类型,按来源报告模板描述病灶类型，具体枚举待全文和医学审核。,enum,,病灶,MED03,Report 部分 lesion type,P2,精确形态控制未证实,不从单一肿瘤掩膜推断全部影像形态。,planned_not_implemented
+COLON03,结肠癌CT,病灶大小,采用明确的测量定义；初版可选择 GEO01 或 GEO02，不能混用。,number,mm/mm3,病灶,MED03;ENG01,Report 部分 size；操作定义采用工程契约,P0,存在间接大小控制；需测量与校准,用户必须选择体积或具体直径定义；不同指标的单位分别保存。,planned_not_implemented
+COLON04,结肠癌CT,局部侵犯表现,描述局部侵犯对象、影像证据和不确定性。,structured,,病例,MED03,Report 部分 local invasion,P2,特定侵犯关系控制未证实,需邻近结构、完整视野及医学审核；不能从肿瘤体积直接推定。,planned_not_implemented
+COLON05,结肠癌CT,区域淋巴结评估,记录来源定义下的区域淋巴结表现及评估状态。,structured,,病例,MED03,Report 部分 node stage,P2,精确控制未证实,需要额外淋巴结标注和评价规则；未评估不能写为阴性。,planned_not_implemented
+COLON06,结肠癌CT,远处转移评估,保留检查范围、可见证据和未评估状态。,structured,,病例,MED03,Report 部分 metastases stage,P2,全身或特定转移控制未证实,局部裁剪不支持完整远处转移判断；不输出无依据的 M0。,planned_not_implemented
+COLON07,结肠癌CT,临床T分期字段,作为复合报告字段，绑定规则版本与所需证据。,enum,,病例,MED03,Report 部分 tumor stage,P2,不作首版自动生成承诺,大小不等于侵犯深度；无法满足证据要求时仅存未评估。,planned_not_implemented
+COLON08,结肠癌CT,临床N分期字段,作为复合报告字段，绑定淋巴结评价证据与规则版本。,enum,,病例,MED03,Report 部分 node stage,P2,不作首版自动生成承诺,不能把分割数据中的标签缺失当作 N0。,planned_not_implemented
+RECT01,直肠癌MRI,与乙状结肠起始部的关系,记录病灶与 sigmoid take-off（STO）的关系及定位依据。,structured,,病例,MED04;MED05,解剖定位与 STO 建议,P2,MAISI CT 后端不提供 MRI 生成,需要足够视野、解剖定位和可用 MRI 数据。,planned_not_implemented
+RECT02,直肠癌MRI,肿瘤高度,说明测量起点、终点和所采用的解剖参照；不同参照不混用。,number,mm,病灶,MED04;MED05,解剖术语与 tumour height 讨论,P2,需要 MRI 后端,肛缘和肛直肠交界等参照需显式区分并标注。,planned_not_implemented
+RECT03,直肠癌MRI,壁外侵犯深度,在明确肠壁层次和测量规则下记录壁外侵犯程度。,number,mm,病灶,MED04,T3 subclassification 与 extramural invasion,P2,需要 MRI 后端和关系控制,需要肠壁结构证据；不从包围框估算侵犯深度。,planned_not_implemented
+RECT04,直肠癌MRI,与直肠系膜筋膜的最短距离,记录距离及其对应对象，区分原发灶、EMVI、结节等来源。,structured,mm,病例,MED04;MED05,MRF 建议及更新,P2,需要 MRI 后端和多结构控制,距离、相关对象与规则版本共同保存；不使用一个距离字段替代全部判定。,planned_not_implemented
+RECT05,直肠癌MRI,MRF受累状态,依据明确版本的规则结合相关结构判读，保存不确定性。,enum,,病例,MED05,表 2 和表 3 MRF 规则,P2,不作首版自动生成承诺,当前仅列字段；规则细节需医学审核，不能单靠 DWI 判定。,planned_not_implemented
+RECT06,直肠癌MRI,壁外血管侵犯,记录 EMVI 的影像表现、等级或状态及其依据。,structured,,病例,MED04;MED05,EMVI 与序列适用性建议,P2,精确控制未证实，需 MRI 后端,保留所用规则；初始分期不能单靠 DWI 判定。,planned_not_implemented
+RECT07,直肠癌MRI,区域淋巴结风险评估,按当前共识记录 cN 相关影像评估及可信程度。,structured,,病例,MED04;MED05,淋巴结分期和不确定性,P2,精确控制未证实，需 MRI 后端,分区、形态和病例层面评估分开记录；不能只按尺寸自动确诊。,planned_not_implemented
+RECT08,直肠癌MRI,腹膜反折相关关系,描述原发灶与腹膜反折及腹膜侵犯相关表现。,structured,,病例,MED04;MED05,T4a 与 peritoneal reflection 说明,P2,关系控制未证实，需 MRI 后端,需要完整解剖视野和结构标注。,planned_not_implemented
+RECT09,直肠癌MRI,括约肌及邻近结构关系,区分相关肌层或邻近结构，按来源定义描述受累证据。,structured,,病例,MED04,external sphincter 与 T4b 相关说明,P2,关系控制未证实，需 MRI 后端,需医学审核和多结构标注；不由文字提示直接生成确诊标签。,planned_not_implemented
+RECT10,直肠癌MRI,DWI与ADC相关表现,在配准的序列及已知采集参数下描述信号表现和适用任务。,structured,,病例,MED04;MED05,MRI sequence utility 与 DWI 限制,P2,多序列 MRI 后端待选,不同序列需对应；该字段不能单独替代初始 cT、MRF 或 EMVI 判定。,planned_not_implemented

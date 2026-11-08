@@ -1,0 +1,41 @@
+离线AI参考草稿导入与比较接口
+
+来源状态始终为external_ai_user_supplied；human_verified=false、not_gold=true、quality_evaluation_eligible=false。
+原文件声明和姓名/日期原值在raw-workbook.json与reference-drafts.json原样保留；不代填人名/人工日期。
+
+命令（在项目根目录）：
+code/.venv/bin/python code/scripts/import-ai-reference.py
+输出目录须不存在或为空，避免覆盖已有产物；重跑请显式指定新的--data-dir和--report-dir。
+可选参数：--workbook PATH --ir-dir PATH --pdf-dir PATH --documents L01 L05 --data-dir PATH --report-dir PATH。
+无模型API、无新依赖安装、无prompt或筛选规则写入。
+
+数据：
+raw-workbook.json：6个sheet所有读取行、非空单元格坐标/类型/值、公式原样字符串、原始声明。
+reference-drafts.json：entries数组；reference_id与worksheet_row稳定引用原表。original_quote保留原值；
+  fragments按显式编号拆分，cell_start/cell_end是original_quote的Unicode codepoint半开区间。
+  fragments[].whole_quote_alignment.candidates[]列出所有S3字面候选，不自动挑重复位置；
+  candidates[].source_segments[]含真实block_id/text_version/physical_page/start/end/text/bbox。
+  仅连续唯一且页码声明一致的非表格片段可有selected_source_segments；所有source文本均可按IR切片复核。
+  fragments[].components保留竖线表格单元、表格原始行或省略号独立片段。它们不代表已验证行列关系，
+  整体保持partial，不能拼成连续sourcequote。多编号片段整体也保持partial。
+  direct_pdf_text_check是pypdf页文本另一抽取视图，offset仅属于导出的pdf-page-texts.json对应页，不是S3 block。
+issues.json：映射问题、重复原表引文组、原表18条争议/术语原值；无医学裁定。
+summary.json：导入/字面匹配计数，非医学质量统计。
+preservation.json：Excel、原PDF、IR只读前后SHA，页数、真实区间回读校验计数。
+source-anchor-index.json：records按reference_id索引；source_block_ids_for_input_retention仅汇总唯一且页码相符的独立单元。
+  units[].unique_source_segments为可追踪区间；all_candidate_source_block_id_sets保留每个候选，不自动选首处。
+  literal_coverage标记全部独立单元唯一、部分唯一、重复来源歧义或无锚点；定位未决行单列，不强行打分。
+  表格单独数值匹配不能视为整条保留，完整独立单元定位也不能批准行列、片段关系或医学语义。
+
+冻结输出后的建议对照方式：
+1. 先固定模型输出、通用用户目标筛选规则与运行证据，记录各自hash，再读取本草稿文件。
+2. source interval相交须document_id/file_sha256/text_version/block_id一致，再比较[start,end)。
+3. 为每条草稿保留其原ID、原引文、映射状态以及全部重叠输出ID；“有来源重叠”只表示保留了同源文字，
+   不等于医学语义正确或所有片段已覆盖。只重叠一个表格数值也不能标为整条保留。
+4. 按片段/独立表格单元列明完全覆盖、部分重叠、无区间重叠、映射未决、重复来源歧义与待医学复核分歧。
+   ambiguous候选不得默认选第一处；unmatched不得按0分或模型遗漏处理。不要自动按词面归并医学条目。
+5. 输出独有项保留待核；AI草稿未列项不能作为负例/漏提真值。禁止计算医学precision/recall/F1。
+6. 本材料不能替代S2完整独立人工标注与医学复核；正式审查计数不因导入改变。
+
+分工：本导入器只生成来源映射和审阅材料，未执行实际模型输出的posthoc比较。
+实际规则/模型条件冻结后的输入保留与输出字面重合对照由t1_s4_filter_execution实现。

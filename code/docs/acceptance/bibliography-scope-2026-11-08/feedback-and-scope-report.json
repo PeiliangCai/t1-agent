@@ -1,0 +1,808 @@
+{
+  "schema_version": "bibliography-feedback-and-task-scope-report-1",
+  "status": "actual_layout_feedback_bound_and_shared_task_scope_offline_verified",
+  "feedback": {
+    "status": "passed",
+    "feedback_path": "apps/pi-web/public/input-review/PDF解析核验意见-2026-11-08-02-06-10.json",
+    "feedback_sha256": "9c702535fd78084760cc2c9ab81298136502979ba802c93c7574cf0daae5bc84",
+    "data_file_sha256": "cd62468396767a5b26a753d8fa821490330581788a0351785dcd0aef5bd01834",
+    "pack_id": "pdf-structure-review-2026-11-07-v1",
+    "pack_sha256": "5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+    "case_count": 20,
+    "point_count": 43,
+    "opinions_count": 43,
+    "verdict_counts": {
+      "looks_correct": 43
+    },
+    "case_kinds": {
+      "figure": 7,
+      "continuation": 10,
+      "table": 3
+    },
+    "nonempty_notes": 0,
+    "nonempty_locations": 0,
+    "nonempty_problem_types": 0,
+    "binding_checks": [
+      "strict_no_duplicate_JSON_keys",
+      "known_pack_id_and_recomputed_canonical_SHA256",
+      "full_case_and_question_reconstruction_from_frozen_owner_artifacts",
+      "unique_complete_case_question_opinions",
+      "every_opinion_source_PDF_artifact_and_case_version",
+      "source_IR_PDF_and_existing_assets_SHA256"
+    ],
+    "source_bindings": [
+      {
+        "source_id": "L01",
+        "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-79f276b4bbb797f3e7930714c614270a",
+        "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+        "source_units": "literal-source-sentences-4",
+        "cases": 4
+      },
+      {
+        "source_id": "L05",
+        "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f",
+        "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+        "source_units": "literal-source-sentences-4",
+        "cases": 4
+      },
+      {
+        "source_id": "L07",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "text_version": "s3v3-24500f85160c6f49685ba2cb5f68d274",
+        "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+        "source_units": "literal-source-sentences-4",
+        "cases": 12
+      }
+    ],
+    "scope": "Actual user PDF layout/location feedback only; no medical/product per-record approval or full S3/S4 acceptance.",
+    "old_pack_rebuilt_or_written": false,
+    "page_images_rerendered": false,
+    "PDF_layout_points_look_correct": true,
+    "medical_quality_approved": false,
+    "product_export_approved": false
+  },
+  "generated_at": "2026-11-08T02:30:52.963Z",
+  "versions": {
+    "source_selection_rule_version": "s4-explainable-source-selection-2",
+    "bibliography_scope_rule_version": "explicit-bibliography-task-scope-1",
+    "source_evidence_unit_version": "literal-source-sentences-4",
+    "visual_statement_policy_version": "visual-statements-2",
+    "scope_prompt_rule_version": "metric-definitions-context-only-1"
+  },
+  "task_scope": {
+    "user_request": "参考文献部分可以不需要抽取，能否在pdf识别前直接删除？如果不能或者很难实现的话那就保留。",
+    "implementation": "Preserve the original PDF and complete raw IR. After parsing, conservatively recognize complete explicit bibliographic entries and exclude only those from new extraction input before any LLM reading. Ambiguous entries remain available.",
+    "common_to": [
+      "B0",
+      "F"
+    ],
+    "B0": "All remaining task-scope blocks, with no topic prefilter.",
+    "F": "The same common task scope followed by existing broad positive retrieval and context rules.",
+    "rule": "TASK_BIBLIOGRAPHY_EXCLUDED",
+    "article_membership_stays_eligible": true,
+    "original_PDF_and_source_spans_preserved": true,
+    "positive_scope_evidence": [
+      "standalone explicit reference heading",
+      "clear numbered author opener",
+      "complete publication locator or DOI at the end",
+      "multi-line entries bound by one exact/aligned native list_item covering complete raw blocks except its number label",
+      "no caption/table/footnote/ambiguous mapping overlap",
+      "contiguous single-page raw blocks"
+    ],
+    "fallback": "When no native mapping exists, only a complete single-line citation can qualify. No bare [J]/DOI-prefix or open-ended page/range deletion.",
+    "retained": [
+      "inline citations and body mentions of references",
+      "adjacent and same-page body, captions, tables and notes",
+      "appendix/supplementary sections after a section boundary",
+      "unheaded, incomplete, cross-page/noncontiguous or mixed/uncertain entries"
+    ],
+    "integration": [
+      "ordinary runExtractionDocument default B0 and explicit F",
+      "actual batch assignment and complete-statement context",
+      "ExtractionTools constructors without comparison manifests",
+      "ExtractionSummaryTools constructors with or without a selection manifest",
+      "authorized reread indices and source-unit/structure projections",
+      "candidate/update evidence authorization and stale candidate read guard",
+      "Known same-article bibliography read queries alone use the existing maximum-two distinct correction path; all text remains withheld until a new explicitly authorized query."
+    ],
+    "historical_records_and_human_reviews_rewritten": false,
+    "physical_PDF_pretrim_performed": false,
+    "reverse_R_FR_restarted": false,
+    "source_fingerprints": "Existing sourceHashes includes source-selection.ts and all other changed runtime TypeScript files; no new runtime helper module. New selection version, config scope version, manifests and neutral model-input hashes differ. Frozen old plans/outputs/authorizations are read-only and cannot be reused as current input authorization."
+  },
+  "input_scope_measurements": [
+    {
+      "source_id": "L01",
+      "original_raw_text_blocks": 409,
+      "PDF_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-79f276b4bbb797f3e7930714c614270a",
+      "source_IR_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "article_membership_unchanged": true,
+      "quarantined_raw_text_blocks": 0,
+      "confirmed_bibliography_raw_text_blocks_excluded": 73,
+      "excluded_source_intervals": [
+        {
+          "physical_page": 4,
+          "first_document_line_index": 327,
+          "last_document_line_index": 363,
+          "raw_text_blocks": 37
+        },
+        {
+          "physical_page": 4,
+          "first_document_line_index": 368,
+          "last_document_line_index": 374,
+          "raw_text_blocks": 7
+        },
+        {
+          "physical_page": 4,
+          "first_document_line_index": 380,
+          "last_document_line_index": 408,
+          "raw_text_blocks": 29
+        }
+      ],
+      "before": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 409,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 10522,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "selected": 409,
+          "batches": 4,
+          "source_selection_digest": "622b1541a6cedbc4d7c865062f119340d4f9bb0f3c5126ff64ec2752ddbdefea",
+          "model_source_input_sha256": "4f252f567d6d6e6e17d3a12363bde854d2d6f4b5bdb7085aeb8dd6b959eea4d8"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 344,
+            "deferred": 65,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 6656,
+            "deferred": 3866,
+            "excluded": 0
+          },
+          "selected": 344,
+          "batches": 3,
+          "source_selection_digest": "4d3e9b2e6dadc2c8317d8e3e7a8b003c88fc75d5a5b41e5c6889bb919f2c0fd3",
+          "model_source_input_sha256": "ed4e22b858f4f17fb96a6ec9f35181622939b527db9043132705a0d2b708a793"
+        }
+      ],
+      "after": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 336,
+            "deferred": 0,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6744,
+            "deferred": 0,
+            "excluded": 3778
+          },
+          "selected": 336,
+          "batches": 3,
+          "source_selection_digest": "8df48bf6ade452990a502188180298988fc926c32210051e8e25ea627692e318",
+          "model_source_input_sha256": "bc50d1ee1ef3ad14e81138543c426052b59aab3224df3e15e58751e6d85fd1fb"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 333,
+            "deferred": 3,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6692,
+            "deferred": 52,
+            "excluded": 3778
+          },
+          "selected": 333,
+          "batches": 3,
+          "source_selection_digest": "ccd02f7a989266cb08bd62f0216e468ff0ff400b8e0d41f7c21d736545520cf0",
+          "model_source_input_sha256": "9f2ede97c1b0d6e86228a2f6dacc45cad522a60a21509ce3fd4646ae8294b0e5"
+        }
+      ],
+      "measured_quantity": "Original decoded text blocks and code points, not citation count, recall, saved money or model speed.",
+      "original_source_modified": false
+    },
+    {
+      "source_id": "L05",
+      "original_raw_text_blocks": 615,
+      "PDF_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f",
+      "source_IR_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "article_membership_unchanged": true,
+      "quarantined_raw_text_blocks": 0,
+      "confirmed_bibliography_raw_text_blocks_excluded": 92,
+      "excluded_source_intervals": [
+        {
+          "physical_page": 9,
+          "first_document_line_index": 514,
+          "last_document_line_index": 547,
+          "raw_text_blocks": 34
+        },
+        {
+          "physical_page": 10,
+          "first_document_line_index": 553,
+          "last_document_line_index": 598,
+          "raw_text_blocks": 46
+        },
+        {
+          "physical_page": 10,
+          "first_document_line_index": 602,
+          "last_document_line_index": 613,
+          "raw_text_blocks": 12
+        }
+      ],
+      "before": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 615,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 33459,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "selected": 615,
+          "batches": 6,
+          "source_selection_digest": "7d0599aa7dec433f524fd41057be371056a35dfbb317071d2951b6a58079b1ad",
+          "model_source_input_sha256": "b1e53bed109b320063b08485f609d5085b13e45d31fc72b2f5401b76808d7468"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 524,
+            "deferred": 91,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 22364,
+            "deferred": 11095,
+            "excluded": 0
+          },
+          "selected": 524,
+          "batches": 5,
+          "source_selection_digest": "145ff2842f8011dfbc4a8fe4ac3ebd9fc798e03906c5691b36c59090e17fd67f",
+          "model_source_input_sha256": "d4418a087a414c2c1bfbc4f35c78139d9c6c9d396db7402fe7ea001ecb13f8c1"
+        }
+      ],
+      "after": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 523,
+            "deferred": 0,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 22978,
+            "deferred": 0,
+            "excluded": 10481
+          },
+          "selected": 523,
+          "batches": 5,
+          "source_selection_digest": "ad490d91fed2542080a7964a00f3fc3ce02ed53d5798b5c2231265b7275e047b",
+          "model_source_input_sha256": "ad31828d90d0e1f8070e1ddd6edeae1f2030ee88966c5a9a1911dc03e06e1526"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 511,
+            "deferred": 12,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 22252,
+            "deferred": 726,
+            "excluded": 10481
+          },
+          "selected": 511,
+          "batches": 5,
+          "source_selection_digest": "20b25a8f42cdb3f3dce361511d92b10f0256869ff32719a659ce2b2efa89948e",
+          "model_source_input_sha256": "20e2f3ba79fe28761cc8f72419639c3fbeb5f105ae6dd3bad5376159ba225128"
+        }
+      ],
+      "measured_quantity": "Original decoded text blocks and code points, not citation count, recall, saved money or model speed.",
+      "original_source_modified": false
+    },
+    {
+      "source_id": "L07",
+      "original_raw_text_blocks": 1189,
+      "PDF_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-24500f85160c6f49685ba2cb5f68d274",
+      "source_IR_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "article_membership_unchanged": true,
+      "quarantined_raw_text_blocks": 0,
+      "confirmed_bibliography_raw_text_blocks_excluded": 280,
+      "excluded_source_intervals": [
+        {
+          "physical_page": 12,
+          "first_document_line_index": 846,
+          "last_document_line_index": 896,
+          "raw_text_blocks": 51
+        },
+        {
+          "physical_page": 13,
+          "first_document_line_index": 910,
+          "last_document_line_index": 913,
+          "raw_text_blocks": 4
+        },
+        {
+          "physical_page": 13,
+          "first_document_line_index": 920,
+          "last_document_line_index": 961,
+          "raw_text_blocks": 42
+        },
+        {
+          "physical_page": 13,
+          "first_document_line_index": 967,
+          "last_document_line_index": 970,
+          "raw_text_blocks": 4
+        },
+        {
+          "physical_page": 13,
+          "first_document_line_index": 975,
+          "last_document_line_index": 1011,
+          "raw_text_blocks": 37
+        },
+        {
+          "physical_page": 13,
+          "first_document_line_index": 1018,
+          "last_document_line_index": 1038,
+          "raw_text_blocks": 21
+        },
+        {
+          "physical_page": 14,
+          "first_document_line_index": 1042,
+          "last_document_line_index": 1060,
+          "raw_text_blocks": 19
+        },
+        {
+          "physical_page": 14,
+          "first_document_line_index": 1066,
+          "last_document_line_index": 1084,
+          "raw_text_blocks": 19
+        },
+        {
+          "physical_page": 14,
+          "first_document_line_index": 1092,
+          "last_document_line_index": 1103,
+          "raw_text_blocks": 12
+        },
+        {
+          "physical_page": 14,
+          "first_document_line_index": 1109,
+          "last_document_line_index": 1169,
+          "raw_text_blocks": 61
+        },
+        {
+          "physical_page": 15,
+          "first_document_line_index": 1177,
+          "last_document_line_index": 1186,
+          "raw_text_blocks": 10
+        }
+      ],
+      "before": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 1189,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 59830,
+            "deferred": 0,
+            "excluded": 0
+          },
+          "selected": 1189,
+          "batches": 10,
+          "source_selection_digest": "2adf1806b744b8c51ff34d87bae8764e8c14b3eefe83bc312defa6fab99d9a7f",
+          "model_source_input_sha256": "77c7fa1910fda0cb086611cd73d59d88283aba894eb036bc2185e9a3cde455ae"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 1156,
+            "deferred": 33,
+            "excluded": 0
+          },
+          "code_points": {
+            "kept": 57810,
+            "deferred": 2020,
+            "excluded": 0
+          },
+          "selected": 1156,
+          "batches": 10,
+          "source_selection_digest": "505b3e2789129af6be4c9bff79b854866edafff5ae41f9de2025e2b4166bd888",
+          "model_source_input_sha256": "1312afdbc8244ea638cfea9632ca1dfdb3b9ee68e001f2231d0a9697def270aa"
+        }
+      ],
+      "after": [
+        {
+          "condition": "B0",
+          "counts": {
+            "kept": 909,
+            "deferred": 0,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 44243,
+            "deferred": 0,
+            "excluded": 15587
+          },
+          "selected": 909,
+          "batches": 8,
+          "source_selection_digest": "9c8c7f8b9ef888ad252b1dd13398bf564c88ec5fbdc37f96fbd276e48d1563d4",
+          "model_source_input_sha256": "f6ef305c4051a61b7e10e7aaec0b0d982877af6f6daabb9f36d5b1fe9f33ffb2"
+        },
+        {
+          "condition": "F",
+          "counts": {
+            "kept": 906,
+            "deferred": 3,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 44095,
+            "deferred": 148,
+            "excluded": 15587
+          },
+          "selected": 906,
+          "batches": 8,
+          "source_selection_digest": "a4600cd0ecafe77a50ddb42ae204938a10e9177361cc572a1ff41580862bb8df",
+          "model_source_input_sha256": "0ae727df028c16f1aa073f7e1fd0946e8c98a8bf6221d8816a64ab1fd3442978"
+        }
+      ],
+      "measured_quantity": "Original decoded text blocks and code points, not citation count, recall, saved money or model speed.",
+      "original_source_modified": false
+    }
+  ],
+  "unmerged_reference_candidates": [
+    {
+      "case_id": "L01-continuation-6bd96a14b1",
+      "source_id": "L01",
+      "source_block_ids": [
+        "9b90e6cc9c86705d08a4-p0004-l000046",
+        "9b90e6cc9c86705d08a4-p0004-l000047",
+        "9b90e6cc9c86705d08a4-p0004-l000048",
+        "9b90e6cc9c86705d08a4-p0004-l000049"
+      ],
+      "native_continuation_merged": false,
+      "source_IR_changed": false,
+      "retained_when_complete_bibliography_boundary_unconfirmed": true,
+      "blocks_future_task_scope_work": false
+    },
+    {
+      "case_id": "L07-continuation-2846906f1d",
+      "source_id": "L07",
+      "source_block_ids": [
+        "e21bc46051b0ea3513d7-p0013-l000067",
+        "e21bc46051b0ea3513d7-p0013-l000068",
+        "e21bc46051b0ea3513d7-p0013-l000069",
+        "e21bc46051b0ea3513d7-p0013-l000070"
+      ],
+      "native_continuation_merged": false,
+      "source_IR_changed": false,
+      "retained_when_complete_bibliography_boundary_unconfirmed": true,
+      "blocks_future_task_scope_work": false
+    }
+  ],
+  "preservation": {
+    "checked_files": 101,
+    "unchanged_files": 101,
+    "changed_files": [],
+    "aggregate_manifest_sha256_before": "236da2a29885f8d43538c997a20c04b870edb0d9e8b463615c0b9b2bb5ac7405",
+    "aggregate_manifest_sha256_after": "236da2a29885f8d43538c997a20c04b870edb0d9e8b463615c0b9b2bb5ac7405",
+    "aggregate_definition": "SHA256 of UTF-8 JSON.stringify(sorted [relative path, SHA256(file bytes)] pairs); paths sorted by code-unit lexical order.",
+    "trees": [
+      {
+        "path": "apps/pi-web/public/input-review",
+        "files": 33,
+        "before_manifest_sha256": "3273fc31a074ea2bfe2bfdbae23d451611d121c6a7715e33edbbfaf8ae316e98",
+        "after_manifest_sha256": "3273fc31a074ea2bfe2bfdbae23d451611d121c6a7715e33edbbfaf8ae316e98",
+        "same_bytes": true
+      },
+      {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07",
+        "files": 65,
+        "before_manifest_sha256": "7724a71a522e1aa7b221d8176a2aea00f1a2d0782618d13df283d84f2bf566ac",
+        "after_manifest_sha256": "7724a71a522e1aa7b221d8176a2aea00f1a2d0782618d13df283d84f2bf566ac",
+        "same_bytes": true
+      }
+    ],
+    "unchanged_parser_source_unit_policy_contract_hashes": {
+      "services/pdf-parser/structured.py": "a5c54d972b605596fb274c19b76af6cdb43ecf68017f76c4b3e214357d030e9b",
+      "services/pdf-parser/source_geometry.py": "169183f0d17dab9b21638c563f975616c1aaeceaafef42fc9514b33631ef8857",
+      "services/pdf-parser/source_tables.py": "240b0b189cf855ebca2d4b58b3c915c326176d403b240186eb55c0ba382e1dde",
+      "services/pdf-parser/source_continuations.py": "d3588495586f2c35eeef7d715117ff5cda5648a51fad77217c1998d39b3fbfc4",
+      "packages/agent/src/source-evidence-units.ts": "0ca65cb699f7e44adda660b98ecbabd6556b47cf1000d3e05414f60bf110093e",
+      "packages/agent/src/visual-evidence-policy.ts": "2dafcaba9012b152d6ae0eb61113f3f4c6d7a5ea3196e7b24d084d6f2760cad7",
+      "packages/agent/src/document-structure-context.ts": "137cebc1a3429d9c3178ef50eb8b4411d98fe9f45107b424753e98c44b79c731",
+      "packages/agent/src/parser.ts": "a5bd66fb343623123db4f949f4093dee20e9b756eb99a0c29cae05ef487aac21",
+      "packages/contracts/src/document-ir-v3.ts": "f2cffb09ed51d88a32827744dec1d304ec6cdb04e0ebf4425c43d109adb67a27"
+    },
+    "current_source_checkpoint_is_historical_and_not_overwritten": true,
+    "final_checked_files": 101
+  },
+  "changes": {
+    "modified": [
+      {
+        "path": "packages/agent/src/source-selection.ts",
+        "before_sha256": "571e8868facb2dc892401d4cb25dd9e49cd6da37613bbfd79e63d99970fc9e87",
+        "after_sha256": "dac5bf8376b48b8b05f3838555bcb962d7bcc66566d81d6754ea452d20057e20"
+      },
+      {
+        "path": "packages/agent/src/extraction-run.ts",
+        "before_sha256": "ec67c557d1ce0ef6712b4e5609bb024e4ae790f01692030ae584b88c76287e77",
+        "after_sha256": "27cd845e504c08a38e96d33f61d1e6d3498ffee337cff72487e9068b50df89a9"
+      },
+      {
+        "path": "packages/agent/src/extraction-tools.ts",
+        "before_sha256": "00a9bf6d910e86758683ac6cf279c2c72ac05b38ce0335162fe7e35685762d04",
+        "after_sha256": "66498baeb838a81557e3fcf3db61a139046237dd0892a3b3a22fa91cc2ddee3c"
+      },
+      {
+        "path": "packages/agent/src/extraction-summary.ts",
+        "before_sha256": "fbf41fa7883f2477618e6a3a5c76bbc039946081ff2270319e424eecb695097b",
+        "after_sha256": "1c13d98c6205309f2b1e3a9b9dd5261222aefc4dab4169ff3593ac4e32abab18"
+      },
+      {
+        "path": "packages/agent/src/method-comparison.ts",
+        "before_sha256": "dcf85f8d1fba68598e15e11f55e81c1622d26253556b8537ffaa27e5d64a3b2d",
+        "after_sha256": "2d140c72c169e8e875e541279e461fd7372cdc52a1973dd7458ef3e197851874"
+      },
+      {
+        "path": "config/two-method-comparison.json",
+        "before_sha256": "218aa654634d707eafcce1190ecd1ca35bb35966d679754c0ee8854f06b3be29",
+        "after_sha256": "f480b8a262855e5edf9bdc7581cb88ba4e5effdfc867be92f87d18fead60753d"
+      },
+      {
+        "path": "scripts/compare-extraction-methods.ts",
+        "before_sha256": "ce60962916f2de112408be2737ebdd05e261ae93d2954b3760e6c474e3492e90",
+        "after_sha256": "6a588b4cff17e710e684a06a5583dd7b037214569c490cc5f96b0daed1f81adb"
+      },
+      {
+        "path": "tests/extraction/source-selection.test.ts",
+        "before_sha256": "27348decb07a0d36d27e15e814bb6b2f000799dd4404cd9e2b45f87caf3a0fd5",
+        "after_sha256": "a4a82dff544427448b9b47cc5f0eba5a5a12ea36cebdb15eb354523f6035166e"
+      },
+      {
+        "path": "tests/extraction/s4-summary-reliability.test.ts",
+        "before_sha256": "cec08dafdb293e2ad8c481ec51e0ab632069b91a2704abbb0b17444dd4f59f42",
+        "after_sha256": "480b97be5a0213730f11d99dd74b7b4e64cc7842f450fade2fc41aef4a61a087"
+      },
+      {
+        "path": "tests/extraction/two-method-transition.test.ts",
+        "before_sha256": "17ebeff05f6193d799db1d2e305c3cc1ef0bd7f09e87e73b71308cf8d041d993",
+        "after_sha256": "544eff4461d685212182f528024840e2edd5f86e82262476fa34a2beea140312"
+      },
+      {
+        "path": "packages/agent/src/extraction-tool-recovery.ts",
+        "after_sha256": "ebc2970eaf217f89c5fad7084fa5ba132db1b00a4cec1af77ae9620bb41bba8f",
+        "stage": "Final same-task known bibliography read-query correction; no original baseline hash claimed."
+      },
+      {
+        "path": "tests/extraction/s4-tool-recovery.test.ts",
+        "after_sha256": "763dd50c5d818cf774f82139fe5de856711816432d55534391e0ba82e6612a79",
+        "stage": "Final same-task known bibliography read-query correction; no original baseline hash claimed."
+      }
+    ],
+    "added": [
+      {
+        "path": "scripts/verify-input-review-feedback.py",
+        "sha256": "14fafd51338e486811bf3e0fb2cc219722d811194a4dc562faed0c8eba20f55a"
+      },
+      {
+        "path": "tests/extraction/bibliography-scope.test.ts",
+        "sha256": "6542054d41c89494002746af2fa2fa96cd881f263a89e333e7806a3a03f3fdce"
+      }
+    ]
+  },
+  "verification": {
+    "real_model_requests": 0,
+    "paid_provider_requests": 0,
+    "PDF_parser_or_rendering_invocations": 0,
+    "local_synthetic_Pi_transport_exercised": true,
+    "full_extraction_regression": {
+      "command": ".tools/node/bin/node --import tsx --test tests/extraction/*.test.ts",
+      "tests": 262,
+      "passed": 262,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "docs/acceptance/bibliography-scope-2026-11-08/extraction-tests.log",
+      "log_sha256": "ef39ee818d79baaf7c1fd6608e468db493bcaac2c8c43711b297fac506a68ec3"
+    },
+    "final_unit4_actual_input_cases": [
+      "L01",
+      "L05",
+      "L07"
+    ],
+    "final_unit4_checks": [
+      "B0/F shared exclusion IDs and retained article membership",
+      "every real batch model-facing source_line is an exact original line",
+      "complete-statement context cannot restore excluded blocks",
+      "summary block_ids and immutable line_indices both deny bibliography",
+      "F-deferred task-scope source remains readable",
+      "the two unmerged reference candidates are retained",
+      "PDF and IR hashes stay identical"
+    ],
+    "synthetic_boundary_checks": [
+      "mixed blocks and bibliography/body on same page",
+      "inline reference/no explicit heading",
+      "caption/table/uncertain mapping protection",
+      "appendix/supplementary/unknown mapped section end",
+      "visual words in a true bibliographic title do not restore it",
+      "incomplete DOI and [J] alone remain unknown",
+      "ordinary default B0/no comparison manifest",
+      "candidate submission/summary update/stale candidate guards",
+      "existing authorization and bounded-context behavior"
+    ],
+    "typescript": {
+      "command": ".tools/node/bin/node node_modules/typescript/bin/tsc --noEmit",
+      "exit_code": 0,
+      "log": "docs/acceptance/bibliography-scope-2026-11-08/tsc.log",
+      "log_sha256": "bde294368bfed77c2cddf8cec271d398aee9cdbab3b26e1059281bd33adb0120"
+    },
+    "initial_failures_and_corrections": [
+      {
+        "run": "first targeted 23 checks",
+        "passed": 21,
+        "failed": 2,
+        "details": [
+          "new stale-candidate test used nonexistent reconciliation action new; fixed fixture to reconcileEvidence",
+          "new transport test expected completion after a forbidden source read; corrected expectation to existing fatal authorization pause, no recovery policy change"
+        ]
+      },
+      {
+        "run": "first real IR 3 checks",
+        "passed": 0,
+        "failed": 3,
+        "details": [
+          "new test passed empty lines to makeEvidenceFixture, whose existing API requires at least one; corrected fixture initialization"
+        ]
+      },
+      {
+        "run": "first full extraction regression",
+        "passed": 255,
+        "failed": 2,
+        "details": [
+          "historical-mask test incorrectly required current v2 to equal frozen v1; now separately verifies old artifacts unchanged and current scope version differs",
+          "bounded-window test attempted all old bibliography lines; now checks the exact 128-line working set across authorized task-scope originals"
+        ],
+        "full_log_retained": true
+      }
+    ],
+    "no_unexecuted_check_claimed_passed": true,
+    "before_final_bibliography_query_correction": {
+      "command": ".tools/node/bin/node --import tsx --test tests/extraction/*.test.ts",
+      "tests": 257,
+      "passed": 257,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "docs/acceptance/bibliography-scope-2026-11-08/extraction-tests.log",
+      "log_sha256": "1e201801f8955a0949ba15b1bd32435dd7ee1a9b36babdc0cf978ecb83c9b707",
+      "log_prefix_bytes": 146906,
+      "time_scope": "Earlier successful 257-test stage before same-task final query-recovery correction."
+    },
+    "bibliography_query_correction_initial_check": {
+      "tests": 28,
+      "passed": 27,
+      "failed": 1,
+      "reason": "New request-cap fixture expected a correction event with cap2, but the existing hard budget stopped before tool correction after consuming its last response. Changed the local fixture cap to3 to exercise one budget-counted correction request and prove no fourth request is sent. Production caps unchanged.",
+      "real_paid_requests": 0
+    },
+    "bibliography_query_correction_targeted_check": {
+      "tests": 28,
+      "passed": 28,
+      "failed": 0,
+      "real_model_requests": 0,
+      "paid_provider_requests": 0
+    },
+    "bibliography_query_flow_correction": {
+      "problem": "The earlier same-task implementation treated even a known same-article bibliography read as a fatal authorization error and could stop reconciliation after one correctable query.",
+      "error_code": "bibliography_read_outside_task_scope",
+      "read_only_error_class": true,
+      "known_document_identity_and_article_membership_required": true,
+      "unknown_ID_or_quarantined_article_priority": "existing fatal authorization error",
+      "whole_invalid_read_returns_no_text": true,
+      "whole_invalid_read_marks_no_blocks_read": true,
+      "request_parameters_rewritten": false,
+      "new_recovery_framework": false,
+      "maximum_distinct_corrections": 2,
+      "correction_cap_shared_with_existing_protocol_errors": true,
+      "repeated_selector_stops": true,
+      "original_request_token_time_and_response_caps_unchanged": true,
+      "correction_requests_are": "计入预算的本地合成请求；真实模型与付费调用均为0。",
+      "positive_actual_Pi_fixture": {
+        "sequence": [
+          "ordinary default B0 assigned batch read and completion",
+          "get_document_context, then mixed authorized body + confirmed bibliography query is entirely rejected",
+          "model explicitly submits an authorized body-only read",
+          "model completes reconciliation"
+        ],
+        "local_synthetic_requests_counted_in_budget": 4,
+        "protocol_corrections": 1,
+        "hidden_retries": 0,
+        "bibliography_text_returned": false,
+        "whole_document_summary_complete": true,
+        "full_PDF_coverage_claimed": false
+      },
+      "negative_actual_Pi_fixtures": {
+        "same_selector_repeated": {
+          "local_synthetic_requests": 3,
+          "corrections": 1,
+          "stops_with": "repeated_invalid_arguments"
+        },
+        "third_distinct_bibliography_selector": {
+          "local_synthetic_requests": 4,
+          "corrections": 2,
+          "stops_with": "correction_limit"
+        },
+        "unknown_ID_mixed_with_bibliography": {
+          "local_synthetic_requests": 2,
+          "corrections": 0
+        },
+        "quarantined_other_article_mixed_with_bibliography": {
+          "local_synthetic_requests": 2,
+          "corrections": 0
+        },
+        "identity_override": {
+          "local_synthetic_requests": 2,
+          "corrections": 0
+        },
+        "bibliography_candidate_update": {
+          "local_synthetic_requests": 2,
+          "corrections": 0,
+          "records_saved": 0
+        },
+        "request_cap_3": {
+          "local_synthetic_requests": 3,
+          "corrections": 1,
+          "fourth_request_sent": false
+        }
+      },
+      "masks_source_units_and_originals_unchanged": true
+    },
+    "initial_failures_and_corrections_are_historical_stages": true
+  },
+  "authorization": {
+    "new_paid_request_limit": 0,
+    "closed41_ledger": "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb/call-ledger.json",
+    "closed41_ledger_sha256": "7ba30592e6e4313e677bf5d04d74a8b2e2ef6786f54ead99e9ce3fde84f4518f",
+    "closed41_ledger_unchanged": true,
+    "old_remaining_quota_not_permission": true,
+    "formal_reviews": {
+      "used": 3,
+      "limit": 3,
+      "new_rounds": 0
+    },
+    "new_live_comparison_plan_prepared_or_executed": false,
+    "negative_CLI_validation_fixtures_only": true
+  },
+  "limitations": [
+    "This is a conservative subset: unrecognized authors, incomplete locators, noncontiguous or cross-page entries and uncertain mappings are retained; complete bibliography removal is not claimed.",
+    "Only a read query whose source identity and same-article membership are valid and whose sole authorization issue is confirmed bibliography receives the existing bounded correction opportunity. The whole rejected query returns no source text. Repeated errors, correction-limit or budget exhaustion, unknown IDs, quarantined articles, identity overrides and invalid candidate updates still stop and preserve partial results; full original source remains available for human provenance review.",
+    "Counts are original text-block input changes. No new model extraction, medical-quality comparison, recall, price, time or overall S3/S4 acceptance result is claimed.",
+    "The two reference continuation candidates remain unmerged in the frozen IR; the user has removed bibliography from the extraction target, so their historical engineering status does not block the task scope."
+  ],
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "full_S3_S4_acceptance_passed": false
+}

@@ -1,0 +1,272 @@
+diff --git areview-round-2-before/packages/agent/src/store.ts b/packages/agent/src/store.ts
+index 3daf171..ea25bc0 100644
+--- areview-round-2-before/packages/agent/src/store.ts
++++ b/packages/agent/src/store.ts
+@@ -60,6 +60,12 @@ export class RunStore {
+     catch (error) { this.db.exec('ROLLBACK'); throw error; }
+     this.updates.emit(runId, event);
+   }
++  terminateIfRunning(runId: string, state: 'failed' | 'cancelled' = 'failed'): RunState {
++    const current = this.snapshot(runId).state;
++    if (['completed', 'partial', 'failed', 'cancelled', 'interrupted'].includes(current)) return current;
++    this.transition(runId, state);
++    return state;
++  }
+   saveCandidate(runId: string, record: CandidateRecord): boolean {
+     validateCandidate(record);
+     const snapshot = this.snapshot(runId);
+
+diff --git areview-round-2-before/packages/agent/src/pi.ts b/packages/agent/src/pi.ts
+index c9136f2..eb968c7 100644
+--- areview-round-2-before/packages/agent/src/pi.ts
++++ b/packages/agent/src/pi.ts
+@@ -35,14 +35,19 @@ export async function createRestrictedSession(config: ModelConfig, tools: Fixtur
+   if (!model) throw new ContractError('configured_model_not_registered');
+   const result = await createAgentSession({ cwd: privateDirectory, agentDir, settingsManager, resourceLoader, modelRuntime, model,
+     thinkingLevel: 'off', tools: [...TOOL_NAMES], customTools: tools.definitions(), sessionManager: SessionManager.inMemory(privateDirectory) });
+-  const audit: PiAudit = { pi_version: '1.4.0', active_tools: result.session.getActiveToolNames().sort(),
+-    context_file_count: resourceLoader.getAgentsFiles().agentsFiles.length, skill_count: resourceLoader.getSkills().skills.length,
+-    extension_count: result.extensionsResult.extensions.length, prompt_template_count: resourceLoader.getPrompts().prompts.length,
+-    theme_count: resourceLoader.getThemes().themes.length, default_discovery_disabled: true, in_memory_credentials: true, in_memory_session: true };
+-  if (JSON.stringify(audit.active_tools) !== JSON.stringify([...TOOL_NAMES].sort()) || audit.context_file_count || audit.skill_count || audit.extension_count || audit.prompt_template_count || audit.theme_count) {
+-    result.session.dispose(); throw new ContractError('unexpected_pi_tools_or_resources');
++  try {
++    const audit: PiAudit = { pi_version: '1.4.0', active_tools: result.session.getActiveToolNames().sort(),
++      context_file_count: resourceLoader.getAgentsFiles().agentsFiles.length, skill_count: resourceLoader.getSkills().skills.length,
++      extension_count: result.extensionsResult.extensions.length, prompt_template_count: resourceLoader.getPrompts().prompts.length,
++      theme_count: resourceLoader.getThemes().themes.length, default_discovery_disabled: true, in_memory_credentials: true, in_memory_session: true };
++    if (JSON.stringify(audit.active_tools) !== JSON.stringify([...TOOL_NAMES].sort()) || audit.context_file_count || audit.skill_count || audit.extension_count || audit.prompt_template_count || audit.theme_count) {
++      throw new ContractError('unexpected_pi_tools_or_resources');
++    }
++    return { session: result.session, audit };
++  } catch (cause) {
++    result.session.dispose();
++    throw cause;
+   }
+-  return { session: result.session, audit };
+ }
+ 
+ export type SessionLike = Pick<AgentSession, 'subscribe' | 'prompt' | 'abort' | 'dispose'>;
+@@ -91,7 +96,7 @@ export async function executeFixture(tools: FixtureTools, session: SessionLike,
+     tools.store.transition(input.run_id, 'completed');
+   } catch (cause) {
+     error = safeError(cause);
+-    tools.store.transition(input.run_id, signal?.aborted ? 'cancelled' : 'failed');
++    tools.store.terminateIfRunning(input.run_id, signal?.aborted ? 'cancelled' : 'failed');
+   } finally {
+     clearTimeout(timeout); signal?.removeEventListener('abort', abort); unsubscribe(); session.dispose();
+   }
+
+diff --git areview-round-2-before/scripts/smoke-pi.ts b/scripts/smoke-pi.ts
+index 1dced10..34b820d 100644
+--- areview-round-2-before/scripts/smoke-pi.ts
++++ b/scripts/smoke-pi.ts
+@@ -1,24 +1,30 @@
+ import { mkdir, writeFile, readFile } from 'node:fs/promises';
+ import { createHash } from 'node:crypto';
+ import { resolve } from 'node:path';
+-import { FixtureTools, RunStore, createRestrictedSession, executeFixture, loadModelConfig, makeFixture, safeError } from '@t1/agent';
++import { FixtureTools, RunStore, createRestrictedSession, executeFixture, loadModelConfig, makeFixture, safeError, type SessionLike } from '@t1/agent';
+ import { validateCandidate } from '@t1/contracts';
+ 
+ const output = resolve('docs/acceptance/s1');
+ await mkdir(output, { recursive: true });
+ const startedAt = new Date().toISOString();
+ const label = startedAt.replace(/[:.]/g, '-');
+-const store = new RunStore(resolve('runtime-data/t1.sqlite'));
++let store: RunStore | undefined;
++let createdRunId: string | undefined;
++let activeSession: SessionLike | undefined;
+ let exit = 1;
+ let report: Record<string, unknown>;
+ try {
++  store = new RunStore(resolve('runtime-data/t1.sqlite'));
+   const config = loadModelConfig();
+   const fixture = makeFixture(config);
+   store.create(fixture.input);
++  createdRunId = fixture.input.run_id;
+   store.transition(fixture.input.run_id, 'extracting');
+   const tools = new FixtureTools(fixture.input, fixture.document, fixture.catalog, store);
+   const created = await createRestrictedSession(config, tools, resolve('runtime-data/runs', fixture.input.run_id));
++  activeSession = created.session;
+   const result = await executeFixture(tools, created.session);
++  activeSession = undefined; // executeFixture releases the session in its finally block.
+   const records = store.records(fixture.input.run_id); records.forEach(validateCandidate);
+   const success = result.state === 'completed' && result.settled && records.length > 0 && result.events.some(e => e.type === 'tool_execution_end' && e.tool_name === 'submit_candidate_records' && !e.is_error);
+   report = { schema_version: '1', stage: 'S1', status: success ? 'passed' : 'failed', real_model_call: true,
+@@ -29,9 +35,21 @@ try {
+     paper_exports_allowed: false, dependencies_lock_sha256: createHash('sha256').update(await readFile('package-lock.json')).digest('hex') };
+   exit = success ? 0 : 1;
+ } catch (cause) {
+-  report = { stage: 'S1', status: 'failed', started_at: startedAt, finished_at: new Date().toISOString(), error: safeError(cause),
+-    fixture: true, medical_evidence: false, real_model_call: 'not_confirmed', actual_cost: null, cost_status: 'unknown; not zero' };
+-} finally { store.close(); }
++  const error = safeError(cause);
++  let state: string | undefined;
++  let stateError: ReturnType<typeof safeError> | undefined;
++  if (store && createdRunId) {
++    try { state = store.terminateIfRunning(createdRunId); } catch (failure) { stateError = safeError(failure); }
++  }
++  report = { stage: 'S1', status: 'failed', started_at: startedAt, finished_at: new Date().toISOString(), error,
++    fixture: true, medical_evidence: false, real_model_call: 'not_confirmed', actual_cost: null, cost_status: 'unknown; not zero',
++    run_id: createdRunId, state, state_transition_error: stateError };
++} finally {
++  if (activeSession) {
++    try { activeSession.dispose(); } catch (failure) { report!.session_cleanup_error = safeError(failure); }
++  }
++  store?.close();
++}
+ const path = resolve(output, `smoke-pi-${label}.json`);
+ await writeFile(path, JSON.stringify(report, null, 2) + '\n');
+ await writeFile(resolve(output, 'smoke-pi-latest.json'), JSON.stringify({ report: `smoke-pi-${label}.json`, status: report.status }, null, 2) + '\n');
+
+diff --git areview-round-2-before/apps/server/src/app.ts b/apps/server/src/app.ts
+index de209c0..95d5b68 100644
+--- areview-round-2-before/apps/server/src/app.ts
++++ b/apps/server/src/app.ts
+@@ -4,6 +4,8 @@ import { ContractError } from '@t1/contracts';
+ 
+ export function buildApp(store: RunStore) {
+   const app = Fastify({ logger: false, bodyLimit: 32768 });
++  const streams = new Set<() => void>();
++  app.addHook('preClose', async () => { for (const close of streams) close(); });
+   app.setErrorHandler((error, _request, reply) => {
+     const code = error instanceof ContractError ? error.code : 'request_failed';
+     return reply.code(code === 'run_not_found' ? 404 : 400).send({ error: code });
+@@ -19,14 +21,27 @@ export function buildApp(store: RunStore) {
+     let cursor = Number(raw ?? 0);
+     reply.hijack();
+     reply.raw.writeHead(200, { 'content-type': 'text/event-stream', 'cache-control': 'no-cache', 'x-accel-buffering': 'no' });
++    reply.raw.flushHeaders();
++    let closed = false;
+     const write = (event: ReturnType<RunStore['events']>[number]) => {
+-      if (event.seq <= cursor) return;
++      if (closed || event.seq <= cursor) return;
+       reply.raw.write(`id: ${event.seq}\nevent: ${event.type}\ndata: ${JSON.stringify(event)}\n\n`); cursor = event.seq;
+     };
+-    const unsubscribe = store.onEvent(runId, write);
+-    store.events(runId, cursor).forEach(write);
+-    const timer = setInterval(() => reply.raw.write(': keepalive\n\n'), 15000);
+-    reply.raw.on('close', () => { clearInterval(timer); unsubscribe(); });
++    // SQLite is the event authority; a local emitter alone cannot observe the CLI's separate connection/process.
++    const flushCommitted = () => {
++      if (closed) return;
++      try { store.events(runId, cursor).forEach(write); } catch { close(); }
++    };
++    const unsubscribe = store.onEvent(runId, flushCommitted);
++    const poll = setInterval(flushCommitted, 200);
++    const heartbeat = setInterval(() => reply.raw.write(': keepalive\n\n'), 15000);
++    function close() {
++      if (closed) return;
++      closed = true; clearInterval(poll); clearInterval(heartbeat); unsubscribe(); streams.delete(close); reply.raw.end();
++    }
++    streams.add(close);
++    reply.raw.on('close', close);
++    flushCommitted();
+   });
+   return app;
+ }
+
+diff --git areview-round-2-before/tests/integration/runtime.test.ts b/tests/integration/runtime.test.ts
+index 19a67b3..05e2faf 100644
+--- areview-round-2-before/tests/integration/runtime.test.ts
++++ b/tests/integration/runtime.test.ts
+@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
+ import { FixtureTools, RunStore, makeFixture, executeFixture, type SessionLike } from '@t1/agent';
+ import type { AgentSessionEvent } from '@earendil-works/pi-coding-agent';
+ import { buildApp } from '../../apps/server/src/app.js';
++import { ContractError } from '@t1/contracts';
+ 
+ type Listener = Parameters<SessionLike['subscribe']>[0];
+ class FakeSession implements SessionLike {
+@@ -42,6 +43,21 @@ test('a cancelled run releases its session and remains cancelled', async () => {
+   try { const result = await executeFixture(c.tools, session, controller.signal); assert.equal(result.state, 'cancelled'); assert.equal(session.disposed, true); }
+   finally { c.store.close(); }
+ });
++test('runtime errors preserve an existing failed/cancelled terminal state and the original sanitized cause', async () => {
++  for (const terminal of ['failed', 'cancelled'] as const) {
++    const c = context(); let count = 0;
++    const session = new FakeSession(async () => {
++      c.store.transition(c.input.run_id, terminal); count = c.store.events(c.input.run_id).length;
++      throw new ContractError('injected_runtime_failure');
++    });
++    try {
++      const result = await executeFixture(c.tools, session);
++      assert.equal(result.state, terminal); assert.equal(result.error?.code, 'injected_runtime_failure'); assert.equal(session.disposed, true);
++      assert.equal(c.store.events(c.input.run_id).length, count);
++      assert.equal(c.store.terminateIfRunning(c.input.run_id), terminal); assert.equal(c.store.events(c.input.run_id).length, count);
++    } finally { c.store.close(); }
++  }
++});
+ test('debug HTTP APIs expose fixture status and reject unknown IDs without model calls', async () => {
+   const c = context(); const app = buildApp(c.store);
+   try {
+
+diff --git a/tests/integration/review-regressions.test.ts b/tests/integration/review-regressions.test.ts
+new file mode 100644
+index 0000000..bb78d37
+--- /dev/null
++++ b/tests/integration/review-regressions.test.ts
+@@ -0,0 +1,62 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
++import { resolve, join } from 'node:path';
++import { promisify } from 'node:util';
++import { execFile } from 'node:child_process';
++import { FixtureTools, RunStore, makeFixture } from '@t1/agent';
++import { buildApp } from '../../apps/server/src/app.js';
++
++const executeFile = promisify(execFile);
++test('session creation failure leaves the already persisted run failed with a terminal event, without API calls', async () => {
++  const directory = await mkdtemp(resolve('runtime-data/init-failure-'));
++  try {
++    await mkdir(join(directory, 'runtime-data'), { recursive: true });
++    // ENOTDIR in the first createRestrictedSession mkdir is deterministic and precedes all model setup/network.
++    await writeFile(join(directory, 'runtime-data/runs'), 'directory creation failure fixture');
++    const result = await executeFile(resolve('.tools/node/bin/node'), [resolve('node_modules/tsx/dist/cli.mjs'), resolve('scripts/smoke-pi.ts')], {
++      cwd: directory, env: { ...process.env, T1_MODEL_PROVIDER: 'local-test', T1_MODEL_BASE_URL: 'https://example.invalid/v1', T1_MODEL_ID: 'fake', T1_MODEL_API_KEY: 'local-test-placeholder' },
++    }).then(value => ({ ...value, code: 0 }), error => ({ code: error.code, stdout: error.stdout as string, stderr: error.stderr as string }));
++    assert.equal(result.code, 1);
++    assert.ok(!result.stdout.includes('local-test-placeholder')); assert.ok(!result.stderr.includes('local-test-placeholder'));
++    const store = new RunStore(join(directory, 'runtime-data/t1.sqlite'));
++    try {
++      const row = store.db.prepare('SELECT id,state FROM runs').get()!;
++      assert.equal(row.state, 'failed', 'initialization error must not strand a run in extracting');
++      const events = store.events(row.id as string); assert.equal(events.at(-1)?.stage, 'failed');
++      assert.equal(store.records(row.id as string).length, 0);
++    } finally { store.close(); }
++    const reports = (await readdir(join(directory, 'docs/acceptance/s1'))).filter(x => x.startsWith('smoke-pi-') && !x.includes('latest'));
++    const report = JSON.parse(await readFile(join(directory, 'docs/acceptance/s1', reports[0]!), 'utf8'));
++    assert.equal(report.status, 'failed'); assert.ok(!JSON.stringify(report).includes('local-test-placeholder'));
++  } finally { await rm(directory, { recursive: true, force: true }); }
++});
++
++test('HTTP SSE delivers a candidate committed through an independent SQLite connection without reconnecting', async () => {
++  const directory = await mkdtemp(resolve('runtime-data/cross-connection-'));
++  const filename = join(directory, 'runs.sqlite'); const writer = new RunStore(filename); const readerStore = new RunStore(filename);
++  const fixture = makeFixture({ provider: 'local-test', modelId: 'fake', baseUrl: 'https://example.invalid/v1' });
++  writer.create(fixture.input); writer.transition(fixture.input.run_id, 'extracting');
++  const tools = new FixtureTools(fixture.input, fixture.document, fixture.catalog, writer);
++  let activeSubscriptions = 0;
++  const onEvent = readerStore.onEvent.bind(readerStore);
++  readerStore.onEvent = (runId, callback) => { activeSubscriptions++; const release = onEvent(runId, callback); return () => { activeSubscriptions--; release(); }; };
++  const app = buildApp(readerStore); const controller = new AbortController();
++  try {
++    const address = await app.listen({ host: '127.0.0.1', port: 0 });
++    const response = await fetch(`${address}/api/runs/${fixture.input.run_id}/events`, { headers: { 'last-event-id': '1' }, signal: controller.signal });
++    const stream = response.body!.getReader(); const decoder = new TextDecoder();
++    assert.ok(decoder.decode((await stream.read()).value).includes('id: 2\n'));
++    const bound = { run_id: fixture.input.run_id, document_id: fixture.input.document_id };
++    await tools.invoke('read_document_blocks', { ...bound, block_ids: ['demo-block-1'] }, 'read');
++    await tools.invoke('submit_candidate_records', { ...bound, records: [{ block_id: 'demo-block-1', original_quote: 'The sample shape has a blue rim measuring 7 mm.', feature_binding_id: null }] }, 'submit');
++    assert.equal(readerStore.records(fixture.input.run_id).length, 1, 'candidate is committed and visible through the other connection');
++    const result = await Promise.race([stream.read().then(chunk => decoder.decode(chunk.value)), new Promise<string>(done => setTimeout(() => done('TIMEOUT_NO_EXTERNAL_EVENT'), 900))]);
++    assert.ok(result.includes('event: candidate\n'), `live SSE missed another connection: ${result}`);
++    assert.ok(result.includes('id: 3\n')); assert.ok(!result.includes('id: 2\n'));
++    writer.event(fixture.input.run_id, 'external_followup', 'extracting', 'committed external followup');
++    const followup = decoder.decode((await stream.read()).value); assert.ok(followup.includes('id: 4\n')); assert.ok(!followup.includes('id: 3\n'));
++    controller.abort(); await stream.cancel().catch(() => {});
++    assert.equal(readerStore.snapshot(fixture.input.run_id).state, 'extracting');
++  } finally { controller.abort(); await app.close(); assert.equal(activeSubscriptions, 0); readerStore.close(); writer.close(); await rm(directory, { recursive: true, force: true }); }
++});

@@ -1,0 +1,3093 @@
+{
+  "schema_version": "s4-selection-artifact-validation-1",
+  "checked_at": "2026-11-03T12:58:33.010509+00:00",
+  "phase": "in-progress",
+  "status": "failed",
+  "final_artifact_checks_passed": false,
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "formal_reviews_added": 0,
+  "api_calls": 0,
+  "writes_limited_to": "selection-optimization/artifact-validation/",
+  "model_payload_byte_equivalence_proven": false,
+  "strict_blinding_proven": false,
+  "aliases_are_not_independent_retests": true,
+  "DOCX_evidence_required": false,
+  "check_counts": {
+    "passed": 379,
+    "warning": 4,
+    "pending": 24,
+    "failed": 1,
+    "deferred": 1
+  },
+  "actual_ledger_recomputed": {
+    "requests": 26,
+    "known_input": 100403,
+    "known_output": 13186,
+    "reserved_input": 103232,
+    "reserved_output": 8192,
+    "cache_read": 21807,
+    "reasoning": 5801,
+    "unknown_usage": 1,
+    "inflight": 1,
+    "versioned_validation_runs": [
+      {
+        "name": "budget-full-extraction",
+        "historical_source_digest": "0c3c443627764b468e5e95b232335e7f1a63819d2da230299215791d147564ad",
+        "production_files_crosschecked": 30
+      },
+      {
+        "name": "budget-final-source-selection",
+        "historical_source_digest": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+        "production_files_crosschecked": 30
+      },
+      {
+        "name": "budget-final-tsc-recheck",
+        "historical_source_digest": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+        "production_files_crosschecked": 30
+      }
+    ]
+  },
+  "checks": [
+    {
+      "group": "authorization",
+      "check": "model",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "explicit hard caps",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "registered authorization hash",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "registered model",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "registered shared caps",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "registered explicit budget authorization",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "exact logical conditions",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "common model profile",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "register AI_reference_in_model_or_rules",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "register association_enhancement_in_main_experiment",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "register stage_passed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "register medical_quality_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "register S5_started",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "report model",
+      "status": "passed"
+    },
+    {
+      "group": "authorization",
+      "check": "report hard caps",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "report stage_passed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "report medical_quality_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "report S5_started",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "report pathology_real_paper_feature_extraction_validated",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "report no medical strategy winner/default replacement",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "reuse is not an independent retest",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "formal review count unchanged by checker",
+      "status": "passed"
+    },
+    {
+      "group": "limitations",
+      "check": "engineering validation only",
+      "status": "warning",
+      "detail": "This checker performs no medical or formal Astra review; it cannot prove model quality or statistical superiority."
+    },
+    {
+      "group": "runtime_versions",
+      "check": "source snapshot manifest",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "source snapshot digest",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/config/pdf-parser.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/config/pdf-parser.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/docs/acceptance/s4/selection-optimization/authorization.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/docs/acceptance/s4/selection-optimization/authorization.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/docs/acceptance/s4/selection-optimization/tool-evaluation.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/docs/acceptance/s4/selection-optimization/tool-evaluation.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/package-lock.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/package-lock.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/package.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/package.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/article-scope.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/article-scope.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/config.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/config.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/evidence-validation.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/evidence-validation.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-budget.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-budget.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-pi.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-pi.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-protocol.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-protocol.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-run.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-run.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-store.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-store.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-summary.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-summary.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/extraction-tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/fixtures.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/fixtures.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/index.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/index.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/parser-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/parser-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/parser.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/parser.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/pi.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/pi.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/real-run.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/real-run.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/real-tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/real-tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/reconciliation.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/reconciliation.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/scope-matching.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/scope-matching.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/source-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/source-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/store.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/store.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/summary-model-view.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/summary-model-view.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/agent/src/tools.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/document-ir-v2.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/contracts/src/document-ir-v2.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/document-ir-v3.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/contracts/src/document-ir-v3.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/extraction-evidence.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/contracts/src/extraction-evidence.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/index.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/packages/contracts/src/index.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/scripts/run-s4-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/scripts/run-s4-selection.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/tests/extraction/fixtures/evidence-fixtures.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "current_vs_frozen_sources",
+      "check": "code/tests/extraction/fixtures/evidence-fixtures.ts SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "code/evaluation/corpus/development-candidates/L01.pdf SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "L01 original binding",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "L01 true Unicode offset contract",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "code/evaluation/corpus/development-candidates/L05.pdf SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L05.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "L05 original binding",
+      "status": "passed"
+    },
+    {
+      "group": "source_preservation",
+      "check": "L05 true Unicode offset contract",
+      "status": "passed"
+    },
+    {
+      "group": "historical_ledger",
+      "check": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/call-ledger.json SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "historical_ledger",
+      "check": "old 133 requests retained",
+      "status": "passed"
+    },
+    {
+      "group": "historical_ledger",
+      "check": "report old ledger hash and request count",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "code/evaluation/annotations/expert-handoff/20261103T170116+0800/材料/L01_L05医学视觉特征参考答案_待复核.xlsx SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "original Excel before/after unchanged",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "no Excel formula evaluation",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "draft is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "anchor index is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-001 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-002 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-003 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-004 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-005 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-006 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-007 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-008 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-009 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-010 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-011 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-012 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-013 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-014 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-015 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-016 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-017 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-018 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-019 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-020 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-021 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-022 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-023 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-024 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L01-025 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-001 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-002 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-003 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-004 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-005 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-006 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-007 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-008 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-009 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-010 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-011 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-012 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-013 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-014 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-015 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-016 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-017 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-018 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-019 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-020 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-021 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-022 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-023 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-024 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-025 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-026 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-027 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-028 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-029 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-030 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "L05-031 is AI only",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "reference count and paper distribution",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "19 located and 37 unresolved rows are separate",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "unresolved rows not forced into zero scores",
+      "status": "passed"
+    },
+    {
+      "group": "AI_reference",
+      "check": "no invented human annotator or reviewer",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "8 logical job identities",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "8 jobs are distinct",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "5 independent source input runs",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "registered 8 logical / 5 unique",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "3 aliases have correct representatives",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-B0 context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-B0 historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-B0 mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-B0 mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-B0 mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-F context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-F historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-F mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-F mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-F mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-R context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-R historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-R mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-R mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-R mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L01-FR context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-FR historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-FR mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-FR mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L01-FR mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-B0 context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-B0 historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-B0 mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-B0 mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-B0 mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-F context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-F historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-F mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-F mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-F mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-R context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-R historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-R mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-R mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-R mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR mask self digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR registered mask digest",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR original source binding",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR every original source line is auditable",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR all source IDs retained in audit",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR counts",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR code points",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR kept IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR deferred IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR excluded IDs",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR each kept block assigned exactly once",
+      "status": "passed"
+    },
+    {
+      "group": "mask_bindings",
+      "check": "L05-FR context uses valid retained source lines",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-FR historical source-mask/neutral-contract fingerprint only",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-FR mask original_source_changed",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-FR mask medical_rules_approved",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "L05-FR mask full_document_coverage_implied",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "recomputed 5 source-mask/contract groups",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-R not independently run",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-R fingerprint equals representative",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-R awaits representative result",
+      "status": "pending"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-FR not independently run",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-FR fingerprint equals representative",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-FR awaits representative result",
+      "status": "pending"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-FR not independently run",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-FR fingerprint equals representative",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L05-FR awaits representative result",
+      "status": "pending"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "all 5 real paper outputs are terminal",
+      "status": "pending",
+      "detail": {
+        "L01-B0": "running",
+        "L01-F": "pending",
+        "L05-B0": "pending",
+        "L05-F": "pending",
+        "L05-R": "pending"
+      }
+    },
+    {
+      "group": "reuse_limitations",
+      "check": "opaque run_id prevents full-payload equivalence claim",
+      "status": "warning",
+      "detail": "The historical model_visible_source_input_sha256 verifies source mask and neutral contract only. Run IDs contain condition suffixes; aliases reuse F once, are not independent R/FR results, and do not prove byte-identical requests or strict blinding."
+    },
+    {
+      "group": "reuse_limitations",
+      "check": "explicit equivalence limitation is separately accessible",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "new ledger explicit limits",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "new ledger authorization",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "unique physical request IDs",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "actual plus unknown reservation stays within 300/6M/400k",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "all physical requests authorized and classified, failures included",
+      "status": "failed",
+      "detail": [
+        {
+          "id": "9d8b53d0-af46-401b-acbb-6ebb156a08a0",
+          "reason": "unauthorized_model"
+        },
+        {
+          "id": "f72c8126-df0a-4d0c-bbe6-eaa952864bf0",
+          "reason": "unauthorized_model"
+        }
+      ]
+    },
+    {
+      "group": "ledger",
+      "check": "inflight payload metadata not yet persisted",
+      "status": "pending",
+      "detail": [
+        {
+          "id": "0b558fe1-1b3a-4db1-9109-d96a000b9b7f",
+          "reason": "missing_or_nonmedium_reasoning",
+          "value": null
+        }
+      ]
+    },
+    {
+      "group": "experiment_completion",
+      "check": "no inflight physical requests",
+      "status": "pending",
+      "detail": 1
+    },
+    {
+      "group": "experiment_completion",
+      "check": "paid run owner lock has been released",
+      "status": "pending"
+    },
+    {
+      "group": "ledger",
+      "check": "register total accounting",
+      "status": "pending",
+      "detail": {
+        "requests": {
+          "actual": 6,
+          "expected": 26
+        },
+        "provider_reported_input_tokens": {
+          "actual": 12049,
+          "expected": 100403
+        },
+        "missing_usage_input_reservation": {
+          "actual": 0,
+          "expected": 103232
+        },
+        "provider_reported_output_tokens_including_reasoning": {
+          "actual": 1009,
+          "expected": 13186
+        },
+        "missing_usage_output_reservation": {
+          "actual": 0,
+          "expected": 8192
+        },
+        "provider_reported_cache_read_tokens_included_in_input": {
+          "actual": 1536,
+          "expected": 21807
+        },
+        "provider_reported_reasoning_tokens_included_in_output": {
+          "actual": 618,
+          "expected": 5801
+        },
+        "usage_missing_requests": {
+          "actual": 0,
+          "expected": 1
+        }
+      }
+    },
+    {
+      "group": "ledger",
+      "check": "register conservative totals include all unknown usage",
+      "status": "pending",
+      "detail": {
+        "actual": {
+          "requests": 6,
+          "input_tokens": 12049,
+          "output_tokens": 1009,
+          "conservative_missing_usage_requests": 0
+        },
+        "expected": {
+          "requests": 26,
+          "input_tokens": 203635,
+          "output_tokens": 21378,
+          "conservative_missing_usage_requests": 1
+        }
+      }
+    },
+    {
+      "group": "ledger",
+      "check": "report counts every new physical request and unknown reservation",
+      "status": "pending",
+      "detail": {
+        "requests": {
+          "actual": 20,
+          "expected": 26
+        },
+        "provider_input_tokens_including_cache": {
+          "actual": 83039,
+          "expected": 100403
+        },
+        "unknown_input_reservation": {
+          "actual": 32768,
+          "expected": 103232
+        },
+        "provider_output_tokens_including_reasoning": {
+          "actual": 11440,
+          "expected": 13186
+        }
+      }
+    },
+    {
+      "group": "ledger",
+      "check": "historical plus new count excludes alias duplication",
+      "status": "pending",
+      "detail": {
+        "actual": 153,
+        "expected": 159
+      }
+    },
+    {
+      "group": "ledger",
+      "check": "price is measured known usage scenario only",
+      "status": "pending",
+      "detail": {
+        "actual": 0.088351,
+        "expected": 0.10479
+      }
+    },
+    {
+      "group": "ledger",
+      "check": "actual supplier bill remains unknown",
+      "status": "passed"
+    },
+    {
+      "group": "ledger",
+      "check": "synthetic probe is separately counted",
+      "status": "passed"
+    },
+    {
+      "group": "approval_boundary",
+      "check": "synthetic probe is not medical validation",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "report contains all 8 logical rows",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "completed artifact run count is not 8 independent samples",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-B0 status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-B0 reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-B0 source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-B0 character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-B0 terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-F status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-F reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-F source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-F character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-F terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-R status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-R reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-R source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-R character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-R report no independent accounting or latency",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-R terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-FR status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-FR reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-FR source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L01-FR character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L01-FR report no independent accounting or latency",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L01-FR terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-B0 status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-B0 reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-B0 source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-B0 character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L05-B0 terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-F status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-F reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-F source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-F character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L05-F terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-R status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-R reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-R source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-R character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L05-R terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-FR status",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-FR reuse declarations",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-FR source selection statistics",
+      "status": "passed"
+    },
+    {
+      "group": "report_consistency",
+      "check": "L05-FR character reduction is not measured token/latency saving",
+      "status": "passed"
+    },
+    {
+      "group": "reuse",
+      "check": "L05-FR report no independent accounting or latency",
+      "status": "passed"
+    },
+    {
+      "group": "experiment_completion",
+      "check": "L05-FR terminal result not yet registered",
+      "status": "pending"
+    },
+    {
+      "group": "accessible_files",
+      "check": "code/docs/acceptance/s4/selection-optimization/outputs-freeze.json",
+      "status": "pending",
+      "detail": "FileNotFoundError"
+    },
+    {
+      "group": "accessible_files",
+      "check": "code/docs/acceptance/s4/selection-optimization/posthoc-ai-reference-review.json",
+      "status": "pending",
+      "detail": "FileNotFoundError"
+    },
+    {
+      "group": "posthoc",
+      "check": "posthoc comparison waits for all real outputs and explicit freeze",
+      "status": "pending"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-custom-limits-node24 recorded exit code",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-custom-limits-node24 exact historical code revision not fingerprinted",
+      "status": "warning",
+      "detail": "Receipt/log retained; this run alone is not proof of equality to the final frozen version."
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-legacy-regression-node24 recorded exit code",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-legacy-regression-node24 exact historical code revision not fingerprinted",
+      "status": "warning",
+      "detail": "Receipt/log retained; this run alone is not proof of equality to the final frozen version."
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-full-extraction recorded exit code",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-full-extraction before and after source file maps",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-full-extraction receipts bind historical before/after revision",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "budget-full-extraction overlapping production code matches actual frozen experiment",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-source-selection recorded exit code",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-source-selection before and after source file maps",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-source-selection receipts bind historical before/after revision",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "budget-final-source-selection overlapping production code matches actual frozen experiment",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-tsc-recheck recorded exit code",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-tsc-recheck before and after source file maps",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "budget-final-tsc-recheck receipts bind historical before/after revision",
+      "status": "passed"
+    },
+    {
+      "group": "runtime_versions",
+      "check": "budget-final-tsc-recheck overlapping production code matches actual frozen experiment",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits-node24.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc-node24.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "test_evidence",
+      "check": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc.log SHA256",
+      "status": "passed"
+    },
+    {
+      "group": "accessible_files",
+      "check": "all local report hyperlinks exist",
+      "status": "passed"
+    },
+    {
+      "group": "accessible_files",
+      "check": "external hyperlinks not fetched",
+      "status": "passed"
+    },
+    {
+      "group": "plan_sync",
+      "check": "DOCX/plan incremental preservation evidence",
+      "status": "deferred",
+      "detail": "Run again with --require-plan-sync after the lead finishes plan synchronization."
+    },
+    {
+      "group": "delivery_boundary",
+      "check": "in-progress validation cannot be final delivery approval",
+      "status": "pending"
+    }
+  ],
+  "input_file_fingerprints": [
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/authorization.json",
+      "sha256_at_read": "dab1d6f23d1ebba6675c37d4fda1a4a9548cf661d2666644ceeed55fae242333",
+      "bytes": 1770,
+      "sha256_after_checks": "dab1d6f23d1ebba6675c37d4fda1a4a9548cf661d2666644ceeed55fae242333",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/experiment-register.json",
+      "sha256_at_read": "d48c102a4691a2b8acb31894ed3b1df6212b54c05324d11dafb6fb228364e067",
+      "bytes": 15791,
+      "sha256_after_checks": "d48c102a4691a2b8acb31894ed3b1df6212b54c05324d11dafb6fb228364e067",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/report.json",
+      "sha256_at_read": "a2611a37aaa68dbdddf32d828ccd870baccef0897fca9a72f118020a8aab7a27",
+      "bytes": 10121,
+      "sha256_after_checks": "a2611a37aaa68dbdddf32d828ccd870baccef0897fca9a72f118020a8aab7a27",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/review-index.json",
+      "sha256_at_read": "a3323930da86e6e809f055e3de16704486fc6f7a7dee2f4e5659f086e2cabbf8",
+      "bytes": 995,
+      "sha256_after_checks": "a3323930da86e6e809f055e3de16704486fc6f7a7dee2f4e5659f086e2cabbf8",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/manifest.json",
+      "sha256_at_read": "4377e11ccb031c7d3d5633f91af5f5ef4876a59e469d707ba2746f879bddc04a",
+      "bytes": 3871,
+      "sha256_after_checks": "4377e11ccb031c7d3d5633f91af5f5ef4876a59e469d707ba2746f879bddc04a",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/config/pdf-parser.json",
+      "sha256_at_read": "91529ba7f8e30f5c620712c3d74b49183252b250a80f11ed02972802f9e88698",
+      "bytes": 2021,
+      "sha256_after_checks": "91529ba7f8e30f5c620712c3d74b49183252b250a80f11ed02972802f9e88698",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/config/pdf-parser.json",
+      "sha256_at_read": "91529ba7f8e30f5c620712c3d74b49183252b250a80f11ed02972802f9e88698",
+      "bytes": 2021,
+      "sha256_after_checks": "91529ba7f8e30f5c620712c3d74b49183252b250a80f11ed02972802f9e88698",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/docs/acceptance/s4/selection-optimization/authorization.json",
+      "sha256_at_read": "dab1d6f23d1ebba6675c37d4fda1a4a9548cf661d2666644ceeed55fae242333",
+      "bytes": 1770,
+      "sha256_after_checks": "dab1d6f23d1ebba6675c37d4fda1a4a9548cf661d2666644ceeed55fae242333",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/docs/acceptance/s4/selection-optimization/tool-evaluation.json",
+      "sha256_at_read": "858f2294eb4453c7f4ecba04ad537e9dd847d0b0f25b5e1eab312b780148f1f0",
+      "bytes": 2000,
+      "sha256_after_checks": "858f2294eb4453c7f4ecba04ad537e9dd847d0b0f25b5e1eab312b780148f1f0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/tool-evaluation.json",
+      "sha256_at_read": "858f2294eb4453c7f4ecba04ad537e9dd847d0b0f25b5e1eab312b780148f1f0",
+      "bytes": 2000,
+      "sha256_after_checks": "858f2294eb4453c7f4ecba04ad537e9dd847d0b0f25b5e1eab312b780148f1f0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/package-lock.json",
+      "sha256_at_read": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22",
+      "bytes": 144422,
+      "sha256_after_checks": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/package-lock.json",
+      "sha256_at_read": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22",
+      "bytes": 144422,
+      "sha256_after_checks": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/package.json",
+      "sha256_at_read": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "bytes": 1622,
+      "sha256_after_checks": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/package.json",
+      "sha256_at_read": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "bytes": 1622,
+      "sha256_after_checks": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/article-scope.ts",
+      "sha256_at_read": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+      "bytes": 5896,
+      "sha256_after_checks": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/article-scope.ts",
+      "sha256_at_read": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+      "bytes": 5896,
+      "sha256_after_checks": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/config.ts",
+      "sha256_at_read": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+      "bytes": 2619,
+      "sha256_after_checks": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/config.ts",
+      "sha256_at_read": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+      "bytes": 2619,
+      "sha256_after_checks": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/evidence-validation.ts",
+      "sha256_at_read": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+      "bytes": 21675,
+      "sha256_after_checks": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/evidence-validation.ts",
+      "sha256_at_read": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+      "bytes": 21675,
+      "sha256_after_checks": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-budget.ts",
+      "sha256_at_read": "06b4bd47abda212001bd90d5f3e28a4f2e5fd0d5b12a9b6c7e9ba8a4a85d5e09",
+      "bytes": 16419,
+      "sha256_after_checks": "06b4bd47abda212001bd90d5f3e28a4f2e5fd0d5b12a9b6c7e9ba8a4a85d5e09",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-budget.ts",
+      "sha256_at_read": "06b4bd47abda212001bd90d5f3e28a4f2e5fd0d5b12a9b6c7e9ba8a4a85d5e09",
+      "bytes": 16419,
+      "sha256_after_checks": "06b4bd47abda212001bd90d5f3e28a4f2e5fd0d5b12a9b6c7e9ba8a4a85d5e09",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-pi.ts",
+      "sha256_at_read": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+      "bytes": 12737,
+      "sha256_after_checks": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-pi.ts",
+      "sha256_at_read": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+      "bytes": 12737,
+      "sha256_after_checks": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-protocol.ts",
+      "sha256_at_read": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+      "bytes": 10707,
+      "sha256_after_checks": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-protocol.ts",
+      "sha256_at_read": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+      "bytes": 10707,
+      "sha256_after_checks": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-run.ts",
+      "sha256_at_read": "f6062f1390238f96285f8db1cebb8410461c1e372e3429bcf3ce285259b50437",
+      "bytes": 21018,
+      "sha256_after_checks": "f6062f1390238f96285f8db1cebb8410461c1e372e3429bcf3ce285259b50437",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-run.ts",
+      "sha256_at_read": "f6062f1390238f96285f8db1cebb8410461c1e372e3429bcf3ce285259b50437",
+      "bytes": 21018,
+      "sha256_after_checks": "f6062f1390238f96285f8db1cebb8410461c1e372e3429bcf3ce285259b50437",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-store.ts",
+      "sha256_at_read": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+      "bytes": 9728,
+      "sha256_after_checks": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-store.ts",
+      "sha256_at_read": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+      "bytes": 9728,
+      "sha256_after_checks": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-summary.ts",
+      "sha256_at_read": "2b58c37d98a7ef5e1328134cf1fe7bb14bd8873e0246824b7cab837a0a7ca14b",
+      "bytes": 21341,
+      "sha256_after_checks": "2b58c37d98a7ef5e1328134cf1fe7bb14bd8873e0246824b7cab837a0a7ca14b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-summary.ts",
+      "sha256_at_read": "2b58c37d98a7ef5e1328134cf1fe7bb14bd8873e0246824b7cab837a0a7ca14b",
+      "bytes": 21341,
+      "sha256_after_checks": "2b58c37d98a7ef5e1328134cf1fe7bb14bd8873e0246824b7cab837a0a7ca14b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/extraction-tools.ts",
+      "sha256_at_read": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+      "bytes": 17364,
+      "sha256_after_checks": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/extraction-tools.ts",
+      "sha256_at_read": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+      "bytes": 17364,
+      "sha256_after_checks": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/fixtures.ts",
+      "sha256_at_read": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+      "bytes": 2999,
+      "sha256_after_checks": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/fixtures.ts",
+      "sha256_at_read": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+      "bytes": 2999,
+      "sha256_after_checks": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/index.ts",
+      "sha256_at_read": "29745ec322025ab63a83f757b41aa0024499bcd2748c2952833ca2a0398aa8ac",
+      "bytes": 737,
+      "sha256_after_checks": "29745ec322025ab63a83f757b41aa0024499bcd2748c2952833ca2a0398aa8ac",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/index.ts",
+      "sha256_at_read": "29745ec322025ab63a83f757b41aa0024499bcd2748c2952833ca2a0398aa8ac",
+      "bytes": 737,
+      "sha256_after_checks": "29745ec322025ab63a83f757b41aa0024499bcd2748c2952833ca2a0398aa8ac",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/parser-selection.ts",
+      "sha256_at_read": "2ecdc2659bcb4809b3495a09ba59100333fef0498854f587328658ca3ca1c396",
+      "bytes": 4107,
+      "sha256_after_checks": "2ecdc2659bcb4809b3495a09ba59100333fef0498854f587328658ca3ca1c396",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/parser-selection.ts",
+      "sha256_at_read": "2ecdc2659bcb4809b3495a09ba59100333fef0498854f587328658ca3ca1c396",
+      "bytes": 4107,
+      "sha256_after_checks": "2ecdc2659bcb4809b3495a09ba59100333fef0498854f587328658ca3ca1c396",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/parser.ts",
+      "sha256_at_read": "6a5a8023374e275cdf42a7ecc6c9af041f261d2c5318523534dcb2990446aa5a",
+      "bytes": 12525,
+      "sha256_after_checks": "6a5a8023374e275cdf42a7ecc6c9af041f261d2c5318523534dcb2990446aa5a",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/parser.ts",
+      "sha256_at_read": "6a5a8023374e275cdf42a7ecc6c9af041f261d2c5318523534dcb2990446aa5a",
+      "bytes": 12525,
+      "sha256_after_checks": "6a5a8023374e275cdf42a7ecc6c9af041f261d2c5318523534dcb2990446aa5a",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/pi.ts",
+      "sha256_at_read": "4dec0e0cd20f21dc66a35bbf11d6543b7374d1b42e3de66541368ce161dc4082",
+      "bytes": 14961,
+      "sha256_after_checks": "4dec0e0cd20f21dc66a35bbf11d6543b7374d1b42e3de66541368ce161dc4082",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/pi.ts",
+      "sha256_at_read": "4dec0e0cd20f21dc66a35bbf11d6543b7374d1b42e3de66541368ce161dc4082",
+      "bytes": 14961,
+      "sha256_after_checks": "4dec0e0cd20f21dc66a35bbf11d6543b7374d1b42e3de66541368ce161dc4082",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/real-run.ts",
+      "sha256_at_read": "b5e8accb933dedef1fa7a452549c836f7867c3722c9084d2c74d1931c12ba72c",
+      "bytes": 4283,
+      "sha256_after_checks": "b5e8accb933dedef1fa7a452549c836f7867c3722c9084d2c74d1931c12ba72c",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/real-run.ts",
+      "sha256_at_read": "b5e8accb933dedef1fa7a452549c836f7867c3722c9084d2c74d1931c12ba72c",
+      "bytes": 4283,
+      "sha256_after_checks": "b5e8accb933dedef1fa7a452549c836f7867c3722c9084d2c74d1931c12ba72c",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/real-tools.ts",
+      "sha256_at_read": "05cebc56a066ac60ba3e90253b5853fd8258b431fe5f829da8f268a1f85d21f1",
+      "bytes": 11912,
+      "sha256_after_checks": "05cebc56a066ac60ba3e90253b5853fd8258b431fe5f829da8f268a1f85d21f1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/real-tools.ts",
+      "sha256_at_read": "05cebc56a066ac60ba3e90253b5853fd8258b431fe5f829da8f268a1f85d21f1",
+      "bytes": 11912,
+      "sha256_after_checks": "05cebc56a066ac60ba3e90253b5853fd8258b431fe5f829da8f268a1f85d21f1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/reconciliation.ts",
+      "sha256_at_read": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+      "bytes": 12317,
+      "sha256_after_checks": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/reconciliation.ts",
+      "sha256_at_read": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+      "bytes": 12317,
+      "sha256_after_checks": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/scope-matching.ts",
+      "sha256_at_read": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+      "bytes": 11025,
+      "sha256_after_checks": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/scope-matching.ts",
+      "sha256_at_read": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+      "bytes": 11025,
+      "sha256_after_checks": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/source-selection.ts",
+      "sha256_at_read": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+      "bytes": 15594,
+      "sha256_after_checks": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/source-selection.ts",
+      "sha256_at_read": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+      "bytes": 15594,
+      "sha256_after_checks": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/store.ts",
+      "sha256_at_read": "da2e00b7750ab18eea120e03452f3f6a4511d28a3d2e284bd659d4d86f12ecf0",
+      "bytes": 6335,
+      "sha256_after_checks": "da2e00b7750ab18eea120e03452f3f6a4511d28a3d2e284bd659d4d86f12ecf0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/store.ts",
+      "sha256_at_read": "da2e00b7750ab18eea120e03452f3f6a4511d28a3d2e284bd659d4d86f12ecf0",
+      "bytes": 6335,
+      "sha256_after_checks": "da2e00b7750ab18eea120e03452f3f6a4511d28a3d2e284bd659d4d86f12ecf0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/summary-model-view.ts",
+      "sha256_at_read": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+      "bytes": 8444,
+      "sha256_after_checks": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/summary-model-view.ts",
+      "sha256_at_read": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+      "bytes": 8444,
+      "sha256_after_checks": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/agent/src/tools.ts",
+      "sha256_at_read": "c4c6e2cffccb4ec04fb06f4c3fb5c06d237fc72e0544435985b80d625650b310",
+      "bytes": 10034,
+      "sha256_after_checks": "c4c6e2cffccb4ec04fb06f4c3fb5c06d237fc72e0544435985b80d625650b310",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/agent/src/tools.ts",
+      "sha256_at_read": "c4c6e2cffccb4ec04fb06f4c3fb5c06d237fc72e0544435985b80d625650b310",
+      "bytes": 10034,
+      "sha256_after_checks": "c4c6e2cffccb4ec04fb06f4c3fb5c06d237fc72e0544435985b80d625650b310",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/document-ir-v2.ts",
+      "sha256_at_read": "4e3060f7d87f084482920796391f548d2414d2614a33b6805953521f95088a65",
+      "bytes": 12677,
+      "sha256_after_checks": "4e3060f7d87f084482920796391f548d2414d2614a33b6805953521f95088a65",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/contracts/src/document-ir-v2.ts",
+      "sha256_at_read": "4e3060f7d87f084482920796391f548d2414d2614a33b6805953521f95088a65",
+      "bytes": 12677,
+      "sha256_after_checks": "4e3060f7d87f084482920796391f548d2414d2614a33b6805953521f95088a65",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/document-ir-v3.ts",
+      "sha256_at_read": "4b5189777d7a6ad657fb2becd04d9e408ccfd0ec200351d118a67c4d0f43ee87",
+      "bytes": 8174,
+      "sha256_after_checks": "4b5189777d7a6ad657fb2becd04d9e408ccfd0ec200351d118a67c4d0f43ee87",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/contracts/src/document-ir-v3.ts",
+      "sha256_at_read": "4b5189777d7a6ad657fb2becd04d9e408ccfd0ec200351d118a67c4d0f43ee87",
+      "bytes": 8174,
+      "sha256_after_checks": "4b5189777d7a6ad657fb2becd04d9e408ccfd0ec200351d118a67c4d0f43ee87",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/extraction-evidence.ts",
+      "sha256_at_read": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+      "bytes": 12890,
+      "sha256_after_checks": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/contracts/src/extraction-evidence.ts",
+      "sha256_at_read": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+      "bytes": 12890,
+      "sha256_after_checks": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/packages/contracts/src/index.ts",
+      "sha256_at_read": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+      "bytes": 12927,
+      "sha256_after_checks": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/packages/contracts/src/index.ts",
+      "sha256_at_read": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+      "bytes": 12927,
+      "sha256_after_checks": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/scripts/run-s4-selection.ts",
+      "sha256_at_read": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+      "bytes": 18562,
+      "sha256_after_checks": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/scripts/run-s4-selection.ts",
+      "sha256_at_read": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+      "bytes": 18562,
+      "sha256_after_checks": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/tests/extraction/fixtures/evidence-fixtures.ts",
+      "sha256_at_read": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+      "bytes": 8850,
+      "sha256_after_checks": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/tests/extraction/fixtures/evidence-fixtures.ts",
+      "sha256_at_read": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+      "bytes": 8850,
+      "sha256_after_checks": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/corpus/development-candidates/L01.pdf",
+      "sha256_at_read": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "bytes": 1487660,
+      "sha256_after_checks": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json",
+      "sha256_at_read": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+      "bytes": 1278706,
+      "sha256_after_checks": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/corpus/development-candidates/L05.pdf",
+      "sha256_at_read": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "bytes": 1552277,
+      "sha256_after_checks": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L05.json",
+      "sha256_at_read": "50bc3da18913f9df602fc780e1a5162dca006985d1b03115d974859b30a817df",
+      "bytes": 2241302,
+      "sha256_after_checks": "50bc3da18913f9df602fc780e1a5162dca006985d1b03115d974859b30a817df",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/historical-ledger-preservation-before.json",
+      "sha256_at_read": "f022356582925ecbc175bbf5afc8819533d3bd5689b3e91117952d9cdea710a2",
+      "bytes": 356,
+      "sha256_after_checks": "f022356582925ecbc175bbf5afc8819533d3bd5689b3e91117952d9cdea710a2",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/call-ledger.json",
+      "sha256_at_read": "5e09bcefe4c81a86109f03a350fb73fc6fd92cd06e03f89b7c9597258573c270",
+      "bytes": 453993,
+      "sha256_after_checks": "5e09bcefe4c81a86109f03a350fb73fc6fd92cd06e03f89b7c9597258573c270",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/reference-drafts/2026-11-03-l01-l05/preservation.json",
+      "sha256_at_read": "0032b4da92d7cf7a8773741563fbcea35d2c8b7445e28887db800bc5a9446f24",
+      "bytes": 2992,
+      "sha256_after_checks": "0032b4da92d7cf7a8773741563fbcea35d2c8b7445e28887db800bc5a9446f24",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/annotations/expert-handoff/20261103T170116+0800/材料/L01_L05医学视觉特征参考答案_待复核.xlsx",
+      "sha256_at_read": "6ba6d18b638f6e2df05a64bdfc3fb890376722e21da145f33b1d0a0d7f483239",
+      "bytes": 52708,
+      "sha256_after_checks": "6ba6d18b638f6e2df05a64bdfc3fb890376722e21da145f33b1d0a0d7f483239",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/reference-drafts/2026-11-03-l01-l05/reference-drafts.json",
+      "sha256_at_read": "dbe6673a2c070572f07cf8ff5831e7276d49a7d8e2f38e0bb61ba6d27b067829",
+      "bytes": 1205564,
+      "sha256_after_checks": "dbe6673a2c070572f07cf8ff5831e7276d49a7d8e2f38e0bb61ba6d27b067829",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/evaluation/reference-drafts/2026-11-03-l01-l05/source-anchor-index.json",
+      "sha256_at_read": "f211ca6f81a5acc91d37143303d07c285a2c80b215ed3fe907087a6afbaee905",
+      "bytes": 333031,
+      "sha256_after_checks": "f211ca6f81a5acc91d37143303d07c285a2c80b215ed3fe907087a6afbaee905",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-B0.json",
+      "sha256_at_read": "2c9a241fc477bc06df51503a9606b64040b88b47fe3e9e7ccb119b17add98a1e",
+      "bytes": 239588,
+      "sha256_after_checks": "2c9a241fc477bc06df51503a9606b64040b88b47fe3e9e7ccb119b17add98a1e",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-B0-batch-plan.json",
+      "sha256_at_read": "0a80968e46e04efd8472e3cfefd96ead12b58903a02e368876a0b3b463f1c991",
+      "bytes": 20903,
+      "sha256_after_checks": "0a80968e46e04efd8472e3cfefd96ead12b58903a02e368876a0b3b463f1c991",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-F.json",
+      "sha256_at_read": "17aac932045c240613a164f1850ea6b4a3d7c635bd998d10623bc8118b2675f1",
+      "bytes": 356974,
+      "sha256_after_checks": "17aac932045c240613a164f1850ea6b4a3d7c635bd998d10623bc8118b2675f1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-F-batch-plan.json",
+      "sha256_at_read": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "bytes": 17198,
+      "sha256_after_checks": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-R.json",
+      "sha256_at_read": "154821546e28bb395c41fc13b1305d5a830e40b8df416df536bdcd39c1ebbd64",
+      "bytes": 263065,
+      "sha256_after_checks": "154821546e28bb395c41fc13b1305d5a830e40b8df416df536bdcd39c1ebbd64",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-R-batch-plan.json",
+      "sha256_at_read": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "bytes": 17198,
+      "sha256_after_checks": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-FR.json",
+      "sha256_at_read": "5951e9d9b5eddd935822ff75c88a37144257e76b017cb07e89d4c54eccc80d27",
+      "bytes": 357752,
+      "sha256_after_checks": "5951e9d9b5eddd935822ff75c88a37144257e76b017cb07e89d4c54eccc80d27",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L01-FR-batch-plan.json",
+      "sha256_at_read": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "bytes": 17198,
+      "sha256_after_checks": "c2605717031acdfcb5b14bba86afa6cc4462e3fc9da75cf1c9268bd7f9285c1d",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-B0.json",
+      "sha256_at_read": "a3a7fc04dd136c4fac696f2f29e235de94f2517c8d8c1d7c7bf8d57c437788f1",
+      "bytes": 360505,
+      "sha256_after_checks": "a3a7fc04dd136c4fac696f2f29e235de94f2517c8d8c1d7c7bf8d57c437788f1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-B0-batch-plan.json",
+      "sha256_at_read": "589bfd0a8327dcfcd2eddd1715b08bb870e0acef618d7e39c114197c12084c6a",
+      "bytes": 31734,
+      "sha256_after_checks": "589bfd0a8327dcfcd2eddd1715b08bb870e0acef618d7e39c114197c12084c6a",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-F.json",
+      "sha256_at_read": "144562fd12fe89898123ecb484eb2f9613b8956be3f490aaba197bfcf27bf5f1",
+      "bytes": 492166,
+      "sha256_after_checks": "144562fd12fe89898123ecb484eb2f9613b8956be3f490aaba197bfcf27bf5f1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-F-batch-plan.json",
+      "sha256_at_read": "8501126b3744cb9a9f0aeb0992b5d62f5c36731769a1f44dab23d66b18d33e92",
+      "bytes": 26770,
+      "sha256_after_checks": "8501126b3744cb9a9f0aeb0992b5d62f5c36731769a1f44dab23d66b18d33e92",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-R.json",
+      "sha256_at_read": "af100f3d800413acfdd21adf516242dd746041ed572d63d40f3ab9e32c2bd450",
+      "bytes": 394830,
+      "sha256_after_checks": "af100f3d800413acfdd21adf516242dd746041ed572d63d40f3ab9e32c2bd450",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-R-batch-plan.json",
+      "sha256_at_read": "306eeb90b508a51464fc2085271d8f1be68a4e0dbb5d8b5a19514638193a9503",
+      "bytes": 26814,
+      "sha256_after_checks": "306eeb90b508a51464fc2085271d8f1be68a4e0dbb5d8b5a19514638193a9503",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-FR.json",
+      "sha256_at_read": "312dd8df130a4e5096f4d92709a6ac53c923241987321ad33da1b2aebb1109ab",
+      "bytes": 493240,
+      "sha256_after_checks": "312dd8df130a4e5096f4d92709a6ac53c923241987321ad33da1b2aebb1109ab",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/selection-masks/L05-FR-batch-plan.json",
+      "sha256_at_read": "8501126b3744cb9a9f0aeb0992b5d62f5c36731769a1f44dab23d66b18d33e92",
+      "bytes": 26770,
+      "sha256_after_checks": "8501126b3744cb9a9f0aeb0992b5d62f5c36731769a1f44dab23d66b18d33e92",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/identity-equivalence-limitation.json",
+      "sha256_at_read": "0ab32e638a2e8ab970e70cb47e9172ba59c6bf50cf93111ef69c7ca4d5d9bea5",
+      "bytes": 1241,
+      "sha256_after_checks": "0ab32e638a2e8ab970e70cb47e9172ba59c6bf50cf93111ef69c7ca4d5d9bea5",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/call-ledger.json",
+      "sha256_at_read": "e33c280f7756e1027e2996f346066dc78a43616b0fa693cfc8a98c1b6c48c5d1",
+      "bytes": 79955,
+      "sha256_after_checks": "e33c280f7756e1027e2996f346066dc78a43616b0fa693cfc8a98c1b6c48c5d1",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-validation-summary.json",
+      "sha256_at_read": "191616db9991ed53512daca76cdac02fb0948773603d762f79b14810021b9aa3",
+      "bytes": 7648,
+      "sha256_after_checks": "191616db9991ed53512daca76cdac02fb0948773603d762f79b14810021b9aa3",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits-node24.result.json",
+      "sha256_at_read": "57acedf0c3eac0feafe948f54dfacd05a1b7539348f37b4c2f7e2ad6f8344e5b",
+      "bytes": 568,
+      "sha256_after_checks": "57acedf0c3eac0feafe948f54dfacd05a1b7539348f37b4c2f7e2ad6f8344e5b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits-node24.log",
+      "sha256_at_read": "e636810c82022cad0e7cf2f626f4a5b0d309edb473b494e78cd578eefbeb74ff",
+      "bytes": 1631,
+      "sha256_after_checks": "e636810c82022cad0e7cf2f626f4a5b0d309edb473b494e78cd578eefbeb74ff",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.result.json",
+      "sha256_at_read": "00c03cb4e45fca6fd18d8aed7a426ea156398bdf2b989481ea1518f3230320d9",
+      "bytes": 687,
+      "sha256_after_checks": "00c03cb4e45fca6fd18d8aed7a426ea156398bdf2b989481ea1518f3230320d9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.log",
+      "sha256_at_read": "49ed3428c94499740037499489d8af5400d8669093d63c59a2f390350eced6ea",
+      "bytes": 6975,
+      "sha256_after_checks": "49ed3428c94499740037499489d8af5400d8669093d63c59a2f390350eced6ea",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.result.json",
+      "sha256_at_read": "33b334aabaa74861a8308a26269f0373b5c338d04e94b6378c99e1c94b16b9b7",
+      "bytes": 1062,
+      "sha256_after_checks": "33b334aabaa74861a8308a26269f0373b5c338d04e94b6378c99e1c94b16b9b7",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.log",
+      "sha256_at_read": "1d4a0f9b4c08f8e636d2b6a952bde7a54a5c3a9e4ef534052c4643afb5e8c8c9",
+      "bytes": 31457,
+      "sha256_after_checks": "1d4a0f9b4c08f8e636d2b6a952bde7a54a5c3a9e4ef534052c4643afb5e8c8c9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.sources-before.json",
+      "sha256_at_read": "cba5279e36f6a77b192ecced51716aeb76528f1eb74e16b9a6815ff2463d4932",
+      "bytes": 7240,
+      "sha256_after_checks": "cba5279e36f6a77b192ecced51716aeb76528f1eb74e16b9a6815ff2463d4932",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.sources-after.json",
+      "sha256_at_read": "cba5279e36f6a77b192ecced51716aeb76528f1eb74e16b9a6815ff2463d4932",
+      "bytes": 7240,
+      "sha256_after_checks": "cba5279e36f6a77b192ecced51716aeb76528f1eb74e16b9a6815ff2463d4932",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.result.json",
+      "sha256_at_read": "20ed97b0bbbf9427286ac1f0bbb860a77e21c8f5119c06451adc5417af363c26",
+      "bytes": 971,
+      "sha256_after_checks": "20ed97b0bbbf9427286ac1f0bbb860a77e21c8f5119c06451adc5417af363c26",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.log",
+      "sha256_at_read": "ef8f7160936de8c6ca26ae108d808ccfbd4fe9ec4806750e7bde4f9bd85444a2",
+      "bytes": 1834,
+      "sha256_after_checks": "ef8f7160936de8c6ca26ae108d808ccfbd4fe9ec4806750e7bde4f9bd85444a2",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.sources-before.json",
+      "sha256_at_read": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "bytes": 9484,
+      "sha256_after_checks": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.sources-after.json",
+      "sha256_at_read": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "bytes": 9484,
+      "sha256_after_checks": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.result.json",
+      "sha256_at_read": "c5bfcfbe92863d5fd8a20414e4dfbaafc534762713ce0d3de0b76831235fcda2",
+      "bytes": 813,
+      "sha256_after_checks": "c5bfcfbe92863d5fd8a20414e4dfbaafc534762713ce0d3de0b76831235fcda2",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.log",
+      "sha256_at_read": "a08b7a66726ab0edf4fd1ed91b9f23908133a0d727ac2ae005207f95e44f7e48",
+      "bytes": 488,
+      "sha256_after_checks": "a08b7a66726ab0edf4fd1ed91b9f23908133a0d727ac2ae005207f95e44f7e48",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.sources-before.json",
+      "sha256_at_read": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "bytes": 9484,
+      "sha256_after_checks": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.sources-after.json",
+      "sha256_at_read": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "bytes": 9484,
+      "sha256_after_checks": "19209215957306d415d0985d8474d7edd3c54b48b66950c6d03b48dc508f13d9",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits.log",
+      "sha256_at_read": "8a9a7419d4d99388d5170a5cefaea75da125529957bbb9868bffb09e5615bc17",
+      "bytes": 209,
+      "sha256_after_checks": "8a9a7419d4d99388d5170a5cefaea75da125529957bbb9868bffb09e5615bc17",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc.log",
+      "sha256_at_read": "b9bb822ee543d2937d669e6de4ae6162063df89828e112527d4e74c4b8dad5ab",
+      "bytes": 629,
+      "sha256_after_checks": "b9bb822ee543d2937d669e6de4ae6162063df89828e112527d4e74c4b8dad5ab",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression.log",
+      "sha256_at_read": "08f661052b7acc0f0c45d1daf09ef759af7c9ca590c4fd5f81e275e3f314ed8a",
+      "bytes": 316,
+      "sha256_after_checks": "08f661052b7acc0f0c45d1daf09ef759af7c9ca590c4fd5f81e275e3f314ed8a",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc-node24.log",
+      "sha256_at_read": "f781877ff9bc08d6d523bee30228b977651d7c17a06f5b764a72ab922a9b7370",
+      "bytes": 336,
+      "sha256_after_checks": "f781877ff9bc08d6d523bee30228b977651d7c17a06f5b764a72ab922a9b7370",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc.log",
+      "sha256_at_read": "f19138e7485cdc4cc444ad650d6a5383324a1fd9158b726e1d908d663d03bffd",
+      "bytes": 162,
+      "sha256_after_checks": "f19138e7485cdc4cc444ad650d6a5383324a1fd9158b726e1d908d663d03bffd",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/runtime-validation/post-freeze-validation-summary.json",
+      "sha256_at_read": "199388c8128b2bcf1b64584c3de936acd82ad6f7f7d0ebd3c44387afbad40a63",
+      "bytes": 3217,
+      "sha256_after_checks": "199388c8128b2bcf1b64584c3de936acd82ad6f7f7d0ebd3c44387afbad40a63",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/report.html",
+      "sha256_at_read": "611ec2ed1c5216ad3eb57aea657002820d3e04a783c2cd06bf659d9ec812ec4f",
+      "bytes": 6597,
+      "sha256_after_checks": "611ec2ed1c5216ad3eb57aea657002820d3e04a783c2cd06bf659d9ec812ec4f",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/source-selection-audit.csv",
+      "sha256_at_read": "c2364ae275f6d6b11e759db8f5b61186860ea64a258f909216cfcf42ad2d380b",
+      "bytes": 1698661,
+      "sha256_after_checks": "c2364ae275f6d6b11e759db8f5b61186860ea64a258f909216cfcf42ad2d380b",
+      "unchanged_during_check": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/selection-optimization/candidates-with-original-evidence.json",
+      "sha256_at_read": "fe66b215802757d95d31d6853549b783693a75a64c72f4c95a27639a373b6dfc",
+      "bytes": 79,
+      "sha256_after_checks": "fe66b215802757d95d31d6853549b783693a75a64c72f4c95a27639a373b6dfc",
+      "unchanged_during_check": true
+    }
+  ],
+  "checker": {
+    "path": "/home/ecs-user/projects/t1-agent/code/scripts/check-s4-selection-artifacts.py",
+    "sha256": "1499ce4af2e44530b071fe3fb042f7db05f2385f8f8d1abb039f6d8713fd986a",
+    "python": "3.12.3"
+  }
+}

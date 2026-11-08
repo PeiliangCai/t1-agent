@@ -1,0 +1,43 @@
+{
+  "schema_version": "s4-selection-budget-carry-forward-1",
+  "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+  "original_authorization": "code/docs/acceptance/s4/selection-optimization/authorization.json",
+  "alias_confirmation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+  "historical_pre_selection_requests": 133,
+  "prior_selection_inference_requests": 28,
+  "prior_metadata_http_requests": 1,
+  "prior_combined_requests": 29,
+  "prior_known_input_tokens": 157909,
+  "prior_unknown_input_reservation": 121594,
+  "prior_conservative_input_tokens": 279503,
+  "prior_known_output_tokens": 14425,
+  "prior_unknown_output_reservation": 8192,
+  "prior_conservative_output_tokens": 22617,
+  "joint_authorized_caps": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000
+  },
+  "continuation_caps": {
+    "requests": 271,
+    "input_tokens": 5720497,
+    "output_tokens": 377383
+  },
+  "prior_ledger_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/call-ledger.json",
+  "prior_ledger_sha256": "23ad6f7494eb55c5fb0947cde9a4615004a4af36328ad023fb2fe77e95b56b46",
+  "prior_registry_sha256": "d0fe39d726e24505eda1b66fa3bc1eb4fd9c015de8fa3b40d839e96d3337d4a6",
+  "prior_model_metadata_sha256": "3e035be17b2d0597e0b31d3db011d87e0edf575d63e3f6f3c2c472aa280fe3f1",
+  "prior_wall_clock": {
+    "started_at": "2026-11-03T12:41:46.904Z",
+    "limit_seconds": 7200,
+    "record_unchanged": true
+  },
+  "continuation_operation_window": {
+    "max_seconds": 10800,
+    "authorized_by": "main_session_engineering_timeout_decision_after_supplier_alias_confirmation",
+    "user_added_budget_claimed": false,
+    "separate_local_protection_window_starts_at_first_continuation_inference": true
+  },
+  "restart_policy": "all5 unique conditions from fresh runs;L01-B0 starts from beginning;no checkpoint resume",
+  "old_interrupted_candidates_remain_historical": true
+}

@@ -1,0 +1,25 @@
+{
+  "command": [
+    "services/pdf-parser/structured-cli.py",
+    "parse",
+    "--candidate-id",
+    "docling-standard-cpu",
+    "--run-id",
+    "pdf-quality-live-L01-2026-11-07",
+    "--document-id",
+    "L01",
+    "--file-reference",
+    "evaluation/corpus/development-candidates/L01.pdf",
+    "--file-sha256",
+    "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "--log-directory",
+    "docs/acceptance/pdf-input-quality-2026-11-07/live-L01/logs",
+    "--output",
+    "docs/acceptance/pdf-input-quality-2026-11-07/live-L01/parser-result.json"
+  ],
+  "exit_code": 2,
+  "elapsed_seconds": 22.398,
+  "network_models_offline": true,
+  "llm_calls": 0,
+  "native_cpu_inference_performed": true
+}

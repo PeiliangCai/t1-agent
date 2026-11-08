@@ -1,0 +1,92 @@
+{
+  "schema_version": "ai-reference-local-validation-1",
+  "completed_at": "2026-11-03T12:41:02.441803+00:00",
+  "status": "passed",
+  "checks": {
+    "workbook_all_sheets_and_inert_formulas": true,
+    "origin_flags_and_empty_human_fields": true,
+    "original_workbook_pdf_ir_hashes_unchanged": true,
+    "all_source_unicode_codepoint_slice_roundtrips": 422,
+    "anchor_index_no_automatic_ambiguous_selection": true,
+    "report_html_56_rows_and_no_active_content": true,
+    "existing_output_overwrite_refused_exit_code": 2
+  },
+  "focused_tests": {
+    "command": "code/.venv/bin/python -B code/scripts/test-import-ai-reference.py",
+    "actual_previous_run_exit_code": 0,
+    "tests_run": 9,
+    "result": "OK",
+    "covered": [
+      "duplicate_source_occurrences_not_first_selected",
+      "unicode_codepoint_cross_line_alignment",
+      "explicit_multifragment_kept_partial_and_separate_index",
+      "table_transcription_partial",
+      "paraphrase_translation_hyphen_not_literal",
+      "page_conflict_not_selected",
+      "formula_inert",
+      "ellipsis_not_contiguous"
+    ]
+  },
+  "medical_quality_evaluation_performed": false,
+  "posthoc_comparison_performed_by_importer": false,
+  "posthoc_comparison_owner": "t1_s4_filter_execution",
+  "source_preservation": {
+    "schema_version": "ai-reference-preservation-1",
+    "generated_at": "2026-11-03T12:39:38.484267+00:00",
+    "importer": {
+      "file": "scripts/import-ai-reference.py",
+      "sha256": "03dcf1c2ab33a65a881e8d06aa19d8203e4282a2a3fe36f078efc5a400aae9d2",
+      "python_version": "3.12.3"
+    },
+    "workbook": {
+      "file": "evaluation/annotations/expert-handoff/20261103T170116+0800/材料/L01_L05医学视觉特征参考答案_待复核.xlsx",
+      "sha256_before": "6ba6d18b638f6e2df05a64bdfc3fb890376722e21da145f33b1d0a0d7f483239",
+      "sha256_after": "6ba6d18b638f6e2df05a64bdfc3fb890376722e21da145f33b1d0a0d7f483239",
+      "opened_read_only": true,
+      "formulas_evaluated": false,
+      "hyperlinks_followed": false
+    },
+    "sources": {
+      "L01": {
+        "document_id": "L01",
+        "original_pdf": "evaluation/corpus/development-candidates/L01.pdf",
+        "pdf_sha256_before": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "pdf_page_count": 4,
+        "ir_file": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json",
+        "ir_sha256_before": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+        "file_sha256_in_ir": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+        "raw_text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04-raw",
+        "source_blocks": 409,
+        "source_code_points": 10522,
+        "ir_structure_used_as_literal_quote": false,
+        "human_source_fidelity_verified": false,
+        "pdf_sha256_after": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "ir_sha256_after": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af"
+      },
+      "L05": {
+        "document_id": "L05",
+        "original_pdf": "evaluation/corpus/development-candidates/L05.pdf",
+        "pdf_sha256_before": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "pdf_page_count": 10,
+        "ir_file": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L05.json",
+        "ir_sha256_before": "50bc3da18913f9df602fc780e1a5162dca006985d1b03115d974859b30a817df",
+        "file_sha256_in_ir": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "text_version": "s3v3-0b953cbb7626a244a3f99f09c265e9fb",
+        "raw_text_version": "s3v3-0b953cbb7626a244a3f99f09c265e9fb-raw",
+        "source_blocks": 615,
+        "source_code_points": 33459,
+        "ir_structure_used_as_literal_quote": false,
+        "human_source_fidelity_verified": false,
+        "pdf_sha256_after": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "ir_sha256_after": "50bc3da18913f9df602fc780e1a5162dca006985d1b03115d974859b30a817df"
+      }
+    },
+    "validated_s3_source_segments": 422,
+    "offset_roundtrip_validation": "passed",
+    "llm_calls": 0,
+    "network_calls": 0,
+    "medical_semantic_approval_performed": false,
+    "all_inputs_unchanged": true
+  }
+}

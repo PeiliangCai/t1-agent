@@ -1,0 +1,17 @@
+{
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "npm",
+    "exec",
+    "--",
+    "tsx",
+    "--test",
+    "tests/integration/review-regressions.test.ts"
+  ],
+  "date": "2026-11-02T09:47:44.332531+00:00",
+  "exit_code": 1,
+  "real_api_calls": 0,
+  "stdout": "✖ session creation failure leaves the already persisted run failed with a terminal event, without API calls (835.972608ms)\n✖ HTTP SSE delivers a candidate committed through an independent SQLite connection without reconnecting (995.847057ms)\nℹ tests 2\nℹ suites 0\nℹ pass 0\nℹ fail 2\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2659.434215\n\n✖ failing tests:\n\ntest at tests/integration/review-regressions.test.ts:11:1\n✖ session creation failure leaves the already persisted run failed with a terminal event, without API calls (835.972608ms)\n  AssertionError [ERR_ASSERTION]: initialization error must not strand a run in extracting\n  + actual - expected\n  \n  + 'extracting'\n  - 'failed'\n  \n      at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/integration/review-regressions.test.ts:25:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 'extracting',\n    expected: 'failed',\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at tests/integration/review-regressions.test.ts:35:1\n✖ HTTP SSE delivers a candidate committed through an independent SQLite connection without reconnecting (995.847057ms)\n  AssertionError [ERR_ASSERTION]: live SSE missed another connection: TIMEOUT_NO_EXTERNAL_EVENT\n      at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/integration/review-regressions.test.ts:52:12)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '==',\n    diff: 'simple'\n  }\n",
+  "stderr": ""
+}

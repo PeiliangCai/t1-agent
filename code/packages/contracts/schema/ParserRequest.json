@@ -1,0 +1,34 @@
+{
+  "title": "ParserRequest",
+  "type": "object",
+  "required": [
+    "run_id",
+    "document_id",
+    "file_reference",
+    "file_sha256"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "document_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "file_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "fixture": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

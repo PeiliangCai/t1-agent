@@ -1,0 +1,27 @@
+{
+  "schema_version": "three-method-authorization-1",
+  "status": "pending_user_confirmation",
+  "authorization_id": null,
+  "user_confirmation_source": null,
+  "approved_at": null,
+  "prepared_plan_sha256": "75977832a6b09df7df1a5fbbc71b7e28e29e93ec7a5d75637464188109006625",
+  "batch_id": "comparison-8d7eead5-8a20-4d53-8124-cf6ff7d466f5",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "provider": "agicto",
+  "api": "openai-responses",
+  "limits": {
+    "requests": 64,
+    "input_tokens": 1500000,
+    "output_tokens": 160000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "scope_note": "Integrated reliability smoke only for L05-B0,L05-F; no single-variable performance gain or method ranking. All attempts share the approved caps.",
+  "budget_owner_policy": "Keep the same authorization_id, confirmation source and time for authorized follow-ups. A single shared ledger and its original wall clock never reset per method, retry or revision.",
+  "notice": "Unsigned proposal only. Old budgets are closed; no model call authorized by this file."
+}

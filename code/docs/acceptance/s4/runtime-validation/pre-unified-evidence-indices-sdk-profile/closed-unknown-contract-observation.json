@@ -1,0 +1,36 @@
+{
+  "schema_version": "s4-runtime-closed-contract-observation-1",
+  "source_log": "docs/acceptance/s4/runtime-validation/closed-finish-focused-tests.txt",
+  "simulation": "Installed Pi SDK and synthetic loopback model; this agent made no paid model call.",
+  "observed": {
+    "test_evidence": "closed_unknown_contract",
+    "saved_unknown_forms": [
+      "omitted",
+      "null",
+      "object_value_null_empty_indices"
+    ],
+    "saved_records": 3,
+    "rejected_feedback": [
+      {
+        "call_id": "call-fixture-1-0",
+        "feedback": "Validation failed for tool \"submit_candidate_records\":\n  - records.0.source_line_indices: must have required properties source_line_indices\n  - records.0.source_fragments: schema is false\n  - records.0: must not have additional properties\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_fragments\": [\n        {"
+      },
+      {
+        "call_id": "call-fixture-1-1",
+        "feedback": "Validation failed for tool \"submit_candidate_records\":\n  - records.0.context_fragments: schema is false\n  - records.0: must not have additional properties\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_indices\": [\n        0\n      ],\n      \"feature_name_raw\": \"spiculation\",\n      \"feature_category\": \"mar"
+      },
+      {
+        "call_id": "call-fixture-1-2",
+        "feedback": "source_line_index_out_of_range"
+      },
+      {
+        "call_id": "call-fixture-1-3",
+        "feedback": "Validation failed for tool \"submit_candidate_records\":\n  - records.0.disease_or_lesion.source_indices: must have required properties source_indices\n  - records.0.disease_or_lesion: must be null\n  - records.0.disease_or_lesion: must match a schema in anyOf\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_i"
+      },
+      {
+        "call_id": "call-fixture-1-4",
+        "feedback": "Validation failed for tool \"submit_candidate_records\":\n  - records.0.modality: must be object\n  - records.0.modality: must be null\n  - records.0.modality: must match a schema in anyOf\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_indices\": [\n        0\n      ],\n      \"feature_name_raw\": \"spiculation\",\n "
+      }
+    ]
+  }
+}

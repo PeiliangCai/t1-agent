@@ -1,0 +1,104 @@
+{
+  "schema_version": "s4-summary-model-view-acceptance-1",
+  "created_at": "2026-11-03T05:02:00.073566+00:00",
+  "encoding": "s4-source-fragment-dictionary-1",
+  "scope": "lossless pure JSON view only; no candidate/rule/storage edits",
+  "apis": {
+    "packSummaryModelContext": "unknown strict plain JSON -> {encoding,source_fragment_table:[{ref,value:complete LocatedEvidenceFragment}],context}",
+    "unpackSummaryModelContext": "unknown packet -> normalized original JSON value; rejects malformed packet/table/ref/literal escape",
+    "input_normalization": "Strict plain JSON; finite numbers and no accessors/functions/undefined/cycles. Object keys are sorted and -0 becomes 0. Wrapper must apply its established JSON.stringify/parse normalization first when optional JS undefined fields exist.",
+    "fragment_identity": "All nine complete located-fragment properties including source identity, offsets, occurrence, quote, page and bbox; same string alone never deduplicates distinct locations.",
+    "literal_collision_policy": "Original objects containing $source_fragment_ref or $source_fragment_literal are escaped as {$source_fragment_literal:[[key,encodedValue],...]}. Paper strings are never parsed as references."
+  },
+  "verification": [
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" node_modules/.bin/tsx --test tests/extraction/summary-model-view.test.ts",
+      "exit_code": 0,
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "log": "summary-model-view-final-tests.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" node_modules/.bin/tsc --noEmit",
+      "exit_code": 0,
+      "log": "summary-model-view-final-typecheck.log"
+    }
+  ],
+  "preserved_initial_typecheck_issue": {
+    "log": "summary-model-view-typecheck.log",
+    "cause": "Only two test assertions required an explicit unknown cast from the broad JSON union to the verified fixture type.",
+    "resolution": "Test casts corrected; runtime tests were 15/15 before and 16/16 after the added full 28-field record test.",
+    "production_runtime_failure": false
+  },
+  "real_data_measurement": "summary-model-view-real/measurement.json",
+  "measurements": [
+    {
+      "job_id": "job-01",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:ca5ae3e1",
+      "model_id": "gpt-6.1-sol",
+      "source_result_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6/result.json",
+      "source_result_sha256": "147fa43bf553e6a164bd3c607315105b980af5fd71a49b8ceb14557370c886ef",
+      "source_provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6/source-provenance.json",
+      "source_provenance_sha256": "7a2a6bef48fc26d782ff1b8ee3eafd3ad0c12fafff9eb9433125313a6506c8db",
+      "legacy_context_shape_reference": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/source-snapshots/31b2137dcc1a6590781189ae8198d96054b4320ee5f311609181bd2b28e23512/packages/agent/src/extraction-summary.ts",
+      "legacy_context_shape_source_sha256": "1f790e2b9267f823280951ec141b287a66664ada3872e8934aad23ea3964271d",
+      "sample_kind": "reconstructed_archived_legacy_get_document_context_fields_from_final_result_not_recovered_historical_request",
+      "candidate_count": 26,
+      "restored_candidate_count": 26,
+      "legacy_compact_utf8_bytes": 220459,
+      "packet_compact_utf8_bytes": 95069,
+      "packet_to_legacy_ratio": 0.43123211118620697,
+      "byte_reduction_percent": 56.876788881379305,
+      "unique_full_source_fragments": 126,
+      "replaced_fragment_occurrences": 595,
+      "exact_json_value_roundtrip": true,
+      "original_input_unchanged": true,
+      "candidate_fields_context_offsets_pages_geometry_preserved": true,
+      "legacy_context_path": "docs/acceptance/s4/evidence-validation/summary-model-view-real/sol-legacy-context.json",
+      "legacy_context_compact_sha256": "dd09676fee6ed2470bab45d6d0d0b5fd97bde4a04970de03f98952a85251e1d8",
+      "packet_path": "docs/acceptance/s4/evidence-validation/summary-model-view-real/sol-packet.json",
+      "packet_compact_sha256": "5aef86b793b4b93be5a086aef4ad069b475d3e91417bdf3f298addd82c0ab437",
+      "measurement": "minified UTF-8 JSON bytes only; not model tokens, latency, cost, medical quality or approved context-window acceptance",
+      "new_semantic_case_wrapper_measured": false
+    },
+    {
+      "job_id": "job-06",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-06:13911dd7",
+      "model_id": "gpt-6-astra",
+      "source_result_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2/result.json",
+      "source_result_sha256": "d180c98c7069705e0e63cd4105addde07774ff3c60120164c6a58227b8007e1f",
+      "source_provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2/source-provenance.json",
+      "source_provenance_sha256": "7a2a6bef48fc26d782ff1b8ee3eafd3ad0c12fafff9eb9433125313a6506c8db",
+      "legacy_context_shape_reference": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/source-snapshots/31b2137dcc1a6590781189ae8198d96054b4320ee5f311609181bd2b28e23512/packages/agent/src/extraction-summary.ts",
+      "legacy_context_shape_source_sha256": "1f790e2b9267f823280951ec141b287a66664ada3872e8934aad23ea3964271d",
+      "sample_kind": "reconstructed_archived_legacy_get_document_context_fields_from_final_result_not_recovered_historical_request",
+      "candidate_count": 17,
+      "restored_candidate_count": 17,
+      "legacy_compact_utf8_bytes": 153731,
+      "packet_compact_utf8_bytes": 66678,
+      "packet_to_legacy_ratio": 0.43373164813863174,
+      "byte_reduction_percent": 56.62683518613682,
+      "unique_full_source_fragments": 78,
+      "replaced_fragment_occurrences": 339,
+      "exact_json_value_roundtrip": true,
+      "original_input_unchanged": true,
+      "candidate_fields_context_offsets_pages_geometry_preserved": true,
+      "legacy_context_path": "docs/acceptance/s4/evidence-validation/summary-model-view-real/astra-legacy-context.json",
+      "legacy_context_compact_sha256": "b51a1145d7025d3d6fb6d6b1566fd9e99be492f6abace9c91589cf449fe2c5c6",
+      "packet_path": "docs/acceptance/s4/evidence-validation/summary-model-view-real/astra-packet.json",
+      "packet_compact_sha256": "aadd327f1c0e7f6b78c53adecb7dbf819b25eb8418f225a6ccda5d8160601c0c",
+      "measurement": "minified UTF-8 JSON bytes only; not model tokens, latency, cost, medical quality or approved context-window acceptance",
+      "new_semantic_case_wrapper_measured": false
+    }
+  ],
+  "measurement_limit": "Minified UTF-8 bytes and JSON equality only; no provider-token, latency, cost, model-context or medical-quality claim. Archived legacy get_document_context fields reconstructed from final result records; not recovered historical network payloads or measured new semantic-case wrapper.",
+  "new_paid_calls": 0,
+  "medical_approval": false,
+  "stage_passed": false,
+  "other_application_files_modified_by_this_agent": false,
+  "source_file_sha256": {
+    "packages/agent/src/summary-model-view.ts": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+    "tests/extraction/summary-model-view.test.ts": "2df42a5332fde3fe46febf3dcba0e31ec49cae121c678864316da4fd3e0179d4"
+  }
+}

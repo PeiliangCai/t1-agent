@@ -1,0 +1,105 @@
+{
+  "recorded_at": "2026-11-03T00:09:34.646618+08:00",
+  "all_required_checks_passed": true,
+  "checks": [
+    {
+      "command": "bash scripts/with-node.sh npm run check",
+      "status": "passed",
+      "log": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/check-final.log",
+      "log_sha256": "56b2e80c2e8024857b7bf397d49e8f0277b74ef00a4e7b8b5ac6286b144f4cab",
+      "executed_by": "Pi integration executor"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:unit",
+      "status": "passed",
+      "count": 15,
+      "log": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/unit-regression.log",
+      "log_sha256": "2c36acd13d6b76079fb1b2f0777933d2acd23168e24877fbcf8e90ec380d4424",
+      "executed_by": "Pi integration executor"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:integration",
+      "status": "passed",
+      "count": 8,
+      "log": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/integration-regression.log",
+      "log_sha256": "e0fcdbb9f39403407f7abfef7bd50d92be6be0a706a3dec923f8456c1b1e4c9e",
+      "executed_by": "Pi integration executor"
+    },
+    {
+      "command": "bash scripts/with-node.sh npm run test:parser",
+      "status": "passed",
+      "count": 17,
+      "log": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/parser-final.log",
+      "log_sha256": "20ed80dde7638a07a98c92596d159dfc57ec67516963279ecf753538aab1ab4c",
+      "executed_by": "Pi integration executor"
+    },
+    {
+      "name": "python",
+      "status": "passed",
+      "count": 17,
+      "command": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v",
+      "log": "docs/acceptance/s3/comparison-2026-11-02/validation/python-final.log",
+      "log_sha256": "7f20fdda9122239becfb9828de7db8626171d2d937e1ed5664b21999a505ff23"
+    },
+    {
+      "name": "evaluation",
+      "status": "passed",
+      "count": 28,
+      "command": "bash scripts/with-node.sh npm run test:evaluation",
+      "log": "docs/acceptance/s3/comparison-2026-11-02/validation/evaluation-final.log",
+      "log_sha256": "e61c293f95cd0a58c086e65797c6499cd1a22b561caf48ff1f4d06ef2cd0f34f"
+    }
+  ],
+  "Python_regressions": {
+    "total": 17,
+    "existing": 9,
+    "new_structured": 8
+  },
+  "Pi_final_replays": {
+    "runs": 10,
+    "source_block_variants_read": 7774,
+    "tool_start_end_events": 2112,
+    "loopback_mock_responses": 40,
+    "real_paid_model_calls": 0,
+    "native_model_rerun": false,
+    "all_partial": true,
+    "candidates": 0,
+    "reports": [
+      {
+        "candidate_id": "docling-standard-cpu",
+        "path": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/docling-standard-cpu-2026-11-02T16-01-57-753Z-5d7b585e/report.json",
+        "sha256": "231cb8e59d885eaf4193ae1847450f4932a3d6f00c2d7b4407b64adb02cda5b7"
+      },
+      {
+        "candidate_id": "mineru-basic-onnx-cpu",
+        "path": "docs/acceptance/s3/comparison-2026-11-02/pi-integration/mineru-basic-onnx-cpu-2026-11-02T16-01-57-766Z-a85f1f18/report.json",
+        "sha256": "b1295c4c23268371615e81212e38ea6a09b53ae487fe37874aadd395733039c8"
+      }
+    ]
+  },
+  "native_candidate_runs": {
+    "count": 20,
+    "unique_development_pages": 41,
+    "partial": 20,
+    "native_exceptions": 0
+  },
+  "AI_actual_image_review": {
+    "all_pages": 41,
+    "focused": 10,
+    "additional_survey": 31,
+    "human_medical_gold": false
+  },
+  "benchmark_args_and_python_syntax": "passed_without_model_run",
+  "initial_failures_preserved": [
+    "validation/structured-first.log",
+    "validation/report-build.log",
+    "pi-integration/check-initial.log",
+    "pi-integration/real-pi-tests-initial.log"
+  ],
+  "initial_failure_resolution": "Test field/fixture/error-code expectations corrected without weakening production Unicode/segment checks; report renderer used existing markdown_it instead of missing markdown package; peer syntax and SQLite report-isolation failures retained and fixed.",
+  "old_test_evidence_not_relabelled_current": true,
+  "formal_review_rounds_added": 0,
+  "S3_formal_reviews_used": 3,
+  "stage_passed": false,
+  "formal_parser_selected": false
+}

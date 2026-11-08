@@ -1,0 +1,3930 @@
+{
+  "schema_version": "t1-ordered-stage-audit-1",
+  "started_at": "2026-11-04T15:48:50.415811+00:00",
+  "ordered_stages": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+  ],
+  "new_model_calls": 189,
+  "paid_budget": {
+    "status": "authorized_scoped_experiments_complete_no_more_calls",
+    "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+    "record": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+    "limits": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000,
+      "seconds": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "time_only_resume": {
+      "record": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+      "resume_at": "2026-11-05T02:16:52.744Z",
+      "deadline_utc": "2026-11-05T05:28:52.744Z",
+      "seconds": 11520,
+      "id_and_limits_and_start_unchanged": true
+    },
+    "scope_closed_at": "2026-11-05T02:34:11.311670+00:00"
+  },
+  "medical_quality_approved": false,
+  "formal_review": {
+    "used": 3,
+    "limit": 3,
+    "reserved_final": false,
+    "remaining": 0,
+    "final_review": {
+      "round": 3,
+      "limit": 3,
+      "recorded_at": "2026-11-05T02:35:37.152835+00:00",
+      "reviewer": "main_session_GPT-6-Astra_max",
+      "decision": "继续",
+      "verbatim": "判断：继续。风险：1.仅两篇开发论文且人工核验为零，尚不能确定医学质量或最优方案；2.汇总新策略存在子图编号、病例归属及数值元数据风险，暂不进入默认；3.解析仍有定位和整图待核项。工程成果可以交付，S2—S4不认定完整验收通过。",
+      "scope": "Current engineering and measured-experiment handoff only; not medical approval or complete S2/S3/S4 acceptance.",
+      "new_experiments_or_default_changes_authorized": false
+    }
+  },
+  "source_plan_sha256": "18ab87dd5cfd46d6589af392cd55814e8921848b2d48175938e00927f768b767",
+  "legacy_acceptances": {
+    "s0": {
+      "path": "docs/acceptance/s0/acceptance.json",
+      "sha256": "33aa0382ccc5c1a01e97f2e3ff747600cf09f6194b22a5b29906719c3c76a4f4",
+      "original_status": "passed",
+      "rewritten": false
+    },
+    "s1": {
+      "path": "docs/acceptance/s1/acceptance.json",
+      "sha256": "9a351580048585aca4114c943b8c1a0efeecb976ce4b36a9546034dd6d044685",
+      "original_status": "passed",
+      "rewritten": false
+    }
+  },
+  "reused_validation": {
+    "path": "docs/project-simplify-2026-11-04.json",
+    "scope": [
+      "root/Next typecheck before new source changes",
+      "workbench integration 4/4",
+      "source/data integrity"
+    ]
+  },
+  "stages": {
+    "S0": {
+      "status": "current_scope_verified_legacy_acceptance_retained",
+      "stage_passed": true,
+      "checks": [
+        "approved doc/guide SHA bindings",
+        "E01-E09 effective rules",
+        "all-unrestricted initial scope",
+        "verbatim/figure evidence semantics",
+        "no full-reference preannotation gate",
+        "legacy S0/S1 acceptance files unchanged"
+      ],
+      "remaining": [
+        "Quality/performance thresholds and formal model remain unfrozen by design"
+      ],
+      "current_environment": {
+        "os": {
+          "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39",
+          "uname": [
+            "Linux",
+            "iZf8z4uzny9drxq77oicirZ",
+            "6.8.0-147-generic",
+            "#147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026",
+            "x86_64",
+            "x86_64"
+          ],
+          "release": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n"
+        },
+        "cpu": {
+          "logical_count": 8,
+          "model": "Intel(R) Xeon(R) 6982P-C"
+        },
+        "memory_kib": {
+          "MemTotal": 32183396,
+          "MemAvailable": 29568508,
+          "SwapTotal": 0
+        },
+        "disk_bytes": {
+          "total": 105286258688,
+          "used": 16179204096,
+          "free": 84594401280
+        },
+        "tools": {
+          "node": {
+            "command": [
+              "bash",
+              "scripts/with-node.sh",
+              "node",
+              "-p",
+              "JSON.stringify({version:process.version,path:process.execPath})"
+            ],
+            "exit_code": 0,
+            "output": "{\"version\":\"v24.22.2\",\"path\":\"/home/ecs-user/projects/t1-agent/code/.tools/node-v24.22.2-linux-x64/bin/node\"}"
+          },
+          "npm": {
+            "command": [
+              "bash",
+              "scripts/with-node.sh",
+              "npm",
+              "--version"
+            ],
+            "exit_code": 0,
+            "output": "11.19.1"
+          },
+          "system_python": {
+            "command": [
+              "python3",
+              "-c",
+              "import sys;print(sys.executable);print(sys.version)"
+            ],
+            "exit_code": 0,
+            "output": "/usr/bin/python3\n3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+          },
+          "parser_python": {
+            "command": [
+              "/home/ecs-user/projects/t1-agent/code/.venv/bin/python",
+              "-c",
+              "import sys,importlib.metadata as m; print(sys.executable); print(sys.version); print({k:m.version(k) for k in [\"docling\",\"docling-parse\",\"torch\"]}); import torch; print({\"cuda_available\":torch.cuda.is_available()})"
+            ],
+            "exit_code": 0,
+            "output": "/home/ecs-user/projects/t1-agent/code/.venv/bin/python\n3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]\n{'docling': '2.145.0', 'docling-parse': '7.24.2', 'torch': '2.15.0+cpu'}\n{'cuda_available': False}"
+          },
+          "docker_cli": {
+            "command": [
+              "docker",
+              "--version"
+            ],
+            "available": false,
+            "error_type": "FileNotFoundError"
+          },
+          "docker_daemon": {
+            "command": [
+              "docker",
+              "info",
+              "--format",
+              "{{json .ServerVersion}}"
+            ],
+            "available": false,
+            "error_type": "FileNotFoundError"
+          },
+          "gpu_cli_path": null
+        },
+        "model_configuration": {
+          "file_path": ".env",
+          "file_exists": true,
+          "variables": [
+            {
+              "name": "T1_MODEL_PROVIDER",
+              "in_environment": false,
+              "declared_in_file": true
+            },
+            {
+              "name": "T1_MODEL_BASE_URL",
+              "in_environment": false,
+              "declared_in_file": true
+            },
+            {
+              "name": "T1_MODEL_ID",
+              "in_environment": false,
+              "declared_in_file": true
+            },
+            {
+              "name": "T1_MODEL_API_KEY",
+              "in_environment": false,
+              "declared_in_file": true
+            }
+          ],
+          "values_recorded": false,
+          "network_probe_performed": false
+        },
+        "support_and_contract_locations": [
+          "../方案/子任务T1/开发计划.json#/scope",
+          "config/pdf-parser.json",
+          "packages/contracts/src/index.ts",
+          "packages/contracts/src/document-ir-v3.ts",
+          "packages/contracts/src/extraction-evidence.ts",
+          "packages/contracts/src/figure-evidence.ts"
+        ],
+        "limits": "CPU-only parser baseline; Docker not deployed or reconfigured; medical and OCR coverage not implied"
+      }
+    },
+    "S1": {
+      "status": "offline_current_engineering_verified_legacy_acceptance_retained",
+      "stage_passed": true,
+      "checks": [
+        {
+          "name": "s1-unit",
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "npm",
+            "run",
+            "test:unit"
+          ],
+          "exit_code": 0,
+          "duration_seconds": 1.134,
+          "counts": {
+            "tests": 15,
+            "pass": 15,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s1-unit.log",
+          "new_model_calls": 0
+        },
+        {
+          "name": "s1-integration-core",
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "node",
+            "--import",
+            "tsx",
+            "--test",
+            "tests/integration/runtime.test.ts",
+            "tests/integration/review-regressions.test.ts"
+          ],
+          "exit_code": 0,
+          "duration_seconds": 2.799,
+          "counts": {
+            "tests": 8,
+            "pass": 8,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s1-integration-core.log",
+          "new_model_calls": 0
+        }
+      ],
+      "limitations": [
+        "Real Pi smoke reused from retained historical acceptance; no repeat paid call",
+        "Fixture/core tests do not establish real paper medical quality"
+      ],
+      "remaining": []
+    },
+    "S2": {
+      "status": "preparation_engineering_completed_human_and_new_corpus_pending",
+      "stage_passed": false,
+      "checks": [
+        {
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "npm",
+            "run",
+            "test:evaluation"
+          ],
+          "exit_code": 0,
+          "duration_seconds": 1.399,
+          "counts": {
+            "tests": 27,
+            "pass": 27,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s2-before.log",
+          "new_model_calls": 0
+        },
+        {
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "npm",
+            "run",
+            "test:evaluation"
+          ],
+          "exit_code": 0,
+          "tests": 32,
+          "passed": 32,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s2-after.log"
+        },
+        {
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "node_modules/.bin/tsc",
+            "--noEmit"
+          ],
+          "exit_code": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s2-types.log"
+        },
+        {
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "node",
+            "--import",
+            "tsx",
+            "scripts/independent-corpus.ts",
+            "inspect"
+          ],
+          "exit_code": 0,
+          "registered": 0,
+          "sealed": 0,
+          "exposed": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s2-intake-inspect.log"
+        },
+        {
+          "command": "npm run test:evaluation final with isolated register/seal/expose CLI",
+          "exit_code": 0,
+          "tests": 33,
+          "passed": 33,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/final-evaluation.log"
+        }
+      ],
+      "remaining": [
+        "Real medical review of term sources/synonyms/applicability/hierarchy; no actor or approval fabricated",
+        "Choose and register genuinely new independent papers, verify family/identity, seal; current count0",
+        "User/medical reviewer chooses sampling counts and thresholds; actual medical sample checks0"
+      ],
+      "implemented": [
+        "evaluation/rules/output-sampling.json defines automatic vs human source/PDF/context/Figure checks; no full gold precondition",
+        "OutputSampleReview preserves version fingerprints and records original-PDF fidelity, complete-Figure check, human canonical dedupe group; old samples cannot imply fidelity",
+        "auditOutputSample reports actual reviewed/unreviewed/uncertain and text-vs-image validation counts; no full recall/medical pass",
+        "prepare-output-sample.ts creates deterministic selected record list and unsigned pending template; caller supplies working count/seed, no numeric threshold chosen",
+        "Independent new-paper intake schema plus register/seal/expose/inspect CLI and use guard; family/DOI/hash reject old exposed or duplicate families; bytes/identity seal bound",
+        "pending-confirmations.json follows current output-check protocol; legacy gold scorer retained as optional historical tool"
+      ],
+      "medical_catalog": {
+        "terms": 29,
+        "approved_bindings": 0,
+        "approved_synonyms": 0,
+        "approved_hierarchy_edges": 0,
+        "proposed_relationships": 4,
+        "medical_review_performed": false,
+        "product_default_catalog_enabled": false
+      },
+      "initial_findings": [
+        "14 existing source records, 13 article families, all already exposed",
+        "5 verified local PDFs; full medical review pending",
+        "29 vocabulary draft terms, no approved applicability/synonym/hierarchy edges",
+        "Existing output sample audit core available; current rules and prepared record workflow need completion",
+        "No usable independent intake/sealing interface; old SourceRecord contract intentionally hardcodes exposed sources"
+      ]
+    },
+    "S3": {
+      "status": "current_cpu_pipeline_verified_quality_pending",
+      "stage_passed": false,
+      "checks": [
+        {
+          "command": "npm run test:parser",
+          "exit_code": 0,
+          "tests": 21,
+          "passed": 21,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-parser-typescript.log"
+        },
+        {
+          "command": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v",
+          "exit_code": 0,
+          "tests": 20,
+          "passed": 20,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-parser-python.log"
+        },
+        {
+          "command": "extract-paper.ts --pdf L05.pdf --document-id L05 --directory NEW (no run config)",
+          "exit_code": 0,
+          "seconds": 32.944,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-L05-prepare.log"
+        },
+        {
+          "command": "current Python suite after geometric/contract fix",
+          "tests": 22,
+          "passed": 22,
+          "exit_code": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-fixed-python.log"
+        },
+        {
+          "command": "current TS parser suite after contract fix",
+          "tests": 21,
+          "passed": 21,
+          "exit_code": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-fixed-typescript.log"
+        },
+        {
+          "command": "final current L05 CPU preparation after fix",
+          "exit_code": 0,
+          "seconds": 32.902,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s3-L05-final.log"
+        }
+      ],
+      "remaining": [
+        "Human check of reading order/table/caption and original PDF fidelity",
+        "Some Figure groups still needs_review; image/OCR coverage not claimed",
+        "Docling remains formal primary; no new parser selection or paid model inference"
+      ],
+      "cell_mapping_fix": {
+        "checked_at": "2026-11-04T16:03:14.291Z",
+        "fix": "small native cell mostly contained by a whole source row can enter literal matching; no source edit, unique exact match still required",
+        "before": {
+          "counts": {
+            "exact": 283,
+            "normalized_alignment": 97,
+            "not_text": 18,
+            "unmapped": 30,
+            "partial": 5
+          },
+          "unresolved": 35
+        },
+        "after": {
+          "counts": {
+            "exact": 304,
+            "normalized_alignment": 97,
+            "not_text": 18,
+            "ambiguous": 8,
+            "partial": 5,
+            "unmapped": 1
+          },
+          "unresolved": 14
+        },
+        "changed_units": [
+          {
+            "native_ref": "#/tables/0/data/table_cells/1",
+            "kind": "table_cell",
+            "text": "AAH",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000009",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 0,
+                "end": 3,
+                "exact_quote": "AAH"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/2",
+            "kind": "table_cell",
+            "text": "AIS",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000009",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 4,
+                "end": 7,
+                "exact_quote": "AIS"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/3",
+            "kind": "table_cell",
+            "text": "MIA",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000009",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 8,
+                "end": 11,
+                "exact_quote": "MIA"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/4",
+            "kind": "table_cell",
+            "text": "IAC",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              4
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/5",
+            "kind": "table_cell",
+            "text": "Accuracy (%)",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              4
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/6",
+            "kind": "table_cell",
+            "text": "Non-IAC",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000009",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 29,
+                "end": 36,
+                "exact_quote": "Non-IAC"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/7",
+            "kind": "table_cell",
+            "text": "IAC",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              4
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/8",
+            "kind": "table_cell",
+            "text": "Accuracy (%)",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              4
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/14",
+            "kind": "table_cell",
+            "text": "0",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000014",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 0,
+                "end": 1,
+                "exact_quote": "0"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/17",
+            "kind": "table_cell",
+            "text": "8",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000016",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 0,
+                "end": 1,
+                "exact_quote": "8"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/20",
+            "kind": "table_cell",
+            "text": "6",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000017",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 4,
+                "end": 5,
+                "exact_quote": "6"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/23",
+            "kind": "table_cell",
+            "text": "8",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000020",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 0,
+                "end": 1,
+                "exact_quote": "8"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/28",
+            "kind": "table_cell",
+            "text": "104",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000024",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 0,
+                "end": 3,
+                "exact_quote": "104"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/0/data/table_cells/29",
+            "kind": "table_cell",
+            "text": "372",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              4
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0004-l000024",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 4,
+                "end": 7,
+                "exact_quote": "372"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/2/data/table_cells/25",
+            "kind": "table_cell",
+            "text": "N",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              6
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0006-l000044",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 26,
+                "end": 27,
+                "exact_quote": "N"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/2/data/table_cells/56",
+            "kind": "table_cell",
+            "text": "0",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              6
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/2/data/table_cells/65",
+            "kind": "table_cell",
+            "text": "0",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              6
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/11",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000043",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/18",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000052",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/25",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000061",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/32",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000070",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/39",
+            "kind": "table_cell",
+            "text": "0.180",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000078",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 21,
+                "end": 26,
+                "exact_quote": "0.180"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/46",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000087",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/60",
+            "kind": "table_cell",
+            "text": "/",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000113",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 6,
+                "end": 7,
+                "exact_quote": "/"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/75",
+            "kind": "table_cell",
+            "text": "0.007*",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000130",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 21,
+                "end": 27,
+                "exact_quote": "0.007*"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/82",
+            "kind": "table_cell",
+            "text": "16.19",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000136",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 15,
+                "end": 20,
+                "exact_quote": "16.19"
+              }
+            ]
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/83",
+            "kind": "table_cell",
+            "text": "< 0.001*",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              7
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/84",
+            "kind": "table_cell",
+            "text": "< 0.001*",
+            "from": "unmapped",
+            "to": "ambiguous",
+            "pages": [
+              7
+            ],
+            "source_segments": []
+          },
+          {
+            "native_ref": "#/tables/3/data/table_cells/85",
+            "kind": "table_cell",
+            "text": "0.888",
+            "from": "unmapped",
+            "to": "exact",
+            "pages": [
+              7
+            ],
+            "source_segments": [
+              {
+                "block_id": "95dde964ad802d61602a-p0007-l000136",
+                "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                "start": 48,
+                "end": 53,
+                "exact_quote": "0.888"
+              }
+            ]
+          }
+        ],
+        "text_version_unchanged": false,
+        "parser_status": "partial",
+        "final_smoke_directory": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed",
+        "final_smoke_seconds": 32.902,
+        "paid_calls": 0,
+        "medical_quality_approved": false,
+        "limits": {
+          "implemented_pending_human": [
+            "all source text located; native table candidate data and caption guards exist",
+            "Fig1 region, Fig4 mechanical whole bitmap; all image approvals false",
+            "reading order, original-vs-PDF fidelity, table semantics require human check"
+          ],
+          "unsupported_current_input": [
+            "image-burned text/OCR not extracted; bitmap pages1/4/5/6/8 flagged"
+          ],
+          "engineering_limitations": [
+            "remaining repeated numeric/header table-cell identity ambiguous within whole source line; no glyph-level table coordinates guessed",
+            "Fig2/3 whole Figure grouping lacks unique compatible region; caption-only pending retained"
+          ],
+          "reproduced_geometric_candidate_bug": "fixed with exact/duplicate-value regressions"
+        },
+        "literal_text_and_geometry_unchanged": true,
+        "versioned_block_envelope_unchanged": false,
+        "version_change_reason": "structured adapter implementation/contract version participates in configuration/text-version binding; old references are not reused as current"
+      },
+      "transient_failures": [
+        "s3-small-cell-before.log: reproduced existing small-cell geometry omission",
+        "s3-small-cell-after.log: initial fix method3 contract enum not yet exported; resolved",
+        "s3-L05-after-cell-fix.log: same intermediate contract failure; final fresh run passes"
+      ],
+      "initial_cpu_smoke": {
+        "new_cpu_smoke": true,
+        "document_id": "L05",
+        "source_pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "parser": "docling-standard-cpu",
+        "parser_version": "2.145.0",
+        "source_anchor": "docling-parse-text",
+        "source_anchor_version": "7.24.2",
+        "parser_status": "partial",
+        "pages": 10,
+        "source_blocks": 615,
+        "raw_source_blocks_match_retained": true,
+        "text_version_matches_retained": true,
+        "figures": [
+          {
+            "figure_id": "figure-c51c662d2912bf84542b3fd4",
+            "number": "1",
+            "regions": 1,
+            "captions": 1,
+            "status": "needs_review",
+            "human_approved": false
+          },
+          {
+            "figure_id": "figure-b600117229678acb87a752c1",
+            "number": "2",
+            "regions": 0,
+            "captions": 3,
+            "status": "needs_review",
+            "human_approved": false
+          },
+          {
+            "figure_id": "figure-537d626d7f400e3669f0c3f7",
+            "number": "3",
+            "regions": 0,
+            "captions": 1,
+            "status": "needs_review",
+            "human_approved": false
+          },
+          {
+            "figure_id": "figure-1b7fdbdf207da24a65cd9e38",
+            "number": "4",
+            "regions": 1,
+            "captions": 4,
+            "status": "mechanically_checked",
+            "human_approved": false
+          },
+          {
+            "figure_id": "region-6b251acf83e17e81f98a114d",
+            "number": null,
+            "regions": 1,
+            "captions": 0,
+            "status": "needs_review",
+            "human_approved": false
+          }
+        ],
+        "coverage": {
+          "expected_block_ids": [
+            "95dde964ad802d61602a-p0001-l000000",
+            "95dde964ad802d61602a-p0001-l000001",
+            "95dde964ad802d61602a-p0001-l000002",
+            "95dde964ad802d61602a-p0001-l000003",
+            "95dde964ad802d61602a-p0001-l000004",
+            "95dde964ad802d61602a-p0001-l000005",
+            "95dde964ad802d61602a-p0001-l000006",
+            "95dde964ad802d61602a-p0001-l000007",
+            "95dde964ad802d61602a-p0001-l000008",
+            "95dde964ad802d61602a-p0001-l000009",
+            "95dde964ad802d61602a-p0001-l000010",
+            "95dde964ad802d61602a-p0001-l000011",
+            "95dde964ad802d61602a-p0001-l000012",
+            "95dde964ad802d61602a-p0001-l000013",
+            "95dde964ad802d61602a-p0001-l000014",
+            "95dde964ad802d61602a-p0001-l000015",
+            "95dde964ad802d61602a-p0001-l000016",
+            "95dde964ad802d61602a-p0001-l000017",
+            "95dde964ad802d61602a-p0001-l000018",
+            "95dde964ad802d61602a-p0001-l000019",
+            "95dde964ad802d61602a-p0001-l000020",
+            "95dde964ad802d61602a-p0001-l000021",
+            "95dde964ad802d61602a-p0001-l000022",
+            "95dde964ad802d61602a-p0001-l000023",
+            "95dde964ad802d61602a-p0001-l000024",
+            "95dde964ad802d61602a-p0001-l000025",
+            "95dde964ad802d61602a-p0001-l000026",
+            "95dde964ad802d61602a-p0001-l000027",
+            "95dde964ad802d61602a-p0001-l000028",
+            "95dde964ad802d61602a-p0001-l000029",
+            "95dde964ad802d61602a-p0001-l000030",
+            "95dde964ad802d61602a-p0001-l000031",
+            "95dde964ad802d61602a-p0001-l000032",
+            "95dde964ad802d61602a-p0001-l000033",
+            "95dde964ad802d61602a-p0001-l000034",
+            "95dde964ad802d61602a-p0001-l000035",
+            "95dde964ad802d61602a-p0001-l000036",
+            "95dde964ad802d61602a-p0001-l000037",
+            "95dde964ad802d61602a-p0001-l000038",
+            "95dde964ad802d61602a-p0001-l000039",
+            "95dde964ad802d61602a-p0002-l000000",
+            "95dde964ad802d61602a-p0002-l000001",
+            "95dde964ad802d61602a-p0002-l000002",
+            "95dde964ad802d61602a-p0002-l000003",
+            "95dde964ad802d61602a-p0002-l000004",
+            "95dde964ad802d61602a-p0002-l000005",
+            "95dde964ad802d61602a-p0002-l000006",
+            "95dde964ad802d61602a-p0002-l000007",
+            "95dde964ad802d61602a-p0002-l000008",
+            "95dde964ad802d61602a-p0002-l000009",
+            "95dde964ad802d61602a-p0002-l000010",
+            "95dde964ad802d61602a-p0002-l000011",
+            "95dde964ad802d61602a-p0002-l000012",
+            "95dde964ad802d61602a-p0002-l000013",
+            "95dde964ad802d61602a-p0002-l000014",
+            "95dde964ad802d61602a-p0002-l000015",
+            "95dde964ad802d61602a-p0002-l000016",
+            "95dde964ad802d61602a-p0002-l000017",
+            "95dde964ad802d61602a-p0002-l000018",
+            "95dde964ad802d61602a-p0002-l000019",
+            "95dde964ad802d61602a-p0002-l000020",
+            "95dde964ad802d61602a-p0002-l000021",
+            "95dde964ad802d61602a-p0002-l000022",
+            "95dde964ad802d61602a-p0002-l000023",
+            "95dde964ad802d61602a-p0002-l000024",
+            "95dde964ad802d61602a-p0002-l000025",
+            "95dde964ad802d61602a-p0002-l000026",
+            "95dde964ad802d61602a-p0002-l000027",
+            "95dde964ad802d61602a-p0002-l000028",
+            "95dde964ad802d61602a-p0002-l000029",
+            "95dde964ad802d61602a-p0002-l000030",
+            "95dde964ad802d61602a-p0002-l000031",
+            "95dde964ad802d61602a-p0002-l000032",
+            "95dde964ad802d61602a-p0002-l000033",
+            "95dde964ad802d61602a-p0002-l000034",
+            "95dde964ad802d61602a-p0002-l000035",
+            "95dde964ad802d61602a-p0002-l000036",
+            "95dde964ad802d61602a-p0002-l000037",
+            "95dde964ad802d61602a-p0002-l000038",
+            "95dde964ad802d61602a-p0002-l000039",
+            "95dde964ad802d61602a-p0002-l000040",
+            "95dde964ad802d61602a-p0002-l000041",
+            "95dde964ad802d61602a-p0002-l000042",
+            "95dde964ad802d61602a-p0002-l000043",
+            "95dde964ad802d61602a-p0002-l000044",
+            "95dde964ad802d61602a-p0002-l000045",
+            "95dde964ad802d61602a-p0002-l000046",
+            "95dde964ad802d61602a-p0002-l000047",
+            "95dde964ad802d61602a-p0003-l000000",
+            "95dde964ad802d61602a-p0003-l000001",
+            "95dde964ad802d61602a-p0003-l000002",
+            "95dde964ad802d61602a-p0003-l000003",
+            "95dde964ad802d61602a-p0003-l000004",
+            "95dde964ad802d61602a-p0003-l000005",
+            "95dde964ad802d61602a-p0003-l000006",
+            "95dde964ad802d61602a-p0003-l000007",
+            "95dde964ad802d61602a-p0003-l000008",
+            "95dde964ad802d61602a-p0003-l000009",
+            "95dde964ad802d61602a-p0003-l000010",
+            "95dde964ad802d61602a-p0003-l000011",
+            "95dde964ad802d61602a-p0003-l000012",
+            "95dde964ad802d61602a-p0003-l000013",
+            "95dde964ad802d61602a-p0003-l000014",
+            "95dde964ad802d61602a-p0003-l000015",
+            "95dde964ad802d61602a-p0003-l000016",
+            "95dde964ad802d61602a-p0003-l000017",
+            "95dde964ad802d61602a-p0003-l000018",
+            "95dde964ad802d61602a-p0003-l000019",
+            "95dde964ad802d61602a-p0003-l000020",
+            "95dde964ad802d61602a-p0003-l000021",
+            "95dde964ad802d61602a-p0003-l000022",
+            "95dde964ad802d61602a-p0003-l000023",
+            "95dde964ad802d61602a-p0003-l000024",
+            "95dde964ad802d61602a-p0003-l000025",
+            "95dde964ad802d61602a-p0003-l000026",
+            "95dde964ad802d61602a-p0003-l000027",
+            "95dde964ad802d61602a-p0003-l000028",
+            "95dde964ad802d61602a-p0003-l000029",
+            "95dde964ad802d61602a-p0003-l000030",
+            "95dde964ad802d61602a-p0003-l000031",
+            "95dde964ad802d61602a-p0003-l000032",
+            "95dde964ad802d61602a-p0003-l000033",
+            "95dde964ad802d61602a-p0003-l000034",
+            "95dde964ad802d61602a-p0003-l000035",
+            "95dde964ad802d61602a-p0003-l000036",
+            "95dde964ad802d61602a-p0003-l000037",
+            "95dde964ad802d61602a-p0003-l000038",
+            "95dde964ad802d61602a-p0003-l000039",
+            "95dde964ad802d61602a-p0004-l000000",
+            "95dde964ad802d61602a-p0004-l000001",
+            "95dde964ad802d61602a-p0004-l000002",
+            "95dde964ad802d61602a-p0004-l000003",
+            "95dde964ad802d61602a-p0004-l000004",
+            "95dde964ad802d61602a-p0004-l000005",
+            "95dde964ad802d61602a-p0004-l000006",
+            "95dde964ad802d61602a-p0004-l000007",
+            "95dde964ad802d61602a-p0004-l000008",
+            "95dde964ad802d61602a-p0004-l000009",
+            "95dde964ad802d61602a-p0004-l000010",
+            "95dde964ad802d61602a-p0004-l000011",
+            "95dde964ad802d61602a-p0004-l000012",
+            "95dde964ad802d61602a-p0004-l000013",
+            "95dde964ad802d61602a-p0004-l000014",
+            "95dde964ad802d61602a-p0004-l000015",
+            "95dde964ad802d61602a-p0004-l000016",
+            "95dde964ad802d61602a-p0004-l000017",
+            "95dde964ad802d61602a-p0004-l000018",
+            "95dde964ad802d61602a-p0004-l000019",
+            "95dde964ad802d61602a-p0004-l000020",
+            "95dde964ad802d61602a-p0004-l000021",
+            "95dde964ad802d61602a-p0004-l000022",
+            "95dde964ad802d61602a-p0004-l000023",
+            "95dde964ad802d61602a-p0004-l000024",
+            "95dde964ad802d61602a-p0004-l000025",
+            "95dde964ad802d61602a-p0004-l000026",
+            "95dde964ad802d61602a-p0005-l000000",
+            "95dde964ad802d61602a-p0005-l000001",
+            "95dde964ad802d61602a-p0005-l000002",
+            "95dde964ad802d61602a-p0005-l000003",
+            "95dde964ad802d61602a-p0005-l000004",
+            "95dde964ad802d61602a-p0005-l000005",
+            "95dde964ad802d61602a-p0005-l000006",
+            "95dde964ad802d61602a-p0005-l000007",
+            "95dde964ad802d61602a-p0005-l000008",
+            "95dde964ad802d61602a-p0005-l000009",
+            "95dde964ad802d61602a-p0005-l000010",
+            "95dde964ad802d61602a-p0005-l000011",
+            "95dde964ad802d61602a-p0005-l000012",
+            "95dde964ad802d61602a-p0005-l000013",
+            "95dde964ad802d61602a-p0005-l000014",
+            "95dde964ad802d61602a-p0005-l000015",
+            "95dde964ad802d61602a-p0005-l000016",
+            "95dde964ad802d61602a-p0005-l000017",
+            "95dde964ad802d61602a-p0005-l000018",
+            "95dde964ad802d61602a-p0005-l000019",
+            "95dde964ad802d61602a-p0005-l000020",
+            "95dde964ad802d61602a-p0005-l000021",
+            "95dde964ad802d61602a-p0005-l000022",
+            "95dde964ad802d61602a-p0005-l000023",
+            "95dde964ad802d61602a-p0005-l000024",
+            "95dde964ad802d61602a-p0005-l000025",
+            "95dde964ad802d61602a-p0005-l000026",
+            "95dde964ad802d61602a-p0005-l000027",
+            "95dde964ad802d61602a-p0005-l000028",
+            "95dde964ad802d61602a-p0005-l000029",
+            "95dde964ad802d61602a-p0005-l000030",
+            "95dde964ad802d61602a-p0005-l000031",
+            "95dde964ad802d61602a-p0005-l000032",
+            "95dde964ad802d61602a-p0005-l000033",
+            "95dde964ad802d61602a-p0005-l000034",
+            "95dde964ad802d61602a-p0005-l000035",
+            "95dde964ad802d61602a-p0005-l000036",
+            "95dde964ad802d61602a-p0005-l000037",
+            "95dde964ad802d61602a-p0005-l000038",
+            "95dde964ad802d61602a-p0005-l000039",
+            "95dde964ad802d61602a-p0005-l000040",
+            "95dde964ad802d61602a-p0005-l000041",
+            "95dde964ad802d61602a-p0005-l000042",
+            "95dde964ad802d61602a-p0005-l000043",
+            "95dde964ad802d61602a-p0005-l000044",
+            "95dde964ad802d61602a-p0005-l000045",
+            "95dde964ad802d61602a-p0005-l000046",
+            "95dde964ad802d61602a-p0005-l000047",
+            "95dde964ad802d61602a-p0005-l000048",
+            "95dde964ad802d61602a-p0005-l000049",
+            "95dde964ad802d61602a-p0005-l000050",
+            "95dde964ad802d61602a-p0005-l000051",
+            "95dde964ad802d61602a-p0005-l000052",
+            "95dde964ad802d61602a-p0005-l000053",
+            "95dde964ad802d61602a-p0005-l000054",
+            "95dde964ad802d61602a-p0005-l000055",
+            "95dde964ad802d61602a-p0005-l000056",
+            "95dde964ad802d61602a-p0005-l000057",
+            "95dde964ad802d61602a-p0005-l000058",
+            "95dde964ad802d61602a-p0005-l000059",
+            "95dde964ad802d61602a-p0005-l000060",
+            "95dde964ad802d61602a-p0005-l000061",
+            "95dde964ad802d61602a-p0005-l000062",
+            "95dde964ad802d61602a-p0005-l000063",
+            "95dde964ad802d61602a-p0005-l000064",
+            "95dde964ad802d61602a-p0005-l000065",
+            "95dde964ad802d61602a-p0005-l000066",
+            "95dde964ad802d61602a-p0005-l000067",
+            "95dde964ad802d61602a-p0005-l000068",
+            "95dde964ad802d61602a-p0005-l000069",
+            "95dde964ad802d61602a-p0005-l000070",
+            "95dde964ad802d61602a-p0005-l000071",
+            "95dde964ad802d61602a-p0005-l000072",
+            "95dde964ad802d61602a-p0005-l000073",
+            "95dde964ad802d61602a-p0005-l000074",
+            "95dde964ad802d61602a-p0005-l000075",
+            "95dde964ad802d61602a-p0005-l000076",
+            "95dde964ad802d61602a-p0005-l000077",
+            "95dde964ad802d61602a-p0005-l000078",
+            "95dde964ad802d61602a-p0005-l000079",
+            "95dde964ad802d61602a-p0005-l000080",
+            "95dde964ad802d61602a-p0005-l000081",
+            "95dde964ad802d61602a-p0005-l000082",
+            "95dde964ad802d61602a-p0005-l000083",
+            "95dde964ad802d61602a-p0005-l000084",
+            "95dde964ad802d61602a-p0006-l000000",
+            "95dde964ad802d61602a-p0006-l000001",
+            "95dde964ad802d61602a-p0006-l000002",
+            "95dde964ad802d61602a-p0006-l000003",
+            "95dde964ad802d61602a-p0006-l000004",
+            "95dde964ad802d61602a-p0006-l000005",
+            "95dde964ad802d61602a-p0006-l000006",
+            "95dde964ad802d61602a-p0006-l000007",
+            "95dde964ad802d61602a-p0006-l000008",
+            "95dde964ad802d61602a-p0006-l000009",
+            "95dde964ad802d61602a-p0006-l000010",
+            "95dde964ad802d61602a-p0006-l000011",
+            "95dde964ad802d61602a-p0006-l000012",
+            "95dde964ad802d61602a-p0006-l000013",
+            "95dde964ad802d61602a-p0006-l000014",
+            "95dde964ad802d61602a-p0006-l000015",
+            "95dde964ad802d61602a-p0006-l000016",
+            "95dde964ad802d61602a-p0006-l000017",
+            "95dde964ad802d61602a-p0006-l000018",
+            "95dde964ad802d61602a-p0006-l000019",
+            "95dde964ad802d61602a-p0006-l000020",
+            "95dde964ad802d61602a-p0006-l000021",
+            "95dde964ad802d61602a-p0006-l000022",
+            "95dde964ad802d61602a-p0006-l000023",
+            "95dde964ad802d61602a-p0006-l000024",
+            "95dde964ad802d61602a-p0006-l000025",
+            "95dde964ad802d61602a-p0006-l000026",
+            "95dde964ad802d61602a-p0006-l000027",
+            "95dde964ad802d61602a-p0006-l000028",
+            "95dde964ad802d61602a-p0006-l000029",
+            "95dde964ad802d61602a-p0006-l000030",
+            "95dde964ad802d61602a-p0006-l000031",
+            "95dde964ad802d61602a-p0006-l000032",
+            "95dde964ad802d61602a-p0006-l000033",
+            "95dde964ad802d61602a-p0006-l000034",
+            "95dde964ad802d61602a-p0006-l000035",
+            "95dde964ad802d61602a-p0006-l000036",
+            "95dde964ad802d61602a-p0006-l000037",
+            "95dde964ad802d61602a-p0006-l000038",
+            "95dde964ad802d61602a-p0006-l000039",
+            "95dde964ad802d61602a-p0006-l000040",
+            "95dde964ad802d61602a-p0006-l000041",
+            "95dde964ad802d61602a-p0006-l000042",
+            "95dde964ad802d61602a-p0006-l000043",
+            "95dde964ad802d61602a-p0006-l000044",
+            "95dde964ad802d61602a-p0006-l000045",
+            "95dde964ad802d61602a-p0006-l000046",
+            "95dde964ad802d61602a-p0006-l000047",
+            "95dde964ad802d61602a-p0006-l000048",
+            "95dde964ad802d61602a-p0006-l000049",
+            "95dde964ad802d61602a-p0006-l000050",
+            "95dde964ad802d61602a-p0006-l000051",
+            "95dde964ad802d61602a-p0006-l000052",
+            "95dde964ad802d61602a-p0006-l000053",
+            "95dde964ad802d61602a-p0006-l000054",
+            "95dde964ad802d61602a-p0006-l000055",
+            "95dde964ad802d61602a-p0006-l000056",
+            "95dde964ad802d61602a-p0006-l000057",
+            "95dde964ad802d61602a-p0006-l000058",
+            "95dde964ad802d61602a-p0006-l000059",
+            "95dde964ad802d61602a-p0006-l000060",
+            "95dde964ad802d61602a-p0006-l000061",
+            "95dde964ad802d61602a-p0006-l000062",
+            "95dde964ad802d61602a-p0006-l000063",
+            "95dde964ad802d61602a-p0006-l000064",
+            "95dde964ad802d61602a-p0006-l000065",
+            "95dde964ad802d61602a-p0006-l000066",
+            "95dde964ad802d61602a-p0006-l000067",
+            "95dde964ad802d61602a-p0006-l000068",
+            "95dde964ad802d61602a-p0006-l000069",
+            "95dde964ad802d61602a-p0006-l000070",
+            "95dde964ad802d61602a-p0006-l000071",
+            "95dde964ad802d61602a-p0006-l000072",
+            "95dde964ad802d61602a-p0006-l000073",
+            "95dde964ad802d61602a-p0006-l000074",
+            "95dde964ad802d61602a-p0006-l000075",
+            "95dde964ad802d61602a-p0006-l000076",
+            "95dde964ad802d61602a-p0006-l000077",
+            "95dde964ad802d61602a-p0006-l000078",
+            "95dde964ad802d61602a-p0006-l000079",
+            "95dde964ad802d61602a-p0006-l000080",
+            "95dde964ad802d61602a-p0006-l000081",
+            "95dde964ad802d61602a-p0006-l000082",
+            "95dde964ad802d61602a-p0006-l000083",
+            "95dde964ad802d61602a-p0006-l000084",
+            "95dde964ad802d61602a-p0006-l000085",
+            "95dde964ad802d61602a-p0006-l000086",
+            "95dde964ad802d61602a-p0006-l000087",
+            "95dde964ad802d61602a-p0007-l000000",
+            "95dde964ad802d61602a-p0007-l000001",
+            "95dde964ad802d61602a-p0007-l000002",
+            "95dde964ad802d61602a-p0007-l000003",
+            "95dde964ad802d61602a-p0007-l000004",
+            "95dde964ad802d61602a-p0007-l000005",
+            "95dde964ad802d61602a-p0007-l000006",
+            "95dde964ad802d61602a-p0007-l000007",
+            "95dde964ad802d61602a-p0007-l000008",
+            "95dde964ad802d61602a-p0007-l000009",
+            "95dde964ad802d61602a-p0007-l000010",
+            "95dde964ad802d61602a-p0007-l000011",
+            "95dde964ad802d61602a-p0007-l000012",
+            "95dde964ad802d61602a-p0007-l000013",
+            "95dde964ad802d61602a-p0007-l000014",
+            "95dde964ad802d61602a-p0007-l000015",
+            "95dde964ad802d61602a-p0007-l000016",
+            "95dde964ad802d61602a-p0007-l000017",
+            "95dde964ad802d61602a-p0007-l000018",
+            "95dde964ad802d61602a-p0007-l000019",
+            "95dde964ad802d61602a-p0007-l000020",
+            "95dde964ad802d61602a-p0007-l000021",
+            "95dde964ad802d61602a-p0007-l000022",
+            "95dde964ad802d61602a-p0007-l000023",
+            "95dde964ad802d61602a-p0007-l000024",
+            "95dde964ad802d61602a-p0007-l000025",
+            "95dde964ad802d61602a-p0007-l000026",
+            "95dde964ad802d61602a-p0007-l000027",
+            "95dde964ad802d61602a-p0007-l000028",
+            "95dde964ad802d61602a-p0007-l000029",
+            "95dde964ad802d61602a-p0007-l000030",
+            "95dde964ad802d61602a-p0007-l000031",
+            "95dde964ad802d61602a-p0007-l000032",
+            "95dde964ad802d61602a-p0007-l000033",
+            "95dde964ad802d61602a-p0007-l000034",
+            "95dde964ad802d61602a-p0007-l000035",
+            "95dde964ad802d61602a-p0007-l000036",
+            "95dde964ad802d61602a-p0007-l000037",
+            "95dde964ad802d61602a-p0007-l000038",
+            "95dde964ad802d61602a-p0007-l000039",
+            "95dde964ad802d61602a-p0007-l000040",
+            "95dde964ad802d61602a-p0007-l000041",
+            "95dde964ad802d61602a-p0007-l000042",
+            "95dde964ad802d61602a-p0007-l000043",
+            "95dde964ad802d61602a-p0007-l000044",
+            "95dde964ad802d61602a-p0007-l000045",
+            "95dde964ad802d61602a-p0007-l000046",
+            "95dde964ad802d61602a-p0007-l000047",
+            "95dde964ad802d61602a-p0007-l000048",
+            "95dde964ad802d61602a-p0007-l000049",
+            "95dde964ad802d61602a-p0007-l000050",
+            "95dde964ad802d61602a-p0007-l000051",
+            "95dde964ad802d61602a-p0007-l000052",
+            "95dde964ad802d61602a-p0007-l000053",
+            "95dde964ad802d61602a-p0007-l000054",
+            "95dde964ad802d61602a-p0007-l000055",
+            "95dde964ad802d61602a-p0007-l000056",
+            "95dde964ad802d61602a-p0007-l000057",
+            "95dde964ad802d61602a-p0007-l000058",
+            "95dde964ad802d61602a-p0007-l000059",
+            "95dde964ad802d61602a-p0007-l000060",
+            "95dde964ad802d61602a-p0007-l000061",
+            "95dde964ad802d61602a-p0007-l000062",
+            "95dde964ad802d61602a-p0007-l000063",
+            "95dde964ad802d61602a-p0007-l000064",
+            "95dde964ad802d61602a-p0007-l000065",
+            "95dde964ad802d61602a-p0007-l000066",
+            "95dde964ad802d61602a-p0007-l000067",
+            "95dde964ad802d61602a-p0007-l000068",
+            "95dde964ad802d61602a-p0007-l000069",
+            "95dde964ad802d61602a-p0007-l000070",
+            "95dde964ad802d61602a-p0007-l000071",
+            "95dde964ad802d61602a-p0007-l000072",
+            "95dde964ad802d61602a-p0007-l000073",
+            "95dde964ad802d61602a-p0007-l000074",
+            "95dde964ad802d61602a-p0007-l000075",
+            "95dde964ad802d61602a-p0007-l000076",
+            "95dde964ad802d61602a-p0007-l000077",
+            "95dde964ad802d61602a-p0007-l000078",
+            "95dde964ad802d61602a-p0007-l000079",
+            "95dde964ad802d61602a-p0007-l000080",
+            "95dde964ad802d61602a-p0007-l000081",
+            "95dde964ad802d61602a-p0007-l000082",
+            "95dde964ad802d61602a-p0007-l000083",
+            "95dde964ad802d61602a-p0007-l000084",
+            "95dde964ad802d61602a-p0007-l000085",
+            "95dde964ad802d61602a-p0007-l000086",
+            "95dde964ad802d61602a-p0007-l000087",
+            "95dde964ad802d61602a-p0007-l000088",
+            "95dde964ad802d61602a-p0007-l000089",
+            "95dde964ad802d61602a-p0007-l000090",
+            "95dde964ad802d61602a-p0007-l000091",
+            "95dde964ad802d61602a-p0007-l000092",
+            "95dde964ad802d61602a-p0007-l000093",
+            "95dde964ad802d61602a-p0007-l000094",
+            "95dde964ad802d61602a-p0007-l000095",
+            "95dde964ad802d61602a-p0007-l000096",
+            "95dde964ad802d61602a-p0007-l000097",
+            "95dde964ad802d61602a-p0007-l000098",
+            "95dde964ad802d61602a-p0007-l000099",
+            "95dde964ad802d61602a-p0007-l000100",
+            "95dde964ad802d61602a-p0007-l000101",
+            "95dde964ad802d61602a-p0007-l000102",
+            "95dde964ad802d61602a-p0007-l000103",
+            "95dde964ad802d61602a-p0007-l000104",
+            "95dde964ad802d61602a-p0007-l000105",
+            "95dde964ad802d61602a-p0007-l000106",
+            "95dde964ad802d61602a-p0007-l000107",
+            "95dde964ad802d61602a-p0007-l000108",
+            "95dde964ad802d61602a-p0007-l000109",
+            "95dde964ad802d61602a-p0007-l000110",
+            "95dde964ad802d61602a-p0007-l000111",
+            "95dde964ad802d61602a-p0007-l000112",
+            "95dde964ad802d61602a-p0007-l000113",
+            "95dde964ad802d61602a-p0007-l000114",
+            "95dde964ad802d61602a-p0007-l000115",
+            "95dde964ad802d61602a-p0007-l000116",
+            "95dde964ad802d61602a-p0007-l000117",
+            "95dde964ad802d61602a-p0007-l000118",
+            "95dde964ad802d61602a-p0007-l000119",
+            "95dde964ad802d61602a-p0007-l000120",
+            "95dde964ad802d61602a-p0007-l000121",
+            "95dde964ad802d61602a-p0007-l000122",
+            "95dde964ad802d61602a-p0007-l000123",
+            "95dde964ad802d61602a-p0007-l000124",
+            "95dde964ad802d61602a-p0007-l000125",
+            "95dde964ad802d61602a-p0007-l000126",
+            "95dde964ad802d61602a-p0007-l000127",
+            "95dde964ad802d61602a-p0007-l000128",
+            "95dde964ad802d61602a-p0007-l000129",
+            "95dde964ad802d61602a-p0007-l000130",
+            "95dde964ad802d61602a-p0007-l000131",
+            "95dde964ad802d61602a-p0007-l000132",
+            "95dde964ad802d61602a-p0007-l000133",
+            "95dde964ad802d61602a-p0007-l000134",
+            "95dde964ad802d61602a-p0007-l000135",
+            "95dde964ad802d61602a-p0007-l000136",
+            "95dde964ad802d61602a-p0008-l000000",
+            "95dde964ad802d61602a-p0008-l000001",
+            "95dde964ad802d61602a-p0008-l000002",
+            "95dde964ad802d61602a-p0008-l000003",
+            "95dde964ad802d61602a-p0008-l000004",
+            "95dde964ad802d61602a-p0008-l000005",
+            "95dde964ad802d61602a-p0008-l000006",
+            "95dde964ad802d61602a-p0008-l000007",
+            "95dde964ad802d61602a-p0008-l000008",
+            "95dde964ad802d61602a-p0008-l000009",
+            "95dde964ad802d61602a-p0008-l000010",
+            "95dde964ad802d61602a-p0008-l000011",
+            "95dde964ad802d61602a-p0008-l000012",
+            "95dde964ad802d61602a-p0008-l000013",
+            "95dde964ad802d61602a-p0008-l000014",
+            "95dde964ad802d61602a-p0008-l000015",
+            "95dde964ad802d61602a-p0008-l000016",
+            "95dde964ad802d61602a-p0008-l000017",
+            "95dde964ad802d61602a-p0008-l000018",
+            "95dde964ad802d61602a-p0008-l000019",
+            "95dde964ad802d61602a-p0008-l000020",
+            "95dde964ad802d61602a-p0008-l000021",
+            "95dde964ad802d61602a-p0009-l000000",
+            "95dde964ad802d61602a-p0009-l000001",
+            "95dde964ad802d61602a-p0009-l000002",
+            "95dde964ad802d61602a-p0009-l000003",
+            "95dde964ad802d61602a-p0009-l000004",
+            "95dde964ad802d61602a-p0009-l000005",
+            "95dde964ad802d61602a-p0009-l000006",
+            "95dde964ad802d61602a-p0009-l000007",
+            "95dde964ad802d61602a-p0009-l000008",
+            "95dde964ad802d61602a-p0009-l000009",
+            "95dde964ad802d61602a-p0009-l000010",
+            "95dde964ad802d61602a-p0009-l000011",
+            "95dde964ad802d61602a-p0009-l000012",
+            "95dde964ad802d61602a-p0009-l000013",
+            "95dde964ad802d61602a-p0009-l000014",
+            "95dde964ad802d61602a-p0009-l000015",
+            "95dde964ad802d61602a-p0009-l000016",
+            "95dde964ad802d61602a-p0009-l000017",
+            "95dde964ad802d61602a-p0009-l000018",
+            "95dde964ad802d61602a-p0009-l000019",
+            "95dde964ad802d61602a-p0009-l000020",
+            "95dde964ad802d61602a-p0009-l000021",
+            "95dde964ad802d61602a-p0009-l000022",
+            "95dde964ad802d61602a-p0009-l000023",
+            "95dde964ad802d61602a-p0009-l000024",
+            "95dde964ad802d61602a-p0009-l000025",
+            "95dde964ad802d61602a-p0009-l000026",
+            "95dde964ad802d61602a-p0009-l000027",
+            "95dde964ad802d61602a-p0009-l000028",
+            "95dde964ad802d61602a-p0009-l000029",
+            "95dde964ad802d61602a-p0009-l000030",
+            "95dde964ad802d61602a-p0009-l000031",
+            "95dde964ad802d61602a-p0009-l000032",
+            "95dde964ad802d61602a-p0009-l000033",
+            "95dde964ad802d61602a-p0009-l000034",
+            "95dde964ad802d61602a-p0009-l000035",
+            "95dde964ad802d61602a-p0009-l000036",
+            "95dde964ad802d61602a-p0009-l000037",
+            "95dde964ad802d61602a-p0009-l000038",
+            "95dde964ad802d61602a-p0009-l000039",
+            "95dde964ad802d61602a-p0009-l000040",
+            "95dde964ad802d61602a-p0009-l000041",
+            "95dde964ad802d61602a-p0009-l000042",
+            "95dde964ad802d61602a-p0009-l000043",
+            "95dde964ad802d61602a-p0009-l000044",
+            "95dde964ad802d61602a-p0009-l000045",
+            "95dde964ad802d61602a-p0009-l000046",
+            "95dde964ad802d61602a-p0009-l000047",
+            "95dde964ad802d61602a-p0009-l000048",
+            "95dde964ad802d61602a-p0009-l000049",
+            "95dde964ad802d61602a-p0009-l000050",
+            "95dde964ad802d61602a-p0009-l000051",
+            "95dde964ad802d61602a-p0009-l000052",
+            "95dde964ad802d61602a-p0009-l000053",
+            "95dde964ad802d61602a-p0009-l000054",
+            "95dde964ad802d61602a-p0009-l000055",
+            "95dde964ad802d61602a-p0009-l000056",
+            "95dde964ad802d61602a-p0009-l000057",
+            "95dde964ad802d61602a-p0009-l000058",
+            "95dde964ad802d61602a-p0009-l000059",
+            "95dde964ad802d61602a-p0009-l000060",
+            "95dde964ad802d61602a-p0010-l000000",
+            "95dde964ad802d61602a-p0010-l000001",
+            "95dde964ad802d61602a-p0010-l000002",
+            "95dde964ad802d61602a-p0010-l000003",
+            "95dde964ad802d61602a-p0010-l000004",
+            "95dde964ad802d61602a-p0010-l000005",
+            "95dde964ad802d61602a-p0010-l000006",
+            "95dde964ad802d61602a-p0010-l000007",
+            "95dde964ad802d61602a-p0010-l000008",
+            "95dde964ad802d61602a-p0010-l000009",
+            "95dde964ad802d61602a-p0010-l000010",
+            "95dde964ad802d61602a-p0010-l000011",
+            "95dde964ad802d61602a-p0010-l000012",
+            "95dde964ad802d61602a-p0010-l000013",
+            "95dde964ad802d61602a-p0010-l000014",
+            "95dde964ad802d61602a-p0010-l000015",
+            "95dde964ad802d61602a-p0010-l000016",
+            "95dde964ad802d61602a-p0010-l000017",
+            "95dde964ad802d61602a-p0010-l000018",
+            "95dde964ad802d61602a-p0010-l000019",
+            "95dde964ad802d61602a-p0010-l000020",
+            "95dde964ad802d61602a-p0010-l000021",
+            "95dde964ad802d61602a-p0010-l000022",
+            "95dde964ad802d61602a-p0010-l000023",
+            "95dde964ad802d61602a-p0010-l000024",
+            "95dde964ad802d61602a-p0010-l000025",
+            "95dde964ad802d61602a-p0010-l000026",
+            "95dde964ad802d61602a-p0010-l000027",
+            "95dde964ad802d61602a-p0010-l000028",
+            "95dde964ad802d61602a-p0010-l000029",
+            "95dde964ad802d61602a-p0010-l000030",
+            "95dde964ad802d61602a-p0010-l000031",
+            "95dde964ad802d61602a-p0010-l000032",
+            "95dde964ad802d61602a-p0010-l000033",
+            "95dde964ad802d61602a-p0010-l000034",
+            "95dde964ad802d61602a-p0010-l000035",
+            "95dde964ad802d61602a-p0010-l000036",
+            "95dde964ad802d61602a-p0010-l000037",
+            "95dde964ad802d61602a-p0010-l000038",
+            "95dde964ad802d61602a-p0010-l000039",
+            "95dde964ad802d61602a-p0010-l000040",
+            "95dde964ad802d61602a-p0010-l000041",
+            "95dde964ad802d61602a-p0010-l000042",
+            "95dde964ad802d61602a-p0010-l000043",
+            "95dde964ad802d61602a-p0010-l000044",
+            "95dde964ad802d61602a-p0010-l000045",
+            "95dde964ad802d61602a-p0010-l000046",
+            "95dde964ad802d61602a-p0010-l000047",
+            "95dde964ad802d61602a-p0010-l000048",
+            "95dde964ad802d61602a-p0010-l000049",
+            "95dde964ad802d61602a-p0010-l000050",
+            "95dde964ad802d61602a-p0010-l000051",
+            "95dde964ad802d61602a-p0010-l000052",
+            "95dde964ad802d61602a-p0010-l000053",
+            "95dde964ad802d61602a-p0010-l000054",
+            "95dde964ad802d61602a-p0010-l000055",
+            "95dde964ad802d61602a-p0010-l000056",
+            "95dde964ad802d61602a-p0010-l000057",
+            "95dde964ad802d61602a-p0010-l000058",
+            "95dde964ad802d61602a-p0010-l000059",
+            "95dde964ad802d61602a-p0010-l000060",
+            "95dde964ad802d61602a-p0010-l000061",
+            "95dde964ad802d61602a-p0010-l000062",
+            "95dde964ad802d61602a-p0010-l000063",
+            "95dde964ad802d61602a-p0010-l000064",
+            "95dde964ad802d61602a-p0010-l000065",
+            "95dde964ad802d61602a-p0010-l000066"
+          ],
+          "processed_block_ids": [
+            "95dde964ad802d61602a-p0001-l000000",
+            "95dde964ad802d61602a-p0001-l000001",
+            "95dde964ad802d61602a-p0001-l000002",
+            "95dde964ad802d61602a-p0001-l000003",
+            "95dde964ad802d61602a-p0001-l000004",
+            "95dde964ad802d61602a-p0001-l000005",
+            "95dde964ad802d61602a-p0001-l000006",
+            "95dde964ad802d61602a-p0001-l000007",
+            "95dde964ad802d61602a-p0001-l000008",
+            "95dde964ad802d61602a-p0001-l000009",
+            "95dde964ad802d61602a-p0001-l000010",
+            "95dde964ad802d61602a-p0001-l000011",
+            "95dde964ad802d61602a-p0001-l000012",
+            "95dde964ad802d61602a-p0001-l000013",
+            "95dde964ad802d61602a-p0001-l000014",
+            "95dde964ad802d61602a-p0001-l000015",
+            "95dde964ad802d61602a-p0001-l000016",
+            "95dde964ad802d61602a-p0001-l000017",
+            "95dde964ad802d61602a-p0001-l000018",
+            "95dde964ad802d61602a-p0001-l000019",
+            "95dde964ad802d61602a-p0001-l000020",
+            "95dde964ad802d61602a-p0001-l000021",
+            "95dde964ad802d61602a-p0001-l000022",
+            "95dde964ad802d61602a-p0001-l000023",
+            "95dde964ad802d61602a-p0001-l000024",
+            "95dde964ad802d61602a-p0001-l000025",
+            "95dde964ad802d61602a-p0001-l000026",
+            "95dde964ad802d61602a-p0001-l000027",
+            "95dde964ad802d61602a-p0001-l000028",
+            "95dde964ad802d61602a-p0001-l000029",
+            "95dde964ad802d61602a-p0001-l000030",
+            "95dde964ad802d61602a-p0001-l000031",
+            "95dde964ad802d61602a-p0001-l000032",
+            "95dde964ad802d61602a-p0001-l000033",
+            "95dde964ad802d61602a-p0001-l000034",
+            "95dde964ad802d61602a-p0001-l000035",
+            "95dde964ad802d61602a-p0001-l000036",
+            "95dde964ad802d61602a-p0001-l000037",
+            "95dde964ad802d61602a-p0001-l000038",
+            "95dde964ad802d61602a-p0001-l000039",
+            "95dde964ad802d61602a-p0002-l000000",
+            "95dde964ad802d61602a-p0002-l000001",
+            "95dde964ad802d61602a-p0002-l000002",
+            "95dde964ad802d61602a-p0002-l000003",
+            "95dde964ad802d61602a-p0002-l000004",
+            "95dde964ad802d61602a-p0002-l000005",
+            "95dde964ad802d61602a-p0002-l000006",
+            "95dde964ad802d61602a-p0002-l000007",
+            "95dde964ad802d61602a-p0002-l000008",
+            "95dde964ad802d61602a-p0002-l000009",
+            "95dde964ad802d61602a-p0002-l000010",
+            "95dde964ad802d61602a-p0002-l000011",
+            "95dde964ad802d61602a-p0002-l000012",
+            "95dde964ad802d61602a-p0002-l000013",
+            "95dde964ad802d61602a-p0002-l000014",
+            "95dde964ad802d61602a-p0002-l000015",
+            "95dde964ad802d61602a-p0002-l000016",
+            "95dde964ad802d61602a-p0002-l000017",
+            "95dde964ad802d61602a-p0002-l000018",
+            "95dde964ad802d61602a-p0002-l000019",
+            "95dde964ad802d61602a-p0002-l000020",
+            "95dde964ad802d61602a-p0002-l000021",
+            "95dde964ad802d61602a-p0002-l000022",
+            "95dde964ad802d61602a-p0002-l000023",
+            "95dde964ad802d61602a-p0002-l000024",
+            "95dde964ad802d61602a-p0002-l000025",
+            "95dde964ad802d61602a-p0002-l000026",
+            "95dde964ad802d61602a-p0002-l000027",
+            "95dde964ad802d61602a-p0002-l000028",
+            "95dde964ad802d61602a-p0002-l000029",
+            "95dde964ad802d61602a-p0002-l000030",
+            "95dde964ad802d61602a-p0002-l000031",
+            "95dde964ad802d61602a-p0002-l000032",
+            "95dde964ad802d61602a-p0002-l000033",
+            "95dde964ad802d61602a-p0002-l000034",
+            "95dde964ad802d61602a-p0002-l000035",
+            "95dde964ad802d61602a-p0002-l000036",
+            "95dde964ad802d61602a-p0002-l000037",
+            "95dde964ad802d61602a-p0002-l000038",
+            "95dde964ad802d61602a-p0002-l000039",
+            "95dde964ad802d61602a-p0002-l000040",
+            "95dde964ad802d61602a-p0002-l000041",
+            "95dde964ad802d61602a-p0002-l000042",
+            "95dde964ad802d61602a-p0002-l000043",
+            "95dde964ad802d61602a-p0002-l000044",
+            "95dde964ad802d61602a-p0002-l000045",
+            "95dde964ad802d61602a-p0002-l000046",
+            "95dde964ad802d61602a-p0002-l000047",
+            "95dde964ad802d61602a-p0003-l000000",
+            "95dde964ad802d61602a-p0003-l000001",
+            "95dde964ad802d61602a-p0003-l000002",
+            "95dde964ad802d61602a-p0003-l000003",
+            "95dde964ad802d61602a-p0003-l000004",
+            "95dde964ad802d61602a-p0003-l000005",
+            "95dde964ad802d61602a-p0003-l000006",
+            "95dde964ad802d61602a-p0003-l000007",
+            "95dde964ad802d61602a-p0003-l000008",
+            "95dde964ad802d61602a-p0003-l000009",
+            "95dde964ad802d61602a-p0003-l000010",
+            "95dde964ad802d61602a-p0003-l000011",
+            "95dde964ad802d61602a-p0003-l000012",
+            "95dde964ad802d61602a-p0003-l000013",
+            "95dde964ad802d61602a-p0003-l000014",
+            "95dde964ad802d61602a-p0003-l000015",
+            "95dde964ad802d61602a-p0003-l000016",
+            "95dde964ad802d61602a-p0003-l000017",
+            "95dde964ad802d61602a-p0003-l000018",
+            "95dde964ad802d61602a-p0003-l000019",
+            "95dde964ad802d61602a-p0003-l000020",
+            "95dde964ad802d61602a-p0003-l000021",
+            "95dde964ad802d61602a-p0003-l000022",
+            "95dde964ad802d61602a-p0003-l000023",
+            "95dde964ad802d61602a-p0003-l000024",
+            "95dde964ad802d61602a-p0003-l000025",
+            "95dde964ad802d61602a-p0003-l000026",
+            "95dde964ad802d61602a-p0003-l000027",
+            "95dde964ad802d61602a-p0003-l000028",
+            "95dde964ad802d61602a-p0003-l000029",
+            "95dde964ad802d61602a-p0003-l000030",
+            "95dde964ad802d61602a-p0003-l000031",
+            "95dde964ad802d61602a-p0003-l000032",
+            "95dde964ad802d61602a-p0003-l000033",
+            "95dde964ad802d61602a-p0003-l000034",
+            "95dde964ad802d61602a-p0003-l000035",
+            "95dde964ad802d61602a-p0003-l000036",
+            "95dde964ad802d61602a-p0003-l000037",
+            "95dde964ad802d61602a-p0003-l000038",
+            "95dde964ad802d61602a-p0003-l000039",
+            "95dde964ad802d61602a-p0004-l000000",
+            "95dde964ad802d61602a-p0004-l000001",
+            "95dde964ad802d61602a-p0004-l000002",
+            "95dde964ad802d61602a-p0004-l000003",
+            "95dde964ad802d61602a-p0004-l000004",
+            "95dde964ad802d61602a-p0004-l000005",
+            "95dde964ad802d61602a-p0004-l000006",
+            "95dde964ad802d61602a-p0004-l000007",
+            "95dde964ad802d61602a-p0004-l000008",
+            "95dde964ad802d61602a-p0004-l000009",
+            "95dde964ad802d61602a-p0004-l000010",
+            "95dde964ad802d61602a-p0004-l000011",
+            "95dde964ad802d61602a-p0004-l000012",
+            "95dde964ad802d61602a-p0004-l000013",
+            "95dde964ad802d61602a-p0004-l000014",
+            "95dde964ad802d61602a-p0004-l000015",
+            "95dde964ad802d61602a-p0004-l000016",
+            "95dde964ad802d61602a-p0004-l000017",
+            "95dde964ad802d61602a-p0004-l000018",
+            "95dde964ad802d61602a-p0004-l000019",
+            "95dde964ad802d61602a-p0004-l000020",
+            "95dde964ad802d61602a-p0004-l000021",
+            "95dde964ad802d61602a-p0004-l000022",
+            "95dde964ad802d61602a-p0004-l000023",
+            "95dde964ad802d61602a-p0004-l000024",
+            "95dde964ad802d61602a-p0004-l000025",
+            "95dde964ad802d61602a-p0004-l000026",
+            "95dde964ad802d61602a-p0005-l000000",
+            "95dde964ad802d61602a-p0005-l000001",
+            "95dde964ad802d61602a-p0005-l000002",
+            "95dde964ad802d61602a-p0005-l000003",
+            "95dde964ad802d61602a-p0005-l000004",
+            "95dde964ad802d61602a-p0005-l000005",
+            "95dde964ad802d61602a-p0005-l000006",
+            "95dde964ad802d61602a-p0005-l000007",
+            "95dde964ad802d61602a-p0005-l000008",
+            "95dde964ad802d61602a-p0005-l000009",
+            "95dde964ad802d61602a-p0005-l000010",
+            "95dde964ad802d61602a-p0005-l000011",
+            "95dde964ad802d61602a-p0005-l000012",
+            "95dde964ad802d61602a-p0005-l000013",
+            "95dde964ad802d61602a-p0005-l000014",
+            "95dde964ad802d61602a-p0005-l000015",
+            "95dde964ad802d61602a-p0005-l000016",
+            "95dde964ad802d61602a-p0005-l000017",
+            "95dde964ad802d61602a-p0005-l000018",
+            "95dde964ad802d61602a-p0005-l000019",
+            "95dde964ad802d61602a-p0005-l000020",
+            "95dde964ad802d61602a-p0005-l000021",
+            "95dde964ad802d61602a-p0005-l000022",
+            "95dde964ad802d61602a-p0005-l000023",
+            "95dde964ad802d61602a-p0005-l000024",
+            "95dde964ad802d61602a-p0005-l000025",
+            "95dde964ad802d61602a-p0005-l000026",
+            "95dde964ad802d61602a-p0005-l000027",
+            "95dde964ad802d61602a-p0005-l000028",
+            "95dde964ad802d61602a-p0005-l000029",
+            "95dde964ad802d61602a-p0005-l000030",
+            "95dde964ad802d61602a-p0005-l000031",
+            "95dde964ad802d61602a-p0005-l000032",
+            "95dde964ad802d61602a-p0005-l000033",
+            "95dde964ad802d61602a-p0005-l000034",
+            "95dde964ad802d61602a-p0005-l000035",
+            "95dde964ad802d61602a-p0005-l000036",
+            "95dde964ad802d61602a-p0005-l000037",
+            "95dde964ad802d61602a-p0005-l000038",
+            "95dde964ad802d61602a-p0005-l000039",
+            "95dde964ad802d61602a-p0005-l000040",
+            "95dde964ad802d61602a-p0005-l000041",
+            "95dde964ad802d61602a-p0005-l000042",
+            "95dde964ad802d61602a-p0005-l000043",
+            "95dde964ad802d61602a-p0005-l000044",
+            "95dde964ad802d61602a-p0005-l000045",
+            "95dde964ad802d61602a-p0005-l000046",
+            "95dde964ad802d61602a-p0005-l000047",
+            "95dde964ad802d61602a-p0005-l000048",
+            "95dde964ad802d61602a-p0005-l000049",
+            "95dde964ad802d61602a-p0005-l000050",
+            "95dde964ad802d61602a-p0005-l000051",
+            "95dde964ad802d61602a-p0005-l000052",
+            "95dde964ad802d61602a-p0005-l000053",
+            "95dde964ad802d61602a-p0005-l000054",
+            "95dde964ad802d61602a-p0005-l000055",
+            "95dde964ad802d61602a-p0005-l000056",
+            "95dde964ad802d61602a-p0005-l000057",
+            "95dde964ad802d61602a-p0005-l000058",
+            "95dde964ad802d61602a-p0005-l000059",
+            "95dde964ad802d61602a-p0005-l000060",
+            "95dde964ad802d61602a-p0005-l000061",
+            "95dde964ad802d61602a-p0005-l000062",
+            "95dde964ad802d61602a-p0005-l000063",
+            "95dde964ad802d61602a-p0005-l000064",
+            "95dde964ad802d61602a-p0005-l000065",
+            "95dde964ad802d61602a-p0005-l000066",
+            "95dde964ad802d61602a-p0005-l000067",
+            "95dde964ad802d61602a-p0005-l000068",
+            "95dde964ad802d61602a-p0005-l000069",
+            "95dde964ad802d61602a-p0005-l000070",
+            "95dde964ad802d61602a-p0005-l000071",
+            "95dde964ad802d61602a-p0005-l000072",
+            "95dde964ad802d61602a-p0005-l000073",
+            "95dde964ad802d61602a-p0005-l000074",
+            "95dde964ad802d61602a-p0005-l000075",
+            "95dde964ad802d61602a-p0005-l000076",
+            "95dde964ad802d61602a-p0005-l000077",
+            "95dde964ad802d61602a-p0005-l000078",
+            "95dde964ad802d61602a-p0005-l000079",
+            "95dde964ad802d61602a-p0005-l000080",
+            "95dde964ad802d61602a-p0005-l000081",
+            "95dde964ad802d61602a-p0005-l000082",
+            "95dde964ad802d61602a-p0005-l000083",
+            "95dde964ad802d61602a-p0005-l000084",
+            "95dde964ad802d61602a-p0006-l000000",
+            "95dde964ad802d61602a-p0006-l000001",
+            "95dde964ad802d61602a-p0006-l000002",
+            "95dde964ad802d61602a-p0006-l000003",
+            "95dde964ad802d61602a-p0006-l000004",
+            "95dde964ad802d61602a-p0006-l000005",
+            "95dde964ad802d61602a-p0006-l000006",
+            "95dde964ad802d61602a-p0006-l000007",
+            "95dde964ad802d61602a-p0006-l000008",
+            "95dde964ad802d61602a-p0006-l000009",
+            "95dde964ad802d61602a-p0006-l000010",
+            "95dde964ad802d61602a-p0006-l000011",
+            "95dde964ad802d61602a-p0006-l000012",
+            "95dde964ad802d61602a-p0006-l000013",
+            "95dde964ad802d61602a-p0006-l000014",
+            "95dde964ad802d61602a-p0006-l000015",
+            "95dde964ad802d61602a-p0006-l000016",
+            "95dde964ad802d61602a-p0006-l000017",
+            "95dde964ad802d61602a-p0006-l000018",
+            "95dde964ad802d61602a-p0006-l000019",
+            "95dde964ad802d61602a-p0006-l000020",
+            "95dde964ad802d61602a-p0006-l000021",
+            "95dde964ad802d61602a-p0006-l000022",
+            "95dde964ad802d61602a-p0006-l000023",
+            "95dde964ad802d61602a-p0006-l000024",
+            "95dde964ad802d61602a-p0006-l000025",
+            "95dde964ad802d61602a-p0006-l000026",
+            "95dde964ad802d61602a-p0006-l000027",
+            "95dde964ad802d61602a-p0006-l000028",
+            "95dde964ad802d61602a-p0006-l000029",
+            "95dde964ad802d61602a-p0006-l000030",
+            "95dde964ad802d61602a-p0006-l000031",
+            "95dde964ad802d61602a-p0006-l000032",
+            "95dde964ad802d61602a-p0006-l000033",
+            "95dde964ad802d61602a-p0006-l000034",
+            "95dde964ad802d61602a-p0006-l000035",
+            "95dde964ad802d61602a-p0006-l000036",
+            "95dde964ad802d61602a-p0006-l000037",
+            "95dde964ad802d61602a-p0006-l000038",
+            "95dde964ad802d61602a-p0006-l000039",
+            "95dde964ad802d61602a-p0006-l000040",
+            "95dde964ad802d61602a-p0006-l000041",
+            "95dde964ad802d61602a-p0006-l000042",
+            "95dde964ad802d61602a-p0006-l000043",
+            "95dde964ad802d61602a-p0006-l000044",
+            "95dde964ad802d61602a-p0006-l000045",
+            "95dde964ad802d61602a-p0006-l000046",
+            "95dde964ad802d61602a-p0006-l000047",
+            "95dde964ad802d61602a-p0006-l000048",
+            "95dde964ad802d61602a-p0006-l000049",
+            "95dde964ad802d61602a-p0006-l000050",
+            "95dde964ad802d61602a-p0006-l000051",
+            "95dde964ad802d61602a-p0006-l000052",
+            "95dde964ad802d61602a-p0006-l000053",
+            "95dde964ad802d61602a-p0006-l000054",
+            "95dde964ad802d61602a-p0006-l000055",
+            "95dde964ad802d61602a-p0006-l000056",
+            "95dde964ad802d61602a-p0006-l000057",
+            "95dde964ad802d61602a-p0006-l000058",
+            "95dde964ad802d61602a-p0006-l000059",
+            "95dde964ad802d61602a-p0006-l000060",
+            "95dde964ad802d61602a-p0006-l000061",
+            "95dde964ad802d61602a-p0006-l000062",
+            "95dde964ad802d61602a-p0006-l000063",
+            "95dde964ad802d61602a-p0006-l000064",
+            "95dde964ad802d61602a-p0006-l000065",
+            "95dde964ad802d61602a-p0006-l000066",
+            "95dde964ad802d61602a-p0006-l000067",
+            "95dde964ad802d61602a-p0006-l000068",
+            "95dde964ad802d61602a-p0006-l000069",
+            "95dde964ad802d61602a-p0006-l000070",
+            "95dde964ad802d61602a-p0006-l000071",
+            "95dde964ad802d61602a-p0006-l000072",
+            "95dde964ad802d61602a-p0006-l000073",
+            "95dde964ad802d61602a-p0006-l000074",
+            "95dde964ad802d61602a-p0006-l000075",
+            "95dde964ad802d61602a-p0006-l000076",
+            "95dde964ad802d61602a-p0006-l000077",
+            "95dde964ad802d61602a-p0006-l000078",
+            "95dde964ad802d61602a-p0006-l000079",
+            "95dde964ad802d61602a-p0006-l000080",
+            "95dde964ad802d61602a-p0006-l000081",
+            "95dde964ad802d61602a-p0006-l000082",
+            "95dde964ad802d61602a-p0006-l000083",
+            "95dde964ad802d61602a-p0006-l000084",
+            "95dde964ad802d61602a-p0006-l000085",
+            "95dde964ad802d61602a-p0006-l000086",
+            "95dde964ad802d61602a-p0006-l000087",
+            "95dde964ad802d61602a-p0007-l000000",
+            "95dde964ad802d61602a-p0007-l000001",
+            "95dde964ad802d61602a-p0007-l000002",
+            "95dde964ad802d61602a-p0007-l000003",
+            "95dde964ad802d61602a-p0007-l000004",
+            "95dde964ad802d61602a-p0007-l000005",
+            "95dde964ad802d61602a-p0007-l000006",
+            "95dde964ad802d61602a-p0007-l000007",
+            "95dde964ad802d61602a-p0007-l000008",
+            "95dde964ad802d61602a-p0007-l000009",
+            "95dde964ad802d61602a-p0007-l000010",
+            "95dde964ad802d61602a-p0007-l000011",
+            "95dde964ad802d61602a-p0007-l000012",
+            "95dde964ad802d61602a-p0007-l000013",
+            "95dde964ad802d61602a-p0007-l000014",
+            "95dde964ad802d61602a-p0007-l000015",
+            "95dde964ad802d61602a-p0007-l000016",
+            "95dde964ad802d61602a-p0007-l000017",
+            "95dde964ad802d61602a-p0007-l000018",
+            "95dde964ad802d61602a-p0007-l000019",
+            "95dde964ad802d61602a-p0007-l000020",
+            "95dde964ad802d61602a-p0007-l000021",
+            "95dde964ad802d61602a-p0007-l000022",
+            "95dde964ad802d61602a-p0007-l000023",
+            "95dde964ad802d61602a-p0007-l000024",
+            "95dde964ad802d61602a-p0007-l000025",
+            "95dde964ad802d61602a-p0007-l000026",
+            "95dde964ad802d61602a-p0007-l000027",
+            "95dde964ad802d61602a-p0007-l000028",
+            "95dde964ad802d61602a-p0007-l000029",
+            "95dde964ad802d61602a-p0007-l000030",
+            "95dde964ad802d61602a-p0007-l000031",
+            "95dde964ad802d61602a-p0007-l000032",
+            "95dde964ad802d61602a-p0007-l000033",
+            "95dde964ad802d61602a-p0007-l000034",
+            "95dde964ad802d61602a-p0007-l000035",
+            "95dde964ad802d61602a-p0007-l000036",
+            "95dde964ad802d61602a-p0007-l000037",
+            "95dde964ad802d61602a-p0007-l000038",
+            "95dde964ad802d61602a-p0007-l000039",
+            "95dde964ad802d61602a-p0007-l000040",
+            "95dde964ad802d61602a-p0007-l000041",
+            "95dde964ad802d61602a-p0007-l000042",
+            "95dde964ad802d61602a-p0007-l000043",
+            "95dde964ad802d61602a-p0007-l000044",
+            "95dde964ad802d61602a-p0007-l000045",
+            "95dde964ad802d61602a-p0007-l000046",
+            "95dde964ad802d61602a-p0007-l000047",
+            "95dde964ad802d61602a-p0007-l000048",
+            "95dde964ad802d61602a-p0007-l000049",
+            "95dde964ad802d61602a-p0007-l000050",
+            "95dde964ad802d61602a-p0007-l000051",
+            "95dde964ad802d61602a-p0007-l000052",
+            "95dde964ad802d61602a-p0007-l000053",
+            "95dde964ad802d61602a-p0007-l000054",
+            "95dde964ad802d61602a-p0007-l000055",
+            "95dde964ad802d61602a-p0007-l000056",
+            "95dde964ad802d61602a-p0007-l000057",
+            "95dde964ad802d61602a-p0007-l000058",
+            "95dde964ad802d61602a-p0007-l000059",
+            "95dde964ad802d61602a-p0007-l000060",
+            "95dde964ad802d61602a-p0007-l000061",
+            "95dde964ad802d61602a-p0007-l000062",
+            "95dde964ad802d61602a-p0007-l000063",
+            "95dde964ad802d61602a-p0007-l000064",
+            "95dde964ad802d61602a-p0007-l000065",
+            "95dde964ad802d61602a-p0007-l000066",
+            "95dde964ad802d61602a-p0007-l000067",
+            "95dde964ad802d61602a-p0007-l000068",
+            "95dde964ad802d61602a-p0007-l000069",
+            "95dde964ad802d61602a-p0007-l000070",
+            "95dde964ad802d61602a-p0007-l000071",
+            "95dde964ad802d61602a-p0007-l000072",
+            "95dde964ad802d61602a-p0007-l000073",
+            "95dde964ad802d61602a-p0007-l000074",
+            "95dde964ad802d61602a-p0007-l000075",
+            "95dde964ad802d61602a-p0007-l000076",
+            "95dde964ad802d61602a-p0007-l000077",
+            "95dde964ad802d61602a-p0007-l000078",
+            "95dde964ad802d61602a-p0007-l000079",
+            "95dde964ad802d61602a-p0007-l000080",
+            "95dde964ad802d61602a-p0007-l000081",
+            "95dde964ad802d61602a-p0007-l000082",
+            "95dde964ad802d61602a-p0007-l000083",
+            "95dde964ad802d61602a-p0007-l000084",
+            "95dde964ad802d61602a-p0007-l000085",
+            "95dde964ad802d61602a-p0007-l000086",
+            "95dde964ad802d61602a-p0007-l000087",
+            "95dde964ad802d61602a-p0007-l000088",
+            "95dde964ad802d61602a-p0007-l000089",
+            "95dde964ad802d61602a-p0007-l000090",
+            "95dde964ad802d61602a-p0007-l000091",
+            "95dde964ad802d61602a-p0007-l000092",
+            "95dde964ad802d61602a-p0007-l000093",
+            "95dde964ad802d61602a-p0007-l000094",
+            "95dde964ad802d61602a-p0007-l000095",
+            "95dde964ad802d61602a-p0007-l000096",
+            "95dde964ad802d61602a-p0007-l000097",
+            "95dde964ad802d61602a-p0007-l000098",
+            "95dde964ad802d61602a-p0007-l000099",
+            "95dde964ad802d61602a-p0007-l000100",
+            "95dde964ad802d61602a-p0007-l000101",
+            "95dde964ad802d61602a-p0007-l000102",
+            "95dde964ad802d61602a-p0007-l000103",
+            "95dde964ad802d61602a-p0007-l000104",
+            "95dde964ad802d61602a-p0007-l000105",
+            "95dde964ad802d61602a-p0007-l000106",
+            "95dde964ad802d61602a-p0007-l000107",
+            "95dde964ad802d61602a-p0007-l000108",
+            "95dde964ad802d61602a-p0007-l000109",
+            "95dde964ad802d61602a-p0007-l000110",
+            "95dde964ad802d61602a-p0007-l000111",
+            "95dde964ad802d61602a-p0007-l000112",
+            "95dde964ad802d61602a-p0007-l000113",
+            "95dde964ad802d61602a-p0007-l000114",
+            "95dde964ad802d61602a-p0007-l000115",
+            "95dde964ad802d61602a-p0007-l000116",
+            "95dde964ad802d61602a-p0007-l000117",
+            "95dde964ad802d61602a-p0007-l000118",
+            "95dde964ad802d61602a-p0007-l000119",
+            "95dde964ad802d61602a-p0007-l000120",
+            "95dde964ad802d61602a-p0007-l000121",
+            "95dde964ad802d61602a-p0007-l000122",
+            "95dde964ad802d61602a-p0007-l000123",
+            "95dde964ad802d61602a-p0007-l000124",
+            "95dde964ad802d61602a-p0007-l000125",
+            "95dde964ad802d61602a-p0007-l000126",
+            "95dde964ad802d61602a-p0007-l000127",
+            "95dde964ad802d61602a-p0007-l000128",
+            "95dde964ad802d61602a-p0007-l000129",
+            "95dde964ad802d61602a-p0007-l000130",
+            "95dde964ad802d61602a-p0007-l000131",
+            "95dde964ad802d61602a-p0007-l000132",
+            "95dde964ad802d61602a-p0007-l000133",
+            "95dde964ad802d61602a-p0007-l000134",
+            "95dde964ad802d61602a-p0007-l000135",
+            "95dde964ad802d61602a-p0007-l000136",
+            "95dde964ad802d61602a-p0008-l000000",
+            "95dde964ad802d61602a-p0008-l000001",
+            "95dde964ad802d61602a-p0008-l000002",
+            "95dde964ad802d61602a-p0008-l000003",
+            "95dde964ad802d61602a-p0008-l000004",
+            "95dde964ad802d61602a-p0008-l000005",
+            "95dde964ad802d61602a-p0008-l000006",
+            "95dde964ad802d61602a-p0008-l000007",
+            "95dde964ad802d61602a-p0008-l000008",
+            "95dde964ad802d61602a-p0008-l000009",
+            "95dde964ad802d61602a-p0008-l000010",
+            "95dde964ad802d61602a-p0008-l000011",
+            "95dde964ad802d61602a-p0008-l000012",
+            "95dde964ad802d61602a-p0008-l000013",
+            "95dde964ad802d61602a-p0008-l000014",
+            "95dde964ad802d61602a-p0008-l000015",
+            "95dde964ad802d61602a-p0008-l000016",
+            "95dde964ad802d61602a-p0008-l000017",
+            "95dde964ad802d61602a-p0008-l000018",
+            "95dde964ad802d61602a-p0008-l000019",
+            "95dde964ad802d61602a-p0008-l000020",
+            "95dde964ad802d61602a-p0008-l000021",
+            "95dde964ad802d61602a-p0009-l000000",
+            "95dde964ad802d61602a-p0009-l000001",
+            "95dde964ad802d61602a-p0009-l000002",
+            "95dde964ad802d61602a-p0009-l000003",
+            "95dde964ad802d61602a-p0009-l000004",
+            "95dde964ad802d61602a-p0009-l000005",
+            "95dde964ad802d61602a-p0009-l000006",
+            "95dde964ad802d61602a-p0009-l000007",
+            "95dde964ad802d61602a-p0009-l000008",
+            "95dde964ad802d61602a-p0009-l000009",
+            "95dde964ad802d61602a-p0009-l000010",
+            "95dde964ad802d61602a-p0009-l000011",
+            "95dde964ad802d61602a-p0009-l000012",
+            "95dde964ad802d61602a-p0009-l000013",
+            "95dde964ad802d61602a-p0009-l000014",
+            "95dde964ad802d61602a-p0009-l000015",
+            "95dde964ad802d61602a-p0009-l000016",
+            "95dde964ad802d61602a-p0009-l000017",
+            "95dde964ad802d61602a-p0009-l000018",
+            "95dde964ad802d61602a-p0009-l000019",
+            "95dde964ad802d61602a-p0009-l000020",
+            "95dde964ad802d61602a-p0009-l000021",
+            "95dde964ad802d61602a-p0009-l000022",
+            "95dde964ad802d61602a-p0009-l000023",
+            "95dde964ad802d61602a-p0009-l000024",
+            "95dde964ad802d61602a-p0009-l000025",
+            "95dde964ad802d61602a-p0009-l000026",
+            "95dde964ad802d61602a-p0009-l000027",
+            "95dde964ad802d61602a-p0009-l000028",
+            "95dde964ad802d61602a-p0009-l000029",
+            "95dde964ad802d61602a-p0009-l000030",
+            "95dde964ad802d61602a-p0009-l000031",
+            "95dde964ad802d61602a-p0009-l000032",
+            "95dde964ad802d61602a-p0009-l000033",
+            "95dde964ad802d61602a-p0009-l000034",
+            "95dde964ad802d61602a-p0009-l000035",
+            "95dde964ad802d61602a-p0009-l000036",
+            "95dde964ad802d61602a-p0009-l000037",
+            "95dde964ad802d61602a-p0009-l000038",
+            "95dde964ad802d61602a-p0009-l000039",
+            "95dde964ad802d61602a-p0009-l000040",
+            "95dde964ad802d61602a-p0009-l000041",
+            "95dde964ad802d61602a-p0009-l000042",
+            "95dde964ad802d61602a-p0009-l000043",
+            "95dde964ad802d61602a-p0009-l000044",
+            "95dde964ad802d61602a-p0009-l000045",
+            "95dde964ad802d61602a-p0009-l000046",
+            "95dde964ad802d61602a-p0009-l000047",
+            "95dde964ad802d61602a-p0009-l000048",
+            "95dde964ad802d61602a-p0009-l000049",
+            "95dde964ad802d61602a-p0009-l000050",
+            "95dde964ad802d61602a-p0009-l000051",
+            "95dde964ad802d61602a-p0009-l000052",
+            "95dde964ad802d61602a-p0009-l000053",
+            "95dde964ad802d61602a-p0009-l000054",
+            "95dde964ad802d61602a-p0009-l000055",
+            "95dde964ad802d61602a-p0009-l000056",
+            "95dde964ad802d61602a-p0009-l000057",
+            "95dde964ad802d61602a-p0009-l000058",
+            "95dde964ad802d61602a-p0009-l000059",
+            "95dde964ad802d61602a-p0009-l000060",
+            "95dde964ad802d61602a-p0010-l000000",
+            "95dde964ad802d61602a-p0010-l000001",
+            "95dde964ad802d61602a-p0010-l000002",
+            "95dde964ad802d61602a-p0010-l000003",
+            "95dde964ad802d61602a-p0010-l000004",
+            "95dde964ad802d61602a-p0010-l000005",
+            "95dde964ad802d61602a-p0010-l000006",
+            "95dde964ad802d61602a-p0010-l000007",
+            "95dde964ad802d61602a-p0010-l000008",
+            "95dde964ad802d61602a-p0010-l000009",
+            "95dde964ad802d61602a-p0010-l000010",
+            "95dde964ad802d61602a-p0010-l000011",
+            "95dde964ad802d61602a-p0010-l000012",
+            "95dde964ad802d61602a-p0010-l000013",
+            "95dde964ad802d61602a-p0010-l000014",
+            "95dde964ad802d61602a-p0010-l000015",
+            "95dde964ad802d61602a-p0010-l000016",
+            "95dde964ad802d61602a-p0010-l000017",
+            "95dde964ad802d61602a-p0010-l000018",
+            "95dde964ad802d61602a-p0010-l000019",
+            "95dde964ad802d61602a-p0010-l000020",
+            "95dde964ad802d61602a-p0010-l000021",
+            "95dde964ad802d61602a-p0010-l000022",
+            "95dde964ad802d61602a-p0010-l000023",
+            "95dde964ad802d61602a-p0010-l000024",
+            "95dde964ad802d61602a-p0010-l000025",
+            "95dde964ad802d61602a-p0010-l000026",
+            "95dde964ad802d61602a-p0010-l000027",
+            "95dde964ad802d61602a-p0010-l000028",
+            "95dde964ad802d61602a-p0010-l000029",
+            "95dde964ad802d61602a-p0010-l000030",
+            "95dde964ad802d61602a-p0010-l000031",
+            "95dde964ad802d61602a-p0010-l000032",
+            "95dde964ad802d61602a-p0010-l000033",
+            "95dde964ad802d61602a-p0010-l000034",
+            "95dde964ad802d61602a-p0010-l000035",
+            "95dde964ad802d61602a-p0010-l000036",
+            "95dde964ad802d61602a-p0010-l000037",
+            "95dde964ad802d61602a-p0010-l000038",
+            "95dde964ad802d61602a-p0010-l000039",
+            "95dde964ad802d61602a-p0010-l000040",
+            "95dde964ad802d61602a-p0010-l000041",
+            "95dde964ad802d61602a-p0010-l000042",
+            "95dde964ad802d61602a-p0010-l000043",
+            "95dde964ad802d61602a-p0010-l000044",
+            "95dde964ad802d61602a-p0010-l000045",
+            "95dde964ad802d61602a-p0010-l000046",
+            "95dde964ad802d61602a-p0010-l000047",
+            "95dde964ad802d61602a-p0010-l000048",
+            "95dde964ad802d61602a-p0010-l000049",
+            "95dde964ad802d61602a-p0010-l000050",
+            "95dde964ad802d61602a-p0010-l000051",
+            "95dde964ad802d61602a-p0010-l000052",
+            "95dde964ad802d61602a-p0010-l000053",
+            "95dde964ad802d61602a-p0010-l000054",
+            "95dde964ad802d61602a-p0010-l000055",
+            "95dde964ad802d61602a-p0010-l000056",
+            "95dde964ad802d61602a-p0010-l000057",
+            "95dde964ad802d61602a-p0010-l000058",
+            "95dde964ad802d61602a-p0010-l000059",
+            "95dde964ad802d61602a-p0010-l000060",
+            "95dde964ad802d61602a-p0010-l000061",
+            "95dde964ad802d61602a-p0010-l000062",
+            "95dde964ad802d61602a-p0010-l000063",
+            "95dde964ad802d61602a-p0010-l000064",
+            "95dde964ad802d61602a-p0010-l000065",
+            "95dde964ad802d61602a-p0010-l000066"
+          ],
+          "failed_block_ids": [],
+          "excluded": [],
+          "scope": "raw_pdf_text_layer_with_candidate_structure",
+          "physical_pages_expected": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "decoded_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "text_layer_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "failed_pages": [],
+          "pages_without_text": [],
+          "image_text_unverified_pages": [
+            1,
+            4,
+            5,
+            6,
+            8
+          ],
+          "page_enumeration_complete": true,
+          "text_layer_decode_complete": true,
+          "full_content_coverage_verified": false,
+          "fidelity_human_verified": false,
+          "table_structure": "native_candidate_output_unverified",
+          "reading_order": "native_candidate_order_unverified",
+          "limitations": [
+            "No OCR or text burned into images",
+            "No table/header/footnote or caption association",
+            "Backend line order preserved; multi-column reading order unverified",
+            "Whole textline coordinates; exact glyph highlighting not implemented",
+            "Decoded text, Unicode, units, superscripts and omissions require human PDF comparison",
+            "Native structure/text is a candidate output, not literal source quotation",
+            "Table/page continuations are not inferred; image/OCR coverage remains explicitly unverified"
+          ],
+          "native_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "native_errors": [],
+          "unmapped_unit_ids": [
+            "be99f3544bc693bd-u-c531308606109c5d",
+            "be99f3544bc693bd-u-8c841ec9659ca71c",
+            "be99f3544bc693bd-u-32d6ea40d813408f",
+            "be99f3544bc693bd-u-03be3e99523bd999",
+            "be99f3544bc693bd-u-1613070d264a24ec",
+            "be99f3544bc693bd-u-d5e87d5d017f1cb4",
+            "be99f3544bc693bd-u-366d6778dddd2357",
+            "be99f3544bc693bd-u-269595a3d7a545e5",
+            "be99f3544bc693bd-u-593848f5a4c08590",
+            "be99f3544bc693bd-u-041d823cea551370",
+            "be99f3544bc693bd-u-91092a6aff48b7b9",
+            "be99f3544bc693bd-u-2084dc68802d1304",
+            "be99f3544bc693bd-u-0f51ce1f53c1b994",
+            "be99f3544bc693bd-u-08619c35edeee343",
+            "be99f3544bc693bd-u-0e4a64f291536b46",
+            "be99f3544bc693bd-u-88c18e3ca38d98c0",
+            "be99f3544bc693bd-u-58dc240dca34fe7b",
+            "be99f3544bc693bd-u-3f0e27a3bceb5ea6",
+            "be99f3544bc693bd-u-bd1b04acace75b02",
+            "be99f3544bc693bd-u-ec90fe79f113c551",
+            "be99f3544bc693bd-u-349760fc3a44652b",
+            "be99f3544bc693bd-u-bc3d4e891c6a4d2e",
+            "be99f3544bc693bd-u-b2d70436aed24bb6",
+            "be99f3544bc693bd-u-59a65a366fed38b1",
+            "be99f3544bc693bd-u-b68274bbb32081f9",
+            "be99f3544bc693bd-u-4ae58f954e1c9ce0",
+            "be99f3544bc693bd-u-d42bbd21b93dfe25",
+            "be99f3544bc693bd-u-3e11f546c143a008",
+            "be99f3544bc693bd-u-4b40f2ff87c897e1",
+            "be99f3544bc693bd-u-fd5b8f500798e663",
+            "be99f3544bc693bd-u-f918af58b8373cbb",
+            "be99f3544bc693bd-u-32e8f0f6e60c65ef",
+            "be99f3544bc693bd-u-6b439a0103423634",
+            "be99f3544bc693bd-u-684f1783a59fd07f",
+            "be99f3544bc693bd-u-42bd76e21597d5f7"
+          ],
+          "ambiguous_unit_ids": [],
+          "structure_verified_by_human": false
+        },
+        "model_calls": 0,
+        "medical_quality_approved": false,
+        "human_pdf_fidelity_verified": false,
+        "artifacts": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-prepare"
+      },
+      "initial_partial_reasons": {
+        "physical_pages_expected": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "decoded_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "failed_pages": [],
+        "pages_without_text": [],
+        "image_text_unverified_pages": [
+          1,
+          4,
+          5,
+          6,
+          8
+        ],
+        "failed_blocks": 0,
+        "unmapped_or_partial_units": 35,
+        "ambiguous_units": 0,
+        "mapping_counts": {
+          "exact": 283,
+          "normalized_alignment": 97,
+          "not_text": 18,
+          "unmapped": 30,
+          "partial": 5
+        },
+        "unresolved_units": [
+          {
+            "id": "be99f3544bc693bd-u-c531308606109c5d",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-8c841ec9659ca71c",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-32d6ea40d813408f",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-03be3e99523bd999",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-1613070d264a24ec",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-d5e87d5d017f1cb4",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-366d6778dddd2357",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-269595a3d7a545e5",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-593848f5a4c08590",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-041d823cea551370",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-91092a6aff48b7b9",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-2084dc68802d1304",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-0f51ce1f53c1b994",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-08619c35edeee343",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              4
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-0e4a64f291536b46",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              6
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-88c18e3ca38d98c0",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              6
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-58dc240dca34fe7b",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              6
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-3f0e27a3bceb5ea6",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-bd1b04acace75b02",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-ec90fe79f113c551",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-349760fc3a44652b",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-bc3d4e891c6a4d2e",
+            "kind": "table_cell",
+            "mapping": "partial",
+            "pages": [
+              7
+            ],
+            "segments": 2,
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          },
+          {
+            "id": "be99f3544bc693bd-u-b2d70436aed24bb6",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-59a65a366fed38b1",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-b68274bbb32081f9",
+            "kind": "table_cell",
+            "mapping": "partial",
+            "pages": [
+              7
+            ],
+            "segments": 2,
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          },
+          {
+            "id": "be99f3544bc693bd-u-4ae58f954e1c9ce0",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-d42bbd21b93dfe25",
+            "kind": "table_cell",
+            "mapping": "partial",
+            "pages": [
+              7
+            ],
+            "segments": 2,
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          },
+          {
+            "id": "be99f3544bc693bd-u-3e11f546c143a008",
+            "kind": "table_cell",
+            "mapping": "partial",
+            "pages": [
+              7
+            ],
+            "segments": 2,
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          },
+          {
+            "id": "be99f3544bc693bd-u-4b40f2ff87c897e1",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-fd5b8f500798e663",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-f918af58b8373cbb",
+            "kind": "table_cell",
+            "mapping": "partial",
+            "pages": [
+              7
+            ],
+            "segments": 1,
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          },
+          {
+            "id": "be99f3544bc693bd-u-32e8f0f6e60c65ef",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-6b439a0103423634",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-684f1783a59fd07f",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          },
+          {
+            "id": "be99f3544bc693bd-u-42bd76e21597d5f7",
+            "kind": "table_cell",
+            "mapping": "unmapped",
+            "pages": [
+              7
+            ],
+            "segments": 0,
+            "warnings": []
+          }
+        ],
+        "limitations": [
+          "No OCR or text burned into images",
+          "No table/header/footnote or caption association",
+          "Backend line order preserved; multi-column reading order unverified",
+          "Whole textline coordinates; exact glyph highlighting not implemented",
+          "Decoded text, Unicode, units, superscripts and omissions require human PDF comparison",
+          "Native structure/text is a candidate output, not literal source quotation",
+          "Table/page continuations are not inferred; image/OCR coverage remains explicitly unverified"
+        ],
+        "native_errors": [],
+        "per_page": [
+          {
+            "physical_page": 1,
+            "status": "text_layer_extracted_images_unverified",
+            "bitmap_count": 1,
+            "ocr_requirement": "possible_image_text_unverified"
+          },
+          {
+            "physical_page": 2,
+            "status": "text_layer_extracted_fidelity_unverified",
+            "bitmap_count": 0,
+            "ocr_requirement": "not_detected"
+          },
+          {
+            "physical_page": 3,
+            "status": "text_layer_extracted_fidelity_unverified",
+            "bitmap_count": 0,
+            "ocr_requirement": "not_detected"
+          },
+          {
+            "physical_page": 4,
+            "status": "text_layer_extracted_images_unverified",
+            "bitmap_count": 1,
+            "ocr_requirement": "possible_image_text_unverified"
+          },
+          {
+            "physical_page": 5,
+            "status": "text_layer_extracted_images_unverified",
+            "bitmap_count": 1,
+            "ocr_requirement": "possible_image_text_unverified"
+          },
+          {
+            "physical_page": 6,
+            "status": "text_layer_extracted_images_unverified",
+            "bitmap_count": 1,
+            "ocr_requirement": "possible_image_text_unverified"
+          },
+          {
+            "physical_page": 7,
+            "status": "text_layer_extracted_fidelity_unverified",
+            "bitmap_count": 0,
+            "ocr_requirement": "not_detected"
+          },
+          {
+            "physical_page": 8,
+            "status": "text_layer_extracted_images_unverified",
+            "bitmap_count": 1,
+            "ocr_requirement": "possible_image_text_unverified"
+          },
+          {
+            "physical_page": 9,
+            "status": "text_layer_extracted_fidelity_unverified",
+            "bitmap_count": 0,
+            "ocr_requirement": "not_detected"
+          },
+          {
+            "physical_page": 10,
+            "status": "text_layer_extracted_fidelity_unverified",
+            "bitmap_count": 0,
+            "ocr_requirement": "not_detected"
+          }
+        ]
+      },
+      "current_partial_reasons": {
+        "decoded_pages": 10,
+        "source_blocks": 615,
+        "failed_pages": [],
+        "failed_blocks": 0,
+        "native_errors": [],
+        "image_text_unverified_pages": [
+          1,
+          4,
+          5,
+          6,
+          8
+        ],
+        "unmapped_or_partial_units": 6,
+        "ambiguous_units": 8,
+        "total_pending_units": 14,
+        "current_output": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed",
+        "limitations": {
+          "implemented_pending_human": [
+            "all source text located; native table candidate data and caption guards exist",
+            "Fig1 region, Fig4 mechanical whole bitmap; all image approvals false",
+            "reading order, original-vs-PDF fidelity, table semantics require human check"
+          ],
+          "unsupported_current_input": [
+            "image-burned text/OCR not extracted; bitmap pages1/4/5/6/8 flagged"
+          ],
+          "engineering_limitations": [
+            "remaining repeated numeric/header table-cell identity ambiguous within whole source line; no glyph-level table coordinates guessed",
+            "Fig2/3 whole Figure grouping lacks unique compatible region; caption-only pending retained"
+          ],
+          "reproduced_geometric_candidate_bug": "fixed with exact/duplicate-value regressions"
+        }
+      }
+    },
+    "S4": {
+      "retirement_sources": [
+        {
+          "path": "scripts/probe-s4-api.ts",
+          "original_bytes": 4346,
+          "original_sha256": "eb5a242d7f39611741e25616838ff579ad5e01d80251cf520597fa5210f455e4",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/probe-s4-closed-protocol.ts",
+          "original_bytes": 7966,
+          "original_sha256": "93b479491fc5535a2ad9a50a4636cd03743a14d90cb291841eff0482899a946a",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/run-s4-development.ts",
+          "original_bytes": 13458,
+          "original_sha256": "09f9cb3646e0d03a85d85a9d05f17739745cf7e80e54df06b0748f7ce4bea96e",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/run-s4-selection.ts",
+          "original_bytes": 18562,
+          "original_sha256": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/run-s4-selection-continuation.ts",
+          "original_bytes": 17633,
+          "original_sha256": "755120569bfd9cb552a4d31d0e1e4e0243b76098c6e827688970b66dd4d58d35",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/run-s4-selection-reliability.ts",
+          "original_bytes": 20088,
+          "original_sha256": "e19cd9d2efb7247d9060bd1867100ebf2bb8ad3b0f2626ad2af7bdc07be75bc5",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/retry-s4-selection-baseline.ts",
+          "original_bytes": 12969,
+          "original_sha256": "43cd995287e977a752b2443b864111ba370304255ca8557e3b8c5edf5fe5af18",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/retry-s4-job.ts",
+          "original_bytes": 1198,
+          "original_sha256": "afef18027bf084c0b45856af37f0675d919d842aeb9480c3e109493f04686eff",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        },
+        {
+          "path": "scripts/apply-s4-wall-clock-adjustment.ts",
+          "original_bytes": 1551,
+          "original_sha256": "7bd6637b986b42c5d928dcc873211360d40fec889974b15e5c87cb1fba9731b5",
+          "original_source": "remove exactly the first two transient guard lines from current active file; no other edits made"
+        }
+      ],
+      "retirement_completed": {
+        "completed_at": "2026-11-04T16:17:20.111774+00:00",
+        "active_deleted_files": 9,
+        "active_deleted_bytes": 99596,
+        "files": [
+          {
+            "path": "code/scripts/probe-s4-api.ts",
+            "bytes": 4539,
+            "deleted_sha256": "6b7ddd171b03aba0072ffffe404720031727b5ff031e1a3fb3804165fc603a2a",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/probe-s4-api.ts"
+            }
+          },
+          {
+            "path": "code/scripts/probe-s4-closed-protocol.ts",
+            "bytes": 8171,
+            "deleted_sha256": "2558869eda9bcad0136009199013a5d689dd880dd4e7ebc37694aef5ae307a0a",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/probe-s4-closed-protocol.ts"
+            }
+          },
+          {
+            "path": "code/scripts/run-s4-development.ts",
+            "bytes": 13657,
+            "deleted_sha256": "7544095d5c18a12f22ad0a3fae790c9f3bb6df1cd9de3680fc84691583969678",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/run-s4-development.ts"
+            }
+          },
+          {
+            "path": "code/scripts/run-s4-selection.ts",
+            "bytes": 18759,
+            "deleted_sha256": "77ef72b8927609dd466175c39beb847b60aecc00cfb849eaa0608b136f66a66c",
+            "original_restore": {
+              "source_snapshot": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/scripts/run-s4-selection.ts",
+              "sha256": "d495e0df54832989459d3462af02355e1c10c8f5fa96a4f8435e7b595f7a9d1b",
+              "manifest": "code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/manifest.json",
+              "snapshot_digest": "8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981"
+            }
+          },
+          {
+            "path": "code/scripts/run-s4-selection-continuation.ts",
+            "bytes": 17843,
+            "deleted_sha256": "8dbf2255c1eb98d6c3924a753dfade49aa2bb9a8deada8a9a47b42fb3f451b48",
+            "original_restore": {
+              "source_snapshot": "code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/source-snapshots/4d2e0e2444d99514de348c66aae9ef61ee89bb004cb3a1324c7e777894597576/scripts/run-s4-selection-continuation.ts",
+              "sha256": "755120569bfd9cb552a4d31d0e1e4e0243b76098c6e827688970b66dd4d58d35",
+              "manifest": "code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/source-snapshots/4d2e0e2444d99514de348c66aae9ef61ee89bb004cb3a1324c7e777894597576/manifest.json",
+              "snapshot_digest": "4d2e0e2444d99514de348c66aae9ef61ee89bb004cb3a1324c7e777894597576"
+            }
+          },
+          {
+            "path": "code/scripts/run-s4-selection-reliability.ts",
+            "bytes": 20297,
+            "deleted_sha256": "368dc980ed99bbdb8406d6abc18dcc34434b011f20a7c28d0f840af355146217",
+            "original_restore": {
+              "source_snapshot": "code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/source-snapshots/2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b/scripts/run-s4-selection-reliability.ts",
+              "sha256": "e19cd9d2efb7247d9060bd1867100ebf2bb8ad3b0f2626ad2af7bdc07be75bc5",
+              "manifest": "code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/source-snapshots/2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b/manifest.json",
+              "snapshot_digest": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b"
+            }
+          },
+          {
+            "path": "code/scripts/retry-s4-selection-baseline.ts",
+            "bytes": 13177,
+            "deleted_sha256": "8f797e47962f53b1edd6e1f62bf2eee6230a78af6fdbbb18a43e86c104aaa98c",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/retry-s4-selection-baseline.ts"
+            }
+          },
+          {
+            "path": "code/scripts/retry-s4-job.ts",
+            "bytes": 1391,
+            "deleted_sha256": "3ef32fe2390876d27ad9bf20a2bfbdffee0bdeb303a7510869cd1335eefe5604",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/retry-s4-job.ts"
+            }
+          },
+          {
+            "path": "code/scripts/apply-s4-wall-clock-adjustment.ts",
+            "bytes": 1762,
+            "deleted_sha256": "5a89fe284024aa21009784c23e3fd3108c70a7d5765dc26968c76c6aaace2c70",
+            "original_restore": {
+              "archive": "code/docs/project-history-2026-11-04.zip",
+              "member": "historical-closed-S4-entrypoints/code/scripts/apply-s4-wall-clock-adjustment.ts"
+            }
+          }
+        ],
+        "package": {
+          "before_sha256": "4128ac0523adb0579f753bd9985c1ec7fe5afdb1a47fa92169ae6de3f3448107",
+          "after_sha256": "9f9b02b87c45577e32cebfdb2e0d8525be6bc8c6f6eb5105fee9cb1cc33c6526",
+          "removed_commands": {
+            "s4:probe": "tsx scripts/probe-s4-api.ts",
+            "s4:development": "tsx scripts/run-s4-development.ts"
+          },
+          "current_comparison_command": "tsx scripts/compare-extraction-methods.ts"
+        },
+        "old_budget_or_history_mutated": false
+      },
+      "model_visible_equivalence": {
+        "actual_pi_sdk_loopback": true,
+        "real_document": "L01",
+        "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+        "source": "current fixed-adapter prepared L01",
+        "conditions": [
+          "F",
+          "R"
+        ],
+        "selected_blocks": 344,
+        "batches": 3,
+        "provider_requests_compared_per_condition": 8,
+        "total_loopback_requests": 16,
+        "compared": [
+          "complete system/developer prompt including cwd",
+          "user prompts",
+          "tool schemas",
+          "original text/context/read results",
+          "whole-document selection context",
+          "scope/source/Figure metadata"
+        ],
+        "normalization": "only mock-provider-generated opaque fc/call/resp/msg id and call_id fields; no source/label/path/scope/prompt field normalized",
+        "method_label_visible": false,
+        "all_requests_equivalent": true,
+        "payload_pairs": [
+          {
+            "pair": 0,
+            "sha256": "3dfc991078085d6e5d40a4ec5b8db84d226c7807debf39f03960d1758aaf451b",
+            "equal": true
+          },
+          {
+            "pair": 1,
+            "sha256": "6a9ff9cf4926630c3bb0099334472660913e2774700c960adb3aceac2b1330f5",
+            "equal": true
+          },
+          {
+            "pair": 2,
+            "sha256": "3dfc991078085d6e5d40a4ec5b8db84d226c7807debf39f03960d1758aaf451b",
+            "equal": true
+          },
+          {
+            "pair": 3,
+            "sha256": "4eb8aaaea6d214d31375f89acfe29f332ebd4ae998f29c0a35b734b6a8d0c670",
+            "equal": true
+          },
+          {
+            "pair": 4,
+            "sha256": "3dfc991078085d6e5d40a4ec5b8db84d226c7807debf39f03960d1758aaf451b",
+            "equal": true
+          },
+          {
+            "pair": 5,
+            "sha256": "abc4b3ebdf766e7b0b7494844d5e3023c8e3796a6ef755771ef1dfcd61b36417",
+            "equal": true
+          },
+          {
+            "pair": 6,
+            "sha256": "e7d2fb12b1fe91e27d0c7dba9042f5353841b628198c0a8d9f9b28dbf9735282",
+            "equal": true
+          },
+          {
+            "pair": 7,
+            "sha256": "aa5611971228946052fc58a6a4d93b11245462968d75126a17334cab5d6431f2",
+            "equal": true
+          }
+        ],
+        "paid_calls": 0,
+        "medical_quality_approved": false
+      },
+      "status": "real_comparison_and_five_summary_pairs_complete_human_quality_and_selection_pending",
+      "stage_passed": false,
+      "checks": [
+        {
+          "command": "npm run test:extraction",
+          "exit_code": 0,
+          "tests": 171,
+          "passed": 171,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/final-extraction.log"
+        },
+        {
+          "command": "root tsc --noEmit",
+          "exit_code": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/final-types.log"
+        },
+        {
+          "command": "current L01 CPU prepare",
+          "exit_code": 0,
+          "seconds": 16.217,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s4-L01-current-prepare.log"
+        },
+        {
+          "command": "real current L01 F/R whole Pi SDK loopback body equivalence",
+          "exit_code": 0,
+          "provider_request_pairs": 8,
+          "paid_calls": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s4-L01-sdk-equivalence.log"
+        },
+        {
+          "command": "npm run s4:compare -- prepare --directory docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal",
+          "exit_code": 0,
+          "seconds": 1.164,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s4-final-prepare.log"
+        },
+        {
+          "command": [
+            "bash",
+            "scripts/with-node.sh",
+            "npm",
+            "run",
+            "s4:compare",
+            "--",
+            "execute",
+            "--directory",
+            "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal",
+            "--authorization",
+            "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization-template.json"
+          ],
+          "exit_code": 1,
+          "expected_refusal": true,
+          "execution_or_ledger_created": false,
+          "paid_calls": 0,
+          "log": "docs/acceptance/s0-s4-current-2026-11-04/s4-final-unsigned-denied.log"
+        }
+      ],
+      "proposal": {
+        "plan": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/plan.json",
+        "plan_sha256": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+        "unsigned_authorization_template": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization-template.json",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "medium",
+        "logical_conditions": 6,
+        "unique_initial_extractions": 5,
+        "equivalence_reuse": "L01-R reuses L01-F only; not independent empirical evidence",
+        "proposed_shared_limits": {
+          "requests": 300,
+          "input_tokens": 6000000,
+          "output_tokens": 400000,
+          "seconds": 14400,
+          "request_seconds": 120,
+          "document_seconds": 1800,
+          "transient_retries": 2,
+          "response_output_tokens": 8192,
+          "batch_responses": 16
+        },
+        "necessary_followup_scope": "same two papers and model, single-point fixes/retests; same authorization_id uses one cumulative ledger and original wallclock",
+        "price_estimate_cny": 5.04,
+        "actual_account_billing_known": false,
+        "user_authorized": true,
+        "execution_started": true
+      },
+      "remaining": [
+        "Actual human review of original-PDF fidelity, relevance, context, Figure/case relationships and changed automatic metadata, including page8 Fig.4 risks",
+        "Independent unseen paper intake/sealing and applicable medical catalog approval remain pending",
+        "Final medical/model/method selection and S2/S3/S4 complete quality acceptance remain unapproved; no new paid work is implied"
+      ],
+      "transient_failures": [
+        {
+          "log": "s4-types-initial.log",
+          "cause": "Temporary never-returning closed guard made retired downstream code unreachable to TS",
+          "resolved": "Guarded temporary versions retired after originals archived; final types pass"
+        },
+        {
+          "log": "s4-comparison-regressions.log",
+          "cause": "Pi automatically included per-method cwd in full developer prompt",
+          "resolved": "Fixed neutral SDK cwd; synthetic full-round regression and actual current L01 8-pair full-body comparison pass"
+        }
+      ],
+      "cost_reporting_policy": {
+        "equivalent_row": "L01-R reuses L01-F; no independent runtime/cost/quality measurement",
+        "requests_zero_meaning": "zero additional physical requests only, never zero method inference cost or an efficiency gain",
+        "method_table": "show representative job and non-independent reuse; cite the representative cost/time rather than treating reused rows as zero-cost winners",
+        "shared_ledger": "count real unique physical requests once; no double charging imputed method rows",
+        "selection": "no ranking from duplicated/reused input outcomes, candidate count, or model self-assessment"
+      },
+      "current_authorization": {
+        "record": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+        "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+        "recorded_at": "2026-11-04T16:29:09.234184+00:00",
+        "user_response": "批准 Luna medium 与上述范围、上限（推荐）",
+        "shared_budget_owner": "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1",
+        "source_and_data_preflight_verified": true,
+        "runtime_source_hash_count": 49,
+        "experiment_started_at": "2026-11-04T16:29:32.037Z"
+      },
+      "pre_authorization_zero_call_evidence": {
+        "cpu_prepare_commands_without_run_config": "L05 initial/fixed and L01 current all explicitly report paid_calls0",
+        "all_model_requests_this_task": "loopback scripted SDK fixtures only",
+        "new_shared_budget_owner_directory_exists": false,
+        "proposal_execution_directory_exists": false,
+        "unsigned_template_refusal_before_model_config_and_ledger": true,
+        "old_budgets_or_ledgers_reopened": false,
+        "new_paid_calls": 0
+      },
+      "current_runtime_totals": {
+        "at": "2026-11-05T02:34:11.311670+00:00",
+        "requests": 189,
+        "settled": 189,
+        "inflight_or_unsettled": 0,
+        "input_counted": 3198316,
+        "output_counted": 122639,
+        "missing_usage": 0,
+        "halted": null,
+        "active_owner_lock_exists": false,
+        "task_processes_remaining": [],
+        "execution_session": 56613,
+        "execution_exit_code": 0
+      },
+      "completed_real_jobs": [
+        {
+          "job_id": "L01-B0",
+          "state": "partial",
+          "candidate_count": 30,
+          "requests": 29,
+          "seconds": 583.600925431,
+          "input_tokens_including_conservative_missing_usage": 344542,
+          "output_tokens_including_reasoning_or_missing_usage_reservation": 16583,
+          "selected_processing_complete": true,
+          "summary_complete": true,
+          "full_source_processing_complete": true,
+          "unselected_reread": 0,
+          "omitted": 0
+        },
+        {
+          "job_id": "L01-F",
+          "state": "partial",
+          "candidate_count": 35,
+          "requests": 27,
+          "seconds": 533.1021669510001,
+          "input_tokens_including_conservative_missing_usage": 381288,
+          "output_tokens_including_reasoning_or_missing_usage_reservation": 16623,
+          "selected_processing_complete": true,
+          "summary_complete": true,
+          "full_source_processing_complete": false,
+          "unselected_reread": 65,
+          "omitted": 65
+        }
+      ],
+      "summary_reread_optimization_preparation": {
+        "status": "completed_all5_pairs_medical_quality_not_assessed",
+        "single_variable": "summary_user_prompt_context_read_policy",
+        "proposal": "Use provided candidate original fragments/context; reread only concrete unresolved candidate questions, including necessary omitted lines. No entire-paper reread solely to fill coverage; no source/schema/model/batch/mask change.",
+        "candidate_replay_control": "Reconstruct pre-summary stored versions by candidate/proposal event sequence before first summary_context_model_view; clone into new isolated store, never alter old DB/results. Full frozen-tool model packet metrics match original logged metrics.",
+        "raw_baseline_packet_digest_was_not_logged": true,
+        "exact_digest_not_independently_available_in_original_ledger": "Only deterministic reconstruction under unchanged source/state and four original packet counters can be checked; do not claim original HTTP body replay.",
+        "checks": [
+          {
+            "job_id": "L01-B0",
+            "baseline_first_summary_event_seq": 122,
+            "pre_summary_versions": 30,
+            "pre_summary_candidates": 30,
+            "packet_sha256": "2d3d0bc8319ff6273726cbdb9f1c88a1d534764f9dc0d96dbbf065522a60f449",
+            "baseline_recorded_packet_metrics_exact_match": true,
+            "packet_metrics": {
+              "encoding": "s4-source-fragment-dictionary-1",
+              "original_JSON_bytes": 248664,
+              "packet_JSON_bytes": 132990,
+              "all_candidate_count": 30,
+              "source_fragment_count": 143,
+              "candidates_truncated": false,
+              "source_or_medical_fields_changed": false
+            },
+            "source_delivery_valid": true,
+            "source_fingerprint_count": 30,
+            "model_calls": 0
+          },
+          {
+            "job_id": "L01-F",
+            "baseline_first_summary_event_seq": 133,
+            "pre_summary_versions": 38,
+            "pre_summary_candidates": 35,
+            "packet_sha256": "d974f3a795dae9edf453578e1472ed473e8898db75f3bc7ee884d90ab8c9c875",
+            "baseline_recorded_packet_metrics_exact_match": true,
+            "packet_metrics": {
+              "encoding": "s4-source-fragment-dictionary-1",
+              "original_JSON_bytes": 254107,
+              "packet_JSON_bytes": 141490,
+              "all_candidate_count": 35,
+              "source_fragment_count": 143,
+              "candidates_truncated": false,
+              "source_or_medical_fields_changed": false
+            },
+            "source_delivery_valid": true,
+            "source_fingerprint_count": 35,
+            "model_calls": 0
+          }
+        ],
+        "new_model_calls": 0
+      },
+      "retired_initial_readable_audit": {
+        "directory": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-initial-L01-B0",
+        "scope": "L01-B0 only; other logical rows not yet measured at snapshot time",
+        "candidates": 30,
+        "automatic_source_and_asset_checks_passed": true,
+        "blocked_submission_events": 4,
+        "actual_human_reviews": 0,
+        "model_calls_by_audit": 0,
+        "status": "removed_regenerable_duplicate_after_final_coverage_check",
+        "deletion": {
+          "files": 13,
+          "bytes": 2907159,
+          "exact_30_record_fingerprints_covered_by_final": true,
+          "human_reviews_present": false,
+          "restorable_from_model_results_without_API": true
+        }
+      },
+      "final_readable_audit": {
+        "directory": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-final",
+        "review_html": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-final/review.html",
+        "source_verified_unique_candidates": 148,
+        "audited_unique_groups": 5,
+        "logical_conditions": 6,
+        "blocked_submission_or_diagnostic_events": 17,
+        "actual_human_reviews": 0,
+        "effective_medical_description_count": null,
+        "winner": null
+      },
+      "fixed_baseline_status": "finished_runs_human_quality_and_selection_pending",
+      "current_summary_optimization": "All5 matched summary pairs complete. Only engineering/cost observations; concrete context/field risks retained; keep experimental and do not adopt as default.",
+      "fixed_baseline_totals": {
+        "requests": 149,
+        "input_tokens": 1560439,
+        "output_tokens": 87410,
+        "conservative_missing_usage_requests": 0,
+        "elapsed_seconds": 2304.035
+      },
+      "summary_reread_pair_manifest": {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/manifest.json",
+        "sha256": "a9e5c2877f8c98314656a4b4c8f6028e22d9282e6ec75e51789469892389451c",
+        "driver_sha256": "9f8dec53c9a2c2b3e2cb94949c42e00bfb2d3d86dd1ea09280599c1ac74eb585",
+        "cohorts": 5,
+        "first_pair": "L01-F",
+        "only_changed_factor": "summary_user_prompt_context_rereading_policy_only",
+        "baseline_49_source_files_changed": false,
+        "same_authorization_and_original_wallclock": true
+      },
+      "pause_record": "docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json",
+      "last_runtime_totals": {
+        "at": "2026-11-05T02:34:11.311670+00:00",
+        "requests": 189,
+        "settled": 189,
+        "inflight_or_unsettled": 0,
+        "input_counted": 3198316,
+        "output_counted": 122639,
+        "missing_usage": 0,
+        "halted": null,
+        "active_owner_lock_exists": false,
+        "task_processes_remaining": [],
+        "execution_session": 56613,
+        "execution_exit_code": 0
+      },
+      "resume_verification": {
+        "at": "2026-11-05T01:58:07.647397+00:00",
+        "prior_pause_record_unchanged": true,
+        "ledger_sha256": "ff0e21ec646ed3b5899674ef3589b059ffa79dfeca57b93bd882233b05fe8326",
+        "requests": 156,
+        "settled": 156,
+        "input_tokens": 1796743,
+        "output_tokens": 93670,
+        "remaining_requests": 144,
+        "remaining_input_tokens": 4203257,
+        "remaining_output_tokens": 306330,
+        "halted": null,
+        "original_start": "2026-11-04T16:29:32.037Z",
+        "original_deadline": "2026-11-04T20:29:32.037Z",
+        "original_deadline_expired": true,
+        "paid_requests_after_resume": 0,
+        "missing_or_inflight_usage": 0
+      },
+      "resume_support": {
+        "unsigned_template": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.template.json",
+        "driver_patch": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume.patch",
+        "current_date_actual_payload_offline_check": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-offline.json",
+        "resume_seconds": 11520,
+        "synthetic_tests_passed": 20,
+        "root_tsc_exit": 0,
+        "unsigned_execute_rejected_before_ledger_or_network": true,
+        "paid_requests_added": 0,
+        "ledger_still_original_sha256": "ff0e21ec646ed3b5899674ef3589b059ffa79dfeca57b93bd882233b05fe8326",
+        "formal_reviews_used": 2
+      },
+      "completed_summary_pairs": [
+        "L01-F",
+        "L01-B0",
+        "L05-B0",
+        "L05-F",
+        "L05-R"
+      ],
+      "summary_reread_comparison": {
+        "status": "all_five_pairs_complete_medical_and_selection_pending",
+        "report_json": "docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json",
+        "report_json_sha256": "8f99e1fd455c213d1edb5f95d973fc5c0049eeec1b1a75b2f85f3f5966e452f2",
+        "report_html": "docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.html",
+        "report_html_sha256": "a315f6524266476deaa54b74a49aadc3869c29ab317069dadbf6d0b417ff8048",
+        "pairs_completed": 5,
+        "new_pairs_in_resumed_execution": 4,
+        "new_requests_in_resumed_execution": 33,
+        "before": {
+          "requests": 21,
+          "input_tokens": 901514,
+          "output_tokens": 18653,
+          "seconds": 404.67676366699993,
+          "reread_blocks": 1719,
+          "omitted_reread_blocks": 23
+        },
+        "after": {
+          "requests": 19,
+          "input_tokens": 736363,
+          "output_tokens": 16576,
+          "seconds": 369.68468890300005,
+          "reread_blocks": 423,
+          "omitted_reread_blocks": 0
+        },
+        "all5_original_context_Figure_fragment_diffs_empty": true,
+        "all_outputs_identical": false,
+        "business_changed_record_counts_by_group": {
+          "L01-B0": 30,
+          "L01-F": 5,
+          "L05-B0": 10,
+          "L05-F": 4,
+          "L05-R": 27
+        },
+        "L05_R_specific_risks": "context_and_field_risks in report:physical page8/Fig.4/lines18–21; D-F AIS attribution, panel labels placed in sequence_or_phase,3 structured ×100 fields emptied with numeric_expression_missing still pending",
+        "production_default_changed": false,
+        "recommendation": "Keep experimental only; do not adopt as default or name a medical/method winner.",
+        "medical_quality_approved": false,
+        "winner": null,
+        "read_permission_tightened": false
+      }
+    }
+  },
+  "updated_at": "2026-11-05T02:38:13.663144+00:00",
+  "ordered_audit_completed": true,
+  "all_stages_passed": false,
+  "new_paid_model_calls": 189,
+  "pre_authorization_verification_boundary": "Current engineering and zero-call preparation only; S0/S1 historic acceptance retained, S2/S3/S4 medical quality/new experiment remain pending",
+  "verification_boundary": "The original real baseline and all5 matched summary pairs are complete. Current scope is stopped; automatic source checks and token reductions do not approve medical quality or establish a method/model winner. Production defaults remain unchanged.",
+  "pre_authorization_review_material": {
+    "git_repository_available": false,
+    "diff_basis": "No Git repository. Review excerpts are actual applied patches/current added code; structured.py original is reconstructed by reversing only this task patch, SHA checked against the first real pre-fix CPU smoke adapter SHA. This is not Git Diff.",
+    "changed_current_files": [
+      {
+        "path": "package.json",
+        "sha256": "9f9b02b87c45577e32cebfdb2e0d8525be6bc8c6f6eb5105fee9cb1cc33c6526"
+      },
+      {
+        "path": "config/extraction-development.json",
+        "sha256": "8e8d0c1a2cb3a218acc772144c4542721c72895a9094cd70de9d47978a53e122"
+      },
+      {
+        "path": "config/three-method-comparison.json",
+        "sha256": "dcf6b349996878b54911339f2d1934e9132293d17f3916717bbf13b1ef516b69"
+      },
+      {
+        "path": "packages/contracts/src/document-ir-v3.ts",
+        "sha256": "6fc841a2f7d18d24fb3678a6283940053d9267a2afdfc0c162fda588709ecb4c"
+      },
+      {
+        "path": "packages/contracts/src/figure-evidence.ts",
+        "sha256": "a3d1e87826c9bbce059a84ea12ec6f27bfb4dfcf67609365ffb8d16dff4d7ba9"
+      },
+      {
+        "path": "packages/contracts/schema/DocumentIR.json",
+        "sha256": "26723b76308b63831ef174c88277ca2269721ec85d7693c7b1beff446a865a28"
+      },
+      {
+        "path": "packages/contracts/schema/DocumentIRV3.json",
+        "sha256": "24dea1589c9aa26b9bad361ee6a0074969539893ac4e5521073df7cb55230af2"
+      },
+      {
+        "path": "packages/contracts/schema/StructuredParserResult.json",
+        "sha256": "566ec68d63c2d674f607d73e14cac445c629ce781b48ef3ce5b037e4b51b7f1e"
+      },
+      {
+        "path": "packages/agent/src/evidence-delivery.ts",
+        "sha256": "43da19a905e7bd4d39a88cc9adee774f885b8b2eafe99325811db73af5925cd1"
+      },
+      {
+        "path": "packages/agent/src/extraction-pi.ts",
+        "sha256": "d5ed265cf7f7bdd88fecf4cf8e28d1fc77a7f9adafb551c1d5fbd2eeb4f84ae4"
+      },
+      {
+        "path": "packages/agent/src/experiment-authorization.ts",
+        "sha256": "dcf07466defc227cea89aecc33cf6c65af79d2d3985f7cc7a4dde6b2532c0390"
+      },
+      {
+        "path": "packages/agent/src/method-comparison.ts",
+        "sha256": "060b077f51c7692415d887e68b760f9780f6c8bbbb46cbe37a194d8e51996d79"
+      },
+      {
+        "path": "evaluation/src/corpus-isolation.ts",
+        "sha256": "033a8388e37ab5d5bd3f1c8d3d00ae7903afcd4becefda9e6b4aa2a93092322d"
+      },
+      {
+        "path": "evaluation/src/output-sampling.ts",
+        "sha256": "848e5e998e9d6151c2325fde8789153d7a47fb0166b4f69e08aa522769765c54"
+      },
+      {
+        "path": "evaluation/manifests/independent-intake.json",
+        "sha256": "8c7e438709f1e59b7e312966d37a03fe87d822efc7391cff27ace82c8c9a69dd"
+      },
+      {
+        "path": "evaluation/rules/output-sampling.json",
+        "sha256": "1be0ded423be936af172a21edb142c61792407427b1c1903099d13b8ebf48b63"
+      },
+      {
+        "path": "evaluation/rules/pending-confirmations.json",
+        "sha256": "830d4ec15669d6c4efdd4bfdf670243700bcdf42db61daa115a4817e3fe71563"
+      },
+      {
+        "path": "scripts/independent-corpus.ts",
+        "sha256": "cdd4d3cf4a9f4ffc7b16f1d513e1a7799ab159b3babba71f9f34517e0e1c60bd"
+      },
+      {
+        "path": "scripts/prepare-output-sample.ts",
+        "sha256": "9570800a06da9a06d391f149874212d95beaff3f4d0b3afb1b6fcb4e68da8507"
+      },
+      {
+        "path": "scripts/compare-extraction-methods.ts",
+        "sha256": "3b61211048ecfff4ecc66cef40e240b9dc6b929cf41423fcfae57f17972dd9b3"
+      },
+      {
+        "path": "scripts/export-parser-contracts.ts",
+        "sha256": "1585064474c7a9badc4f5f5cb4170d2f45b760fd2f4a079e1e8817abfdac6248"
+      },
+      {
+        "path": "services/pdf-parser/structured.py",
+        "sha256": "23f3046b7cfc7f586b27b20d6b97beeee03f231d4571fc640448e8f84f411134"
+      },
+      {
+        "path": "services/pdf-parser/tests/test_structured.py",
+        "sha256": "f7d20acbd4fc3fe165774d3a9896aff97a78669b7336f89f17928cef902c7ecd"
+      },
+      {
+        "path": "tests/evaluation/corpus-isolation.test.ts",
+        "sha256": "16a0fe40a6163f826aebcc7994107059c08429ae2000439a2a07b81d11d419ea"
+      },
+      {
+        "path": "tests/evaluation/output-sampling.test.ts",
+        "sha256": "1ca7568915ba051c51f8bf3c62f7305052d05c9d766018736016cf8470132b5d"
+      },
+      {
+        "path": "tests/extraction/method-comparison.test.ts",
+        "sha256": "bfb92c5ec78cd301a7670275dae4b570ef8b7085b1d7b589dde9d8925fd2fec8"
+      }
+    ],
+    "retired_files": "stages.S4.retirement_completed (9 actual entries, original restore pointers preserved)",
+    "generated_schema_note": "parser:contracts regenerated8 contracts, only3 contain changed method3 acceptance; legacy1/2 supported",
+    "review_focus": {
+      "S3": "structured.py cell candidate overlap + method3; unique literal matching and ambiguous repeated-value rejection unchanged; original literal text/geometry unchanged; final35->14 pending",
+      "S2": "OutputSampleReview extends source-PDF and whole-Figure checks; no automatic medical signature; actual unreviewed/text-vs-image/canonical counts; new source isolation guard executes before PDF/IR reads in both prepare and execute",
+      "S4": "Explicit new grant bound to final plan SHA/model/batch/caps; shared authorization_id owner with exclusive process lock and persistent ledger/wallclock; no per-retry budget reset; neutral SDK cwd/run identity; equal masks require full model-view equality; images shared per paper; no automatic winner",
+      "export_boundary": "Sampling never approves exports. Existing approved export path still requires each exact-current record confirmation and separates text_only from text_and_figures; new runner candidates remain pending."
+    },
+    "final_test_summary": {
+      "S1_unit": 15,
+      "S1_core_integration": 8,
+      "evaluation": 33,
+      "parser_TS": 21,
+      "parser_Python": 22,
+      "extraction": 171,
+      "root_types_exit": 0,
+      "real_L01_model_visible_request_pairs_equal": 8,
+      "new_paid_model_calls": 0
+    },
+    "not_verified": [
+      "New real provider inference for this protocol (no user budget)",
+      "Real output medical sampling and final method selection",
+      "New independent papers/medical term applicability approvals",
+      "S5 interactive workflow / S6 thresholds / S7 Docker deployment"
+    ]
+  },
+  "final_review_material": {
+    "status": "parent_final_formal_review_completed_engineering_handoff_quality_pending",
+    "basis": "pre_authorization_review_material plus current newly authorized experiment and offline postprocessing",
+    "formal_review_used": 3,
+    "formal_review_limit": 3,
+    "new_postprocessing_files": [
+      "scripts/audit-method-comparison.ts",
+      "tests/extraction/comparison-audit.test.ts"
+    ],
+    "checks": [
+      "postprocessing cost/accounting tests2/2",
+      "root tsc after postprocessing coverage fields exit0",
+      "actual new L01-B0 complete offline export/audit CLI exit0"
+    ],
+    "human_medical_approval": false,
+    "resume_engineering": {
+      "status": "time_authorized_four_pairs_complete_no_further_calls",
+      "formal_review_limit": 3,
+      "source_changes": [
+        {
+          "path": "scripts/summary-reread-replay.ts",
+          "sha256": "43e34a5519c77a85dc82ee1b670d1f81a53c21281e21595a7d7a50d512897e51"
+        },
+        {
+          "path": "scripts/lib/summary-time-window.ts",
+          "sha256": "7fbe5964098a5e84205a2f74cb9e353ec9e0c774fb17b7ae3a7f03e3871eb7e8"
+        },
+        {
+          "path": "scripts/summary-reread-offline-check.ts",
+          "sha256": "f203f340c61eb0a3a8a1dcac991b967a00cae3744b813c92d8d387c83b18fa8a"
+        },
+        {
+          "path": "scripts/audit-summary-reread.ts",
+          "sha256": "13f456707fcd3f5da79dbeef9e168a3bed6588632ed6a65fb3e21e4760ff67a3"
+        },
+        {
+          "path": "tests/extraction/summary-time-window.test.ts",
+          "sha256": "e630d909d236081f71b7110c245bf86c2880b992d576b0dfcd421b65b69a627d"
+        }
+      ],
+      "driver_patch": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume.patch",
+      "original_runtime_source_files": 49,
+      "original_runtime_source_changes": 0,
+      "old_manifest_sha256": "a9e5c2877f8c98314656a4b4c8f6028e22d9282e6ec75e51789469892389451c",
+      "checks": [
+        {
+          "command": "npx tsx --test tests/extraction/summary-time-window.test.ts tests/extraction/summary-reread-replay.test.ts tests/extraction/budget-custom-limits.test.ts",
+          "runtime": "Node v24.22.2 local code/.tools",
+          "exit_code": 0,
+          "passed": 20,
+          "failed": 0,
+          "new_time_tests": 6,
+          "existing_tests": 14
+        },
+        {
+          "command": "npx tsc --noEmit",
+          "exit_code": 0,
+          "scope": "Final current root types including corrected offline check ModelConfig construction"
+        },
+        {
+          "command": "npx tsx scripts/summary-reread-offline-check.ts runtime-data/s0-s4-current-2026-11-04/summary-reread-paired docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-offline.json",
+          "exit_code": 0,
+          "groups": 4,
+          "fresh_arms": 8,
+          "original_initial_payload_sha_matches": 4,
+          "fresh_prompt_only_control_matches": 4,
+          "provider_network_calls": 0,
+          "original_ledger_unchanged": true,
+          "evidence": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-offline.json"
+        },
+        {
+          "command": "npx tsx scripts/summary-reread-replay.ts execute [existing manifest and original authorization] --jobs L01-B0,L05-B0,L05-F,L05-R --time-authorization docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.template.json",
+          "exit_code": 1,
+          "expected_refusal": "summary_resume_explicit_time_authorization_required",
+          "before_owner_lock_ledger_or_network": true
+        }
+      ],
+      "actual_user_time_authorization": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+      "medical_quality_approved": false,
+      "winner": null,
+      "pre_user_time_authorization_paid_requests": 0,
+      "new_paid_requests_under_time_resume": 33,
+      "formal_review_used_at_support_preparation": 2,
+      "historical_review_count_scope": "Time-support preparation before the actual parent final review; current formal_review.used is3/3."
+    },
+    "resumed_execution_checks": {
+      "new_time_and_retained_budget_payload_tests": {
+        "command": "npx tsx --test tests/extraction/summary-time-window.test.ts tests/extraction/summary-reread-replay.test.ts tests/extraction/budget-custom-limits.test.ts",
+        "passed": 20,
+        "failed": 0,
+        "exit_code": 0
+      },
+      "final_types": {
+        "command": "npx tsc --noEmit",
+        "exit_code": 0
+      },
+      "actual_current_day_payload_check": {
+        "evidence": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-offline.json",
+        "groups": 4,
+        "fresh_arms": 8,
+        "provider_network_calls": 0,
+        "original_initial_sha_equal": 4,
+        "fresh_before_after_controls_equal": 4,
+        "ledger_unchanged": true
+      },
+      "actual_aggregation": {
+        "command": "npx tsx scripts/audit-summary-reread.ts runtime-data/s0-s4-current-2026-11-04/summary-reread-paired docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison",
+        "exit_code": 0,
+        "pair_request_ids_accounted_exactly_once": 40,
+        "original156_prefix_preserved": true,
+        "original_start_and_limits_preserved": true,
+        "all49_frozen_runtime_sources_unchanged": true,
+        "all_cohort_IR_Figure_and_original_result_hashes_matched": true,
+        "recomputed_source_diffs_equal_all5_pair_reports": true,
+        "all_business_and_remaining_delivery_fields_compared": true,
+        "new_model_calls_by_postprocessing": 0
+      }
+    },
+    "current_results": {
+      "status": "all_five_pairs_complete_medical_and_selection_pending",
+      "report_json": "docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json",
+      "report_json_sha256": "8f99e1fd455c213d1edb5f95d973fc5c0049eeec1b1a75b2f85f3f5966e452f2",
+      "report_html": "docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.html",
+      "report_html_sha256": "a315f6524266476deaa54b74a49aadc3869c29ab317069dadbf6d0b417ff8048",
+      "pairs_completed": 5,
+      "new_pairs_in_resumed_execution": 4,
+      "new_requests_in_resumed_execution": 33,
+      "before": {
+        "requests": 21,
+        "input_tokens": 901514,
+        "output_tokens": 18653,
+        "seconds": 404.67676366699993,
+        "reread_blocks": 1719,
+        "omitted_reread_blocks": 23
+      },
+      "after": {
+        "requests": 19,
+        "input_tokens": 736363,
+        "output_tokens": 16576,
+        "seconds": 369.68468890300005,
+        "reread_blocks": 423,
+        "omitted_reread_blocks": 0
+      },
+      "all5_original_context_Figure_fragment_diffs_empty": true,
+      "all_outputs_identical": false,
+      "business_changed_record_counts_by_group": {
+        "L01-B0": 30,
+        "L01-F": 5,
+        "L05-B0": 10,
+        "L05-F": 4,
+        "L05-R": 27
+      },
+      "L05_R_specific_risks": "context_and_field_risks in report:physical page8/Fig.4/lines18–21; D-F AIS attribution, panel labels placed in sequence_or_phase,3 structured ×100 fields emptied with numeric_expression_missing still pending",
+      "production_default_changed": false,
+      "recommendation": "Keep experimental only; do not adopt as default or name a medical/method winner.",
+      "medical_quality_approved": false,
+      "winner": null,
+      "read_permission_tightened": false
+    },
+    "runtime_closure": {
+      "at": "2026-11-05T02:34:11.311670+00:00",
+      "requests": 189,
+      "settled": 189,
+      "inflight_or_unsettled": 0,
+      "input_counted": 3198316,
+      "output_counted": 122639,
+      "missing_usage": 0,
+      "halted": null,
+      "active_owner_lock_exists": false,
+      "task_processes_remaining": [],
+      "execution_session": 56613,
+      "execution_exit_code": 0
+    },
+    "quality_gates_unpassed": {
+      "S2": "0 actual human output reviews;0 new independent sealed papers; medical term/binding applicability unapproved",
+      "S3": "parser remains partial with14 unresolved locations(1 unmapped/5 partial/8 ambiguous); full-PDF/OCR/Figure and medical fidelity unapproved",
+      "S4": "148 baseline candidates remain unreviewed; no medical accuracy/effective-description count/winner; concrete source-relationship/field risks in L05-R metadata",
+      "outside_this_round": "S5 complete interactive flow, S6 frozen quantitative thresholds/independent acceptance, S7 Docker/deployment remain pending"
+    },
+    "final_judgment": {
+      "round": 3,
+      "limit": 3,
+      "recorded_at": "2026-11-05T02:35:37.152835+00:00",
+      "reviewer": "main_session_GPT-6-Astra_max",
+      "decision": "继续",
+      "verbatim": "判断：继续。风险：1.仅两篇开发论文且人工核验为零，尚不能确定医学质量或最优方案；2.汇总新策略存在子图编号、病例归属及数值元数据风险，暂不进入默认；3.解析仍有定位和整图待核项。工程成果可以交付，S2—S4不认定完整验收通过。",
+      "scope": "Current engineering and measured-experiment handoff only; not medical approval or complete S2/S3/S4 acceptance.",
+      "new_experiments_or_default_changes_authorized": false
+    }
+  },
+  "status": "engineering_handoff_complete_quality_and_selection_pending",
+  "source_plan_sha256_scope": "Historical SHA captured at ordered-audit start. Current live22 hashes, including the final approved-plan status documents, are recorded separately in current_document_sync; original experiment plan/bindings remain unchanged.",
+  "current_document_sync": {
+    "checked_at": "2026-11-05T02:38:13.663144+00:00",
+    "owner": "/root/t1_resume_docs",
+    "source": "docs/project-simplify-2026-11-04.json#/current_document_sync",
+    "status": "current_documents_synced_all_authorized_model_runs_complete_human_quality_selection_pending",
+    "checked_files": 22,
+    "all_current_hashes_match": true,
+    "files": [
+      {
+        "path": "方案/子任务T1/开源项目调研.csv",
+        "sha256": "c6533263597d2ddab51d85f03d577a5de2fb05cf804f6f502c6fdaf00c44d277"
+      },
+      {
+        "path": "方案/子任务T1/验收清单.csv",
+        "sha256": "476bba4d5bd5f29206f3258eaa968014c3073fd8b3d50c9c4d9ad660d38917e4"
+      },
+      {
+        "path": "方案/子任务T1/资料来源.json",
+        "sha256": "16bb730d6a94c122260abffdb3acf1a54d1d14514a5483ac8dc7b4974a9c73a7"
+      },
+      {
+        "path": "方案/子任务T1/当前版本.json",
+        "sha256": "b7cf830358eaad6bcad46a53aed25fd2d55aadd3c9b802d3eaaf46c52845e763"
+      },
+      {
+        "path": "方案/子任务T1/质量与性能验收契约.json",
+        "sha256": "851d9842b596945ea363958ada39b85e058cd6ef9ede9251430c7da104c767a5"
+      },
+      {
+        "path": "方案/子任务T1/开发任务清单.csv",
+        "sha256": "f55fe471237c988379811b31fa4f01513b06ddfc801aced5069805763e0239ab"
+      },
+      {
+        "path": "方案/子任务T1/材料检查结果.json",
+        "sha256": "b182759d1712d4f99a11788b9ee22d6b53ca68e6c1e8bdd4d67ea508c44076d4"
+      },
+      {
+        "path": "方案/子任务T1/T1智能体开发计划.docx",
+        "sha256": "e8c582ac8b82afd6c80ae21ed9065507a17173dd18c63349bfe7f041ecc968aa"
+      },
+      {
+        "path": "方案/子任务T1/T1开发执行说明.docx",
+        "sha256": "cfad423caa8b8e8d1de706dd56c38ee937bb7af347b9b339516ada6bf722d8da"
+      },
+      {
+        "path": "方案/子任务T1/开发阶段与验收.csv",
+        "sha256": "e05d40288626f6473e50bb1390fe3089f56ce2e9c603f700bb815b7e889db4ab"
+      },
+      {
+        "path": "方案/子任务T1/开发计划.json",
+        "sha256": "7ca38bee4328f8cf9fbb7a8b5ed04ebc5cf3abc4154fea64c277ddced1e0c8da"
+      },
+      {
+        "path": "方案/子任务T1/抽取结果字段规范.csv",
+        "sha256": "acdbcce2739ee2b5b95fade35956d4ecbc51fcbb7dd2a200c4501b39995578b7"
+      },
+      {
+        "path": "方案/子任务T1/待讨论实现决策.csv",
+        "sha256": "d633f4d3f295c74bb3d493d1b5bc908945a80f5fc0f4f0dc435c6811ffd2d609"
+      },
+      {
+        "path": "方案/毕业设计实施方案_导师审核稿_v0.4.docx",
+        "sha256": "83da0154b95d6cbb64e2d16e053d3d8ca650d024cd1ebd0a4073d53d08e741fa"
+      },
+      {
+        "path": "方案/当前版本.json",
+        "sha256": "1426dd2b15625ccb3a924b2731f8353b09919d02e57957264a2c043a57ea3150"
+      },
+      {
+        "path": "方案/实施计划.json",
+        "sha256": "6f84f9821155c3988f5a1224655b63438f198500b978c023d3a5af2244dc0cdd"
+      },
+      {
+        "path": "方案/任务分解.json",
+        "sha256": "bd4c1e21fc6dbae06c56331ff7677886f2c0150044e7f2a23401355e9979bebc"
+      },
+      {
+        "path": "方案/材料检查结果.json",
+        "sha256": "5f0feb1d46581bfc31b00b14e61e3470f25d587f8fcf779c275d9e884fed89f6"
+      },
+      {
+        "path": "方案/工作流与模块职责.json",
+        "sha256": "11fb2dc8c31c464742cff874e23caa95e44168e3b757dd9a02c294567041240a"
+      },
+      {
+        "path": "方案/开发阶段与验收.csv",
+        "sha256": "e6f02b8725b256cb5048ef51fce6c041f9c7d6d1435ab5e973248b25427e4bac"
+      },
+      {
+        "path": "方案/验收清单.csv",
+        "sha256": "6119da849f631994bcac99b12384499865f1c161b1675ab28edbb431a0de82d4"
+      },
+      {
+        "path": "方案/资料与选型核验.json",
+        "sha256": "4b38cc93eb1684dea54c5f3e2ddde78ee3d3ad2807a0af5c6ae0fc498e3e25a4"
+      }
+    ],
+    "historical_audit_start_source_plan_sha256_preserved": true,
+    "main_plan_sha256": "e8c582ac8b82afd6c80ae21ed9065507a17173dd18c63349bfe7f041ecc968aa",
+    "execution_guide_sha256": "cfad423caa8b8e8d1de706dd56c38ee937bb7af347b9b339516ada6bf722d8da",
+    "mother_plan_sha256": "83da0154b95d6cbb64e2d16e053d3d8ca650d024cd1ebd0a4073d53d08e741fa"
+  },
+  "handoff": {
+    "at": "2026-11-05T02:38:13.663144+00:00",
+    "scope": "Current authorized S0–S4 ordered engineering audit, fixed real comparison and exactly4 remaining matched summary pairs complete. This is not medical approval or complete S2/S3/S4 acceptance.",
+    "formal_review": "3/3_continue_with_recorded_risks",
+    "all_paid_execution_stopped": true,
+    "default_prompt_or_method_changed": false,
+    "current22_document_hashes_verified": true,
+    "continuity_retained": true
+  }
+}

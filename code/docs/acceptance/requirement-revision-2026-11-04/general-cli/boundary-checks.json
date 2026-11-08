@@ -1,0 +1,38 @@
+[
+  {
+    "label": "missing-pdf",
+    "command": [
+      ".tools/node/bin/node",
+      "--import",
+      "tsx",
+      "scripts/extract-paper.ts",
+      "--pdf",
+      "evaluation/corpus/development-candidates/does-not-exist.pdf",
+      "--document-id",
+      "generic-boundary-check",
+      "--directory",
+      "docs/acceptance/requirement-revision-2026-11-04/general-cli/missing"
+    ],
+    "exit_code": 1,
+    "stdout": "{\"status\":\"failed\",\"phase\":\"input\",\"error_code\":\"ENOENT\",\"paid_calls\":0,\"previous_artifacts_overwritten\":false}\n",
+    "stderr": ""
+  },
+  {
+    "label": "existing-directory",
+    "command": [
+      ".tools/node/bin/node",
+      "--import",
+      "tsx",
+      "scripts/extract-paper.ts",
+      "--pdf",
+      "evaluation/corpus/development-candidates/L05.pdf",
+      "--document-id",
+      "generic-boundary-check",
+      "--directory",
+      "docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05"
+    ],
+    "exit_code": 1,
+    "stdout": "{\"status\":\"failed\",\"phase\":\"input\",\"error_code\":\"EEXIST\",\"paid_calls\":0,\"previous_artifacts_overwritten\":false}\n",
+    "stderr": ""
+  }
+]

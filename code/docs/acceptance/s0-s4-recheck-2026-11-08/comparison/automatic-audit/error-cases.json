@@ -1,0 +1,68 @@
+{
+  "original_live_error": {
+    "type": "ContractError",
+    "code": "delivery_visual_statement_policy_failed"
+  },
+  "rejected_views": "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/rejected-views.json",
+  "guard_rejections": [
+    {
+      "record_id": "ev-76970ec1cb9d2a47aa412896e88086001744c8d5",
+      "record_version": 1,
+      "issues": [
+        {
+          "code": "incomplete_context_statement",
+          "severity": "reject",
+          "path": "context_fragments",
+          "detail": "Necessary context must retain its complete known source statement: [{\"block_id\":\"e21bc46051b0ea3513d7-p0011-l000021\",\"text_version\":\"s3v3-d02234726f7eb16e37bb5143199a21ee\",\"start\":0,\"end\":23}]",
+          "missing_spans": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0011-l000021",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 23,
+              "exact_quote": "nerstone of rectal MRI.",
+              "physical_page": 11,
+              "bbox": [
+                64.20469665500002,
+                282.755826661,
+                289.1056966588203,
+                292.5208119982434
+              ],
+              "diagnostic_only_not_added_to_record": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "record_id": "ev-a3a491a7921d5c18180c5d6adafecf7d86dd0826",
+      "record_version": 2,
+      "issues": [
+        {
+          "code": "incomplete_context_statement",
+          "severity": "reject",
+          "path": "context_fragments",
+          "detail": "Necessary context must retain its complete known source statement: [{\"block_id\":\"e21bc46051b0ea3513d7-p0004-l000031\",\"text_version\":\"s3v3-d02234726f7eb16e37bb5143199a21ee\",\"start\":31,\"end\":65}]",
+          "missing_spans": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0004-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 31,
+              "end": 65,
+              "exact_quote": " Illustration A demonstrates tumor",
+              "physical_page": 4,
+              "bbox": [
+                51.023601531,
+                480.09279785199993,
+                289.15025153100004,
+                488.84523576669187
+              ],
+              "diagnostic_only_not_added_to_record": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "recovery_does_not_approve_any_record": true
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "typecheck",
+    "command": [
+      ".tools/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit"
+    ],
+    "exit_code": 0,
+    "seconds": 3.212921655000173,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks/typecheck.log",
+    "tail": ""
+  },
+  {
+    "name": "extraction",
+    "command": [
+      ".tools/node/bin/node",
+      "--import",
+      "tsx",
+      "--test",
+      "tests/extraction/budget-custom-limits.test.ts",
+      "tests/extraction/closed-issue-eof-recovery.test.ts",
+      "tests/extraction/evidence-validation.test.ts",
+      "tests/extraction/reconciliation.test.ts",
+      "tests/extraction/response-model-alias.test.ts",
+      "tests/extraction/response-model-identity.test.ts",
+      "tests/extraction/runtime.test.ts",
+      "tests/extraction/scope-matching.test.ts",
+      "tests/extraction/source-selection.test.ts",
+      "tests/extraction/summary-model-view.test.ts",
+      "tests/extraction/verbatim-delivery.test.ts"
+    ],
+    "exit_code": 1,
+    "seconds": 11.33581507200006,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks/extraction.log",
+    "tail": "rmalize without changing JSON values (0.35667ms)\n✔ cycles and values that cannot be represented as strict JSON reject with explicit errors (3.152097ms)\n✔ missing, duplicated or malformed dictionary references reject rather than producing partial evidence (0.708635ms)\n✔ wrong envelopes, missing tables, unused entries and malformed literal escapes reject clearly (0.415094ms)\n✔ stable packing gives deterministic bytes for equivalent JSON values (3.602857ms)\n✔ fresh candidates reject translation, inserted joining prose and qualifier/number deletion (46.682683ms)\n✔ text delivery keeps exact independent source fragments and never emits translation/category prose as its description (12.063126ms)\n✔ native/same-page candidates remain pending; an explicitly referenced verified whole Figure is paired (9.774556ms)\n✔ explicit original-caption description also pairs; paper labels remain untouched (12.724383ms)\n✔ source/caption case and modality conflicts, repeated Figure numbers, list references stay pending (21.689237ms)\n✔ catalog bindings, exact caption offsets, complete-region provenance and CAS cannot be spoofed by IDs (4.53734ms)\n✔ sampling requires no gold, binds the exact current output, and claims no full recall or zero errors (6.122348ms)\n✔ exclusive exports verify source/asset hashes and each output confirmation; a changed Figure invalidates approval (31.871035ms)\nℹ tests 162\nℹ suites 0\nℹ pass 161\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 11306.822654\n\n✖ failing tests:\n\ntest at tests/extraction/runtime.test.ts:6:4513\n✖ a human version stays active while repeated automatic updates preserve one idempotent proposal (4.295772ms)\n  TypeError [Error]: Cannot read properties of undefined (reading 'action')\n      at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:677:34)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)\n"
+  },
+  {
+    "name": "figure-python",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "services/pdf-parser/tests",
+      "-p",
+      "test_figure_assets.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 4.339359297000101,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks/figure-python.log",
+    "tail": "test_caption_identity_and_uncontained_multiple_objects_are_not_mechanically_paired (test_figure_assets.FigureAssetTests.test_caption_identity_and_uncontained_multiple_objects_are_not_mechanically_paired) ... ok\ntest_hash_mismatch_and_existing_output_cannot_overwrite_artifacts (test_figure_assets.FigureAssetTests.test_hash_mismatch_and_existing_output_cannot_overwrite_artifacts) ... ok\ntest_rotated_cropped_userunit_object_coordinates_preserve_all_image_quadrants (test_figure_assets.FigureAssetTests.test_rotated_cropped_userunit_object_coordinates_preserve_all_image_quadrants) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 4.052s\n\nOK\n"
+  }
+]

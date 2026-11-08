@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "prediction_id",
+    "gold_unit_id",
+    "decision",
+    "basis",
+    "rationale",
+    "review",
+    "context_checks"
+  ],
+  "properties": {
+    "prediction_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "gold_unit_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "decision": {
+      "enum": [
+        "match",
+        "no_match"
+      ]
+    },
+    "basis": {
+      "enum": [
+        "human_evidence_unit_identity",
+        "human_semantic_equivalence",
+        "synthetic_fixture"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "status",
+        "reviewer",
+        "reviewed_at",
+        "rationale"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "fixture"
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "context_checks": {
+      "type": "object",
+      "required": [
+        "quote_faithful",
+        "scope_correct",
+        "assertion_preserved",
+        "conditions_preserved",
+        "units_preserved",
+        "cancer_modality_supported"
+      ],
+      "properties": {
+        "quote_faithful": {
+          "type": "boolean"
+        },
+        "scope_correct": {
+          "type": "boolean"
+        },
+        "assertion_preserved": {
+          "type": "boolean"
+        },
+        "conditions_preserved": {
+          "type": "boolean"
+        },
+        "units_preserved": {
+          "type": "boolean"
+        },
+        "cancer_modality_supported": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

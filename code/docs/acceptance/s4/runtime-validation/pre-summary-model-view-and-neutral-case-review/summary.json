@@ -1,0 +1,188 @@
+{
+  "schema_version": "s4-runtime-validation-summary-7",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T04:41:07.900602+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "current_full_engineering_regression_after_unified_batch_indices_context_profile_app_guard_compact_receipts_and_wall_clock_adjustment",
+  "runtime_test_count": 48,
+  "extraction_test_breakdown": {
+    "runtime": 48,
+    "pure_modules": 50,
+    "total": 98
+  },
+  "checks": [
+    {
+      "suite": "extraction",
+      "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/*.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/final-current-extraction.txt",
+      "tests": 98,
+      "pass": 98,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "unit",
+      "command": "bash scripts/with-node.sh npm run test:unit",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/final-current-unit.txt",
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "integration",
+      "command": "bash scripts/with-node.sh npm run test:integration",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/final-current-integration.txt",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "parser",
+      "command": "bash scripts/with-node.sh npm run test:parser",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/final-current-parser.txt",
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "evaluation",
+      "command": "bash scripts/with-node.sh npm run test:evaluation",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/final-current-evaluation.txt",
+      "tests": 28,
+      "pass": 28,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 169,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/final-current-typecheck.txt"
+  },
+  "full_current_regression_completed": true,
+  "source_stability": {
+    "start": "docs/acceptance/s4/runtime-validation/final-current-regression-start.json",
+    "end": "docs/acceptance/s4/runtime-validation/final-current-regression-end.json",
+    "tracked_files": 132,
+    "changed_files": [],
+    "stable_window_confirmed_by": "implementation owner; packages/runtime/contracts/configuration frozen, documentation work allowed",
+    "root_configuration_hash_note": "These two root configuration files were omitted from the initial hash inventory. Their hashes/snapshots are explicitly after-test only, not inferred historical hashes. The implementation owner had separately confirmed configuration freeze."
+  },
+  "installed_sdk": {
+    "pi_ai": "1.4.0",
+    "pi_coding_agent": "1.4.0",
+    "relevant_files_in_start_end_hash_manifests": true
+  },
+  "focused_phase_is_subset_not_extra": {
+    "summary": "docs/acceptance/s4/runtime-validation/unified-indices-sdk-phase/summary.json",
+    "tests": 7,
+    "pass": 7,
+    "typecheck_exit_code": 0,
+    "initial_diagnostic_failure": "docs/acceptance/s4/runtime-validation/application-context-diagnostic-initial.json"
+  },
+  "important_current_evidence": [
+    "All model-facing evidence indices in production refer to the same read batch line table. Six unread evidence-field variants, out-of-range values and old local source_indices are rejected.",
+    "Two records correctly map lines 5/7 and 8/9. Model receipts use 680 characters while full persisted 28-field records use 16980 characters; detailed review diagnostics remain stored.",
+    "Installed SDK replay of actual input/output usage 25781/72 and a long synthetic tool receipt reproduces [8192,16] with historical 32768 metadata and preserves [8192,8192] with new 1050000 metadata.",
+    "Both SDK replay profiles retain identical input reservations [32768,32768]. The independent 128000 application context estimate guard stops before a second API request and preserves its explicit diagnostic code.",
+    "Default global wall clock remains 7200 seconds. Explicit trusted adjustment to 14400 is separately recorded and survives reopen without resetting original start, requests or token caps; tests alter only temporary synthetic ledgers.",
+    "Current protocol diagnostic pause and two overlapping Pi jobs with cancellation/deadline isolation are included in the complete current runtime regression.",
+    "Human-protected evidence versions, idempotency, source/quote validation, scope restrictions, coverage gaps, local parser compatibility and prior service APIs all passed their current suites."
+  ],
+  "historical_evidence": {
+    "initial_full_regression_144": {
+      "version_scope": "before_compact_model_tool_protocol",
+      "generated_at": "2026-11-03T03:15:02.582198+00:00",
+      "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+      "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+      "total_distinct_tests": 144,
+      "checks": {
+        "extraction": {
+          "tests": 73,
+          "pass": 73,
+          "fail": 0
+        },
+        "unit": {
+          "tests": 15,
+          "pass": 15,
+          "fail": 0
+        },
+        "integration": {
+          "tests": 8,
+          "pass": 8,
+          "fail": 0
+        },
+        "parser": {
+          "tests": 20,
+          "pass": 20,
+          "fail": 0
+        },
+        "evaluation": {
+          "tests": 28,
+          "pass": 28,
+          "fail": 0
+        }
+      },
+      "typecheck_exit_code": 0,
+      "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+      "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+    },
+    "most_recent_category_only_phase": {
+      "summary": "docs/acceptance/s4/runtime-validation/pre-unified-evidence-indices-sdk-profile/summary.json",
+      "tests": 1
+    },
+    "older_staged_results_remain_archived": "prior 2/17/6/8/29/144 results are historical versions and are not added to the current total"
+  },
+  "not_run": [
+    "standalone Python parser unittest suite (Python implementation unchanged)",
+    "web build/browser/UI checks (web implementation unchanged)",
+    "paid API/model calls by this validation agent"
+  ],
+  "limitations": [
+    "Engineering tests do not establish clinical accuracy, medical recall, gold annotation quality or gateway billing correctness.",
+    "The 1050000 context value is model metadata from the supplied official specification. Loopback replay does not verify the gateway accepts large real contexts.",
+    "Concurrency tests cover two jobs sharing a budget/store in one process; cross-process ledger coordination is not established.",
+    "Two root configuration files have after-test hashes only; no unrecorded before-test hashes are fabricated."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/extraction-budget.ts": "7f9c8ea4c4ce1c720c3cbbdf83e9d6b44c43a5c4e6a7a09d03c61a2168055e5f",
+    "packages/agent/src/extraction-pi.ts": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+    "packages/agent/src/extraction-protocol.ts": "32198a90ca1b278483486d9947e5d35815dce70b4fe9b497ff84320da52a0938",
+    "packages/agent/src/extraction-run.ts": "064ffd1bf24c6e300c0836076084100f7f90ad5e682eb3c0c1f7845be3b180f9",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "1f790e2b9267f823280951ec141b287a66664ada3872e8934aad23ea3964271d",
+    "packages/agent/src/extraction-tools.ts": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "tests/extraction/fixtures/runtime-responses.ts": "2a8ab15247b61febd0f31237be5f522745669ca5552ab269bf274711b77cee75",
+    "tests/extraction/runtime.test.ts": "c783980cd7585441a270d02ab2a16f246e054f888201b97aa8d35dd5947c4f8a"
+  }
+}

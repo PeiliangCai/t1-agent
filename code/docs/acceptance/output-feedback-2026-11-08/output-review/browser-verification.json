@@ -1,0 +1,306 @@
+{
+  "schema_version": "current-output-review-browser-verification-1",
+  "checked_at_utc": "2026-11-08T07:40:57.664Z",
+  "fixture_only": false,
+  "actual_chromium_execution": true,
+  "vscode_live_server_extension_exercised": false,
+  "static_only": true,
+  "model_or_API_calls": 0,
+  "actual_human_reviews": 0,
+  "synthetic_opinions_are_not_human_review": true,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "formal_reviews_used": "3/3 inherited; no new formal review",
+  "checks": [
+    {
+      "name": "primary_background_rejected_denominators_and_honest_run_states",
+      "status": "passed",
+      "detail": {
+        "groups_visible_together": true,
+        "states": [
+          {
+            "job_id": "L01-B0",
+            "text": "L01-B0本次范围处理完成；候选仍待核2 / 0 / 0原解析保留 partial 标记；1 页图中文字未核验"
+          },
+          {
+            "job_id": "L01-F",
+            "text": "L01-F等价复用 L01-B0（结果与成本只算一次）2 / 0 / 0原解析保留 partial 标记；1 页图中文字未核验"
+          },
+          {
+            "job_id": "L05-B0",
+            "text": "L05-B0本次范围处理完成；候选仍待核0 / 1 / 0原解析保留 partial 标记；5 页图中文字未核验"
+          },
+          {
+            "job_id": "L05-F",
+            "text": "L05-F本次范围处理完成；候选仍待核1 / 1 / 0原解析保留 partial 标记；5 页图中文字未核验；预筛未选入 20 个来源块"
+          },
+          {
+            "job_id": "L07-B0",
+            "text": "L07-B0本次范围处理完成；候选仍待核29 / 6 / 0原解析保留 partial 标记；7 页图中文字未核验"
+          },
+          {
+            "job_id": "L07-F",
+            "text": "L07-F本次范围处理完成；候选仍待核25 / 3 / 0原解析保留 partial 标记；7 页图中文字未核验；预筛未选入 17 个来源块"
+          }
+        ],
+        "all_groups_in_population": true
+      }
+    },
+    {
+      "name": "all_sample_source_fragments_match_literal_DOM_and_group_specific_questions",
+      "status": "passed",
+      "detail": {
+        "cases": 23,
+        "literal_textContent_equality": true,
+        "distinct_main_background_semantics": true
+      }
+    },
+    {
+      "name": "bound_export_import_uses_no_default_answers_and_rejects_stale_group_question_and_source",
+      "status": "passed",
+      "detail": {
+        "automatic_opinions_discarded_after_test": true,
+        "roundtrip_opinion_count": 3,
+        "actual_questions_roles_and_source_bound": true,
+        "stale_imports_rejected_without_overwriting_storage": 4
+      }
+    },
+    {
+      "name": "all_current_index_retains_every_primary_background_and_rejected_record_verbatim",
+      "status": "passed",
+      "detail": {
+        "all_indexed": 68,
+        "exact_original_and_context_for_every_record": true
+      }
+    },
+    {
+      "name": "frozen_directed_risks_and_same_source_comparisons_keep_each_current_version_separate",
+      "status": "passed",
+      "detail": {
+        "explicitly_bound_risks_in_simple_review": 8,
+        "page_level_scope_execution_risks_in_simple_review": 1,
+        "comparisons": 5,
+        "literal_source_preserved": true,
+        "records_not_merged_or_reclassified": true
+      }
+    },
+    {
+      "name": "nonsecure_HTTP_uses_real_SHA256_fallback_and_refuses_tampered_pack",
+      "status": "passed",
+      "detail": {
+        "secure_context": false,
+        "crypto_subtle": "undefined",
+        "actual_loopback_static_response_bytes": true,
+        "tampered_pack_refused_before_opinions_applied": true
+      }
+    },
+    {
+      "name": "frozen_sources_and_static_payload_bytes_unchanged",
+      "status": "passed",
+      "detail": {
+        "frozen_source_files": 73,
+        "static_pack_files": 37,
+        "no_external_requests": true,
+        "no_page_errors": true,
+        "no_original_feedback_or_paid_output_writes": true
+      }
+    }
+  ],
+  "pack_id": "current-output-2026-11-08-7b948130b139",
+  "pack_sha256": "bd8e8b6988a425cbf9f9dd9b4472387d2fcff60ffdb92e3c7c394b55a86de9a5",
+  "plan_sha256": "7b948130b139fe283284fe8e83dc19a0e32c69ece93cc1f47bc80802214f2b59",
+  "questionnaire_version": "current-output-ordinary-screening-2",
+  "generator_sha256": "93049f5aac7629bc3a428770e31613ccc072b498c6ace9c973cc8d8a4a70c448",
+  "verification_script_sha256": "dd3aee89f310aeac509851cb4ded52a14273d46df76376c57b74e5d2cb29afe2",
+  "population": {
+    "primary_candidate": 57,
+    "background_suggestion": 11,
+    "delivery_rejected": 0,
+    "total_current_records": 68,
+    "legal_delivery_records": 68
+  },
+  "sample": {
+    "primary_candidate": 17,
+    "background_suggestion": 6,
+    "delivery_rejected": 0,
+    "total_current_records": 23,
+    "legal_delivery_records": 23
+  },
+  "font_environment": {
+    "private_process_fontconfig": true,
+    "system_fonts_unmodified": true,
+    "page_CSS_unmodified": true,
+    "existing_local_font": ".tools/mineru-venv/lib/python3.12/site-packages/docvortex/resources/fonts/DroidSansFallbackFull.ttf",
+    "font_sha256": "8a4dea0899424438af25a6f1f6eb61e5d111d85367eece0a5d30170861ae6b2e"
+  },
+  "browser_version": "156.0.8078.4",
+  "delivery": "temporary static loopback HTTP; nonsecure-origin route.fetch obtains the same actual loopback response bytes",
+  "screenshot": {
+    "file": "browser-review.png",
+    "case_id": "C03-8b1768072d80",
+    "has_synthetic_answers": false,
+    "sha256": "1f81c48212c7f828a8fb1d13442617e4ac84d4ab5e5561363d1e388141101fb1"
+  },
+  "page_errors": [],
+  "console_errors": [],
+  "resource_failures": [],
+  "external_requests": [],
+  "overall_status": "passed",
+  "temporary_browser_and_server_closed": true,
+  "synthetic_opinions_and_downloads_removed": true,
+  "fixture_verification": {
+    "schema_version": "current-output-review-browser-verification-1",
+    "checked_at_utc": "2026-11-08T06:45:50.754Z",
+    "fixture_only": true,
+    "actual_chromium_execution": true,
+    "vscode_live_server_extension_exercised": false,
+    "static_only": true,
+    "model_or_API_calls": 0,
+    "actual_human_reviews": 0,
+    "synthetic_opinions_are_not_human_review": true,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "formal_reviews_used": "3/3 inherited; no new formal review",
+    "checks": [
+      {
+        "name": "primary_background_rejected_denominators_and_honest_run_states",
+        "status": "passed",
+        "detail": {
+          "groups_visible_together": true,
+          "states": [
+            {
+              "job_id": "L01-B0",
+              "text": "L01-B0处理完成；候选仍待核1 / 1 / 0"
+            },
+            {
+              "job_id": "L01-F",
+              "text": "L01-F等价复用 L01-B0（结果与成本只算一次）1 / 1 / 0"
+            },
+            {
+              "job_id": "L05-B0",
+              "text": "L05-B0处理完成；候选仍待核1 / 1 / 0"
+            },
+            {
+              "job_id": "L05-F",
+              "text": "L05-F处理完成；候选仍待核1 / 1 / 0"
+            },
+            {
+              "job_id": "L07-B0",
+              "text": "L07-B0失败；保留已保存结果与原诊断1 / 1 / 1"
+            },
+            {
+              "job_id": "L07-F",
+              "text": "L07-F未启动— / — / —"
+            }
+          ],
+          "all_groups_in_population": true
+        }
+      },
+      {
+        "name": "all_sample_source_fragments_match_literal_DOM_and_group_specific_questions",
+        "status": "passed",
+        "detail": {
+          "cases": 9,
+          "literal_textContent_equality": true,
+          "distinct_main_background_semantics": true
+        }
+      },
+      {
+        "name": "bound_export_import_uses_no_default_answers_and_rejects_stale_group_question_and_source",
+        "status": "passed",
+        "detail": {
+          "automatic_opinions_discarded_after_test": true,
+          "roundtrip_opinion_count": 2,
+          "actual_questions_roles_and_source_bound": true,
+          "stale_imports_rejected_without_overwriting_storage": 4
+        }
+      },
+      {
+        "name": "all_current_index_retains_every_primary_background_and_rejected_record_verbatim",
+        "status": "passed",
+        "detail": {
+          "all_indexed": 9,
+          "exact_original_and_context_for_every_record": true
+        }
+      },
+      {
+        "name": "nonsecure_HTTP_uses_real_SHA256_fallback_and_refuses_tampered_pack",
+        "status": "passed",
+        "detail": {
+          "secure_context": false,
+          "crypto_subtle": "undefined",
+          "actual_loopback_static_response_bytes": true,
+          "tampered_pack_refused_before_opinions_applied": true
+        }
+      },
+      {
+        "name": "frozen_sources_and_static_payload_bytes_unchanged",
+        "status": "passed",
+        "detail": {
+          "frozen_source_files": 46,
+          "static_pack_files": 7,
+          "no_external_requests": true,
+          "no_page_errors": true,
+          "no_original_feedback_or_paid_output_writes": true
+        }
+      }
+    ],
+    "pack_id": "current-output-2026-11-08-3b7eeeba6700",
+    "pack_sha256": "2214a383edbf6b2b1397e987efcabd30cd9aa7433ed5100a92f1f978bc1981b3",
+    "plan_sha256": "3b7eeeba6700871fd1f2423ba6cc12543b324731755ec6be6b6ecd918aed82e4",
+    "questionnaire_version": "current-output-ordinary-screening-2",
+    "population": {
+      "primary_candidate": 4,
+      "background_suggestion": 4,
+      "delivery_rejected": 1,
+      "total_current_records": 9,
+      "legal_delivery_records": 8
+    },
+    "sample": {
+      "primary_candidate": 4,
+      "background_suggestion": 4,
+      "delivery_rejected": 1,
+      "total_current_records": 9,
+      "legal_delivery_records": 8
+    },
+    "browser_version": "156.0.8078.4",
+    "delivery": "temporary static loopback HTTP; nonsecure-origin route.fetch obtains the same actual loopback response bytes",
+    "page_errors": [],
+    "console_errors": [],
+    "resource_failures": [],
+    "external_requests": [],
+    "overall_status": "passed",
+    "temporary_browser_and_server_closed": true,
+    "synthetic_opinions_and_downloads_removed": true
+  },
+  "question_semantics_counts": {
+    "literal_source_and_context": 23,
+    "independent_target_suitability": 16,
+    "figure_correspondence_and_completeness": 23,
+    "background_retention_suitability": 6,
+    "confirmed_scope_execution_deviation_visibility": 1
+  },
+  "question_semantics_interpretation": {
+    "independent_target_suitability": "独立目标适用性普通初筛，非医学批准。",
+    "background_retention_suitability": "背景保留建议是否合理；不与主目标题意合并为准确率。",
+    "confirmed_scope_execution_deviation_visibility": "仅表示已知规则执行偏差的展示是否清楚；其回答不代表目标相关性、范围重新决策或任何批准。"
+  },
+  "earlier_verification_history": [
+    {
+      "scope": "disposable fixture",
+      "finding": "First import test assertion read the prior clear-message before File.text() completed; corrected harness synchronization and final six fixture checks passed. No model call or app-data repair."
+    },
+    {
+      "scope": "unpublished 22-case real pack",
+      "result": "Seven actual HTTP browser checks passed; superseded by 23-case pack after adding exact-source C14 deviation. Initial screenshot lacked container CJK glyphs; final browser used existing local font through temporary private fontconfig without system or page CSS changes."
+    }
+  ],
+  "post_browser_offline_integrity": {
+    "checked_at_utc": "2026-11-08T07:43:10.421042+00:00",
+    "source_files_checked": 73,
+    "plan_bound_runtime_source_files_checked": 59,
+    "runtime_current_tree_and_frozen_snapshot_match": true,
+    "all_source_delivery_and_case_counts_match": true,
+    "API_calls": 0
+  }
+}

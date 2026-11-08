@@ -1,0 +1,147 @@
+{
+  "schema_version": "inventory-report-validation-1",
+  "validated_at_utc": "2026-11-04T13:11:30.282221+00:00",
+  "checks": {
+    "csv_rows_match_selected_count": true,
+    "csv_actual_paths_unique": true,
+    "all_actual_rows_exist_in_final_snapshot": true,
+    "actual_sizes_match_final_snapshot": true,
+    "no_support_paths_mixed_into_actual_files": true,
+    "no_sensitive_filename_in_report": true,
+    "all_direct_roots_complete": true,
+    "source_final_snapshot_stable": true,
+    "support_snapshot_stable": true,
+    "all_archive_rows_unique_by_parent_and_name": true,
+    "zip_csv_matches_zip_members": true,
+    "tar_csv_matches_tar_members": true,
+    "retired_migration_manifest_matches_real_archive": true,
+    "retired_vite_source_hashes_match_real_archive": true,
+    "retirement_container_hashes_match_manifest": true,
+    "no_scan_exceptions": true,
+    "no_archive_size_depth_or_encryption_limits_hit": true,
+    "all_csv_utf8_bom": true,
+    "explicit_package_evaluation_commands_included": true,
+    "generator_syntax_valid": true
+  },
+  "direct_root_checks": [
+    {
+      "path": "code/evaluation/annotations",
+      "expected": 26,
+      "listed": 26,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    },
+    {
+      "path": "code/evaluation/reference-drafts",
+      "expected": 7,
+      "listed": 7,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    },
+    {
+      "path": "code/dist/annotation-offline",
+      "expected": 25,
+      "listed": 25,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    },
+    {
+      "path": "code/docs/acceptance/s2/annotation-ui",
+      "expected": 142,
+      "listed": 142,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    },
+    {
+      "path": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation",
+      "expected": 10,
+      "listed": 10,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    },
+    {
+      "path": "code/docs/acceptance/s4/input-selection/ai-reference",
+      "expected": 5,
+      "listed": 5,
+      "missing": [],
+      "unexpected": [],
+      "passed": true
+    }
+  ],
+  "retirement_archive_validation": {
+    "migration_manifest_files": 233,
+    "migration_actual_files": 233,
+    "migration_missing_or_hash_mismatches": [],
+    "migration_unlisted_members": [],
+    "vite_expected_files": 28,
+    "vite_actual_files": 28,
+    "vite_missing_or_hash_mismatches": [],
+    "archive_container_integrity": [
+      {
+        "path": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retired-vite-application.tar.gz",
+        "passed": true
+      },
+      {
+        "path": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retired-unreleased-annotation-migration.tar.gz",
+        "passed": true
+      },
+      {
+        "path": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/legacy-offline-package.zip",
+        "passed": true
+      }
+    ]
+  },
+  "counts": {
+    "listed": 780,
+    "size_bytes_lstat": 277709382,
+    "support_listed_separately": 932,
+    "support_size_bytes_lstat": 753027508
+  },
+  "archive_member_totals": {
+    "all_entries": 467,
+    "file_entries": 467,
+    "related_file_entries": 355,
+    "zip_entries": 206,
+    "tar_entries": 261,
+    "nested_archive_count": 0,
+    "office_internal_members_not_counted": true
+  },
+  "exceptions": [],
+  "not_run": [
+    "application/model/API tests",
+    "browser",
+    "dependency install",
+    "PDF/OCR internal text scanning",
+    "SQLite content queries",
+    "medical/human approval"
+  ],
+  "all_report_checks_passed": true,
+  "final_targeted_adjustment": {
+    "at_utc": "2026-11-04T13:11:30.282221+00:00",
+    "added_explicit_file": "code/package.json",
+    "evidence_lines": "24-26",
+    "refreshed_source_files": [
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/checks/failures-and-fixes.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/final-checks.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/implementation-source-manifest.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/index.html",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/delivery-facts.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/final-review-input.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/source-changes.json",
+      "code/docs/acceptance/pi-web-frontend-2026-11-04/upstream-diff.patch",
+      "code/package.json",
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04.json",
+      "code/runtime-data/t1.sqlite-shm",
+      "code/runtime-data/t1.sqlite-wal"
+    ],
+    "prior_source_evidence_reused_only_if_size_mtime_and_key_hash_unchanged": true,
+    "archive_candidate_labels_clarified": true,
+    "no_new_search_scope": true
+  }
+}

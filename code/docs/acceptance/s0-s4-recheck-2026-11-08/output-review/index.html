@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>本轮模型输出核验</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="review.css">
+  <script src="review.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <p class="eyebrow">原页对照 · 本轮真实输出</p>
+    <h1>本轮模型输出核验</h1>
+    <p>选择候选 → 对照原文、语境、图注及原页 → 三选并填写备注。图片可点击放大。</p>
+    <p class="scope">本页展示本轮真实模型抽取的未审核候选。六个逻辑条件计划五个独立输入；实际运行与未完成情况见下方。L01 的 B0/F 共用同一代表结果与成本，不重复作为独立样本。三选仅记录普通初筛，不等于医学或产品批准。</p>
+    <div class="toolbar">
+      <button id="export" type="button" disabled>导出审核意见</button>
+      <label class="button secondary" for="import">导入审核意见</label>
+      <input id="import" type="file" accept="application/json,.json" hidden>
+      <button id="clear" type="button" class="quiet" disabled>清空本次记录</button>
+      <span id="progress" aria-live="polite">正在读取本次资料…</span>
+    </div>
+    <details class="storage-help">
+      <summary>保存与恢复本次核验进度</summary>
+      <p>审核意见保存在当前浏览器的这个访问地址。换地址、端口或浏览器，可能读不到原有进度；请及时导出，下次可导入恢复。网页不会上传或静默写入远端服务器。</p>
+      <p>当前访问地址：<span id="origin"></span>。导出的 JSON 可由你手动放回本页同目录，供后续读取。不同资料版本的意见不会自动套用。</p>
+    </details>
+    <p id="pack-summary" class="hint"></p><p><a id="all-outputs" href="all-candidates.html" target="_blank" rel="noopener">查看本轮全部未审核输出及未入样条目 ↗</a></p><details class="storage-help"><summary>本轮运行与覆盖情况</summary><pre id="run-status" class="original-text"></pre></details><p id="message" class="message" role="status" aria-live="polite"></p>
+  </header>
+  <div class="workspace" id="workspace" hidden>
+    <aside class="case-sidebar">
+      <label for="kind-filter">选择案例</label>
+      <select id="kind-filter">
+        <option value="all">全部候选</option><option value="B0">单独智能体 B0（含 L01 等价复用）</option><option value="F">正向预筛 F 的独立结果</option>
+      </select>
+      <nav id="case-list" aria-label="核验案例"></nav>
+    </aside>
+    <main>
+      <div class="case-heading">
+        <div><p id="case-category" class="eyebrow"></p><h2 id="case-title"></h2></div>
+        <div class="case-navigation"><button id="previous" class="secondary" type="button">上一例</button><button id="next" class="secondary" type="button">下一例</button></div>
+      </div>
+      <p id="case-explanation" class="explanation"></p>
+      <div class="comparison">
+        <section class="comparison-panel">
+          <div class="panel-heading"><h3>原 PDF 对照</h3><label>物理页 <select id="page-select" aria-label="切换原页"></select></label></div>
+          <a id="original-pdf" class="pdf-link" target="_blank" rel="noopener">打开原 PDF 此页 ↗</a>
+          <button class="image-button" id="original-image-button" type="button"><img id="original-image" alt="原页，点击放大"></button>
+          <p class="hint">原 PDF 保留全文。页图为原页完整渲染，可点击放大；图目录参考不代表自动配图。</p>
+        </section>
+        <section class="comparison-panel">
+          <div class="panel-heading"><h3>本轮候选与图参考</h3><div class="view-switch" role="group" aria-label="当前结果"><button id="view-after" type="button" aria-pressed="true">当前结果</button><button id="view-before" type="button" aria-pressed="false">无旧版混入</button></div></div>
+          <p id="version-note" class="hint"></p>
+          <div id="parsed-view"></div>
+        </section>
+      </div>
+      <section class="opinions"><h3>逐项审核意见</h3><p class="hint">按原文相关性、语境和配图分别记录普通意见；不确定可选“无法判断”。本轮候选少则全列，抽样不设置正式质量门槛。</p><div id="questions"></div></section>
+      <details class="source-details"><summary>本例资料来源与版本</summary><div id="source-details"></div></details>
+    </main>
+  </div>
+  <dialog id="image-dialog">
+    <div class="zoom-toolbar"><strong id="zoom-title"></strong><button id="zoom-out" type="button" class="secondary">缩小 −</button><span id="zoom-level">100%</span><button id="zoom-in" type="button" class="secondary">放大 +</button><button id="zoom-reset" type="button" class="secondary">还原</button><button id="zoom-close" type="button">关闭</button></div>
+    <div id="zoom-scroll"><img id="zoom-image" alt="放大对照图"></div>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "schema_version": "s4-runtime-deadline-observation-1",
+  "source_log": "docs/acceptance/s4/runtime-validation/deadline-cancellation-focused-tests.txt",
+  "simulation": "Installed Pi SDK, synthetic evidence and loopback HTTP 200 SSE held open. A 2.5-second fixture fail-safe exists but did not trigger.",
+  "measured": {
+    "test_evidence": "document_deadline_hard_stop",
+    "document_timeout_ms": 600,
+    "request_deadline_ms": 120000,
+    "run_wall_ms": 609,
+    "stalled_response_close_ms": 561,
+    "server_forced_disconnect": false,
+    "request_error_code": "run_cancelled",
+    "request_usage_status": "missing_usage_conservative_reservation",
+    "requests": 3,
+    "saved_candidates": 1,
+    "completed_blocks": 1,
+    "missing_blocks": 2,
+    "retries": 0,
+    "whole_document_summary_complete": false,
+    "quiet_observation_ms": 350
+  }
+}

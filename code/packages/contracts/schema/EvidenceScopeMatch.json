@@ -1,0 +1,96 @@
+{
+  "type": "object",
+  "required": [
+    "status",
+    "matched_binding_id",
+    "feature_match",
+    "development_catalog_used",
+    "basis",
+    "issues"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "in_scope",
+        "out_of_scope",
+        "needs_context",
+        "blocked"
+      ]
+    },
+    "matched_binding_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "feature_match": {
+      "enum": [
+        "canonical",
+        "synonym",
+        "new_term",
+        "none"
+      ]
+    },
+    "development_catalog_used": {
+      "type": "boolean"
+    },
+    "basis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dimension",
+          "catalog_id",
+          "source_text",
+          "matched_term",
+          "kind",
+          "source"
+        ],
+        "properties": {
+          "dimension": {
+            "enum": [
+              "cancer",
+              "modality",
+              "feature",
+              "sequence_or_phase"
+            ]
+          },
+          "catalog_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source_text": {
+            "type": "string"
+          },
+          "matched_term": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "canonical",
+              "synonym"
+            ]
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

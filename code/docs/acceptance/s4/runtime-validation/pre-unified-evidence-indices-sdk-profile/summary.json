@@ -1,0 +1,167 @@
+{
+  "schema_version": "s4-runtime-validation-summary-6",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T04:16:40.445275+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "after_category_82_to_200_schema_alignment_one_actual_case_replay",
+  "runtime_test_count": 1,
+  "runtime_test_inventory_in_file": 43,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/category-length-focused-test.txt",
+  "checks": [
+    {
+      "suite": "actual_82_character_category_full_payload_replay",
+      "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='actual eighty-two-character category' tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/category-length-focused-test.txt",
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 1,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/category-length-typecheck.txt"
+  },
+  "full_runtime_or_full_regression_repeated_after_latest_change": false,
+  "actual_case_observation": "docs/acceptance/s4/runtime-validation/category-length-real-case-observation.json",
+  "latest_case_coverage": [
+    "Exact 1361-character public safe parameter payload from the real diagnostic case replays with its original SHA-256 8e3e263390d86323d596278cfa26d760b5f44b1ee420146f5dd59bf44299c382.",
+    "All three original records pass the closed SDK schema after removing the extra 80-character category restriction.",
+    "The synthetic source does not contain their original feature names; all three records still fail downstream source validation with feature_name_not_in_evidence.",
+    "A separate source-supported synthetic candidate saves the unchanged original 82-character category in the full 28-field record; content is not truncated and source requirements are not relaxed."
+  ],
+  "recent_control_phase": {
+    "summary": "docs/acceptance/s4/runtime-validation/protocol-pause-concurrency-phase/summary.json",
+    "tests": 2,
+    "pass": 2,
+    "typecheck_exit_code": 0,
+    "same_implementation_snapshot_as_latest_case": false,
+    "implementation_source_hashes_at_test_start": null,
+    "source_note": "The implementation owner changed an unrelated model category length bound after these tests completed. No implementation hash was captured at this phase start; historical implementation hashes are not inferred from the newer file.",
+    "observations": [
+      "docs/acceptance/s4/runtime-validation/protocol-diagnostic-pause-observation.json",
+      "docs/acceptance/s4/runtime-validation/concurrent-cancellation-isolation-observation.json"
+    ],
+    "coverage": [
+      "A first-batch invalid closed tool argument produces one protocol_diagnostic_pause with persisted response/argument hashes; one already saved candidate survives and no retry, next batch or summary starts.",
+      "Two real Pi jobs in one process share one budget/store and identical source IR. Their HTTP streams overlap before stopping one job.",
+      "Both external cancellation and a short document deadline close only the stopped job stream; the healthy stream stays open until released and its job then completes.",
+      "Both jobs retain one candidate. The stopped job has one completed and one missing block; the healthy job has two completed blocks and a completed summary.",
+      "Events, run/task bindings and reopened records remain isolated. Each scenario shares exactly five requests (2+3), 33168 input tokens, 8272 output tokens and one conservative unknown-usage reservation."
+    ]
+  },
+  "recent_checks_across_two_source_versions": {
+    "tests": 3,
+    "pass": 3,
+    "note": "Two control tests ran before the later category-length field change; one exact category case ran after it. This is not a three-test claim for one frozen source snapshot."
+  },
+  "prior_closed_finish_regression": {
+    "version_scope": "closed_whole_line_model_interface_finishTurn_summary_visibility_nullable_unknowns_and_authorized_per_run_caps",
+    "generated_at": "2026-11-03T04:05:18.950635+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-diagnostic-pause-concurrency-isolation/summary.json",
+    "total_distinct_tests": 17,
+    "typecheck_exit_code": 0
+  },
+  "prior_deadline_regression": {
+    "version_scope": "post_hard_document_deadline_active_stream_cancellation_affected_tests_only",
+    "generated_at": "2026-11-03T03:42:10.022633+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-closed-finish-turn/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-closed-finish-turn",
+    "total_distinct_tests": 6,
+    "typecheck_exit_code": 0,
+    "snapshot_note": "Original hashes and logs retained; owned test/fixture snapshots verified. No historical implementation source reconstructed."
+  },
+  "prior_line_index_regression": {
+    "version_scope": "post_host_bound_line_index_v3_affected_tests_and_compact_compatibility_only",
+    "generated_at": "2026-11-03T03:32:23.440219+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop",
+    "total_distinct_tests": 8,
+    "pass": 8,
+    "typecheck_exit_code": 0,
+    "source_snapshot_note": "Original hashes/logs and hash-verified owned test/fixture snapshots are preserved; no historical implementation source was reconstructed."
+  },
+  "prior_compact_regression": {
+    "version_scope": "post_compact_v2_model_tool_protocol_and_nonadjacent_source_warning_affected_tests_only",
+    "generated_at": "2026-11-03T03:22:13.077008+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol",
+    "total_distinct_tests": 29,
+    "pass": 29,
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes are preserved unchanged in the archived summary.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/source-snapshots",
+    "implementation_source_snapshots": "Not captured before the line-index change; no historical implementation source was reconstructed."
+  },
+  "prior_full_regression": {
+    "version_scope": "before_compact_model_tool_protocol",
+    "generated_at": "2026-11-03T03:15:02.582198+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+    "total_distinct_tests": 144,
+    "checks": {
+      "extraction": {
+        "tests": 73,
+        "pass": 73,
+        "fail": 0
+      },
+      "unit": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0
+      },
+      "integration": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0
+      },
+      "parser": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0
+      },
+      "evaluation": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0
+      }
+    },
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+  },
+  "limitations": [
+    "Only the one actual category case and TypeScript checks were run after the latest field-bound change; all 43 runtime cases and unrelated suites were not repeated.",
+    "The earlier two control tests are separately preserved. Their starting implementation hash was not captured before a later edit, so historical implementation hashes are explicitly unavailable.",
+    "The actual real-paper failure and public safe arguments were produced by the implementation agent. This agent performed only local replay after the fix.",
+    "Concurrency validation covers two jobs in one process sharing one budget/store instance; it does not establish cross-process ledger coordination.",
+    "These engineering results do not establish clinical accuracy, medical recall, gold-annotation quality, real-provider latency or gateway billing correctness."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "985289c5f92ec02d6ca2441ad29384c0fe607e4b7f21d188a4962af993280d1b",
+    "tests/extraction/fixtures/runtime-responses.ts": "2a8ab15247b61febd0f31237be5f522745669ca5552ab269bf274711b77cee75",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "d6f52f9a2f7eeaedf8bc8c6a18a986f444328b34f7286fe5c0e0ac9054d0222c",
+    "packages/agent/src/extraction-pi.ts": "1e1a9cf1b106e7dd18caa70361b15db9ef4b5973a5c9c0a0452e194ae8725a4b",
+    "packages/agent/src/extraction-run.ts": "70187781133265a64086c1675681d70ee8270cc4c20669435400c9e6f7b1da07",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "1f790e2b9267f823280951ec141b287a66664ada3872e8934aad23ea3964271d",
+    "packages/agent/src/extraction-tools.ts": "afe5e24cb8a841e3c12edf1c5b9cc90f88d0158f682735e4957a785471817e99",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/extraction-protocol.ts": "713a1cdb79877754a6a9dc7e5205746afb150691cc770a042b9bd94e1f754f42"
+  }
+}

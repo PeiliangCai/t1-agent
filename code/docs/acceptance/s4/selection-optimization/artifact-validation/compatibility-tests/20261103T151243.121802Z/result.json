@@ -1,0 +1,15 @@
+{
+  "schema_version": "s4-checker-compatibility-fixture-validation-1",
+  "checked_at": "2026-11-03T15:12:43.121789+00:00",
+  "status": "passed",
+  "scope": "checker fixtures only, not real experiment acceptance",
+  "checks": [
+    "exact supplied alias accepted; prefix/case/whitespace/empty variants rejected; missing remains unknown",
+    "old consumption and both old/new unknown reservations retained; metadata HTTP adds no inference tokens",
+    "five unique conditions with six document attempts replay correctly; legacy initial events and explicit rerun event IDs interoperate",
+    "alias logical row cannot start an independent physical session"
+  ],
+  "api_calls": 0,
+  "real_running_ledger_or_results_read": false,
+  "medical_quality_evaluated": false
+}

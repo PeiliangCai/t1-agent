@@ -1,0 +1,144 @@
+{
+  "schema_version": "s2-handoff-1",
+  "recorded_at": "2026-11-02T13:51:11.841102+00:00",
+  "user_approval": {
+    "stages": [
+      "S0",
+      "S1"
+    ],
+    "status": "passed",
+    "quote": "当前不涉及医学能力的实现，主要是配置。直接进入下一阶段吧，人工审核通过，但是需要记录一下是因为这些底层的配置什么的我看不懂。",
+    "basis": "用户自述不理解底层配置，基于已提供的交付说明和工程检查同意推进。",
+    "technical_details_individually_verified_by_user": false,
+    "independent_technical_audit": false,
+    "medical_acceptance": false,
+    "permanent_review_exemption": false
+  },
+  "staffing_decision": {
+    "quote": "暂未安排，先准备待标注和待复核材料",
+    "annotators": null,
+    "medical_reviewers": null,
+    "status": "not_arranged_prepare_materials_only"
+  },
+  "stage": "S2",
+  "status": "in_progress",
+  "stage_passed": false,
+  "authorized_scope": "S2 preparation package; human full-text gold and medical review pending; no progression to S3",
+  "task_ids": [
+    "T1-R03",
+    "T1-R27",
+    "T1-R04",
+    "T1-R05"
+  ],
+  "pending": [
+    "human_full_text_annotation",
+    "medical_review",
+    "corpus_selection_and_family_split",
+    "independent_acceptance_material_sealing",
+    "annotation_and_scoring_rules_approval"
+  ],
+  "numeric_thresholds_frozen": false,
+  "formal_sample_count": null,
+  "recheck_reference": "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/result.json",
+  "old_acceptance_references": [
+    "code/docs/acceptance/s0/acceptance.json",
+    "code/docs/acceptance/s1/acceptance.json",
+    "code/docs/acceptance/s1/version-manifest.json"
+  ],
+  "historical_evidence_sha256": {
+    "code/docs/acceptance/s0/acceptance.json": "33aa0382ccc5c1a01e97f2e3ff747600cf09f6194b22a5b29906719c3c76a4f4",
+    "code/docs/acceptance/s0/decisions.json": "98aa49107f3620da5484b8fc8d453bbf31c8ccc9601e343633d7b0f8e774d46a",
+    "code/docs/acceptance/s0/docx-preservation.json": "8d5b64bb234e08d76a17ce8d12b9345d5a6a8f07255c853704b13d7d88881962",
+    "code/docs/acceptance/s0/environment.json": "c50ee720006433584df88e9ebeda95a0f4ec13687f2fcf394e80315e72d7e9be",
+    "code/docs/acceptance/s0/layout-docx-execution-preservation.json": "a7b175db92ebcb926d4a3593a6ee6f600a0fbd0fd8fb500d4ce8cff68659a863",
+    "code/docs/acceptance/s0/layout-docx-scope-preservation.json": "39435accd5949fd72b27a90f00f31a743d632c92d4075732750654c0bd48d7d0",
+    "code/docs/acceptance/s0/layout-migration.json": "3729ca657bd8c5719883c0693828e6f22f3adedb6c649008268cc62da2446bbd",
+    "code/docs/acceptance/s0/model-configuration.json": "6532fb11682f73ea7fcd58d36be2635f2df58ea5ad8e71f6a2524ab4f4bef610",
+    "code/docs/acceptance/s0/node-provenance.json": "0073387da9654dcc2ce6020d3b4acb76377bb1088617a72d5ff02c0567f93414",
+    "code/docs/acceptance/s0/source-inputs.before-layout-change.json": "9fd689a5158a1c9e6dd9ef10beae9098452c9c4bd165fd6ac06a03139047b5ec",
+    "code/docs/acceptance/s0/source-inputs.json": "f5f49bd51a39b9cae27714214eaae8e4fba5d4584ac38bfccf410334ab90eb15",
+    "code/docs/acceptance/s0/support-matrix.json": "6e8e83cceb01d93fee09598e088e5ac92e564b4038558d3075b6a08c8e796a85",
+    "code/docs/acceptance/s1/acceptance.json": "9a351580048585aca4114c943b8c1a0efeecb976ce4b36a9546034dd6d044685",
+    "code/docs/acceptance/s1/core-review.diff": "aae5a3c3cb885339567a8bb28da71fca4f49fdf8370da7a24f4eedf6c4afb53e",
+    "code/docs/acceptance/s1/delivery-checks.json": "1bbdd9782a27734ba9c50cea6771d3cff3b8fb676ad62a96a4bc518bbf13d8ce",
+    "code/docs/acceptance/s1/dependency-selection.json": "392e2e25bbead07aff748628d85ea1ea929e9f906bc80cdb1f568ee1574df856",
+    "code/docs/acceptance/s1/docx-preservation.json": "a94393a4577f59ad1b85609cefc0e5f077053a78f98e34e00f23d44d4b74f124",
+    "code/docs/acceptance/s1/final-review.json": "eb986eb97cd8068ffbfa53526ade3c46be8f972d38ec9e46e17907700f6aa499",
+    "code/docs/acceptance/s1/local-build-web.json": "68da6be636331d7030d37a748532858c41c9616b37f44a3016a2da7a96e18050",
+    "code/docs/acceptance/s1/local-check-failed-2026-11-02T09-39-15-412098+00-00.json": "1d32301094589787d7828939630d6bec85375a3d7d6923eabcae17c76a8d131e",
+    "code/docs/acceptance/s1/local-check-failed-2026-11-02T09-39-53-313870+00-00.json": "71cce72ed6b6e517d6b009d3f5d75ec84ca452a2f2c91927254007b653bde03f",
+    "code/docs/acceptance/s1/local-check.json": "8eb17220d8f57e8ff73a839fd4854c35cd583ef9205f72ebeccc2127a2ab296e",
+    "code/docs/acceptance/s1/local-test-integration.json": "30589356469f55cc711cacc4dcf30fe7922f4a504b0f094f9fae27e4d28a0fd4",
+    "code/docs/acceptance/s1/local-test-unit.json": "39793d3f9d419a8cb0634f78e15e2a3e4f840b2bed326920658c109699e500f7",
+    "code/docs/acceptance/s1/post-review-fixes.json": "5c155ab61af0c953da55fafa4b71ace13a2ea49dcb6754b43f2e166614bfc376",
+    "code/docs/acceptance/s1/review-index.json": "a66e7a486d4e72076d019455c847787bf552a256b15c3e37aab4618f3d88040b",
+    "code/docs/acceptance/s1/review-round-2/core-review.diff": "aae5a3c3cb885339567a8bb28da71fca4f49fdf8370da7a24f4eedf6c4afb53e",
+    "code/docs/acceptance/s1/review-round-2/reproduction.json": "aeb57012720434edd6525a0864ebaad5516c3560a76f8d86a79f1cbada527a41",
+    "code/docs/acceptance/s1/review-round-2/review-decision.json": "0c5bdf6ec7b9911d40b3fd0e8c886a92700b2cdb08b9fd176a138e1352283b89",
+    "code/docs/acceptance/s1/review-round-2/review-index.json": "78026f948abe082b00e4571275cda72d68e98431170a33bc7d2318f7914d0bd2",
+    "code/docs/acceptance/s1/review-round-3-fixes.diff": "45ede9ba025c164c45c3e46d70e6e9153bc65116cc6d8c6e60cdacea49c99b43",
+    "code/docs/acceptance/s1/scope-docx-preservation.json": "f8046b070a13fc868a1d3ffafad12c2ed57182b748d94300016d972a8b596ade",
+    "code/docs/acceptance/s1/sdk-source-verification.json": "ab60b518efd083b3aaf6947df223eecb177412c955f0766289f23ee920e4cd73",
+    "code/docs/acceptance/s1/smoke-pi-2026-11-02T09-40-50-350Z.json": "1e5040102e171aa3649a373eb9e3ba3f0527547285889ac11f08ae874308274f",
+    "code/docs/acceptance/s1/smoke-pi-latest.json": "e80e71539a8619505d558c47042899c6132d82e2dbda7e71704b47020862c142",
+    "code/docs/acceptance/s1/smoke-summary.json": "84812fdcb6a9bc943c08033459c5d6d9e20247811bc196898f59d06a6a3e9e94",
+    "code/docs/acceptance/s1/version-manifest.json": "514a164f841b59a8463003748bc80786c3287cdde0db7a6a70829ee6139a4d73",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/build-web.log": "670428290d7f1c3118ea070a7d309d4eb1c910fd13741af2b8844840625152a5",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/check.log": "cde62e73b63693e8d353e1ec2a415ce85948e33ce0a0a782c468f5cf6ed9c08d",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/manifest-check.log": "53f72f9aa29f35377fab83716a7e08a3335c5b91f23d19724aa65e309e19a6e7",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/result.json": "734360c440ee84e3179fe1c0c2fc00dd061a506322418e5b702b89498f913ee8",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/test-integration.log": "ada82764ff198ff2229b8cb83e62ad34ec560d9e8182d1bceb3ac4dde8d0bf8a",
+    "code/docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z/test-unit.log": "1759b54397b8e8bcdef56e4e2e920d7cacb84cae0674e2f6c57114ae6c6e0421"
+  },
+  "unchanged_plan_inputs_sha256": {
+    "质量与性能验收契约.json": "f89592f978083a65005520551aa40a6005a7c9a16671dfdce65513e4ae4534b1",
+    "待讨论实现决策.csv": "fe0165c26feb65a6179173272c9a9923cb3a3678387eb62099aecc1fe80f7a87",
+    "资料来源.json": "72362593c1493adcfc28336de7778de3f8421523e1a29568eb88fb306b2a7019"
+  },
+  "formal_review_progress": {
+    "stage": "S2",
+    "formal_astra_reviews_used": 1,
+    "limit": 3,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 现有35项清单混有工程元数据和临床结论，须筛选后使用；2. 已用于调研和规则制定的论文不能充当独立验收资料；3. 自动整理和工程测试不能替代人工阅读全文及医学复核。"
+      }
+    ],
+    "previous_S0_S1_review_history": "sealed_3_of_3_unchanged"
+  },
+  "preservation": {
+    "old_acceptance_evidence_unchanged": true,
+    "E01_to_E09_unchanged": true,
+    "quality_contract_and_thresholds_unchanged": true,
+    "backup_directory": "code/docs/acceptance/s2/before-s2-handoff",
+    "files": {
+      "当前版本.json": {
+        "before_sha256": "4a60d14bb7decfc79101d5f224c1da851de6513c176f8e751b04621bc85dea00",
+        "after_sha256": "46fd4deb8e3e4a4aa4c6a9da207e760fa1f487ba3fa7327527b8b28f72b3a3e7"
+      },
+      "开发计划.json": {
+        "before_sha256": "aa7dfcdc06ba42adc1515960c184cf547479aeb8398a9bbb23cd4898519b9747",
+        "after_sha256": "3d34cdc35a66ac0082ecd9e0b2281ebadf9f375cefe7052ca307a7a81e3223f3"
+      },
+      "开发阶段与验收.csv": {
+        "before_sha256": "74d51735229beccdc709b2a5e1cb07979652865ddbbf4cccadf9a8609f48c433",
+        "after_sha256": "7fde3878a3f519340169114d54ac973aff657aca178b220e04b23d73440fcd6b"
+      },
+      "开发任务清单.csv": {
+        "before_sha256": "3df728ffaf5a2a23ad89d6d0d38f455d53c22550b79e9c5fc6e033fcb9c04ce8",
+        "after_sha256": "ea87f78b251c65e40e53af36f8e3052cacadb390af3004297ebd6a96f11cfa1f"
+      },
+      "T1开发执行说明.docx": {
+        "before_sha256": "f4d5e5ac3b472b3a34dca39fc281425ac7f499ba1e4b21dd2fd9b092d1a09fb1",
+        "after_sha256": "c36686799eb2aa021c4fdc9aced9bfc90e7ab8ab65968ee3641a95742f5494b6"
+      },
+      "T1智能体开发计划.docx": {
+        "before_sha256": "9f19260b13236f7d084598d1f8e4d85f8cde824a0faaf4d677de9d3fe0991b97",
+        "after_sha256": "de8070a69345f2130bece1c232b39c11e8c5d544c57c31944fa8646998de5fc7"
+      }
+    }
+  }
+}

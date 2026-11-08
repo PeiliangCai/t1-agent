@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "args": [
+        "--help"
+      ],
+      "exit_code": 0,
+      "expected_success": true,
+      "expected_message": "--output-directory",
+      "stdout": "usage: compare-s3-cpu.py [-h] [--worker]\n                         [--candidate {docling-standard-cpu,mineru-basic-onnx-cpu}]\n                         [--candidates {docling-standard-cpu,mineru-basic-onnx-cpu} [{docling-standard-cpu,mineru-basic-onnx-cpu} ...]]\n                         [--mode {cold,reuse}]\n                         [--modes {cold,reuse} [{cold,reuse} ...]]\n                         [--sources {MED03,L07,L05,L01,L02} [{MED03,L07,L05,L01,L02} ...]]\n                         --output-directory OUTPUT_DIRECTORY\n\nMeasure original PDFs with CPU candidates; model reuse never reuses results.\nModes: cold = fresh host/native process per PDF, reuse = one native model\ninstance for the sequence. Cold means process/model startup, not empty OS\ncache.\n\noptions:\n  -h, --help            show this help message and exit\n  --worker\n  --candidate {docling-standard-cpu,mineru-basic-onnx-cpu}\n  --candidates {docling-standard-cpu,mineru-basic-onnx-cpu} [{docling-standard-cpu,mineru-basic-onnx-cpu} ...]\n  --mode {cold,reuse}\n  --modes {cold,reuse} [{cold,reuse} ...]\n  --sources {MED03,L07,L05,L01,L02} [{MED03,L07,L05,L01,L02} ...]\n  --output-directory OUTPUT_DIRECTORY\n                        New directory inside code/; never overwrite an earlier\n                        batch\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "--output-directory",
+        "../outside-code-comparison"
+      ],
+      "exit_code": 2,
+      "expected_success": false,
+      "expected_message": "inside code/",
+      "stdout": "",
+      "stderr": "usage: compare-s3-cpu.py [-h] [--worker]\n                         [--candidate {docling-standard-cpu,mineru-basic-onnx-cpu}]\n                         [--candidates {docling-standard-cpu,mineru-basic-onnx-cpu} [{docling-standard-cpu,mineru-basic-onnx-cpu} ...]]\n                         [--mode {cold,reuse}]\n                         [--modes {cold,reuse} [{cold,reuse} ...]]\n                         [--sources {MED03,L07,L05,L01,L02} [{MED03,L07,L05,L01,L02} ...]]\n                         --output-directory OUTPUT_DIRECTORY\ncompare-s3-cpu.py: error: Output directory must remain inside code/\n"
+    },
+    {
+      "args": [
+        "--output-directory",
+        "docs/acceptance/s3/comparison-2026-11-02"
+      ],
+      "exit_code": 1,
+      "expected_success": false,
+      "expected_message": "FileExistsError",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ecs-user/projects/t1-agent/code/scripts/compare-s3-cpu.py\", line 161, in <module>\n    main()\n  File \"/home/ecs-user/projects/t1-agent/code/scripts/compare-s3-cpu.py\", line 141, in main\n    OUT.mkdir(parents=True, exist_ok=False)\n  File \"/usr/lib/python3.12/pathlib.py\", line 1313, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/home/ecs-user/projects/t1-agent/code/docs/acceptance/s3/comparison-2026-11-02'\n"
+    }
+  ],
+  "native_models_started": false
+}

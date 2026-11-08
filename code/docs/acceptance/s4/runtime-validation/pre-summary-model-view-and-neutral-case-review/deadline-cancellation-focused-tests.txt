@@ -1,0 +1,22 @@
+✔ concurrent jobs sharing one budget reserve before network and cannot jointly exceed the remaining input cap (48.306301ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ HTTP 200 followed by stalled SSE hits the independent request deadline, retries twice and retains saved candidates (1243.703271ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":3}
+{"test_evidence":"document_deadline_hard_stop","document_timeout_ms":600,"request_deadline_ms":120000,"run_wall_ms":609,"stalled_response_close_ms":561,"server_forced_disconnect":false,"request_error_code":"run_cancelled","request_usage_status":"missing_usage_conservative_reservation","requests":3,"saved_candidates":1,"completed_blocks":1,"missing_blocks":2,"retries":0,"whole_document_summary_complete":false,"quiet_observation_ms":350}
+✔ document deadline closes an active model stream before its request deadline and preserves completed, saved and missing work (979.258313ms)
+{"test_evidence":"delayed_sdk_prompt_settlement","host_timeout_ms":500,"host_return_ms":501,"wrapper_settled_at_host_return":false,"watchdog_released_at_host_return":false,"client_closed_response_before_cleanup":true,"request_deadline_ms":120000,"saved_candidates":1}
+✔ host prompt deadline does not wait for delayed SDK prompt settlement and actively closes its stream (510.746455ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ cancellation after a candidate commit preserves it and cannot claim batch or document completion (63.909582ms)
+✔ Pi timeout aborts a held local response and preserves conservative request usage (86.477294ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4066.67373

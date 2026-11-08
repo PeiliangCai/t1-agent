@@ -1,0 +1,51 @@
+{
+  "schema_version": "three-method-authorization-1",
+  "status": "authorized",
+  "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+  "user_confirmation_source": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json#user_response",
+  "approved_at": "2026-11-04T16:29:09.234184+00:00",
+  "prepared_plan_sha256": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+  "batch_id": "comparison-e346c0dd-2969-479c-9e0b-2327707214d1",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "provider": "agicto",
+  "api": "openai-responses",
+  "limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "user_response": {
+    "verbatim": "批准 Luna medium 与上述范围、上限（推荐）",
+    "questionItemId": "[request_user_input_async,call_1026bee994794bc2860632c3e2ed57a9,0]",
+    "received_from": "main_session_user_async_decision_relay",
+    "recorded_at": "2026-11-04T16:29:09.234184+00:00",
+    "exact_UI_click_time_provided": false
+  },
+  "authorized_scope": {
+    "papers": [
+      "L01",
+      "L05"
+    ],
+    "methods": [
+      "agent_only",
+      "positive_rules_agent",
+      "remove_irrelevant_agent"
+    ],
+    "initial_logical_conditions": 6,
+    "expected_initial_real_extractions": 5,
+    "L01_R_reuses_F": "complete current real Pi model-input equivalence checked; reuse is not an independent measurement or zero-cost gain",
+    "necessary_followup": "same model and two papers only, one-point fixes/retests under the same authorization_id and cumulative ledger",
+    "old_ledger_reuse": false,
+    "over_limit_action": "stop_preserve_results_no_cap_increase"
+  },
+  "timestamp_scope": "UTC when relayed user approval was recorded; no exact UI click timestamp was supplied",
+  "medical_quality_approved": false,
+  "winner": null
+}

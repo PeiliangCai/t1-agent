@@ -1,0 +1,191 @@
+{
+  "schema_version": "s4-local-reliability-repair-report-1",
+  "finalized_at": "2026-11-05T11:44:59.774291+00:00",
+  "status": "local_engineering_changes_verified_new_provider_effect_unverified",
+  "new_paid_API_requests": 0,
+  "changed_files": {
+    "packages/agent/src/extraction-tool-recovery.ts": "89265f7dfe47869c3b3b17cb7c55a2c814b6f0bbed939a29c123a15fa5e793c4",
+    "packages/agent/src/extraction-run.ts": "20577e6629c9aaf7509a4a2d33cf57be304d97e33cf1360844d195d5f696dcb6",
+    "packages/agent/src/extraction-pi.ts": "9ec9edb724362cc2431e1773b7270ebe9cc344347868567aaae79e0912bbaa3b",
+    "packages/agent/src/reconciliation.ts": "6ee0e24f3e7ca77f2ec1840352ff847bf96a7cbdf85a8629152bea5b77688872",
+    "packages/agent/src/extraction-summary.ts": "1e0ff73905db87b93fbc5f6ec3ae080c6b98c08147487271208b96e32e4dc1d8",
+    "packages/agent/src/extraction-store.ts": "7a1f9572d254f8de6f66157b6e06e352004ed798f32d3a6a77322e5d245fb2f0",
+    "scripts/compare-extraction-methods.ts": "8c3858f901e9cc3b7583eb309d3c6df4c71040449b5945929990029a01d8a881",
+    "scripts/verify-s4-summary-working-set.ts": "6cd8b5a72c0e39a6cb064d9c390614641e17f17662dd72cd3ec54310306ae186",
+    "tests/extraction/runtime.test.ts": "b6ecb904211de41556d5c2ce6f8c6d8bef3195b12c05cbdc822e88eaadf55046",
+    "tests/extraction/reconciliation.test.ts": "5cecfb0c3d806e78cc24d2b4cdb7c05c2d957a1a65fe2f3cd4361528a283478b",
+    "tests/extraction/s4-tool-recovery.test.ts": "9da23779c268d0c98d8ee9771cd1c259a8f7cdd30be3b9c685b4d8e256efc168",
+    "tests/extraction/s4-candidate-revision.test.ts": "e6b717f36607f0d0acd80b284d0625ddae180996c84220df57522a2f450c870e",
+    "tests/extraction/s4-summary-reliability.test.ts": "cec08dafdb293e2ad8c481ec51e0ab632069b91a2704abbb0b17444dd4f59f42",
+    "tests/extraction/s4-reliability-preparation.test.ts": "d0eac0c825bcc7eba8a9a60ec3ecab4f18708b45acc820f58167b79848e54a2b"
+  },
+  "diff": "changes.patch",
+  "source_snapshots": [
+    "before-source",
+    "01-tool-recovery-source",
+    "02-candidate-revision-source",
+    "final-source"
+  ],
+  "scope_preserved": [
+    "visual-statements-2 and literal-source-sentences-1 unchanged",
+    "No business eligibility/range/parser/model/default-strategy changes",
+    "General visual definitions and direct measurements remain eligible; CTR calculation rules remain necessary-context-only",
+    "Original full sentences/required context, explicit table-reference support and whole-Figure/original-caption restrictions unchanged",
+    "All automatic paths remain unapproved; human versions are never replaced"
+  ],
+  "repairs": [
+    {
+      "id": "tool_protocol",
+      "actual_failure_evidence": [
+        "../user-feedback-2026-11-05/revalidation/prepared/execution/L01-F/result.json",
+        "../user-feedback-2026-11-05/revalidation/prepared/execution/L05-F/result.json",
+        "../user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/result.json"
+      ],
+      "observed_arguments": [
+        "read_document_blocks {\"\":\"\"}",
+        "source_unit_ids su-00100 instead of returned su-000100",
+        "Nonempty context_unit_ids su-000376 plus context_line_indices93"
+      ],
+      "cause": "The batch finish hook ended the whole run on every tool error, even a correctable schema/selector error.",
+      "change": "Keep the original strict rejection. Allow at most2 distinct safe correction opportunities in the same bound session and existing metered budget; an exact repeated invalid call stops. Unknown tools, identity/path overrides, source-bound failures and all unclassified errors stop. Unsafe turns block other known tool calls before writes. No argument is normalized or silently rewritten.",
+      "before": "01-tool-recovery-before.log:5 tests,2 pass3 fail",
+      "after": "01-tool-recovery-after.log:initial5/5; final extraction includes6 focused recovery tests",
+      "diagnostics": "Every SDK tool start records original argument SHA/length/property names and exact safe selector arrays; tool ends record result SHA/length and classified error. Arbitrary source/SDK strings, credentials and complete wire bodies are not logged.",
+      "exact_original_argument_replay": "01-exact-actual-arguments-replay.json:all3 exact retained original parameter objects replayed with same immutable L01/L05 IR and assigned batch; strict codes remain schema_validation_failed/source_unit_not_available/choose_context_units_or_context_lines; candidates_saved0 and host_parameter_changesfalse."
+    },
+    {
+      "id": "candidate_identity_revision",
+      "actual_failure_evidence": "../user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+      "cause": "Explicit feature-mismatched update erased its target then fell through to insert. The two actual AAH records share exact primary anchors, subjectAAH and cited origin, with feature wording and missing-to-present citation metadata changes.",
+      "change": "An explicit missing/out-of-run target is rejected and never converted to insert. A feature revision must keep exact primary anchors and quote, no known subject/modality/phase/condition/assertion conflict, same origin and no changed existing citations; it is appended as an unapproved proposal under the old identity. All version/context/Figure differences remain. Unsafe revisions reject. Exact proposal replay is idempotent. Fingerprints also retain supporting table differences.",
+      "before": "02-candidate-revision-before.log:actual frozen AAH3/3 fail",
+      "after": "02-candidate-revision-after.log:17/17 including14 existing reconciliation tests; final suite retains these",
+      "boundary": "This does not deduplicate distinct subjects, citations, origins, anchors or merely similar text. The old active candidate remains; no claim that all duplicate cases are solved."
+    },
+    {
+      "id": "whole_document_summary",
+      "actual_failure_evidence": "../user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+      "cause": "Each read appended source_units for the historical read union into an ever-growing transcript; summary errors could also leave reviews/updates saved before a later failure/completion check.",
+      "change": "Keep a128-original-line LRU transport window, exact current candidate packets, complete source units and explicit missing-unit reread hints. Superseded raw-read/context copies become explicit receipts; no original line or candidate field is sliced. Historical actual-read inventory stays separate, evicted lines must be explicitly reread to support updates. Source text/model capacity and16-response limits are not raised. One summary submission atomically commits its evidence operations or rolls them all back; validation diagnostics remain explicitly outside that rollback. A valid saved submission with insufficient completion coverage returns complete:false, blockers, current_versions and saved_update receipts. Current candidate versions must be seen, and independent review/audits remain required when selected.",
+      "direct_old_implementation_observation": "03-summary-window-final-before-after.json:after read windows2–5, old returned121/268/413/535 source units outside the current128-line window; fixed0/0/0/0.615 actually read blocks retained, no candidates or completion created by these reads.",
+      "focused_after": "Final8 summary reliability tests in extraction-final.log, including exact cross-line source, explicit reread after eviction, rollback, idempotent review and unchanged128k-limit loopback runtime",
+      "boundary": "The actual old15 calls had no complete per-call arrays/wire bodies; this deterministic local reproduction does not prove they all read identical arguments. New large candidate packets or genuinely large necessary source remain subject to the existing128k cap; no general guarantee of summary completion or live cost improvement."
+    }
+  ],
+  "checks": {
+    "extraction": {
+      "command": "bash scripts/with-node.sh npm run test:extraction",
+      "tests": 221,
+      "passed": 221,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "extraction-final.log"
+    },
+    "evaluation": {
+      "command": "bash scripts/with-node.sh npm run test:evaluation",
+      "tests": 37,
+      "passed": 37,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "evaluation-final.log"
+    },
+    "typescript": {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsc --noEmit",
+      "exit_code": 0,
+      "log": "typescript-final.log"
+    },
+    "provider_calls": "All new runtime checks use synthetic loopback Responses SSE or direct read-only tools. New AGICTO requests0."
+  },
+  "negative_results_and_expectation_changes": {
+    "real_pre_fix_failures": "Strict empty key/typo ID/dual selectors; explicit AAH update became insert; source-unit historical union and non-atomic summary writes.",
+    "draft_test_issue": "03-summary-reliability-before.log last test originally reached a new source_window field before inspecting old spans; direct original-module content-range JSON replaces that draft assertion as the cause evidence.",
+    "fixture_issue": "extraction-first-full.log:217/218; the new cross-line fixture lacked a shared native paragraph, so the parser correctly did not join it. Only the fixture was fixed, not parser/grouping rules; targeted10/10 then final221/221.",
+    "first_typecheck": "typescript-first.log found one helper return-type annotation issue; fixed with an explicit diagnostic return type.",
+    "related_first_run": "related-first.log83/87:four existing assertions depended on prior semantics; related-second.log87/87 before two additional negative/boundary tests and the3 runner preparation cases.",
+    "four_existing_expectations": [
+      {
+        "old": "Missing independent review throws",
+        "new": "Atomic successful save returns complete:false with independent_review_coverage_incomplete; false completion and unapproved review assertions retained."
+      },
+      {
+        "old": "New update could save then throw unseen-candidate completion error; only final summary event counted",
+        "new": "Explicit saved complete:false events disclose blockers and versions; exactly one complete:true event still requires refreshed current candidate context."
+      },
+      {
+        "old": "First schema error immediately ends the run after1 request",
+        "new": "One safe correction is allowed; exact repeated invalid parameters end after2 requests. Accepted prior candidate1, diagnostic hashes, no later batches/retries/summary and persistence remain asserted; unknown/override and budget negatives remain immediate stops."
+      },
+      {
+        "old": "Updated candidate version3 could be reviewed and completed without refreshing the changed candidate packet",
+        "new": "Refresh current version3 before its new review becomes version4; latest version coverage and human-active/proposed distinction remain asserted."
+      }
+    ]
+  },
+  "preservation": {
+    "protected_prior_files": 641,
+    "mismatches": [],
+    "reader_source_artifacts": 159,
+    "reader_source_mismatches": [],
+    "old189_ledger_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+    "old216_ledger_sha256": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+    "original_PDF_IR_assets_35_reviews_11_notes_and_failed_partial_preserved": true,
+    "new_frontend_changes": 0,
+    "source_freeze": "source-freeze.json",
+    "unchanged_business_parser_and_dependency_files": [
+      "packages/agent/src/extraction-protocol.ts",
+      "packages/agent/src/evidence-validation.ts",
+      "packages/agent/src/source-evidence-units.ts",
+      "packages/agent/src/source-selection.ts",
+      "packages/agent/src/visual-evidence-policy.ts",
+      "packages/agent/src/evidence-delivery.ts",
+      "packages/agent/src/figure-assets.ts",
+      "packages/agent/src/method-comparison.ts",
+      "config/pdf-parser.json",
+      "services/pdf-parser/structured.py",
+      "services/pdf-parser/adapter.py",
+      "package.json",
+      "package-lock.json"
+    ],
+    "all53_runtime_sources_and_pending_plan_rechecked_after_temporary_cleanup": true,
+    "original_L01_L05_PDF_and_IR_SHA_match_sealed_parent_plan": true
+  },
+  "new_revalidation": {
+    "proposal": "proposal.json",
+    "plan": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/plan.json",
+    "plan_sha256": "75977832a6b09df7df1a5fbbc71b7e28e29e93ec7a5d75637464188109006625",
+    "authorization_status": "pending_new_user_confirmation_unsigned",
+    "job_ids": [
+      "L05-B0",
+      "L05-F"
+    ],
+    "limits": {
+      "requests": 64,
+      "input_tokens": 1500000,
+      "output_tokens": 160000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "new_execution_started": false,
+    "single_variable_gain_claimed": false
+  },
+  "unverified": [
+    "No new real provider output or post-fix API cost/time effect",
+    "No medical relevance/quality review of new outputs",
+    "No formal method winner, default selection, full recall or S4/S5 quality pass",
+    "No automatic healing of all semantic conflicts or sentence/caption ambiguities"
+  ],
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds": 0
+  },
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "winner": null,
+  "source_snapshots_note": "Phase snapshots are engineering evidence; restore them with before-source/final-source dependencies for any future paired experiment. No past source snapshot is by itself a new paid comparison result."
+}

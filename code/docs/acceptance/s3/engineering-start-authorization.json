@@ -1,0 +1,181 @@
+{
+  "schema_version": "s3-engineering-authorization-1",
+  "recorded_at": "2026-11-02T14:24:58.848858+00:00",
+  "stage": "S3",
+  "status": "engineering_in_progress",
+  "stage_passed": false,
+  "record": "code/docs/acceptance/s3/engineering-start-authorization.json",
+  "user_quote": "1、“资料划分、标注与计分规则、医学特征及适用关系”，这些内容是需要现在先确认吗？你这里说的这几点具体是什么？ 2、是的，这次只是调整开工顺序，原有质量验收要求需要保留。",
+  "scope": "change_engineering_start_order_only",
+  "engineering_dependencies": {
+    "S3": [
+      "S0/S1工程与人工通过",
+      "开发候选PDF原件及来源已登记",
+      "保留原件、版本和受限覆盖"
+    ],
+    "S4": [
+      "可运行的DocumentIR及定位接口，技术依赖满足后方可开工"
+    ],
+    "S5": [
+      "可供接入的抽取原型，技术依赖满足后方可开工"
+    ]
+  },
+  "acceptance_dependencies": [
+    "原S2资料划分、完整人标、医学复核、规则批准",
+    "原S3解析忠实性/覆盖/定位及候选对照共同选型",
+    "原S4/S5质量门槛与验收",
+    "独立验收资料与开发隔离，S6前共同确认并冻结最终门槛"
+  ],
+  "original_stage_gates_and_dependencies_preserved": true,
+  "S2_passed": false,
+  "formal_parser_selected": false,
+  "S4_S5_authorized_when_technical_dependencies_ready": true,
+  "S4_S5_started_in_this_iteration": false,
+  "S2_status": "in_progress",
+  "S2_formal_reviews_used": 2,
+  "S0_S1_formal_reviews_sealed": "3/3",
+  "formal_review_progress": {
+    "stage": "S3",
+    "formal_astra_reviews_used": 1,
+    "limit": 3,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 提前开工不能替代 S2/S3 验收；2. 候选解析器的资源和效果需实测后才能定案；3. 文本、表格和坐标的忠实性须对照原始 PDF 核验。"
+      }
+    ],
+    "same_stage_counter_must_not_reset": true
+  },
+  "protected_inputs_sha256": {
+    "code/docs/acceptance/s0/acceptance.json": "33aa0382ccc5c1a01e97f2e3ff747600cf09f6194b22a5b29906719c3c76a4f4",
+    "code/docs/acceptance/s0/decisions.json": "98aa49107f3620da5484b8fc8d453bbf31c8ccc9601e343633d7b0f8e774d46a",
+    "code/docs/acceptance/s0/docx-preservation.json": "8d5b64bb234e08d76a17ce8d12b9345d5a6a8f07255c853704b13d7d88881962",
+    "code/docs/acceptance/s0/environment.json": "c50ee720006433584df88e9ebeda95a0f4ec13687f2fcf394e80315e72d7e9be",
+    "code/docs/acceptance/s0/layout-docx-execution-preservation.json": "a7b175db92ebcb926d4a3593a6ee6f600a0fbd0fd8fb500d4ce8cff68659a863",
+    "code/docs/acceptance/s0/layout-docx-scope-preservation.json": "39435accd5949fd72b27a90f00f31a743d632c92d4075732750654c0bd48d7d0",
+    "code/docs/acceptance/s0/layout-migration.json": "3729ca657bd8c5719883c0693828e6f22f3adedb6c649008268cc62da2446bbd",
+    "code/docs/acceptance/s0/model-configuration.json": "6532fb11682f73ea7fcd58d36be2635f2df58ea5ad8e71f6a2524ab4f4bef610",
+    "code/docs/acceptance/s0/node-provenance.json": "0073387da9654dcc2ce6020d3b4acb76377bb1088617a72d5ff02c0567f93414",
+    "code/docs/acceptance/s0/source-inputs.before-layout-change.json": "9fd689a5158a1c9e6dd9ef10beae9098452c9c4bd165fd6ac06a03139047b5ec",
+    "code/docs/acceptance/s0/source-inputs.json": "f5f49bd51a39b9cae27714214eaae8e4fba5d4584ac38bfccf410334ab90eb15",
+    "code/docs/acceptance/s0/support-matrix.json": "6e8e83cceb01d93fee09598e088e5ac92e564b4038558d3075b6a08c8e796a85",
+    "code/docs/acceptance/s1/acceptance.json": "9a351580048585aca4114c943b8c1a0efeecb976ce4b36a9546034dd6d044685",
+    "code/docs/acceptance/s1/core-review.diff": "aae5a3c3cb885339567a8bb28da71fca4f49fdf8370da7a24f4eedf6c4afb53e",
+    "code/docs/acceptance/s1/delivery-checks.json": "1bbdd9782a27734ba9c50cea6771d3cff3b8fb676ad62a96a4bc518bbf13d8ce",
+    "code/docs/acceptance/s1/dependency-selection.json": "392e2e25bbead07aff748628d85ea1ea929e9f906bc80cdb1f568ee1574df856",
+    "code/docs/acceptance/s1/docx-preservation.json": "a94393a4577f59ad1b85609cefc0e5f077053a78f98e34e00f23d44d4b74f124",
+    "code/docs/acceptance/s1/final-review.json": "eb986eb97cd8068ffbfa53526ade3c46be8f972d38ec9e46e17907700f6aa499",
+    "code/docs/acceptance/s1/local-build-web.json": "68da6be636331d7030d37a748532858c41c9616b37f44a3016a2da7a96e18050",
+    "code/docs/acceptance/s1/local-check-failed-2026-11-02T09-39-15-412098+00-00.json": "1d32301094589787d7828939630d6bec85375a3d7d6923eabcae17c76a8d131e",
+    "code/docs/acceptance/s1/local-check-failed-2026-11-02T09-39-53-313870+00-00.json": "71cce72ed6b6e517d6b009d3f5d75ec84ca452a2f2c91927254007b653bde03f",
+    "code/docs/acceptance/s1/local-check.json": "8eb17220d8f57e8ff73a839fd4854c35cd583ef9205f72ebeccc2127a2ab296e",
+    "code/docs/acceptance/s1/local-test-integration.json": "30589356469f55cc711cacc4dcf30fe7922f4a504b0f094f9fae27e4d28a0fd4",
+    "code/docs/acceptance/s1/local-test-unit.json": "39793d3f9d419a8cb0634f78e15e2a3e4f840b2bed326920658c109699e500f7",
+    "code/docs/acceptance/s1/post-review-fixes.json": "5c155ab61af0c953da55fafa4b71ace13a2ea49dcb6754b43f2e166614bfc376",
+    "code/docs/acceptance/s1/review-index.json": "a66e7a486d4e72076d019455c847787bf552a256b15c3e37aab4618f3d88040b",
+    "code/docs/acceptance/s1/review-round-2/core-review.diff": "aae5a3c3cb885339567a8bb28da71fca4f49fdf8370da7a24f4eedf6c4afb53e",
+    "code/docs/acceptance/s1/review-round-2/reproduction.json": "aeb57012720434edd6525a0864ebaad5516c3560a76f8d86a79f1cbada527a41",
+    "code/docs/acceptance/s1/review-round-2/review-decision.json": "0c5bdf6ec7b9911d40b3fd0e8c886a92700b2cdb08b9fd176a138e1352283b89",
+    "code/docs/acceptance/s1/review-round-2/review-index.json": "78026f948abe082b00e4571275cda72d68e98431170a33bc7d2318f7914d0bd2",
+    "code/docs/acceptance/s1/review-round-3-fixes.diff": "45ede9ba025c164c45c3e46d70e6e9153bc65116cc6d8c6e60cdacea49c99b43",
+    "code/docs/acceptance/s1/scope-docx-preservation.json": "f8046b070a13fc868a1d3ffafad12c2ed57182b748d94300016d972a8b596ade",
+    "code/docs/acceptance/s1/sdk-source-verification.json": "ab60b518efd083b3aaf6947df223eecb177412c955f0766289f23ee920e4cd73",
+    "code/docs/acceptance/s1/smoke-pi-2026-11-02T09-40-50-350Z.json": "1e5040102e171aa3649a373eb9e3ba3f0527547285889ac11f08ae874308274f",
+    "code/docs/acceptance/s1/smoke-pi-latest.json": "e80e71539a8619505d558c47042899c6132d82e2dbda7e71704b47020862c142",
+    "code/docs/acceptance/s1/smoke-summary.json": "84812fdcb6a9bc943c08033459c5d6d9e20247811bc196898f59d06a6a3e9e94",
+    "code/docs/acceptance/s1/version-manifest.json": "514a164f841b59a8463003748bc80786c3287cdde0db7a6a70829ee6139a4d73",
+    "code/docs/acceptance/s2/archive-pdf-inventory.json": "ad4b7e1a7565127ffa000fd0a724508f7d8a40b607caa25cc3de11273c4daf85",
+    "code/docs/acceptance/s2/before-implementation/README.md": "5210c585b4586406e0dd8b46549043756e5c1d335aa853443b48b95b8819b82e",
+    "code/docs/acceptance/s2/before-implementation/package.json": "de31e93bf2989d140e16ec031c6cb432bb03cfccc7cfb34e81d4ceefc692e584",
+    "code/docs/acceptance/s2/before-implementation/provenance.json": "52e5bd0e03e21f05ff62f99442cdae659699091a324003eca12ae2648fa96c57",
+    "code/docs/acceptance/s2/before-implementation/tsconfig.json": "e2154bf306b1269c5b6fcaa984cb2aec142db6d14868c4a8b483eeebf4ee6698",
+    "code/docs/acceptance/s2/before-s2-delivery/T1开发执行说明.docx": "c36686799eb2aa021c4fdc9aced9bfc90e7ab8ab65968ee3641a95742f5494b6",
+    "code/docs/acceptance/s2/before-s2-delivery/T1智能体开发计划.docx": "de8070a69345f2130bece1c232b39c11e8c5d544c57c31944fa8646998de5fc7",
+    "code/docs/acceptance/s2/before-s2-delivery/开发计划.json": "3d34cdc35a66ac0082ecd9e0b2281ebadf9f375cefe7052ca307a7a81e3223f3",
+    "code/docs/acceptance/s2/before-s2-delivery/当前版本.json": "46fd4deb8e3e4a4aa4c6a9da207e760fa1f487ba3fa7327527b8b28f72b3a3e7",
+    "code/docs/acceptance/s2/before-s2-handoff/T1开发执行说明.docx": "f4d5e5ac3b472b3a34dca39fc281425ac7f499ba1e4b21dd2fd9b092d1a09fb1",
+    "code/docs/acceptance/s2/before-s2-handoff/T1智能体开发计划.docx": "9f19260b13236f7d084598d1f8e4d85f8cde824a0faaf4d677de9d3fe0991b97",
+    "code/docs/acceptance/s2/before-s2-handoff/开发任务清单.csv": "3df728ffaf5a2a23ad89d6d0d38f455d53c22550b79e9c5fc6e033fcb9c04ce8",
+    "code/docs/acceptance/s2/before-s2-handoff/开发计划.json": "aa7dfcdc06ba42adc1515960c184cf547479aeb8398a9bbb23cd4898519b9747",
+    "code/docs/acceptance/s2/before-s2-handoff/开发阶段与验收.csv": "74d51735229beccdc709b2a5e1cb07979652865ddbbf4cccadf9a8609f48c433",
+    "code/docs/acceptance/s2/before-s2-handoff/当前版本.json": "4a60d14bb7decfc79101d5f224c1da851de6513c176f8e751b04621bc85dea00",
+    "code/docs/acceptance/s2/check-summary.json": "62f6779ee668db0a16e40161eddf6091fbbd3d2b62a8076201b6dd4d0ab1b6de",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/check.log": "60f0ae876a7c54db189732a12633dd4871d0ac6339453a096b8748a3a4b97a74",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/export-contracts.log": "990cbabecb41e9eb3a33175aa463e7a6f8f0ac8f8eca41b25a7becbfc8a0dabd",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/result.json": "e1198c7fcef54297faa5e9d93d8adbe3a1b0659a68929ca558e112941dea865e",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/build-web.log": "a3879c34f27e01bc4d02ac33624dec93961684662ba1cc2fa97f9d4046c6060a",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/check.log": "6d83d574f61a30a909a5cf9dae7b65cfa4b3650361d043adf7d30b250749e0f8",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/fixture-example.log": "800bf90ddf2f2f3d9492cb529c0e0df49641c6b270ea7a2e982e43891ca810e5",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/real-pending-example.log": "191247dd0375adbcaeb1782f6cc6d70fc06f021bfdb6dcb374b784ac97f7dc37",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/result.json": "c6b244f883fc5b603e544927a7ebe26467c90755d745e2e4746398d1c547face",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-evaluation.log": "609673a2dd4e29c748804f1d04258d4d358f7d02249279399d92548f17e0b391",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-integration.log": "9606b74a718eeca224db74cb5d16332e0766c8dc0d391e68b360d84e6e5348a8",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-unit.log": "dbea3d51fff49fd6953de350fe113a410c6fa2a90a6d52ee4316dc81f0299a45",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-01-05-825478Z/fixture-example.log": "b3bfe0ad53a2694b555edef90c352f6bd6262e0ddf12830bed73ec5b606a5f86",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-01-05-825478Z/result.json": "03c4126ae7e27b328124a289bd03ec67bb4b49c9dd08b2560b69f75724f12d74",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-01-05-825478Z/test-evaluation.log": "71b56cd9b4429bf1ac6bb186dd9775fb8607447b13c3a4c5784479ad03beb3a5",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/check.log": "6d83d574f61a30a909a5cf9dae7b65cfa4b3650361d043adf7d30b250749e0f8",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/export-contracts.log": "990cbabecb41e9eb3a33175aa463e7a6f8f0ac8f8eca41b25a7becbfc8a0dabd",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/fixture-example.log": "22f603aa0ed10b572316b56d0383783d25884ef36075ff4442d9199b820ed23e",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/real-pending-example.log": "6999b537b0de42ffaf742c8efd5fd8bb358b8de0298c246ff65e1a7e75457dc2",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/result.json": "cece9d2de09dd0bd1758027de29178cb0de817d4830609a9ebe772ab6ac44647",
+    "code/docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/test-evaluation.log": "6294b25f9fdbdb7f30490e1f3d41b4db7d638f491d83798e0cf9effe0b95a92e",
+    "code/docs/acceptance/s2/core-review.diff": "13537cd10c1b1e2bca79ca07abde4f5b630913ee4159125ffb44bb8f133c022b",
+    "code/docs/acceptance/s2/delivery-docx-preservation.json": "6871daba71853e9ebec9066623cec455bf3252053312fb112c1f270c3d530d1e",
+    "code/docs/acceptance/s2/downloads.json": "ad8d561b2c8e59b20d34fb7bc64d9f42731219448989f4313f9187b689c04dd9",
+    "code/docs/acceptance/s2/final-integrity.json": "d5540137ff7614e56c74f0d3ac2734f2ca32088703ffc2dd602f9f0458616da8",
+    "code/docs/acceptance/s2/final-review.json": "ca7b542be25a987c43a438db0b3819e8573236e0646b438439e37d75d1da554f",
+    "code/docs/acceptance/s2/handoff-docx-preservation.json": "8a461b20706ab514c30690ea8a8869f486291cd77c57d02d00e9c801cfd0b1f2",
+    "code/docs/acceptance/s2/preparation-delivery.json": "ad592aab318856d6f6b5bf582ba5e026569b839d2e54c39f3f500bc84ba59091",
+    "code/docs/acceptance/s2/review-index.json": "fb8506ff2a7dbdaf66e36882e0317c7ae26c07005ab3c556f87344b5866cbb1e",
+    "code/docs/acceptance/s2/s0-s1-human-approval-and-s2-handoff.json": "db877847b00644c624ce8a50925f388ec9ea8a93d135a8c86388b3addc7c14fa",
+    "code/docs/acceptance/s2/tool-adaptation.json": "e94c84599110cde8872a7025c993013e23a2c3383adb004339c89669fdb669e9",
+    "code/docs/acceptance/s2/version-manifest.json": "ff3b33c6a901af14ac41dc86b3e10c32c70e640b4a3052c6f36b5272b11dc580",
+    "方案/子任务T1/质量与性能验收契约.json": "f89592f978083a65005520551aa40a6005a7c9a16671dfdce65513e4ae4534b1",
+    "方案/子任务T1/待讨论实现决策.csv": "fe0165c26feb65a6179173272c9a9923cb3a3678387eb62099aecc1fe80f7a87",
+    "方案/子任务T1/资料来源.json": "72362593c1493adcfc28336de7778de3f8421523e1a29568eb88fb306b2a7019"
+  },
+  "preservation": {
+    "backup_directory": "code/docs/acceptance/s3/before-engineering-start",
+    "E01_to_E09_unchanged": true,
+    "S2_history_and_status_unchanged": true,
+    "old_acceptance_and_version_manifests_unchanged": true,
+    "quality_contract_and_thresholds_unchanged": true,
+    "files": {
+      "方案/子任务T1/T1开发执行说明.docx": {
+        "before_sha256": "ee3f3361b94e6550664d0045130329fb6c10403af93d4e55cffe5bfd7d1a9a46",
+        "after_sha256": "91ebb8f6f2c0e807ffdfc4aa57d935450a409caed1bd1c199b8600a7978da112"
+      },
+      "方案/子任务T1/T1智能体开发计划.docx": {
+        "before_sha256": "c645f8d5c9b3fce7ce0d2ce88a60422f54a220e48655af143217136ee0c9c82d",
+        "after_sha256": "ec32b584db021176ac71f21a5f1bf80c8ad74e9ec5d0fb1bb8a9c1f050060512"
+      },
+      "方案/子任务T1/当前版本.json": {
+        "before_sha256": "85ced95b619e96b79bdb4585bbde6b729700cc98c5d26c5900b0f9f316cd59e9",
+        "after_sha256": "9b062bfe6be983961ea73994abef6c48318b0a40b2683e312a0b469d55efccb6"
+      },
+      "方案/子任务T1/开发计划.json": {
+        "before_sha256": "624dc12935414b7737f37c372f12888280ddeea87cd6f3a67f31c08d5c7b6eec",
+        "after_sha256": "3a54e6908e981f61b60a3c9e07a8fa8970d980a64c70ccf0487fb4aa1a12d8f7"
+      },
+      "方案/子任务T1/开发阶段与验收.csv": {
+        "before_sha256": "7fde3878a3f519340169114d54ac973aff657aca178b220e04b23d73440fcd6b",
+        "after_sha256": "244b118902f16696c17c268d90064c75df5a531db3d9944d196e8203b6eec181"
+      },
+      "方案/子任务T1/开发任务清单.csv": {
+        "before_sha256": "ea87f78b251c65e40e53af36f8e3052cacadb390af3004297ebd6a96f11cfa1f",
+        "after_sha256": "5222e269fb02ac202a89aabc1f1a9ff0ec01339353ae7b49beb48cfc18d284d0"
+      },
+      "code/evaluation/rules/pending-confirmations.json": {
+        "before_sha256": "94c348eb4f2a2f7e37338d1571bd93e14cbdcc01891453994aeee54c3a4b4e0e",
+        "after_sha256": "7b432460422747ea3bf420fd15638c99fb92e7393c27e1dcb808bf1571d62903"
+      },
+      "code/README.md": {
+        "before_sha256": "17e7d9bb664560ad54aa4f668ff264d9891b4f59674d1926347e1d054d11a74c",
+        "after_sha256": "c22b231536767a7c615dfafb3d4a83abe4166ec4170b8821cff4fc5605a8d978"
+      }
+    }
+  }
+}

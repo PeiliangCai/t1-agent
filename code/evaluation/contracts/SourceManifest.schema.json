@@ -1,0 +1,710 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_version",
+    "created_at",
+    "independent_acceptance_source_count",
+    "formal_sample_count",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "s2-sources-1"
+    },
+    "manifest_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "independent_acceptance_source_count": {
+      "type": "number",
+      "const": 0
+    },
+    "formal_sample_count": {
+      "type": "null"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "historical_aliases",
+          "title",
+          "doi",
+          "reliable_identifier",
+          "source_urls",
+          "language",
+          "document_type",
+          "source_topic",
+          "cancer_inclusion_tag",
+          "modality_tag",
+          "article_family_id",
+          "family_review_status",
+          "publication_version",
+          "version_review_status",
+          "permission",
+          "publisher_verification",
+          "access",
+          "current_composition",
+          "historical_observations",
+          "exposure",
+          "allocation",
+          "annotation_status",
+          "medical_review_status"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "historical_aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniqueItems": true
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "doi": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reliable_identifier": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source_urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "minItems": 1
+          },
+          "language": {
+            "enum": [
+              "zh",
+              "en",
+              "unknown"
+            ]
+          },
+          "document_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_topic": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cancer_inclusion_tag": {
+            "type": "object",
+            "required": [
+              "label",
+              "basis",
+              "status"
+            ],
+            "properties": {
+              "label": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "basis": {
+                "enum": [
+                  "historical_source_topic",
+                  "title_only",
+                  "unknown"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "const": "pending_medical_review"
+              }
+            },
+            "additionalProperties": false
+          },
+          "modality_tag": {
+            "type": "object",
+            "required": [
+              "label",
+              "basis",
+              "status"
+            ],
+            "properties": {
+              "label": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "basis": {
+                "enum": [
+                  "historical_source_topic",
+                  "title_only",
+                  "unknown"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "const": "pending_medical_review"
+              }
+            },
+            "additionalProperties": false
+          },
+          "article_family_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "family_review_status": {
+            "enum": [
+              "same_doi_linked_other_overlap_pending",
+              "pending"
+            ]
+          },
+          "publication_version": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "version_review_status": {
+            "type": "string",
+            "const": "pending_full_text_check"
+          },
+          "permission": {
+            "type": "object",
+            "required": [
+              "license",
+              "status",
+              "evidence_url",
+              "redistribution"
+            ],
+            "properties": {
+              "license": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "status": {
+                "enum": [
+                  "publisher_license_verified_by_main_session",
+                  "unknown"
+                ]
+              },
+              "evidence_url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "redistribution": {
+                "enum": [
+                  "per_license_requirements",
+                  "not_established"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "publisher_verification": {
+            "type": "object",
+            "required": [
+              "status",
+              "checked_date",
+              "publication_date",
+              "publication_year",
+              "url",
+              "reported_pdf_pages",
+              "medical_review_completed"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "not_rechecked",
+                  "metadata_checked_by_main_session"
+                ]
+              },
+              "checked_date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "publication_date": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "publication_year": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reported_pdf_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "medical_review_completed": {
+                "type": "boolean",
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "access": {
+            "type": "object",
+            "required": [
+              "status",
+              "file_verified",
+              "local_path",
+              "sha256",
+              "bytes",
+              "retrieved_at",
+              "page_count_method"
+            ],
+            "properties": {
+              "status": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "file_verified": {
+                "type": "boolean"
+              },
+              "local_path": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sha256": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "bytes": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "retrieved_at": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "page_count_method": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "current_composition": {
+            "type": "object",
+            "required": [
+              "physical_pages",
+              "body_pages",
+              "reference_pages",
+              "figure_table_pages",
+              "appendix_pages",
+              "separate_supplement_pages",
+              "mixed_pages",
+              "layout",
+              "text_layer_status"
+            ],
+            "properties": {
+              "physical_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "body_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reference_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "figure_table_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "appendix_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "separate_supplement_pages": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "mixed_pages": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "layout": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "text_layer_status": {
+                "type": "string",
+                "const": "not_verified"
+              }
+            },
+            "additionalProperties": false
+          },
+          "historical_observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source_pointer",
+                "checked_date",
+                "recorded_sha256",
+                "recorded_pdf_pages",
+                "recorded_bytes",
+                "notes"
+              ],
+              "properties": {
+                "source_pointer": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "checked_date": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "recorded_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "recorded_pdf_pages": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "recorded_bytes": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "exposure": {
+            "type": "object",
+            "required": [
+              "used_in_prior_research",
+              "uses",
+              "full_text_human_read_status",
+              "independent_acceptance_eligible"
+            ],
+            "properties": {
+              "used_in_prior_research": {
+                "type": "boolean",
+                "const": true
+              },
+              "uses": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "uniqueItems": true
+              },
+              "full_text_human_read_status": {
+                "type": "string",
+                "const": "not_established_by_this_package"
+              },
+              "independent_acceptance_eligible": {
+                "type": "boolean",
+                "const": false
+              }
+            },
+            "additionalProperties": false
+          },
+          "allocation": {
+            "type": "object",
+            "required": [
+              "role",
+              "split_status",
+              "final_split",
+              "selection_reason"
+            ],
+            "properties": {
+              "role": {
+                "enum": [
+                  "reference",
+                  "development_candidate"
+                ]
+              },
+              "split_status": {
+                "type": "string",
+                "const": "not_sealed"
+              },
+              "final_split": {
+                "type": "null"
+              },
+              "selection_reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "additionalProperties": false
+          },
+          "annotation_status": {
+            "type": "string",
+            "const": "pending"
+          },
+          "medical_review_status": {
+            "type": "string",
+            "const": "pending"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,312 @@
+{
+  "schema_version": "current-output-binding-1",
+  "finalized": true,
+  "finalized_at": "2026-11-08T07:28:46.369177+00:00",
+  "plan_path": "docs/acceptance/output-feedback-2026-11-08/comparison/plan.json",
+  "plan_sha256": "7b948130b139fe283284fe8e83dc19a0e32c69ece93cc1f47bc80802214f2b59",
+  "execution_report_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/report.json",
+  "execution_report_sha256": "c6c2aa38df93d20fa8c4138be95a3bed93c415977e37bf78e81bafcb40b398da",
+  "execution_status": "finished_runs_human_quality_and_selection_pending",
+  "audit_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/comparison.json",
+  "audit_sha256": "ded606e6b6b9021a262c6ec052dd06e6e7f5ee1789d21496492203cd3a8f3fda",
+  "terminal_audit_path": "docs/acceptance/output-feedback-2026-11-08/comparison/terminal-audit.json",
+  "terminal_audit_sha256": "2205e2e75782818e93395b0fc25fd178b279ef89132441c130a21fcaf97daa8d",
+  "ledger_path": "runtime-data/s4-budget-owners/ad8834a7eea34a0e5cf57216fbe33fe67a77a97604ab42536e036a77e5c46cbd/call-ledger.json",
+  "ledger_sha256": "c7b54c5a1ff521b35fe9824c04b15acd6bbfec8204cff5fd281cfb8bba22a33e",
+  "ledger_totals": {
+    "requests": 143,
+    "input_tokens": 2313966,
+    "output_tokens": 98374,
+    "cache_read_tokens_included_in_input": 436658,
+    "reasoning_tokens_already_in_output": 73619,
+    "missing_usage_requests": 0,
+    "elapsed_seconds": 2880.11,
+    "actual_monetary_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "jobs": [
+    {
+      "job_id": "L01-B0",
+      "representative_job_id": "L01-B0",
+      "independent_model_run": true,
+      "status": "task_complete_unapproved",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L01-B0/result.json",
+      "result_sha256": "fcb8d865cc1892a44e46083e269d2c6fb37915da4f13ac32f7a2a19617edc39a",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+        "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/parser-result.json",
+        "ir_sha256": "7c465f648693b331d57d3b1b8c908c66a7c39b9b6e0a83e7034281b9c317cd12",
+        "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json",
+        "figure_catalog_sha256": "6463b1a6e4079ee7309926463d529fdd43f333f5045bfcfcad690874e5ba267b"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/manifest.json",
+        "manifest_sha256": "2f1c720acf46e9dbc2af0af000b8c03936877895bf1a7d2426091b8a5a33f6c3",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/delivery.json",
+        "delivery_sha256": "cbb6014909dfe045d370c05b823678cf43236b856817018a21f909f26d7c8d21",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/records.jsonl",
+        "records_sha256": "f8a581a10194b21cd4d0bed758b0a531731fea081ae31e55f0cf95f1c44693e7",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/background-records.jsonl",
+        "background_records_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "primary_count": 2,
+        "background_count": 0,
+        "total_count": 2
+      },
+      "rejected_current_records": 0
+    },
+    {
+      "job_id": "L01-F",
+      "representative_job_id": "L01-B0",
+      "independent_model_run": false,
+      "status": "reused_not_independently_measured",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L01-B0/result.json",
+      "result_sha256": "fcb8d865cc1892a44e46083e269d2c6fb37915da4f13ac32f7a2a19617edc39a",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+        "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/parser-result.json",
+        "ir_sha256": "7c465f648693b331d57d3b1b8c908c66a7c39b9b6e0a83e7034281b9c317cd12",
+        "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json",
+        "figure_catalog_sha256": "6463b1a6e4079ee7309926463d529fdd43f333f5045bfcfcad690874e5ba267b"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/manifest.json",
+        "manifest_sha256": "2f1c720acf46e9dbc2af0af000b8c03936877895bf1a7d2426091b8a5a33f6c3",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/delivery.json",
+        "delivery_sha256": "cbb6014909dfe045d370c05b823678cf43236b856817018a21f909f26d7c8d21",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/records.jsonl",
+        "records_sha256": "f8a581a10194b21cd4d0bed758b0a531731fea081ae31e55f0cf95f1c44693e7",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L01-B0-candidates/background-records.jsonl",
+        "background_records_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "primary_count": 2,
+        "background_count": 0,
+        "total_count": 2
+      },
+      "rejected_current_records": 0
+    },
+    {
+      "job_id": "L05-B0",
+      "representative_job_id": "L05-B0",
+      "independent_model_run": true,
+      "status": "task_complete_unapproved",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-B0/result.json",
+      "result_sha256": "376bb538d31d1e2d392ac43ac9c292cea2d4e6b405860ae4409790ff66f3f9c1",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+        "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/parser-result.json",
+        "ir_sha256": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json",
+        "figure_catalog_sha256": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-B0-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-B0-candidates/manifest.json",
+        "manifest_sha256": "f112eb4b27332a145e32e540a8b0120456a5d7146ee91fa8d4436b66c167de05",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-B0-candidates/delivery.json",
+        "delivery_sha256": "b38bd3b721276fc37b8a0a236649d0176801ffe9c829a41d58fba9a15867ee22",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-B0-candidates/records.jsonl",
+        "records_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-B0-candidates/background-records.jsonl",
+        "background_records_sha256": "6b5591aa6d6115b83f5639e4be38ca4f468bd9f88059171dd0dfff84244b3ccc",
+        "primary_count": 0,
+        "background_count": 1,
+        "total_count": 1
+      },
+      "rejected_current_records": 0
+    },
+    {
+      "job_id": "L05-F",
+      "representative_job_id": "L05-F",
+      "independent_model_run": true,
+      "status": "task_complete_unapproved",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-F/result.json",
+      "result_sha256": "2d41cc6c79ef946049fa8c1a868c1bf8e198f4325a6143ad025c9b2cb25f344a",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+        "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/parser-result.json",
+        "ir_sha256": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json",
+        "figure_catalog_sha256": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-F-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-F-candidates/manifest.json",
+        "manifest_sha256": "a0354067b595167dbea5b24ba2030a758426bb88807e9e78f2473b3a4d576435",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-F-candidates/delivery.json",
+        "delivery_sha256": "0c207025ff38a7c6256af1fb0e9a76f5812ee7185762865150eb535966c5455d",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-F-candidates/records.jsonl",
+        "records_sha256": "77303bbc4d8238814a16fa50b80823a9ede79cc1a8705f7a863143cc770faef4",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L05-F-candidates/background-records.jsonl",
+        "background_records_sha256": "5a8b6a5aede4e0eb0c67e9d116abdf5a640302ce5ae386d2a513a6941670db4e",
+        "primary_count": 1,
+        "background_count": 1,
+        "total_count": 2
+      },
+      "rejected_current_records": 0
+    },
+    {
+      "job_id": "L07-B0",
+      "representative_job_id": "L07-B0",
+      "independent_model_run": true,
+      "status": "task_complete_unapproved",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-B0/result.json",
+      "result_sha256": "90e35c4f8137062bded42187bd4038f8295e1eb1c02a86173274acca004fd985",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L07.pdf",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/parser-result.json",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json",
+        "figure_catalog_sha256": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-B0-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-B0-candidates/manifest.json",
+        "manifest_sha256": "240e52352f3cc373a93e770114089b316110ca445d17174a6b0cf47c9f67f744",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-B0-candidates/delivery.json",
+        "delivery_sha256": "a9b5f92c344506a2c6158950075e49bc946740d2d84840670c7951fc00da545f",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-B0-candidates/records.jsonl",
+        "records_sha256": "19927cda9d1ef8cca2ded5e736db927a4e758325fdb0a66b59f9ccf328f18973",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-B0-candidates/background-records.jsonl",
+        "background_records_sha256": "abb0ff425253db2690bb7641f599a0e4c5ecabbed9b915e46a5adbaeab68f695",
+        "primary_count": 29,
+        "background_count": 6,
+        "total_count": 35
+      },
+      "rejected_current_records": 0
+    },
+    {
+      "job_id": "L07-F",
+      "representative_job_id": "L07-F",
+      "independent_model_run": true,
+      "status": "task_complete_unapproved",
+      "state": "partial",
+      "started": true,
+      "task_processing_complete": true,
+      "result_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-F/result.json",
+      "result_sha256": "aea9cbae939b26aacb201d9d28ff62939d4378f20735a838535cbd063aa30d85",
+      "source_binding": {
+        "pdf_path": "evaluation/corpus/development-candidates/L07.pdf",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/parser-result.json",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "figure_catalog_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json",
+        "figure_catalog_sha256": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900"
+      },
+      "candidate_export": {
+        "directory": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-F-candidates",
+        "manifest_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-F-candidates/manifest.json",
+        "manifest_sha256": "98f896b3a63e8cf46023099f0d61f23a28bf9bd11b38e77bce3a77a905704c82",
+        "delivery_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-F-candidates/delivery.json",
+        "delivery_sha256": "a3e82f844f078f30a815a0bda7cc8deba21473e83e0c6d40b19537ce4482bdf5",
+        "records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-F-candidates/records.jsonl",
+        "records_sha256": "62cf9e4986f5e04c3cc647a054d3ace160fa2d726bfb5ef1a62b123f150bf37c",
+        "background_records_path": "docs/acceptance/output-feedback-2026-11-08/comparison/automatic-audit/L07-F-candidates/background-records.jsonl",
+        "background_records_sha256": "352efc1d3f0d6ea9199fb607c243f2381c2a52cb19c2109eef93aaeedece8987",
+        "primary_count": 25,
+        "background_count": 3,
+        "total_count": 28
+      },
+      "rejected_current_records": 0
+    }
+  ],
+  "rejected_views_path": "docs/acceptance/output-feedback-2026-11-08/comparison/rejected-views.json",
+  "rejected_views_sha256": "db24c4354daacfa9d8b6e34e5fba1bb2573ad3aee28c3a35f81f834e92488d6c",
+  "total_current_records": 68,
+  "primary_candidate_records": 57,
+  "background_suggestions": 11,
+  "rejected_current_records": 0,
+  "count_basis": "independent_representative_runs_only_L01_F_reused_not_counted_twice; total = primary + background + rejected; counts are versioned records, not unique source occurrences",
+  "directed_review_risks": [
+    {
+      "job_id": "L05-B0",
+      "record_id": "ev-8cfc75a484b70c0b9888bf75fffd0f1c617396ec",
+      "record_version": 4,
+      "effective_role": "background_suggestion",
+      "reason": "AAH direct lesion-size sentence routed to background; applicability needs review."
+    },
+    {
+      "job_id": "L05-F",
+      "record_id": "ev-925568fcfa2297eb2c522569c3b1dcfbe19f78ab",
+      "record_version": 4,
+      "effective_role": "primary_candidate",
+      "reason": "Exact AAH source sentence is main here but background in B0; single run does not establish cause or winner."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-6c67cca495c25950dca1d7044dfe0e5af3589fa7",
+      "record_version": 2,
+      "effective_role": "background_suggestion",
+      "reason": "Contains concrete comet-tail/shape appearance yet routed to background; possible excessive routing."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-fdebff6d6def01524d60030a58fd01193fd89f36",
+      "record_version": 2,
+      "effective_role": "background_suggestion",
+      "reason": "Contains irregular borders/heterogeneous signal/round shape yet routed to background; possible excessive routing."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-a4e4dde2f598b35c0d6b18b65da1c8392613eaff",
+      "record_version": 2,
+      "effective_role": "primary_candidate",
+      "reason": "Exact comet-tail source sentence is main here but background in B0; role disagreement needs review."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-f63ec103820bce04a4da829982873a85957c85ec",
+      "record_version": 2,
+      "effective_role": "primary_candidate",
+      "reason": "Full appearance/necessary conditional and negative clause retained, with explicit Fig.2; image content unverified."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+      "record_version": 4,
+      "effective_role": "primary_candidate",
+      "reason": "Same exact source spans as fc01; attribution differs and one possible_conflict link exists. Possible duplicate/provenance issue."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+      "record_version": 3,
+      "effective_role": "primary_candidate",
+      "reason": "Same exact source spans/context/figure reference as a8bb, with study_authors versus cited_research attribution. Preserve both pending review."
+    }
+  ],
+  "primary_assessment_policy_version": "model-primary-assessment-1",
+  "questionnaire_version": "current-output-ordinary-screening-2",
+  "old_feedback_inherited_as_current_approval": false,
+  "actual_human_reviews": 0,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "winner": null,
+  "no_more_paid_calls": true
+}

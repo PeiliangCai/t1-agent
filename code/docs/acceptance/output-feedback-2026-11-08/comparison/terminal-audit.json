@@ -1,0 +1,3271 @@
+{
+  "schema_version": "current-output-terminal-audit-1",
+  "recorded_at": "2026-11-08T07:28:46.359119+00:00",
+  "paid_calls_by_audit": 0,
+  "formal_reviews_used": 3,
+  "new_formal_reviews": 0,
+  "plan_path": "docs/acceptance/output-feedback-2026-11-08/comparison/plan.json",
+  "plan_sha256": "7b948130b139fe283284fe8e83dc19a0e32c69ece93cc1f47bc80802214f2b59",
+  "execution_report_path": "docs/acceptance/output-feedback-2026-11-08/comparison/execution/report.json",
+  "execution_report_sha256": "c6c2aa38df93d20fa8c4138be95a3bed93c415977e37bf78e81bafcb40b398da",
+  "ledger_path": "runtime-data/s4-budget-owners/ad8834a7eea34a0e5cf57216fbe33fe67a77a97604ab42536e036a77e5c46cbd/call-ledger.json",
+  "ledger_sha256": "c7b54c5a1ff521b35fe9824c04b15acd6bbfec8204cff5fd281cfb8bba22a33e",
+  "ledger_totals": {
+    "requests": 143,
+    "input_tokens": 2313966,
+    "output_tokens": 98374,
+    "cache_read_tokens_included_in_input": 436658,
+    "reasoning_tokens_already_in_output": 73619,
+    "missing_usage_requests": 0,
+    "elapsed_seconds": 2880.11,
+    "actual_monetary_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "physical_runs": 5,
+  "logical_jobs": 6,
+  "L01_F_reused_not_independent": true,
+  "first_actual_request_at": "2026-11-08T06:31:18.575Z",
+  "hard_cutoff_at": "2026-11-08T07:31:18.575000Z",
+  "limits": {
+    "requests": 224,
+    "input_tokens": 4000000,
+    "output_tokens": 240000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "remaining_requests_not_permission": 81,
+  "closed_no_more_model_calls": true,
+  "halted": null,
+  "supervisors_ended_without_trigger": true,
+  "supervision_record_path": "docs/acceptance/output-feedback-2026-11-08/comparison/supervisor.json",
+  "supervision_record_sha256": "fa9443bfe0df68fd324d19df7b5fe44fd9cb0a742025e735b95a642e34207090",
+  "total_current_records": 68,
+  "primary_candidate_records": 57,
+  "background_suggestions": 11,
+  "rejected_current_records": 0,
+  "assessment_coverage": {
+    "assessed_current_records": 68,
+    "total_current_records": 68,
+    "policy": "model-primary-assessment-1",
+    "medical_approval": false
+  },
+  "jobs": [
+    {
+      "job_id": "L01-B0",
+      "run_id": "comparison-3972b71e-a9ab-4ec1-ba37-9080fb87fadc:source-L01:input-13e7770ef991",
+      "task_processing_complete": true,
+      "raw_state": "partial",
+      "raw_partial_is_not_selected_task_failure": true,
+      "primary_count": 2,
+      "background_count": 0,
+      "rejected_current_count": 0,
+      "current_records": 2,
+      "distinct_exact_original_fragment_sets": 2,
+      "duplicate_fragment_sets": [],
+      "assessment_coverage_count": 2,
+      "assessment_values": {
+        "visual_evidence_suggested": 2
+      },
+      "figure_association_states": {
+        "no_explicit_reference": 1,
+        "pending": 1
+      },
+      "actual_requests": 18,
+      "summary_stage_requests": 10,
+      "extraction_stage_requests": 8,
+      "summary_stage_input_tokens": 120633,
+      "summary_stage_output_tokens": 3756,
+      "summary_stage_HTTP_seconds": 161.919,
+      "actual_input_tokens": 216626,
+      "actual_output_tokens": 6107,
+      "elapsed_seconds": 266.916511248,
+      "first_candidate_seconds": 89.741,
+      "recoverable_feedback": {
+        "candidate_rejected_input_record_attempts": 0,
+        "candidate_issue_code_occurrences": {},
+        "candidate_reject_severity_code_occurrences": {},
+        "tool_protocol_rejected_calls": 0,
+        "tool_protocol_error_codes": {},
+        "protocol_correction_notifications": 0,
+        "protocol_correction_codes": {},
+        "incomplete_summary_submissions": 2,
+        "summary_completion_blocker_occurrences": {
+          "summary_requires_all_candidate_context_read": 2,
+          "primary_assessment_coverage_incomplete": 2
+        },
+        "note": "Event layers listed separately; notifications can describe same call and are not extra HTTP requests. Candidate rejections are recoverable attempts, not current delivery rejection. Summary context/assessment corrections occur in the existing single summary session; no extra semantic LLM round was added."
+      },
+      "summary_session_attempts": 1,
+      "final_summary": "已审阅当前记录版本6与4的完整候选原文、上下文及谓语。版本6为CT血管征的完整形态定义：说明肺肿瘤生长活跃时血运丰富，周围大小血管增多、迂曲、扩张、增粗，供血血管受压并出现局部切迹，标注引文[22]；属于视觉证据，不是独立临床关联。其定义出处及供血血管指代语境仍需注意，故保留coreference问题。版本4为图注完整观察，分别描述肺窗和纵隔窗下肺血管与肺结节相连，以及冠状位最大密度投影上多发肺血管指向结节、末端增粗并呈抱球样改变；图题只作为图注上下文，未将不确定的原生图像关联视为已验证。两条描述不同，非重复或直接冲突，可作为定义和观察的可能上下文关联；两条均给出未批准的视觉证据判断。",
+      "coverage": {
+        "task_processing_complete": true,
+        "task_scope_source_block_processing_complete": true,
+        "full_source_block_processing_complete": null,
+        "full_document_extraction_completed": false,
+        "f_unselected_source_block_ids": [],
+        "parser_status": "partial",
+        "image_text_unverified_pages": [
+          2
+        ]
+      }
+    },
+    {
+      "job_id": "L05-B0",
+      "run_id": "comparison-3972b71e-a9ab-4ec1-ba37-9080fb87fadc:source-L05:input-50486dda5162",
+      "task_processing_complete": true,
+      "raw_state": "partial",
+      "raw_partial_is_not_selected_task_failure": true,
+      "primary_count": 0,
+      "background_count": 1,
+      "rejected_current_count": 0,
+      "current_records": 1,
+      "distinct_exact_original_fragment_sets": 1,
+      "duplicate_fragment_sets": [],
+      "assessment_coverage_count": 1,
+      "assessment_values": {
+        "context_only_suggested": 1
+      },
+      "figure_association_states": {
+        "no_explicit_reference": 1
+      },
+      "actual_requests": 21,
+      "summary_stage_requests": 7,
+      "extraction_stage_requests": 14,
+      "summary_stage_input_tokens": 72717,
+      "summary_stage_output_tokens": 1741,
+      "summary_stage_HTTP_seconds": 94.388,
+      "actual_input_tokens": 231280,
+      "actual_output_tokens": 4545,
+      "elapsed_seconds": 318.97075477900006,
+      "first_candidate_seconds": 31.892,
+      "recoverable_feedback": {
+        "candidate_rejected_input_record_attempts": 1,
+        "candidate_issue_code_occurrences": {
+          "disease_or_lesion_not_grounded_in_source": 1,
+          "visual_description_semantics_unverified": 1,
+          "feature_name_not_in_evidence": 1,
+          "condition_requires_context": 1,
+          "coreference_requires_context": 1
+        },
+        "candidate_reject_severity_code_occurrences": {
+          "feature_name_not_in_evidence": 1
+        },
+        "tool_protocol_rejected_calls": 0,
+        "tool_protocol_error_codes": {},
+        "protocol_correction_notifications": 0,
+        "protocol_correction_codes": {},
+        "incomplete_summary_submissions": 1,
+        "summary_completion_blocker_occurrences": {
+          "summary_requires_all_candidate_context_read": 1,
+          "primary_assessment_coverage_incomplete": 1
+        },
+        "note": "Event layers listed separately; notifications can describe same call and are not extra HTTP requests. Candidate rejections are recoverable attempts, not current delivery rejection. Summary context/assessment corrections occur in the existing single summary session; no extra semantic LLM round was added."
+      },
+      "summary_session_attempts": 1,
+      "final_summary": "候选完整句已按原文阅读并评估：其谓词是基于 IASLC/ATS/ERS 2011 分类，将 AAH 与 AIS、MIA、IAC 区分，并称其对应 squamous dysplasia，通常小于 5 mm，出处标为 [7]。此处尺寸是一般的病理分类/诊断阈值，而非肿瘤或结节在影像上的外观或观测尺寸；整句仅建议作为背景，不能作为独立视觉描述。本文本批只有该记录，没有发现同篇重复或冲突；无审计案例。",
+      "coverage": {
+        "task_processing_complete": true,
+        "task_scope_source_block_processing_complete": true,
+        "full_source_block_processing_complete": null,
+        "full_document_extraction_completed": false,
+        "f_unselected_source_block_ids": [],
+        "parser_status": "partial",
+        "image_text_unverified_pages": [
+          1,
+          4,
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "job_id": "L05-F",
+      "run_id": "comparison-3972b71e-a9ab-4ec1-ba37-9080fb87fadc:source-L05:input-561d510314f7",
+      "task_processing_complete": true,
+      "raw_state": "partial",
+      "raw_partial_is_not_selected_task_failure": true,
+      "primary_count": 1,
+      "background_count": 1,
+      "rejected_current_count": 0,
+      "current_records": 2,
+      "distinct_exact_original_fragment_sets": 2,
+      "duplicate_fragment_sets": [],
+      "assessment_coverage_count": 2,
+      "assessment_values": {
+        "visual_evidence_suggested": 1,
+        "context_only_suggested": 1
+      },
+      "figure_association_states": {
+        "no_explicit_reference": 2
+      },
+      "actual_requests": 22,
+      "summary_stage_requests": 6,
+      "extraction_stage_requests": 16,
+      "summary_stage_input_tokens": 65685,
+      "summary_stage_output_tokens": 2553,
+      "summary_stage_HTTP_seconds": 88.114,
+      "actual_input_tokens": 249497,
+      "actual_output_tokens": 7998,
+      "elapsed_seconds": 338.729140748,
+      "first_candidate_seconds": 31.555,
+      "recoverable_feedback": {
+        "candidate_rejected_input_record_attempts": 2,
+        "candidate_issue_code_occurrences": {
+          "incomplete_source_statement": 1,
+          "visual_description_semantics_unverified": 2,
+          "feature_name_not_in_evidence": 2,
+          "condition_requires_context": 2,
+          "coreference_requires_context": 2,
+          "numeric_expression_missing": 2
+        },
+        "candidate_reject_severity_code_occurrences": {
+          "incomplete_source_statement": 1,
+          "feature_name_not_in_evidence": 2
+        },
+        "tool_protocol_rejected_calls": 0,
+        "tool_protocol_error_codes": {},
+        "protocol_correction_notifications": 0,
+        "protocol_correction_codes": {},
+        "incomplete_summary_submissions": 1,
+        "summary_completion_blocker_occurrences": {
+          "summary_requires_all_candidate_context_read": 1,
+          "primary_assessment_coverage_incomplete": 1
+        },
+        "note": "Event layers listed separately; notifications can describe same call and are not extra HTTP requests. Candidate rejections are recoverable attempts, not current delivery rejection. Summary context/assessment corrections occur in the existing single summary session; no extra semantic LLM round was added."
+      },
+      "summary_session_attempts": 1,
+      "final_summary": "已依据当前版本复核两条候选原文及谓语含义。第一条引用2011分类标准说明AAH通常小于5 mm，虽含分类背景，仍含有具体病变尺寸描述；归因于[7]，不推断影像模态。第二条描述IAC患者中结节≤12.6 mm且CTR≤0.5者可能在FS诊断中被低估，并推测小实性成分可能在病理切片时漏检；整体是诊断误差关联及可能解释，不是实际影像观察。无同篇重复、冲突或语境链接可确定。无审计案例。",
+      "coverage": {
+        "task_processing_complete": true,
+        "task_scope_source_block_processing_complete": false,
+        "full_source_block_processing_complete": null,
+        "full_document_extraction_completed": false,
+        "f_unselected_source_block_ids": [
+          "95dde964ad802d61602a-p0001-l000035",
+          "95dde964ad802d61602a-p0002-l000028",
+          "95dde964ad802d61602a-p0002-l000029",
+          "95dde964ad802d61602a-p0008-l000013",
+          "95dde964ad802d61602a-p0008-l000014",
+          "95dde964ad802d61602a-p0009-l000005",
+          "95dde964ad802d61602a-p0009-l000006",
+          "95dde964ad802d61602a-p0009-l000007",
+          "95dde964ad802d61602a-p0009-l000008",
+          "95dde964ad802d61602a-p0009-l000009",
+          "95dde964ad802d61602a-p0009-l000010",
+          "95dde964ad802d61602a-p0009-l000011",
+          "95dde964ad802d61602a-p0009-l000012",
+          "95dde964ad802d61602a-p0009-l000013",
+          "95dde964ad802d61602a-p0009-l000015",
+          "95dde964ad802d61602a-p0009-l000016",
+          "95dde964ad802d61602a-p0009-l000017",
+          "95dde964ad802d61602a-p0009-l000018",
+          "95dde964ad802d61602a-p0009-l000019",
+          "95dde964ad802d61602a-p0010-l000066"
+        ],
+        "parser_status": "partial",
+        "image_text_unverified_pages": [
+          1,
+          4,
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    {
+      "job_id": "L07-B0",
+      "run_id": "comparison-3972b71e-a9ab-4ec1-ba37-9080fb87fadc:source-L07:input-b639f4a01e41",
+      "task_processing_complete": true,
+      "raw_state": "partial",
+      "raw_partial_is_not_selected_task_failure": true,
+      "primary_count": 29,
+      "background_count": 6,
+      "rejected_current_count": 0,
+      "current_records": 35,
+      "distinct_exact_original_fragment_sets": 34,
+      "duplicate_fragment_sets": [
+        [
+          "ev-95bad412ee4bf8ba86160321ddd49cbffa45392d",
+          "ev-95bad412ee4bf8ba86160321ddd49cbffa45392d-6e59670944b6"
+        ]
+      ],
+      "assessment_coverage_count": 35,
+      "assessment_values": {
+        "visual_evidence_suggested": 26,
+        "mixed_or_needs_context": 3,
+        "context_only_suggested": 6
+      },
+      "figure_association_states": {
+        "no_explicit_reference": 22,
+        "paired": 4,
+        "pending": 9
+      },
+      "actual_requests": 43,
+      "summary_stage_requests": 8,
+      "extraction_stage_requests": 35,
+      "summary_stage_input_tokens": 411182,
+      "summary_stage_output_tokens": 12653,
+      "summary_stage_HTTP_seconds": 294.609,
+      "actual_input_tokens": 880655,
+      "actual_output_tokens": 44373,
+      "elapsed_seconds": 965.8555377739999,
+      "first_candidate_seconds": 126.187,
+      "recoverable_feedback": {
+        "candidate_rejected_input_record_attempts": 10,
+        "candidate_issue_code_occurrences": {
+          "disease_or_lesion_not_grounded_in_source": 1,
+          "incomplete_source_statement": 3,
+          "source_statement_boundary_requires_review": 3,
+          "visual_description_semantics_unverified": 10,
+          "feature_name_not_in_evidence": 7,
+          "coreference_requires_context": 4,
+          "cited_reference_not_in_provenance_evidence": 3,
+          "numeric_expression_missing": 5,
+          "incomplete_context_statement": 1,
+          "negation_cue_not_in_assertion_evidence": 1,
+          "assertion_negation_mismatch": 2,
+          "assertion_uncertainty_mismatch": 1,
+          "numeric_original_not_literal": 1,
+          "condition_requires_context": 3,
+          "source_qualifier_or_number_omitted": 1,
+          "visual_statement_purpose_requires_review": 1
+        },
+        "candidate_reject_severity_code_occurrences": {
+          "incomplete_source_statement": 3,
+          "feature_name_not_in_evidence": 7,
+          "incomplete_context_statement": 1,
+          "numeric_original_not_literal": 1,
+          "source_qualifier_or_number_omitted": 1
+        },
+        "tool_protocol_rejected_calls": 0,
+        "tool_protocol_error_codes": {},
+        "protocol_correction_notifications": 0,
+        "protocol_correction_codes": {},
+        "incomplete_summary_submissions": 1,
+        "summary_completion_blocker_occurrences": {
+          "summary_requires_all_candidate_context_read": 1,
+          "primary_assessment_coverage_incomplete": 1
+        },
+        "note": "Event layers listed separately; notifications can describe same call and are not extra HTTP requests. Candidate rejections are recoverable attempts, not current delivery rejection. Summary context/assessment corrections occur in the existing single summary session; no extra semantic LLM round was added."
+      },
+      "summary_session_attempts": 1,
+      "final_summary": "全文核对的候选语义建议均保持未批准。具象形态定义/观察及完整图注仍可作为视觉证据；保留原句主语、限定词、测量、否定和条件。T4a/MRI句描述腹膜 altered signal、thickening 或 nodularity，并明确与单纯 tumor abutment 相区别（Fig. 2），属于条件性视觉描述；Fig. 2图注关于单纯abutment不应视为腹膜侵犯的结论不单独构成外观描述。Fig. 2 A/B及Fig. 3各面板为不同情形，不混并。淋巴结包膜与复发的关联、分期标准/特征列表、解剖淋巴结映射和单独临床管理结论属于背景；纯解剖范围定义不单列。iCR候选原文行与相邻内容的单位边界仍需谨慎，按视觉定义建议并与另一相似记录标为可能重复，不判定为同句或冲突。Fig. 3 C候选与关联记录内容相同，保留独立记录并只建议可能重复。图号、面板及来源顺序仍是未核实的来源提示；未授予医学/人工批准。",
+      "coverage": {
+        "task_processing_complete": true,
+        "task_scope_source_block_processing_complete": true,
+        "full_source_block_processing_complete": null,
+        "full_document_extraction_completed": false,
+        "f_unselected_source_block_ids": [],
+        "parser_status": "partial",
+        "image_text_unverified_pages": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "job_id": "L07-F",
+      "run_id": "comparison-3972b71e-a9ab-4ec1-ba37-9080fb87fadc:source-L07:input-206d427aeb64",
+      "task_processing_complete": true,
+      "raw_state": "partial",
+      "raw_partial_is_not_selected_task_failure": true,
+      "primary_count": 25,
+      "background_count": 3,
+      "rejected_current_count": 0,
+      "current_records": 28,
+      "distinct_exact_original_fragment_sets": 23,
+      "duplicate_fragment_sets": [
+        [
+          "ev-1e5d36b4e2a1dd4fb3734c93c23507f3b2ad0659",
+          "ev-e96abf5dc99f24a0e532543199267d5497a7640a"
+        ],
+        [
+          "ev-5ba70d0bf14a1b9800a066898cc96e08d5933e58",
+          "ev-80efd5ebe4f57382bb7902f669eefa860935d464"
+        ],
+        [
+          "ev-99eefcb3a3fbc5f5c315b63865cde02ab40cc88c",
+          "ev-99eefcb3a3fbc5f5c315b63865cde02ab40cc88c-1ba2e56af8a9"
+        ],
+        [
+          "ev-9c35dd348d7d15809bf89708d955c6aee1346cdd",
+          "ev-adda8069e1d029dd8bc599bea2f9a212b4a8aae5"
+        ],
+        [
+          "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+          "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92"
+        ]
+      ],
+      "assessment_coverage_count": 28,
+      "assessment_values": {
+        "visual_evidence_suggested": 21,
+        "mixed_or_needs_context": 4,
+        "context_only_suggested": 3
+      },
+      "figure_association_states": {
+        "paired": 4,
+        "no_explicit_reference": 16,
+        "pending": 8
+      },
+      "actual_requests": 39,
+      "summary_stage_requests": 7,
+      "extraction_stage_requests": 32,
+      "summary_stage_input_tokens": 309512,
+      "summary_stage_output_tokens": 11846,
+      "summary_stage_HTTP_seconds": 218.024,
+      "actual_input_tokens": 735908,
+      "actual_output_tokens": 35351,
+      "elapsed_seconds": 988.6036706700002,
+      "first_candidate_seconds": 207.56,
+      "recoverable_feedback": {
+        "candidate_rejected_input_record_attempts": 11,
+        "candidate_issue_code_occurrences": {
+          "incomplete_source_statement": 3,
+          "incomplete_context_statement": 3,
+          "visual_description_semantics_unverified": 11,
+          "assertion_negation_mismatch": 4,
+          "numeric_expression_missing": 6,
+          "negation_cue_not_in_assertion_evidence": 1,
+          "source_statement_boundary_requires_review": 1,
+          "feature_name_not_in_evidence": 6,
+          "coreference_requires_context": 2,
+          "cited_reference_not_in_provenance_evidence": 3,
+          "disease_or_lesion_not_grounded_in_source": 3,
+          "numeric_original_not_literal": 2,
+          "condition_requires_context": 2,
+          "visual_statement_purpose_requires_review": 1
+        },
+        "candidate_reject_severity_code_occurrences": {
+          "incomplete_source_statement": 3,
+          "incomplete_context_statement": 3,
+          "feature_name_not_in_evidence": 6,
+          "numeric_original_not_literal": 2
+        },
+        "tool_protocol_rejected_calls": 3,
+        "tool_protocol_error_codes": {
+          "source_unit_not_available": 3
+        },
+        "protocol_correction_notifications": 4,
+        "protocol_correction_codes": {
+          "source_unit_not_available": 3,
+          "schema_validation_failed": 1
+        },
+        "incomplete_summary_submissions": 1,
+        "summary_completion_blocker_occurrences": {
+          "summary_requires_all_candidate_context_read": 1,
+          "primary_assessment_coverage_incomplete": 1
+        },
+        "note": "Event layers listed separately; notifications can describe same call and are not extra HTTP requests. Candidate rejections are recoverable attempts, not current delivery rejection. Summary context/assessment corrections occur in the existing single summary session; no extra semantic LLM round was added."
+      },
+      "summary_session_attempts": 1,
+      "final_summary": "已重读候选所需的原文行并核对完整句及必要语境；对当前28个版本逐一评估，均为未批准模型建议，无医学/人工批准。视觉证据建议：1e5d、2b2b、34ee（需面板语境）、4cf（条件及指代待解）、5ba、77a、7c、80efd、8e、99eef、99eef-1ba、9bd、9c35、a4e4（引述既往研究）、a8bb、adda、bbda、c76（图注视觉部分与后续临床语句不可混并）、caf6（保留may）、d75fc（组织层信号定义）、e96ab、ea1e（保留tumor abutting的具体外观及诊断限制）、f1c657、fc01。背景建议：2db（MRF距离分类阈值）、8a1d（解剖标志）、9e057（仅称SES示例）。a0f0描述淋巴结扩散受限消失并关联治疗反应，作为混合/需语境处理，不因其关联句式删去外观。可能重复：5ba70↔80efd、99eef↔99eef-1ba、9c35↔adda、1e5d↔e96ab。a8bb与fc01同文但来源归属不同，分别保留并标记可能冲突。Fig. 2图注包含Illustration A/B、MRI C/D及邻接临床判断；未推断未明示的患者、图像或面板配对。仅保存复核与链接建议，本次无证据更新。",
+      "coverage": {
+        "task_processing_complete": true,
+        "task_scope_source_block_processing_complete": false,
+        "full_source_block_processing_complete": null,
+        "full_document_extraction_completed": false,
+        "f_unselected_source_block_ids": [
+          "e21bc46051b0ea3513d7-p0012-l000025",
+          "e21bc46051b0ea3513d7-p0012-l000026",
+          "e21bc46051b0ea3513d7-p0012-l000027",
+          "e21bc46051b0ea3513d7-p0012-l000028",
+          "e21bc46051b0ea3513d7-p0012-l000029",
+          "e21bc46051b0ea3513d7-p0012-l000030",
+          "e21bc46051b0ea3513d7-p0012-l000031",
+          "e21bc46051b0ea3513d7-p0012-l000032",
+          "e21bc46051b0ea3513d7-p0012-l000033",
+          "e21bc46051b0ea3513d7-p0012-l000034",
+          "e21bc46051b0ea3513d7-p0012-l000035",
+          "e21bc46051b0ea3513d7-p0012-l000036",
+          "e21bc46051b0ea3513d7-p0012-l000037",
+          "e21bc46051b0ea3513d7-p0012-l000038",
+          "e21bc46051b0ea3513d7-p0012-l000039",
+          "e21bc46051b0ea3513d7-p0012-l000040",
+          "e21bc46051b0ea3513d7-p0012-l000042"
+        ],
+        "parser_status": "partial",
+        "image_text_unverified_pages": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    }
+  ],
+  "cross_method_exact_span_role_disagreements": [
+    {
+      "document_id": "L05",
+      "left_job": "L05-B0",
+      "left_record_id": "ev-8cfc75a484b70c0b9888bf75fffd0f1c617396ec",
+      "left_version": 4,
+      "left_role": "background_suggestion",
+      "right_job": "L05-F",
+      "right_record_id": "ev-925568fcfa2297eb2c522569c3b1dcfbe19f78ab",
+      "right_version": 4,
+      "right_role": "primary_candidate",
+      "original_quote": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7]."
+    },
+    {
+      "document_id": "L07",
+      "left_job": "L07-B0",
+      "left_record_id": "ev-8628592266b71483bbb2969ab87fc7e8bb99ed0a",
+      "left_version": 2,
+      "left_role": "primary_candidate",
+      "right_job": "L07-F",
+      "right_record_id": "ev-8a1d29282721b8e3b8acbfd2e1a512e134a6a366",
+      "right_version": 3,
+      "right_role": "background_suggestion",
+      "original_quote": "Sigmoid take-off An anatomic landmark of the rectosig-\nmoid junction, it is seen as the part of the colon that turns\naway from the sacrum and extends anteriorly, usually a\nfew centimeters above the anterior peritoneal reflection\n[52]."
+    },
+    {
+      "document_id": "L07",
+      "left_job": "L07-B0",
+      "left_record_id": "ev-b375761bd097a16028db6738ec8029900c2c19ca",
+      "left_version": 2,
+      "left_role": "primary_candidate",
+      "right_job": "L07-F",
+      "right_record_id": "ev-2db564759113b9cc21238525cdbbb544bf5ef37c",
+      "right_version": 3,
+      "right_role": "background_suggestion",
+      "original_quote": " As the MRF runs over the surface of the levator ani\ninferiorly, low rectal tumors contacting or located within\n1 mm of the MRF over the surface of the levator ani are\nconsidered MRF-involved tumors (Fig. 3)."
+    },
+    {
+      "document_id": "L07",
+      "left_job": "L07-B0",
+      "left_record_id": "ev-6c67cca495c25950dca1d7044dfe0e5af3589fa7",
+      "left_version": 2,
+      "left_role": "background_suggestion",
+      "right_job": "L07-F",
+      "right_record_id": "ev-a4e4dde2f598b35c0d6b18b65da1c8392613eaff",
+      "right_version": 2,
+      "right_role": "primary_candidate",
+      "original_quote": " Recent studies\nhave suggested that contiguity with vein on two orthogo-\nnal planes, tumor tissue tapering into the vein (comet\ntail appearance), and irregularity in shape are MRI fea-\ntures more indicative of tumor deposits rather than lymph\nnodes [30, 31]."
+    }
+  ],
+  "directed_review_risks": [
+    {
+      "job_id": "L05-B0",
+      "record_id": "ev-8cfc75a484b70c0b9888bf75fffd0f1c617396ec",
+      "record_version": 4,
+      "effective_role": "background_suggestion",
+      "source_record_sha256": "c7951ba2b6f943438453f79265456826e33892be5c47b7828ce825a805e006f8",
+      "delivery_fingerprint": "a4686b5613a697a34029d9d7c7d0edc77286671957a6a2f11d82747cb228d788",
+      "original_quote": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+      "original_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000006",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 96,
+          "end": 119,
+          "exact_quote": " According to the clas-",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098693000004,
+            70.884178711,
+            544.20611578064,
+            79.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000007",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 115,
+          "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            83.384178711,
+            544.07009866439,
+            91.89413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000008",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 81,
+          "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            95.884178711,
+            544.1960986910894,
+            104.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [
+            "[7]"
+          ],
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000006",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 96,
+              "end": 119,
+              "exact_quote": " According to the clas-",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098693000004,
+                70.884178711,
+                544.20611578064,
+                79.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000007",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 0,
+              "end": 115,
+              "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                83.384178711,
+                544.07009866439,
+                91.89413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000008",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 0,
+              "end": 81,
+              "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                95.884178711,
+                544.1960986910894,
+                104.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "no_explicit_reference",
+        "figure_ids": [],
+        "proposed_figure_ids": [],
+        "exact_markers": [],
+        "reasons": [
+          "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [],
+        "primary_assessment": "context_only_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [
+        {
+          "record_id": "ev-8cfc75a484b70c0b9888bf75fffd0f1c617396ec",
+          "relationship": "context_update"
+        }
+      ],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 15094,
+            "packet_JSON_bytes": 12524,
+            "all_candidate_count": 1,
+            "source_fragment_count": 3,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 15136,
+            "packet_JSON_bytes": 12566,
+            "all_candidate_count": 1,
+            "source_fragment_count": 3,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "AAH direct lesion-size sentence routed to background; applicability needs review."
+    },
+    {
+      "job_id": "L05-F",
+      "record_id": "ev-925568fcfa2297eb2c522569c3b1dcfbe19f78ab",
+      "record_version": 4,
+      "effective_role": "primary_candidate",
+      "source_record_sha256": "679f8f97f69d01678877f151343e65b7111e6a3553e2e754737ea7e16294bd22",
+      "delivery_fingerprint": "8e1b45935bcdee8ebc7bdae1ae3a9b557efb56088fe8f41c68fb7ebfc731d541",
+      "original_quote": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+      "original_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000006",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 96,
+          "end": 119,
+          "exact_quote": " According to the clas-",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098693000004,
+            70.884178711,
+            544.20611578064,
+            79.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000007",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 115,
+          "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            83.384178711,
+            544.07009866439,
+            91.89413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000008",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 81,
+          "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            95.884178711,
+            544.1960986910894,
+            104.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [
+            "[7]"
+          ],
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000006",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 96,
+              "end": 119,
+              "exact_quote": " According to the clas-",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098693000004,
+                70.884178711,
+                544.20611578064,
+                79.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000007",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 0,
+              "end": 115,
+              "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                83.384178711,
+                544.07009866439,
+                91.89413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000008",
+              "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+              "start": 0,
+              "end": 81,
+              "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.022098692999975,
+                95.884178711,
+                544.1960986910894,
+                104.39413669419332
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "no_explicit_reference",
+        "figure_ids": [],
+        "proposed_figure_ids": [],
+        "exact_markers": [],
+        "reasons": [
+          "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [],
+        "primary_assessment": "visual_evidence_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [
+        {
+          "record_id": "ev-925568fcfa2297eb2c522569c3b1dcfbe19f78ab",
+          "relationship": "context_update"
+        }
+      ],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 23576,
+            "packet_JSON_bytes": 16820,
+            "all_candidate_count": 2,
+            "source_fragment_count": 6,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 23080,
+            "packet_JSON_bytes": 16975,
+            "all_candidate_count": 2,
+            "source_fragment_count": 6,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Exact AAH source sentence is main here but background in B0; single run does not establish cause or winner."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-6c67cca495c25950dca1d7044dfe0e5af3589fa7",
+      "record_version": 2,
+      "effective_role": "background_suggestion",
+      "source_record_sha256": "f65157ceaf7b18d45a2292c6dd1b6323785f9dc243a38d5035388de2978f5de6",
+      "delivery_fingerprint": "3423d8e9e9763c18bea1e3757cb8a0247618e49506984e2a1290172eaa4d9b92",
+      "original_quote": " Recent studies\nhave suggested that contiguity with vein on two orthogo-\nnal planes, tumor tissue tapering into the vein (comet\ntail appearance), and irregularity in shape are MRI fea-\ntures more indicative of tumor deposits rather than lymph\nnodes [30, 31].",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000003",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 37,
+          "end": 52,
+          "exact_quote": " Recent studies",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.204696655,
+            482.66280908299996,
+            289.13369665499977,
+            492.42779442024334
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000004",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "have suggested that contiguity with vein on two orthogo-",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            495.16280908299996,
+            289.15169667026026,
+            504.92779442024334
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000005",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 54,
+          "exact_quote": "nal planes, tumor tissue tapering into the vein (comet",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            507.66280908299996,
+            289.2806966664497,
+            517.4277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000006",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "tail appearance), and irregularity in shape are MRI fea-",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            520.162809083,
+            289.1436966550003,
+            529.9277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000007",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 57,
+          "exact_quote": "tures more indicative of tumor deposits rather than lymph",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            532.662809083,
+            289.01469666262983,
+            542.4277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000008",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 15,
+          "exact_quote": "nodes [30, 31].",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            545.162809083,
+            124.64469665499998,
+            554.9277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [
+            "30",
+            "31"
+          ],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000003",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 37,
+              "end": 52,
+              "exact_quote": " Recent studies",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.204696655,
+                482.66280908299996,
+                289.13369665499977,
+                492.42779442024334
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000004",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 56,
+              "exact_quote": "have suggested that contiguity with vein on two orthogo-",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                495.16280908299996,
+                289.15169667026026,
+                504.92779442024334
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000005",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 54,
+              "exact_quote": "nal planes, tumor tissue tapering into the vein (comet",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                507.66280908299996,
+                289.2806966664497,
+                517.4277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000006",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 56,
+              "exact_quote": "tail appearance), and irregularity in shape are MRI fea-",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                520.162809083,
+                289.1436966550003,
+                529.9277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000007",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 57,
+              "exact_quote": "tures more indicative of tumor deposits rather than lymph",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                532.662809083,
+                289.01469666262983,
+                542.4277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000008",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 15,
+              "exact_quote": "nodes [30, 31].",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                545.162809083,
+                124.64469665499998,
+                554.9277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "no_explicit_reference",
+        "figure_ids": [],
+        "proposed_figure_ids": [],
+        "exact_markers": [],
+        "reasons": [
+          "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [
+          "feature_association_list_only"
+        ],
+        "primary_assessment": "context_only_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 247921,
+            "packet_JSON_bytes": 149648,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 254379,
+            "packet_JSON_bytes": 156106,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Contains concrete comet-tail/shape appearance yet routed to background; possible excessive routing."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-fdebff6d6def01524d60030a58fd01193fd89f36",
+      "record_version": 2,
+      "effective_role": "background_suggestion",
+      "source_record_sha256": "d3b2408efd0576e7369aba7ec7c6f0072cf1ae609a9cc5886c2f83f24d062477",
+      "delivery_fingerprint": "5b9264f2998d00781a4da857ba7e50ad5e13df84077173bb965f7674609322bf",
+      "original_quote": "Initial staging criteria for suspicious locoregional\nmesorectal, superior rectal, and inferior mesenteric\nlymph nodes The Dutch Criteria have been adopted\nby both the European Society of Gastrointestinal\nand Abdominal Radiology (ESGAR) and the SAR\nColorectal and Anal Cancer DFP; these criteria\ninclude the short-axis dimension and morphologic\ncharacteristics including irregular borders, hetero-\ngeneous signal intensity, and round shape [34, 39].",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000036",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 54,
+          "exact_quote": "Initial staging criteria for suspicious locoregional",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            322.141693115,
+            557.460003231884,
+            544.3346931188194,
+            566.6390890758703
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000037",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 52,
+          "exact_quote": "mesorectal, superior rectal, and inferior mesenteric",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            570.252793824,
+            544.241693115,
+            578.729665769259
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000038",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 48,
+          "exact_quote": "lymph nodes The Dutch Criteria have been adopted",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            582.662793824,
+            544.25169313408,
+            592.4277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000039",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 48,
+          "exact_quote": "by both the European Society of Gastrointestinal",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            595.162793824,
+            544.3666931302795,
+            604.9277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000040",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 43,
+          "exact_quote": "and Abdominal Radiology (ESGAR) and the SAR",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            607.662793824,
+            544.2816931188197,
+            617.4277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000041",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 46,
+          "exact_quote": "Colorectal and Anal Cancer DFP; these criteria",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            620.162793824,
+            544.2596931149991,
+            629.9277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000042",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 48,
+          "exact_quote": "include the short-axis dimension and morphologic",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            632.662793824,
+            544.4026931130899,
+            642.4277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000043",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 52,
+          "exact_quote": "characteristics including irregular borders, hetero-",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            645.162793824,
+            544.1716931169098,
+            654.9277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000044",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 51,
+          "exact_quote": "geneous signal intensity, and round shape [34, 39].",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            336.141693115,
+            657.662793824,
+            544.2566931150002,
+            667.4277791612434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000036",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 54,
+              "exact_quote": "Initial staging criteria for suspicious locoregional",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                322.141693115,
+                557.460003231884,
+                544.3346931188194,
+                566.6390890758703
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000037",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 52,
+              "exact_quote": "mesorectal, superior rectal, and inferior mesenteric",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                570.252793824,
+                544.241693115,
+                578.729665769259
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000038",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 48,
+              "exact_quote": "lymph nodes The Dutch Criteria have been adopted",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                582.662793824,
+                544.25169313408,
+                592.4277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000039",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 48,
+              "exact_quote": "by both the European Society of Gastrointestinal",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                595.162793824,
+                544.3666931302795,
+                604.9277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000040",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 43,
+              "exact_quote": "and Abdominal Radiology (ESGAR) and the SAR",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                607.662793824,
+                544.2816931188197,
+                617.4277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000041",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 46,
+              "exact_quote": "Colorectal and Anal Cancer DFP; these criteria",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                620.162793824,
+                544.2596931149991,
+                629.9277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000042",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 48,
+              "exact_quote": "include the short-axis dimension and morphologic",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                632.662793824,
+                544.4026931130899,
+                642.4277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000043",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 52,
+              "exact_quote": "characteristics including irregular borders, hetero-",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                645.162793824,
+                544.1716931169098,
+                654.9277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0006-l000044",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 51,
+              "exact_quote": "geneous signal intensity, and round shape [34, 39].",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                336.141693115,
+                657.662793824,
+                544.2566931150002,
+                667.4277791612434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "no_explicit_reference",
+        "figure_ids": [],
+        "proposed_figure_ids": [],
+        "exact_markers": [],
+        "reasons": [
+          "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [
+          "staging_criteria_feature_list"
+        ],
+        "primary_assessment": "context_only_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 247921,
+            "packet_JSON_bytes": 149648,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 254379,
+            "packet_JSON_bytes": 156106,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Contains irregular borders/heterogeneous signal/round shape yet routed to background; possible excessive routing."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-a4e4dde2f598b35c0d6b18b65da1c8392613eaff",
+      "record_version": 2,
+      "effective_role": "primary_candidate",
+      "source_record_sha256": "3425c4491626f937c19e51c5a3a8df5cfee6cbe89d7da33359b32f079eeae9a7",
+      "delivery_fingerprint": "5e3baa447b937e80ecec5f72f98682139c01f2f377ca3bb78a861d2896228135",
+      "original_quote": " Recent studies\nhave suggested that contiguity with vein on two orthogo-\nnal planes, tumor tissue tapering into the vein (comet\ntail appearance), and irregularity in shape are MRI fea-\ntures more indicative of tumor deposits rather than lymph\nnodes [30, 31].",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000003",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 37,
+          "end": 52,
+          "exact_quote": " Recent studies",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.204696655,
+            482.66280908299996,
+            289.13369665499977,
+            492.42779442024334
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000004",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "have suggested that contiguity with vein on two orthogo-",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            495.16280908299996,
+            289.15169667026026,
+            504.92779442024334
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000005",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 54,
+          "exact_quote": "nal planes, tumor tissue tapering into the vein (comet",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            507.66280908299996,
+            289.2806966664497,
+            517.4277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000006",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "tail appearance), and irregularity in shape are MRI fea-",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            520.162809083,
+            289.1436966550003,
+            529.9277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000007",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 57,
+          "exact_quote": "tures more indicative of tumor deposits rather than lymph",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            532.662809083,
+            289.01469666262983,
+            542.4277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000008",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 15,
+          "exact_quote": "nodes [30, 31].",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            64.20469665499999,
+            545.162809083,
+            124.64469665499998,
+            554.9277944202433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [
+            "[30, 31]"
+          ],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000003",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 37,
+              "end": 52,
+              "exact_quote": " Recent studies",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.204696655,
+                482.66280908299996,
+                289.13369665499977,
+                492.42779442024334
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000004",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 56,
+              "exact_quote": "have suggested that contiguity with vein on two orthogo-",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                495.16280908299996,
+                289.15169667026026,
+                504.92779442024334
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000005",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 54,
+              "exact_quote": "nal planes, tumor tissue tapering into the vein (comet",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                507.66280908299996,
+                289.2806966664497,
+                517.4277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000006",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 56,
+              "exact_quote": "tail appearance), and irregularity in shape are MRI fea-",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                520.162809083,
+                289.1436966550003,
+                529.9277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000007",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 57,
+              "exact_quote": "tures more indicative of tumor deposits rather than lymph",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                532.662809083,
+                289.01469666262983,
+                542.4277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0009-l000008",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 15,
+              "exact_quote": "nodes [30, 31].",
+              "occurrence": 0,
+              "physical_page": 9,
+              "bbox": [
+                64.20469665499999,
+                545.162809083,
+                124.64469665499998,
+                554.9277944202433
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "no_explicit_reference",
+        "figure_ids": [],
+        "proposed_figure_ids": [],
+        "exact_markers": [],
+        "reasons": [
+          "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [],
+        "primary_assessment": "visual_evidence_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 191368,
+            "packet_JSON_bytes": 115334,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 195985,
+            "packet_JSON_bytes": 119951,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Exact comet-tail source sentence is main here but background in B0; role disagreement needs review."
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-f63ec103820bce04a4da829982873a85957c85ec",
+      "record_version": 2,
+      "effective_role": "primary_candidate",
+      "source_record_sha256": "8fd1affc3dbf3281e6b365281dbd3cffd0fac0b86aa9ab57af1db4b4e110978e",
+      "delivery_fingerprint": "aef3a3cc3ed22f72bc65ec456590cecb149bc710c363de72505ecc26089ffef4",
+      "original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2).",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "study_authors",
+          "cited_references": [
+            "Fig. 2"
+          ],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 53,
+              "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                67.023597717,
+                641.212993954884,
+                289.0515977322603,
+                651.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                653.9158,
+                289.2465977169999,
+                663.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 53,
+              "exact_quote": "larity of the peritoneum, but not when there is abut-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                666.4158,
+                289.1525977131802,
+                676.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 41,
+              "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                678.9158,
+                249.63359420700004,
+                688.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "pending",
+        "figure_ids": [],
+        "proposed_figure_ids": [
+          "figure-d27c34012b81ea974679bc66"
+        ],
+        "exact_markers": [
+          {
+            "number": "2",
+            "panel": null,
+            "exact_marker": "Fig. 2",
+            "complex": false
+          }
+        ],
+        "reasons": [
+          "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [
+          "preserve_negation_but_not_abutment_and_Fig_2"
+        ],
+        "primary_assessment": "visual_evidence_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 247921,
+            "packet_JSON_bytes": 149648,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 254379,
+            "packet_JSON_bytes": 156106,
+            "all_candidate_count": 35,
+            "source_fragment_count": 133,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Full appearance/necessary conditional and negative clause retained, with explicit Fig.2; image content unverified."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+      "record_version": 4,
+      "effective_role": "primary_candidate",
+      "source_record_sha256": "1eeb41338ba2c78d62010cc546d2b13c16e70d3755ea497d6faeca5df836f91f",
+      "delivery_fingerprint": "148c76f8a97361d7322de86f4390f58eaae4b5dde127d8ac6a640261348e4fbb",
+      "original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2).",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "cited_research",
+          "cited_references": [
+            "Fig. 2"
+          ],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 53,
+              "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                67.023597717,
+                641.212993954884,
+                289.0515977322603,
+                651.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                653.9158,
+                289.2465977169999,
+                663.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 53,
+              "exact_quote": "larity of the peritoneum, but not when there is abut-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                666.4158,
+                289.1525977131802,
+                676.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 41,
+              "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                678.9158,
+                249.63359420700004,
+                688.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "pending",
+        "figure_ids": [],
+        "proposed_figure_ids": [
+          "figure-d27c34012b81ea974679bc66"
+        ],
+        "exact_markers": [
+          {
+            "number": "2",
+            "panel": null,
+            "exact_marker": "Fig. 2",
+            "complex": false
+          }
+        ],
+        "reasons": [
+          "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [
+          "same_wording_source_provenance_conflict"
+        ],
+        "primary_assessment": "visual_evidence_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [
+        {
+          "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+          "relationship": "possible_conflict"
+        }
+      ],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 191368,
+            "packet_JSON_bytes": 115334,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 195985,
+            "packet_JSON_bytes": 119951,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Same exact source spans as fc01; attribution differs and one possible_conflict link exists. Possible duplicate/provenance issue."
+    },
+    {
+      "job_id": "L07-F",
+      "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+      "record_version": 3,
+      "effective_role": "primary_candidate",
+      "source_record_sha256": "312b34b5ac501bcb0a8a05a932f374eeaa281276dd166488151d8dccd3d51375",
+      "delivery_fingerprint": "3a4f262727bb97bed826ba3b4b31041f6117c525ec2a1184616eccd88935ed77",
+      "original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2).",
+      "original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "context": {
+        "before": "",
+        "after": "",
+        "status": "needs_context",
+        "fragments": [],
+        "source_attribution": {
+          "origin": "study_authors",
+          "cited_references": [
+            "Fig. 2"
+          ],
+          "evidence": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 53,
+              "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                67.023597717,
+                641.212993954884,
+                289.0515977322603,
+                651.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                653.9158,
+                289.2465977169999,
+                663.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 53,
+              "exact_quote": "larity of the peritoneum, but not when there is abut-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                666.4158,
+                289.1525977131802,
+                676.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 41,
+              "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                678.9158,
+                249.63359420700004,
+                688.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "structure_references": [],
+        "article_scope_status": "within_provided_scope"
+      },
+      "figure_association": {
+        "status": "pending",
+        "figure_ids": [],
+        "proposed_figure_ids": [
+          "figure-d27c34012b81ea974679bc66"
+        ],
+        "exact_markers": [
+          {
+            "number": "2",
+            "panel": null,
+            "exact_marker": "Fig. 2",
+            "complex": false
+          }
+        ],
+        "reasons": [
+          "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+        ],
+        "no_figure_claimed": false,
+        "human_approved": false
+      },
+      "model_semantic_review": {
+        "status": "reviewed_unapproved",
+        "model_id": "gpt-6-luna",
+        "issue_codes": [
+          "same_wording_source_provenance_conflict"
+        ],
+        "primary_assessment": "visual_evidence_suggested",
+        "assessment_policy_version": "model-primary-assessment-1"
+      },
+      "duplicate_and_conflict_links": [],
+      "source_read_evidence": {
+        "all_original_and_context_blocks_in_read_receipt": true,
+        "summary_context_packets": [
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 191368,
+            "packet_JSON_bytes": 115334,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          },
+          {
+            "encoding": "s4-source-fragment-dictionary-1",
+            "original_JSON_bytes": 195985,
+            "packet_JSON_bytes": 119951,
+            "all_candidate_count": 28,
+            "source_fragment_count": 85,
+            "candidates_truncated": false,
+            "source_or_medical_fields_changed": false
+          }
+        ],
+        "last_summary_declares_candidate_read": true,
+        "interpretation": "Tool/source receipts and untruncated candidate packets prove source supplied/referenced, not semantic comprehension or medical truth."
+      },
+      "reason": "Same exact source spans/context/figure reference as a8bb, with study_authors versus cited_research attribution. Preserve both pending review."
+    }
+  ],
+  "L07_F_same_source_condition_sentence": {
+    "records": [
+      "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+      "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92"
+    ],
+    "versions": [
+      4,
+      3
+    ],
+    "exact_original_spans_equal": true,
+    "exact_context_spans_equal": true,
+    "figure_associations_equal": true,
+    "source_attribution_a": {
+      "origin": "cited_research",
+      "cited_references": [
+        "Fig. 2"
+      ],
+      "evidence": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ]
+    },
+    "source_attribution_b": {
+      "origin": "study_authors",
+      "cited_references": [
+        "Fig. 2"
+      ],
+      "evidence": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ]
+    },
+    "links_a": [
+      {
+        "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+        "relationship": "possible_conflict"
+      }
+    ],
+    "links_b": [],
+    "finding": "Same PDF/IR/source spans and same pending Fig.2 association, not separate source occurrences. Different model attribution and possible_conflict do not establish a justified distinct finding. Potential duplicate/provenance error retained for review; no deduplication or reclassification applied."
+  },
+  "historical_feedback_source_anchor_checks": [
+    {
+      "historical_case_id": "C03-6be19afcfc85",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "ir_sha256": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+        "figure_catalog_sha256": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5",
+        "job_id": "L05-B0",
+        "logical_job_ids": [
+          "L05-B0"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L05:input-634833de1e91",
+        "result_sha256": "c155f38e8dfdc9d20a6f9de2f156af0be1e58aea169c2d0d980bc3acb194ecb7",
+        "candidate_export_manifest_sha256": "26de1df003ea67756e8db204df84b5e1dbd7963aee04d872657e6f2b0fd7479f",
+        "delivery_file_sha256": "04ef456b07675d34b0cf27fdcffa9a632bb74c55c56537692ad56ebdc8730ff9",
+        "record_id": "ev-8f7baf6f3ca8c78a03bab18f5c0ae6ce23d5dd72",
+        "record_version": 2,
+        "source_record_sha256": "144b71d47b4a72880566154a089d2c72eb5059e7be5e23ccc0927e622c10f4f0",
+        "text_fingerprint": "426736caeda69bd17c217301f480acf32b766b930173070ce070ffdfba6246bb",
+        "delivery_fingerprint": "97d0fff6cf36a90f5c9dbccc1a7e873f227ff0db34a8996eb06df002d5ec6f5a",
+        "artifact_kind": "unreviewed_offline_delivery_candidate"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000023",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 79,
+          "end": 118,
+          "exact_quote": " When studying IAC patients, those with",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            645.9228139649999,
+            544.3736134448092,
+            654.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000024",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 116,
+          "exact_quote": "nodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            658.4228139649999,
+            544.1536121905501,
+            666.9327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000025",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 65,
+          "exact_quote": "components, which might be missed during pathological sectioning.",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.01361554099999,
+            670.922813965,
+            544.0626155429106,
+            679.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 220,
+      "current_source_span_overlap": [
+        {
+          "job_id": "L05-F",
+          "record_id": "ev-ab949f91147bd1e3b9aea26d0bf194bd2c771bf7",
+          "record_version": 2,
+          "effective_role": "background_suggestion",
+          "old_anchor_codepoints_in_current_original": 220,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": " When studying IAC patients, those with\nnodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid\ncomponents, which might be missed during pathological sectioning."
+        }
+      ],
+      "status": "actual_current_overlap_listed_for_human_review",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    },
+    {
+      "historical_case_id": "C06-a4aac25de989",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "ir_sha256": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+        "figure_catalog_sha256": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5",
+        "job_id": "L05-F",
+        "logical_job_ids": [
+          "L05-F"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L05:input-6aab532a6280",
+        "result_sha256": "8b7f2dc0cd5b2ba469a15c07707368659ac380fad34f47980f4390d41536169b",
+        "candidate_export_manifest_sha256": "26de1df003ea67756e8db204df84b5e1dbd7963aee04d872657e6f2b0fd7479f",
+        "delivery_file_sha256": "06b64edf49ac022279595ebd0bf298a460e80b51f8658f20a57ae2a4d667b14f",
+        "record_id": "ev-b4918e537f1aa6045a23abbd622364ff3a9f2edd",
+        "record_version": 2,
+        "source_record_sha256": "e16629d9d072d0354812e521ea6d52a3c62b5f35998762483453cb1ffa6653dc",
+        "text_fingerprint": "11ea4e05ae1d2aacffa1726fecc57c86c6f38337dd23b458201505ffde04ea39",
+        "delivery_fingerprint": "6be517f4174661e7120d727e9b0374701b25b219ecd95afa3515843c5549e6c1",
+        "artifact_kind": "unreviewed_offline_delivery_candidate"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000021",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 78,
+          "end": 115,
+          "exact_quote": " We found that for patients diagnosed",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            62.36361344100001,
+            620.9228139649999,
+            544.4716134486692,
+            629.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000022",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 119,
+          "exact_quote": "with AAH/AIS/MIA by FS, bronchial inflation sign, vascular convergence sign, lobulation sign, spiculation sign, and the",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            633.4228139649999,
+            544.0826134543706,
+            641.9327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000023",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 79,
+          "exact_quote": "diameter of the nodule are independent risk factors for pathological upgrading.",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            645.9228139649999,
+            544.3736134448092,
+            654.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000023",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 79,
+          "end": 118,
+          "exact_quote": " When studying IAC patients, those with",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            645.9228139649999,
+            544.3736134448092,
+            654.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000024",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 116,
+          "exact_quote": "nodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            658.4228139649999,
+            544.1536121905501,
+            666.9327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000025",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 65,
+          "exact_quote": "components, which might be missed during pathological sectioning.",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.01361554099999,
+            670.922813965,
+            544.0626155429106,
+            679.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 455,
+      "current_source_span_overlap": [
+        {
+          "job_id": "L05-F",
+          "record_id": "ev-ab949f91147bd1e3b9aea26d0bf194bd2c771bf7",
+          "record_version": 2,
+          "effective_role": "background_suggestion",
+          "old_anchor_codepoints_in_current_original": 220,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": " When studying IAC patients, those with\nnodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid\ncomponents, which might be missed during pathological sectioning."
+        }
+      ],
+      "status": "actual_current_overlap_listed_for_human_review",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    },
+    {
+      "historical_case_id": "C07-683448e2bc07",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "figure_catalog_sha256": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900",
+        "job_id": "L07-B0",
+        "logical_job_ids": [
+          "L07-B0"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L07:input-8b3dae7a6c69",
+        "result_sha256": "7a9c3ec40c00bec3eb85c27270669b67de8adbd3e73f514341a020f4970cd49b",
+        "candidate_export_manifest_sha256": "cb6508cef34a138afe378fe8c77d422cc9d0e2c732e2be68dd39052006bd37d7",
+        "delivery_file_sha256": "4f0eb70c3cf17c70a8f0d0ce1a4780022720202932640e27f70f10a420351247",
+        "record_id": "ev-d38bc0044737d1238cc3bbd50731cb972c85637c",
+        "record_version": 1,
+        "source_record_sha256": "434544c0eb4180835dc95d5e905c038ec1f865ee6daccfa1d92fdbfde156c83f",
+        "text_fingerprint": "a9ad4cb84f9eb7ae1b99f4d4d00ed17a5b68c582bf4867ed0355be99dee657e3",
+        "delivery_fingerprint": "f5ddb580f76b61d069eb66aff820fa073169e00b3b1fa4ba88de6f98c36069e9",
+        "artifact_kind": "unreviewed_offline_delivery_candidate"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 200,
+      "current_source_span_overlap": [
+        {
+          "job_id": "L07-B0",
+          "record_id": "ev-f63ec103820bce04a4da829982873a85957c85ec",
+          "record_version": 2,
+          "effective_role": "primary_candidate",
+          "old_anchor_codepoints_in_current_original": 200,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2)."
+        },
+        {
+          "job_id": "L07-F",
+          "record_id": "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+          "record_version": 4,
+          "effective_role": "primary_candidate",
+          "old_anchor_codepoints_in_current_original": 200,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2)."
+        },
+        {
+          "job_id": "L07-F",
+          "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+          "record_version": 3,
+          "effective_role": "primary_candidate",
+          "old_anchor_codepoints_in_current_original": 200,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2)."
+        }
+      ],
+      "status": "actual_current_overlap_listed_for_human_review",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    },
+    {
+      "historical_case_id": "C09-dd317433f51b",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "figure_catalog_sha256": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900",
+        "job_id": "L07-B0",
+        "logical_job_ids": [
+          "L07-B0"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L07:input-8b3dae7a6c69",
+        "result_sha256": "7a9c3ec40c00bec3eb85c27270669b67de8adbd3e73f514341a020f4970cd49b",
+        "candidate_export_manifest_sha256": "cb6508cef34a138afe378fe8c77d422cc9d0e2c732e2be68dd39052006bd37d7",
+        "delivery_file_sha256": "4f0eb70c3cf17c70a8f0d0ce1a4780022720202932640e27f70f10a420351247",
+        "record_id": "ev-323b865d2dec29564f941a232e505b454e49ba82",
+        "record_version": 3,
+        "source_record_sha256": "c1eed2332f8090d1c174114cb5bcf3ddb1ba87c9d80be92907e96db2ec660639",
+        "text_fingerprint": "79adbb1a7ef89cd57f19d4e8c7ec8b726a84f1d05c020594b5ab47cd0692b519",
+        "delivery_fingerprint": "83fa56f85c9e62a536e635c89727aa3f920a2a58fe18b1606225609640dd92b8",
+        "artifact_kind": "unreviewed_offline_delivery_candidate"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000084",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 50,
+          "exact_quote": "Upper rectum By measurement, the upper rectum is",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            306.141815185,
+            482.55299025288394,
+            544.3979065073498,
+            492.5207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000085",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 54,
+          "exact_quote": "10-15 cm proximal to the anal verge; by anatomic land-",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            319.322906494,
+            495.255796143,
+            544.2339064939997,
+            505.0207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000086",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 60,
+          "exact_quote": "marks, it is roughly from the anterior peritoneal reflection",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            319.322906494,
+            507.755796143,
+            544.1529064978097,
+            517.5207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000087",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 24,
+          "exact_quote": "to the sigmoid take-off.",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            319.322906494,
+            520.255796143,
+            544.1719065187909,
+            530.0207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 186,
+      "current_source_span_overlap": [],
+      "status": "not_independently_emitted_at_old_source_anchors",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    },
+    {
+      "historical_case_id": "C13-b015ccad7e18",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "document_id": "L07",
+        "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "job_id": "L07-B0",
+        "logical_job_ids": [
+          "L07-B0"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L07:input-8b3dae7a6c69",
+        "result_path": "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/recovered-L07-B0-result.json",
+        "result_sha256": "7a9c3ec40c00bec3eb85c27270669b67de8adbd3e73f514341a020f4970cd49b",
+        "recovered_offline": true,
+        "record_id": "ev-76970ec1cb9d2a47aa412896e88086001744c8d5",
+        "record_version": 1,
+        "source_record_sha256": "c5b5af4096db349f86f0d929be9dd1adb6c25332836b20ac725e91e37cbd3316",
+        "delivery_fingerprint": null,
+        "delivery_rejected": true,
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "artifact_kind": "delivery_rejected_original_source_view",
+        "raw_view_fingerprint": "4db03f46086d0130d7653a158ff7b61aebfd2a18a16ef562fa2f6db17dfe5897",
+        "rejected_views_sha256": "92e30756a59947e1e369b2780ead90191aacdf4696d45bfae1bb68ad6d7b0617"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0011-l000021",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 23,
+          "end": 56,
+          "exact_quote": " High resolution is achieved by a",
+          "occurrence": 0,
+          "physical_page": 11,
+          "bbox": [
+            64.20469665500002,
+            282.755826661,
+            289.1056966588203,
+            292.5208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0011-l000022",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "field of view (FOV) and matrix allowing a plane resolu-",
+          "occurrence": 0,
+          "physical_page": 11,
+          "bbox": [
+            64.20469665500002,
+            295.255826661,
+            289.10469665500034,
+            305.0208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0011-l000023",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 54,
+          "exact_quote": "tion of approximately 0.6 × 0.6 mm; for example, for a",
+          "occurrence": 0,
+          "physical_page": 11,
+          "bbox": [
+            64.20469665500002,
+            307.755826661,
+            289.12469375500007,
+            317.5208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0011-l000024",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 35,
+          "exact_quote": "16-cm FOV, the matrix is 256 × 256.",
+          "occurrence": 0,
+          "physical_page": 11,
+          "bbox": [
+            64.194697045,
+            320.255826661,
+            289.1726970488197,
+            330.0208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 177,
+      "current_source_span_overlap": [],
+      "status": "not_independently_emitted_at_old_source_anchors",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    },
+    {
+      "historical_case_id": "C14-483dd5716867",
+      "historical_question_id": "target_visual_description",
+      "source_binding": {
+        "document_id": "L07",
+        "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "ir_sha256": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+        "job_id": "L07-B0",
+        "logical_job_ids": [
+          "L07-B0"
+        ],
+        "run_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed:source-L07:input-8b3dae7a6c69",
+        "result_path": "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/recovered-L07-B0-result.json",
+        "result_sha256": "7a9c3ec40c00bec3eb85c27270669b67de8adbd3e73f514341a020f4970cd49b",
+        "recovered_offline": true,
+        "record_id": "ev-a3a491a7921d5c18180c5d6adafecf7d86dd0826",
+        "record_version": 2,
+        "source_record_sha256": "13c26fb51327db9fbe016681a5ef038041f445fc5ac46e5e8099b339d6ebb36e",
+        "delivery_fingerprint": null,
+        "delivery_rejected": true,
+        "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+        "artifact_kind": "delivery_rejected_original_source_view",
+        "raw_view_fingerprint": "4b15e6731e9c4c16eeeef90c72cca8834e134e63978e07bb18d3bc3cfa623d60",
+        "rejected_views_sha256": "92e30756a59947e1e369b2780ead90191aacdf4696d45bfae1bb68ad6d7b0617"
+      },
+      "old_original_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 10,
+          "end": 67,
+          "exact_quote": " Rectal tumor abutting the peritoneum alone should not be",
+          "occurrence": 0,
+          "physical_page": 4,
+          "bbox": [
+            51.023601531,
+            470.2157978519999,
+            289.100101531,
+            478.5160353886568
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 31,
+          "exact_quote": "considered peritoneal invasion.",
+          "occurrence": 0,
+          "physical_page": 4,
+          "bbox": [
+            51.023601531,
+            480.09279785199993,
+            289.15025153100004,
+            488.84523576669187
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "old_anchor_codepoints": 88,
+      "current_source_span_overlap": [
+        {
+          "job_id": "L07-F",
+          "record_id": "ev-ea1e5ad8d157414ad03a30a8b446e8baefc0acf6",
+          "record_version": 3,
+          "effective_role": "primary_candidate",
+          "old_anchor_codepoints_in_current_original": 88,
+          "old_anchor_codepoints_in_current_context": 0,
+          "current_original_quote": " Rectal tumor abutting the peritoneum alone should not be\nconsidered peritoneal invasion."
+        }
+      ],
+      "status": "actual_current_overlap_listed_for_human_review",
+      "meaning": "Source overlap only; does not prove semantic equivalence, full recall, or accuracy. Old opinions remain bound to old versions."
+    }
+  ],
+  "checks": {
+    "approved_plan_frozen": 1,
+    "execution_report_frozen": 1,
+    "terminal_ledger_frozen": 1,
+    "normal_closed_completion": 1,
+    "protected_original_evidence": 366,
+    "frozen_new_execution_inventory": 126,
+    "old_116_ledger_unchanged": 1,
+    "current_frozen_runtime": 59,
+    "actual_runtime_snapshot": 59,
+    "unique_physical_requests": 1,
+    "all_requests_settled_actual_usage": 1,
+    "model_effort_and_reported_model_identity": 1,
+    "canonical_token_totals": 1,
+    "within_shared_caps": 1,
+    "bound_pdf_bytes": 3,
+    "bound_ir_bytes": 3,
+    "bound_figure_catalog_bytes": 3,
+    "bound_figure_asset_bytes": 11,
+    "task_source_guard_and_assessment_completed": 5,
+    "actual_input_selection_binding": 5,
+    "current_versions_partitioned_without_deletion": 5,
+    "manifest_group_counts": 5,
+    "jsonl_group_matches_delivery": 10,
+    "csv_fragment_row_count": 10,
+    "csv_original_fragment_binding": 255,
+    "original_context_and_version_unchanged": 68,
+    "no_ordinary_or_model_medical_approval": 68,
+    "assessment_current_content_binding": 68,
+    "structured_role_split_only_explicit_context_only": 68,
+    "every_main_and_background_span_exact_and_read": 256,
+    "no_bibliography_exclusion_bypass": 256,
+    "summary_stage_matches_canonical_ledger": 5,
+    "all_204_record_text_delivery_JS_fingerprints": 1,
+    "all_current_records_assessed_and_partitioned_68_57_11_0": 1
+  },
+  "check_occurrences": 1726,
+  "limitations": [
+    "Exact IR spans and PDF/asset hashes are verified; PDF-to-IR medical/text fidelity and unverified image text remain unapproved.",
+    "All raw parser.partial states retained; task completion covers selected task-source inputs and summary, not complete PDF image-text extraction.",
+    "68 counts current versioned records, not distinct source fragments, medically effective descriptions, accuracy or recall.",
+    "Role suggestions remain model-only and unapproved; background candidates are retained and visible. Fewer main records do not prove improvement.",
+    "One run per distinct input and exact-input reuse are not independent replication; no method winner or new/old protocol direct ranking.",
+    "No official gateway monetary bill was provided. Configured SDK cost0 is not actual zero cost.",
+    "Old 14x3 ordinary opinions and two confirmed scope decisions remain historical source-bound evidence; they are not new-version business approval."
+  ],
+  "actual_human_reviews_of_new_outputs": 0,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "winner": null
+}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "pip",
+    "--python",
+    "/home/ecs-user/projects/t1-agent/code/.tools/mineru-venv/bin/python",
+    "--disable-pip-version-check",
+    "install",
+    "--require-hashes",
+    "--index-url",
+    "https://pypi.org/simple",
+    "--cache-dir",
+    "/home/ecs-user/projects/t1-agent/code/.tools/pdf-parser/pip-cache",
+    "--report",
+    "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s3/comparison-2026-11-02/mineru-install-report.json",
+    "-r",
+    "/home/ecs-user/projects/t1-agent/code/services/pdf-parser/requirements-mineru-cpu.lock.txt"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 52.48616417999983,
+  "isolated_environment": ".tools/mineru-venv",
+  "original_venv_modified": false
+}

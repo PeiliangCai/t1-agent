@@ -1,0 +1,84 @@
+{
+  "schema_version": "requirement-revision-final-review-minimal-1",
+  "review_round_requested": 2,
+  "reviews_used_before_this_review": 1,
+  "old_S4_reviews": "3/3 sealed",
+  "source_guards": {
+    "exact_source_match": "packages/agent/src/evidence-validation.ts: all binding fields and source code points; rejects translation/non-source joining prose/protected-qualifier omission",
+    "bound_source_file": "figure-assets.ts assertLivePdfSource; extraction-run.ts pre-model source check + image-catch recheck + end source_invalidated; mismatches cannot degrade to ordinary image failures",
+    "reviewed_export": "evidence-delivery.ts verifies current PDF SHA, original fragment/code-point identity, asset paths/SHA/PNG dimensions before exclusive folder creation"
+  },
+  "explicit_pairing": {
+    "functions": "figure_assets.py discover_figures/original_image_objects/mechanically_check; evidence-delivery.ts associateFigures",
+    "conditions": "unique numbered source caption + unique adjacent connected region + no paragraph barrier + complete top-level single bitmap/no omitted neighboring bitmap or external labels/vectors; original explicit Figure marker or caption span overlap; conflicting case/lesion/modality/condition/panel and ambiguous lists remain pending",
+    "scope": "same page/native parent hints alone never establish pairing; multi-object/vector/nested-Form figures pending"
+  },
+  "review_versioning": {
+    "text": "record version + text_fingerprint over exact fragments/context/source record SHA",
+    "pair": "delivery_fingerprint additionally binds caption/association/all Figure content and asset SHA",
+    "text_priority": "text_only and legacy current genuine human-approved text export with pending/unattached figures; later figures never inherit text approval; human supplementation/review reason separate from original fragments"
+  },
+  "actual_checks": {
+    "typecheck_exit": 0,
+    "extraction_tests": {
+      "pass": 162,
+      "exit": 0
+    },
+    "real_cpu_bridge": {
+      "pass": 1,
+      "exit": 0,
+      "includes": "changed/missing source PDF rejection"
+    },
+    "python_geometry": {
+      "pass": 3,
+      "exit": 0,
+      "rotation_crop_userunit_combinations": 8
+    },
+    "real_PDFs": 5,
+    "numbered_figures": 12,
+    "PNG_assets": 12,
+    "mechanically_checked_figures": 5,
+    "old_output_replay": {
+      "unique_outputs": 5,
+      "records": 119,
+      "paired": 1,
+      "pending": 7,
+      "no_explicit_link": 111,
+      "incompatible": 0
+    },
+    "generic_cli_final": {
+      "exit": 0,
+      "seconds": 31.96299722599997,
+      "paid_calls": 0,
+      "new_document_id": "fresh-non-whitelisted-paper",
+      "parser_status": "partial",
+      "source_hashes_before_after_equal": true
+    },
+    "negative_cli": "missing PDF ENOENT; existing directory EEXIST; non-authorized run config rejected before output dir; all 0 requests",
+    "protected_artifacts": {
+      "unchanged": 2121,
+      "mismatches": 0
+    }
+  },
+  "new_sample_entry": "scripts/export-verbatim-evidence.ts --sample-review FILE -> OutputSampleReviewSchema + auditOutputSample; no full-gold path, no preset sample size or numerical thresholds; real human sample pending",
+  "strategy_preserved": "source-selection.ts unchanged B0/F/R/FR; generic CLI run-config.source_selection dispatches same engine; old 8-condition/5-output register sealed and only replayed, no new paid comparison or default/model selection",
+  "optional_annotation_UI_impact": "existing apps/web is optional S2 annotation authoring, not a gate called by new parse/run/export flow; its own full-text completion declarations remain optional historical-gold workflow; no S5 expansion or concurrent UI overwrite",
+  "limitations": [
+    "human source/medical sample pending",
+    "new paid model branch not executed; existing loopback SDK tests cover engine, not real new-contract model quality",
+    "strict bitmap-only mechanical branch leaves complex figures pending",
+    "source IR matching is not whole-PDF medical fidelity",
+    "old candidate replay cannot prove new-model recall/zero errors/best strategy"
+  ],
+  "evidence_paths": [
+    "checks-source-binding-final/results.json",
+    "checks-final/figure-python.log",
+    "offline-replay-report.json",
+    "general-cli/fresh-L05-final-command.json",
+    "general-cli/boundary-checks.json",
+    "general-cli/authorization-boundary.json",
+    "implementation-source-manifest.json",
+    "implementation.diff",
+    "protected-artifacts-after.json"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "b0-revalidation-authorization-1",
+  "status": "pending_user_confirmation",
+  "authorization_id": null,
+  "user_confirmation_source": null,
+  "approved_at": null,
+  "prepared_plan_sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026",
+  "batch_id": "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f",
+  "purpose": "s4_b0_revalidation_no_method_comparison",
+  "method": "B0",
+  "document_ids": [
+    "L07",
+    "L01",
+    "L05"
+  ],
+  "provider": "agicto",
+  "endpoint": "https://api.agicto.cn/v1",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "api": "openai-responses",
+  "limits": {
+    "requests": 128,
+    "input_tokens": 2500000,
+    "output_tokens": 160000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "notice": "UNSIGNED PROPOSAL. No model call authorized. Requires a new explicit user confirmation bound to this plan; old paid rounds/balances are closed. All failures/retries share these caps and one clock starting at the first request. No automatic second round, budget expansion or resume."
+}

@@ -1,0 +1,3344 @@
+{
+  "schema_version": "positive-source-selection-audit-1",
+  "status": "implemented_offline_targeted_verified_quality_unmeasured",
+  "paid_requests": 0,
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new": 0
+  },
+  "before_source_sha256": "dac5bf8376b48b8b05f3838555bcb962d7bcc66566d81d6754ea452d20057e20",
+  "documents": {
+    "L01": {
+      "input": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L01/parser-result.json",
+      "input_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "document_id": "L01",
+      "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-79f276b4bbb797f3e7930714c614270a",
+      "article_scope_digest": "0333a56bf11f385b376b0ecedf9ec3759c4a988341653215e349980abe66b4d0",
+      "before": {
+        "version": "s4-explainable-source-selection-2",
+        "B0": {
+          "counts": {
+            "kept": 336,
+            "deferred": 0,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6744,
+            "deferred": 0,
+            "excluded": 3778
+          },
+          "source_states_sha256": "c7d0e6a54ee29e2bfe79997ed9652229c21b34a0cf98760b63f9d745a4004a19",
+          "excluded_block_ids_sha256": "16fc42a677d6589b00c94634848c987a9daf195b1a164ea76fb07fe7d8175359"
+        },
+        "F": {
+          "counts": {
+            "kept": 333,
+            "deferred": 3,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6692,
+            "deferred": 52,
+            "excluded": 3778
+          },
+          "rule_counts": {
+            "KEEP_UNKNOWN": 45,
+            "F_VISUAL_OR_MODALITY_CUE": 33,
+            "KEEP_QUALIFIER_OR_NUMERIC": 14,
+            "F_BOILERPLATE_DEFERRED": 3,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 241,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 73
+          },
+          "deferred_blocks": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000018",
+              "document_line_index": 18,
+              "physical_page": 1,
+              "text_sha256": "1f03e273a3f7332a4f1a182b68d411ed547b44ba0eb3d2b7052aac386455a07b",
+              "code_points": 13,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "7b144ab89ae76b8a-u-7d32f9d680d19b3d"
+              ],
+              "article_eligible": true,
+              "text": "【中图分类号】R445.3"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000019",
+              "document_line_index": 19,
+              "physical_page": 1,
+              "text_sha256": "816817c66f2c9e45708d97e27b12f99b3cf98d845cf5dee3ba703621f7fe50b3",
+              "code_points": 8,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "7b144ab89ae76b8a-u-4be37de1f9018a24"
+              ],
+              "article_eligible": true,
+              "text": "【文献标识码】A"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000020",
+              "document_line_index": 20,
+              "physical_page": 1,
+              "text_sha256": "001e754f2bd39a2f3ac5b022303c4316e9f89277993bec98437f5413e176e2a6",
+              "code_points": 31,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "7b144ab89ae76b8a-u-14dfdd4a1383b8db"
+              ],
+              "article_eligible": true,
+              "text": "【文章编号】2096-3807（2024）23-0115-04"
+            }
+          ]
+        }
+      },
+      "after": {
+        "version": "s4-explainable-source-selection-3",
+        "B0": {
+          "counts": {
+            "kept": 336,
+            "deferred": 0,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6744,
+            "deferred": 0,
+            "excluded": 3778
+          },
+          "source_states_sha256": "c7d0e6a54ee29e2bfe79997ed9652229c21b34a0cf98760b63f9d745a4004a19",
+          "scope_and_text_states_unchanged": true,
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 3,
+            "assigned_source_blocks": 336,
+            "initial_unique_source_blocks": 336,
+            "initial_unique_source_code_points": 6744,
+            "repeated_source_code_points_across_batches": 7360,
+            "total_first_read_JSON_code_points": 135071,
+            "total_first_read_JSON_UTF8_bytes": 145714,
+            "returned_source_unit_count_including_repetition": 264,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 5324,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": false,
+              "blocks": 0,
+              "source_code_points": 0,
+              "JSON_code_points": 0,
+              "JSON_UTF8_bytes": 0
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 128,
+                "context_blocks": 6,
+                "returned_source_lines": 134,
+                "source_code_points": 3669,
+                "JSON_code_points": 44496,
+                "JSON_UTF8_bytes": 50255,
+                "payload_sha256": "72391c51974cc812043a6874d0049879e6ef1b4775dbd91cfbb6cda42be0c080"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 128,
+                "context_blocks": 13,
+                "returned_source_lines": 141,
+                "source_code_points": 2972,
+                "JSON_code_points": 55313,
+                "JSON_UTF8_bytes": 59635,
+                "payload_sha256": "16720a17dea37806e1b748dac91fe15163f865265cfc1cab0751fb9772100f2c"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 80,
+                "context_blocks": 13,
+                "returned_source_lines": 93,
+                "source_code_points": 719,
+                "JSON_code_points": 35262,
+                "JSON_UTF8_bytes": 35824,
+                "payload_sha256": "c3374eb718315fc56ed1c4cb614090343bb7e1b1f826c0a35e1542e0658bb994"
+              }
+            ]
+          }
+        },
+        "F": {
+          "counts": {
+            "kept": 336,
+            "deferred": 0,
+            "excluded": 73
+          },
+          "code_points": {
+            "kept": 6744,
+            "deferred": 0,
+            "excluded": 3778
+          },
+          "rule_counts": {
+            "KEEP_UNKNOWN_UNIT": 11,
+            "F_POSITIVE_UNIT": 69,
+            "KEEP_MAPPED_UNIT_CONTEXT": 15,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 241,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 73
+          },
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 3,
+            "assigned_source_blocks": 336,
+            "initial_unique_source_blocks": 336,
+            "initial_unique_source_code_points": 6744,
+            "repeated_source_code_points_across_batches": 7360,
+            "total_first_read_JSON_code_points": 135071,
+            "total_first_read_JSON_UTF8_bytes": 145714,
+            "returned_source_unit_count_including_repetition": 264,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 5324,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": false,
+              "blocks": 0,
+              "source_code_points": 0,
+              "JSON_code_points": 0,
+              "JSON_UTF8_bytes": 0
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 128,
+                "context_blocks": 6,
+                "returned_source_lines": 134,
+                "source_code_points": 3669,
+                "JSON_code_points": 44496,
+                "JSON_UTF8_bytes": 50255,
+                "payload_sha256": "72391c51974cc812043a6874d0049879e6ef1b4775dbd91cfbb6cda42be0c080"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 128,
+                "context_blocks": 13,
+                "returned_source_lines": 141,
+                "source_code_points": 2972,
+                "JSON_code_points": 55313,
+                "JSON_UTF8_bytes": 59635,
+                "payload_sha256": "16720a17dea37806e1b748dac91fe15163f865265cfc1cab0751fb9772100f2c"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 80,
+                "context_blocks": 13,
+                "returned_source_lines": 93,
+                "source_code_points": 719,
+                "JSON_code_points": 35262,
+                "JSON_UTF8_bytes": 35824,
+                "payload_sha256": "c3374eb718315fc56ed1c4cb614090343bb7e1b1f826c0a35e1542e0658bb994"
+              }
+            ]
+          },
+          "restored_from_F2": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000018",
+              "document_line_index": 18,
+              "text": "【中图分类号】R445.3",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000019",
+              "document_line_index": 19,
+              "text": "【文献标识码】A",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000020",
+              "document_line_index": 20,
+              "text": "【文章编号】2096-3807（2024）23-0115-04",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            }
+          ],
+          "newly_deferred_from_F2": [],
+          "deferred_units": []
+        },
+        "before_F2_mask_under_same_tool_adapter": {
+          "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+          "batch_count": 3,
+          "assigned_source_blocks": 333,
+          "initial_unique_source_blocks": 333,
+          "initial_unique_source_code_points": 6692,
+          "repeated_source_code_points_across_batches": 7241,
+          "total_first_read_JSON_code_points": 134579,
+          "total_first_read_JSON_UTF8_bytes": 145056,
+          "returned_source_unit_count_including_repetition": 266,
+          "deferred_blocks_reintroduced_as_context": [],
+          "bibliography_leak_count": 0,
+          "summary_context_JSON_code_points": 5398,
+          "summary_context_did_not_read_source": true,
+          "explicit_all_deferred_reread_upper_bound": {
+            "executed": true,
+            "blocks": 3,
+            "source_code_points": 52,
+            "JSON_code_points": 3514,
+            "JSON_UTF8_bytes": 3616,
+            "reading_did_not_complete_summary_or_extract_deferred_blocks": true,
+            "upper_bound_unique_source_blocks": 336
+          },
+          "per_batch": [
+            {
+              "batch_id": "batch-0001",
+              "assigned_blocks": 128,
+              "context_blocks": 6,
+              "returned_source_lines": 134,
+              "source_code_points": 3639,
+              "JSON_code_points": 45559,
+              "JSON_UTF8_bytes": 51290,
+              "payload_sha256": "da3cb314b82ffc141abc12ca12c332d245067e398c66b08a0e4f984b107387c2"
+            },
+            {
+              "batch_id": "batch-0002",
+              "assigned_blocks": 128,
+              "context_blocks": 12,
+              "returned_source_lines": 140,
+              "source_code_points": 2904,
+              "JSON_code_points": 54732,
+              "JSON_UTF8_bytes": 58928,
+              "payload_sha256": "d30e1edd366a30e0335a7c9a8277dc9c5a36e7a3b8bdce06be5d1e13ba6b3232"
+            },
+            {
+              "batch_id": "batch-0003",
+              "assigned_blocks": 77,
+              "context_blocks": 13,
+              "returned_source_lines": 90,
+              "source_code_points": 698,
+              "JSON_code_points": 34288,
+              "JSON_UTF8_bytes": 34838,
+              "payload_sha256": "b2ebc9d36096694a4adc77fe883b4b38c0c49358c3bc6836fe2c1a83057809ed"
+            }
+          ]
+        },
+        "same_bibliography_mask": true,
+        "original_IR_bytes_unchanged": true,
+        "original_document_object_unchanged": true,
+        "planned_distinct_model_inputs": 1,
+        "B0_F3_model_inputs_equivalent": true,
+        "source_only_code_point_reduction_fraction": 0,
+        "actual_first_read_JSON_reduction_fraction": 0
+      }
+    },
+    "L05": {
+      "input": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L05/parser-result.json",
+      "input_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "document_id": "L05",
+      "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f",
+      "article_scope_digest": "26209de00cca720e9a232fb5e7a3f973c9ec29e191ab1dc616d6beb5a6cd27dc",
+      "before": {
+        "version": "s4-explainable-source-selection-2",
+        "B0": {
+          "counts": {
+            "kept": 523,
+            "deferred": 0,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 22978,
+            "deferred": 0,
+            "excluded": 10481
+          },
+          "source_states_sha256": "dd58f938e90ed898c2339c3de8d2bcb00bd63736c33bba375ba1450acbb43130",
+          "excluded_block_ids_sha256": "7f2de0fc50db0958e43f3b1744a58f4af2972c4907ea6956bf253006b96f5098"
+        },
+        "F": {
+          "counts": {
+            "kept": 511,
+            "deferred": 12,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 22252,
+            "deferred": 726,
+            "excluded": 10481
+          },
+          "rule_counts": {
+            "KEEP_UNKNOWN": 98,
+            "F_BOILERPLATE_DEFERRED": 11,
+            "F_VISUAL_OR_MODALITY_CUE": 48,
+            "KEEP_QUALIFIER_OR_NUMERIC": 16,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 347,
+            "F_EXPLICIT_NONVISUAL_DEFERRED": 3,
+            "KEEP_CONTEXT_NEIGHBOR": 2,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 92
+          },
+          "deferred_blocks": [
+            {
+              "block_id": "95dde964ad802d61602a-p0001-l000003",
+              "document_line_index": 3,
+              "physical_page": 1,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-90e94497e7303f72"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000000",
+              "document_line_index": 40,
+              "physical_page": 2,
+              "text_sha256": "f17c98c4ef5f181e4af752f609cd1a7abc51c6427d4c2182bfdfe2c057fbc2e1",
+              "code_points": 17,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-baf17845e70c3543"
+              ],
+              "article_eligible": true,
+              "text": "Vol:.(1234567890)"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000004",
+              "document_line_index": 44,
+              "physical_page": 2,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-34a5222ec5d7274a"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0003-l000003",
+              "document_line_index": 91,
+              "physical_page": 3,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-562dcb30f2555e25"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000000",
+              "document_line_index": 465,
+              "physical_page": 8,
+              "text_sha256": "f17c98c4ef5f181e4af752f609cd1a7abc51c6427d4c2182bfdfe2c057fbc2e1",
+              "code_points": 17,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-5af6071349081248"
+              ],
+              "article_eligible": true,
+              "text": "Vol:.(1234567890)"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000004",
+              "document_line_index": 469,
+              "physical_page": 8,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-89a1496697658c5e"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0009-l000003",
+              "document_line_index": 490,
+              "physical_page": 9,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-aede19d82a77bb5f"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0009-l000015",
+              "document_line_index": 502,
+              "physical_page": 9,
+              "text_sha256": "5a589e6cad3c18ccf405d19711f6976fd9498c03d38d9980ce6229f0716e28e8",
+              "code_points": 140,
+              "state": "deferred",
+              "rule_ids": [
+                "F_EXPLICIT_NONVISUAL_DEFERRED"
+              ],
+              "reasons": [
+                "Explicit administrative/statistical software sentence deferred; ambiguous text is retained."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-7d315457710ffa0d"
+              ],
+              "article_eligible": true,
+              "text": "Ethics approval and consent to participate The authors are accountable for all aspects of the work in ensuring that questions related to the"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0009-l000020",
+              "document_line_index": 507,
+              "physical_page": 9,
+              "text_sha256": "7547f265bf7386e778a45a16fbfdbafc2a1a1fefa772c9b0da1f70ea8095cc74",
+              "code_points": 136,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-db791e8921486418"
+              ],
+              "article_eligible": true,
+              "text": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adapta-"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0010-l000000",
+              "document_line_index": 548,
+              "physical_page": 10,
+              "text_sha256": "f17c98c4ef5f181e4af752f609cd1a7abc51c6427d4c2182bfdfe2c057fbc2e1",
+              "code_points": 17,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-75d82af874acf8e6"
+              ],
+              "article_eligible": true,
+              "text": "Vol:.(1234567890)"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0010-l000004",
+              "document_line_index": 552,
+              "physical_page": 10,
+              "text_sha256": "cd0bf8274553762e111b8dd694944fb697526437d5585757a21ba46b518521b1",
+              "code_points": 44,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-85d541439ce78869"
+              ],
+              "article_eligible": true,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0010-l000066",
+              "document_line_index": 614,
+              "physical_page": 10,
+              "text_sha256": "934aa759f2a2f8bb25f26f8ee50d830b4e65ef18bc3d108d6c6360b94b05cde1",
+              "code_points": 135,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "5288b6d2b63685ae-u-cc809f2985a3ef88"
+              ],
+              "article_eligible": true,
+              "text": "Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations."
+            }
+          ]
+        }
+      },
+      "after": {
+        "version": "s4-explainable-source-selection-3",
+        "B0": {
+          "counts": {
+            "kept": 523,
+            "deferred": 0,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 22978,
+            "deferred": 0,
+            "excluded": 10481
+          },
+          "source_states_sha256": "dd58f938e90ed898c2339c3de8d2bcb00bd63736c33bba375ba1450acbb43130",
+          "scope_and_text_states_unchanged": true,
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 5,
+            "assigned_source_blocks": 523,
+            "initial_unique_source_blocks": 523,
+            "initial_unique_source_code_points": 22978,
+            "repeated_source_code_points_across_batches": 24830,
+            "total_first_read_JSON_code_points": 265934,
+            "total_first_read_JSON_UTF8_bytes": 265979,
+            "returned_source_unit_count_including_repetition": 564,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 8450,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": false,
+              "blocks": 0,
+              "source_code_points": 0,
+              "JSON_code_points": 0,
+              "JSON_UTF8_bytes": 0
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 108,
+                "context_blocks": 7,
+                "returned_source_lines": 115,
+                "source_code_points": 9126,
+                "JSON_code_points": 50244,
+                "JSON_UTF8_bytes": 50259,
+                "payload_sha256": "027e97f0cd43d06cd0e70125adad6437c017e7e7200385db55b5d1acca214889"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 113,
+                "context_blocks": 13,
+                "returned_source_lines": 126,
+                "source_code_points": 9066,
+                "JSON_code_points": 65175,
+                "JSON_UTF8_bytes": 65189,
+                "payload_sha256": "2a169b33b47bf69a8622b7db8afdd178f738415f931d3e68d34c84e422184d9b"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 128,
+                "context_blocks": 6,
+                "returned_source_lines": 134,
+                "source_code_points": 4843,
+                "JSON_code_points": 63754,
+                "JSON_UTF8_bytes": 63758,
+                "payload_sha256": "2cddfe40f0dd4c0f06f171922e0fd268921eb5986c07f41b56cdc0a58f48b864"
+              },
+              {
+                "batch_id": "batch-0004",
+                "assigned_blocks": 128,
+                "context_blocks": 12,
+                "returned_source_lines": 140,
+                "source_code_points": 974,
+                "JSON_code_points": 60065,
+                "JSON_UTF8_bytes": 60073,
+                "payload_sha256": "51a61057997b0f02398afbed932e3d98b8f1dc9e26816d0503bb033f3d77f45f"
+              },
+              {
+                "batch_id": "batch-0005",
+                "assigned_blocks": 46,
+                "context_blocks": 13,
+                "returned_source_lines": 59,
+                "source_code_points": 821,
+                "JSON_code_points": 26696,
+                "JSON_UTF8_bytes": 26700,
+                "payload_sha256": "f3d33d80d4ee3fb3b419d5bcc7eb3c681510a827f9238efdb7f0b41a35be7c31"
+              }
+            ]
+          }
+        },
+        "F": {
+          "counts": {
+            "kept": 503,
+            "deferred": 20,
+            "excluded": 92
+          },
+          "code_points": {
+            "kept": 20648,
+            "deferred": 2330,
+            "excluded": 10481
+          },
+          "rule_counts": {
+            "KEEP_UNKNOWN_UNIT": 52,
+            "F_POSITIVE_UNIT": 88,
+            "F_NOT_PRIORITIZED_UNIT_DEFERRED": 20,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 347,
+            "KEEP_CONTEXT_NEIGHBOR": 10,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 92,
+            "KEEP_MAPPED_UNIT_CONTEXT": 6
+          },
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 5,
+            "assigned_source_blocks": 503,
+            "initial_unique_source_blocks": 503,
+            "initial_unique_source_code_points": 20648,
+            "repeated_source_code_points_across_batches": 22820,
+            "total_first_read_JSON_code_points": 257662,
+            "total_first_read_JSON_UTF8_bytes": 257707,
+            "returned_source_unit_count_including_repetition": 542,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 8523,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": true,
+              "blocks": 20,
+              "source_code_points": 2330,
+              "JSON_code_points": 13585,
+              "JSON_UTF8_bytes": 13585,
+              "reading_did_not_complete_summary_or_extract_deferred_blocks": true,
+              "upper_bound_unique_source_blocks": 523
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 109,
+                "context_blocks": 7,
+                "returned_source_lines": 116,
+                "source_code_points": 9267,
+                "JSON_code_points": 50594,
+                "JSON_UTF8_bytes": 50609,
+                "payload_sha256": "193f8ccb5bd774626bb9c28e44ba5089f5242ebadb7789821378540185895979"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 111,
+                "context_blocks": 14,
+                "returned_source_lines": 125,
+                "source_code_points": 9030,
+                "JSON_code_points": 63567,
+                "JSON_UTF8_bytes": 63581,
+                "payload_sha256": "d22249e4236c1715aa8ebd06e27b5c1e6a98b871960e81d635e89c9833730f24"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 128,
+                "context_blocks": 7,
+                "returned_source_lines": 135,
+                "source_code_points": 2946,
+                "JSON_code_points": 67198,
+                "JSON_UTF8_bytes": 67202,
+                "payload_sha256": "b7046fe8ca2e71246b01d2b605ee921131559e1c9fc7525404844a7a3aad7e02"
+              },
+              {
+                "batch_id": "batch-0004",
+                "assigned_blocks": 128,
+                "context_blocks": 12,
+                "returned_source_lines": 140,
+                "source_code_points": 924,
+                "JSON_code_points": 55295,
+                "JSON_UTF8_bytes": 55303,
+                "payload_sha256": "0b94607aa60dfa860831b5d364fe5df6c17056adf4bdee03ce0a3c8473db2f76"
+              },
+              {
+                "batch_id": "batch-0005",
+                "assigned_blocks": 27,
+                "context_blocks": 13,
+                "returned_source_lines": 40,
+                "source_code_points": 653,
+                "JSON_code_points": 21008,
+                "JSON_UTF8_bytes": 21012,
+                "payload_sha256": "8109679c5700155a42169174a28433d5c75991af203c03cd2e52e17d1f16ab82"
+              }
+            ]
+          },
+          "restored_from_F2": [
+            {
+              "block_id": "95dde964ad802d61602a-p0001-l000003",
+              "document_line_index": 3,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000000",
+              "document_line_index": 40,
+              "text": "Vol:.(1234567890)",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0002-l000004",
+              "document_line_index": 44,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0003-l000003",
+              "document_line_index": 91,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000000",
+              "document_line_index": 465,
+              "text": "Vol:.(1234567890)",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000004",
+              "document_line_index": 469,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0009-l000003",
+              "document_line_index": 490,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0009-l000020",
+              "document_line_index": 507,
+              "text": "Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adapta-",
+              "rule_ids": [
+                "F_POSITIVE_UNIT"
+              ],
+              "reasons": [
+                "A broad visual/modality/description/figure-table hint selects the complete literal paragraph, including its conditions, negation and numbers."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0010-l000000",
+              "document_line_index": 548,
+              "text": "Vol:.(1234567890)",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0010-l000004",
+              "document_line_index": 552,
+              "text": "| https://doi.org/10.1007/s12672-024-00872-x",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            }
+          ],
+          "newly_deferred_from_F2": [
+            "95dde964ad802d61602a-p0001-l000035",
+            "95dde964ad802d61602a-p0002-l000028",
+            "95dde964ad802d61602a-p0002-l000029",
+            "95dde964ad802d61602a-p0008-l000013",
+            "95dde964ad802d61602a-p0008-l000014",
+            "95dde964ad802d61602a-p0009-l000005",
+            "95dde964ad802d61602a-p0009-l000006",
+            "95dde964ad802d61602a-p0009-l000007",
+            "95dde964ad802d61602a-p0009-l000008",
+            "95dde964ad802d61602a-p0009-l000009",
+            "95dde964ad802d61602a-p0009-l000010",
+            "95dde964ad802d61602a-p0009-l000011",
+            "95dde964ad802d61602a-p0009-l000012",
+            "95dde964ad802d61602a-p0009-l000013",
+            "95dde964ad802d61602a-p0009-l000016",
+            "95dde964ad802d61602a-p0009-l000017",
+            "95dde964ad802d61602a-p0009-l000018",
+            "95dde964ad802d61602a-p0009-l000019"
+          ],
+          "deferred_units": [
+            {
+              "unit_id": "5288b6d2b63685ae-u-de4eac0d8f779c46",
+              "native_ref": "#/texts/14",
+              "physical_pages": [
+                1
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0001-l000035"
+              ],
+              "code_points": 106,
+              "literal_source": "Hongya Wang, Aiping Chen and Kun Wang authors contributed equally to this work and share first authorship.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-6243baef9b95302d",
+              "native_ref": "#/texts/28",
+              "physical_pages": [
+                2
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0002-l000028",
+                "95dde964ad802d61602a-p0002-l000029"
+              ],
+              "code_points": 225,
+              "literal_source": "This research project was approved by the First Affiliated Hospital of Nanjing Medical University. Individual patient\ninformed consent was waived due to the anonymous data management and the retrospective nature of this study.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-46ab2b62026aa531",
+              "native_ref": "#/texts/104",
+              "physical_pages": [
+                8
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0008-l000013",
+                "95dde964ad802d61602a-p0008-l000014"
+              ],
+              "code_points": 198,
+              "literal_source": "Our study has certain limitations. As a single-center retrospective investigation, conditions in other centers might\ndiffer, and the prospective validation of the conclusions remains to be conducted.",
+              "category": "study_limitations_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "May omit study-center/generalizability caveats needed when interpreting a retrieved statement; future output reviewer must judge whether explicit reread is required."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-032539f267a8173b",
+              "native_ref": "#/texts/112",
+              "physical_pages": [
+                9
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0009-l000005",
+                "95dde964ad802d61602a-p0009-l000006",
+                "95dde964ad802d61602a-p0009-l000007",
+                "95dde964ad802d61602a-p0009-l000008",
+                "95dde964ad802d61602a-p0009-l000009",
+                "95dde964ad802d61602a-p0009-l000010"
+              ],
+              "code_points": 749,
+              "literal_source": "Author contributions AC was responsible for the acquisition of data. HY and KW contributed to the acquisition, analysis, and interpretation\nof data for the work. HW was involved in the analysis and interpretation of data and drafting the work. LC gave final approval of the version\nto be published. QR and WW also contributed to the acquisition, analysis, and interpretation of data for the work. QZ contributed to the con-\nception of the work and agreed to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity\nof any part of the work are appropriately investigated and resolved. XX designed the work and reviewed it critically for important intellectual\ncontent. All authors reviewed the manuscript.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-4d137fa4607acf92",
+              "native_ref": "#/texts/113",
+              "physical_pages": [
+                9
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0009-l000011",
+                "95dde964ad802d61602a-p0009-l000012"
+              ],
+              "code_points": 186,
+              "literal_source": "Funding This work was supported by the National Natural Science Foundation of the People's Republic of China (61971118) and the Natural\nScience Foundation of Jiangsu Province (BE2016790).",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-4ac7ed9d665ff888",
+              "native_ref": "#/texts/114",
+              "physical_pages": [
+                9
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0009-l000013"
+              ],
+              "code_points": 128,
+              "literal_source": "Data availability The data supporting this study's findings are available from the corresponding author upon reasonable request.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-7d315457710ffa0d",
+              "native_ref": "#/texts/116",
+              "physical_pages": [
+                9
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0009-l000015",
+                "95dde964ad802d61602a-p0009-l000016",
+                "95dde964ad802d61602a-p0009-l000017",
+                "95dde964ad802d61602a-p0009-l000018"
+              ],
+              "code_points": 540,
+              "literal_source": "Ethics approval and consent to participate The authors are accountable for all aspects of the work in ensuring that questions related to the\naccuracy or integrity of any part of the work are appropriately investigated and resolved. This research project was approved by the First\nAffiliated Hospital of Nanjing Medical University. Individual patient informed consent was waived due to the anonymous data management\nand the retrospective nature of this study. All methods were carried out in accordance with relevant guidelines and regulations.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-0cf5afe96f475ba0",
+              "native_ref": "#/texts/117",
+              "physical_pages": [
+                9
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0009-l000019"
+              ],
+              "code_points": 63,
+              "literal_source": "Competing interests The authors declare no competing interests.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "5288b6d2b63685ae-u-cc809f2985a3ef88",
+              "native_ref": "#/texts/158",
+              "physical_pages": [
+                10
+              ],
+              "block_ids": [
+                "95dde964ad802d61602a-p0010-l000066"
+              ],
+              "code_points": 135,
+              "literal_source": "Publisher's Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            }
+          ]
+        },
+        "before_F2_mask_under_same_tool_adapter": {
+          "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+          "batch_count": 5,
+          "assigned_source_blocks": 511,
+          "initial_unique_source_blocks": 513,
+          "initial_unique_source_code_points": 22528,
+          "repeated_source_code_points_across_batches": 24827,
+          "total_first_read_JSON_code_points": 259333,
+          "total_first_read_JSON_UTF8_bytes": 259378,
+          "returned_source_unit_count_including_repetition": 552,
+          "deferred_blocks_reintroduced_as_context": [
+            "95dde964ad802d61602a-p0009-l000015",
+            "95dde964ad802d61602a-p0009-l000020"
+          ],
+          "bibliography_leak_count": 0,
+          "summary_context_JSON_code_points": 8554,
+          "summary_context_did_not_read_source": true,
+          "explicit_all_deferred_reread_upper_bound": {
+            "executed": true,
+            "blocks": 12,
+            "source_code_points": 726,
+            "JSON_code_points": 10806,
+            "JSON_UTF8_bytes": 10806,
+            "reading_did_not_complete_summary_or_extract_deferred_blocks": true,
+            "upper_bound_unique_source_blocks": 523
+          },
+          "per_batch": [
+            {
+              "batch_id": "batch-0001",
+              "assigned_blocks": 107,
+              "context_blocks": 7,
+              "returned_source_lines": 114,
+              "source_code_points": 9338,
+              "JSON_code_points": 49967,
+              "JSON_UTF8_bytes": 49982,
+              "payload_sha256": "cf29920b24ce960feefbf98206d80eba3cfca8b1a53445c49224dee37ad49ea5"
+            },
+            {
+              "batch_id": "batch-0002",
+              "assigned_blocks": 111,
+              "context_blocks": 14,
+              "returned_source_lines": 125,
+              "source_code_points": 9222,
+              "JSON_code_points": 63829,
+              "JSON_UTF8_bytes": 63843,
+              "payload_sha256": "f204ec9f9e67ae6b09cf48384302d37c3e85cd7f88136e251539928f0933da4d"
+            },
+            {
+              "batch_id": "batch-0003",
+              "assigned_blocks": 128,
+              "context_blocks": 9,
+              "returned_source_lines": 137,
+              "source_code_points": 4617,
+              "JSON_code_points": 67536,
+              "JSON_UTF8_bytes": 67540,
+              "payload_sha256": "e32e4120af6e82c624c0b0f7ef35b5a116b420762f2abd84b48c022ad9dcba6e"
+            },
+            {
+              "batch_id": "batch-0004",
+              "assigned_blocks": 128,
+              "context_blocks": 12,
+              "returned_source_lines": 140,
+              "source_code_points": 978,
+              "JSON_code_points": 55583,
+              "JSON_UTF8_bytes": 55591,
+              "payload_sha256": "6e073a980c694c0a458bb73cdbc7996f93be770cb9d3534328444631a6966302"
+            },
+            {
+              "batch_id": "batch-0005",
+              "assigned_blocks": 37,
+              "context_blocks": 11,
+              "returned_source_lines": 48,
+              "source_code_points": 672,
+              "JSON_code_points": 22418,
+              "JSON_UTF8_bytes": 22422,
+              "payload_sha256": "81a06a9fc1c928cdcf3f667109fd32d4a592773f5088d13afd9d186a701025ef"
+            }
+          ]
+        },
+        "same_bibliography_mask": true,
+        "original_IR_bytes_unchanged": true,
+        "original_document_object_unchanged": true,
+        "planned_distinct_model_inputs": 2,
+        "B0_F3_model_inputs_equivalent": false,
+        "source_only_code_point_reduction_fraction": 0.10140134041256854,
+        "actual_first_read_JSON_reduction_fraction": 0.031105462257552625
+      }
+    },
+    "L07": {
+      "input": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L07/parser-result.json",
+      "input_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "document_id": "L07",
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-24500f85160c6f49685ba2cb5f68d274",
+      "article_scope_digest": "f9da76f10177cb8e9adb73810ff8cd7bcba88c471a0711b06b959d9b16daa9b3",
+      "before": {
+        "version": "s4-explainable-source-selection-2",
+        "B0": {
+          "counts": {
+            "kept": 909,
+            "deferred": 0,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 44243,
+            "deferred": 0,
+            "excluded": 15587
+          },
+          "source_states_sha256": "38f23a8e8a096fbe1b767c7fd6560c5666bb4748891fd1a27ac694c77460dc90",
+          "excluded_block_ids_sha256": "d47c8a34f61ced9824a3ba9300efd7ab27f5d232fa044744b0528ee057d089fd"
+        },
+        "F": {
+          "counts": {
+            "kept": 906,
+            "deferred": 3,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 44095,
+            "deferred": 148,
+            "excluded": 15587
+          },
+          "rule_counts": {
+            "F_BOILERPLATE_DEFERRED": 3,
+            "F_VISUAL_OR_MODALITY_CUE": 168,
+            "KEEP_UNKNOWN": 567,
+            "KEEP_QUALIFIER_OR_NUMERIC": 97,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 73,
+            "F_EXPLICIT_NONVISUAL_DEFERRED": 1,
+            "KEEP_CONTEXT_NEIGHBOR": 1,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 280
+          },
+          "deferred_blocks": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0001-l000000",
+              "document_line_index": 0,
+              "physical_page": 1,
+              "text_sha256": "f17c98c4ef5f181e4af752f609cd1a7abc51c6427d4c2182bfdfe2c057fbc2e1",
+              "code_points": 17,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "385fe2843e10f8ab-u-2ab55b41f71d0829"
+              ],
+              "article_eligible": true,
+              "text": "Vol:.(1234567890)"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0012-l000043",
+              "document_line_index": 833,
+              "physical_page": 12,
+              "text_sha256": "b5ce6904f2fa286d6ea4bddcfa30b2b0cd1b99071a7bb9914d85320e5e6e55f4",
+              "code_points": 68,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "385fe2843e10f8ab-u-c538618ce2ffafdc"
+              ],
+              "article_eligible": true,
+              "text": "Open Access This article is licensed under a Creative Commons Attri-"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0015-l000015",
+              "document_line_index": 1187,
+              "physical_page": 15,
+              "text_sha256": "89cf1c5f7d88ec0a8b60b5eb99eab5502519a4d83a8e39511b7403bad96a1483",
+              "code_points": 63,
+              "state": "deferred",
+              "rule_ids": [
+                "F_BOILERPLATE_DEFERRED"
+              ],
+              "reasons": [
+                "No primary visual evidence expected from this explicit non-content class; may be re-read."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "385fe2843e10f8ab-u-c8ca42a70ef4d0c5"
+              ],
+              "article_eligible": true,
+              "text": "Publisher's Note Springer Nature remains neutral with regard to"
+            }
+          ]
+        }
+      },
+      "after": {
+        "version": "s4-explainable-source-selection-3",
+        "B0": {
+          "counts": {
+            "kept": 909,
+            "deferred": 0,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 44243,
+            "deferred": 0,
+            "excluded": 15587
+          },
+          "source_states_sha256": "38f23a8e8a096fbe1b767c7fd6560c5666bb4748891fd1a27ac694c77460dc90",
+          "scope_and_text_states_unchanged": true,
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 8,
+            "assigned_source_blocks": 909,
+            "initial_unique_source_blocks": 909,
+            "initial_unique_source_code_points": 44243,
+            "repeated_source_code_points_across_batches": 48986,
+            "total_first_read_JSON_code_points": 316667,
+            "total_first_read_JSON_UTF8_bytes": 316788,
+            "returned_source_unit_count_including_repetition": 515,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 12673,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": false,
+              "blocks": 0,
+              "source_code_points": 0,
+              "JSON_code_points": 0,
+              "JSON_UTF8_bytes": 0
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 128,
+                "context_blocks": 9,
+                "returned_source_lines": 137,
+                "source_code_points": 6645,
+                "JSON_code_points": 45375,
+                "JSON_UTF8_bytes": 45390,
+                "payload_sha256": "e1cd27709d02d019f044fa2803187fed86a35156414315a020e475d3faca79db"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 128,
+                "context_blocks": 14,
+                "returned_source_lines": 142,
+                "source_code_points": 6917,
+                "JSON_code_points": 41339,
+                "JSON_UTF8_bytes": 41355,
+                "payload_sha256": "990f4a5493b3658a4c5278b2dccf4c9486a4c22ead86e796ad883bb0a7e206e5"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 128,
+                "context_blocks": 17,
+                "returned_source_lines": 145,
+                "source_code_points": 7024,
+                "JSON_code_points": 44150,
+                "JSON_UTF8_bytes": 44171,
+                "payload_sha256": "61d7ce8186ee701156d471118a38b6db32d8bc64b74c554ef5818a55225aeadd"
+              },
+              {
+                "batch_id": "batch-0004",
+                "assigned_blocks": 128,
+                "context_blocks": 24,
+                "returned_source_lines": 152,
+                "source_code_points": 6511,
+                "JSON_code_points": 41013,
+                "JSON_UTF8_bytes": 41027,
+                "payload_sha256": "f8d42799815d518541c0faa44581b97dc3efad96175762dcbeccb625cc5c8709"
+              },
+              {
+                "batch_id": "batch-0005",
+                "assigned_blocks": 128,
+                "context_blocks": 16,
+                "returned_source_lines": 144,
+                "source_code_points": 6806,
+                "JSON_code_points": 43936,
+                "JSON_UTF8_bytes": 43956,
+                "payload_sha256": "945645f77b64a35b17c6860bb0444929b2e9b2b7caca3ee651dc4e8acb580d30"
+              },
+              {
+                "batch_id": "batch-0006",
+                "assigned_blocks": 128,
+                "context_blocks": 15,
+                "returned_source_lines": 143,
+                "source_code_points": 7168,
+                "JSON_code_points": 44188,
+                "JSON_UTF8_bytes": 44215,
+                "payload_sha256": "777589e629f26ae9dc5650beb6c692d4031b122fa8b95ca5c01d8ad50d91ec7d"
+              },
+              {
+                "batch_id": "batch-0007",
+                "assigned_blocks": 128,
+                "context_blocks": 12,
+                "returned_source_lines": 140,
+                "source_code_points": 7218,
+                "JSON_code_points": 47066,
+                "JSON_UTF8_bytes": 47074,
+                "payload_sha256": "5ad2ad8cb3e35c006fe7f8f9ec88a2b76dc24670e8f9bc800137718a63731f9d"
+              },
+              {
+                "batch_id": "batch-0008",
+                "assigned_blocks": 13,
+                "context_blocks": 4,
+                "returned_source_lines": 17,
+                "source_code_points": 697,
+                "JSON_code_points": 9600,
+                "JSON_UTF8_bytes": 9600,
+                "payload_sha256": "2c299de649fe9f3986ce07f7bf7c25f178b4d91a6d1c31b4285db09f6d070b09"
+              }
+            ]
+          }
+        },
+        "F": {
+          "counts": {
+            "kept": 892,
+            "deferred": 17,
+            "excluded": 280
+          },
+          "code_points": {
+            "kept": 43204,
+            "deferred": 1039,
+            "excluded": 15587
+          },
+          "rule_counts": {
+            "KEEP_UNKNOWN_UNIT": 207,
+            "F_POSITIVE_UNIT": 544,
+            "KEEP_STRUCTURE_OR_FIGURE_TABLE": 73,
+            "KEEP_CONTEXT_NEIGHBOR": 1,
+            "KEEP_MAPPED_UNIT_CONTEXT": 67,
+            "F_NOT_PRIORITIZED_UNIT_DEFERRED": 17,
+            "TASK_BIBLIOGRAPHY_EXCLUDED": 280
+          },
+          "payload": {
+            "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+            "batch_count": 7,
+            "assigned_source_blocks": 892,
+            "initial_unique_source_blocks": 892,
+            "initial_unique_source_code_points": 43204,
+            "repeated_source_code_points_across_batches": 47647,
+            "total_first_read_JSON_code_points": 307093,
+            "total_first_read_JSON_UTF8_bytes": 307214,
+            "returned_source_unit_count_including_repetition": 502,
+            "deferred_blocks_reintroduced_as_context": [],
+            "bibliography_leak_count": 0,
+            "summary_context_JSON_code_points": 12740,
+            "summary_context_did_not_read_source": true,
+            "explicit_all_deferred_reread_upper_bound": {
+              "executed": true,
+              "blocks": 17,
+              "source_code_points": 1039,
+              "JSON_code_points": 6716,
+              "JSON_UTF8_bytes": 6716,
+              "reading_did_not_complete_summary_or_extract_deferred_blocks": true,
+              "upper_bound_unique_source_blocks": 909
+            },
+            "per_batch": [
+              {
+                "batch_id": "batch-0001",
+                "assigned_blocks": 128,
+                "context_blocks": 9,
+                "returned_source_lines": 137,
+                "source_code_points": 6645,
+                "JSON_code_points": 45375,
+                "JSON_UTF8_bytes": 45390,
+                "payload_sha256": "e1cd27709d02d019f044fa2803187fed86a35156414315a020e475d3faca79db"
+              },
+              {
+                "batch_id": "batch-0002",
+                "assigned_blocks": 128,
+                "context_blocks": 14,
+                "returned_source_lines": 142,
+                "source_code_points": 6917,
+                "JSON_code_points": 41339,
+                "JSON_UTF8_bytes": 41355,
+                "payload_sha256": "990f4a5493b3658a4c5278b2dccf4c9486a4c22ead86e796ad883bb0a7e206e5"
+              },
+              {
+                "batch_id": "batch-0003",
+                "assigned_blocks": 128,
+                "context_blocks": 17,
+                "returned_source_lines": 145,
+                "source_code_points": 7024,
+                "JSON_code_points": 44150,
+                "JSON_UTF8_bytes": 44171,
+                "payload_sha256": "61d7ce8186ee701156d471118a38b6db32d8bc64b74c554ef5818a55225aeadd"
+              },
+              {
+                "batch_id": "batch-0004",
+                "assigned_blocks": 128,
+                "context_blocks": 24,
+                "returned_source_lines": 152,
+                "source_code_points": 6511,
+                "JSON_code_points": 41013,
+                "JSON_UTF8_bytes": 41027,
+                "payload_sha256": "f8d42799815d518541c0faa44581b97dc3efad96175762dcbeccb625cc5c8709"
+              },
+              {
+                "batch_id": "batch-0005",
+                "assigned_blocks": 128,
+                "context_blocks": 16,
+                "returned_source_lines": 144,
+                "source_code_points": 6806,
+                "JSON_code_points": 43936,
+                "JSON_UTF8_bytes": 43956,
+                "payload_sha256": "945645f77b64a35b17c6860bb0444929b2e9b2b7caca3ee651dc4e8acb580d30"
+              },
+              {
+                "batch_id": "batch-0006",
+                "assigned_blocks": 128,
+                "context_blocks": 15,
+                "returned_source_lines": 143,
+                "source_code_points": 7168,
+                "JSON_code_points": 44188,
+                "JSON_UTF8_bytes": 44215,
+                "payload_sha256": "777589e629f26ae9dc5650beb6c692d4031b122fa8b95ca5c01d8ad50d91ec7d"
+              },
+              {
+                "batch_id": "batch-0007",
+                "assigned_blocks": 124,
+                "context_blocks": 9,
+                "returned_source_lines": 133,
+                "source_code_points": 6576,
+                "JSON_code_points": 47092,
+                "JSON_UTF8_bytes": 47100,
+                "payload_sha256": "71966518265d7f5897a50ee22c147a5354ff6cc691ac6115352a25be9f81b8fe"
+              }
+            ]
+          },
+          "restored_from_F2": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0001-l000000",
+              "document_line_index": 0,
+              "text": "Vol:.(1234567890)",
+              "rule_ids": [
+                "KEEP_UNKNOWN_UNIT"
+              ],
+              "reasons": [
+                "Incomplete, ambiguous, unfamiliar or continued source unit defaults to kept."
+              ]
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0012-l000043",
+              "document_line_index": 833,
+              "text": "Open Access This article is licensed under a Creative Commons Attri-",
+              "rule_ids": [
+                "F_POSITIVE_UNIT"
+              ],
+              "reasons": [
+                "A broad visual/modality/description/figure-table hint selects the complete literal paragraph, including its conditions, negation and numbers."
+              ]
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0015-l000015",
+              "document_line_index": 1187,
+              "text": "Publisher's Note Springer Nature remains neutral with regard to",
+              "rule_ids": [
+                "KEEP_MAPPED_UNIT_CONTEXT"
+              ],
+              "reasons": [
+                "Preserve the complete literal unit containing protected structure."
+              ]
+            }
+          ],
+          "newly_deferred_from_F2": [
+            "e21bc46051b0ea3513d7-p0012-l000025",
+            "e21bc46051b0ea3513d7-p0012-l000026",
+            "e21bc46051b0ea3513d7-p0012-l000027",
+            "e21bc46051b0ea3513d7-p0012-l000028",
+            "e21bc46051b0ea3513d7-p0012-l000029",
+            "e21bc46051b0ea3513d7-p0012-l000030",
+            "e21bc46051b0ea3513d7-p0012-l000031",
+            "e21bc46051b0ea3513d7-p0012-l000032",
+            "e21bc46051b0ea3513d7-p0012-l000033",
+            "e21bc46051b0ea3513d7-p0012-l000034",
+            "e21bc46051b0ea3513d7-p0012-l000035",
+            "e21bc46051b0ea3513d7-p0012-l000036",
+            "e21bc46051b0ea3513d7-p0012-l000037",
+            "e21bc46051b0ea3513d7-p0012-l000038",
+            "e21bc46051b0ea3513d7-p0012-l000039",
+            "e21bc46051b0ea3513d7-p0012-l000040",
+            "e21bc46051b0ea3513d7-p0012-l000042"
+          ],
+          "deferred_units": [
+            {
+              "unit_id": "385fe2843e10f8ab-u-7920e97b72c44eb9",
+              "native_ref": "#/texts/181",
+              "physical_pages": [
+                12
+              ],
+              "block_ids": [
+                "e21bc46051b0ea3513d7-p0012-l000025",
+                "e21bc46051b0ea3513d7-p0012-l000026",
+                "e21bc46051b0ea3513d7-p0012-l000027",
+                "e21bc46051b0ea3513d7-p0012-l000028",
+                "e21bc46051b0ea3513d7-p0012-l000029",
+                "e21bc46051b0ea3513d7-p0012-l000030",
+                "e21bc46051b0ea3513d7-p0012-l000031",
+                "e21bc46051b0ea3513d7-p0012-l000032",
+                "e21bc46051b0ea3513d7-p0012-l000033",
+                "e21bc46051b0ea3513d7-p0012-l000034",
+                "e21bc46051b0ea3513d7-p0012-l000035",
+                "e21bc46051b0ea3513d7-p0012-l000036",
+                "e21bc46051b0ea3513d7-p0012-l000037",
+                "e21bc46051b0ea3513d7-p0012-l000038",
+                "e21bc46051b0ea3513d7-p0012-l000039"
+              ],
+              "code_points": 960,
+              "literal_source": "Acknowledgements The authors would like to express their deepest\ngratitude to Joanne Chin, MFA, ELS, for her editorial support on this\nmanuscript. We would also like to thank members of the Colorectal\nand Anal Cancer Disease-focused Panel for their contribution, espe-\ncially Harmeet Kaur, David D. B. Bates, Marc J. Gollub, Mukesh\nHarisinghani, Shannon P. Sheedy, Ashish P. Wasnik, David H. Kim,\nGaurav Khatri, Kartik Jhaveri, Maria El-Homsi, Viktoriya Paroder,\nMichael Magentta, Perry J. Pickhardt, James Costello, Hiram Shaish,\nJennifer S. Golia Pernicka, Ekta Maheshwari, Tyler J. Fraum, Gai-\nane M. Rauch, Stephanie Nougaret, Courtney Moreno, Iva Petkovska,\nChandana Lall, Regina Beets-Tan, Jingfei Ma, Arya Supreeta, Randy\nErnest, George Chang, Kenneth Friedman, Martin R. Weiser, David\nP. Ryan, Raj Mohan Paspulati, Venkateswar Surabhi, Greg dePreisco,\nNeeraj Lalwani, Nima Momenin, and Varaha S. Tammisetti, Dhakshina\nGaneshan. Tasneem K. Lalani, and Sunil Krishnan.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "385fe2843e10f8ab-u-05e279b161762f25",
+              "native_ref": "#/texts/182",
+              "physical_pages": [
+                12
+              ],
+              "block_ids": [
+                "e21bc46051b0ea3513d7-p0012-l000040"
+              ],
+              "code_points": 13,
+              "literal_source": "Funding None.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            },
+            {
+              "unit_id": "385fe2843e10f8ab-u-e51c2021e805fdac",
+              "native_ref": "#/texts/184",
+              "physical_pages": [
+                12
+              ],
+              "block_ids": [
+                "e21bc46051b0ea3513d7-p0012-l000042"
+              ],
+              "code_points": 66,
+              "literal_source": "Conflict of interest The authors disclose no conflict of interest.",
+              "category": "complete_administrative_or_publication_prose",
+              "rule_ids": [
+                "F_NOT_PRIORITIZED_UNIT_DEFERRED"
+              ],
+              "medical_irrelevance_inferred": false,
+              "reason": "Complete reliably mapped literal unit outside the broad retrieval/context closure; unprioritized initial dispatch only, explicitly rereadable.",
+              "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance."
+            }
+          ]
+        },
+        "before_F2_mask_under_same_tool_adapter": {
+          "measurement": "Actual production closed batch_lines read tool executed once with {} per planned batch; source_units/document_structure included; no model/network calls.",
+          "batch_count": 8,
+          "assigned_source_blocks": 906,
+          "initial_unique_source_blocks": 908,
+          "initial_unique_source_code_points": 44226,
+          "repeated_source_code_points_across_batches": 48494,
+          "total_first_read_JSON_code_points": 313074,
+          "total_first_read_JSON_UTF8_bytes": 313191,
+          "returned_source_unit_count_including_repetition": 505,
+          "deferred_blocks_reintroduced_as_context": [
+            "e21bc46051b0ea3513d7-p0012-l000043",
+            "e21bc46051b0ea3513d7-p0015-l000015"
+          ],
+          "bibliography_leak_count": 0,
+          "summary_context_JSON_code_points": 12747,
+          "summary_context_did_not_read_source": true,
+          "explicit_all_deferred_reread_upper_bound": {
+            "executed": true,
+            "blocks": 3,
+            "source_code_points": 148,
+            "JSON_code_points": 4480,
+            "JSON_UTF8_bytes": 4480,
+            "reading_did_not_complete_summary_or_extract_deferred_blocks": true,
+            "upper_bound_unique_source_blocks": 909
+          },
+          "per_batch": [
+            {
+              "batch_id": "batch-0001",
+              "assigned_blocks": 128,
+              "context_blocks": 8,
+              "returned_source_lines": 136,
+              "source_code_points": 6628,
+              "JSON_code_points": 45087,
+              "JSON_UTF8_bytes": 45102,
+              "payload_sha256": "ca4b692f5556b1db3e6074bc9ad2de2039431a104530abcfde30456aee54b60c"
+            },
+            {
+              "batch_id": "batch-0002",
+              "assigned_blocks": 128,
+              "context_blocks": 13,
+              "returned_source_lines": 141,
+              "source_code_points": 6864,
+              "JSON_code_points": 40585,
+              "JSON_UTF8_bytes": 40599,
+              "payload_sha256": "bb5e9e674dc6d0b36933acc5965c491bba9962f8d46ff432d9cdf5a48aa26391"
+            },
+            {
+              "batch_id": "batch-0003",
+              "assigned_blocks": 128,
+              "context_blocks": 19,
+              "returned_source_lines": 147,
+              "source_code_points": 7145,
+              "JSON_code_points": 44664,
+              "JSON_UTF8_bytes": 44685,
+              "payload_sha256": "5fe96703caff515d8f821cdf6399c9fe4dfcf501f0ea79267015aecc58e8c2a1"
+            },
+            {
+              "batch_id": "batch-0004",
+              "assigned_blocks": 128,
+              "context_blocks": 21,
+              "returned_source_lines": 149,
+              "source_code_points": 6330,
+              "JSON_code_points": 40330,
+              "JSON_UTF8_bytes": 40344,
+              "payload_sha256": "72b4c0cea90c866cdaf7a0339b808d7255c3bd7609066e40697f1981f9fc5aca"
+            },
+            {
+              "batch_id": "batch-0005",
+              "assigned_blocks": 128,
+              "context_blocks": 16,
+              "returned_source_lines": 144,
+              "source_code_points": 6806,
+              "JSON_code_points": 43936,
+              "JSON_UTF8_bytes": 43956,
+              "payload_sha256": "c3abfa80a4066cba77bb55a52df12b955ddefa8d5b83ece64aa74721d670732b"
+            },
+            {
+              "batch_id": "batch-0006",
+              "assigned_blocks": 128,
+              "context_blocks": 13,
+              "returned_source_lines": 141,
+              "source_code_points": 7059,
+              "JSON_code_points": 43492,
+              "JSON_UTF8_bytes": 43517,
+              "payload_sha256": "055d02d655cdd42e5a4ae3fc145849d4268b6393958d7663ca14bd8f15492c0e"
+            },
+            {
+              "batch_id": "batch-0007",
+              "assigned_blocks": 128,
+              "context_blocks": 12,
+              "returned_source_lines": 140,
+              "source_code_points": 7218,
+              "JSON_code_points": 47066,
+              "JSON_UTF8_bytes": 47074,
+              "payload_sha256": "335ed70dc0bcf83a54c83aefef8f3163c230f72580ca4da87630f3a5247e012b"
+            },
+            {
+              "batch_id": "batch-0008",
+              "assigned_blocks": 10,
+              "context_blocks": 3,
+              "returned_source_lines": 13,
+              "source_code_points": 444,
+              "JSON_code_points": 7914,
+              "JSON_UTF8_bytes": 7914,
+              "payload_sha256": "01eea67f6948d4f064f8ab80fc2d415254443543525c52b5a3a18df72137b574"
+            }
+          ]
+        },
+        "same_bibliography_mask": true,
+        "original_IR_bytes_unchanged": true,
+        "original_document_object_unchanged": true,
+        "planned_distinct_model_inputs": 2,
+        "B0_F3_model_inputs_equivalent": false,
+        "source_only_code_point_reduction_fraction": 0.023483940962412134,
+        "actual_first_read_JSON_reduction_fraction": 0.030233652385629067
+      }
+    }
+  },
+  "historical_B0_six_primary_statements": {
+    "source": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/result.json",
+    "source_sha256": "48997c929edd256c54b0ded48bbf3190b5894f2f86635aa4d8cfaa0a25a90197",
+    "new_result_or_medical_approval": false,
+    "checks": [
+      {
+        "record_id": "ev-0badc9237f466efe0c3130c8d519bae8b877dba4",
+        "original_quote": "In comparison nodules with a diameter of 3 cm or less should have their surgical approaches determined with CTR\n[16].",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0002-l000018",
+          "95dde964ad802d61602a-p0002-l000019"
+        ]
+      },
+      {
+        "record_id": "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+        "original_quote": "Fig. 4 CT and pathological sections for the three groups. A-C are the chest CT, × 100 frozen section, and × 100 paraffin section for a patient\nwith both FS and FP diagnosed as AIS. D-F represent the chest CT, × 100 frozen section, and × 100 paraffin section for a patient diagnosed\nwith MIA in FS and IAC in FP. G-I depict the chest CT, × 100 frozen section, and × 100 paraffin section for a patient with FS and FP diagnosed\nas IAC",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0008-l000018",
+          "95dde964ad802d61602a-p0008-l000019",
+          "95dde964ad802d61602a-p0008-l000020",
+          "95dde964ad802d61602a-p0008-l000021"
+        ]
+      },
+      {
+        "record_id": "ev-4459402383db68084beec0d6d0ccee07a3a631bf",
+        "original_quote": " D-F represent the chest CT, × 100 frozen section, and × 100 paraffin section for a patient diagnosed\nwith MIA in FS and IAC in FP.",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0008-l000019",
+          "95dde964ad802d61602a-p0008-l000020"
+        ]
+      },
+      {
+        "record_id": "ev-665e6d5c21c450a61d71ec4120147537ecf894ad",
+        "original_quote": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0002-l000006",
+          "95dde964ad802d61602a-p0002-l000007",
+          "95dde964ad802d61602a-p0002-l000008"
+        ]
+      },
+      {
+        "record_id": "ev-88f853e79ff75799e6b0000f854760a77db8fe00",
+        "original_quote": " According to\nthe JCOG series studies results, nodules with a diameter greater than 3 cm should undergo pulmonary lobectomy.",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0002-l000016",
+          "95dde964ad802d61602a-p0002-l000017"
+        ]
+      },
+      {
+        "record_id": "ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1",
+        "original_quote": " A-C are the chest CT, × 100 frozen section, and × 100 paraffin section for a patient\nwith both FS and FP diagnosed as AIS.",
+        "literal_offsets_still_match": true,
+        "all_primary_blocks_kept": true,
+        "all_primary_blocks_in_actual_initial_tool_payload": true,
+        "block_ids": [
+          "95dde964ad802d61602a-p0008-l000018",
+          "95dde964ad802d61602a-p0008-l000019"
+        ]
+      }
+    ]
+  },
+  "old_ordinary_feedback_source_retention": {
+    "feedback": "apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json",
+    "feedback_sha256": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+    "source_groups": "docs/acceptance/user-feedback-2026-11-05/source-groups.json",
+    "source_groups_sha256": "3bd4bdf8aaf55aadc28afc7be5c1ab057b1cece8ea34f0c1584dad9ff42f3fbb",
+    "interpretation": "Source-retention checks cover all 40 historical source views, including positive-looking prose and S03 explicit note. Old ordinary-user screening is not current medical or output approval; table selections are not promoted to primary prose.",
+    "checks": [
+      {
+        "item_id": "S01",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 8,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S02",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 8,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S03",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": true,
+        "original_fragments": 6,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S04",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 8,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S05",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 8,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S06",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 3,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S07",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S08",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S09",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": true,
+        "original_fragments": 1,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S10",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 3,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S11",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 10,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S12",
+        "arm": "baseline",
+        "paper": "L01",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S13",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 16,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S14",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 15,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S15",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 18,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S16",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "unknown",
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 8,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S17",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 17,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S18",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": true,
+        "original_fragments": 3,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S19",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 14,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S20",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "unknown",
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": true,
+        "original_fragments": 12,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S21",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S22",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "unknown",
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 12,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S23",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 16,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S24",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 14,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S25",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 17,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S26",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 17,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S27",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "looks_like",
+        "source_types": [
+          "table",
+          "unknown"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 11,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S28",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 3,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S29",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 12,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "S30",
+        "arm": "baseline",
+        "paper": "L05",
+        "old_image_description_answer": "not_like",
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 12,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K01",
+        "arm": "before",
+        "paper": "L01",
+        "old_image_description_answer": null,
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 6,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K01",
+        "arm": "after",
+        "paper": "L01",
+        "old_image_description_answer": null,
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 6,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K02",
+        "arm": "before",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 4,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K02",
+        "arm": "after",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 4,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K03",
+        "arm": "before",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K03",
+        "arm": "after",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 5,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K04",
+        "arm": "before",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 7,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K04",
+        "arm": "after",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "body"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 7,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K05",
+        "arm": "before",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 4,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      },
+      {
+        "item_id": "K05",
+        "arm": "after",
+        "paper": "L05",
+        "old_image_description_answer": null,
+        "source_types": [
+          "figure_caption"
+        ],
+        "ordinary_prose_positive_or_S03": false,
+        "original_fragments": 4,
+        "literal_offsets_match": true,
+        "all_source_and_context_blocks_kept": true,
+        "all_in_actual_initial_payload": true
+      }
+    ]
+  },
+  "repaired_structure_retention": [
+    {
+      "paper": "L01",
+      "kind": "checked_continuation",
+      "relation_id": "pc-e86d36ef5d9e8004be0ba952",
+      "units": [
+        "7b144ab89ae76b8a-u-c4c3d3d9f4e72f7a",
+        "7b144ab89ae76b8a-u-3cba8c54b4df8b56"
+      ],
+      "source_blocks": [
+        "9b90e6cc9c86705d08a4-p0001-l000043",
+        "9b90e6cc9c86705d08a4-p0001-l000044",
+        "9b90e6cc9c86705d08a4-p0001-l000045",
+        "9b90e6cc9c86705d08a4-p0001-l000046",
+        "9b90e6cc9c86705d08a4-p0001-l000047",
+        "9b90e6cc9c86705d08a4-p0001-l000048",
+        "9b90e6cc9c86705d08a4-p0001-l000049",
+        "9b90e6cc9c86705d08a4-p0001-l000050",
+        "9b90e6cc9c86705d08a4-p0001-l000051",
+        "9b90e6cc9c86705d08a4-p0001-l000052",
+        "9b90e6cc9c86705d08a4-p0001-l000053",
+        "9b90e6cc9c86705d08a4-p0001-l000054",
+        "9b90e6cc9c86705d08a4-p0001-l000055",
+        "9b90e6cc9c86705d08a4-p0001-l000056",
+        "9b90e6cc9c86705d08a4-p0001-l000057",
+        "9b90e6cc9c86705d08a4-p0001-l000058",
+        "9b90e6cc9c86705d08a4-p0001-l000059",
+        "9b90e6cc9c86705d08a4-p0001-l000060",
+        "9b90e6cc9c86705d08a4-p0001-l000061",
+        "9b90e6cc9c86705d08a4-p0001-l000062"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L01",
+      "kind": "checked_continuation",
+      "relation_id": "pc-98c763ea81544fa74009d54d",
+      "units": [
+        "7b144ab89ae76b8a-u-f8e6eac3175b0b5a",
+        "7b144ab89ae76b8a-u-90e94497e7303f72"
+      ],
+      "source_blocks": [
+        "9b90e6cc9c86705d08a4-p0001-l000071",
+        "9b90e6cc9c86705d08a4-p0001-l000072",
+        "9b90e6cc9c86705d08a4-p0001-l000073",
+        "9b90e6cc9c86705d08a4-p0001-l000074",
+        "9b90e6cc9c86705d08a4-p0001-l000075",
+        "9b90e6cc9c86705d08a4-p0001-l000076",
+        "9b90e6cc9c86705d08a4-p0002-l000003",
+        "9b90e6cc9c86705d08a4-p0002-l000004",
+        "9b90e6cc9c86705d08a4-p0002-l000005",
+        "9b90e6cc9c86705d08a4-p0002-l000006",
+        "9b90e6cc9c86705d08a4-p0002-l000007",
+        "9b90e6cc9c86705d08a4-p0002-l000008"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L01",
+      "kind": "source_table_grid",
+      "table_id": "7b144ab89ae76b8a-u-ba1f81f6a3843482",
+      "status": "source_conflict",
+      "source_blocks": [
+        "9b90e6cc9c86705d08a4-p0002-l000054",
+        "9b90e6cc9c86705d08a4-p0002-l000056",
+        "9b90e6cc9c86705d08a4-p0002-l000058",
+        "9b90e6cc9c86705d08a4-p0002-l000055",
+        "9b90e6cc9c86705d08a4-p0002-l000057",
+        "9b90e6cc9c86705d08a4-p0002-l000059",
+        "9b90e6cc9c86705d08a4-p0002-l000060",
+        "9b90e6cc9c86705d08a4-p0002-l000061",
+        "9b90e6cc9c86705d08a4-p0002-l000062",
+        "9b90e6cc9c86705d08a4-p0002-l000063",
+        "9b90e6cc9c86705d08a4-p0002-l000064",
+        "9b90e6cc9c86705d08a4-p0002-l000065",
+        "9b90e6cc9c86705d08a4-p0002-l000066",
+        "9b90e6cc9c86705d08a4-p0002-l000067",
+        "9b90e6cc9c86705d08a4-p0002-l000068",
+        "9b90e6cc9c86705d08a4-p0002-l000069",
+        "9b90e6cc9c86705d08a4-p0002-l000070",
+        "9b90e6cc9c86705d08a4-p0002-l000071",
+        "9b90e6cc9c86705d08a4-p0002-l000072",
+        "9b90e6cc9c86705d08a4-p0002-l000073",
+        "9b90e6cc9c86705d08a4-p0002-l000074"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L01",
+      "kind": "source_table_grid",
+      "table_id": "7b144ab89ae76b8a-u-8b521deddb963a08",
+      "status": "geometry_checked",
+      "source_blocks": [
+        "9b90e6cc9c86705d08a4-p0003-l000003",
+        "9b90e6cc9c86705d08a4-p0003-l000004",
+        "9b90e6cc9c86705d08a4-p0003-l000005",
+        "9b90e6cc9c86705d08a4-p0003-l000006",
+        "9b90e6cc9c86705d08a4-p0003-l000007",
+        "9b90e6cc9c86705d08a4-p0003-l000008",
+        "9b90e6cc9c86705d08a4-p0003-l000009",
+        "9b90e6cc9c86705d08a4-p0003-l000010",
+        "9b90e6cc9c86705d08a4-p0003-l000011",
+        "9b90e6cc9c86705d08a4-p0003-l000012",
+        "9b90e6cc9c86705d08a4-p0003-l000013",
+        "9b90e6cc9c86705d08a4-p0003-l000014",
+        "9b90e6cc9c86705d08a4-p0003-l000015",
+        "9b90e6cc9c86705d08a4-p0003-l000016",
+        "9b90e6cc9c86705d08a4-p0003-l000017",
+        "9b90e6cc9c86705d08a4-p0003-l000018",
+        "9b90e6cc9c86705d08a4-p0003-l000019",
+        "9b90e6cc9c86705d08a4-p0003-l000020",
+        "9b90e6cc9c86705d08a4-p0003-l000021",
+        "9b90e6cc9c86705d08a4-p0003-l000022",
+        "9b90e6cc9c86705d08a4-p0003-l000023",
+        "9b90e6cc9c86705d08a4-p0003-l000024",
+        "9b90e6cc9c86705d08a4-p0003-l000025",
+        "9b90e6cc9c86705d08a4-p0003-l000026",
+        "9b90e6cc9c86705d08a4-p0003-l000027",
+        "9b90e6cc9c86705d08a4-p0003-l000028",
+        "9b90e6cc9c86705d08a4-p0003-l000029",
+        "9b90e6cc9c86705d08a4-p0003-l000030",
+        "9b90e6cc9c86705d08a4-p0003-l000031",
+        "9b90e6cc9c86705d08a4-p0003-l000032",
+        "9b90e6cc9c86705d08a4-p0003-l000033",
+        "9b90e6cc9c86705d08a4-p0003-l000034",
+        "9b90e6cc9c86705d08a4-p0003-l000035",
+        "9b90e6cc9c86705d08a4-p0003-l000036",
+        "9b90e6cc9c86705d08a4-p0003-l000037",
+        "9b90e6cc9c86705d08a4-p0003-l000038",
+        "9b90e6cc9c86705d08a4-p0003-l000039",
+        "9b90e6cc9c86705d08a4-p0003-l000040",
+        "9b90e6cc9c86705d08a4-p0003-l000041",
+        "9b90e6cc9c86705d08a4-p0003-l000042",
+        "9b90e6cc9c86705d08a4-p0003-l000043",
+        "9b90e6cc9c86705d08a4-p0003-l000044",
+        "9b90e6cc9c86705d08a4-p0003-l000045",
+        "9b90e6cc9c86705d08a4-p0003-l000046",
+        "9b90e6cc9c86705d08a4-p0003-l000047",
+        "9b90e6cc9c86705d08a4-p0003-l000048",
+        "9b90e6cc9c86705d08a4-p0003-l000049",
+        "9b90e6cc9c86705d08a4-p0003-l000050",
+        "9b90e6cc9c86705d08a4-p0003-l000051",
+        "9b90e6cc9c86705d08a4-p0003-l000052",
+        "9b90e6cc9c86705d08a4-p0003-l000053",
+        "9b90e6cc9c86705d08a4-p0003-l000054",
+        "9b90e6cc9c86705d08a4-p0003-l000055",
+        "9b90e6cc9c86705d08a4-p0003-l000056",
+        "9b90e6cc9c86705d08a4-p0003-l000057",
+        "9b90e6cc9c86705d08a4-p0003-l000058",
+        "9b90e6cc9c86705d08a4-p0003-l000059",
+        "9b90e6cc9c86705d08a4-p0003-l000060",
+        "9b90e6cc9c86705d08a4-p0003-l000061",
+        "9b90e6cc9c86705d08a4-p0003-l000062",
+        "9b90e6cc9c86705d08a4-p0003-l000063",
+        "9b90e6cc9c86705d08a4-p0003-l000064",
+        "9b90e6cc9c86705d08a4-p0003-l000065",
+        "9b90e6cc9c86705d08a4-p0003-l000066",
+        "9b90e6cc9c86705d08a4-p0003-l000067",
+        "9b90e6cc9c86705d08a4-p0003-l000068",
+        "9b90e6cc9c86705d08a4-p0003-l000069",
+        "9b90e6cc9c86705d08a4-p0003-l000070",
+        "9b90e6cc9c86705d08a4-p0003-l000071",
+        "9b90e6cc9c86705d08a4-p0003-l000072",
+        "9b90e6cc9c86705d08a4-p0003-l000073",
+        "9b90e6cc9c86705d08a4-p0003-l000074",
+        "9b90e6cc9c86705d08a4-p0003-l000075",
+        "9b90e6cc9c86705d08a4-p0003-l000076",
+        "9b90e6cc9c86705d08a4-p0003-l000077",
+        "9b90e6cc9c86705d08a4-p0003-l000078",
+        "9b90e6cc9c86705d08a4-p0003-l000079",
+        "9b90e6cc9c86705d08a4-p0003-l000080",
+        "9b90e6cc9c86705d08a4-p0003-l000081",
+        "9b90e6cc9c86705d08a4-p0003-l000082",
+        "9b90e6cc9c86705d08a4-p0003-l000083",
+        "9b90e6cc9c86705d08a4-p0003-l000084",
+        "9b90e6cc9c86705d08a4-p0003-l000085",
+        "9b90e6cc9c86705d08a4-p0003-l000086",
+        "9b90e6cc9c86705d08a4-p0003-l000087",
+        "9b90e6cc9c86705d08a4-p0003-l000088",
+        "9b90e6cc9c86705d08a4-p0003-l000089",
+        "9b90e6cc9c86705d08a4-p0003-l000090",
+        "9b90e6cc9c86705d08a4-p0003-l000091",
+        "9b90e6cc9c86705d08a4-p0003-l000092"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L01",
+      "kind": "figure_caption",
+      "figure": "1",
+      "caption_segments": 3,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "source_table_grid",
+      "table_id": "5288b6d2b63685ae-u-ba1f81f6a3843482",
+      "status": "geometry_checked",
+      "source_blocks": [
+        "95dde964ad802d61602a-p0004-l000006",
+        "95dde964ad802d61602a-p0004-l000007",
+        "95dde964ad802d61602a-p0004-l000008",
+        "95dde964ad802d61602a-p0004-l000009",
+        "95dde964ad802d61602a-p0004-l000010",
+        "95dde964ad802d61602a-p0004-l000011",
+        "95dde964ad802d61602a-p0004-l000012",
+        "95dde964ad802d61602a-p0004-l000013",
+        "95dde964ad802d61602a-p0004-l000014",
+        "95dde964ad802d61602a-p0004-l000015",
+        "95dde964ad802d61602a-p0004-l000016",
+        "95dde964ad802d61602a-p0004-l000017",
+        "95dde964ad802d61602a-p0004-l000018",
+        "95dde964ad802d61602a-p0004-l000019",
+        "95dde964ad802d61602a-p0004-l000020",
+        "95dde964ad802d61602a-p0004-l000021",
+        "95dde964ad802d61602a-p0004-l000022",
+        "95dde964ad802d61602a-p0004-l000023",
+        "95dde964ad802d61602a-p0004-l000024",
+        "95dde964ad802d61602a-p0004-l000025",
+        "95dde964ad802d61602a-p0004-l000026"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "source_table_grid",
+      "table_id": "5288b6d2b63685ae-u-8b521deddb963a08",
+      "status": "geometry_checked",
+      "source_blocks": [
+        "95dde964ad802d61602a-p0005-l000019",
+        "95dde964ad802d61602a-p0005-l000020",
+        "95dde964ad802d61602a-p0005-l000022",
+        "95dde964ad802d61602a-p0005-l000023",
+        "95dde964ad802d61602a-p0005-l000024",
+        "95dde964ad802d61602a-p0005-l000025",
+        "95dde964ad802d61602a-p0005-l000026",
+        "95dde964ad802d61602a-p0005-l000027",
+        "95dde964ad802d61602a-p0005-l000028",
+        "95dde964ad802d61602a-p0005-l000029",
+        "95dde964ad802d61602a-p0005-l000030",
+        "95dde964ad802d61602a-p0005-l000031",
+        "95dde964ad802d61602a-p0005-l000032",
+        "95dde964ad802d61602a-p0005-l000033",
+        "95dde964ad802d61602a-p0005-l000034",
+        "95dde964ad802d61602a-p0005-l000035",
+        "95dde964ad802d61602a-p0005-l000036",
+        "95dde964ad802d61602a-p0005-l000037",
+        "95dde964ad802d61602a-p0005-l000038",
+        "95dde964ad802d61602a-p0005-l000039",
+        "95dde964ad802d61602a-p0005-l000040",
+        "95dde964ad802d61602a-p0005-l000041",
+        "95dde964ad802d61602a-p0005-l000042",
+        "95dde964ad802d61602a-p0005-l000043",
+        "95dde964ad802d61602a-p0005-l000044",
+        "95dde964ad802d61602a-p0005-l000045",
+        "95dde964ad802d61602a-p0005-l000046",
+        "95dde964ad802d61602a-p0005-l000047",
+        "95dde964ad802d61602a-p0005-l000048",
+        "95dde964ad802d61602a-p0005-l000049",
+        "95dde964ad802d61602a-p0005-l000050",
+        "95dde964ad802d61602a-p0005-l000051",
+        "95dde964ad802d61602a-p0005-l000052",
+        "95dde964ad802d61602a-p0005-l000053",
+        "95dde964ad802d61602a-p0005-l000054",
+        "95dde964ad802d61602a-p0005-l000055",
+        "95dde964ad802d61602a-p0005-l000056",
+        "95dde964ad802d61602a-p0005-l000057",
+        "95dde964ad802d61602a-p0005-l000058",
+        "95dde964ad802d61602a-p0005-l000059",
+        "95dde964ad802d61602a-p0005-l000060",
+        "95dde964ad802d61602a-p0005-l000061",
+        "95dde964ad802d61602a-p0005-l000062",
+        "95dde964ad802d61602a-p0005-l000063",
+        "95dde964ad802d61602a-p0005-l000064",
+        "95dde964ad802d61602a-p0005-l000065",
+        "95dde964ad802d61602a-p0005-l000066",
+        "95dde964ad802d61602a-p0005-l000067",
+        "95dde964ad802d61602a-p0005-l000068",
+        "95dde964ad802d61602a-p0005-l000069",
+        "95dde964ad802d61602a-p0005-l000070",
+        "95dde964ad802d61602a-p0005-l000071",
+        "95dde964ad802d61602a-p0005-l000072",
+        "95dde964ad802d61602a-p0005-l000073",
+        "95dde964ad802d61602a-p0005-l000074",
+        "95dde964ad802d61602a-p0005-l000075",
+        "95dde964ad802d61602a-p0005-l000076",
+        "95dde964ad802d61602a-p0005-l000077",
+        "95dde964ad802d61602a-p0005-l000078",
+        "95dde964ad802d61602a-p0005-l000079",
+        "95dde964ad802d61602a-p0005-l000080",
+        "95dde964ad802d61602a-p0005-l000081",
+        "95dde964ad802d61602a-p0005-l000021"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "source_table_grid",
+      "table_id": "5288b6d2b63685ae-u-3a65ded52187a8ea",
+      "status": "geometry_checked",
+      "source_blocks": [
+        "95dde964ad802d61602a-p0006-l000018",
+        "95dde964ad802d61602a-p0006-l000019",
+        "95dde964ad802d61602a-p0006-l000020",
+        "95dde964ad802d61602a-p0006-l000022",
+        "95dde964ad802d61602a-p0006-l000023",
+        "95dde964ad802d61602a-p0006-l000024",
+        "95dde964ad802d61602a-p0006-l000025",
+        "95dde964ad802d61602a-p0006-l000026",
+        "95dde964ad802d61602a-p0006-l000027",
+        "95dde964ad802d61602a-p0006-l000028",
+        "95dde964ad802d61602a-p0006-l000029",
+        "95dde964ad802d61602a-p0006-l000030",
+        "95dde964ad802d61602a-p0006-l000031",
+        "95dde964ad802d61602a-p0006-l000032",
+        "95dde964ad802d61602a-p0006-l000033",
+        "95dde964ad802d61602a-p0006-l000034",
+        "95dde964ad802d61602a-p0006-l000035",
+        "95dde964ad802d61602a-p0006-l000036",
+        "95dde964ad802d61602a-p0006-l000037",
+        "95dde964ad802d61602a-p0006-l000038",
+        "95dde964ad802d61602a-p0006-l000039",
+        "95dde964ad802d61602a-p0006-l000040",
+        "95dde964ad802d61602a-p0006-l000041",
+        "95dde964ad802d61602a-p0006-l000042",
+        "95dde964ad802d61602a-p0006-l000043",
+        "95dde964ad802d61602a-p0006-l000044",
+        "95dde964ad802d61602a-p0006-l000045",
+        "95dde964ad802d61602a-p0006-l000046",
+        "95dde964ad802d61602a-p0006-l000047",
+        "95dde964ad802d61602a-p0006-l000048",
+        "95dde964ad802d61602a-p0006-l000049",
+        "95dde964ad802d61602a-p0006-l000050",
+        "95dde964ad802d61602a-p0006-l000051",
+        "95dde964ad802d61602a-p0006-l000052",
+        "95dde964ad802d61602a-p0006-l000053",
+        "95dde964ad802d61602a-p0006-l000054",
+        "95dde964ad802d61602a-p0006-l000055",
+        "95dde964ad802d61602a-p0006-l000056",
+        "95dde964ad802d61602a-p0006-l000057",
+        "95dde964ad802d61602a-p0006-l000058",
+        "95dde964ad802d61602a-p0006-l000059",
+        "95dde964ad802d61602a-p0006-l000060",
+        "95dde964ad802d61602a-p0006-l000061",
+        "95dde964ad802d61602a-p0006-l000062",
+        "95dde964ad802d61602a-p0006-l000063",
+        "95dde964ad802d61602a-p0006-l000064",
+        "95dde964ad802d61602a-p0006-l000065",
+        "95dde964ad802d61602a-p0006-l000066",
+        "95dde964ad802d61602a-p0006-l000067",
+        "95dde964ad802d61602a-p0006-l000068",
+        "95dde964ad802d61602a-p0006-l000069",
+        "95dde964ad802d61602a-p0006-l000070",
+        "95dde964ad802d61602a-p0006-l000071",
+        "95dde964ad802d61602a-p0006-l000072",
+        "95dde964ad802d61602a-p0006-l000073",
+        "95dde964ad802d61602a-p0006-l000074",
+        "95dde964ad802d61602a-p0006-l000075",
+        "95dde964ad802d61602a-p0006-l000076",
+        "95dde964ad802d61602a-p0006-l000077",
+        "95dde964ad802d61602a-p0006-l000078",
+        "95dde964ad802d61602a-p0006-l000079",
+        "95dde964ad802d61602a-p0006-l000080",
+        "95dde964ad802d61602a-p0006-l000081",
+        "95dde964ad802d61602a-p0006-l000082",
+        "95dde964ad802d61602a-p0006-l000083",
+        "95dde964ad802d61602a-p0006-l000084",
+        "95dde964ad802d61602a-p0006-l000085",
+        "95dde964ad802d61602a-p0006-l000086",
+        "95dde964ad802d61602a-p0006-l000021"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "source_table_grid",
+      "table_id": "5288b6d2b63685ae-u-8cb2bc4be11a55e8",
+      "status": "geometry_checked",
+      "source_blocks": [
+        "95dde964ad802d61602a-p0007-l000029",
+        "95dde964ad802d61602a-p0007-l000030",
+        "95dde964ad802d61602a-p0007-l000031",
+        "95dde964ad802d61602a-p0007-l000033",
+        "95dde964ad802d61602a-p0007-l000034",
+        "95dde964ad802d61602a-p0007-l000035",
+        "95dde964ad802d61602a-p0007-l000036",
+        "95dde964ad802d61602a-p0007-l000037",
+        "95dde964ad802d61602a-p0007-l000038",
+        "95dde964ad802d61602a-p0007-l000039",
+        "95dde964ad802d61602a-p0007-l000040",
+        "95dde964ad802d61602a-p0007-l000041",
+        "95dde964ad802d61602a-p0007-l000042",
+        "95dde964ad802d61602a-p0007-l000043",
+        "95dde964ad802d61602a-p0007-l000044",
+        "95dde964ad802d61602a-p0007-l000045",
+        "95dde964ad802d61602a-p0007-l000046",
+        "95dde964ad802d61602a-p0007-l000047",
+        "95dde964ad802d61602a-p0007-l000048",
+        "95dde964ad802d61602a-p0007-l000049",
+        "95dde964ad802d61602a-p0007-l000050",
+        "95dde964ad802d61602a-p0007-l000051",
+        "95dde964ad802d61602a-p0007-l000052",
+        "95dde964ad802d61602a-p0007-l000053",
+        "95dde964ad802d61602a-p0007-l000054",
+        "95dde964ad802d61602a-p0007-l000055",
+        "95dde964ad802d61602a-p0007-l000056",
+        "95dde964ad802d61602a-p0007-l000057",
+        "95dde964ad802d61602a-p0007-l000058",
+        "95dde964ad802d61602a-p0007-l000059",
+        "95dde964ad802d61602a-p0007-l000060",
+        "95dde964ad802d61602a-p0007-l000061",
+        "95dde964ad802d61602a-p0007-l000062",
+        "95dde964ad802d61602a-p0007-l000063",
+        "95dde964ad802d61602a-p0007-l000064",
+        "95dde964ad802d61602a-p0007-l000065",
+        "95dde964ad802d61602a-p0007-l000066",
+        "95dde964ad802d61602a-p0007-l000067",
+        "95dde964ad802d61602a-p0007-l000068",
+        "95dde964ad802d61602a-p0007-l000069",
+        "95dde964ad802d61602a-p0007-l000070",
+        "95dde964ad802d61602a-p0007-l000071",
+        "95dde964ad802d61602a-p0007-l000072",
+        "95dde964ad802d61602a-p0007-l000073",
+        "95dde964ad802d61602a-p0007-l000074",
+        "95dde964ad802d61602a-p0007-l000075",
+        "95dde964ad802d61602a-p0007-l000076",
+        "95dde964ad802d61602a-p0007-l000077",
+        "95dde964ad802d61602a-p0007-l000078",
+        "95dde964ad802d61602a-p0007-l000079",
+        "95dde964ad802d61602a-p0007-l000080",
+        "95dde964ad802d61602a-p0007-l000081",
+        "95dde964ad802d61602a-p0007-l000082",
+        "95dde964ad802d61602a-p0007-l000083",
+        "95dde964ad802d61602a-p0007-l000084",
+        "95dde964ad802d61602a-p0007-l000085",
+        "95dde964ad802d61602a-p0007-l000086",
+        "95dde964ad802d61602a-p0007-l000087",
+        "95dde964ad802d61602a-p0007-l000088",
+        "95dde964ad802d61602a-p0007-l000089",
+        "95dde964ad802d61602a-p0007-l000090",
+        "95dde964ad802d61602a-p0007-l000091",
+        "95dde964ad802d61602a-p0007-l000092",
+        "95dde964ad802d61602a-p0007-l000093",
+        "95dde964ad802d61602a-p0007-l000094",
+        "95dde964ad802d61602a-p0007-l000095",
+        "95dde964ad802d61602a-p0007-l000096",
+        "95dde964ad802d61602a-p0007-l000097",
+        "95dde964ad802d61602a-p0007-l000098",
+        "95dde964ad802d61602a-p0007-l000099",
+        "95dde964ad802d61602a-p0007-l000100",
+        "95dde964ad802d61602a-p0007-l000101",
+        "95dde964ad802d61602a-p0007-l000102",
+        "95dde964ad802d61602a-p0007-l000103",
+        "95dde964ad802d61602a-p0007-l000104",
+        "95dde964ad802d61602a-p0007-l000105",
+        "95dde964ad802d61602a-p0007-l000106",
+        "95dde964ad802d61602a-p0007-l000107",
+        "95dde964ad802d61602a-p0007-l000108",
+        "95dde964ad802d61602a-p0007-l000109",
+        "95dde964ad802d61602a-p0007-l000110",
+        "95dde964ad802d61602a-p0007-l000111",
+        "95dde964ad802d61602a-p0007-l000112",
+        "95dde964ad802d61602a-p0007-l000113",
+        "95dde964ad802d61602a-p0007-l000114",
+        "95dde964ad802d61602a-p0007-l000115",
+        "95dde964ad802d61602a-p0007-l000116",
+        "95dde964ad802d61602a-p0007-l000117",
+        "95dde964ad802d61602a-p0007-l000118",
+        "95dde964ad802d61602a-p0007-l000119",
+        "95dde964ad802d61602a-p0007-l000120",
+        "95dde964ad802d61602a-p0007-l000121",
+        "95dde964ad802d61602a-p0007-l000122",
+        "95dde964ad802d61602a-p0007-l000123",
+        "95dde964ad802d61602a-p0007-l000124",
+        "95dde964ad802d61602a-p0007-l000125",
+        "95dde964ad802d61602a-p0007-l000126",
+        "95dde964ad802d61602a-p0007-l000127",
+        "95dde964ad802d61602a-p0007-l000128",
+        "95dde964ad802d61602a-p0007-l000129",
+        "95dde964ad802d61602a-p0007-l000130",
+        "95dde964ad802d61602a-p0007-l000131",
+        "95dde964ad802d61602a-p0007-l000132",
+        "95dde964ad802d61602a-p0007-l000133",
+        "95dde964ad802d61602a-p0007-l000134",
+        "95dde964ad802d61602a-p0007-l000135",
+        "95dde964ad802d61602a-p0007-l000136",
+        "95dde964ad802d61602a-p0007-l000032"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "figure_caption",
+      "figure": "1",
+      "caption_segments": 1,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "figure_caption",
+      "figure": "2",
+      "caption_segments": 3,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "figure_caption",
+      "figure": "3",
+      "caption_segments": 1,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "figure_caption",
+      "figure": "4",
+      "caption_segments": 4,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L05",
+      "kind": "figure_caption",
+      "figure": null,
+      "caption_segments": 0,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-58284495831a2bb349208dae",
+      "units": [
+        "385fe2843e10f8ab-u-6f8db82d370fa970",
+        "385fe2843e10f8ab-u-8e95f620847afab8"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0004-l000026",
+        "e21bc46051b0ea3513d7-p0004-l000027",
+        "e21bc46051b0ea3513d7-p0004-l000028",
+        "e21bc46051b0ea3513d7-p0004-l000029",
+        "e21bc46051b0ea3513d7-p0004-l000030",
+        "e21bc46051b0ea3513d7-p0004-l000031",
+        "e21bc46051b0ea3513d7-p0004-l000032",
+        "e21bc46051b0ea3513d7-p0004-l000033",
+        "e21bc46051b0ea3513d7-p0004-l000034",
+        "e21bc46051b0ea3513d7-p0004-l000035",
+        "e21bc46051b0ea3513d7-p0004-l000036",
+        "e21bc46051b0ea3513d7-p0004-l000037",
+        "e21bc46051b0ea3513d7-p0004-l000038",
+        "e21bc46051b0ea3513d7-p0004-l000039",
+        "e21bc46051b0ea3513d7-p0004-l000040",
+        "e21bc46051b0ea3513d7-p0004-l000041",
+        "e21bc46051b0ea3513d7-p0004-l000042",
+        "e21bc46051b0ea3513d7-p0004-l000043"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-c4c1cfbb74a47e6934c33c5f",
+      "units": [
+        "385fe2843e10f8ab-u-73201852ceb101b3",
+        "385fe2843e10f8ab-u-4618eb9c693c1085"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0006-l000048",
+        "e21bc46051b0ea3513d7-p0006-l000049",
+        "e21bc46051b0ea3513d7-p0006-l000050",
+        "e21bc46051b0ea3513d7-p0006-l000051",
+        "e21bc46051b0ea3513d7-p0006-l000052",
+        "e21bc46051b0ea3513d7-p0006-l000053",
+        "e21bc46051b0ea3513d7-p0006-l000054",
+        "e21bc46051b0ea3513d7-p0006-l000055"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-af8cacea18270eab1f7e6ab4",
+      "units": [
+        "385fe2843e10f8ab-u-4d137fa4607acf92",
+        "385fe2843e10f8ab-u-db4dbd0a400576aa"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0007-l000016",
+        "e21bc46051b0ea3513d7-p0007-l000017",
+        "e21bc46051b0ea3513d7-p0007-l000018",
+        "e21bc46051b0ea3513d7-p0007-l000019",
+        "e21bc46051b0ea3513d7-p0007-l000020",
+        "e21bc46051b0ea3513d7-p0007-l000021",
+        "e21bc46051b0ea3513d7-p0007-l000022",
+        "e21bc46051b0ea3513d7-p0007-l000023",
+        "e21bc46051b0ea3513d7-p0007-l000024",
+        "e21bc46051b0ea3513d7-p0007-l000025",
+        "e21bc46051b0ea3513d7-p0007-l000026",
+        "e21bc46051b0ea3513d7-p0007-l000027"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-1a4b3a7713e6ac4a85d8f130",
+      "units": [
+        "385fe2843e10f8ab-u-d7548dbd3b285112",
+        "385fe2843e10f8ab-u-fb13e23b66b77a15"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0009-l000023",
+        "e21bc46051b0ea3513d7-p0009-l000024",
+        "e21bc46051b0ea3513d7-p0009-l000025",
+        "e21bc46051b0ea3513d7-p0009-l000026",
+        "e21bc46051b0ea3513d7-p0009-l000027",
+        "e21bc46051b0ea3513d7-p0009-l000028",
+        "e21bc46051b0ea3513d7-p0009-l000029",
+        "e21bc46051b0ea3513d7-p0009-l000030",
+        "e21bc46051b0ea3513d7-p0009-l000031",
+        "e21bc46051b0ea3513d7-p0009-l000032",
+        "e21bc46051b0ea3513d7-p0009-l000033",
+        "e21bc46051b0ea3513d7-p0010-l000003",
+        "e21bc46051b0ea3513d7-p0010-l000004"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-9cf8f221fb204b83d9f05bb5",
+      "units": [
+        "385fe2843e10f8ab-u-a06421cc2d2e15f8",
+        "385fe2843e10f8ab-u-c01ff6e27d98199b"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0010-l000044",
+        "e21bc46051b0ea3513d7-p0010-l000045",
+        "e21bc46051b0ea3513d7-p0010-l000046",
+        "e21bc46051b0ea3513d7-p0010-l000047",
+        "e21bc46051b0ea3513d7-p0010-l000048",
+        "e21bc46051b0ea3513d7-p0010-l000049",
+        "e21bc46051b0ea3513d7-p0010-l000050",
+        "e21bc46051b0ea3513d7-p0010-l000051"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "checked_continuation",
+      "relation_id": "pc-8bd2560ea058af7557de883b",
+      "units": [
+        "385fe2843e10f8ab-u-98226b3cb795d028",
+        "385fe2843e10f8ab-u-8fb8bd97d22dd57c"
+      ],
+      "source_blocks": [
+        "e21bc46051b0ea3513d7-p0011-l000045",
+        "e21bc46051b0ea3513d7-p0011-l000046",
+        "e21bc46051b0ea3513d7-p0011-l000047",
+        "e21bc46051b0ea3513d7-p0011-l000048",
+        "e21bc46051b0ea3513d7-p0011-l000049",
+        "e21bc46051b0ea3513d7-p0011-l000050",
+        "e21bc46051b0ea3513d7-p0011-l000051",
+        "e21bc46051b0ea3513d7-p0011-l000052",
+        "e21bc46051b0ea3513d7-p0011-l000053",
+        "e21bc46051b0ea3513d7-p0011-l000054",
+        "e21bc46051b0ea3513d7-p0011-l000055",
+        "e21bc46051b0ea3513d7-p0011-l000056",
+        "e21bc46051b0ea3513d7-p0011-l000057"
+      ],
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "1",
+      "caption_segments": 13,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "2",
+      "caption_segments": 18,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "3",
+      "caption_segments": 8,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "4",
+      "caption_segments": 21,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "5",
+      "caption_segments": 19,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": "6",
+      "caption_segments": 4,
+      "all_kept_and_payload_visible": true
+    },
+    {
+      "paper": "L07",
+      "kind": "figure_caption",
+      "figure": null,
+      "caption_segments": 0,
+      "all_kept_and_payload_visible": true
+    }
+  ],
+  "engineering_risk_sampling": {
+    "method": "Deterministic audit sample: the two deferred units with lowest sha256(unit_id) per paper, plus the real L05 limitations paragraph. This is engineering inspection, not medical validation.",
+    "sampled": [
+      {
+        "paper": "L05",
+        "native_ref": "#/texts/14",
+        "category": "complete_administrative_or_publication_prose",
+        "literal_source": "Hongya Wang, Aiping Chen and Kun Wang authors contributed equally to this work and share first authorship.",
+        "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance.",
+        "engineering_check": "Whole reliable paragraph deferred; no literal cue/continued source/caption/table unit was cut. Medical relevance unapproved.",
+        "observed_engineering_note": "实际原文仅共同第一作者姓名及贡献声明；未看到视觉外观描述。保持整句补读能力，此工程判断不批准医学相关性。"
+      },
+      {
+        "paper": "L05",
+        "native_ref": "#/texts/113",
+        "category": "complete_administrative_or_publication_prose",
+        "literal_source": "Funding This work was supported by the National Natural Science Foundation of the People's Republic of China (61971118) and the Natural\nScience Foundation of Jiangsu Province (BE2016790).",
+        "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance.",
+        "engineering_check": "Whole reliable paragraph deferred; no literal cue/continued source/caption/table unit was cut. Medical relevance unapproved.",
+        "observed_engineering_note": "实际原文为两个资助机构及grant编号61971118/BE2016790；数字未被当作测量值改写，完整两行可补读。"
+      },
+      {
+        "paper": "L05",
+        "native_ref": "#/texts/104",
+        "category": "study_limitations_prose",
+        "literal_source": "Our study has certain limitations. As a single-center retrospective investigation, conditions in other centers might\ndiffer, and the prospective validation of the conclusions remains to be conducted.",
+        "risk": "May omit study-center/generalizability caveats needed when interpreting a retrieved statement; future output reviewer must judge whether explicit reread is required.",
+        "engineering_check": "Whole reliable paragraph deferred; no literal cue/continued source/caption/table unit was cut. Medical relevance unapproved.",
+        "observed_engineering_note": "实际原文两行198码点，说明单中心、其他中心条件可能不同及尚需前瞻验证；这些全局适用性限定可能影响后续解释，F当前延后是可核验风险，未来真实输出须由用户核对是否应补读。"
+      },
+      {
+        "paper": "L07",
+        "native_ref": "#/texts/182",
+        "category": "complete_administrative_or_publication_prose",
+        "literal_source": "Funding None.",
+        "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance.",
+        "engineering_check": "Whole reliable paragraph deferred; no literal cue/continued source/caption/table unit was cut. Medical relevance unapproved.",
+        "observed_engineering_note": "实际原文完整Funding None.；未看到视觉外观描述，仅作为工程抽样观察。"
+      },
+      {
+        "paper": "L07",
+        "native_ref": "#/texts/181",
+        "category": "complete_administrative_or_publication_prose",
+        "literal_source": "Acknowledgements The authors would like to express their deepest\ngratitude to Joanne Chin, MFA, ELS, for her editorial support on this\nmanuscript. We would also like to thank members of the Colorectal\nand Anal Cancer Disease-focused Panel for their contribution, espe-\ncially Harmeet Kaur, David D. B. Bates, Marc J. Gollub, Mukesh\nHarisinghani, Shannon P. Sheedy, Ashish P. Wasnik, David H. Kim,\nGaurav Khatri, Kartik Jhaveri, Maria El-Homsi, Viktoriya Paroder,\nMichael Magentta, Perry J. Pickhardt, James Costello, Hiram Shaish,\nJennifer S. Golia Pernicka, Ekta Maheshwari, Tyler J. Fraum, Gai-\nane M. Rauch, Stephanie Nougaret, Courtney Moreno, Iva Petkovska,\nChandana Lall, Regina Beets-Tan, Jingfei Ma, Arya Supreeta, Randy\nErnest, George Chang, Kenneth Friedman, Martin R. Weiser, David\nP. Ryan, Raj Mohan Paspulati, Venkateswar Surabhi, Greg dePreisco,\nNeeraj Lalwani, Nima Momenin, and Varaha S. Tammisetti, Dhakshina\nGaneshan. Tasneem K. Lalani, and Sunil Krishnan.",
+        "risk": "A seemingly administrative unit could contain a novel descriptive expression without a known retrieval hint; rules do not establish medical irrelevance.",
+        "engineering_check": "Whole reliable paragraph deferred; no literal cue/continued source/caption/table unit was cut. Medical relevance unapproved.",
+        "observed_engineering_note": "实际原文15行致谢，包含编辑支持、专题组及具体参与者姓名；未切断姓名/句子，也未看到视觉外观描述，仍保留完整补读能力。"
+      }
+    ]
+  },
+  "updated_at": "2026-11-08T03:00:05.282Z",
+  "selector_version": "s4-explainable-source-selection-3",
+  "after_source_sha256": "bf1bd589ffbe5f5e2b41bfceaeb1c23e875631adc4ef7e8134e79b0bd77335e1",
+  "design": {
+    "before": "Line-level visual/number/qualifier seeds, almost all no-cue lines KEEP_UNKNOWN; only explicit noncontent lines deferred. Not a genuine complete-unit positive retrieval pass.",
+    "after": "Whole literal reliable paragraph/continued-source units selected by broad visual/modality/descriptive/figure-table hints, plus explicit referential context. Complete cue-negative units outside closure are unprioritized/deferred. Ambiguous, incomplete, overlapping, unfamiliar and continuation units remain visible.",
+    "deferred_meaning": "Not initially prioritized; explicit authorized reread remains available. Neither source deletion nor medical-irrelevance classification.",
+    "immutable": "B0 source states and shared bibliography mask unchanged; PDF/raw/IR/offsets/catalog assets unchanged. Only selector version advances; source-unit4, visual2 and bibliography1 remain.",
+    "fallback": "Missing or unverified structure defaults to kept; existing narrowly explicit noncontent line fallback remains, with mixed visual source now protected before boilerplate prefix.",
+    "missing_novel_phrases": "Rules cannot recognize every previously unseen visual wording. No closed feature whitelist or zero-omission guarantee is claimed.",
+    "title_scope": "No entire Methods/Discussion section exclusion and no blanket numeric exclusion.",
+    "context_measurement": "Actual first tool outputs include complete source_units and structural context. Batch planning and sentence completion are the production functions. Explicit reread upper bound is separate from initial dispatch."
+  },
+  "metrics_scope": {
+    "counts": "Original raw textline blocks, not paragraph/citation counts.",
+    "characters": "Unicode code points, not model tokens or billed fees.",
+    "payload": "One production closed read result per planned batch, including source_units and document_structure; no model prompt/request/retry transcript was generated. Repeated source exposure across batches is counted separately.",
+    "no_model_quality_or_winner": true,
+    "model_requests": 0,
+    "paid_requests": 0,
+    "formal_reviews_used": 3,
+    "new_formal_reviews": 0,
+    "future_experiment": "New real B0/F comparison needs new explicit paid authorization and user review of F omissions. L01 has equal current model inputs, not independent treatment evidence or general proof that F is inapplicable."
+  },
+  "verification": {
+    "targeted_command": ".tools/node/bin/node --import tsx --test tests/extraction/positive-source-selection.test.ts tests/extraction/source-selection.test.ts tests/extraction/method-comparison.test.ts",
+    "targeted_log": "docs/acceptance/s0-s4-recheck-2026-11-08/selection-targeted-tests.log",
+    "initial": {
+      "tests": 33,
+      "passed": 32,
+      "failed": 1,
+      "reason": "New test assumed © starts a complete unit; existing literal unit4 conservatively marks that start unverified. Corrected test to a complete Copyright sentence; no boundary policy was weakened."
+    },
+    "final": {
+      "tests": 33,
+      "passed": 33,
+      "failed": 0
+    },
+    "typescript": {
+      "command": ".tools/node/bin/node node_modules/typescript/bin/tsc --noEmit",
+      "exit_code": 0
+    },
+    "historical_six_all_retained": true,
+    "old_feedback_views_all_retained": true,
+    "actual_batch_and_summary_tools_executed_without_model": true,
+    "common_bibliography_leak_count": 0,
+    "all_repaired_tables_captions_continuations_retained": true,
+    "final_full_regression_owner": "/root/bibliography_scope_feedback",
+    "new_medical_or_product_approval": false
+  },
+  "evidence_inventory_note": "To avoid repeated inventories, B0 states and exclusion mask use deterministic SHA256 plus counts; before-F2 deferred entries/text and after-F3 deferred units/deltas are listed explicitly. Original source IDs/text remain reproducible from the bound unchanged IR.",
+  "summary": [
+    {
+      "paper": "L01",
+      "B0_selected_blocks": 336,
+      "F3_selected_blocks": 336,
+      "B0_source_code_points": 6744,
+      "F3_source_code_points": 6744,
+      "B0_first_read_JSON_code_points": 135071,
+      "F3_first_read_JSON_code_points": 135071,
+      "deferred_context_reintroduced_blocks": 0,
+      "B0_F3_model_inputs_equivalent": true
+    },
+    {
+      "paper": "L05",
+      "B0_selected_blocks": 523,
+      "F3_selected_blocks": 503,
+      "B0_source_code_points": 22978,
+      "F3_source_code_points": 20648,
+      "B0_first_read_JSON_code_points": 265934,
+      "F3_first_read_JSON_code_points": 257662,
+      "deferred_context_reintroduced_blocks": 0,
+      "B0_F3_model_inputs_equivalent": false
+    },
+    {
+      "paper": "L07",
+      "B0_selected_blocks": 909,
+      "F3_selected_blocks": 892,
+      "B0_source_code_points": 44243,
+      "F3_source_code_points": 43204,
+      "B0_first_read_JSON_code_points": 316667,
+      "F3_first_read_JSON_code_points": 307093,
+      "deferred_context_reintroduced_blocks": 0,
+      "B0_F3_model_inputs_equivalent": false
+    }
+  ]
+}

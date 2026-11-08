@@ -1,0 +1,442 @@
+{
+  "schema_version": "pipeline-contract-repair-acceptance-1",
+  "recorded_at": "2026-11-07T14:27:43.956735+00:00",
+  "status": "FLOW01_PROMPT01_ALIGN01_offline_engineering_completed",
+  "stage_order": [
+    "FLOW01",
+    "PROMPT01",
+    "ALIGN01"
+  ],
+  "source_write_handoff": {
+    "parent_checkpoint": "docs/acceptance/pdf-input-quality-2026-11-07/source-checkpoint.json",
+    "PDF_owner_final_checks_before_handoff": {
+      "extraction": 236,
+      "TS_parser": 21,
+      "Python": 32,
+      "tsc": "passed"
+    },
+    "parent_checkpoint_file_preserved": true
+  },
+  "changes": [
+    {
+      "path": "packages/agent/src/extraction-protocol.ts",
+      "change": "modified",
+      "before_sha256": "17d96e6888720df45b47b4c56cd813bfcc4f9bbeea17e66ba4e45ecb14ca32b0",
+      "after_sha256": "78cb9dc1f9fea8e668e32b2ff5ea9dbaae834464eb8f7d9b3e3e6e6d15bbdc06"
+    },
+    {
+      "path": "packages/agent/src/extraction-tools.ts",
+      "change": "modified",
+      "before_sha256": "d2e6d726db70d201c4443c0ddcdcec71da81ea7287cc4f74dab7e182ac7fdd57",
+      "after_sha256": "2093f633b4283efbffe42cec4d7b7e00cc6600f002b2a67d5ccadfa8f729191e"
+    },
+    {
+      "path": "packages/agent/src/extraction-summary.ts",
+      "change": "modified",
+      "before_sha256": "5fc56136bcdeb93af77ad00423798e9a82f1bebddc42c8282b27219ac10245d3",
+      "after_sha256": "fbf41fa7883f2477618e6a3a5c76bbc039946081ff2270319e424eecb695097b"
+    },
+    {
+      "path": "packages/agent/src/extraction-run.ts",
+      "change": "modified",
+      "before_sha256": "20577e6629c9aaf7509a4a2d33cf57be304d97e33cf1360844d195d5f696dcb6",
+      "after_sha256": "ec67c557d1ce0ef6712b4e5609bb024e4ae790f01692030ae584b88c76287e77"
+    },
+    {
+      "path": "packages/agent/src/evidence-validation.ts",
+      "change": "modified",
+      "before_sha256": "77083208ef403f3a7291d59e9094f186a8b9018f7a0bbaddbb932b1c1fe7ff47",
+      "after_sha256": "c423e9d1684aaf88bc2e3f5983d264b99b5aa26c5e890269d78030623dfa5752"
+    },
+    {
+      "path": "tests/extraction/runtime.test.ts",
+      "change": "modified",
+      "before_sha256": "b6ecb904211de41556d5c2ce6f8c6d8bef3195b12c05cbdc822e88eaadf55046",
+      "after_sha256": "e87f79b3fc37aa72af6848924462bb449427f862f095992a933a28d5cff55d7c"
+    },
+    {
+      "path": "packages/agent/src/evidence-validation-diagnostic.ts",
+      "change": "added",
+      "after_sha256": "2cb611438d6565c210a76d30dcdd6c11220d0afd7a7a128c89fb61c9c5f15c42"
+    },
+    {
+      "path": "tests/extraction/pipeline-contract.test.ts",
+      "change": "added",
+      "after_sha256": "903f5b7f8c08de0476ea1ac08acce44fa54bbdd08717a8703da69f7be02c3a29"
+    }
+  ],
+  "stages": [
+    {
+      "id": "FLOW01",
+      "status": "completed_offline",
+      "before": "Known Nov5 repairs already own state, explicit updates, human proposals, atomic rollback, bounded source windows and budget/identity checks; a rejected summary update retained issue codes but not its failed field or source selection.",
+      "declared_change": "Add bounded local rejection diagnostics only: host input index/path, feature-name preview/length/SHA, host-resolved document line/code-point reference or unresolved quote hash.",
+      "fixed_variables": [
+        "No state owner or transaction rewrite",
+        "No recovery allowlist/model strategy change",
+        "No prompt/wire/credential configuration serialization",
+        "No historical failure value reconstructed"
+      ],
+      "after": {
+        "batch_event": "candidate_validation_rejected.validation_diagnostic",
+        "summary_event": "summary_submission_rejected.validation_diagnostic",
+        "limits": {
+          "preview_code_points": 80,
+          "source_references": 16,
+          "sampled_items_per_array": 8
+        },
+        "preview_policy": "Only feature_name_raw is sampled; credential-like strings suppress preview, arbitrary objects are not serialized. Source quotes are never copied into the diagnostic.",
+        "reference_policy": "Document indices, versions, read status and exact spans derive from the bound host document; model-provided indices are not trusted as diagnostic provenance."
+      },
+      "offline_evidence": {
+        "new_fixture_and_existing_summary_reconciliation_recovery_tests": {
+          "passed": 19,
+          "failed": 0
+        },
+        "selected_runtime_state_identity_budget_tests": {
+          "passed": 9,
+          "failed": 0
+        },
+        "persistent_diagnostic_reopened_from_SQLite": true,
+        "summary_partial_updates_atomic_rollback_preserved": true
+      },
+      "outcome": "Future fixture errors are traceable within the bounded diagnostic. Existing state/reconciliation/LRU behavior passed; the historical B0 rejected literal remains unknown.",
+      "retain_or_rollback": "retain"
+    },
+    {
+      "id": "PROMPT01",
+      "status": "completed_offline",
+      "before": "The statement-policy batch description replaced the generic feature-name rule; summary field/schema/user prompt disclosure was incomplete and index/structure wording was ambiguous.",
+      "declared_change": "Share raw-feature, source/context selector, stage-specific coordinate, source-unit boundary, native-title and table-support declarations in extraction-protocol.ts, then reuse them in both schemas/tools and user prompts.",
+      "fixed_variables": [
+        "Same source_unit_ids or source_line_indices interface",
+        "Same existing evidence/medical eligibility policy",
+        "Same no-approval boundaries and source-unit implementation",
+        "No replacement model or new model capability"
+      ],
+      "after": {
+        "shared_raw_field_rule": "Exact source characters or null; preserve case, whitespace, newline, hyphen and Unicode; grouping goes in feature_category.",
+        "selectors": "One nonempty primary selector; at most one necessary context selector; omit unused alternatives.",
+        "batch_coordinates": "source_lines[].line_index, batch-local; medical/numeric indices use the same table.",
+        "summary_coordinates": "blocks[].line_index, immutable whole-document; medical/numeric updates use the same table.",
+        "native_heading_display": "Processed display context is not read/citable original source; referenced required lines remain unread until explicit read.",
+        "source_unit_boundaries": "Inspect kind/completeness/boundary_reasons; unverified paragraph fragments and table cells are present. Known missing sentence spans reject; uncertain boundaries remain requires_review.",
+        "tables": "Exact numeric support needs a numbered primary reference; table primary evidence and structure/caption-conflicted semantic support remain blocked."
+      },
+      "offline_evidence": {
+        "actual_tool_definition_and_loopback_prompt_test": {
+          "passed": 1,
+          "failed": 0
+        },
+        "batch_and_summary_schema_field_description_shared": true,
+        "both_actual_model_visible_user_prompts_checked": true
+      },
+      "outcome": "Current batch/summary disclosure matches the tested interface and actual returned field names; model adherence or benefit was not measured.",
+      "retain_or_rollback": "retain"
+    },
+    {
+      "id": "ALIGN01",
+      "status": "completed_offline",
+      "before": "Direct source execution showed feature_name_raw inherited containsLiteral NFC/case/whitespace folding, despite the declared verbatim-or-null contract.",
+      "declared_change": "Require exact raw-name characters in selected evidence in addition to the existing term-boundary check. Add only the feature-name-raw-exact-1 automatic-check version.",
+      "fixed_variables": [
+        "Other medical observations, catalog/scope matching and containsLiteral implementation unchanged",
+        "Exact quote locator, source units, PDF/IR and human evidence unchanged",
+        "Existing visual-statements-2 policy and source-unit version 2 retained",
+        "No clinical threshold/semantic strategy changes"
+      ],
+      "after": {
+        "new_submissions_only": true,
+        "raw_feature_contract_version": "feature-name-raw-exact-1",
+        "case_space_NFC_newline_rewrites_rejected": true,
+        "exact_cross_line_newline_hyphen_and_null_retained": true,
+        "existing_term_boundary_protection_retained": true,
+        "other_medical_term_fold_still_accepted_in_actual_validator_test": true,
+        "exact_quote_locator_function_unchanged": true,
+        "historical_records_or_reviews_rewritten": false
+      },
+      "offline_evidence": {
+        "pipeline_contract_tests": {
+          "passed": 7,
+          "failed": 0
+        },
+        "fixture_before_after": [
+          {
+            "fixture_id": "exact",
+            "selected_fixture_term": "spiculation",
+            "submitted_raw_feature": "spiculation",
+            "before_accepted": true,
+            "after_accepted": true,
+            "after_reject_codes": [],
+            "original_quote_unchanged_when_accepted": true
+          },
+          {
+            "fixture_id": "case_fold",
+            "selected_fixture_term": "spiculation",
+            "submitted_raw_feature": "Spiculation",
+            "before_accepted": true,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          },
+          {
+            "fixture_id": "space_fold",
+            "selected_fixture_term": "ground  glass",
+            "submitted_raw_feature": "ground glass",
+            "before_accepted": true,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          },
+          {
+            "fixture_id": "NFC_fold",
+            "selected_fixture_term": "Café",
+            "submitted_raw_feature": "Café",
+            "before_accepted": true,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          },
+          {
+            "fixture_id": "newline_fold",
+            "selected_fixture_term": "ground\nglass",
+            "submitted_raw_feature": "ground glass",
+            "before_accepted": true,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          },
+          {
+            "fixture_id": "exact_newline",
+            "selected_fixture_term": "ground\nglass",
+            "submitted_raw_feature": "ground\nglass",
+            "before_accepted": true,
+            "after_accepted": true,
+            "after_reject_codes": [],
+            "original_quote_unchanged_when_accepted": true
+          },
+          {
+            "fixture_id": "null",
+            "selected_fixture_term": "spiculation",
+            "submitted_raw_feature": null,
+            "before_accepted": true,
+            "after_accepted": true,
+            "after_reject_codes": [],
+            "original_quote_unchanged_when_accepted": true
+          },
+          {
+            "fixture_id": "missing",
+            "selected_fixture_term": "spiculation",
+            "submitted_raw_feature": "lobulation",
+            "before_accepted": false,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          },
+          {
+            "fixture_id": "partial_word",
+            "selected_fixture_term": "spiculation",
+            "submitted_raw_feature": "picul",
+            "before_accepted": false,
+            "after_accepted": false,
+            "after_reject_codes": [
+              "feature_name_not_in_evidence"
+            ],
+            "original_quote_unchanged_when_accepted": null
+          }
+        ],
+        "actual_behavior_matrix": [
+          {
+            "rule": "Exact/null raw feature, case/space/NFC/translation/invented/partial/empty failure, unchanged main quotation",
+            "tests": "pipeline-contract.test.ts: raw feature and cross-line tests"
+          },
+          {
+            "rule": "Source and context XOR, unavailable units, uncertain units remain needs-review in both real tools",
+            "tests": "pipeline-contract.test.ts: actual batch/summary selector test"
+          },
+          {
+            "rule": "Batch-local index 0 resolves document line 300, summary uses document 300; unread and stale binding reject",
+            "tests": "pipeline-contract.test.ts: actual coordinate/read/version test"
+          },
+          {
+            "rule": "Explicit table numeric support accepted only with correct numbered primary reference; table primary/context laundering and conflicted grids reject",
+            "tests": "visual-statements.test.ts and pdf-input-quality.test.ts (included in final full regression)"
+          },
+          {
+            "rule": "Native heading display and references do not mark source read; cross-page unverified units stay explicit",
+            "tests": "pdf-input-quality.test.ts plus pipeline-contract.test.ts actual tool test"
+          },
+          {
+            "rule": "Summary complete/partial, review refresh, atomic rejection, human-version proposals, explicit-update identity, LRU reread and budget/identity owner",
+            "tests": "s4-summary-reliability.test.ts, s4-candidate-revision.test.ts, s4-tool-recovery.test.ts and runtime.test.ts"
+          }
+        ],
+        "final_full_extraction_regression": {
+          "command": "bash scripts/with-node.sh node_modules/.bin/tsx --test tests/extraction/*.test.ts",
+          "tests": 243,
+          "passed": 243,
+          "failed": 0,
+          "duration_ms": 12584.320939
+        },
+        "final_typecheck": {
+          "command": "bash scripts/with-node.sh node_modules/.bin/tsc --noEmit",
+          "exit_code": 0
+        }
+      },
+      "outcome": "The full offline prerequisite contract matrix completed. No model-effectiveness, exhaustive PDF-fidelity, clinical-quality or winner conclusion follows.",
+      "retain_or_rollback": "retain"
+    }
+  ],
+  "raw_field_validator_actual_patch": "--- a/packages/agent/src/evidence-validation.ts\n+++ b/packages/agent/src/evidence-validation.ts\n@@ -8,6 +8,7 @@\n import { isSourceBoundaryDelimiter, verbatimOmissionIssues } from './verbatim-policy.js';\n import { VISUAL_STATEMENT_POLICY_VERSION, visualStatementIssues } from './visual-evidence-policy.js';\n import { SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';\n+import { FEATURE_NAME_RAW_CONTRACT_VERSION } from './extraction-protocol.js';\n \n const initialScope = (): ScopeMatch => ({ status: 'blocked', matched_binding_id: null, feature_match: 'none',\n   development_catalog_used: false, basis: [], issues: [] });\n@@ -161,7 +162,9 @@\n   }\n   const supportingFragments = supportingTables.flatMap(t => [...t.reference_evidence, ...t.fragments]);\n   const suppliedText = [...source, ...suppliedContext, ...fieldEvidence, ...supportingFragments].map(f => f.exact_quote).join('\\n');\n-  if (submission.feature_name_raw !== null && !containsLiteral(suppliedText, submission.feature_name_raw)) {\n+  // Raw names preserve exact source characters; other terms retain the existing folding policy.\n+  if (submission.feature_name_raw !== null && (!suppliedText.includes(submission.feature_name_raw) ||\n+    !containsLiteral(suppliedText, submission.feature_name_raw))) {\n     add('feature_name_not_in_evidence', 'reject', 'feature_name_raw');\n   }\n   const allSourceLines = [...new Set(source.map(f => f.block_id))].map(blockId => document.blocks.find(b => b.block_id === blockId)!).filter(Boolean);\n@@ -254,7 +257,7 @@\n     translation_zh: submission.translation_zh,\n     evidence_validation: { quote_located: true, method: 'exact_source_blocks_code_points_v1',\n       automatic_checks: { status: needsContext ? 'requires_review' : 'passed',\n-        checks: ['bound_source_identity', 'provided_and_read_source_blocks', 'exact_code_point_spans', 'explicit_scope_and_synonym_match', 'limited_lexical_consistency', 'verbatim_fragments_no_translation', 'source_qualifier_omission_guard',\n+        checks: ['bound_source_identity', 'provided_and_read_source_blocks', 'exact_code_point_spans', 'explicit_scope_and_synonym_match', 'limited_lexical_consistency', 'verbatim_fragments_no_translation', 'source_qualifier_omission_guard', FEATURE_NAME_RAW_CONTRACT_VERSION,\n           ...(statementPolicy ? ['complete_source_statement_spans', 'primary_prose_and_explicit_table_support_roles'] : [])] },\n       medical_semantics_verified: false, model_semantic_review: { status: 'not_performed', model_id: null, issue_codes: [] },\n       human_approval: 'not_performed', warnings: issues.map(i => i.code), issues: clone(issues), scope_match: clone(scopeMatch) },\n",
+  "repair_process": {
+    "fixture_corrections": [
+      {
+        "test": "cross-line raw feature",
+        "first_rejection": "assertion_wording_not_literal",
+        "correction": "Make the synthetic assertion joiner match its declared display_joiner; validator unchanged."
+      },
+      {
+        "test": "stale binding",
+        "correction": "Assert the actual existing binding_text_version_mismatch code instead of an invented generic code; validator unchanged."
+      },
+      {
+        "test": "line-index Pi exact whole-line success",
+        "before": "source Spiculation vs feature_name_raw spiculation",
+        "correction": "Use exact raw feature Spiculation in the synthetic success call; source quote and validator unchanged.",
+        "initial_full_suite": {
+          "tests": 243,
+          "passed": 242,
+          "failed": 1
+        },
+        "reason_for_one_final_rerun": "Existing positive fixture relied on the removed raw-feature case folding; correct fixture and verify full affected suite once."
+      }
+    ],
+    "historical_B0_failed_feature_value": null,
+    "historical_failure_reproduction_claimed": false,
+    "new_errors_are_labelled_synthetic_fixtures": true,
+    "final_green_run_is_independent_of_initial_242_of_243_run": true
+  },
+  "final_default_offline_prepare": {
+    "status": "offline_prepare_passed_unsigned_execute_rejected",
+    "plan_sha256": "6a884a0d55b3d678b027e459f89be1fb289d87e253d746923dad8b16ab180b70",
+    "runtime_source_sha256": "eca1ed794233d21c5818a2fb5024a399b3cf619d5097bf239a69b4ef756f5fc1",
+    "bound_changed_runtime_sha256": {
+      "packages/agent/src/evidence-validation-diagnostic.ts": "2cb611438d6565c210a76d30dcdd6c11220d0afd7a7a128c89fb61c9c5f15c42",
+      "packages/agent/src/extraction-protocol.ts": "78cb9dc1f9fea8e668e32b2ff5ea9dbaae834464eb8f7d9b3e3e6e6d15bbdc06",
+      "packages/agent/src/extraction-tools.ts": "2093f633b4283efbffe42cec4d7b7e00cc6600f002b2a67d5ccadfa8f729191e",
+      "packages/agent/src/extraction-summary.ts": "fbf41fa7883f2477618e6a3a5c76bbc039946081ff2270319e424eecb695097b",
+      "packages/agent/src/extraction-run.ts": "ec67c557d1ce0ef6712b4e5609bb024e4ae790f01692030ae584b88c76287e77",
+      "packages/agent/src/evidence-validation.ts": "c423e9d1684aaf88bc2e3f5983d264b99b5aa26c5e890269d78030623dfa5752"
+    },
+    "source_evidence_unit_version": "literal-source-sentences-2",
+    "raw_feature_contract_version": "feature-name-raw-exact-1",
+    "input_quality_status": "pending_separate_validation",
+    "offline_preparation_is_input_quality_approval": false,
+    "papers": [
+      {
+        "id": "L01",
+        "methods": 2,
+        "unique_inputs": 2,
+        "masks": [
+          {
+            "job": "L01-B0",
+            "kept": 409,
+            "batches": 4,
+            "equivalent_to": null
+          },
+          {
+            "job": "L01-F",
+            "kept": 344,
+            "batches": 3,
+            "equivalent_to": null
+          }
+        ]
+      },
+      {
+        "id": "L05",
+        "methods": 2,
+        "unique_inputs": 2,
+        "masks": [
+          {
+            "job": "L05-B0",
+            "kept": 615,
+            "batches": 6,
+            "equivalent_to": null
+          },
+          {
+            "job": "L05-F",
+            "kept": 524,
+            "batches": 5,
+            "equivalent_to": null
+          }
+        ]
+      }
+    ],
+    "authorization_status": "pending_user_confirmation",
+    "authorization_id": null,
+    "execution_directory_created": false,
+    "paid_calls": 0,
+    "temporary_plan_and_template_removed": true
+  },
+  "protected_artifacts": {
+    "historical_41_manifest": "docs/acceptance/pdf-input-quality-2026-11-07/two-method-transition.json",
+    "historical_41_manifest_sha256": "d4c738c2a344977c61aae98ef8272f3429fd2274f66beb7d86d4b4f7c1219c75",
+    "historical_files_rehashed": 41,
+    "historical_sha256_changes": 0,
+    "additional_files_checked": 17,
+    "additional_sha256_changes": 0,
+    "additional_sha256_by_path": {
+      "docs/acceptance/pdf-input-quality-2026-11-07/two-method-transition.json": "d4c738c2a344977c61aae98ef8272f3429fd2274f66beb7d86d4b4f7c1219c75",
+      "docs/acceptance/pdf-input-quality-2026-11-07/source-checkpoint.json": "3ddabad990c1b49bd789813e9992230aadb25cc6531cfdbff30b62ca29c1999d",
+      "services/pdf-parser/structured.py": "fd935c786ccd0f24a9ac3a4ec1d8f1af8aad6b16ebafc6d1375f187a0c235ef2",
+      "services/pdf-parser/figure_assets.py": "bb6efda32fbe5406018df46e270b9d6ec4783379f4f495f803f5e5f3ae918606",
+      "services/pdf-parser/tests/test_input_quality.py": "0afac472c11093102c7c61ecc931b600166e27c93c6e677e32808880bd28da88",
+      "packages/contracts/src/document-ir-v3.ts": "99f19bd6e6899585533722b8f2645a01730b66a5638b92278fe1286c373c7942",
+      "packages/agent/src/document-structure-context.ts": "87627bb934db2158cf36f63968cbfa6409b9fac5dfbd590b43b3f2e96e2d6bda",
+      "packages/agent/src/parser.ts": "1b1024e844d21feddfa0516dc3cbc4f66d90cc438802476359a354b038e57cb8",
+      "packages/agent/src/source-evidence-units.ts": "241173db758ba4bb9f5e810949e99913ef7df991a873967d3225d65264a0259e",
+      "packages/agent/src/visual-evidence-policy.ts": "2c14badccff86d7ff1c7dee51ca92c40c45c55a72532a4a6ede7f1fbf6abe2d9",
+      "tests/extraction/pdf-input-quality.test.ts": "b82c05623e258452e07a174cb881d34d55f2f2472201d0d0fb0839b3e4bb2e0b",
+      "scripts/diagnose-pdf-input-quality.py": "0e5bc20b600ff4314692786080670bd241887feebee46ed2a9e868fcd3cdd542",
+      "scripts/inspect-pdf-input-context.ts": "c67d5cb0115b2b0735db2f6b8ad715eed3364a4f40cd3f779e561104cd4c94b2",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/parser-result.json": "3b62358dd9932e4bcaab6dde7d9e3e9af92faf1457f01706744c3769f19ddd78",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/figure-assets/catalog.json": "0e3b81db688a55bd3fcfbf7cf26df87c4a955a8c04c6ed38ebefbe5dadee0567",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/parser-result.json": "1f041bc0d6b23766f43e6a8c925eeed0e04ceb378e5c6fb60d7812b01def32d1",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/catalog.json": "28a08aaf83baf793408eb6e5e1b0204e91a6efce3881fd18c04178f12c99e2aa"
+    }
+  },
+  "authorization_and_limits": {
+    "paid_API_calls": 0,
+    "new_paid_authorization": false,
+    "old_41_call_batch_or_remaining_23_reused": false,
+    "formal_reviews_used": 3,
+    "formal_review_limit": 3,
+    "new_formal_rounds": 0
+  },
+  "remaining_boundaries": {
+    "PDF_full_input_quality_accepted": false,
+    "current_IR_status": "partial",
+    "model_effectiveness": "not tested",
+    "formal_B0_F_comparison": "not started; input-quality limits and new explicit paid scope remain prerequisites",
+    "old_B0_exact_rejected_value": "not retained historically; unknown",
+    "method_winner": null,
+    "medical_or_product_approval": false
+  },
+  "cleanup": {
+    "temporary_prepare_plan_and_unsigned_template_removed": true,
+    "own_temporary_log": "runtime-data/agent-notes/pipeline-contract-repair-2026-11-07.json",
+    "own_test_stdout_log": "runtime-data/agent-notes/pipeline-contract-final-tests.txt",
+    "own_temporary_logs_removed_after_handoff": true,
+    "permanent_or_other_agent_files_removed": false
+  }
+}

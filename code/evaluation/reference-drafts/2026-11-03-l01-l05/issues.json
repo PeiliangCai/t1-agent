@@ -1,0 +1,2384 @@
+{
+  "schema_version": "ai-reference-issues-1",
+  "provenance": {
+    "origin": "external_ai_user_supplied",
+    "human_verified": false,
+    "not_gold": true,
+    "quality_evaluation_eligible": false,
+    "medical_review_status": "pending",
+    "human_annotator": null,
+    "human_reviewer": null,
+    "human_review_date": null,
+    "user_declared_source": "用户明确说明：是我让其它AI所抽取的，你可以用作参考。",
+    "medical_semantic_approval_performed": false,
+    "allowed_use": "冻结模型输出后的字面来源保留与待复核分歧审阅",
+    "forbidden_use": [
+      "不得作为已批准gold或完整人工标注",
+      "不得注入抽取prompt或据此定制筛选规则",
+      "不得生成医学precision/recall/F1或把未列项作为负例、漏提真值",
+      "表内完成、审核、阅读状态均为原始声明，不能升级人工或医学批准"
+    ]
+  },
+  "alignment_issues": [
+    {
+      "reference_id": "L01-001",
+      "document_id": "L01",
+      "worksheet_row": 2,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-002",
+      "document_id": "L01",
+      "worksheet_row": 3,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-003",
+      "document_id": "L01",
+      "worksheet_row": 4,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "见L01-D03：平扫/增强期相未指定。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-004",
+      "document_id": "L01",
+      "worksheet_row": 5,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-005",
+      "document_id": "L01",
+      "worksheet_row": 6,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "见L01-D02：“模糊”与“不清”不自动批准为同义。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-006",
+      "document_id": "L01",
+      "worksheet_row": 7,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-025“阻塞性改变”对应关系待核；见L01-D02。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-007",
+      "document_id": "L01",
+      "worksheet_row": 8,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-008",
+      "document_id": "L01",
+      "worksheet_row": 9,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同一组间观察在摘要/结果/表2重复，暂合并。关联L01-016、017图示及018定义。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-009",
+      "document_id": "L01",
+      "worksheet_row": 10,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-010",
+      "document_id": "L01",
+      "worksheet_row": 11,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-011",
+      "document_id": "L01",
+      "worksheet_row": 12,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "方法称“血管穿行”，表2明确“肿瘤内血管穿行”；保存两种原词，不自动批准广义与具体空间限定完全同义。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-012",
+      "document_id": "L01",
+      "worksheet_row": 13,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "关联L01-024；支气管征与支气管充气征的术语对应待复核。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-013",
+      "document_id": "L01",
+      "worksheet_row": 14,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-014",
+      "document_id": "L01",
+      "worksheet_row": 15,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-015",
+      "document_id": "L01",
+      "worksheet_row": 16,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "no_literal_match_in_emitted_s3_source_blocks",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "见L01-D05：肿大与转移不可混同。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-016",
+      "document_id": "L01",
+      "worksheet_row": 17,
+      "alignment_status": "partial",
+      "reasons": [
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同一连接关系在图1(a)/(b)重复展示，暂作为同一条的两片段。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-017",
+      "document_id": "L01",
+      "worksheet_row": 18,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-016同病例但描述维度不同；与L01-018定义相关。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-018",
+      "document_id": "L01",
+      "worksheet_row": 19,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-008、016、017相关；未自动批准与L05 vascular convergence sign为完全同义。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-019",
+      "document_id": "L01",
+      "worksheet_row": 20,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-020为同句不同条件；见L01-D04。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-020",
+      "document_id": "L01",
+      "worksheet_row": 21,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-019同句分开保留；见L01-D04。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-021",
+      "document_id": "L01",
+      "worksheet_row": 22,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "不将衰减自动替换为表2 CT值，不把囊性气隙自动等同于空洞。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-022",
+      "document_id": "L01",
+      "worksheet_row": 23,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与表2无直接对应行。 见L01-D02。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-023",
+      "document_id": "L01",
+      "worksheet_row": 24,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-008及011的关系待核。 见L01-D02。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-024",
+      "document_id": "L01",
+      "worksheet_row": 25,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-012对应关系待核。 见L01-D02。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L01-025",
+      "document_id": "L01",
+      "worksheet_row": 26,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L01-006对应关系待核。 见L01-D02。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-001",
+      "document_id": "L05",
+      "worksheet_row": 27,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-002密度排除条件、L05-003尺寸范围关联；同一图节点包含两个可独立核对属性 与L05-003共享图1节点但分别记录影像形态和尺寸限制；最终拆分待复核。",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-002",
+      "document_id": "L05",
+      "worksheet_row": 28,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-001、L05-003共同界定样本；第7页讨论重复这一排除条件，不另计证据",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-003",
+      "document_id": "L05",
+      "worksheet_row": 29,
+      "alignment_status": "partial",
+      "reasons": [
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-001同图但提取尺寸属性；第7页讨论重复，合并来源而不重复计数",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-004",
+      "document_id": "L05",
+      "worksheet_row": 30,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-005使用同一原文句子，分别记录结节直径与实性成分直径；与L05-006关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-005",
+      "document_id": "L05",
+      "worksheet_row": 31,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-004同句拆分；为L05-006的分子",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-006",
+      "document_id": "L05",
+      "worksheet_row": 32,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "关联L05-004、L05-005，以及L05-013、L05-021的分层",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-007",
+      "document_id": "L05",
+      "worksheet_row": 33,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-008",
+      "document_id": "L05",
+      "worksheet_row": 34,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-009",
+      "document_id": "L05",
+      "worksheet_row": 35,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-010",
+      "document_id": "L05",
+      "worksheet_row": 36,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-011",
+      "document_id": "L05",
+      "worksheet_row": 37,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-012",
+      "document_id": "L05",
+      "worksheet_row": 38,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-013",
+      "document_id": "L05",
+      "worksheet_row": 39,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote",
+        "short_fragment_has_limited_localization_specificity"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-014",
+      "document_id": "L05",
+      "worksheet_row": 40,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "同名特征在Table4为不同样本比较，应单独记录；正文第5页统计叙述与表3关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-015",
+      "document_id": "L05",
+      "worksheet_row": 41,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-016",
+      "document_id": "L05",
+      "worksheet_row": 42,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-017",
+      "document_id": "L05",
+      "worksheet_row": 43,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-018",
+      "document_id": "L05",
+      "worksheet_row": 44,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-019",
+      "document_id": "L05",
+      "worksheet_row": 45,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-020",
+      "document_id": "L05",
+      "worksheet_row": 46,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-021",
+      "document_id": "L05",
+      "worksheet_row": 47,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote",
+        "short_fragment_has_limited_localization_specificity"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-022",
+      "document_id": "L05",
+      "worksheet_row": 48,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "fragment_partial",
+        "multiple_literal_source_candidates_no_first_occurrence_selected",
+        "noncontinuous_or_table_transcription_not_promoted_to_contiguous_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "与Table3同名特征是不同主体/比较条件，不归并频数；第6页3.2.2叙述与本表关联",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-024",
+      "document_id": "L05",
+      "worksheet_row": 50,
+      "alignment_status": "partial",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote"
+      ],
+      "workbook_association_or_conflict_raw": "摘要/正文为同一断言，合并两个出处；关联L05-021、L05-022、L05-025",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-025",
+      "document_id": "L05",
+      "worksheet_row": 51,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "关联L05-023、L05-024；保留复合条件为一个候选单元",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-026",
+      "document_id": "L05",
+      "worksheet_row": 52,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-025同句不同断言；不得把假说与测量结果合并",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-027",
+      "document_id": "L05",
+      "worksheet_row": 53,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "通过图注关联病理组；同一图内多个标签暂按一个病例测量记录保留，是否拆分待裁定",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-028",
+      "document_id": "L05",
+      "worksheet_row": 54,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "通过图注关联病理组；同一图内多个标签暂按一个病例测量记录保留，是否拆分待裁定",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-029",
+      "document_id": "L05",
+      "worksheet_row": 55,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "multiple_explicit_fragments_not_concatenated_or_promoted_to_single_source_quote",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "通过图注关联病理组；同一图内多个标签暂按一个病例测量记录保留，是否拆分待裁定",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-030",
+      "document_id": "L05",
+      "worksheet_row": 56,
+      "alignment_status": "unmatched",
+      "reasons": [
+        "fragment_unmatched",
+        "no_literal_match_in_emitted_s3_source_blocks"
+      ],
+      "workbook_association_or_conflict_raw": "关联研究AAH排除条件与L05-D03",
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "reference_id": "L05-031",
+      "document_id": "L05",
+      "worksheet_row": 57,
+      "alignment_status": "normalized",
+      "reasons": [
+        "cross_source_line_match_backend_reading_order_unverified"
+      ],
+      "workbook_association_or_conflict_raw": "与L05-003同为3 cm但来源和用途不同，不自动归并为同一断言",
+      "medical_adjudication": "pending_not_performed"
+    }
+  ],
+  "repeated_workbook_quote_groups": [
+    {
+      "document_id": "L01",
+      "reference_ids": [
+        "L01-019",
+        "L01-020"
+      ],
+      "interpretation": "identical_workbook_quote_not_automatic_duplicate_or_medical_merge"
+    },
+    {
+      "document_id": "L01",
+      "reference_ids": [
+        "L01-022",
+        "L01-023",
+        "L01-024",
+        "L01-025"
+      ],
+      "interpretation": "identical_workbook_quote_not_automatic_duplicate_or_medical_merge"
+    },
+    {
+      "document_id": "L05",
+      "reference_ids": [
+        "L05-004",
+        "L05-005"
+      ],
+      "interpretation": "identical_workbook_quote_not_automatic_duplicate_or_medical_merge"
+    },
+    {
+      "document_id": "L05",
+      "reference_ids": [
+        "L05-025",
+        "L05-026"
+      ],
+      "interpretation": "identical_workbook_quote_not_automatic_duplicate_or_medical_merge"
+    }
+  ],
+  "workbook_disputes_and_terms": [
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 2,
+      "cells": [
+        {
+          "cell": "A2",
+          "column": 1,
+          "value": "L01-D01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B2",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C2",
+          "column": 3,
+          "value": "物理页 2、3\n图1图注；3讨论血管征定义",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D2",
+          "column": 4,
+          "value": "拆分/归并",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E2",
+          "column": 5,
+          "value": "图1(c)：多发肺血管指向肺结节，末端增粗，呈抱球样改变。定义：血管增多、迂曲、扩张及增粗，供血血管受压出现局部切迹。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F2",
+          "column": 6,
+          "value": "暂分别保留图1复合观察与转引定义；不按征象词数机械计数。图1(a)/(b)相同连接关系暂合一，保留不同窗位。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G2",
+          "column": 7,
+          "value": "L01-016至018的原文片段。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H2",
+          "column": 8,
+          "value": "肺部CT；定义、个例、窗位与重建差异",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K2",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L2",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 3,
+      "cells": [
+        {
+          "cell": "A3",
+          "column": 1,
+          "value": "L01-D02",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B3",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C3",
+          "column": 3,
+          "value": "物理页 1、2、3\n摘要/1.4评估清单/表2",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D3",
+          "column": 4,
+          "value": "收录边界/术语对应",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E3",
+          "column": 5,
+          "value": "方法列磨玻璃影、阻塞性改变、支气管征、血管；表2列阻塞性肺炎、支气管充气征，无磨玻璃影及未限定的血管结果行。方法清晰度末项“模糊”，表2为“不清”。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F3",
+          "column": 6,
+          "value": "原词分别保留；仅列举项目标待裁定，不补写定义、发生率或阴性。阻塞性肺炎、坏死等CT变量仅报告作者观察，不补充影像判据；与广义条目的关系待核。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G3",
+          "column": 7,
+          "value": "L01-005、006、009、012、022至025。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H3",
+          "column": 8,
+          "value": "NSCLC CT；方法条目与实际观察的对应",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K3",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L3",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 4,
+      "cells": [
+        {
+          "cell": "A4",
+          "column": 1,
+          "value": "L01-D03",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B4",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C4",
+          "column": 3,
+          "value": "物理页 2、3\n1.2 CT检查；表2 CT值",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D4",
+          "column": 4,
+          "value": "序列/期相适用性",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E4",
+          "column": 5,
+          "value": "包括胸部CT平扫及动、静脉两期增强扫描；表2仅标CT值（HU）。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F4",
+          "column": 6,
+          "value": "仅记胸部CT及可用扫描方案，CT值的具体平扫/增强期相填未说明，不能按数值猜测。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G4",
+          "column": 7,
+          "value": "L01-003及第2页1.2。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H4",
+          "column": 8,
+          "value": "CT值测量期相",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K4",
+          "column": 11,
+          "value": "待核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L4",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 5,
+      "cells": [
+        {
+          "cell": "A5",
+          "column": 1,
+          "value": "L01-D04",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B5",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C5",
+          "column": 3,
+          "value": "物理页 2\n1.3疗效评价",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D5",
+          "column": 4,
+          "value": "条件/测量/临床结论边界",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E5",
+          "column": 5,
+          "value": "有效组（目标病灶直径的总缩小量≥30%）与无效组（目标病灶未见明显缩小）。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F5",
+          "column": 6,
+          "value": "保留两条不同的影像变化条件；不将无效组自动数值化为＜30%，不把该句提升为完整iRECIST标准。临床标签仅作上下文。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G5",
+          "column": 7,
+          "value": "L01-019、020；作者引文[16]。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H5",
+          "column": 8,
+          "value": "治疗后CT变化与治疗前预测特征需区分",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K5",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L5",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 6,
+      "cells": [
+        {
+          "cell": "A6",
+          "column": 1,
+          "value": "L01-D05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B6",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C6",
+          "column": 3,
+          "value": "物理页 2、3\n2.2 CT影像特征分析；表2末三行",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D6",
+          "column": 4,
+          "value": "临床结论/视觉证据边界",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E6",
+          "column": 5,
+          "value": "表2：淋巴结肿大（有/无）有效组30/1、无效组18/1；肺内转移（有/无）9/22、9/10；远处转移（有/无）15/16、12/7。正文另写淋巴结、肺内、远处转移。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F6",
+          "column": 6,
+          "value": "淋巴结肿大暂收为影像征象观察，阈值未说明；肺内/远处转移仅作临床结论语境，不列独立视觉特征。不把肿大等同转移。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G6",
+          "column": 7,
+          "value": "表2；L01-015。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H6",
+          "column": 8,
+          "value": "肺部CT；分期/转移与具体外观区分",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K6",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L6",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 7,
+      "cells": [
+        {
+          "cell": "A7",
+          "column": 1,
+          "value": "L01-D06",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B7",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C7",
+          "column": 3,
+          "value": "物理页 2\n2.1结果正文与表1病理类型列",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D7",
+          "column": 4,
+          "value": "原文内部不一致/人群属性",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E7",
+          "column": 5,
+          "value": "正文：腺癌32例，鳞癌14例，大细胞肺癌4例。表1有效组：11、15、5；无效组：13、5、1（按腺癌/鳞癌/大细胞肺癌列）。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F7",
+          "column": 6,
+          "value": "表1按列相加为24、20、6，与正文32、14、4不一致；这是核对计算，不擅自判定哪个正确。本轮采用总50例NSCLC语境，不合成统一亚型分布。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G7",
+          "column": 7,
+          "value": "第2页2.1与表1，两个出处均已目视核对。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H7",
+          "column": 8,
+          "value": "研究对象病理分型；与影像记录背景相关",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K7",
+          "column": 11,
+          "value": "待核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L7",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 8,
+      "cells": [
+        {
+          "cell": "A8",
+          "column": 1,
+          "value": "L01-D07",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B8",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C8",
+          "column": 3,
+          "value": "物理页 1、2\n摘要/研究目的、1.1与1.2",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D8",
+          "column": 4,
+          "value": "时间条件",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E8",
+          "column": 5,
+          "value": "目的写免疫联合化疗治疗前CT；1.1和1.2另写“术前一周内进行CT扫描”。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F8",
+          "column": 6,
+          "value": "保留治疗前与“术前一周”两种原文语境，不自行推断手术与治疗先后。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G8",
+          "column": 7,
+          "value": "第1页摘要及1.1，第2页1.2。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H8",
+          "column": 8,
+          "value": "CT采集时间与治疗条件",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K8",
+          "column": 11,
+          "value": "待核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L8",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 9,
+      "cells": [
+        {
+          "cell": "A9",
+          "column": 1,
+          "value": "L01-D08",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B9",
+          "column": 2,
+          "value": "L01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C9",
+          "column": 3,
+          "value": "物理页 3、4\n3讨论机制段；结论与参考文献",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D9",
+          "column": 4,
+          "value": "范围外语境",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E9",
+          "column": 5,
+          "value": "讨论含供血血管进入肿瘤滋养肿瘤、肿瘤相关高内皮微静脉以及黑色素瘤免疫治疗等机制；第4页为疗效结论与参考文献。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F9",
+          "column": 6,
+          "value": "生物学机制、其他癌种治疗结论不补作本研究CT视觉观察；参考文献题名只用于出处核对。第4页未发现新增独立视觉描述。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G9",
+          "column": 7,
+          "value": "已阅读第3、4页全部正文与参考文献。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H9",
+          "column": 8,
+          "value": "肺部CT当前范围；机制/背景和视觉证据区分",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K9",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L9",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 10,
+      "cells": [
+        {
+          "cell": "A10",
+          "column": 1,
+          "value": "L05-D01",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B10",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C10",
+          "column": 3,
+          "value": "物理页 1,3,4\nAbstract Methods；2.1末段；Fig.1分组",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D10",
+          "column": 4,
+          "value": "术语/分组一致性",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E10",
+          "column": 5,
+          "value": "摘要：non-invasive adenocarcinoma (IAC)；Group 1 (n=360) had both FS and ... FP as non-invasive adenocarcinoma (IAC)。Fig.1：G1 FS: Non-IAC / FP: Non-IAC；G2 FS: Non-IAC / FP: IAC；G3 FS: IAC / FP: IAC。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F10",
+          "column": 6,
+          "value": "摘要对IAC的英文展开与文中对照用法不一致；以明确的Fig.1分组作为本次标注主体语境，同时保留原始不一致，不能静默纠正文献。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G10",
+          "column": 7,
+          "value": "第1页摘要，第3页2.1，第4页Fig.1",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H10",
+          "column": 8,
+          "value": "肺结节；CT；病理分组",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K10",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L10",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 11,
+      "cells": [
+        {
+          "cell": "A11",
+          "column": 1,
+          "value": "L05-D02",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B11",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C11",
+          "column": 3,
+          "value": "物理页 6,7\n3.2.2末句；Discussion末段",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D11",
+          "column": 4,
+          "value": "数值/阈值对应",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E11",
+          "column": 5,
+          "value": "cut-off value of 12.55 mm；nodules ≤12.6 mm and CTR ≤0.5",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F11",
+          "column": 6,
+          "value": "分别保留12.55 mm与≤12.6 mm。后者可能涉及报告精度调整，但本文未解释，不能直接视为相同阈值或擅自覆盖。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G11",
+          "column": 7,
+          "value": "L05-023、L05-025",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H11",
+          "column": 8,
+          "value": "IAC；CT结节直径；FS低估条件",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K11",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L11",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 12,
+      "cells": [
+        {
+          "cell": "A12",
+          "column": 1,
+          "value": "L05-D03",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B12",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C12",
+          "column": 3,
+          "value": "物理页 2,3,4\n2.1排除AAH；3.1；Table1；Fig.1",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D12",
+          "column": 4,
+          "value": "FS/FP行列方向、AAH排除对象及分组计数对应",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E12",
+          "column": 5,
+          "value": "第2页排除条件：Pathology results as AAH；Fig.1排除Atypical adenomatous hyperplasia (n=31)。Table1表头为FS/FP；AAH在列，AIS/MIA/IAC在行；右部Non-IAC行352/8、IAC行128/372。Fig.1将G1标为FS: Non-IAC / FP: Non-IAC (n=360)。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F12",
+          "column": 6,
+          "value": "先核对表1 FS/FP行列方向及AAH排除所指的病理终点。若AAH列代表FS，术前/术中FS-AAH可与排除最终FP-AAH并存，不能仅凭表中AAH认定矛盾。更需核对的是：表1双方non-IAC交叉格为352，而Fig.1双方non-IAC的G1记360，差8例；不要自行并组或改计数。保留表3/4的原分组标签和n，提交人工复核。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G12",
+          "column": 7,
+          "value": "第2页排除条件，第3页3.1，第4页图1和表1",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H12",
+          "column": 8,
+          "value": "AAH/AIS/MIA/IAC；病例分组",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K12",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L12",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 13,
+      "cells": [
+        {
+          "cell": "A13",
+          "column": 1,
+          "value": "L05-D04",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B13",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C13",
+          "column": 3,
+          "value": "物理页 5,6,7\nTable3与Table4",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D13",
+          "column": 4,
+          "value": "重复归并/样本条件",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E13",
+          "column": 5,
+          "value": "Table3 G1=211/G2=121；Table4 G2=128/G3=372；结节直径G2在两表分别为12.78(±4.71)和12.70(±4.69)。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F13",
+          "column": 6,
+          "value": "两表为不同比较条件。分别保留所有征象阳性/阴性和测量数据，不把G2值合并或视为矛盾；第5页匹配后样本数必须随Table3保留。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G13",
+          "column": 7,
+          "value": "第5页3.2.1，第6页Table3，第7页Table4",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H13",
+          "column": 8,
+          "value": "CT全部8项变量",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K13",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L13",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 14,
+      "cells": [
+        {
+          "cell": "A14",
+          "column": 1,
+          "value": "L05-D05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B14",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C14",
+          "column": 3,
+          "value": "物理页 8\nFig.4 A/D/G图内文字及图注",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D14",
+          "column": 4,
+          "value": "图内测量/径线语义",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E14",
+          "column": 5,
+          "value": "A:8.3mm；D:14.8mm、4.8mm；G:12.7mm、19.6mm。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F14",
+          "column": 6,
+          "value": "图内明确数值应保留；图注未逐值说明是结节径、实性成分径或其他径线。不得只按大小给数值赋义，不计算CTR。每个面板多测量是否拆为多条留待裁定。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G14",
+          "column": 7,
+          "value": "放大核读Fig.4，L05-027至L05-029",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H14",
+          "column": 8,
+          "value": "CT图示病例；AIS/MIA/IAC",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K14",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L14",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 15,
+      "cells": [
+        {
+          "cell": "A15",
+          "column": 1,
+          "value": "L05-D06",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B15",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C15",
+          "column": 3,
+          "value": "物理页 5,6,7\n3.2.1；Tables3/4",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D15",
+          "column": 4,
+          "value": "同义翻译/术语定义",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E15",
+          "column": 5,
+          "value": "bronchial inflation signs；bronchus inflation sign；Bronchial inflation sign；Bubble sign；Vascular convergence sign；Lobulation sign；Spiculation sign；Pleural traction sign",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F15",
+          "column": 6,
+          "value": "保留各处原词。支气管充气征、空泡征、血管集束征、分叶征、毛刺征、胸膜牵拉征仅为暂译；原文未给具体形态学定义，不能自行补定义。bronchus/bronchial形式及与其他中文术语的同义对应须复核。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G15",
+          "column": 7,
+          "value": "第5页正文、第6-7页表格",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H15",
+          "column": 8,
+          "value": "肺部CT定性征象",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K15",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L15",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 16,
+      "cells": [
+        {
+          "cell": "A16",
+          "column": 1,
+          "value": "L05-D07",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B16",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C16",
+          "column": 3,
+          "value": "物理页 2\nIntroduction第一段",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D16",
+          "column": 4,
+          "value": "转引/模态与医学表述边界",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E16",
+          "column": 5,
+          "value": "According to the classification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F16",
+          "column": 6,
+          "value": "“typically ... less than 5 mm”是转引尺寸信息但未明确影像测量；“corresponds to squamous dysplasia”需核原文或原始分类文献。只记录本文表述和疑问，本轮不外查或代改。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G16",
+          "column": 7,
+          "value": "L05-030及原文引文[7]",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H16",
+          "column": 8,
+          "value": "AAH；模态未说明",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K16",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L16",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 17,
+      "cells": [
+        {
+          "cell": "A17",
+          "column": 1,
+          "value": "L05-D08",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B17",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C17",
+          "column": 3,
+          "value": "物理页 6,7\n3.2.2；Discussion末段",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D17",
+          "column": 4,
+          "value": "视觉证据与风险/解释性假说边界",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E17",
+          "column": 5,
+          "value": "CTR ≤0.5 and smaller nodule diameter are associated with the underestimation of IAC in FS. When studying IAC patients, those with nodules ≤12.6 mm and CTR ≤0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid components, which might be missed during pathological sectioning.",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F17",
+          "column": 6,
+          "value": "保留可核对的CTR、尺寸和联合条件；FS低估属于关联结论，small solid components在perhaps/might限定下为假说。是否将关联摘要另计证据需与表4去重规则校准。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G17",
+          "column": 7,
+          "value": "L05-024至L05-026",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H17",
+          "column": 8,
+          "value": "IAC；CT；FS低估",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K17",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L17",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 18,
+      "cells": [
+        {
+          "cell": "A18",
+          "column": 1,
+          "value": "L05-D09",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B18",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C18",
+          "column": 3,
+          "value": "物理页 7\nTable4，Spiculation sign，Group3 N/Y两行",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D18",
+          "column": 4,
+          "value": "原表计数缺项/不一致",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E18",
+          "column": 5,
+          "value": "Group3：N 315 (84.7%)；Y 56 (15.1%)；Group3 n=372。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F18",
+          "column": 6,
+          "value": "N+Y为371，与组总数372相差1。可能涉及缺失或排版/记录错误，原文未解释。保留315、56及原百分比，不擅自补为57，不把该1例判成阴性或阳性。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G18",
+          "column": 7,
+          "value": "第7页Table4；第4页Fig.1与第1页摘要Group3 n=372",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H18",
+          "column": 8,
+          "value": "CT毛刺征；原始Group3",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K18",
+          "column": 11,
+          "value": "待复核",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L18",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    },
+    {
+      "worksheet": "争议与术语",
+      "worksheet_row": 19,
+      "cells": [
+        {
+          "cell": "A19",
+          "column": 1,
+          "value": "L05-D10",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "B19",
+          "column": 2,
+          "value": "L05",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "C19",
+          "column": 3,
+          "value": "物理页 L05第5–7页；L01第2–3页\nL05 Tables3/4；L01表2与讨论定义",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "D19",
+          "column": 4,
+          "value": "跨论文同义/上下位对应",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "E19",
+          "column": 5,
+          "value": "L05：Vascular convergence sign、Pleural traction sign、Bronchial inflation sign；L01：血管征、胸膜凹陷征、支气管充气征。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "F19",
+          "column": 6,
+          "value": "各论文原词与定义分别保留。中文暂译不构成批准同义；尤其L01血管征定义包含多种血管改变，不能无条件替换成L05血管集束征。胸膜牵拉/凹陷、支气管相关术语对应也需医学复核。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "G19",
+          "column": 7,
+          "value": "L05-007、009、012、015、017、020；L01-008、012、014、018。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "H19",
+          "column": 8,
+          "value": "肺部CT；跨论文术语映射",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "K19",
+          "column": 11,
+          "value": "待裁定",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        },
+        {
+          "cell": "L19",
+          "column": 12,
+          "value": "AI辅助提出的复核问题；人工复核意见与复核者留空。",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "@"
+        }
+      ],
+      "origin": "external_ai_user_supplied",
+      "human_verified": false,
+      "medical_adjudication": "pending_not_performed"
+    }
+  ]
+}

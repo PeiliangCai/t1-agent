@@ -1,0 +1,32 @@
+﻿字段,名称,类型,是否必需,用途,核对要求
+record_id,记录ID,string,必须,标识一条证据记录,版本变化保留父记录关联
+document_id,文献ID,string,必须,绑定具体全文文件或页面版本,不能只用易重复的论文简称
+article_family_id,论文族ID,string,必须,关联预印本、期刊版及同篇不同文件,用于去重与开发测试分组
+bibliographic_identity,题录信息,object,必须,题名、作者、载体、年份、DOI/PMID等,缺少标识符时保留空值并记录人工身份核对，不虚构DOI
+source_version,来源版本,object,必须,文件校验和、获取来源、版本、获取时间,修改文件后产生新文本版本
+document_access,全文状态,enum,必须,full_text/abstract_only/unavailable,仅摘要的结果单列，不能作为全文抽取完成
+source_location,证据位置,object,必须,PDF物理页码与文本块/框，或HTML/JATS元素路径与章节,物理页码从1开始；印刷页码另存；HTML不虚构页码
+text_version,解析文本版本,string,必须,绑定特定解析器与文本层,定位基于此版本，不能跨版本沿用字符区间
+original_quote,原文表述,string,必须,宿主原样切取的完整原文句及必要段落；跨块仍以独立segments/original_fragments为权威，不重写成新句,主证据选择完整原文句及必要段落，保留形状、边缘、密度/信号、强化、组织结构等实际视觉表现和直接影像测量；一般形态定义允许，无具体病例或配图也可。不得重新组织、改写或翻译原文；非连续、跨主体或跨病例的片段各有出处并显式分隔，不能拼成貌似完整连续原句。保留必要主体、否定、不确定性、条件、指代、数值及单位，患者信息可作必要语境。表格不得独立作为目标描述；仅当主视觉描述原句明确引用对应编号表格时，附该表原文数值及必要行列/表头语境，保留其独立支持角色，不据表值造句或重写主描述。 测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。
+quote_span,字符区间,object,必须,在指定块内的start和end,"Unicode码点[start,end)；跨块/删减后离散内容独立segments，保留各自block_id/text_version/页/框与exact_quote，不能用展示joiner伪装连续句。"
+context,相关上下文,object,必须,必要的前后文、标题、表头、脚注或图注,保留完整必要主体/患者信息、否定条件和指代，不补写缺文；测量指标定义/计算法仅必要背景，表格支持须明确引用。行列头仅实际选片段，不自动恢复或推断。实际CTR两轮context0，不称已转存背景。
+disease_or_lesion,疾病或病灶范围,object,必须,癌种、病灶类型及其证据,肺结节不自动等于肺癌；未明示保持未知
+modality,影像模态,object,必须,CT、MRI或原文其他范围及证据,同段涉及不同模态时分别关联，不能只继承论文标题
+sequence_or_phase,序列或扫描期相,object_or_null,可空,例如MRI序列或CT增强期相的原始表述,没有来源信息时不补写
+feature_name_raw,特征原始名称,string_or_null,可空,原文使用的名称,保留原始名称；不限模式不强制匹配固定清单，限制模式核对所选项及同义表述
+feature_category,特征类别建议,enum,必须,位置、大小、形态、边缘、密度/信号、强化、内部结构、关系、模态专属类别或待分类,类别用于整理；不限模式接纳新特征，限制模式仍须符合所选项及同义表述
+evidence_type,表述类型,enum,必须,原文视觉定义、影像观察、判读条件及有直接影像含义的测量；旧枚举兼容保留,单纯特征名、算法流程、模型特征向量、测量/评估清单、人员设备或入组/实验设置、纯P值/组间统计及性能结论不得作为独立目标描述；不整章删除Methods/Conclusion或全部数字，含实际视觉描述的完整句仍保留必要主体条件。evidence_type自报不证明视觉语义，需专业复核。 测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。 观察记录数不是去重有效描述数。
+assertion,否定与确定性,object,必须,肯定、否定、不确定、比较或条件性,保留原文措辞；未否定不等于已经证实
+applicability,适用条件,object,必须,病例范围、检查情境、初始/再分期及其他限定,不同适用条件的结论不能无条件合并
+numeric_expressions,原始数值与单位,array,必须,数值、单位、比较符和相关对象的原文区间,无数值时为空数组；不直接转为生成参数或临床规则
+normalized_terms,规范化名称建议,array,必须,可选同义词映射和候选特征ID,映射保留原文及同义依据；不限模式无映射时保留新术语待审核，不据用户选择强制赋义 仅作独立标签建议，不替代、重组或补写原文描述。
+translation_zh,中文译文兼容保留字段,string_or_null,可空,旧28字段Schema/SQLite兼容保留；本次新EvidenceSubmission必须null，本次新输出为空，不让模型译写视觉描述,旧记录原样保全；新图文交付不使用译文替代或补写原文，验证与导出拒绝本次模型译写内容。
+evidence_validation,原文定位检查,object,必须,校验结果、校验方式和异常,实际两轮源绑定/完整原文跨度/主与表格支持角色检查已留证；不等于汇总完成或医学相关性通过。子L05-B0 summary incomplete和2条AAH主原文重复保留。旧35仅旧版本，新输出人核/医学/产品批准0。 本轮有限工具纠错与原子汇总提交经本地回归；回滚保留独立诊断，合法保存但complete:false需披露当前版本及阻塞，不当完成。修复后真实模型效果待新批准复验。
+duplicate_and_conflict_links,重复与冲突关联,array,必须,关联当前论文内记录的重复、差异或冲突,冲突原文分别保留；显式缺失目标不得退化插入，同源精确特征修订保留旧活动身份并保存未审建议，精确建议重投幂等；不按文本相似合并异锚点、主体或归属，不覆盖人工活动版本。跨论文统一关联与查询属于后续扩展；本轮仅本地验证，未追改旧216。
+extraction_trace,运行记录,object,必须,run_id、本次抽取范围快照及特征集合版本、范围匹配/同义依据、开发侧运行配置、Pi/模型/解析器/规则版本、所读块及工具调用；采用Skill时记录其版本；新run记录evidence_policy_version=visual-statements-2及source_evidence_unit_version=literal-source-sentences-1,本次父子plan/授权及metric-definitions-context-only-1追溯共同prompt范围规则；v2机械schema/validator/tools/masks不变，未保存旧线上完整body不宣称全payload一致。216包含全部失败/retry，L01-R复用代表F非独立，0新增不是零成本。 本轮后续工程修复独立见code/docs/acceptance/s4-reliability-2026-11-05/report.json，API0，不声称与前216实际工具实现相同；工具留参数SHA/长度/属性及安全选择器、结果SHA/分类错误，不存凭证或完整wire body。新小批次plan绑定execution_job_ids，待明确批准。
+review_status,人工审核状态,enum,必须,pending/approved/rejected/needs_context,自动核对通过不等于人工approved
+review_events,审核记录,array,必须,操作、审核人、时间、修改理由和版本,已审核导出仍逐条真实人工确认当前版本，并明确review_scope：text_only绑定record_version及text_fingerprint，只批准原文/上下文，delivery_fingerprint为空且配图留待核；text_and_figures另须匹配完整delivery_fingerprint并确认原图、原图注及关联。导出标明approved_text_only、approved_text_and_figures或candidate；旧当前版本真实人审只延续文字，不自动批准新图，审核理由/医生补充与论文原文分开标来源。 新图文逐条确认使用DeliveryReviewSchema；文字批准不继承图片，原文与审核理由分开。
+handoff_status,下游交付状态,enum,必须,candidate_only/approved_for_T2,真实逐条文字确认可approved_text_only交付，图片留待核；图文确认另验完整delivery_fingerprint才approved_text_and_figures。无图或不确定仍保留文字，旧文字批准不继承新图。
+figure_asset_catalog,独立Figure资产目录侧契约,FigureAssetCatalog,图像资产目录；不加入旧28字段,figure-asset-catalog-1绑定document_id/file_sha256/text_version及figures，保存整幅Figure原图与原图注,figures保留figure_id/figure_number、caption_segments、panel_labels、regions资产路径/SHA/物理页/bbox/坐标系/像素尺寸/渲染比例与整图核验状态；不自动裁病灶或猜子图，未核不等同无图。 verification.status=mechanically_checked/whole_figure_checked/needs_review，human_approved=false，inventory_complete=false；原PDF区域忠实渲染，不生成或修补图；自动整图严格限单顶层完整位图与唯一图注/几何关系，多对象/矢量/嵌套Form/遗漏标号待核。 文本优先；仅有明确关系时配整幅Figure原图、原图注及有明确关系的Figure Note，保留图号和子图标识，不裁病灶、猜子图或生成图片。图号对应不等于目标医学图像；明确纯统计图或流程图不作为目标配图交付，不确定图型/关联标待核，无图仍可交付文字。S09仅新catalog补已存在Note关系，原PNG不变仍needs_review。
+verbatim_figure_delivery,原文与图文交付侧契约,verbatim-figure-delivery-1,本次新交付；独立于旧28字段,original_fragments[]仅主描述原文与独立出处，CSV每主原文span一行；新delivery及records.jsonl的JSON独立带supporting_table_evidence、evidence_policy_version及source_evidence_unit_version；保留原text/delivery_fingerprint与关联状态,主证据选择完整原文句及必要段落，保留形状、边缘、密度/信号、强化、组织结构等实际视觉表现和直接影像测量；一般形态定义允许，无具体病例或配图也可。不得重新组织、改写或翻译原文；非连续、跨主体或跨病例的片段各有出处并显式分隔，不能拼成貌似完整连续原句。保留必要主体、否定、不确定性、条件、指代、数值及单位，患者信息可作必要语境。表格不得独立作为目标描述；仅当主视觉描述原句明确引用对应编号表格时，附该表原文数值及必要行列/表头语境，保留其独立支持角色，不据表值造句或重写主描述。文本优先；仅有明确关系时配整幅Figure原图、原图注及有明确关系的Figure Note，保留图号和子图标识，不裁病灶、猜子图或生成图片。图号对应不等于目标医学图像；明确纯统计图或流程图不作为目标配图交付，不确定图型/关联标待核，无图仍可交付文字。开发普通用户初筛、专业医学核验与逐条产品批准分别记录；未答、不确定和看不懂均不当通过。已审核导出仍须真实人工逐条确认当前版本及对应范围，文字批准不继承图片；新版本不继承旧35条反馈或批准。表格支持不能混进主original_fragments；行列头仅实际选取原片段，不自动恢复完整语境或推断值归属。
+source_statement_selection,新run原文句段与表格支持选择规则,visual-statements-2 / literal-source-sentences-1,仅新run；不新增旧28个顶层字段或第三类图文侧契约,"source_unit_ids与source_line_indices二选一，context_unit_ids与context_line_indices二选一；宿主切取完整原句。supporting_table_evidence[{table_id,reference_line_indices,line_indices}]转为record.context.supporting_table_evidence[{table_id,reference_evidence,fragments,relationship_status}]，extraction_trace记录两个版本。JSON交付表格支持独立保存，CSV仅主原文spans。",主证据不得为table/table_caption；已知完整句漏跨度拒绝，边界不明待核；主句须明确引用唯一编号表，表值须源表映射；行列头仅实际选择原片段，不自动完整恢复或推断值归属。relationship_status=explicit_reference_value_relationship_unverified，机械绑定不证明视觉语义。旧读取/重放legacy保留，不追溯改写旧结果。 测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。 此范围约束由prompt/待核执行，不新增语义硬保证；metric-definitions-context-only-1单点实际复验结果另据报告。

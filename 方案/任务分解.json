@@ -1,0 +1,262 @@
+{
+  "version": "0.4",
+  "updated": "2026-11-05",
+  "parent_task": {
+    "id": "T0",
+    "name": "医学读片大模型图文训练数据生成工具",
+    "objective": "基于医学特征和用户需求，动态建模、生成并筛选可交付的图文训练数据",
+    "scope_status": "原总任务保留"
+  },
+  "current_priority": "T1",
+  "subtasks": [
+    {
+      "id": "T1",
+      "parent_id": "T0",
+      "name": "医学论文原文与图文证据提取智能体",
+      "role": "取得有来源的肿瘤视觉描述原文及明确整幅Figure/原图注",
+      "dependencies": [],
+      "development_status": "current_offline_audit_complete_authorized_comparison_running_quality_pending",
+      "planning_status": "user_approved_v0_6",
+      "outputs_to": [
+        "T2"
+      ],
+      "plan_file": "子任务T1/T1智能体开发计划.docx",
+      "excluded_dependencies": [
+        "图像生成算法论文",
+        "医学影像数据集",
+        "MAISI",
+        "三维生成GPU"
+      ],
+      "plan_version": "0.7",
+      "input": "user_uploaded_pdf",
+      "fixed_paper_allowlist": null,
+      "progression": "stage_acceptance",
+      "current_stage": "S4",
+      "architecture_frozen": true,
+      "agent_base": "earendil-works/pi",
+      "implementation_responsibility": "按范围选择原文、保留语境和明确整图关联；先改善PDF质量并完成后续离线前置，再比较B0/F，R仅历史；逐篇审核导出与开发抽样按T1权威子计划落实。",
+      "agent_base_selected": true,
+      "integration_mode_pending": false,
+      "authoritative_review_document": "子任务T1/T1智能体开发计划.docx",
+      "scope_selection": {
+        "order": [
+          "cancer",
+          "image_type",
+          "applicable_feature_collection",
+          "feature_selection_or_unrestricted"
+        ],
+        "relationship": "dependent_filters_with_explicit_applicability_not_strict_tree",
+        "each_level_allows": [
+          "unrestricted",
+          "multiple_selected_values"
+        ],
+        "restricted_feature_behavior": "selected_features_and_corresponding_synonyms_only",
+        "unrestricted_feature_behavior": "open_extraction_within_selected_cancer_and_image_type_new_terms_pending_review",
+        "out_of_scope_behavior": "exclude_as_standalone_feature_preserve_only_necessary_context",
+        "scope_evidence": "癌种、模态和特征匹配依赖原文及必要上下文；不得把用户选择直接写成论文事实。",
+        "missing_catalog_behavior": "不限模式可继续；限制模式提示无可用项，不静默放宽。"
+      },
+      "delivery_mode": "B_per_document_review_and_export",
+      "cross_document_query_in_v1": false,
+      "current_stage_kind": "initial_comparison_and_summary_retests_complete",
+      "engineering_progress_not_reset": true,
+      "current_stage_audit": {
+        "index": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json",
+        "ordered_audit_completed": true,
+        "all_stages_passed": false,
+        "stage_passed": {
+          "S0": true,
+          "S1": true,
+          "S2": false,
+          "S3": false,
+          "S4": false
+        },
+        "facts_and_logs": "具体当前工程、测试、限制及人核/新独立资料0等事实见此单一index，不在各当前文件复制日志。"
+      }
+    },
+    {
+      "id": "T2",
+      "parent_id": "T0",
+      "name": "特征整理及需求审核与动态数学建模",
+      "dependencies": [
+        "T1"
+      ],
+      "other_inputs": [
+        "医生口述",
+        "用户任务与数据需求"
+      ],
+      "dependency_scope": "使用文献证据时依赖T1；医生口述输入路径可独立推进",
+      "development_status": "not_started",
+      "outputs_to": [
+        "T3",
+        "T4"
+      ],
+      "agent_base": "earendil-works/pi",
+      "implementation_responsibility": "独立结构化草稿与确认模块输出版本快照，Pi据此建模；程序检查单位、函数、能力及可行性，新缺项返回确认。"
+    },
+    {
+      "id": "T3",
+      "parent_id": "T0",
+      "name": "约束驱动的医学影像生成",
+      "dependencies": [
+        "T2"
+      ],
+      "development_status": "not_started",
+      "outputs_to": [
+        "T4"
+      ],
+      "agent_base": "earendil-works/pi",
+      "implementation_responsibility": "Pi调用独立优化/生成程序；算法与GPU服务单独开发；长任务存储与计数按实际需要实现。"
+    },
+    {
+      "id": "T4",
+      "parent_id": "T0",
+      "name": "图文数据检查筛选与交付",
+      "dependencies": [
+        "T2",
+        "T3"
+      ],
+      "development_status": "not_started",
+      "outputs_to": [
+        "T5"
+      ],
+      "agent_base": "earendil-works/pi",
+      "implementation_responsibility": "Pi可调用检查和导出工具；业务程序负责图文校验、配额、上限及文件交付。"
+    },
+    {
+      "id": "T5",
+      "parent_id": "T0",
+      "name": "系统集成与整体效果验证",
+      "dependencies": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "development_status": "not_started",
+      "note": "可分阶段接入各模块，最终完成原总任务",
+      "agent_base": "earendil-works/pi",
+      "implementation_responsibility": "共享Pi接口、独立前后端、权限与Docker部署；按阶段验证完整工作流。"
+    }
+  ],
+  "handoff_T1_to_T2": {
+    "payload": "已审核的独立原文片段、必要语境和出处；有明确对应时含整幅Figure/原图注及文字或图文审核范围，不自动转为医学规范或生成约束。",
+    "not_inferred": [
+      "原文未给出的医学特征",
+      "统一临床结论",
+      "已验证生成约束",
+      "最优化目标"
+    ]
+  },
+  "status_note": "T1计划0.7/指南0.5保持；S0–S4当前范围工程复核已完成；Table1完整统计值/colspan、F正向检索与任务覆盖分列已验证。用户批准的一轮三源B0/F真实比较正在执行，6逻辑5实际，当前用量以唯一新ledger为准；结束后输出抽查，不自动优化，医学/产品及正式赢家未批准。 T2/T3范围不变。",
+  "current_parent_plan_file": "毕业设计实施方案_导师审核稿_v0.4.docx",
+  "current_parent_plan_data": "实施计划.json",
+  "selected_agent_base": "earendil-works/pi",
+  "confirmed_architecture": [
+    "用户明确同意采用earendil-works/pi作为总课题及T1的智能体基座。",
+    "T1允许用户选择癌种、图像类型及特征范围后开始提取；这是抽取范围选择。数据集生成需求的默认参数逐项告知与确认仍属于T2至T3的前置流程，T1不照搬该确认机制。",
+    "功能可由普通程序、工具接口、扩展或Skill按需要实现，不要求全部使用Skill。",
+    "外部状态按实际需要由项目实现存储与中断处理，不要求Pi内置所有持久化能力。",
+    "工具、文件、服务和运行环境的权限边界由项目配置。"
+  ],
+  "latest_t1_scope_revision": {
+    "document": "子任务T1/T1智能体开发计划.docx",
+    "version": "0.7",
+    "execution_guide": "子任务T1/T1开发执行说明.docx",
+    "execution_guide_version": "0.5",
+    "approved": true,
+    "status": "targeted_PDF_repairs_engineering_checked_review_page_delivered_user_feedback_pending",
+    "current_data": "子任务T1/当前版本.json",
+    "mandatory_comparison": [
+      "单独智能体B0",
+      "正向规则预筛＋智能体F"
+    ],
+    "new_paid_call_budget": null,
+    "current_experiment_authorization": {
+      "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+      "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "current_paid_requests_running": false,
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "time_continuation": {
+        "status": "completed_authorized_scope_no_more_paid_requests",
+        "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+        "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+        "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+        "original_window_expired": true,
+        "authorized_remaining_window_seconds": 11520,
+        "granted": true,
+        "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+        "approved_at_utc": "2026-11-05T02:16:15Z",
+        "resume_at_utc": "2026-11-05T02:16:52.744Z",
+        "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+        "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+        "new_paid_requests_allowed_now": false,
+        "scope": [
+          "L01-B0",
+          "L05-B0",
+          "L05-F",
+          "L05-R"
+        ],
+        "baseline_or_L01_F_rerun_allowed": false,
+        "request_or_token_caps_reset": false,
+        "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+      },
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+    },
+    "ordered_S0_S4_audit_completed": true,
+    "all_T1_stages_passed": false,
+    "current_authority": "子任务T1/T1智能体开发计划.docx",
+    "current_improvement_record": "code/docs/acceptance/pdf-structure-review-2026-11-07/",
+    "R_status": "retired_historical_only",
+    "original_approved_plan_version": "0.6",
+    "revision": "pdf-first-two-method-2026-11-07",
+    "approval_scope": "用户最新方向同步；旧v0.6计划批准记录保留，不认定质量通过。",
+    "historical_paid_budget_record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json"
+  },
+  "current_comparison_results_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+  "current_T1_improvement": {
+    "record": "code/docs/acceptance/pdf-input-quality-2026-11-07/improvement-register.json",
+    "authority": "子任务T1/T1智能体开发计划.docx",
+    "status": "authorized_round_stopped_delivery_failure_offline_fix_verified_human_review_pending",
+    "paid_calls_authorized": true,
+    "next": "S0–S4当前范围工程复核已完成；Table1完整统计值/colspan、F正向检索与任务覆盖分列已验证。用户批准的一轮三源B0/F真实比较正在执行，6逻辑5实际，当前用量以唯一新ledger为准；结束后输出抽查，不自动优化，医学/产品及正式赢家未批准。",
+    "current_evidence_directory": "code/docs/acceptance/s0-s4-recheck-2026-11-08/",
+    "review_record": "子任务T1/当前版本.json#/current_PDF_structure_review",
+    "feedback_and_bibliography_scope_record": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json",
+    "feedback_and_bibliography_scope_report_sha256": "a7580f82ed8353c79f62ae82d4d72b3f49d37cae83b1df2149ff341c85d2146c",
+    "readonly_scope_correction_status": "offline_verified",
+    "current_engineering_report": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+    "bibliography_method_user_accepted": true,
+    "new_paid_request_limit": 128,
+    "authorization_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/comparison/authorization.json",
+    "can_execute_now": false,
+    "current_live_ledger": "code/runtime-data/s4-budget-owners/6b7c06e4a0436006dbba085bb498b32a3950e7a39d1b4b756837a642cd6311ad/call-ledger.json",
+    "execution_handoff_received": true,
+    "current_paid_requests_running": false,
+    "current_execution_preconditions": "原本轮源前置通过后真实执行，现已guard失败停止，局部修复仅离线验证；不得以旧前置或剩12发起续跑。",
+    "current_next_steps": [
+      "以新核验页对当前实际输出作普通抽查；医学/产品和正式方法未通过",
+      "保留原失败、SQL/phase/ledger/源snapshot及两拒绝原版本；不补字或重写结果",
+      "逐条/小批提交和工具元数据仅记观察，沿用既定输入→工程/提示→一致性顺序，本轮无新增优化或API"
+    ]
+  },
+  "historical_records": {
+    "comparison_results_record_before_current_recheck": "方案/子任务T1/当前版本.json#/current_comparison_results"
+  }
+}

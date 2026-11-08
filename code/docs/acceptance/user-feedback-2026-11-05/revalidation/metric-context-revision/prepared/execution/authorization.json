@@ -1,0 +1,39 @@
+{
+  "schema_version": "three-method-authorization-1",
+  "status": "authorized",
+  "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+  "user_confirmation_source": "Current conversation user: “我同意你执行。”; recorded scope and actual record time in code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+  "approved_at": "2026-11-05T06:54:53.761Z",
+  "prepared_plan_sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f",
+  "batch_id": "comparison-7aa93a47-ea59-4d36-807e-f5ff92ef52bd",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "provider": "agicto",
+  "api": "openai-responses",
+  "limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "scope_note": "L01/L05 three-method initial comparison and necessary one-point fixes/retests with the same model and papers; all attempts share the same total caps.",
+  "budget_owner_policy": "Keep the same authorization_id, confirmation source and time for authorized follow-ups. A single shared ledger and its original wall clock never reset per method, retry or revision.",
+  "notice": "New explicitly user-authorized experiment. Original unsigned proposal/template are retained unchanged; old 189 requests and their budget are not reused.",
+  "user_confirmation_quote": "我同意你执行。",
+  "approval_time_basis": "Actual local record time; the user message timestamp is not supplied and is not inferred.",
+  "revision": {
+    "schema_version": "three-method-revision-binding-1",
+    "declared_change": "visual_scope_prompt",
+    "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+    "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+    "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+    "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+    "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+    "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+  }
+}

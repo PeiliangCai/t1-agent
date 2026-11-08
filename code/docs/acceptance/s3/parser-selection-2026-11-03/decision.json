@@ -1,0 +1,110 @@
+{
+  "schema_version": "s3-parser-selection-1",
+  "recorded_at": "2026-11-03T00:15:10.486456+08:00",
+  "user_quote": "确认 Docling 为正式主解析器（推荐）",
+  "decision": "Docling完整CPU解析+docling-parse原文锚点正式主用，MinerU basic ONNX保留对照",
+  "formal_parser_selected": true,
+  "default_candidate_id": "docling-standard-cpu",
+  "primary": {
+    "candidate_id": "docling-standard-cpu",
+    "parser_version": "2.145.0",
+    "native_configuration": {
+      "device": "cpu",
+      "threads": 4,
+      "ocr": false,
+      "table_structure": true,
+      "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+      "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+      "remote_services": false,
+      "gpu_available": false
+    },
+    "source_anchor": {
+      "id": "docling-parse-text",
+      "version": "7.24.2",
+      "coordinate_precision": "whole_textline"
+    },
+    "scope": "native layout/table + separate decoded PDF source anchor"
+  },
+  "comparison_candidate": {
+    "candidate_id": "mineru-basic-onnx-cpu",
+    "parser_version": "4.1.4",
+    "native_configuration": {
+      "device": "cpu",
+      "threads": 4,
+      "inter_op_threads": 1,
+      "tier": "basic",
+      "ocr_mode": "txt",
+      "small_backend": "onnx",
+      "onnx_device": "cpu",
+      "page_range": "all",
+      "model_commit": "358310b4f64b95f9fefc372ad899356e4111f376",
+      "model_base_dir": "/home/ecs-user/projects/t1-agent/code/.tools/pdf-parser/mineru-models",
+      "source": "local",
+      "remote_vlm_server": null,
+      "llm_aided_title_leveling": false,
+      "llm_aided_cross_page_table_merge": false
+    },
+    "source_anchor": {
+      "id": "docling-parse-text",
+      "version": "7.24.2",
+      "coordinate_precision": "whole_textline"
+    },
+    "scope": "native layout/table + separate decoded PDF source anchor"
+  },
+  "basis_files_sha256": {
+    "code/docs/acceptance/s3/comparison-2026-11-02/README.md": "0a4a0ec5dc3ae02dd80a04f7bb90b3f7bbbd3fb93e8eadc64d030590c355cc83",
+    "code/docs/acceptance/s3/comparison-2026-11-02/index.html": "7a2a85f72b39ca07f4b9171cabc0b3c5dc02215a41c8b7fbc7d7410e936199ab",
+    "code/docs/acceptance/s3/comparison-2026-11-02/comparison-data.json": "6b834f82896e0be62dd2d847a41f0ddeb19489fbcef4b73144b76bca72c669fd",
+    "code/docs/acceptance/s3/comparison-2026-11-02/comparison-data.csv": "93a4d29de89f31568dc1b5a5358418d5b1d68879166a780986a848736cadc6fe",
+    "code/docs/acceptance/s3/comparison-2026-11-02/checks.json": "db35689a21a767ce05fe36168db4b080f9239f59a4e7972df5504e984d2bfc91",
+    "code/docs/acceptance/s3/comparison-2026-11-02/final-integrity.json": "d72fb0f300fd9d5a3eb5f9390430449376f9492431d8b43d200618df4fb58e72",
+    "code/docs/acceptance/s3/comparison-2026-11-02/version-manifest.json": "f329f415ede8c2600b1d09a0ac1c336057bada2b65ea2a591db75ad072794599",
+    "code/docs/acceptance/s3/comparison-2026-11-02/page-review/focused-findings.json": "9ebc804c91d1791efe258c300024dd1371dd2772f3ba854e3cf544daa5fc44cb",
+    "code/docs/acceptance/s3/comparison-2026-11-02/page-review/all-pages-review.json": "32bbd68b9d8043a51fa70d4008a7102bb0ff9ea72a9815a6fc1814b4131d4b38"
+  },
+  "basis_scope": {
+    "exposed_development_PDFs": 5,
+    "physical_pages": 41,
+    "native_runs": 20,
+    "AI_focused_pages": 10,
+    "AI_additional_survey_pages": 31,
+    "human_or_medical_gold": false,
+    "independent_acceptance_files": 0
+  },
+  "known_limitations": [
+    "Native table rows/columns/value association may be wrong; rotated table orientation remains unverified",
+    "Caption/object and multipanel grouping errors remain; conflicts rejected, no automatic relinking",
+    "Native note/metadata/body/order boundaries can be wrong",
+    "Native processed text is separate from literal source segments; line boxes are not glyph boxes",
+    "L02 physical p3 includes another article; S4 article-region exclusion is not implemented"
+  ],
+  "quality_acceptance": {
+    "S3_status": "engineering_in_progress",
+    "quality_status": "quality_pending",
+    "S3_stage_passed": false,
+    "S2_status": "in_progress",
+    "S2_gold_medical_review_split_scoring": "pending",
+    "E01_E09_changed": false,
+    "numeric_thresholds_changed": false,
+    "component_choice_is_not_quality_acceptance": true
+  },
+  "S3_formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "formal_review_rounds_added": 0,
+  "S2_formal_reviews_used": 2,
+  "S4_started": false,
+  "S5_started": false,
+  "config_path": "code/config/pdf-parser.json",
+  "backups_sha256": {
+    "code/packages/agent/src/parser.ts": "033d517babd9f650ab5f7c7f7c76840669edcf94c34bfa79e67c66b1288d911f",
+    "code/packages/agent/src/index.ts": "6e3d3b192861dc050d3ad33628b3be38fe7b7c6b87157d2322a6c8129ffc50bc",
+    "code/scripts/verify-s3-pi.ts": "ccb513287b306ba8aa5402181dac3b37d5b55a313cba10f7ee5684225395cd07",
+    "code/README.md": "0d525003f3f003e2bce6a5abcf886bbcc7d5fb925a3d21afb9b231be2d492e7e",
+    "方案/子任务T1/当前版本.json": "a5369e636c804ebe5020de168fdc093dd0569d558947ed197ed43aec7b1caffe",
+    "方案/子任务T1/开发计划.json": "4dc357db4d84ab890262d9d37723e98308101ad2c15bc9b775d9d70d216d077f",
+    "方案/子任务T1/开发阶段与验收.csv": "d1229ea35a2573167b7c2dba7eaaf832792b05859b2cd573eea829fd8a64714c",
+    "方案/子任务T1/开发任务清单.csv": "5f4570ad82febe8a42eee220934724a02f4d5b5010cf873929b6f68200e863f1",
+    "方案/子任务T1/T1开发执行说明.docx": "e3aab0d17cca47cbe72444dff6bf99dc2cb7621a56b24966f3b5f7118b55870f",
+    "方案/子任务T1/T1智能体开发计划.docx": "5064929489f1c59cdc5c2338f77683cafcc9311a11b1b3f4e917f001cd1e8db0"
+  }
+}

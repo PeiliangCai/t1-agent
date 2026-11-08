@@ -1,0 +1,29 @@
+{
+  "schema_version": "two-method-authorization-1",
+  "status": "pending_user_confirmation",
+  "authorization_id": null,
+  "user_confirmation_source": null,
+  "approved_at": null,
+  "prepared_plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+  "batch_id": "comparison-d62f0afc-4137-44e4-9021-ef39bffae1ed",
+  "input_quality_status": "source_binding_checked_input_readiness_recorded_separately",
+  "offline_preparation_is_input_quality_approval": false,
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "provider": "agicto",
+  "api": "openai-responses",
+  "limits": {
+    "requests": 128,
+    "input_tokens": 3000000,
+    "output_tokens": 240000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "scope_note": "B0/F comparison proposal only. Papers, model and all paid attempts must be covered by a new explicit user authorization after input-quality validation; old experiments and remaining quotas are closed.",
+  "budget_owner_policy": "Keep the same authorization_id, confirmation source and time for authorized follow-ups. A single shared ledger and its original wall clock never reset per method, retry or revision.",
+  "notice": "Unsigned proposal only. Old budgets are closed; no model call authorized by this file."
+}

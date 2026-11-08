@@ -1,0 +1,486 @@
+{
+  "repository": "opendatalab/MinerU-4_models_onnx",
+  "tools": {
+    "torch": "2.10.0",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.23.2",
+    "huggingface-hub": "1.16.1"
+  },
+  "runtime_provider": "CPUExecutionProvider",
+  "minimum_onnxruntime": "1.20.1",
+  "ocr_dictionary": {
+    "characters": 18708,
+    "sha256": "b5f2bfe2bdd9448429e3e82b51c789775d9b42f2403d082b00662eb77e401c5d",
+    "package_path": "mineru/model/ocr/data/ppocrv6_dict.txt"
+  },
+  "seal_export_validation": {
+    "dtype": "float32",
+    "opset": 17,
+    "rtol": 0.0001,
+    "atol": 1e-05,
+    "comparisons": [
+      {
+        "input_shape": [
+          1,
+          3,
+          256,
+          320
+        ],
+        "max_abs": 9.512771015351973e-08
+      },
+      {
+        "input_shape": [
+          1,
+          3,
+          384,
+          256
+        ],
+        "max_abs": 1.2817301353607036e-07
+      },
+      {
+        "input_shape": [
+          2,
+          3,
+          256,
+          320
+        ],
+        "max_abs": 1.0384474791180764e-07
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "Layout/PP-DocLayoutV2/inference.onnx",
+      "size": 213963712,
+      "sha256": "cd540dc296ff3115fe78efa65b68501e6a8dc74b198acc9834a725ffaa095aac",
+      "source": {
+        "repo": "PaddlePaddle/PP-DocLayoutV2_onnx",
+        "revision": "7d44592493df02e28110d99de8ca4b1fbc7309bd",
+        "file": "inference.onnx",
+        "sha256": "cd540dc296ff3115fe78efa65b68501e6a8dc74b198acc9834a725ffaa095aac"
+      },
+      "graph": {
+        "ir_version": 8,
+        "opsets": {
+          "ai.onnx": 17
+        },
+        "inputs": [
+          {
+            "name": "im_shape",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              2
+            ]
+          },
+          {
+            "name": "image",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.1",
+              3,
+              800,
+              800
+            ]
+          },
+          {
+            "name": "scale_factor",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.2",
+              2
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "fetch_name_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.3",
+              8
+            ]
+          },
+          {
+            "name": "fetch_name_1",
+            "dtype": "INT32",
+            "shape": [
+              "DynamicDimension.4"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "Layout/PP-DocLayoutV2/inference.yml",
+      "size": 1482,
+      "sha256": "93100e0fb2cd76b9d246a853deea85e191d8333b2cfca7be76e82e4c4ebfa819",
+      "source": {
+        "repo": "PaddlePaddle/PP-DocLayoutV2_onnx",
+        "revision": "7d44592493df02e28110d99de8ca4b1fbc7309bd",
+        "file": "inference.yml",
+        "sha256": "93100e0fb2cd76b9d246a853deea85e191d8333b2cfca7be76e82e4c4ebfa819"
+      }
+    },
+    {
+      "path": "MFR/pp_formulanet_plus_m/PP-FormulaNet_plus-M.onnx",
+      "size": 591263297,
+      "sha256": "20a32595c2b30282dcd069e6295e9fad96115697beb66acb9b681b814006d193",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "MFR/pp_formulanet_plus_m/PP-FormulaNet_plus-M.pth",
+        "source_sha256": "bd9d40fd9c7759805e93cb54f14f5e91448a80b14aadc2bfb25c4c948b2974e8",
+        "conversion": "scripts/export_formula_onnx.py"
+      },
+      "graph": {
+        "ir_version": 8,
+        "opsets": {
+          "ai.onnx": 17
+        },
+        "inputs": [
+          {
+            "name": "encoder/image",
+            "dtype": "FLOAT",
+            "shape": [
+              "batch",
+              1,
+              384,
+              384
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "token_ids",
+            "dtype": "INT64",
+            "shape": [
+              "batch",
+              "length"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "MFR/pp_formulanet_plus_m/PP-FormulaNet_plus-M_inference.yml",
+      "size": 2244564,
+      "sha256": "87b5f3d7f2b2fe553627d77b37f496608ca150ebd0ef62d362591edca47b5538",
+      "source": {
+        "repo": "jinzhenj/PP-FormulaNet_plus-M_onnx",
+        "revision": "9eb491f62e52f45571fbf88f4d0335e4eb36f9b9",
+        "file": "inference.yml",
+        "sha256": "87b5f3d7f2b2fe553627d77b37f496608ca150ebd0ef62d362591edca47b5538"
+      }
+    },
+    {
+      "path": "OCR/paddleocr/ch_PP-OCRv6_small_rec_infer.onnx",
+      "size": 21159378,
+      "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+      "source": {
+        "repo": "PaddlePaddle/PP-OCRv6_small_rec_onnx",
+        "revision": "b8f84f0b80c529de40b4fbb3544b84fa7233a513",
+        "file": "inference.onnx",
+        "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634"
+      },
+      "graph": {
+        "ir_version": 6,
+        "opsets": {
+          "ai.onnx": 11
+        },
+        "inputs": [
+          {
+            "name": "x",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              3,
+              48,
+              "DynamicDimension.1"
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "fetch_name_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              "Reshape_471_o0__d2",
+              18710
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "OCR/paddleocr/ch_PP-OCRv6_small_rec_inference.yml",
+      "size": 150752,
+      "sha256": "c0541b06832948d7d3052e9ac6b572c6063d79ecd800493f4ec14d1b901c16d7",
+      "source": {
+        "repo": "PaddlePaddle/PP-OCRv6_small_rec_onnx",
+        "revision": "b8f84f0b80c529de40b4fbb3544b84fa7233a513",
+        "file": "inference.yml",
+        "sha256": "ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1",
+        "adaptation": "append MinerU runtime profile"
+      }
+    },
+    {
+      "path": "OCR/paddleocr/ch_PP-OCRv6_tiny_det_infer.onnx",
+      "size": 1780590,
+      "sha256": "193bab7a04fca699a6c82e6abb5b81bdb28177f0abd4062552b04908dafb19f8",
+      "source": {
+        "repo": "PaddlePaddle/PP-OCRv6_tiny_det_onnx",
+        "revision": "2ba1506c0380b8f0b03dd142459aac66d4421f6c",
+        "file": "inference.onnx",
+        "sha256": "193bab7a04fca699a6c82e6abb5b81bdb28177f0abd4062552b04908dafb19f8"
+      },
+      "graph": {
+        "ir_version": 10,
+        "opsets": {
+          "ai.onnx": 14
+        },
+        "inputs": [
+          {
+            "name": "x",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              3,
+              "DynamicDimension.1",
+              "DynamicDimension.2"
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "fetch_name_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "ConvTranspose_459_o0__d0",
+              1,
+              "ConvTranspose_459_o0__d2",
+              "ConvTranspose_459_o0__d3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "OCR/paddleocr/ch_PP-OCRv6_tiny_det_inference.yml",
+      "size": 1068,
+      "sha256": "a1fa68ab31e29252936328e728633180908f997023d9eacb81f175e326676554",
+      "source": {
+        "repo": "PaddlePaddle/PP-OCRv6_tiny_det_onnx",
+        "revision": "2ba1506c0380b8f0b03dd142459aac66d4421f6c",
+        "file": "inference.yml",
+        "sha256": "3ac018be6f97499a08faa3bbdeb33640968d9307f6736d152902747a9f259593",
+        "adaptation": "append MinerU runtime profile"
+      }
+    },
+    {
+      "path": "OCR/paddleocr/seal_PP-OCRv4_det_infer.onnx",
+      "size": 4769171,
+      "sha256": "3e190df84542c2756975febe8f73603b587a23c7f7badfdd3fc8a986540d5bc0",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "OCR/paddleocr/seal_PP-OCRv4_det_infer.pth",
+        "source_sha256": "a7777ca66448ab90948ce5a3257e4c959d6eacf0489fbadd5133dbe8f89662ae",
+        "conversion": "scripts/prepare_onnx_models.py"
+      },
+      "graph": {
+        "ir_version": 8,
+        "opsets": {
+          "ai.onnx": 17
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "dtype": "FLOAT",
+            "shape": [
+              "batch",
+              3,
+              "height",
+              "width"
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "maps",
+            "dtype": "FLOAT",
+            "shape": [
+              "batch",
+              1,
+              "height",
+              "width"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "OCR/paddleocr/seal_PP-OCRv4_det_inference.yml",
+      "size": 711,
+      "sha256": "e5b8dd5a727602bdd526d9db152cc767bc761198c453460df7c8f7ae59d2ea3c",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "OCR/paddleocr/seal_PP-OCRv4_det_infer.pth",
+        "source_sha256": "a7777ca66448ab90948ce5a3257e4c959d6eacf0489fbadd5133dbe8f89662ae",
+        "conversion": "scripts/prepare_onnx_models.py"
+      }
+    },
+    {
+      "path": "Table/PP-LCNet_x1_0_table_cls.onnx",
+      "size": 6776877,
+      "sha256": "c84bf1d79c1c74d534b5b12adb14dd12151c42f7ae3e4be4f1042b830f80b949",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "Table/PP-LCNet_x1_0_table_cls.onnx"
+      },
+      "graph": {
+        "ir_version": 10,
+        "opsets": {
+          "ai.onnx": 9
+        },
+        "inputs": [
+          {
+            "name": "x",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              3,
+              224,
+              224
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "fetch_name_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              2
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "Table/slanet-plus.onnx",
+      "size": 7758305,
+      "sha256": "d57a942af6a2f57d6a4a0372573c696a2379bf5857c45e2ac69993f3b334514b",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "Table/slanet-plus.onnx"
+      },
+      "graph": {
+        "ir_version": 7,
+        "opsets": {
+          "ai.onnx": 14
+        },
+        "inputs": [
+          {
+            "name": "x",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.0",
+              3,
+              "DynamicDimension.1",
+              "DynamicDimension.2"
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "save_infer_model/scale_0.tmp_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.3",
+              "DynamicDimension.4",
+              8
+            ]
+          },
+          {
+            "name": "save_infer_model/scale_1.tmp_0",
+            "dtype": "FLOAT",
+            "shape": [
+              "DynamicDimension.5",
+              "DynamicDimension.6",
+              50
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "Table/unet.onnx",
+      "size": 8335007,
+      "sha256": "0ea48d3a17e35ef5c2e498a5e799566073234d39b1079ca21d9f4fafe73c6d20",
+      "source": {
+        "repo": "opendatalab/MinerU-4_models_torch",
+        "revision": "2b3afb86f4d23fa623f6b2f4b2279ed4ef93a89d",
+        "file": "Table/unet.onnx"
+      },
+      "graph": {
+        "ir_version": 6,
+        "opsets": {
+          "ai.onnx": 11
+        },
+        "inputs": [
+          {
+            "name": "input",
+            "dtype": "FLOAT",
+            "shape": [
+              "batch",
+              3,
+              "height",
+              "width"
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output",
+            "dtype": "INT64",
+            "shape": [
+              1,
+              "batch",
+              "height",
+              "width"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "formula_export": {
+    "dtype": "float32",
+    "opset": 17,
+    "ir_version": 8,
+    "dynamic_batch": true,
+    "cpu_runtime_batch_size": 8,
+    "max_new_tokens": 2560,
+    "forced_eos_generated_token": 1536,
+    "validation": {
+      "real_images": 153,
+      "token_matches": 153,
+      "latex_matches": 153,
+      "tested_batch_sizes": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "providers": [
+        "CPUExecutionProvider"
+      ]
+    }
+  }
+}

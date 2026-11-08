@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".tools/node/bin/node",
+    "--import",
+    "tsx",
+    "scripts/extract-paper.ts",
+    "--pdf",
+    "evaluation/corpus/development-candidates/L05.pdf",
+    "--document-id",
+    "new-paper-generic-entry",
+    "--directory",
+    "docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05"
+  ],
+  "exit_code": 0,
+  "seconds": 37.165084826000566,
+  "stdout": "{\"status\":\"prepared_only_no_model_extraction\",\"directory\":\"/home/ecs-user/projects/t1-agent/code/docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05\",\"parser_status\":\"partial\",\"figure_discovery\":{\"status\":\"local_discovery_complete\"},\"figure_candidates\":5,\"paid_calls\":0}\n",
+  "stderr": ""
+}

@@ -1,0 +1,3605 @@
+{
+  "schema_version": "s4-real-candidate-engineering-cases-1",
+  "created_at": "2026-11-03T03:35:08.189753+00:00",
+  "checker": "GPT-6.1-Sol(max) AI engineering check",
+  "check_kind": "purposive_source_and_explicit_text_spot_check_not_medical_gold",
+  "medical_gold": false,
+  "human_medical_review_performed": false,
+  "precision": "not_evaluable",
+  "recall": "not_evaluable",
+  "stage_passed": false,
+  "formal_astra_reviews_used": 2,
+  "additional_formal_review": false,
+  "sampling": {
+    "selected_cases": 4,
+    "method": "purposeful examples covering CT mention, numeric/group condition, nonadjacent composite, and nonvisual-mechanism boundary; no statistical representativeness",
+    "documents": [
+      "L01"
+    ],
+    "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+    "run_state_at_snapshot": "partial",
+    "matrix_status_at_snapshot": "engineering_incomplete"
+  },
+  "source_provenance": {
+    "provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-3/source-provenance.json",
+    "provenance_sha256": "10e6e47d8f295aaf13b0f5d1a1c76980e11a33f2c6efecc98480c693d47de1ec",
+    "parser_result_path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json",
+    "parser_result_sha256": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+    "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+    "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "expected_file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "pdf_hash_matches": true,
+    "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+    "parser_id": "docling-standard-cpu",
+    "parser_version": "2.145.0",
+    "candidate_loading": "SQLite URI mode=ro, SELECT inside one read transaction; originals/versions not modified"
+  },
+  "cases": [
+    {
+      "case_id": "ordinary_ct_mention",
+      "selection_purpose": "ordinary_ct_mention",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+      "record_id": "ev-89759f37a27382f55df3dbb78c6f5bc8fc5cd993",
+      "record_version": 1,
+      "record_review_status_at_snapshot": "needs_context",
+      "case_review_conclusion": "needs_review",
+      "ai_engineering_check": true,
+      "medical_gold": false,
+      "record_envelope_raw_sha256": "77e287a11b7422014a7581a9f04de9d6779caecb2a57ec55d79f8b976391700c",
+      "record_snapshot": {
+        "record_id": "ev-89759f37a27382f55df3dbb78c6f5bc8fc5cd993",
+        "document_id": "L01",
+        "article_family_id": "historical-identity:L01",
+        "bibliographic_identity": {
+          "title": "CT影像特征在预测非小细胞肺癌免疫治疗中的价值",
+          "authors": [],
+          "venue": null,
+          "year": 2024,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "source_register_metadata_not_medically_reviewed"
+        },
+        "source_version": {
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "source_kind": "public_published_pdf_development",
+          "version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "obtained_at": "2026-11-02T13:52:49.636107+00:00"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+          "bbox": [
+            51.0236,
+            195.563,
+            565.5105500000002,
+            202.85104711538452
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                210.6168,
+                561.1748999999998,
+                217.38513527357395
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+        "original_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、\n不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 61,
+              "exact_quote": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                210.6168,
+                561.1748999999998,
+                217.38513527357395
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "display_composite_of_source_segments",
+          "contiguous_source_quote": false
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 61,
+                "exact_quote": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  210.6168,
+                  561.1748999999998,
+                  217.38513527357395
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": null,
+          "status": "unknown",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "modality": {
+          "value": null,
+          "status": "unknown",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 61,
+              "exact_quote": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                210.6168,
+                561.1748999999998,
+                217.38513527357395
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": {
+          "value": null,
+          "status": "unknown",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "feature_name_raw": "清晰度（清晰、欠清、模糊）",
+        "feature_category": "清晰度",
+        "evidence_type": "feature_mention",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 61,
+              "exact_quote": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                210.6168,
+                561.1748999999998,
+                217.38513527357395
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "specified",
+          "original_wording": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "numeric_expressions": [],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "disease_or_lesion_not_grounded_in_source",
+            "modality_not_grounded_in_source",
+            "sequence_or_phase_not_grounded_in_source",
+            "new_term_pending_human_review"
+          ],
+          "issues": [
+            {
+              "code": "disease_or_lesion_not_grounded_in_source",
+              "severity": "requires_review",
+              "path": "disease_or_lesion",
+              "detail": "Submitted value \"晚期 NSCLC\" was not retained as a source fact."
+            },
+            {
+              "code": "modality_not_grounded_in_source",
+              "severity": "requires_review",
+              "path": "modality",
+              "detail": "Submitted value \"CT\" was not retained as a source fact."
+            },
+            {
+              "code": "sequence_or_phase_not_grounded_in_source",
+              "severity": "requires_review",
+              "path": "sequence_or_phase",
+              "detail": "Submitted value \"免疫联合化疗治疗前\" was not retained as a source fact."
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "task-L01",
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+          "fixture": false,
+          "evidence_kind": "real_paper",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "medical-unavailable-1",
+            "matching_policy_version": "source-grounded-exact-rules-s4-1"
+          },
+          "catalog_version": "medical-unavailable-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "source-grounded-exact-rules-s4-1",
+          "rule_version": "s4-public-paper-evidence-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "2.145.0",
+          "read_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "provided_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "tool_call_ids": [
+            "call_ef24d82c0b844e6c8de494a6d4f737cd|fc_0052d9a37958faef016ae952ab66348194a4ef6afb54b120f7"
+          ],
+          "source_binding": {
+            "task_id": "task-L01",
+            "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+            "document_id": "L01",
+            "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+          },
+          "updates_record_id": "clarity-001"
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "source_fragments_verified": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+          "physical_page": 1,
+          "start": 0,
+          "end": 67,
+          "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+          "bbox": [
+            51.0236,
+            195.563,
+            565.5105500000002,
+            202.85104711538452
+          ],
+          "ir_reading_order": 9,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+          "physical_page": 1,
+          "start": 0,
+          "end": 61,
+          "exact_quote": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、",
+          "bbox": [
+            51.0236,
+            210.6168,
+            561.1748999999998,
+            217.38513527357395
+          ],
+          "ir_reading_order": 10,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        }
+      ],
+      "source_identity_binding_matches": true,
+      "display_joiner_preserved": "\n",
+      "composite_reconstruction_matches": true,
+      "location_precision": "whole_textline_not_exact_glyph",
+      "nearby_ir_text": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+          "page": 1,
+          "reading_order": 8,
+          "text": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+          "page": 1,
+          "reading_order": 9,
+          "text": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+          "page": 1,
+          "reading_order": 10,
+          "text": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000011",
+          "page": 1,
+          "reading_order": 11,
+          "text": "空洞、血管、\"胸膜凹陷征\"、淋巴结肿大、肺内转移、远处转移等。结果：共有 50 例患者最终纳入研究，中位随访时间为 13 个月，有效"
+        }
+      ],
+      "scope_check": {
+        "all_dimensions_unrestricted": true,
+        "normalized_terms": [],
+        "facts": [
+          {
+            "field": "disease_or_lesion",
+            "status": "unknown",
+            "value": null,
+            "value_literal_in_own_evidence": false,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "modality",
+            "status": "unknown",
+            "value": null,
+            "value_literal_in_own_evidence": false,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "sequence_or_phase",
+            "status": "unknown",
+            "value": null,
+            "value_literal_in_own_evidence": false,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          }
+        ]
+      },
+      "numeric_checks": [],
+      "visual_original_page_check": {
+        "method": "AI visually inspected existing original-page raster with view_image; relevant text/layout comparison only, not full glyph fidelity or diagnosis",
+        "screenshots": [
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p01-original.png",
+            "sha256": "a116a7c5ce6c505e3705ec6657c982fac70a45236ff3d24304b452461c3d7233",
+            "viewed_in_this_task": true
+          }
+        ],
+        "whole_page_or_table_semantics_approved": false
+      },
+      "findings": {
+        "textual_content": "原文明列定性/定量CT评估中的清晰度（清晰、欠清、模糊）；记录evidence_type=feature_mention，未冒充完整定义或个体病例已有该征象。",
+        "completeness": "p1行9–10为相邻原文行，完整保留“清晰度（清晰、欠清、模糊）”短语；所引列表仍以顿号结尾，下一行继续列空洞等，因此它是特征提及片段而非完整段落。",
+        "scope_fact_separation": "本次scope三层均all；disease/modality在该候选保留unknown，并有not_grounded警示，未由用户范围补成肺癌或CT事实。虽然本次截图/更早原文可看到CT语境，病例/模态关联仍待复核，未替模型补写记录。",
+        "numbers_units": "此候选未提出影像数值或单位；没有需核验的单位转换。",
+        "visual_boundary": "命名项来自原文影像特征列表，未把算法、模型性能或药物方案独立命名为该特征；类别医学准确性与实际适用关系仍needs_review。",
+        "findings": [
+          "exact_feature_mention_not_full_definition",
+          "list_continues_after_quote",
+          "unknown_facts_not_replaced_by_scope"
+        ],
+        "recommendation": "保留feature_mention待审；必要时补回相邻CT语境，不自动更改原候选。"
+      },
+      "candidate_automated_validation_snapshot": {
+        "quote_located": true,
+        "method": "exact_source_blocks_code_points_v1",
+        "automatic_checks": {
+          "status": "requires_review",
+          "checks": [
+            "bound_source_identity",
+            "provided_and_read_source_blocks",
+            "exact_code_point_spans",
+            "explicit_scope_and_synonym_match",
+            "limited_lexical_consistency"
+          ]
+        },
+        "medical_semantics_verified": false,
+        "model_semantic_review": {
+          "status": "not_performed",
+          "model_id": null,
+          "issue_codes": []
+        },
+        "human_approval": "not_performed",
+        "warnings": [
+          "disease_or_lesion_not_grounded_in_source",
+          "modality_not_grounded_in_source",
+          "sequence_or_phase_not_grounded_in_source",
+          "new_term_pending_human_review"
+        ],
+        "issues": [
+          {
+            "code": "disease_or_lesion_not_grounded_in_source",
+            "severity": "requires_review",
+            "path": "disease_or_lesion",
+            "detail": "Submitted value \"晚期 NSCLC\" was not retained as a source fact."
+          },
+          {
+            "code": "modality_not_grounded_in_source",
+            "severity": "requires_review",
+            "path": "modality",
+            "detail": "Submitted value \"CT\" was not retained as a source fact."
+          },
+          {
+            "code": "sequence_or_phase_not_grounded_in_source",
+            "severity": "requires_review",
+            "path": "sequence_or_phase",
+            "detail": "Submitted value \"免疫联合化疗治疗前\" was not retained as a source fact."
+          },
+          {
+            "code": "new_term_pending_human_review",
+            "severity": "info",
+            "path": "scope",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "in_scope",
+          "matched_binding_id": null,
+          "feature_match": "new_term",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": [
+            "new_term_pending_human_review"
+          ]
+        }
+      },
+      "new_candidate_version_written": false
+    },
+    {
+      "case_id": "numbers_and_group_condition",
+      "selection_purpose": "numbers_and_group_condition",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+      "record_id": "ev-8b8215a5d85eaf3917c48b101aa925a45462e399",
+      "record_version": 1,
+      "record_review_status_at_snapshot": "pending",
+      "case_review_conclusion": "needs_review",
+      "ai_engineering_check": true,
+      "medical_gold": false,
+      "record_envelope_raw_sha256": "a7223992d74c0127fa99fcd353bde0da11940780475f8a9393e3988a39a64e5e",
+      "record_snapshot": {
+        "record_id": "ev-8b8215a5d85eaf3917c48b101aa925a45462e399",
+        "document_id": "L01",
+        "article_family_id": "historical-identity:L01",
+        "bibliographic_identity": {
+          "title": "CT影像特征在预测非小细胞肺癌免疫治疗中的价值",
+          "authors": [],
+          "venue": null,
+          "year": 2024,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "source_register_metadata_not_medically_reviewed"
+        },
+        "source_version": {
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "source_kind": "public_published_pdf_development",
+          "version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "obtained_at": "2026-11-02T13:52:49.636107+00:00"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+          "bbox": [
+            51.0236,
+            270.563,
+            565.5103999999998,
+            277.8786500488758
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                285.563,
+                561.2791000000003,
+                292.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+        "original_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，\n差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 31,
+              "end": 69,
+              "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 66,
+              "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                285.563,
+                561.2791000000003,
+                292.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "display_composite_of_source_segments",
+          "contiguous_source_quote": false
+        },
+        "context": {
+          "before": "阻塞性肺炎等）检出情况差异亦无统计学意义（P ＞ 0.05）。",
+          "after": "",
+          "status": "provided",
+          "fragments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 69,
+              "exact_quote": "阻塞性肺炎等）检出情况差异亦无统计学意义（P ＞ 0.05）。仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 31,
+                "end": 69,
+                "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  270.563,
+                  565.5103999999998,
+                  277.8786500488758
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 66,
+                "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  285.563,
+                  561.2791000000003,
+                  292.8786500488758
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": "肿瘤",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 31,
+              "end": 69,
+              "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 66,
+              "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                285.563,
+                561.2791000000003,
+                292.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "feature_name_raw": "血管征",
+        "feature_category": "血管征",
+        "evidence_type": "imaging_observation",
+        "assertion": {
+          "value": "comparative",
+          "original_wording": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 31,
+              "end": 69,
+              "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "specified",
+          "original_wording": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 31,
+              "end": 69,
+              "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                270.563,
+                565.5103999999998,
+                277.8786500488758
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "numeric_expressions": [
+          {
+            "original_text": "10 例",
+            "unit_original": "例",
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 31,
+                "end": 69,
+                "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  270.563,
+                  565.5103999999998,
+                  277.8786500488758
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          {
+            "original_text": "6 例",
+            "unit_original": "例",
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 31,
+                "end": 69,
+                "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  270.563,
+                  565.5103999999998,
+                  277.8786500488758
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          {
+            "original_text": "P ＜ 0.05",
+            "unit_original": null,
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 66,
+                "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  285.563,
+                  561.2791000000003,
+                  292.8786500488758
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          }
+        ],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "passed",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "new_term_pending_human_review"
+          ],
+          "issues": [
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "task-L01",
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+          "fixture": false,
+          "evidence_kind": "real_paper",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "medical-unavailable-1",
+            "matching_policy_version": "source-grounded-exact-rules-s4-1"
+          },
+          "catalog_version": "medical-unavailable-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "source-grounded-exact-rules-s4-1",
+          "rule_version": "s4-public-paper-evidence-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "2.145.0",
+          "read_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "provided_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "tool_call_ids": [
+            "call_7228ad6a7f0146d49f6cd9764283defa|fc_0052d9a37958faef016ae952e5b5748194a4ea38dd283b4421"
+          ],
+          "source_binding": {
+            "task_id": "task-L01",
+            "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+            "document_id": "L01",
+            "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+          },
+          "updates_record_id": "vascular-sign-comparison-001"
+        },
+        "review_status": "pending",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "source_fragments_verified": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+          "physical_page": 1,
+          "start": 31,
+          "end": 69,
+          "exact_quote": "仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，",
+          "bbox": [
+            51.0236,
+            270.563,
+            565.5103999999998,
+            277.8786500488758
+          ],
+          "ir_reading_order": 14,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "阻塞性肺炎等）检出情况差异亦无统计学意义（P ＞ 0.05）。",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+          "physical_page": 1,
+          "start": 0,
+          "end": 66,
+          "exact_quote": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿",
+          "bbox": [
+            51.0236,
+            285.563,
+            561.2791000000003,
+            292.8786500488758
+          ],
+          "ir_reading_order": 15,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        }
+      ],
+      "source_identity_binding_matches": true,
+      "display_joiner_preserved": "\n",
+      "composite_reconstruction_matches": true,
+      "location_precision": "whole_textline_not_exact_glyph",
+      "nearby_ir_text": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000013",
+          "page": 1,
+          "reading_order": 13,
+          "text": "计学意义（P ＞ 0.05）。肿瘤内部的特征（CT 值、坏死、钙化、瘤内血管穿行、支气管充气征）及周边其他特征（形态、毛刺、胸膜凹陷、"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000014",
+          "page": 1,
+          "reading_order": 14,
+          "text": "阻塞性肺炎等）检出情况差异亦无统计学意义（P ＞ 0.05）。仅无效组肿瘤周边的影像特征中\"血管征\"例数（10 例）较有效组（6 例）多，"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000015",
+          "page": 1,
+          "reading_order": 15,
+          "text": "差异有统计学意义（P ＜ 0.05）。结论：免疫联合治疗在进展期肺癌中具有较好预后效果，CT 检查的随访作为最常规的检查方法，通过肿"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000016",
+          "page": 1,
+          "reading_order": 16,
+          "text": "瘤的影像特征，尤其是血管征可较好预测其治疗疗效，对于临床的提示及方案的制定具有较好的参考价值。"
+        }
+      ],
+      "scope_check": {
+        "all_dimensions_unrestricted": true,
+        "normalized_terms": [],
+        "facts": [
+          {
+            "field": "disease_or_lesion",
+            "status": "source_observed",
+            "value": "肿瘤",
+            "value_literal_in_own_evidence": true,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "modality",
+            "status": "source_observed",
+            "value": "CT",
+            "value_literal_in_own_evidence": true,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "sequence_or_phase",
+            "status": "unknown",
+            "value": null,
+            "value_literal_in_own_evidence": false,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          }
+        ]
+      },
+      "numeric_checks": [
+        {
+          "original_text": "10 例",
+          "unit_original": "例",
+          "original_text_literal": true,
+          "unit_literal": true,
+          "conversion_performed_by_this_check": false
+        },
+        {
+          "original_text": "6 例",
+          "unit_original": "例",
+          "original_text_literal": true,
+          "unit_literal": true,
+          "conversion_performed_by_this_check": false
+        },
+        {
+          "original_text": "P ＜ 0.05",
+          "unit_original": null,
+          "original_text_literal": true,
+          "unit_literal": true,
+          "conversion_performed_by_this_check": false
+        }
+      ],
+      "visual_original_page_check": {
+        "method": "AI visually inspected existing original-page raster with view_image; relevant text/layout comparison only, not full glyph fidelity or diagnosis",
+        "screenshots": [
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p01-original.png",
+            "sha256": "a116a7c5ce6c505e3705ec6657c982fac70a45236ff3d24304b452461c3d7233",
+            "viewed_in_this_task": true
+          },
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p03-original.png",
+            "sha256": "fc54663a2b6a70abc73980caa62d6f5a19ae3535e7bd7598f4e0e7f0f70ebd02",
+            "viewed_in_this_task": true
+          }
+        ],
+        "whole_page_or_table_semantics_approved": false
+      },
+      "findings": {
+        "textual_content": "原文比较无效组与有效组肿瘤周边“血管征”例数，并报告统计学差异。数值是病例计数和P比较，不是CT值、直径或可直接供生成的影像参数。",
+        "completeness": "p1行14的31–69与行15的0–66相邻。病例计数及P＜0.05主要句完整；行15后半另起“结论：…”并在“通过肿”中断，p1行16继续“瘤的影像特征…”。因此不能把整个original_quote当作已完整保留的单一结论。",
+        "scope_fact_separation": "scope=all/all/all；疾病值“肿瘤”和模态CT均有原文字面依据，未改为更具体癌种；病例归属/适用范围的医学推断仍未经验证。",
+        "numbers_units": "numeric_expressions逐项为10 例、6 例、P ＜ 0.05，均见原文片段；unit_original=例/例/null，未观察到数字、比较符或计数单位改写。p3表2截图中血管征行也显示6/25及10/9，但本检查不据此批准自动表格语义。",
+        "visual_boundary": "统计结果以具名影像征象为对象，不是单独算法性能指标；疗效关联能否作为特征证据、应该如何拆分仍needs_review。",
+        "findings": [
+          "literal_numbers_and_units_preserved",
+          "quoted_primary_comparison_complete",
+          "truncated_following_conclusion",
+          "automatic_pass_is_not_semantic_completeness"
+        ],
+        "recommendation": "保留比较及组别限制；截断结论应补原文或缩至已完整的主要句，再由人工核对，不从计数推导生成参数。"
+      },
+      "candidate_automated_validation_snapshot": {
+        "quote_located": true,
+        "method": "exact_source_blocks_code_points_v1",
+        "automatic_checks": {
+          "status": "passed",
+          "checks": [
+            "bound_source_identity",
+            "provided_and_read_source_blocks",
+            "exact_code_point_spans",
+            "explicit_scope_and_synonym_match",
+            "limited_lexical_consistency"
+          ]
+        },
+        "medical_semantics_verified": false,
+        "model_semantic_review": {
+          "status": "not_performed",
+          "model_id": null,
+          "issue_codes": []
+        },
+        "human_approval": "not_performed",
+        "warnings": [
+          "new_term_pending_human_review"
+        ],
+        "issues": [
+          {
+            "code": "new_term_pending_human_review",
+            "severity": "info",
+            "path": "scope",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "in_scope",
+          "matched_binding_id": null,
+          "feature_match": "new_term",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": [
+            "new_term_pending_human_review"
+          ]
+        }
+      },
+      "new_candidate_version_written": false
+    },
+    {
+      "case_id": "nonadjacent_cross_page_composite",
+      "selection_purpose": "nonadjacent_cross_page_composite",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+      "record_id": "ev-bb4452f5679c1219ce93afeffc3a9fd4b7ab3917",
+      "record_version": 1,
+      "record_review_status_at_snapshot": "needs_context",
+      "case_review_conclusion": "needs_review",
+      "ai_engineering_check": true,
+      "medical_gold": false,
+      "record_envelope_raw_sha256": "914fe1edc29ad1c57a6bd827231470489d91f1ce6755c8a4b9177542e50ee783",
+      "record_snapshot": {
+        "record_id": "ev-bb4452f5679c1219ce93afeffc3a9fd4b7ab3917",
+        "document_id": "L01",
+        "article_family_id": "historical-identity:L01",
+        "bibliographic_identity": {
+          "title": "CT影像特征在预测非小细胞肺癌免疫治疗中的价值",
+          "authors": [],
+          "venue": null,
+          "year": 2024,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "source_register_metadata_not_medically_reviewed"
+        },
+        "source_version": {
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "source_kind": "public_published_pdf_development",
+          "version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "obtained_at": "2026-11-02T13:52:49.636107+00:00"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+          "bbox": [
+            51.0236,
+            180.563,
+            561.1717500000001,
+            187.85104711538452
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                180.563,
+                561.1717500000001,
+                187.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                87.15679999999998,
+                561.2486,
+                95.73097307692308
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+        "original_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前\n影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、\n主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 69,
+              "exact_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                180.563,
+                561.1717500000001,
+                187.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 27,
+              "exact_quote": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                87.15679999999998,
+                561.2486,
+                95.73097307692308
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "display_composite_of_source_segments",
+          "contiguous_source_quote": false
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 69,
+                "exact_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  180.563,
+                  561.1717500000001,
+                  187.85104711538452
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 67,
+                "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  51.0236,
+                  195.563,
+                  565.5105500000002,
+                  202.85104711538452
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 27,
+                "exact_quote": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  314.6457,
+                  87.15679999999998,
+                  561.2486,
+                  95.73097307692308
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": "晚期 NSCLC",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 69,
+              "exact_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                180.563,
+                561.1717500000001,
+                187.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "CT 值",
+        "feature_category": "衰减",
+        "evidence_type": "feature_mention",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、\n主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 67,
+              "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                195.563,
+                565.5105500000002,
+                202.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 27,
+              "exact_quote": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                314.6457,
+                87.15679999999998,
+                561.2486,
+                95.73097307692308
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "specified",
+          "original_wording": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 69,
+              "exact_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                51.0236,
+                180.563,
+                561.1717500000001,
+                187.85104711538452
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "numeric_expressions": [],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "numeric_expression_missing",
+            "new_term_pending_human_review"
+          ],
+          "issues": [
+            {
+              "code": "numeric_expression_missing",
+              "severity": "requires_review",
+              "path": "numeric_expressions",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "task-L01",
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+          "fixture": false,
+          "evidence_kind": "real_paper",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "medical-unavailable-1",
+            "matching_policy_version": "source-grounded-exact-rules-s4-1"
+          },
+          "catalog_version": "medical-unavailable-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "source-grounded-exact-rules-s4-1",
+          "rule_version": "s4-public-paper-evidence-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "2.145.0",
+          "read_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "provided_block_ids": [
+            "9b90e6cc9c86705d08a4-p0001-l000002",
+            "9b90e6cc9c86705d08a4-p0001-l000001",
+            "9b90e6cc9c86705d08a4-p0001-l000003",
+            "9b90e6cc9c86705d08a4-p0001-l000004",
+            "9b90e6cc9c86705d08a4-p0001-l000005",
+            "9b90e6cc9c86705d08a4-p0001-l000006",
+            "9b90e6cc9c86705d08a4-p0001-l000007",
+            "9b90e6cc9c86705d08a4-p0001-l000008",
+            "9b90e6cc9c86705d08a4-p0001-l000009",
+            "9b90e6cc9c86705d08a4-p0001-l000010",
+            "9b90e6cc9c86705d08a4-p0001-l000011",
+            "9b90e6cc9c86705d08a4-p0001-l000012",
+            "9b90e6cc9c86705d08a4-p0001-l000013",
+            "9b90e6cc9c86705d08a4-p0001-l000014",
+            "9b90e6cc9c86705d08a4-p0001-l000015",
+            "9b90e6cc9c86705d08a4-p0001-l000016",
+            "9b90e6cc9c86705d08a4-p0001-l000017",
+            "9b90e6cc9c86705d08a4-p0001-l000018",
+            "9b90e6cc9c86705d08a4-p0001-l000019",
+            "9b90e6cc9c86705d08a4-p0001-l000020",
+            "9b90e6cc9c86705d08a4-p0001-l000021",
+            "9b90e6cc9c86705d08a4-p0001-l000022",
+            "9b90e6cc9c86705d08a4-p0001-l000023",
+            "9b90e6cc9c86705d08a4-p0001-l000024",
+            "9b90e6cc9c86705d08a4-p0001-l000025",
+            "9b90e6cc9c86705d08a4-p0001-l000026",
+            "9b90e6cc9c86705d08a4-p0001-l000027",
+            "9b90e6cc9c86705d08a4-p0001-l000028",
+            "9b90e6cc9c86705d08a4-p0001-l000029",
+            "9b90e6cc9c86705d08a4-p0001-l000030",
+            "9b90e6cc9c86705d08a4-p0001-l000031",
+            "9b90e6cc9c86705d08a4-p0001-l000032",
+            "9b90e6cc9c86705d08a4-p0001-l000033",
+            "9b90e6cc9c86705d08a4-p0001-l000034",
+            "9b90e6cc9c86705d08a4-p0001-l000035",
+            "9b90e6cc9c86705d08a4-p0001-l000036",
+            "9b90e6cc9c86705d08a4-p0001-l000037",
+            "9b90e6cc9c86705d08a4-p0001-l000038",
+            "9b90e6cc9c86705d08a4-p0001-l000039",
+            "9b90e6cc9c86705d08a4-p0001-l000040",
+            "9b90e6cc9c86705d08a4-p0001-l000041",
+            "9b90e6cc9c86705d08a4-p0001-l000042",
+            "9b90e6cc9c86705d08a4-p0001-l000043",
+            "9b90e6cc9c86705d08a4-p0001-l000044",
+            "9b90e6cc9c86705d08a4-p0001-l000045",
+            "9b90e6cc9c86705d08a4-p0001-l000046",
+            "9b90e6cc9c86705d08a4-p0001-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000048",
+            "9b90e6cc9c86705d08a4-p0001-l000049",
+            "9b90e6cc9c86705d08a4-p0001-l000050",
+            "9b90e6cc9c86705d08a4-p0001-l000051",
+            "9b90e6cc9c86705d08a4-p0001-l000052",
+            "9b90e6cc9c86705d08a4-p0001-l000053",
+            "9b90e6cc9c86705d08a4-p0001-l000054",
+            "9b90e6cc9c86705d08a4-p0001-l000055",
+            "9b90e6cc9c86705d08a4-p0001-l000056",
+            "9b90e6cc9c86705d08a4-p0001-l000057",
+            "9b90e6cc9c86705d08a4-p0001-l000058",
+            "9b90e6cc9c86705d08a4-p0001-l000059",
+            "9b90e6cc9c86705d08a4-p0001-l000060",
+            "9b90e6cc9c86705d08a4-p0001-l000061",
+            "9b90e6cc9c86705d08a4-p0001-l000062",
+            "9b90e6cc9c86705d08a4-p0001-l000063",
+            "9b90e6cc9c86705d08a4-p0001-l000064",
+            "9b90e6cc9c86705d08a4-p0001-l000065",
+            "9b90e6cc9c86705d08a4-p0001-l000066",
+            "9b90e6cc9c86705d08a4-p0001-l000067",
+            "9b90e6cc9c86705d08a4-p0001-l000068",
+            "9b90e6cc9c86705d08a4-p0001-l000069",
+            "9b90e6cc9c86705d08a4-p0001-l000070",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0001-l000000",
+            "9b90e6cc9c86705d08a4-p0002-l000001",
+            "9b90e6cc9c86705d08a4-p0002-l000002",
+            "9b90e6cc9c86705d08a4-p0002-l000003",
+            "9b90e6cc9c86705d08a4-p0002-l000004",
+            "9b90e6cc9c86705d08a4-p0002-l000005",
+            "9b90e6cc9c86705d08a4-p0002-l000006",
+            "9b90e6cc9c86705d08a4-p0002-l000007",
+            "9b90e6cc9c86705d08a4-p0002-l000008",
+            "9b90e6cc9c86705d08a4-p0002-l000009",
+            "9b90e6cc9c86705d08a4-p0002-l000010",
+            "9b90e6cc9c86705d08a4-p0002-l000011",
+            "9b90e6cc9c86705d08a4-p0002-l000012",
+            "9b90e6cc9c86705d08a4-p0002-l000013",
+            "9b90e6cc9c86705d08a4-p0002-l000014",
+            "9b90e6cc9c86705d08a4-p0002-l000015",
+            "9b90e6cc9c86705d08a4-p0002-l000016",
+            "9b90e6cc9c86705d08a4-p0002-l000017",
+            "9b90e6cc9c86705d08a4-p0002-l000018",
+            "9b90e6cc9c86705d08a4-p0002-l000019",
+            "9b90e6cc9c86705d08a4-p0002-l000020",
+            "9b90e6cc9c86705d08a4-p0002-l000021",
+            "9b90e6cc9c86705d08a4-p0002-l000022",
+            "9b90e6cc9c86705d08a4-p0002-l000023",
+            "9b90e6cc9c86705d08a4-p0002-l000024",
+            "9b90e6cc9c86705d08a4-p0002-l000025",
+            "9b90e6cc9c86705d08a4-p0002-l000026",
+            "9b90e6cc9c86705d08a4-p0002-l000027",
+            "9b90e6cc9c86705d08a4-p0002-l000028",
+            "9b90e6cc9c86705d08a4-p0002-l000029",
+            "9b90e6cc9c86705d08a4-p0002-l000030",
+            "9b90e6cc9c86705d08a4-p0002-l000031",
+            "9b90e6cc9c86705d08a4-p0002-l000032",
+            "9b90e6cc9c86705d08a4-p0002-l000033",
+            "9b90e6cc9c86705d08a4-p0002-l000034",
+            "9b90e6cc9c86705d08a4-p0002-l000035",
+            "9b90e6cc9c86705d08a4-p0002-l000036",
+            "9b90e6cc9c86705d08a4-p0002-l000037",
+            "9b90e6cc9c86705d08a4-p0002-l000038",
+            "9b90e6cc9c86705d08a4-p0002-l000039",
+            "9b90e6cc9c86705d08a4-p0002-l000040",
+            "9b90e6cc9c86705d08a4-p0002-l000041",
+            "9b90e6cc9c86705d08a4-p0002-l000042",
+            "9b90e6cc9c86705d08a4-p0002-l000043",
+            "9b90e6cc9c86705d08a4-p0002-l000044",
+            "9b90e6cc9c86705d08a4-p0002-l000045",
+            "9b90e6cc9c86705d08a4-p0002-l000046",
+            "9b90e6cc9c86705d08a4-p0002-l000047",
+            "9b90e6cc9c86705d08a4-p0002-l000048",
+            "9b90e6cc9c86705d08a4-p0002-l000049",
+            "9b90e6cc9c86705d08a4-p0002-l000050",
+            "9b90e6cc9c86705d08a4-p0002-l000051",
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000055",
+            "9b90e6cc9c86705d08a4-p0002-l000056",
+            "9b90e6cc9c86705d08a4-p0002-l000057"
+          ],
+          "tool_call_ids": [
+            "call_5BGLSLFoRQP8g33qdjNdMLt8|fc_0052d9a37958faef016ae9527cdd6c81949dab01902912934a"
+          ],
+          "source_binding": {
+            "task_id": "task-L01",
+            "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+            "document_id": "L01",
+            "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+          },
+          "updates_record_id": null
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "source_fragments_verified": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+          "physical_page": 1,
+          "start": 0,
+          "end": 69,
+          "exact_quote": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前",
+          "bbox": [
+            51.0236,
+            180.563,
+            561.1717500000001,
+            187.85104711538452
+          ],
+          "ir_reading_order": 8,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+          "physical_page": 1,
+          "start": 0,
+          "end": 67,
+          "exact_quote": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、",
+          "bbox": [
+            51.0236,
+            195.563,
+            565.5105500000002,
+            202.85104711538452
+          ],
+          "ir_reading_order": 9,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+          "physical_page": 2,
+          "start": 0,
+          "end": 27,
+          "exact_quote": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分",
+          "bbox": [
+            314.6457,
+            87.15679999999998,
+            561.2486,
+            95.73097307692308
+          ],
+          "ir_reading_order": 115,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 105
+        }
+      ],
+      "source_identity_binding_matches": true,
+      "display_joiner_preserved": "\n",
+      "composite_reconstruction_matches": true,
+      "location_precision": "whole_textline_not_exact_glyph",
+      "nearby_ir_text": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000007",
+          "page": 1,
+          "reading_order": 7,
+          "text": "【摘要】目的：分析免疫联合化疗治疗前 CT 图像特征，预测其在非小细胞肺癌（NSCLC）治疗中的疗效。方法：选取 2018 年 12 月-"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000008",
+          "page": 1,
+          "reading_order": 8,
+          "text": "2023 年 3 月复旦大学附属中山医院（厦门）收治的晚期 NSCLC 患者，收集患者经免疫联合化疗治疗后，分为有效组及无效组，分析治疗前"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000009",
+          "page": 1,
+          "reading_order": 9,
+          "text": "影像图像特征，定性和定量的 CT 图像由两位放射学家独立评估，主要评估以下影像特征：肿瘤长径、短径、CT 值、形态（\"分叶征\"、团块、"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000010",
+          "page": 1,
+          "reading_order": 10,
+          "text": "不规则形、类圆形）、清晰度（清晰、欠清、模糊）、磨玻璃影、阻塞性改变、\"毛刺征\"、血管征、坏死、钙化、血管穿行、支气管征、"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000037",
+          "page": 2,
+          "reading_order": 114,
+          "text": "获得横断位或冠状位、矢状位、最大密度投影等图像，"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000038",
+          "page": 2,
+          "reading_order": 115,
+          "text": "主要评估以下影像特征：长径、短径、CT 值、形态（\"分"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000039",
+          "page": 2,
+          "reading_order": 116,
+          "text": "叶征\" [17] 、团块、不规则形、类圆形）、清晰度（清晰、"
+        }
+      ],
+      "scope_check": {
+        "all_dimensions_unrestricted": true,
+        "normalized_terms": [],
+        "facts": [
+          {
+            "field": "disease_or_lesion",
+            "status": "source_observed",
+            "value": "晚期 NSCLC",
+            "value_literal_in_own_evidence": true,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "modality",
+            "status": "source_observed",
+            "value": "CT",
+            "value_literal_in_own_evidence": true,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "sequence_or_phase",
+            "status": "unknown_or_null",
+            "scope_used_as_fact": false
+          }
+        ]
+      },
+      "numeric_checks": [],
+      "visual_original_page_check": {
+        "method": "AI visually inspected existing original-page raster with view_image; relevant text/layout comparison only, not full glyph fidelity or diagnosis",
+        "screenshots": [
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p01-original.png",
+            "sha256": "a116a7c5ce6c505e3705ec6657c982fac70a45236ff3d24304b452461c3d7233",
+            "viewed_in_this_task": true
+          },
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p02-original.png",
+            "sha256": "189ab666f6fa6ad852389543b63b5d69315fec522b1b45e130765bca502d4a1e",
+            "viewed_in_this_task": true
+          }
+        ],
+        "whole_page_or_table_semantics_approved": false
+      },
+      "findings": {
+        "textual_content": "引用由p1摘要的受试者/影像评估文本和p2方法中的另一处特征列表组成；feature_name_raw=CT 值，evidence_type=feature_mention，没有实际HU测量结果。",
+        "completeness": "第一段从“2023 年 3 月…”开始，但紧邻上一行末尾是“方法：选取 2018 年 12 月-”；日期区间前半不在candidate context.fragments（为空）中。p1行9到p2行38的IR reading_order为9→115，中间105行块未作为此引用提供；最后一段停在“形态（\"分”，下一行续“叶征…”。",
+        "scope_fact_separation": "scope=all/all/all；晚期NSCLC与CT的字面词都来自引文片段，未由选择推得；跨摘要/方法是否为同一限定、日期范围是否完整均needs_review。",
+        "numbers_units": "当前numeric_expressions=[]；引文含2023年3月日期，但没有CT值的数值/HU。不可把日期或“CT值”提及当成真实CT测量，也不能声称HU单位被保留。",
+        "visual_boundary": "有明确影像特征提及，未见算法向量或模型性能独立收录；非相邻组合不能自动建立一个连续医学事实。",
+        "findings": [
+          "nonadjacent_source_segments",
+          "105_intervening_source_blocks",
+          "date_range_start_missing",
+          "truncated_word_at_final_fragment",
+          "display_composite_not_contiguous_quote"
+        ],
+        "recommendation": "当前needs_context正确保留；补日期区间首行及方法列表后续，必要时分成不同出处的提及。已新增nonadjacent纯警示用于后续加载版本，既有snapshot未改写。"
+      },
+      "candidate_automated_validation_snapshot": {
+        "quote_located": true,
+        "method": "exact_source_blocks_code_points_v1",
+        "automatic_checks": {
+          "status": "requires_review",
+          "checks": [
+            "bound_source_identity",
+            "provided_and_read_source_blocks",
+            "exact_code_point_spans",
+            "explicit_scope_and_synonym_match",
+            "limited_lexical_consistency"
+          ]
+        },
+        "medical_semantics_verified": false,
+        "model_semantic_review": {
+          "status": "not_performed",
+          "model_id": null,
+          "issue_codes": []
+        },
+        "human_approval": "not_performed",
+        "warnings": [
+          "numeric_expression_missing",
+          "new_term_pending_human_review"
+        ],
+        "issues": [
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          },
+          {
+            "code": "new_term_pending_human_review",
+            "severity": "info",
+            "path": "scope",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "in_scope",
+          "matched_binding_id": null,
+          "feature_match": "new_term",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": [
+            "new_term_pending_human_review"
+          ]
+        }
+      },
+      "new_candidate_version_written": false
+    },
+    {
+      "case_id": "mechanism_and_visual_boundary",
+      "selection_purpose": "mechanism_and_visual_boundary",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+      "record_id": "ev-83547f51f247f62235a5786c2944d13639146ab8",
+      "record_version": 1,
+      "record_review_status_at_snapshot": "needs_context",
+      "case_review_conclusion": "needs_review",
+      "ai_engineering_check": true,
+      "medical_gold": false,
+      "record_envelope_raw_sha256": "55ff71641fcdd9c7225e81f7817188fb112363ba2723463772ac46225084f637",
+      "record_snapshot": {
+        "record_id": "ev-83547f51f247f62235a5786c2944d13639146ab8",
+        "document_id": "L01",
+        "article_family_id": "historical-identity:L01",
+        "bibliographic_identity": {
+          "title": "CT影像特征在预测非小细胞肺癌免疫治疗中的价值",
+          "authors": [],
+          "venue": null,
+          "year": 2024,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "source_register_metadata_not_medically_reviewed"
+        },
+        "source_version": {
+          "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "source_kind": "public_published_pdf_development",
+          "version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+          "obtained_at": "2026-11-02T13:52:49.636107+00:00"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 3,
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+          "bbox": [
+            51.0236,
+            682.10038,
+            297.64779999999996,
+            692.0394473806751
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                699.0767,
+                302.63359999999983,
+                707.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                712.10038,
+                225.1836,
+                722.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+        "original_quote": "肺癌出现\n血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，\n其供血血管的基本形态学发生改变 [23] 。",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 25,
+              "end": 29,
+              "exact_quote": "肺癌出现",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                699.0767,
+                302.63359999999983,
+                707.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 22,
+              "exact_quote": "其供血血管的基本形态学发生改变 [23] 。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                712.10038,
+                225.1836,
+                722.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "display_composite_of_source_segments",
+          "contiguous_source_quote": false
+        },
+        "context": {
+          "before": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 29,
+              "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。肺癌出现",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_attribution": {
+            "origin": "cited_research",
+            "cited_references": [
+              "[23]"
+            ],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+                "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+                "start": 0,
+                "end": 22,
+                "exact_quote": "其供血血管的基本形态学发生改变 [23] 。",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  51.0236,
+                  712.10038,
+                  225.1836,
+                  722.0394473806751
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": "肺癌",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 25,
+              "end": 29,
+              "exact_quote": "肺癌出现",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                699.0767,
+                302.63359999999983,
+                707.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "modality": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "血管征",
+        "feature_category": "血管征病理形态基础",
+        "evidence_type": "association_conclusion",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "肺癌出现\n血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，\n其供血血管的基本形态学发生改变 [23] 。",
+          "evidence": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 25,
+              "end": 29,
+              "exact_quote": "肺癌出现",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                699.0767,
+                302.63359999999983,
+                707.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+              "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+              "start": 0,
+              "end": 22,
+              "exact_quote": "其供血血管的基本形态学发生改变 [23] 。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                712.10038,
+                225.1836,
+                722.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "unknown",
+          "original_wording": "",
+          "evidence": []
+        },
+        "numeric_expressions": [],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "coreference_requires_context",
+            "numeric_expression_missing",
+            "new_term_pending_human_review"
+          ],
+          "issues": [
+            {
+              "code": "coreference_requires_context",
+              "severity": "requires_review",
+              "path": "context_fragments",
+              "detail": ""
+            },
+            {
+              "code": "numeric_expression_missing",
+              "severity": "requires_review",
+              "path": "numeric_expressions",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "task-L01",
+          "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+          "fixture": false,
+          "evidence_kind": "real_paper",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "medical-unavailable-1",
+            "matching_policy_version": "source-grounded-exact-rules-s4-1"
+          },
+          "catalog_version": "medical-unavailable-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "source-grounded-exact-rules-s4-1",
+          "rule_version": "s4-public-paper-evidence-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "2.145.0",
+          "read_block_ids": [
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000075",
+            "9b90e6cc9c86705d08a4-p0002-l000076",
+            "9b90e6cc9c86705d08a4-p0002-l000077",
+            "9b90e6cc9c86705d08a4-p0002-l000078",
+            "9b90e6cc9c86705d08a4-p0002-l000079",
+            "9b90e6cc9c86705d08a4-p0002-l000080",
+            "9b90e6cc9c86705d08a4-p0002-l000081",
+            "9b90e6cc9c86705d08a4-p0002-l000082",
+            "9b90e6cc9c86705d08a4-p0002-l000083",
+            "9b90e6cc9c86705d08a4-p0002-l000087",
+            "9b90e6cc9c86705d08a4-p0002-l000088",
+            "9b90e6cc9c86705d08a4-p0002-l000084",
+            "9b90e6cc9c86705d08a4-p0002-l000085",
+            "9b90e6cc9c86705d08a4-p0002-l000086",
+            "9b90e6cc9c86705d08a4-p0002-l000089",
+            "9b90e6cc9c86705d08a4-p0002-l000000",
+            "9b90e6cc9c86705d08a4-p0003-l000002",
+            "9b90e6cc9c86705d08a4-p0003-l000001",
+            "9b90e6cc9c86705d08a4-p0003-l000003",
+            "9b90e6cc9c86705d08a4-p0003-l000093",
+            "9b90e6cc9c86705d08a4-p0003-l000094",
+            "9b90e6cc9c86705d08a4-p0003-l000095",
+            "9b90e6cc9c86705d08a4-p0003-l000096",
+            "9b90e6cc9c86705d08a4-p0003-l000097",
+            "9b90e6cc9c86705d08a4-p0003-l000098",
+            "9b90e6cc9c86705d08a4-p0003-l000099",
+            "9b90e6cc9c86705d08a4-p0003-l000100",
+            "9b90e6cc9c86705d08a4-p0003-l000101",
+            "9b90e6cc9c86705d08a4-p0003-l000102",
+            "9b90e6cc9c86705d08a4-p0003-l000103",
+            "9b90e6cc9c86705d08a4-p0003-l000104",
+            "9b90e6cc9c86705d08a4-p0003-l000105",
+            "9b90e6cc9c86705d08a4-p0003-l000106",
+            "9b90e6cc9c86705d08a4-p0003-l000107",
+            "9b90e6cc9c86705d08a4-p0003-l000108",
+            "9b90e6cc9c86705d08a4-p0003-l000109",
+            "9b90e6cc9c86705d08a4-p0003-l000110",
+            "9b90e6cc9c86705d08a4-p0003-l000111",
+            "9b90e6cc9c86705d08a4-p0003-l000112",
+            "9b90e6cc9c86705d08a4-p0003-l000113",
+            "9b90e6cc9c86705d08a4-p0003-l000114",
+            "9b90e6cc9c86705d08a4-p0003-l000115",
+            "9b90e6cc9c86705d08a4-p0003-l000116",
+            "9b90e6cc9c86705d08a4-p0003-l000117",
+            "9b90e6cc9c86705d08a4-p0003-l000118",
+            "9b90e6cc9c86705d08a4-p0003-l000119",
+            "9b90e6cc9c86705d08a4-p0003-l000120",
+            "9b90e6cc9c86705d08a4-p0003-l000121",
+            "9b90e6cc9c86705d08a4-p0003-l000122",
+            "9b90e6cc9c86705d08a4-p0003-l000123",
+            "9b90e6cc9c86705d08a4-p0003-l000124",
+            "9b90e6cc9c86705d08a4-p0003-l000125",
+            "9b90e6cc9c86705d08a4-p0003-l000126",
+            "9b90e6cc9c86705d08a4-p0003-l000127",
+            "9b90e6cc9c86705d08a4-p0003-l000128",
+            "9b90e6cc9c86705d08a4-p0003-l000129",
+            "9b90e6cc9c86705d08a4-p0003-l000130",
+            "9b90e6cc9c86705d08a4-p0003-l000131",
+            "9b90e6cc9c86705d08a4-p0003-l000132",
+            "9b90e6cc9c86705d08a4-p0003-l000133",
+            "9b90e6cc9c86705d08a4-p0003-l000134",
+            "9b90e6cc9c86705d08a4-p0003-l000135",
+            "9b90e6cc9c86705d08a4-p0003-l000136",
+            "9b90e6cc9c86705d08a4-p0003-l000137",
+            "9b90e6cc9c86705d08a4-p0003-l000138",
+            "9b90e6cc9c86705d08a4-p0003-l000139",
+            "9b90e6cc9c86705d08a4-p0003-l000140",
+            "9b90e6cc9c86705d08a4-p0003-l000141",
+            "9b90e6cc9c86705d08a4-p0003-l000142",
+            "9b90e6cc9c86705d08a4-p0003-l000143",
+            "9b90e6cc9c86705d08a4-p0003-l000144",
+            "9b90e6cc9c86705d08a4-p0003-l000145",
+            "9b90e6cc9c86705d08a4-p0003-l000146",
+            "9b90e6cc9c86705d08a4-p0003-l000147",
+            "9b90e6cc9c86705d08a4-p0003-l000148",
+            "9b90e6cc9c86705d08a4-p0003-l000149",
+            "9b90e6cc9c86705d08a4-p0003-l000150",
+            "9b90e6cc9c86705d08a4-p0003-l000000",
+            "9b90e6cc9c86705d08a4-p0004-l000001",
+            "9b90e6cc9c86705d08a4-p0004-l000002",
+            "9b90e6cc9c86705d08a4-p0004-l000003",
+            "9b90e6cc9c86705d08a4-p0004-l000004",
+            "9b90e6cc9c86705d08a4-p0004-l000005",
+            "9b90e6cc9c86705d08a4-p0004-l000006",
+            "9b90e6cc9c86705d08a4-p0004-l000007",
+            "9b90e6cc9c86705d08a4-p0004-l000008",
+            "9b90e6cc9c86705d08a4-p0004-l000009",
+            "9b90e6cc9c86705d08a4-p0004-l000010",
+            "9b90e6cc9c86705d08a4-p0004-l000011",
+            "9b90e6cc9c86705d08a4-p0004-l000012",
+            "9b90e6cc9c86705d08a4-p0004-l000013",
+            "9b90e6cc9c86705d08a4-p0004-l000014",
+            "9b90e6cc9c86705d08a4-p0004-l000015",
+            "9b90e6cc9c86705d08a4-p0004-l000016",
+            "9b90e6cc9c86705d08a4-p0004-l000017",
+            "9b90e6cc9c86705d08a4-p0004-l000018",
+            "9b90e6cc9c86705d08a4-p0004-l000019",
+            "9b90e6cc9c86705d08a4-p0004-l000020",
+            "9b90e6cc9c86705d08a4-p0004-l000021",
+            "9b90e6cc9c86705d08a4-p0004-l000022",
+            "9b90e6cc9c86705d08a4-p0004-l000023",
+            "9b90e6cc9c86705d08a4-p0004-l000024",
+            "9b90e6cc9c86705d08a4-p0004-l000025",
+            "9b90e6cc9c86705d08a4-p0004-l000026",
+            "9b90e6cc9c86705d08a4-p0004-l000027",
+            "9b90e6cc9c86705d08a4-p0004-l000028",
+            "9b90e6cc9c86705d08a4-p0004-l000029",
+            "9b90e6cc9c86705d08a4-p0004-l000030",
+            "9b90e6cc9c86705d08a4-p0004-l000031",
+            "9b90e6cc9c86705d08a4-p0004-l000032",
+            "9b90e6cc9c86705d08a4-p0004-l000033",
+            "9b90e6cc9c86705d08a4-p0004-l000034",
+            "9b90e6cc9c86705d08a4-p0004-l000035",
+            "9b90e6cc9c86705d08a4-p0004-l000036",
+            "9b90e6cc9c86705d08a4-p0004-l000037",
+            "9b90e6cc9c86705d08a4-p0004-l000038",
+            "9b90e6cc9c86705d08a4-p0004-l000039",
+            "9b90e6cc9c86705d08a4-p0004-l000040",
+            "9b90e6cc9c86705d08a4-p0004-l000041",
+            "9b90e6cc9c86705d08a4-p0004-l000042",
+            "9b90e6cc9c86705d08a4-p0004-l000043",
+            "9b90e6cc9c86705d08a4-p0004-l000044",
+            "9b90e6cc9c86705d08a4-p0004-l000045",
+            "9b90e6cc9c86705d08a4-p0004-l000046",
+            "9b90e6cc9c86705d08a4-p0004-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0004-l000048",
+            "9b90e6cc9c86705d08a4-p0004-l000049",
+            "9b90e6cc9c86705d08a4-p0004-l000050",
+            "9b90e6cc9c86705d08a4-p0004-l000051",
+            "9b90e6cc9c86705d08a4-p0004-l000052",
+            "9b90e6cc9c86705d08a4-p0004-l000053"
+          ],
+          "provided_block_ids": [
+            "9b90e6cc9c86705d08a4-p0002-l000052",
+            "9b90e6cc9c86705d08a4-p0002-l000053",
+            "9b90e6cc9c86705d08a4-p0002-l000054",
+            "9b90e6cc9c86705d08a4-p0002-l000075",
+            "9b90e6cc9c86705d08a4-p0002-l000076",
+            "9b90e6cc9c86705d08a4-p0002-l000077",
+            "9b90e6cc9c86705d08a4-p0002-l000078",
+            "9b90e6cc9c86705d08a4-p0002-l000079",
+            "9b90e6cc9c86705d08a4-p0002-l000080",
+            "9b90e6cc9c86705d08a4-p0002-l000081",
+            "9b90e6cc9c86705d08a4-p0002-l000082",
+            "9b90e6cc9c86705d08a4-p0002-l000083",
+            "9b90e6cc9c86705d08a4-p0002-l000087",
+            "9b90e6cc9c86705d08a4-p0002-l000088",
+            "9b90e6cc9c86705d08a4-p0002-l000084",
+            "9b90e6cc9c86705d08a4-p0002-l000085",
+            "9b90e6cc9c86705d08a4-p0002-l000086",
+            "9b90e6cc9c86705d08a4-p0002-l000089",
+            "9b90e6cc9c86705d08a4-p0002-l000000",
+            "9b90e6cc9c86705d08a4-p0003-l000002",
+            "9b90e6cc9c86705d08a4-p0003-l000001",
+            "9b90e6cc9c86705d08a4-p0003-l000003",
+            "9b90e6cc9c86705d08a4-p0003-l000093",
+            "9b90e6cc9c86705d08a4-p0003-l000094",
+            "9b90e6cc9c86705d08a4-p0003-l000095",
+            "9b90e6cc9c86705d08a4-p0003-l000096",
+            "9b90e6cc9c86705d08a4-p0003-l000097",
+            "9b90e6cc9c86705d08a4-p0003-l000098",
+            "9b90e6cc9c86705d08a4-p0003-l000099",
+            "9b90e6cc9c86705d08a4-p0003-l000100",
+            "9b90e6cc9c86705d08a4-p0003-l000101",
+            "9b90e6cc9c86705d08a4-p0003-l000102",
+            "9b90e6cc9c86705d08a4-p0003-l000103",
+            "9b90e6cc9c86705d08a4-p0003-l000104",
+            "9b90e6cc9c86705d08a4-p0003-l000105",
+            "9b90e6cc9c86705d08a4-p0003-l000106",
+            "9b90e6cc9c86705d08a4-p0003-l000107",
+            "9b90e6cc9c86705d08a4-p0003-l000108",
+            "9b90e6cc9c86705d08a4-p0003-l000109",
+            "9b90e6cc9c86705d08a4-p0003-l000110",
+            "9b90e6cc9c86705d08a4-p0003-l000111",
+            "9b90e6cc9c86705d08a4-p0003-l000112",
+            "9b90e6cc9c86705d08a4-p0003-l000113",
+            "9b90e6cc9c86705d08a4-p0003-l000114",
+            "9b90e6cc9c86705d08a4-p0003-l000115",
+            "9b90e6cc9c86705d08a4-p0003-l000116",
+            "9b90e6cc9c86705d08a4-p0003-l000117",
+            "9b90e6cc9c86705d08a4-p0003-l000118",
+            "9b90e6cc9c86705d08a4-p0003-l000119",
+            "9b90e6cc9c86705d08a4-p0003-l000120",
+            "9b90e6cc9c86705d08a4-p0003-l000121",
+            "9b90e6cc9c86705d08a4-p0003-l000122",
+            "9b90e6cc9c86705d08a4-p0003-l000123",
+            "9b90e6cc9c86705d08a4-p0003-l000124",
+            "9b90e6cc9c86705d08a4-p0003-l000125",
+            "9b90e6cc9c86705d08a4-p0003-l000126",
+            "9b90e6cc9c86705d08a4-p0003-l000127",
+            "9b90e6cc9c86705d08a4-p0003-l000128",
+            "9b90e6cc9c86705d08a4-p0003-l000129",
+            "9b90e6cc9c86705d08a4-p0003-l000130",
+            "9b90e6cc9c86705d08a4-p0003-l000131",
+            "9b90e6cc9c86705d08a4-p0003-l000132",
+            "9b90e6cc9c86705d08a4-p0003-l000133",
+            "9b90e6cc9c86705d08a4-p0003-l000134",
+            "9b90e6cc9c86705d08a4-p0003-l000135",
+            "9b90e6cc9c86705d08a4-p0003-l000136",
+            "9b90e6cc9c86705d08a4-p0003-l000137",
+            "9b90e6cc9c86705d08a4-p0003-l000138",
+            "9b90e6cc9c86705d08a4-p0003-l000139",
+            "9b90e6cc9c86705d08a4-p0003-l000140",
+            "9b90e6cc9c86705d08a4-p0003-l000141",
+            "9b90e6cc9c86705d08a4-p0003-l000142",
+            "9b90e6cc9c86705d08a4-p0003-l000143",
+            "9b90e6cc9c86705d08a4-p0003-l000144",
+            "9b90e6cc9c86705d08a4-p0003-l000145",
+            "9b90e6cc9c86705d08a4-p0003-l000146",
+            "9b90e6cc9c86705d08a4-p0003-l000147",
+            "9b90e6cc9c86705d08a4-p0003-l000148",
+            "9b90e6cc9c86705d08a4-p0003-l000149",
+            "9b90e6cc9c86705d08a4-p0003-l000150",
+            "9b90e6cc9c86705d08a4-p0003-l000000",
+            "9b90e6cc9c86705d08a4-p0004-l000001",
+            "9b90e6cc9c86705d08a4-p0004-l000002",
+            "9b90e6cc9c86705d08a4-p0004-l000003",
+            "9b90e6cc9c86705d08a4-p0004-l000004",
+            "9b90e6cc9c86705d08a4-p0004-l000005",
+            "9b90e6cc9c86705d08a4-p0004-l000006",
+            "9b90e6cc9c86705d08a4-p0004-l000007",
+            "9b90e6cc9c86705d08a4-p0004-l000008",
+            "9b90e6cc9c86705d08a4-p0004-l000009",
+            "9b90e6cc9c86705d08a4-p0004-l000010",
+            "9b90e6cc9c86705d08a4-p0004-l000011",
+            "9b90e6cc9c86705d08a4-p0004-l000012",
+            "9b90e6cc9c86705d08a4-p0004-l000013",
+            "9b90e6cc9c86705d08a4-p0004-l000014",
+            "9b90e6cc9c86705d08a4-p0004-l000015",
+            "9b90e6cc9c86705d08a4-p0004-l000016",
+            "9b90e6cc9c86705d08a4-p0004-l000017",
+            "9b90e6cc9c86705d08a4-p0004-l000018",
+            "9b90e6cc9c86705d08a4-p0004-l000019",
+            "9b90e6cc9c86705d08a4-p0004-l000020",
+            "9b90e6cc9c86705d08a4-p0004-l000021",
+            "9b90e6cc9c86705d08a4-p0004-l000022",
+            "9b90e6cc9c86705d08a4-p0004-l000023",
+            "9b90e6cc9c86705d08a4-p0004-l000024",
+            "9b90e6cc9c86705d08a4-p0004-l000025",
+            "9b90e6cc9c86705d08a4-p0004-l000026",
+            "9b90e6cc9c86705d08a4-p0004-l000027",
+            "9b90e6cc9c86705d08a4-p0004-l000028",
+            "9b90e6cc9c86705d08a4-p0004-l000029",
+            "9b90e6cc9c86705d08a4-p0004-l000030",
+            "9b90e6cc9c86705d08a4-p0004-l000031",
+            "9b90e6cc9c86705d08a4-p0004-l000032",
+            "9b90e6cc9c86705d08a4-p0004-l000033",
+            "9b90e6cc9c86705d08a4-p0004-l000034",
+            "9b90e6cc9c86705d08a4-p0004-l000035",
+            "9b90e6cc9c86705d08a4-p0004-l000036",
+            "9b90e6cc9c86705d08a4-p0004-l000037",
+            "9b90e6cc9c86705d08a4-p0004-l000038",
+            "9b90e6cc9c86705d08a4-p0004-l000039",
+            "9b90e6cc9c86705d08a4-p0004-l000040",
+            "9b90e6cc9c86705d08a4-p0004-l000041",
+            "9b90e6cc9c86705d08a4-p0004-l000042",
+            "9b90e6cc9c86705d08a4-p0004-l000043",
+            "9b90e6cc9c86705d08a4-p0004-l000044",
+            "9b90e6cc9c86705d08a4-p0004-l000045",
+            "9b90e6cc9c86705d08a4-p0004-l000046",
+            "9b90e6cc9c86705d08a4-p0004-l000047",
+            "9b90e6cc9c86705d08a4-p0001-l000071",
+            "9b90e6cc9c86705d08a4-p0001-l000072",
+            "9b90e6cc9c86705d08a4-p0001-l000073",
+            "9b90e6cc9c86705d08a4-p0001-l000074",
+            "9b90e6cc9c86705d08a4-p0001-l000075",
+            "9b90e6cc9c86705d08a4-p0001-l000076",
+            "9b90e6cc9c86705d08a4-p0004-l000048",
+            "9b90e6cc9c86705d08a4-p0004-l000049",
+            "9b90e6cc9c86705d08a4-p0004-l000050",
+            "9b90e6cc9c86705d08a4-p0004-l000051",
+            "9b90e6cc9c86705d08a4-p0004-l000052",
+            "9b90e6cc9c86705d08a4-p0004-l000053"
+          ],
+          "tool_call_ids": [
+            "call_Uk1MoVKSfUhaoOmT4sIwz1d1|fc_0daadfa06bfd4d6c016ae95478837c8193aeca60cb8665de2e"
+          ],
+          "source_binding": {
+            "task_id": "task-L01",
+            "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+            "document_id": "L01",
+            "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "source_version": "sha256-8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+            "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04"
+          },
+          "updates_record_id": null
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "source_fragments_verified": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+          "physical_page": 3,
+          "start": 25,
+          "end": 29,
+          "exact_quote": "肺癌出现",
+          "bbox": [
+            51.0236,
+            682.10038,
+            297.64779999999996,
+            692.0394473806751
+          ],
+          "ir_reading_order": 283,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+          "physical_page": 3,
+          "start": 0,
+          "end": 25,
+          "exact_quote": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，",
+          "bbox": [
+            51.0236,
+            699.0767,
+            302.63359999999983,
+            707.0394473806751
+          ],
+          "ir_reading_order": 284,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+          "physical_page": 3,
+          "start": 0,
+          "end": 22,
+          "exact_quote": "其供血血管的基本形态学发生改变 [23] 。",
+          "bbox": [
+            51.0236,
+            712.10038,
+            225.1836,
+            722.0394473806751
+          ],
+          "ir_reading_order": 285,
+          "exact_code_point_slice_matches": true,
+          "page_matches_ir": true,
+          "bbox_matches_ir": true,
+          "text_version_matches_ir": true,
+          "omitted_text_before_in_same_line": "",
+          "omitted_text_after_in_same_line": "",
+          "intervening_source_block_count_since_previous": 0
+        }
+      ],
+      "source_identity_binding_matches": true,
+      "display_joiner_preserved": "\n",
+      "composite_reconstruction_matches": true,
+      "location_precision": "whole_textline_not_exact_glyph",
+      "nearby_ir_text": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+          "page": 3,
+          "reading_order": 282,
+          "text": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+          "page": 3,
+          "reading_order": 283,
+          "text": "粗，供血血管受到压迫，出现局部的切迹 [22] 。肺癌出现"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000117",
+          "page": 3,
+          "reading_order": 284,
+          "text": "血管征的病理基础为肺癌供血血管进入肿瘤内滋养肿瘤，"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000118",
+          "page": 3,
+          "reading_order": 285,
+          "text": "其供血血管的基本形态学发生改变 [23] 。"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000119",
+          "page": 3,
+          "reading_order": 286,
+          "text": "主要影响因素为肿瘤血管生成因子增多，其可促进"
+        }
+      ],
+      "scope_check": {
+        "all_dimensions_unrestricted": true,
+        "normalized_terms": [],
+        "facts": [
+          {
+            "field": "disease_or_lesion",
+            "status": "source_observed",
+            "value": "肺癌",
+            "value_literal_in_own_evidence": true,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "modality",
+            "status": "unknown",
+            "value": null,
+            "value_literal_in_own_evidence": false,
+            "scope_used_as_fact": false,
+            "medical_relation_status": "needs_review"
+          },
+          {
+            "field": "sequence_or_phase",
+            "status": "unknown_or_null",
+            "scope_used_as_fact": false
+          }
+        ]
+      },
+      "numeric_checks": [],
+      "visual_original_page_check": {
+        "method": "AI visually inspected existing original-page raster with view_image; relevant text/layout comparison only, not full glyph fidelity or diagnosis",
+        "screenshots": [
+          {
+            "path": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p03-original.png",
+            "sha256": "fc54663a2b6a70abc73980caa62d6f5a19ae3535e7bd7598f4e0e7f0f70ebd02",
+            "viewed_in_this_task": true
+          }
+        ],
+        "whole_page_or_table_semantics_approved": false
+      },
+      "findings": {
+        "textual_content": "p3明确写“血管征的病理基础”为供血血管进入肿瘤滋养肿瘤及基本形态学变化，并转引[23]；这段是机制/背景说明，不能单靠feature_name=血管征便当作直接CT图像观察或影像参数。",
+        "completeness": "所选p3行116尾部“肺癌出现”接行117、118，原句以[23]句号结束；其前一段为CT血管征定义[22]，后一行开始进一步讨论血管生成因子。当前被选机制句本身有句末，不是把前一定义完整重复了一次。",
+        "scope_fact_separation": "scope=all/all/all；疾病“肺癌”为原文字面，模态保持unknown；未把标题或用户选择替换为这段明确CT适用事实。",
+        "numbers_units": "唯一数字标签[23]与source_attribution.cited_references一致，是参考文献标签而非影像测量。numeric_expression_missing会被该标签数字触发，本检查将其注明为保守程序提示，不能据此断言漏掉视觉数值。",
+        "visual_boundary": "未见纯算法或性能指标，但这条作为独立视觉证据的资格需要按既定视觉/关联结论规则人工和医学复核。可作为必要机制上下文；本次AI检查不决定正式收录或剔除，也不计作FP。",
+        "findings": [
+          "cited_research_attribution_preserved",
+          "reference_label_is_not_visual_measurement",
+          "mechanistic_background_as_standalone_candidate_needs_rule_review"
+        ],
+        "recommendation": "保持needs_context；优先作为与明确CT定义/观察关联的背景核对，不把机制或引用编号变成独立影像参数。"
+      },
+      "candidate_automated_validation_snapshot": {
+        "quote_located": true,
+        "method": "exact_source_blocks_code_points_v1",
+        "automatic_checks": {
+          "status": "requires_review",
+          "checks": [
+            "bound_source_identity",
+            "provided_and_read_source_blocks",
+            "exact_code_point_spans",
+            "explicit_scope_and_synonym_match",
+            "limited_lexical_consistency"
+          ]
+        },
+        "medical_semantics_verified": false,
+        "model_semantic_review": {
+          "status": "not_performed",
+          "model_id": null,
+          "issue_codes": []
+        },
+        "human_approval": "not_performed",
+        "warnings": [
+          "coreference_requires_context",
+          "numeric_expression_missing",
+          "new_term_pending_human_review"
+        ],
+        "issues": [
+          {
+            "code": "coreference_requires_context",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          },
+          {
+            "code": "new_term_pending_human_review",
+            "severity": "info",
+            "path": "scope",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "in_scope",
+          "matched_binding_id": null,
+          "feature_match": "new_term",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": [
+            "new_term_pending_human_review"
+          ]
+        }
+      },
+      "new_candidate_version_written": false
+    }
+  ],
+  "implementation_notes": [
+    {
+      "kind": "already_addressed_for_newly_loaded_validator",
+      "issue": "Nonadjacent source fragments need explicit context review; current checked record was produced by an earlier loaded validator",
+      "evidence": "nonadjacent-source-supplement.json",
+      "old_candidate_snapshots_modified": false
+    },
+    {
+      "kind": "known_conservative_lexical_limitation",
+      "issue": "Reference label [23] can trigger numeric_expression_missing even though it is not a visual measurement",
+      "action": "reported to primary implementer; no automatic citation/measurement policy change in this sample check"
+    },
+    {
+      "kind": "model_candidate_context_issue_not_a_fabricated_quote",
+      "issue": "Some valid source slices omit date-range starts or end midway through a later sentence",
+      "action": "keep case needs_review; no universal punctuation heuristic or medical semantic pass claimed"
+    }
+  ],
+  "actions_not_taken": [
+    "paid API calls",
+    "candidate editing or human approval",
+    "precision/recall scoring",
+    "full-paper medical annotation",
+    "independent test corpus use",
+    "permission changes",
+    "automatic exclusion of mechanistic background"
+  ]
+}

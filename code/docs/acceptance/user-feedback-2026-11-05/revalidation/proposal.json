@@ -1,0 +1,190 @@
+{
+  "schema_version": "user-feedback-real-revalidation-proposal-1",
+  "prepared_at": "2026-11-05T06:36:22.698Z",
+  "status": "prepared_pending_new_explicit_user_authorization",
+  "execute_model_calls": false,
+  "paid_calls": 0,
+  "original_feedback": {
+    "path": "apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json",
+    "sha256": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+    "pack_id": "cc939653193b71c047cdc1e3314f923b234ebef7aefbfaf2f8cbf9adfa20845f",
+    "old_feedback_remains_bound_to_old_versions": true
+  },
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "methods": [
+    "B0",
+    "F",
+    "R"
+  ],
+  "strategy": "baseline",
+  "new_common_rules": {
+    "evidence_policy_version": "visual-statements-2",
+    "source_evidence_unit_version": "literal-source-sentences-1",
+    "primary": "complete_original_prose_or_caption_visual_statement",
+    "source_selector": "source_unit_ids or source_line_indices",
+    "context_selector": "context_unit_ids or context_line_indices",
+    "table_role": "explicitly_cited_original_numeric_support_only",
+    "semantic_purpose_and_medical_image_type": "unapproved_prompt_changes_require_real_model_and_human_validation"
+  },
+  "sources": [
+    {
+      "document_id": "L01",
+      "original_pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+      "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "original_ir_path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/parser-result.json",
+      "ir_sha256": "f0446a29a034194ea2a6b78eb57b47b4f877ebc3a60308feae912b4e9d55b8dd",
+      "prepared_directory": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L01",
+      "original_IR_reparsed": false,
+      "catalog_path": "docs/acceptance/user-feedback-2026-11-05/pdf/derived/L01/catalog.json",
+      "catalog_sha256": "dca2476dfb0bc09ed5d0d5f911a2ba08e2d830c5d5587cbc809cf747157a7436",
+      "old_catalog_path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/figure-assets/catalog.json",
+      "old_catalog_sha256": "a6add874bb6b985c0caa5139e29805d3c3fd9e7340139dc4c32d0a556740a027",
+      "same_repaired_catalog_for_all_methods": true
+    },
+    {
+      "document_id": "L05",
+      "original_pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+      "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "original_ir_path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/parser-result.json",
+      "ir_sha256": "72cdfd801fb46100573eaf94ad27edbb15133ff6490a8b0f3a762c07e3c86b83",
+      "prepared_directory": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05",
+      "original_IR_reparsed": false,
+      "catalog_path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/catalog.json",
+      "catalog_sha256": "bcc0ceb1a291b770d509ac2ee277cfa4a602630465deb09d5e1904bc20e8c66e",
+      "old_catalog_path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/catalog.json",
+      "old_catalog_sha256": "bcc0ceb1a291b770d509ac2ee277cfa4a602630465deb09d5e1904bc20e8c66e",
+      "same_repaired_catalog_for_all_methods": true
+    }
+  ],
+  "actual_offline_preparation": [
+    {
+      "document_id": "L01",
+      "unique_inputs": 2,
+      "logical_conditions": 3,
+      "jobs": [
+        {
+          "job_id": "L01-B0",
+          "independent_model_run": true,
+          "representative_job_id": null,
+          "model_source_input_sha256": "8e1258da58bd7b2fc252160331dc6803025554bf074a2d74e67ff189e641ac8b",
+          "selected_blocks": 409,
+          "batch_count": 4
+        },
+        {
+          "job_id": "L01-F",
+          "independent_model_run": true,
+          "representative_job_id": null,
+          "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+          "selected_blocks": 344,
+          "batch_count": 3
+        },
+        {
+          "job_id": "L01-R",
+          "independent_model_run": false,
+          "representative_job_id": "L01-F",
+          "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+          "selected_blocks": 344,
+          "batch_count": 3
+        }
+      ]
+    },
+    {
+      "document_id": "L05",
+      "unique_inputs": 3,
+      "logical_conditions": 3,
+      "jobs": [
+        {
+          "job_id": "L05-B0",
+          "independent_model_run": true,
+          "representative_job_id": null,
+          "model_source_input_sha256": "c3bd78bef7d282932550fad91368a6000dda57a563dc17349cbd274d5a45cf43",
+          "selected_blocks": 615,
+          "batch_count": 6
+        },
+        {
+          "job_id": "L05-F",
+          "independent_model_run": true,
+          "representative_job_id": null,
+          "model_source_input_sha256": "b63745c9e2e910361ba0eaee5f8d0cf15b0747b151a6dafaa1703dceb5122648",
+          "selected_blocks": 524,
+          "batch_count": 5
+        },
+        {
+          "job_id": "L05-R",
+          "independent_model_run": true,
+          "representative_job_id": null,
+          "model_source_input_sha256": "77b65ed9fe24ce9031a8f6a9e119690e05482074d1b616755da4387f177c826f",
+          "selected_blocks": 525,
+          "batch_count": 5
+        }
+      ]
+    }
+  ],
+  "total_unique_inputs": 5,
+  "total_logical_conditions": 6,
+  "equality_boundary": "Offline equality covers actual selected source text, complete-statement batch/context inventory and frozen common runtime source implementation; model payload equality should be checked again on execution. Equal conditions reuse a representative and never count as independent evidence.",
+  "limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "authorization": {
+    "authorization_id": null,
+    "approved_at": null,
+    "confirmation_source": null,
+    "old_authorization_or_ledger_reuse": false,
+    "new_shared_owner_for_all_methods_retries_and_followups": true,
+    "all_attempts_and_retries_count_in_caps_and_original_new_start_time": true,
+    "automatic_execute_or_resume": false
+  },
+  "prepared_plan": {
+    "path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+    "sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+    "batch_id": "comparison-dacebd55-bc30-44ed-8737-f09b33e90812",
+    "unsigned_template": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/authorization-template.json"
+  },
+  "execution_after_separate_approval_only": "bash scripts/with-node.sh node --import tsx scripts/compare-extraction-methods.ts execute --directory docs/acceptance/user-feedback-2026-11-05/revalidation/prepared --authorization USER_CONFIRMED_NEW_AUTHORIZATION.json",
+  "outputs": "New versioned result/events/ledger and derived review pack with explicit links to the old feedback; never overwrite the old pack or inherit any review/approval.",
+  "checks_before_quality_claims": [
+    "Recheck bound PDF/IR/catalog and runtime hashes before each new execution",
+    "Audit original sentence spans, qualifier/number preservation and table support roles",
+    "Trace Figure Notes and whole-Figure/caption context; leave statistical/experimental figure identity pending",
+    "Run ordinary screening and professional review against new record versions; an old looks_matched or not_like is not new-version medical approval"
+  ],
+  "attribution_limit": "This is one repaired pipeline shared across method arms. Multiple fixes changed together; differences from the old run cannot be attributed to a single correction. Display/role/span mechanical fixes and model benefit must be reported separately.",
+  "winner": null,
+  "accuracy": null,
+  "medical_quality_approved": false,
+  "stage_passed": false,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3
+}

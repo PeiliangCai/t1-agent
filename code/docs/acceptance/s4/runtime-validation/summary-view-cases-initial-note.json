@@ -1,0 +1,12 @@
+{
+  "initial_attempt_complete": false,
+  "fixture_error": "High-index setup attempted queued -> reconciling without extracting. Corrected test setup; not an implementation defect.",
+  "test_resource_cleanup": "Terminated only the uniquely matched test runner/worker after the setup exception left its loopback server open before finally.",
+  "source_changes_since_first_start": [
+    "packages/agent/src/extraction-run.ts",
+    "packages/agent/src/extraction-summary.ts",
+    "tests/extraction/runtime.test.ts"
+  ],
+  "owner_reported_changes": "summary context field completion and operation_limits metadata; current focus will use a fresh start manifest.",
+  "not_claimed_as_frozen_version_pass": true
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "s4-report-engineering-acceptance-1",
+  "recorded_at": "2026-11-03T03:25:03.073840+00:00",
+  "scope": "local_readable_snapshot_and_generator_only_not_S5_UI",
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "human_gold_complete": false,
+  "precision": "not_evaluable",
+  "recall": "not_evaluable",
+  "formal_model_selected": false,
+  "actual_bill": "unknown",
+  "command": "python3 scripts/render-s4-report.py --pricing-file docs/acceptance/s4/pricing-assumptions.json",
+  "snapshot_is_final_matrix": false,
+  "snapshot_generated_at": "2026-11-03T03:25:02.843131+00:00",
+  "snapshot_attempts": 16,
+  "snapshot_historical_attempts": 2,
+  "snapshot_requests": 29,
+  "all_attempts_preserved": true,
+  "read_warnings": [],
+  "smoke": {
+    "command": "python3 tests/extraction/report_smoke.py",
+    "exit_code": 0,
+    "tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "log": "evidence-validation/report-smoke-final.log",
+    "coverage": [
+      "reported tokens separate from unknown reservations",
+      "cache/reasoning not double counted",
+      "verified flat-price scenario never becomes actual bill",
+      "early provider/local estimate discrepancy",
+      "historical failed attempts and synthetic paid-probe isolation",
+      "HTML/script-closing/labels/file-path escaping",
+      "SQLite read-only and proposal protection"
+    ]
+  },
+  "render_validation": {
+    "schema_version": "s4-report-render-validation-1",
+    "generated_at": "2026-11-03T03:25:02.843131+00:00",
+    "html_parsed": true,
+    "script_elements": 1,
+    "missing_internal_anchors": [],
+    "missing_local_link_files": [],
+    "source_span_or_composite_mismatches": [],
+    "passed": true,
+    "medical_semantics_verified": false,
+    "stage_passed": false,
+    "html_sha256": "e6e61d0b524d57d4e18e1e9b27f421416243306664859157c909685033105d2c",
+    "generator_sha256": "cc2425cc47374f65e0b47ace4ed933b6d15783604f097f4d60c84fb3131598cb"
+  },
+  "file_sha256": {
+    "scripts/render-s4-report.py": "cc2425cc47374f65e0b47ace4ed933b6d15783604f097f4d60c84fb3131598cb",
+    "tests/extraction/report_smoke.py": "511452531b53d5adeabebbc3e23503e8447790decb59446c99898951f3d83d89",
+    "docs/acceptance/s4/index.html": "e6e61d0b524d57d4e18e1e9b27f421416243306664859157c909685033105d2c",
+    "docs/acceptance/s4/report-data.json": "8f9c8770355e62bcd6d490865a6f7527fcff7a5e8a3c078805b1645e3cab4c42",
+    "docs/acceptance/s4/report-validation.json": "8749e69b88867ef2f52c4c96fe78f13bca47ed05ebf22ecbc9cf0034b32ef644"
+  },
+  "runtime_modifications": false,
+  "original_pdf_modifications": false,
+  "notes": [
+    "Report generator reads JSON plus a SQLite URI mode=ro snapshot; no paid API calls or credential reads.",
+    "Document source and candidate strings are escaped; executable script source is fixed and does not interpolate paper JSON.",
+    "Every quoted segment is listed separately with physical page, block, code-point offsets and whole-line bbox.",
+    "All histories and partial candidates remain visible. No best-only filtering or model ranking.",
+    "Original test/source snapshots remain intact; the current nonadjacent-warning supplement and compact runtime checks are separately versioned.",
+    "Run the generator again after the matrix ends; this acceptance describes the current partial snapshot, not a completed experiment."
+  ]
+}

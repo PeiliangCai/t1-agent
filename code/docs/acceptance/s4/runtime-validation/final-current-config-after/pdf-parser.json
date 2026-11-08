@@ -1,0 +1,57 @@
+{
+  "schema_version": "pdf-parser-selection-1",
+  "selection_id": "S3-Docling-primary-2026-11-03",
+  "formal_parser_selected": true,
+  "default_candidate_id": "docling-standard-cpu",
+  "primary": {
+    "candidate_id": "docling-standard-cpu",
+    "parser_version": "2.145.0",
+    "native_configuration": {
+      "device": "cpu",
+      "threads": 4,
+      "ocr": false,
+      "table_structure": true,
+      "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+      "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+      "remote_services": false,
+      "gpu_available": false
+    },
+    "source_anchor": {
+      "id": "docling-parse-text",
+      "version": "7.24.2",
+      "coordinate_precision": "whole_textline"
+    },
+    "scope": "native layout/table + separate decoded PDF source anchor"
+  },
+  "comparison": {
+    "candidate_id": "mineru-basic-onnx-cpu",
+    "parser_version": "4.1.4",
+    "native_configuration": {
+      "device": "cpu",
+      "threads": 4,
+      "inter_op_threads": 1,
+      "tier": "basic",
+      "ocr_mode": "txt",
+      "small_backend": "onnx",
+      "onnx_device": "cpu",
+      "page_range": "all",
+      "model_commit": "358310b4f64b95f9fefc372ad899356e4111f376",
+      "model_base_dir": "/home/ecs-user/projects/t1-agent/code/.tools/pdf-parser/mineru-models",
+      "source": "local",
+      "remote_vlm_server": null,
+      "llm_aided_title_leveling": false,
+      "llm_aided_cross_page_table_merge": false
+    },
+    "source_anchor": {
+      "id": "docling-parse-text",
+      "version": "7.24.2",
+      "coordinate_precision": "whole_textline"
+    },
+    "scope": "native layout/table + separate decoded PDF source anchor"
+  },
+  "quality_status": "quality_pending",
+  "stage_passed": false,
+  "decision_record": "docs/acceptance/s3/parser-selection-2026-11-03/decision.json",
+  "decision_sha256": "62237d4b9a4305c2635e30368cb5ed2723aa809b1211a42bd9b6a0f7c723604b",
+  "model_can_change_selection": false
+}

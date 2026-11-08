@@ -1,0 +1,86 @@
+--- a/code/scripts/summary-reread-replay.ts
++++ b/code/scripts/summary-reread-replay.ts
+@@ -17,6 +17,7 @@
+ import { assertLivePdfSource } from '../packages/agent/src/figure-assets.js';
+ import type { SourceSelectionManifest } from '../packages/agent/src/source-selection.js';
+ import { loadModelConfig, safeError } from '../packages/agent/src/config.js';
++import { SummaryTimeBudget, validateSummaryTimeAuthorization, type SummaryTimeRuntime } from './lib/summary-time-window.js';
+ 
+ const hash = (v: string | Buffer) => createHash('sha256').update(v).digest('hex');
+ const json = async (p: string) => JSON.parse(await readFile(p, 'utf8'));
+@@ -95,9 +96,9 @@
+ 
+ async function main() {
+   const args = process.argv.slice(2), action = args.shift(), flags = new Map<string, string>();
+-  if (action === '--help') { process.stdout.write('summary-reread-replay.ts prepare --parent PREPARED_BASELINE --directory NEW_DIR\nsummary-reread-replay.ts execute --directory REPLAY_DIR --authorization ORIGINAL_AUTH [--jobs L01-F,L01-B0,...]\nOnly an explicitly authorized experimental summary-stage replay; never product checkpoint resume or a fresh full extraction. All arms use the same cumulative budget owner.\n'); return; }
++  if (action === '--help') { process.stdout.write('summary-reread-replay.ts prepare --parent PREPARED_BASELINE --directory NEW_DIR\nsummary-reread-replay.ts execute --directory REPLAY_DIR --authorization ORIGINAL_AUTH [--jobs L01-F,L01-B0,...] [--time-authorization EXPLICIT_TIME_GRANT]\nOnly an explicitly authorized experimental summary-stage replay; never product checkpoint resume or a fresh full extraction. All arms use the same cumulative budget owner.\n'); return; }
+   for (let i = 0; i < args.length; i += 2) {
+-    if (!['--parent', '--directory', '--authorization', '--jobs'].includes(args[i]!) || !args[i + 1] || flags.has(args[i]!)) throw new ContractError('summary_replay_arguments_invalid');
++    if (!['--parent', '--directory', '--authorization', '--jobs', '--time-authorization'].includes(args[i]!) || !args[i + 1] || flags.has(args[i]!)) throw new ContractError('summary_replay_arguments_invalid');
+     flags.set(args[i]!, args[i + 1]!);
+   }
+   if (!['prepare', 'execute'].includes(action ?? '') || !flags.has('--directory')) throw new ContractError('summary_replay_action_required');
+@@ -107,7 +108,7 @@
+   await inside(action === 'prepare' ? dirname(directory) : directory);
+   const driverPath = fileURLToPath(import.meta.url);
+   if (action === 'prepare') {
+-    if (!flags.has('--parent') || flags.has('--authorization') || flags.has('--jobs')) throw new ContractError('summary_replay_prepare_arguments_invalid');
++    if (!flags.has('--parent') || flags.has('--authorization') || flags.has('--jobs') || flags.has('--time-authorization')) throw new ContractError('summary_replay_prepare_arguments_invalid');
+     const parent = await inside(flags.get('--parent')!), planBytes = await readFile(join(parent, 'plan.json')), plan = JSON.parse(planBytes.toString('utf8'));
+     const run = await json(join(parent, 'execution/report.json'));
+     if (run.status !== 'finished_runs_human_quality_and_selection_pending') throw new ContractError('summary_replay_wait_for_fixed_baseline_completion');
+@@ -157,9 +158,11 @@
+       first_required_pair: 'L01-F', new_model_calls: 0, single_variable: manifest.single_variable }) + '\n'); return;
+   }
+   if (!flags.has('--authorization') || flags.has('--parent')) throw new ContractError('summary_replay_original_authorization_required');
+-  const manifest = await json(join(directory, 'manifest.json'));
++  const manifestBytes = await readFile(join(directory, 'manifest.json')), manifest = JSON.parse(manifestBytes.toString('utf8'));
++  const driverSha = hash(await readFile(driverPath));
+   if (manifest.schema_version !== 'summary-reread-paired-experiment-1' || manifest.before_prompt !== ORIGINAL_SUMMARY_PROMPT ||
+-    manifest.after_prompt !== ORIGINAL_SUMMARY_PROMPT + TARGETED_REREAD_ADDITION || manifest.driver_sha256 !== hash(await readFile(driverPath))) throw new ContractError('summary_replay_manifest_or_driver_changed');
++    manifest.after_prompt !== ORIGINAL_SUMMARY_PROMPT + TARGETED_REREAD_ADDITION ||
++    !flags.has('--time-authorization') && manifest.driver_sha256 !== driverSha) throw new ContractError('summary_replay_manifest_or_driver_changed');
+   const parent = await inside(manifest.parent_directory), planBytes = await readFile(join(parent, 'plan.json')), plan = JSON.parse(planBytes.toString('utf8'));
+   assert.equal(hash(planBytes), manifest.parent_plan_sha256);
+   for (const [p, expected] of Object.entries(manifest.baseline_runtime_source_hashes)) assert.equal(hash(await readFile(await inside(p))), expected);
+@@ -169,6 +172,17 @@
+   if (grant.authorized_scope?.old_ledger_reuse !== false || !['L01', 'L05'].every(id => grant.authorized_scope.papers.includes(id))) throw new ContractError('summary_replay_outside_authorized_followup_scope');
+   const chosen = flags.has('--jobs') ? flags.get('--jobs')!.split(',') : ['L01-F'];
+   if (new Set(chosen).size !== chosen.length || chosen.some(id => !manifest.cohorts.some((c: any) => c.job_id === id))) throw new ContractError('summary_replay_jobs_invalid');
++  let timeAuthorizationBytes: string | undefined, timeRuntime: SummaryTimeRuntime | undefined;
++  if (flags.has('--time-authorization')) {
++    timeAuthorizationBytes = await readFile(await inside(flags.get('--time-authorization')!), 'utf8');
++    const pausePath = join(dirname(parent), 'user-pause-2026-11-05.json'), pauseBytes = await readFile(pausePath);
++    const pause = JSON.parse(pauseBytes.toString('utf8'));
++    timeRuntime = { authorization_id: auth.authorization_id, replay_id: manifest.replay_id, replay_manifest_sha256: hash(manifestBytes),
++      original_driver_sha256: manifest.driver_sha256, resumed_driver_sha256: driverSha,
++      time_module_sha256: hash(await readFile(new URL('./lib/summary-time-window.ts', import.meta.url))),
++      pause_record_sha256: hash(pauseBytes), paused_at: pause.recorded_at, jobs: chosen };
++    validateSummaryTimeAuthorization(JSON.parse(timeAuthorizationBytes), timeRuntime);
++  }
+   const firstPair = join(directory, 'L01-F', 'pair-report.json');
+   if (chosen.some(id => id !== 'L01-F')) {
+     const pilot = await json(firstPair);
+@@ -179,8 +193,12 @@
+   const owner = await inside(comparisonBudgetOwner(auth.authorization_id)), lockPath = join(owner, 'active-owner.lock'), lock = await open(lockPath, 'wx');
+   await lock.writeFile(JSON.stringify({ pid: process.pid, replay_id: manifest.replay_id, same_original_authorization: auth.authorization_id })); await lock.close();
+   let budget: ExtractionBudget;
+-  try { budget = new ExtractionBudget(join(owner, 'call-ledger.json'), config.baseUrl, Date.now, { limits: auth.limits,
+-    authorization: comparisonBudgetAuthorization(auth), responseModelAliasPolicy: plan.config.response_model_alias_policy }); }
++  try {
++    const options = { limits: auth.limits, authorization: comparisonBudgetAuthorization(auth), responseModelAliasPolicy: plan.config.response_model_alias_policy };
++    budget = timeAuthorizationBytes && timeRuntime ? new SummaryTimeBudget(join(owner, 'call-ledger.json'), config.baseUrl,
++      { ...options, timeAuthorizationBytes, runtime: timeRuntime }) :
++      new ExtractionBudget(join(owner, 'call-ledger.json'), config.baseUrl, Date.now, options);
++  }
+   catch (cause) { await unlink(lockPath); throw cause; }
+   const controller = new AbortController(), stop = () => controller.abort(); process.once('SIGINT', stop); process.once('SIGTERM', stop);
+   const results = [];
+@@ -292,6 +310,7 @@
+         content_changes_after_vs_before: deliveredContentDiff(deliveries.before!, deliveries.after!),
+         scope: manifest.mode, cumulative_totals: budget.totals(), authorization_id: auth.authorization_id,
+         limitation: 'One stochastic fresh pair; timing and supplier caching may vary. This is stage-only cost/mechanical evidence, not general performance, medical quality, or a winner.',
++        ...(budget instanceof SummaryTimeBudget ? { time_window_extension: budget.timeWindowEvidence() } : {}),
+         actual_human_reviewed_count: 0, medical_quality_approved: false, winner: null };
+       await save(join(pairDir, 'pair-report.json'), report, true); results.push({ job_id: id, path: relative(code, join(pairDir, 'pair-report.json')) });
+     }

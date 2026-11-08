@@ -1,0 +1,74 @@
+﻿参考答案相关内容逐文件盘点（只盘点、不删除）
+扫描时间（UTC）：2026-11-04T13:05:00.966290+00:00 至 2026-11-04T13:11:30.282221+00:00
+项目：/home/ecs-user/projects/t1-agent
+
+有效状态：完整人工参考答案/逐篇完整金标不再是必需交付或开发前置条件；旧准备UI已退役。
+真实抽取输出的逐条人工审核、证据出处与医生补充来源要求仍保留。历史材料的pending不恢复旧要求。
+本表列出现存相关文件及候选档案：780；支持工具另表：932。
+已检查的全部归档成员：467；其中精确范围相关文件成员：355。
+所有CSV为UTF-8 BOM，可用Excel直接打开。每个现存文件在files.csv只列一行，ZIP/TAR成员另表。
+
+打开顺序：
+1. files.csv：逐文件路径、分类、用途、状态、大小、命中词、定位和短证据。
+2. zip-members.csv / tar-members.csv：每个实际归档成员（related列区分相关/未命中）；archive-members.csv为合表。
+3. support-tool-files.csv：Playwright/Chromium/系统库/缓存的逐文件元数据，不是医学答案。
+4. summary.json：分类/目录/归档准确数量、旧路径缺失清单、扫描边界和并发变化。
+5. report-validation.json：实际执行的完整性校验；scan-before/after.json保留两次来源元数据。
+复现命令：python3 code/docs/acceptance/reference-answer-inventory-2026-11-04/build_inventory.py
+
+分类数量：
+- 专项人工标注指南、模板与专家交接材料（旧要求留档）：26文件，13176727字节
+- 用户提供AI参考工作簿的七份转换产物（非医生金标准）：7文件，2312876字节
+- AI参考导入与本地校验脚本（保留，未运行）：2文件，61453字节
+- AI参考导入报告、冻结后对照与来源分层报告：10文件，7357446字节
+- 旧离线工作台发布物、说明、许可和论文复制件：26文件，64482516字节
+- 旧工作台工程验收、合成测试答案、打印件和历史源码快照：142文件，11299760字节
+- 退役记录、历史备份和实际归档容器：10文件，60234000字节
+- 共用评测接口、计分/准备逻辑、测试及合成计分报告：26文件，223519字节
+- 共用医学目录、来源/分组清单及五篇PDF原件：12文件，6897432字节
+- 当前方案、README及取消/退役规则说明：13文件，539948字节
+- 历史阶段证据、before快照和运行/来源快照内的相关引用：472文件，109156127字节
+- 仍在仓库中的共用代码/配置/契约内的相关字段或引用：8文件，294666字节
+- 仍在仓库中的其它准备/记录/材料生成脚本内的相关引用：23文件，595907字节
+- 方案历史与调研原始档案容器（逐成员筛选）：2文件，1060810字节
+- 当前新前端复用的浏览器验证脚本：1文件，16195字节
+
+关键区别：
+- code/evaluation/annotations整目录26文件为旧专项准备材料，包含空白表、待复核AI表、指南、交接脚本/包及复制PDF；不等于医生已完成答案。
+- AI草稿七文件共56条（L01 25、L05 31），非空人工标注者/复核者均为0，human_verified=false、not_gold=true。
+- 专家ZIP实际11成员，未含后来放入展开材料目录的AI参考工作簿；ZIP与目录内容不能视作完全相同。
+- code/dist/annotation-offline仍有25发布文件，旧ZIP也有25成员；retirement目录legacy ZIP是旧离线包副本，均没有TS源码。
+- TS源码、旧专用脚本和tests不在活动原路径；真实存于两个tar归档（Vite 28、未发布迁移233文件），另表可查。
+- annotation-ui完整历史目录的备份/导出/打印PDF/截图属于工程合成测试材料，不能认作医生答案。
+- evaluation/corpus下五篇PDF是共用原件；离线包、专家包、退役归档内是复制件；目录/来源清单和共用评测引擎也不是全应删除。
+- 当前verify-pi-web-browser.mjs:10-13仍复用annotation-browser与qa-tmp；这些依赖属于通用QA。
+- 当前方案/README的取消和退役说明也列出；旧before/source-snapshots按历史引用列，原文件缺失不代表归档已消失。
+
+归档：
+- code/dist/T1-S2-离线标注工作台.zip：25文件成员，其中相关25；展开字节37444151
+- code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/legacy-offline-package.zip：25文件成员，其中相关25；展开字节37444151
+- code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retired-unreleased-annotation-migration.tar.gz：233文件成员，其中相关233；展开字节22960205
+- code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retired-vite-application.tar.gz：28文件成员，其中相关28；展开字节15522819
+- code/evaluation/annotations/expert-handoff/20261103T170116+0800/T1_医学专家独立标注材料_待确认_20261103T170116+0800.zip：11文件成员，其中相关11；展开字节6794299
+- research/调研原始资料.zip：42文件成员，其中相关0；展开字节2036202
+- 方案/历史归档.zip：103文件成员，其中相关33；展开字节1190388
+
+扫描限制与计数解释：
+- 只读扫描本项目管理文件；排除.git/.aws/.codex/.agents、任意node_modules/.venv/venv/第三方、code/.tools其它工具、code/third_party、.next生成目录及自身报告目录。
+- 所有.env*、凭证/私钥常见文件名均不读内容；证据片段遇凭证字段名时整体隐藏；未复制答案全文。
+- code/.tools/annotation-browser与qa-tmp仅列元数据；第三方正文不读。符号链接不跟随，字节数按lstat，避免重复计目标。
+- PDF只按明确目录、原件/复制件与归档上下文列出，未OCR或解析全文；本次没有安装/调用PDF正文提取器。截图未OCR；SQLite及其它二进制不检索内部内容。
+- DOCX提取正文/页眉页脚/脚注尾注/批注可读XML，XLSX提取单元格/共享字符串，不运行公式、不跟随外链；Office内部ZIP条目不作为独立用户文件。
+- 项目ZIP/TAR归档在内存读取，保留完整父路径与成员名；普通Office文件不当外层归档。最大递归深度3、成员数25000、单文本48MiB、嵌套归档96MiB、总读取256MiB；遇限额写明。
+- CSV实际文件与归档成员分表；成员解压大小、原件复制件和同ZIP重复归档不能相加当独立内容量。
+- 精确关键字、专项目录全量纳入与已核引用链组合；未按泛化gold或annotation词扫描第三方/配色/通用库。未命中档案成员仍列清单但related=false。
+- 历史人标/完整gold待办与最新取消政策分别表述。真实模型输出逐条人工审核/医生补充不自动视作旧答案准备。
+- 本次只新增本目录脚本与报告，没有删除/修改现有应用、方案、README、旧证据或他人文件；没有模型API、依赖下载、浏览器或应用测试。
+
+最后一次来源列表/size/mtime/关键hash无变化：True；有界刷新过程和并发边界见summary.json。
+原S2正式审查3/3封存；本盘点新增正式审查0轮。
+本次未删除任何现有文件。
+
+最终明确引用链补项：code/package.json:24-26的test:evaluation、eval:quality、eval:export-contracts共用入口已列入，当前保留。
+候选档案：research/调研原始资料.zip全部42成员已检查，精确范围相关0；不称为有参考答案内容。
+最后补充只刷新实际变动文本/新证据；SQLite/WAL/SHM不查内部，不以数据库持续写入无限等待。

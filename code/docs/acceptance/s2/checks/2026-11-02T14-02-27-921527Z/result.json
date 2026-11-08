@@ -1,0 +1,118 @@
+{
+  "started_at": "2026-11-02T14:02:27.921606+00:00",
+  "updated_at": "2026-11-02T14:02:31.349211+00:00",
+  "checks": [
+    {
+      "name": "export-contracts",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:export-contracts"
+      ],
+      "started_at": "2026-11-02T14:02:27.921606+00:00",
+      "finished_at": "2026-11-02T14:02:28.324391+00:00",
+      "duration_seconds": 0.403,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/export-contracts.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "check",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "check"
+      ],
+      "started_at": "2026-11-02T14:02:28.324662+00:00",
+      "finished_at": "2026-11-02T14:02:29.249751+00:00",
+      "duration_seconds": 0.925,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/check.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "test-evaluation",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:evaluation"
+      ],
+      "started_at": "2026-11-02T14:02:29.250059+00:00",
+      "finished_at": "2026-11-02T14:02:30.659741+00:00",
+      "duration_seconds": 1.41,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/test-evaluation.log",
+      "real_api_calls": 0,
+      "test_counts": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "fixture-example",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:quality",
+        "--",
+        "--input",
+        "evaluation/fixtures/scoring/synthetic-example.json",
+        "--output",
+        "evaluation/reports/fixtures/2026-11-02T14-02-27-921527Z.json"
+      ],
+      "started_at": "2026-11-02T14:02:30.660061+00:00",
+      "finished_at": "2026-11-02T14:02:31.006267+00:00",
+      "duration_seconds": 0.346,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/fixture-example.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "real-pending-example",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:quality",
+        "--",
+        "--input",
+        "evaluation/annotations/templates/unevaluable-real-input.json",
+        "--output",
+        "evaluation/reports/real/2026-11-02T14-02-27-921527Z.json"
+      ],
+      "started_at": "2026-11-02T14:02:31.006571+00:00",
+      "finished_at": "2026-11-02T14:02:31.349110+00:00",
+      "duration_seconds": 0.343,
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/real-pending-example.log",
+      "real_api_calls": 0
+    }
+  ],
+  "all_expected_behaviors_passed": true,
+  "real_api_calls": 0,
+  "medical_quality_measured": false,
+  "S2_stage_passed": false
+}

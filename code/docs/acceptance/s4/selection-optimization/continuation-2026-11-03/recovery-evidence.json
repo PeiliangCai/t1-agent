@@ -1,0 +1,710 @@
+{
+  "schema_version": "s4-actual-recovery-version-evidence-1",
+  "rows": [
+    {
+      "job_id": "L01-B0",
+      "cohort_id": "reliability-v2-main",
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 3,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 12,
+          "read_source_blocks": 140,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "failed",
+          "candidate_count_so_far": 12,
+          "read_source_blocks": 134,
+          "explicit_completion_received": false,
+          "error": {
+            "type": "ContractError",
+            "code": "provider_stream_missing_terminal_event"
+          }
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 1,
+          "status": "completed",
+          "candidate_count_so_far": 15,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 21,
+          "read_source_blocks": 37,
+          "explicit_completion_received": true,
+          "error": null
+        }
+      ],
+      "summary_attempts": [
+        {
+          "attempt": 0,
+          "status": "completed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-B0/whole-document-summary-attempt-0.json",
+          "request_ids": [
+            "2a08d1ab-2b3e-480c-b873-143d377d4a62",
+            "70a57ecc-fbbc-4659-b5f4-d5b4c1ece64f",
+            "db6ed7e3-610f-4b3c-84e8-abde5148773e",
+            "0e7eb3d9-9181-4d3d-b6a3-4217a1f78545"
+          ],
+          "candidate_versions_after_attempt": 30
+        }
+      ],
+      "final_active_candidates": 21,
+      "immutable_candidate_versions": 30,
+      "reconciliation_action_counts": {
+        "insert": 21,
+        "duplicate_link": 9
+      },
+      "actual_context_issue_events": 1,
+      "actual_successful_batch_context_issue_calls": 1,
+      "issue_binding_branch_validation_scope": "local fixtures verify authorization;real call counts describe exercised branches only",
+      "phase_accounting": {
+        "batch_extraction_including_retries": {
+          "requests": 23,
+          "provider_input_tokens_including_cache": 93998,
+          "unknown_input_reservation": 41538,
+          "provider_output_tokens_including_reasoning": 11354,
+          "provider_cache_read_tokens_included_in_input": 12442,
+          "provider_cache_write_tokens_included_in_input": 35074,
+          "provider_reasoning_tokens_included_in_output": 5326,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "summary_including_readback_and_retries": {
+          "requests": 4,
+          "provider_input_tokens_including_cache": 86171,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 3229,
+          "provider_cache_read_tokens_included_in_input": 25600,
+          "provider_cache_write_tokens_included_in_input": 25888,
+          "provider_reasoning_tokens_included_in_output": 585,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "failed_attempt_requests_overlay": {
+          "requests": 4,
+          "provider_input_tokens_including_cache": 9864,
+          "unknown_input_reservation": 41538,
+          "provider_output_tokens_including_reasoning": 1239,
+          "provider_cache_read_tokens_included_in_input": 1536,
+          "provider_cache_write_tokens_included_in_input": 3422,
+          "provider_reasoning_tokens_included_in_output": 359,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "retry_attempt_requests_overlay": {
+          "requests": 3,
+          "provider_input_tokens_including_cache": 15513,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 2133,
+          "provider_cache_read_tokens_included_in_input": 0,
+          "provider_cache_write_tokens_included_in_input": 7617,
+          "provider_reasoning_tokens_included_in_output": 594,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "recovery_overlays_are_already_in_stage_totals_do_not_add_again": true,
+        "readback_only_tokens_not_separately_identifiable_from_whole_request_usage": true
+      },
+      "failed_attempt_candidates_remain_in_version_history": true,
+      "active_human_versions_in_actual_run": 0,
+      "human_revision_protection_tested_locally_not_medical_approval": true
+    },
+    {
+      "job_id": "L01-F",
+      "cohort_id": "reliability-v2-main",
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 4,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 10,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "failed",
+          "candidate_count_so_far": 16,
+          "read_source_blocks": 100,
+          "explicit_completion_received": false,
+          "error": {
+            "type": "ContractError",
+            "code": "provider_stream_missing_terminal_event"
+          }
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 1,
+          "status": "completed",
+          "candidate_count_so_far": 34,
+          "read_source_blocks": 100,
+          "explicit_completion_received": true,
+          "error": null
+        }
+      ],
+      "summary_attempts": [
+        {
+          "attempt": 0,
+          "status": "completed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-F/whole-document-summary-attempt-0.json",
+          "request_ids": [
+            "63771946-6cd2-437e-97a4-02b84418b27e",
+            "647f96c2-cb59-4be1-b889-bc534f9d26ee",
+            "fb0ebd03-453d-4740-b4d5-ec60ceeedb91",
+            "fe372ce1-5ba3-41ec-be16-1a7758740d0c",
+            "025b1b17-9826-49b3-a500-cf79fd165d44"
+          ],
+          "candidate_versions_after_attempt": 46
+        }
+      ],
+      "final_active_candidates": 34,
+      "immutable_candidate_versions": 46,
+      "reconciliation_action_counts": {
+        "insert": 29,
+        "conflict": 5,
+        "duplicate_link": 7
+      },
+      "actual_context_issue_events": 0,
+      "actual_successful_batch_context_issue_calls": 0,
+      "issue_binding_branch_validation_scope": "local fixtures verify authorization;real call counts describe exercised branches only",
+      "phase_accounting": {
+        "batch_extraction_including_retries": {
+          "requests": 23,
+          "provider_input_tokens_including_cache": 135014,
+          "unknown_input_reservation": 60165,
+          "provider_output_tokens_including_reasoning": 14505,
+          "provider_cache_read_tokens_included_in_input": 71610,
+          "provider_cache_write_tokens_included_in_input": 40416,
+          "provider_reasoning_tokens_included_in_output": 5269,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "summary_including_readback_and_retries": {
+          "requests": 5,
+          "provider_input_tokens_including_cache": 254888,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 3871,
+          "provider_cache_read_tokens_included_in_input": 176768,
+          "provider_cache_write_tokens_included_in_input": 50468,
+          "provider_reasoning_tokens_included_in_output": 764,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "failed_attempt_requests_overlay": {
+          "requests": 5,
+          "provider_input_tokens_including_cache": 19742,
+          "unknown_input_reservation": 60165,
+          "provider_output_tokens_including_reasoning": 3210,
+          "provider_cache_read_tokens_included_in_input": 12032,
+          "provider_cache_write_tokens_included_in_input": 5023,
+          "provider_reasoning_tokens_included_in_output": 948,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "retry_attempt_requests_overlay": {
+          "requests": 9,
+          "provider_input_tokens_including_cache": 70738,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 6270,
+          "provider_cache_read_tokens_included_in_input": 37050,
+          "provider_cache_write_tokens_included_in_input": 18390,
+          "provider_reasoning_tokens_included_in_output": 1516,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "recovery_overlays_are_already_in_stage_totals_do_not_add_again": true,
+        "readback_only_tokens_not_separately_identifiable_from_whole_request_usage": true
+      },
+      "failed_attempt_candidates_remain_in_version_history": true,
+      "active_human_versions_in_actual_run": 0,
+      "human_revision_protection_tested_locally_not_medical_approval": true
+    },
+    {
+      "job_id": "L05-B0",
+      "cohort_id": "reliability-v2-main",
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 3,
+          "read_source_blocks": 114,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 125,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 96,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0005",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 15,
+          "read_source_blocks": 140,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0006",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 21,
+          "read_source_blocks": 66,
+          "explicit_completion_received": true,
+          "error": null
+        }
+      ],
+      "summary_attempts": [
+        {
+          "attempt": 0,
+          "status": "failed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-B0/whole-document-summary-attempt-0.json",
+          "error": {
+            "type": "ContractError",
+            "code": "provider_stream_missing_terminal_event"
+          },
+          "request_ids": [
+            "6878f8da-18ce-4bf3-b976-35bf2987cbc6",
+            "78967e9c-6821-49d3-b592-4928be801991",
+            "a5ab438d-f33c-4a90-a152-b2a354b4ac46",
+            "1a4d90b2-8250-4a4d-b6ae-6565db6a0fe2",
+            "6e61e0c5-ff29-4882-a040-1804d9160d2b"
+          ],
+          "candidate_versions_after_attempt": 27
+        },
+        {
+          "attempt": 1,
+          "status": "completed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-B0/whole-document-summary-attempt-1.json",
+          "request_ids": [
+            "d4b30d0c-339d-4b21-93f3-777a2fefeca0",
+            "9a36e63d-da2c-4dc6-aac1-f96dc4cbf3ff",
+            "92b47a89-886d-46ba-b800-9fc526acb097"
+          ],
+          "candidate_versions_after_attempt": 30
+        }
+      ],
+      "final_active_candidates": 21,
+      "immutable_candidate_versions": 30,
+      "reconciliation_action_counts": {
+        "insert": 15,
+        "conflict": 6,
+        "duplicate_link": 9
+      },
+      "actual_context_issue_events": 1,
+      "actual_successful_batch_context_issue_calls": 1,
+      "issue_binding_branch_validation_scope": "local fixtures verify authorization;real call counts describe exercised branches only",
+      "phase_accounting": {
+        "batch_extraction_including_retries": {
+          "requests": 18,
+          "provider_input_tokens_including_cache": 79127,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 9597,
+          "provider_cache_read_tokens_included_in_input": 8704,
+          "provider_cache_write_tokens_included_in_input": 9210,
+          "provider_reasoning_tokens_included_in_output": 3935,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "summary_including_readback_and_retries": {
+          "requests": 8,
+          "provider_input_tokens_including_cache": 250846,
+          "unknown_input_reservation": 201326,
+          "provider_output_tokens_including_reasoning": 5659,
+          "provider_cache_read_tokens_included_in_input": 92288,
+          "provider_cache_write_tokens_included_in_input": 141413,
+          "provider_reasoning_tokens_included_in_output": 1137,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "failed_attempt_requests_overlay": {
+          "requests": 5,
+          "provider_input_tokens_including_cache": 143019,
+          "unknown_input_reservation": 201326,
+          "provider_output_tokens_including_reasoning": 2967,
+          "provider_cache_read_tokens_included_in_input": 46976,
+          "provider_cache_write_tokens_included_in_input": 95878,
+          "provider_reasoning_tokens_included_in_output": 446,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "retry_attempt_requests_overlay": {
+          "requests": 3,
+          "provider_input_tokens_including_cache": 107827,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 2692,
+          "provider_cache_read_tokens_included_in_input": 45312,
+          "provider_cache_write_tokens_included_in_input": 45535,
+          "provider_reasoning_tokens_included_in_output": 691,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "recovery_overlays_are_already_in_stage_totals_do_not_add_again": true,
+        "readback_only_tokens_not_separately_identifiable_from_whole_request_usage": true
+      },
+      "failed_attempt_candidates_remain_in_version_history": true,
+      "active_human_versions_in_actual_run": 0,
+      "human_revision_protection_tested_locally_not_medical_approval": true
+    },
+    {
+      "job_id": "L05-F",
+      "cohort_id": "reliability-v2-main",
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 3,
+          "read_source_blocks": 113,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 122,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 14,
+          "read_source_blocks": 140,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0005",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 20,
+          "read_source_blocks": 60,
+          "explicit_completion_received": true,
+          "error": null
+        }
+      ],
+      "summary_attempts": [
+        {
+          "attempt": 0,
+          "status": "completed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-F/whole-document-summary-attempt-0.json",
+          "request_ids": [
+            "b0dd9316-5737-4337-b9c3-ed379bfd2247",
+            "9e58fab4-d85a-44af-b8fa-e98e2b7d7eed",
+            "85502935-542f-4ff5-bd7c-95ec44a7ef23",
+            "66c53cca-f508-42c8-8a39-09b97c5ca905",
+            "2bfc62ea-b6fd-4a0a-b940-550929c4f3a9"
+          ],
+          "candidate_versions_after_attempt": 37
+        }
+      ],
+      "final_active_candidates": 20,
+      "immutable_candidate_versions": 37,
+      "reconciliation_action_counts": {
+        "insert": 15,
+        "conflict": 5,
+        "duplicate_link": 12
+      },
+      "actual_context_issue_events": 1,
+      "actual_successful_batch_context_issue_calls": 1,
+      "issue_binding_branch_validation_scope": "local fixtures verify authorization;real call counts describe exercised branches only",
+      "phase_accounting": {
+        "batch_extraction_including_retries": {
+          "requests": 18,
+          "provider_input_tokens_including_cache": 77280,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 9216,
+          "provider_cache_read_tokens_included_in_input": 27104,
+          "provider_cache_write_tokens_included_in_input": 17967,
+          "provider_reasoning_tokens_included_in_output": 3806,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "summary_including_readback_and_retries": {
+          "requests": 5,
+          "provider_input_tokens_including_cache": 229806,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 3675,
+          "provider_cache_read_tokens_included_in_input": 103168,
+          "provider_cache_write_tokens_included_in_input": 0,
+          "provider_reasoning_tokens_included_in_output": 806,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "failed_attempt_requests_overlay": {
+          "requests": 0,
+          "provider_input_tokens_including_cache": 0,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 0,
+          "provider_cache_read_tokens_included_in_input": 0,
+          "provider_cache_write_tokens_included_in_input": 0,
+          "provider_reasoning_tokens_included_in_output": 0,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "retry_attempt_requests_overlay": {
+          "requests": 0,
+          "provider_input_tokens_including_cache": 0,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 0,
+          "provider_cache_read_tokens_included_in_input": 0,
+          "provider_cache_write_tokens_included_in_input": 0,
+          "provider_reasoning_tokens_included_in_output": 0,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "recovery_overlays_are_already_in_stage_totals_do_not_add_again": true,
+        "readback_only_tokens_not_separately_identifiable_from_whole_request_usage": true
+      },
+      "failed_attempt_candidates_remain_in_version_history": true,
+      "active_human_versions_in_actual_run": 0,
+      "human_revision_protection_tested_locally_not_medical_approval": true
+    },
+    {
+      "job_id": "L05-R",
+      "cohort_id": "reliability-v2-main",
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 3,
+          "read_source_blocks": 113,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 122,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 6,
+          "read_source_blocks": 134,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 14,
+          "read_source_blocks": 140,
+          "explicit_completion_received": true,
+          "error": null
+        },
+        {
+          "batch_id": "batch-0005",
+          "attempt": 0,
+          "status": "completed",
+          "candidate_count_so_far": 23,
+          "read_source_blocks": 61,
+          "explicit_completion_received": true,
+          "error": null
+        }
+      ],
+      "summary_attempts": [
+        {
+          "attempt": 0,
+          "status": "failed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-R/whole-document-summary-attempt-0.json",
+          "error": {
+            "type": "ContractError",
+            "code": "provider_stream_missing_terminal_event"
+          },
+          "request_ids": [
+            "3110e0cd-a9b5-4cc9-93fd-becbba5b7ef1",
+            "4a99226a-57f4-4853-9210-ca4266c76d82"
+          ],
+          "candidate_versions_after_attempt": 25
+        },
+        {
+          "attempt": 1,
+          "status": "failed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-R/whole-document-summary-attempt-1.json",
+          "error": {
+            "type": "ContractError",
+            "code": "provider_stream_missing_terminal_event"
+          },
+          "request_ids": [
+            "0f8508fa-6a73-45de-9cde-9b4a31c88127",
+            "4c6e7914-0944-4dcd-b59d-3ddeba20e5f0",
+            "15b5b082-eda3-419e-a9b7-04501c5309cc",
+            "a1567392-d19a-445a-8921-c66482e01e6d"
+          ],
+          "candidate_versions_after_attempt": 25
+        },
+        {
+          "attempt": 2,
+          "status": "completed",
+          "path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-R/whole-document-summary-attempt-2.json",
+          "request_ids": [
+            "f42ace24-26aa-4b49-bf6f-74d91c992dbf",
+            "d4f2f1de-390c-43f9-82fb-97255c074998",
+            "8c3efaa2-9e6e-4f53-975f-849a50a6d08d",
+            "0b71d794-93f0-4ece-abae-c9965433dbdf",
+            "3d1a1399-343a-4266-9591-795112d78f15"
+          ],
+          "candidate_versions_after_attempt": 38
+        }
+      ],
+      "final_active_candidates": 23,
+      "immutable_candidate_versions": 38,
+      "reconciliation_action_counts": {
+        "insert": 23,
+        "new_version": 2,
+        "duplicate_link": 13
+      },
+      "actual_context_issue_events": 2,
+      "actual_successful_batch_context_issue_calls": 2,
+      "issue_binding_branch_validation_scope": "local fixtures verify authorization;real call counts describe exercised branches only",
+      "phase_accounting": {
+        "batch_extraction_including_retries": {
+          "requests": 23,
+          "provider_input_tokens_including_cache": 108776,
+          "unknown_input_reservation": 0,
+          "provider_output_tokens_including_reasoning": 13719,
+          "provider_cache_read_tokens_included_in_input": 19328,
+          "provider_cache_write_tokens_included_in_input": 21614,
+          "provider_reasoning_tokens_included_in_output": 7027,
+          "unknown_output_reservation": 0,
+          "unknown_usage_requests": 0,
+          "inflight_requests": 0
+        },
+        "summary_including_readback_and_retries": {
+          "requests": 11,
+          "provider_input_tokens_including_cache": 241560,
+          "unknown_input_reservation": 300381,
+          "provider_output_tokens_including_reasoning": 10987,
+          "provider_cache_read_tokens_included_in_input": 153195,
+          "provider_cache_write_tokens_included_in_input": 40201,
+          "provider_reasoning_tokens_included_in_output": 672,
+          "unknown_output_reservation": 16384,
+          "unknown_usage_requests": 2,
+          "inflight_requests": 0
+        },
+        "failed_attempt_requests_overlay": {
+          "requests": 6,
+          "provider_input_tokens_including_cache": 78764,
+          "unknown_input_reservation": 300381,
+          "provider_output_tokens_including_reasoning": 4300,
+          "provider_cache_read_tokens_included_in_input": 38656,
+          "provider_cache_write_tokens_included_in_input": 0,
+          "provider_reasoning_tokens_included_in_output": 213,
+          "unknown_output_reservation": 16384,
+          "unknown_usage_requests": 2,
+          "inflight_requests": 0
+        },
+        "retry_attempt_requests_overlay": {
+          "requests": 9,
+          "provider_input_tokens_including_cache": 240036,
+          "unknown_input_reservation": 158952,
+          "provider_output_tokens_including_reasoning": 10958,
+          "provider_cache_read_tokens_included_in_input": 153195,
+          "provider_cache_write_tokens_included_in_input": 40201,
+          "provider_reasoning_tokens_included_in_output": 660,
+          "unknown_output_reservation": 8192,
+          "unknown_usage_requests": 1,
+          "inflight_requests": 0
+        },
+        "recovery_overlays_are_already_in_stage_totals_do_not_add_again": true,
+        "readback_only_tokens_not_separately_identifiable_from_whole_request_usage": true
+      },
+      "failed_attempt_candidates_remain_in_version_history": true,
+      "active_human_versions_in_actual_run": 0,
+      "human_revision_protection_tested_locally_not_medical_approval": true
+    }
+  ],
+  "counts_describe_engineering_not_medical_deduplication_quality": true
+}

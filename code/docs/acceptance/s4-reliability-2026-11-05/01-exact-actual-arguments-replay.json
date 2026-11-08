@@ -1,0 +1,152 @@
+{
+  "schema_version": "exact-actual-tool-arguments-local-replay-1",
+  "notes": "Exact retained original model arguments replayed against the same immutable PDF IR and assigned batch, current strict tool definitions; no model API or silent correction.",
+  "observations": [
+    {
+      "original_result": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-F/result.json",
+      "original_arguments_sha256": "86cfeee6df382a203f626305afbca44d228cac67acd151ccf2db29530c548fea",
+      "original_arguments_complete": true,
+      "original_tool": "read_document_blocks",
+      "original_parameters": {
+        "": ""
+      },
+      "current_strict_rejection": "schema_validation_failed",
+      "candidates_saved": 0,
+      "returned_exact_su_000100": false,
+      "returned_typo_su_00100": false,
+      "parameters_modified_by_host": false,
+      "paid_API_requests": 0
+    },
+    {
+      "original_result": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-F/result.json",
+      "original_arguments_sha256": "3602b52699ee27a8324899a2db535a94c98eddc9936036c135cde398c24cbb7b",
+      "original_arguments_complete": true,
+      "original_tool": "submit_candidate_records",
+      "original_parameters": {
+        "batch_complete": true,
+        "records": [
+          {
+            "assertion": "affirmed",
+            "evidence_type": "definition",
+            "feature_category": "lesion size",
+            "feature_name_raw": null,
+            "origin": "cited_research",
+            "source_unit_ids": [
+              "su-000041"
+            ],
+            "disease_or_lesion": {
+              "line_indices": [
+                44,
+                45
+              ],
+              "value": "atypical adenomatous hyperplasia (AAH)"
+            },
+            "modality": null,
+            "sequence_or_phase": null,
+            "numeric_expressions": [
+              {
+                "line_indices": [
+                  45
+                ],
+                "original_text": "less than 5 mm",
+                "unit_original": "mm"
+              }
+            ],
+            "cited_references": [
+              "[7]"
+            ]
+          },
+          {
+            "assertion": "affirmed",
+            "evidence_type": "definition",
+            "feature_category": "nodule composition ratio",
+            "feature_name_raw": "CTR",
+            "origin": "study_authors",
+            "source_unit_ids": [
+              "su-00100"
+            ],
+            "disease_or_lesion": {
+              "line_indices": [
+                100,
+                101
+              ],
+              "value": "nodule"
+            },
+            "modality": null,
+            "sequence_or_phase": null,
+            "numeric_expressions": []
+          }
+        ]
+      },
+      "current_strict_rejection": "source_unit_not_available",
+      "candidates_saved": 0,
+      "returned_exact_su_000100": true,
+      "returned_typo_su_00100": false,
+      "parameters_modified_by_host": false,
+      "paid_API_requests": 0
+    },
+    {
+      "original_result": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/result.json",
+      "original_arguments_sha256": "43516694b10b06e835b8b23bbc59b7e810b96bb47a99d3f52659e439e06f8251",
+      "original_arguments_complete": true,
+      "original_tool": "submit_candidate_records",
+      "original_parameters": {
+        "batch_complete": true,
+        "records": [
+          {
+            "assertion": "conditional",
+            "source_unit_ids": [
+              "su-000378"
+            ],
+            "context_unit_ids": [
+              "su-000376"
+            ],
+            "context_line_indices": [
+              93
+            ],
+            "assertion_line_indices": [
+              96
+            ],
+            "condition_line_indices": [
+              96
+            ],
+            "evidence_type": "interpretive_condition",
+            "feature_category": "nodule size and solid component",
+            "feature_name_raw": "solid components",
+            "modality": {
+              "value": "CT",
+              "line_indices": [
+                93
+              ]
+            },
+            "numeric_expressions": [
+              {
+                "line_indices": [
+                  96
+                ],
+                "original_text": "≤ 12.6 mm",
+                "unit_original": "mm"
+              },
+              {
+                "line_indices": [
+                  96
+                ],
+                "original_text": "CTR ≤ 0.5",
+                "unit_original": null
+              }
+            ],
+            "origin": "study_authors",
+            "disease_or_lesion": null,
+            "sequence_or_phase": null
+          }
+        ]
+      },
+      "current_strict_rejection": "choose_context_units_or_context_lines",
+      "candidates_saved": 0,
+      "returned_exact_su_000100": false,
+      "returned_typo_su_00100": false,
+      "parameters_modified_by_host": false,
+      "paid_API_requests": 0
+    }
+  ]
+}

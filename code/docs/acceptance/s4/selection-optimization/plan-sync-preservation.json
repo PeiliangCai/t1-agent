@@ -1,0 +1,54 @@
+{
+  "schema_version": "s4-selection-plan-sync-1",
+  "recorded_at": "2026-11-03T13:18:40.231137+00:00",
+  "DOCX_preservation": [
+    {
+      "file": "方案/子任务T1/T1智能体开发计划.docx",
+      "before_sha256": "ae80ea1b66de034daee1f5652efc36f5b7ddac8764220ece4b3811a42c7d8e8c",
+      "after_sha256": "7a8fd63e09e6f82f8a3509b085b4f3c463ac78cda064e5cd6bd4d365cebefc9e",
+      "all_original_document_XML_bytes_unchanged_after_removing_inserted_paragraphs": true,
+      "all_other_zip_member_contents_unchanged": true,
+      "appended_paragraphs": 9
+    },
+    {
+      "file": "方案/子任务T1/T1开发执行说明.docx",
+      "before_sha256": "4e3cd2b8142ae60c77661f832c96db8d1c23fdc28ceb08069bd1f71e26b7d653",
+      "after_sha256": "09ec929706d159611fc7e22be680964021c4105faa53f79db9fe93024c8f16ab",
+      "all_original_document_XML_bytes_unchanged_after_removing_inserted_paragraphs": true,
+      "all_other_zip_member_contents_unchanged": true,
+      "appended_paragraphs": 9
+    }
+  ],
+  "JSON_updates": [
+    {
+      "file": "方案/子任务T1/当前版本.json",
+      "before_sha256": "9ffbc697e914a46549a549684ddef708285148dc33200562ca5a9ba0401a24ea",
+      "after_sha256": "a4cc0fc251315fac9b43eccdb8849c615f9c41fb22b444fc7beb3a4143f44260",
+      "S2_S3_gate_and_acceptance_objects_unchanged": true
+    },
+    {
+      "file": "方案/子任务T1/开发计划.json",
+      "before_sha256": "91d3e48cc669294c201dbf48be6a6aa547cb9d13cfca3d1ae7edc960ca1ac388",
+      "after_sha256": "51bfe548df54e58e7783d3e228d243fa16f435ef39d427f685a12908feb30c64",
+      "S2_S3_gate_and_acceptance_objects_unchanged": true
+    }
+  ],
+  "CSV_updates": [
+    {
+      "file": "方案/子任务T1/开发阶段与验收.csv",
+      "before_sha256": "dc377b65023d71afcc23b2c7778e2ea17cfa3e330b4043feab1f3bab1bf3592d",
+      "after_sha256": "6b14af27f4425558249488af8e5bc8420e65e4e5a5b3a897208beeafd888efac",
+      "only_S4_progress_cells_changed": true
+    },
+    {
+      "file": "方案/子任务T1/开发任务清单.csv",
+      "before_sha256": "81d275899f627fc73f7fc46b21ccb979f283776a3b821da45d88d3d4a2fbcdeb",
+      "after_sha256": "8c360f2863f4e9a81a7654e022b9f530ab07bb29666d8bfd19c82a0803eaa132",
+      "only_S4_progress_cells_changed": true
+    }
+  ],
+  "formal_review_used": 2,
+  "stage_passed": false,
+  "S5_started": false,
+  "summary": "S4文本选择层已加入逐原块kept/deferred/excluded与理由、原文版本hash、未派发覆盖缺口及显式读回门禁；L01/L05计划8逻辑条件、5唯一输入，当前仅L01-B0中断恢复，0个完整论文条件；其余未跑。返回model存在igpt-6-luna且身份未核实，已停止付费、禁止自动恢复。累计28推理+1只读元数据=29 API请求，剩271，已知输入157909、输出14425tokens；未知用量按账本保守预留，实际账单未知。S4正式审查2/3，stage_passed=false、医学质量pending、S5未启动。"
+}

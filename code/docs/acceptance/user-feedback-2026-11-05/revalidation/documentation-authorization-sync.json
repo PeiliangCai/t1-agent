@@ -1,0 +1,80 @@
+{
+  "schema_version": "feedback-revalidation-authorization-document-sync-1",
+  "recorded_at_utc": "2026-11-05T06:58:02.381434+00:00",
+  "scope": "仅当前版本.json与两既有公共连续性的本次授权/实际启动增量；其余10份现行文档待结果统一同步",
+  "user_approval_recorded": true,
+  "same_approval_not_requested_again": true,
+  "authorization": {
+    "status": "authorized_actual_execution_running_results_unverified",
+    "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+    "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+    "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+    "date_Asia_Shanghai": "2026-11-05",
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "user_confirmation_quote": "我同意你执行。",
+    "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+    "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+    "approved_at_utc": "2026-11-05T06:54:53.761Z",
+    "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+    "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+    "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+    "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+    "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+    "scope": {
+      "papers": [
+        "L01",
+        "L05"
+      ],
+      "methods": [
+        "B0",
+        "F",
+        "R"
+      ],
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "same_scope_necessary_single_point_repairs_and_retests": true
+    },
+    "shared_limits": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+    "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+    "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+    "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+    "request_count_sample": {
+      "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+      "requests_created": 22,
+      "final": false,
+      "usage_not_finalized": true
+    },
+    "current_paid_requests_running": true,
+    "old_189_authorization_or_ledger_reused": false,
+    "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+    "formal_model_finally_selected": false,
+    "winner": null,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "same_approval_must_not_be_requested_again": true
+  },
+  "current_version": {
+    "path": "方案/子任务T1/当前版本.json",
+    "sha256": "e14ee26799ef52de0de64f8d51e5eab820cda8ee248a7ab45c34d99055650f34"
+  },
+  "checks": {
+    "authorization_SHA_matches_core_handoff": true,
+    "user_message_time_null_not_inferred": true,
+    "actual_first_call_confirmed_by_ledger": true,
+    "new_ledger_distinct_from_old_189": true,
+    "proposal_SHA_unchanged": true,
+    "prepared_plan_SHA_unchanged": true,
+    "new_run_results_not_approved": true,
+    "formal_review_3_of_3_unchanged": true
+  },
+  "documentation_owner_model_calls": 0,
+  "application_tests_run": false
+}

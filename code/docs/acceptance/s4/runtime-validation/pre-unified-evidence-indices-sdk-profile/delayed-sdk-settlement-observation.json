@@ -1,0 +1,15 @@
+{
+  "schema_version": "s4-runtime-deadline-observation-1",
+  "source_log": "docs/acceptance/s4/runtime-validation/deadline-cancellation-focused-tests.txt",
+  "simulation": "Installed Pi SDK and physical loopback SSE still execute. A test-only wrapper holds SDK prompt settlement after its original promise finishes; no real-provider settlement delay is claimed.",
+  "measured": {
+    "test_evidence": "delayed_sdk_prompt_settlement",
+    "host_timeout_ms": 500,
+    "host_return_ms": 501,
+    "wrapper_settled_at_host_return": false,
+    "watchdog_released_at_host_return": false,
+    "client_closed_response_before_cleanup": true,
+    "request_deadline_ms": 120000,
+    "saved_candidates": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-11-05T07:09:42.205764+00:00",
+  "scope": "offline recovery wrapper only; all 52 production sources unchanged",
+  "before": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1-driver-before/retry-report.json",
+  "paid_requests_added": 0,
+  "cause": "Missing retries parent for recursive:false target mkdir; caught before a provider call",
+  "fix": "Create the task-owned retries parent before the exclusive attempt directory; reprepare recovery descriptors with updated wrapper hash",
+  "authorization_or_original_wallclock_changed": false
+}

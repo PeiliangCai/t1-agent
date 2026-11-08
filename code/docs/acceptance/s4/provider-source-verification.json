@@ -1,0 +1,19 @@
+{
+  "schema_version": "s4-provider-verification-1",
+  "verified_date": "2026-11-03",
+  "verification": "Read-only models API queries and actual fetched primary documentation; synthetic inference evidence is in api-compatibility.json",
+  "models_api": {"endpoint": "https://api.agicto.cn/v1/models", "observed_status": 200, "observed_entries": 227, "does_not_prove_inference_compatibility": true},
+  "official_model_sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "https://developers.openai.com/api/docs/guides/function-calling"
+  ],
+  "compatibility_sources": ["https://docs.agicto.com/guides/openai-compatible", "https://docs.agicto.com/llms.txt"],
+  "api_choice": "OpenAI documents Responses requirement for Astra/Sol tool use; both actually passed the existing AGICTO Responses/Pi synthetic tool round trip",
+  "supplier_region": "unknown_not_established_by_public_docs_or_response",
+  "supplier_log_retention": "unknown_not_established_by_public_docs_or_response",
+  "credentials": {"source": "existing code/.env", "present": true, "file_mode": "0600", "copied_or_modified": false},
+  "data_flow": "Text blocks and necessary context to existing AGICTO endpoint; original PDFs stay local",
+  "provider_input_beyond_local_payload": {"observed_for": "gpt-6-astra synthetic probe", "cause": "unknown", "not_proven": ["internal gateway context", "hidden surcharge", "upstream model identity"]},
+  "actual_billing": "unknown"
+}

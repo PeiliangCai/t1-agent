@@ -1,0 +1,2134 @@
+{
+  "schema_version": "b0-source-observation-audit-1",
+  "finalized_at": "2026-11-08T15:37:49.342Z",
+  "evidence_kind": "offline_literal_and_mechanical_observation_of_new_real_outputs",
+  "plan_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/plan.json",
+  "plan_sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026",
+  "observations": [
+    {
+      "case_id": "O01-normal-tissue",
+      "document_id": "L07",
+      "concern": "normal_tissue",
+      "judgement_basis": "user_confirmed_isolated_negative",
+      "question": "核对纯正常黏膜下层T2信号是否误列独立主目标；只在理解病灶必要时作背景/上下文。未出现不证明背景已保留。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000074",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 52,
+          "exact_quote": "Submucosa The submucosa is the middle rectal layer",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            306.141815185,
+            357.55299025288394,
+            544.2739064978201,
+            367.5207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000075",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 30,
+          "exact_quote": "which is hyperintense on T2WI.",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            319.322906494,
+            370.255796143,
+            544.2719064901797,
+            380.0207814802434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "source_span_not_emitted_in_current_records",
+      "matches": [],
+      "strict_source_groups_for_matches": [],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O02-standalone-conclusion",
+      "document_id": "L07",
+      "concern": "standalone_conclusion",
+      "judgement_basis": "user_confirmed_isolated_negative",
+      "question": "核对纯诊断结论是否误列独立主目标，不仅见tumor/abutment升主；C21只是已知偏差展示清晰度。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 10,
+          "end": 67,
+          "exact_quote": " Rectal tumor abutting the peritoneum alone should not be",
+          "occurrence": 0,
+          "physical_page": 4,
+          "bbox": [
+            51.023601531,
+            470.2157978519999,
+            289.100101531,
+            478.5160353886568
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 31,
+          "exact_quote": "considered peritoneal invasion.",
+          "occurrence": 0,
+          "physical_page": 4,
+          "bbox": [
+            51.023601531,
+            480.09279785199993,
+            289.15025153100004,
+            488.84523576669187
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "source_span_not_emitted_in_current_records",
+      "matches": [],
+      "strict_source_groups_for_matches": [],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O03-complete-condition",
+      "document_id": "L07",
+      "concern": "conditional_appearance_negation",
+      "judgement_basis": "source_fidelity_and_user_confirmed_complete_sentence",
+      "question": "若选中外观句，保留altered signal/thickening/nodularity、but not abutment及Fig.2。缺项不自动当召回失败。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "literal_source_matches_recorded_semantic_review_pending",
+      "matches": [
+        {
+          "record_id": "ev-a9f6fcb1b883f1b90dcb70e6a2e6b8c2b79bf2bf",
+          "record_version": 3,
+          "record_actor": "automatic",
+          "source_record_sha256": "83842d680876f54de4a4d8bf86cf043d86d4880733ad702d2009b165a62291f9",
+          "full_target_covered_in_quote": true,
+          "full_target_covered_in_context": false,
+          "any_literal_overlap": true,
+          "quote_is_exact_target_spans_only": true,
+          "full_new_original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2).",
+          "full_new_quote_fragments": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 53,
+              "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                67.023597717,
+                641.212993954884,
+                289.0515977322603,
+                651.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                653.9158,
+                289.2465977169999,
+                663.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 53,
+              "exact_quote": "larity of the peritoneum, but not when there is abut-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                666.4158,
+                289.1525977131802,
+                676.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 41,
+              "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                678.9158,
+                249.63359420700004,
+                688.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "full_new_context_fragments": [],
+          "full_new_context_before": "",
+          "full_new_context_after": "",
+          "model_primary_assessment_unapproved": "visual_evidence_suggested",
+          "delivered_role": "primary_candidate",
+          "source_attribution_unapproved": {
+            "origin": "background_definition",
+            "cited_references": [
+              "Fig. 2"
+            ],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 53,
+                "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  67.023597717,
+                  641.212993954884,
+                  289.0515977322603,
+                  651.1807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 55,
+                "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  653.9158,
+                  289.2465977169999,
+                  663.6807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 53,
+                "exact_quote": "larity of the peritoneum, but not when there is abut-",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  666.4158,
+                  289.1525977131802,
+                  676.1807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 41,
+                "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  678.9158,
+                  249.63359420700004,
+                  688.6807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "review_status": "needs_context",
+          "figure_association_unapproved": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-d27c34012b81ea974679bc66"
+            ],
+            "exact_markers": [
+              {
+                "number": "2",
+                "panel": null,
+                "exact_marker": "Fig. 2",
+                "complex": false
+              }
+            ],
+            "reasons": [
+              "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "strict_source_key": "7bc6f0cf16baf6fcb591c2307ef6ea73f80a81d15a87f8858c10e49348dd4a3b"
+        }
+      ],
+      "strict_source_groups_for_matches": [
+        {
+          "group_id": "source-group-7bc6f0cf16baf6fcb591c2307ef6ea73f80a81d15a87f8858c10e49348dd4a3b",
+          "member_count": 1,
+          "members": [
+            {
+              "record_id": "ev-a9f6fcb1b883f1b90dcb70e6a2e6b8c2b79bf2bf",
+              "record_version": 3,
+              "source_record_sha256": "83842d680876f54de4a4d8bf86cf043d86d4880733ad702d2009b165a62291f9",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "review_events": [],
+              "source_attribution": {
+                "origin": "background_definition",
+                "cited_references": [
+                  "Fig. 2"
+                ],
+                "evidence": [
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 2,
+                    "end": 53,
+                    "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      67.023597717,
+                      641.212993954884,
+                      289.0515977322603,
+                      651.1807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 55,
+                    "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      653.9158,
+                      289.2465977169999,
+                      663.6807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 53,
+                    "exact_quote": "larity of the peritoneum, but not when there is abut-",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      666.4158,
+                      289.1525977131802,
+                      676.1807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 41,
+                    "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      678.9158,
+                      249.63359420700004,
+                      688.6807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  }
+                ]
+              },
+              "feature_name_raw": "altered signal intensity",
+              "feature_category": "Peritoneal appearance and tumor abutment criteria",
+              "model_semantic_review_unapproved": {
+                "status": "reviewed_unapproved",
+                "model_id": "gpt-6-luna",
+                "issue_codes": [
+                  "appearance_bearing_diagnostic_condition",
+                  "abutment_negation_and_Figure_reference_retained"
+                ],
+                "primary_assessment": "visual_evidence_suggested",
+                "assessment_policy_version": "model-primary-assessment-1"
+              },
+              "effective_role": "primary_candidate",
+              "structure_references_untrusted": [],
+              "figure_association": {
+                "status": "pending",
+                "figure_ids": [],
+                "proposed_figure_ids": [
+                  "figure-d27c34012b81ea974679bc66"
+                ],
+                "exact_markers": [
+                  {
+                    "number": "2",
+                    "panel": null,
+                    "exact_marker": "Fig. 2",
+                    "complex": false
+                  }
+                ],
+                "reasons": [
+                  "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "human_confirmation": null
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "single_source_candidate",
+          "needs_review": false,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O04-same-source-attribution",
+      "document_id": "L07",
+      "concern": "same_source_attribution",
+      "judgement_basis": "mechanical_same_source_conflict_regression",
+      "question": "观察同一精确源及语境分组、归因/角色差异及待核；Fig.2不是外部文献。只产一条时不声称真实触发并解决归因冲突。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 53,
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            641.212993954884,
+            289.0515977322603,
+            651.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            653.9158,
+            289.2465977169999,
+            663.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            666.4158,
+            289.1525977131802,
+            676.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 41,
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            678.9158,
+            249.63359420700004,
+            688.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "literal_source_matches_recorded_semantic_review_pending",
+      "matches": [
+        {
+          "record_id": "ev-a9f6fcb1b883f1b90dcb70e6a2e6b8c2b79bf2bf",
+          "record_version": 3,
+          "record_actor": "automatic",
+          "source_record_sha256": "83842d680876f54de4a4d8bf86cf043d86d4880733ad702d2009b165a62291f9",
+          "full_target_covered_in_quote": true,
+          "full_target_covered_in_context": false,
+          "any_literal_overlap": true,
+          "quote_is_exact_target_spans_only": true,
+          "full_new_original_quote": "T4a or peritoneal invasion is suspected on MRI when\nthere is altered signal intensity, thickening, or nodu-\nlarity of the peritoneum, but not when there is abut-\nment of the peritoneum by tumor (Fig. 2).",
+          "full_new_quote_fragments": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 53,
+              "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                67.023597717,
+                641.212993954884,
+                289.0515977322603,
+                651.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                653.9158,
+                289.2465977169999,
+                663.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 53,
+              "exact_quote": "larity of the peritoneum, but not when there is abut-",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                666.4158,
+                289.1525977131802,
+                676.1807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 41,
+              "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                81.023597717,
+                678.9158,
+                249.63359420700004,
+                688.6807853372434
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "full_new_context_fragments": [],
+          "full_new_context_before": "",
+          "full_new_context_after": "",
+          "model_primary_assessment_unapproved": "visual_evidence_suggested",
+          "delivered_role": "primary_candidate",
+          "source_attribution_unapproved": {
+            "origin": "background_definition",
+            "cited_references": [
+              "Fig. 2"
+            ],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 53,
+                "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  67.023597717,
+                  641.212993954884,
+                  289.0515977322603,
+                  651.1807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 55,
+                "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  653.9158,
+                  289.2465977169999,
+                  663.6807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 53,
+                "exact_quote": "larity of the peritoneum, but not when there is abut-",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  666.4158,
+                  289.1525977131802,
+                  676.1807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 41,
+                "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  81.023597717,
+                  678.9158,
+                  249.63359420700004,
+                  688.6807853372434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "review_status": "needs_context",
+          "figure_association_unapproved": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-d27c34012b81ea974679bc66"
+            ],
+            "exact_markers": [
+              {
+                "number": "2",
+                "panel": null,
+                "exact_marker": "Fig. 2",
+                "complex": false
+              }
+            ],
+            "reasons": [
+              "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "strict_source_key": "7bc6f0cf16baf6fcb591c2307ef6ea73f80a81d15a87f8858c10e49348dd4a3b"
+        }
+      ],
+      "strict_source_groups_for_matches": [
+        {
+          "group_id": "source-group-7bc6f0cf16baf6fcb591c2307ef6ea73f80a81d15a87f8858c10e49348dd4a3b",
+          "member_count": 1,
+          "members": [
+            {
+              "record_id": "ev-a9f6fcb1b883f1b90dcb70e6a2e6b8c2b79bf2bf",
+              "record_version": 3,
+              "source_record_sha256": "83842d680876f54de4a4d8bf86cf043d86d4880733ad702d2009b165a62291f9",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "review_events": [],
+              "source_attribution": {
+                "origin": "background_definition",
+                "cited_references": [
+                  "Fig. 2"
+                ],
+                "evidence": [
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 2,
+                    "end": 53,
+                    "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      67.023597717,
+                      641.212993954884,
+                      289.0515977322603,
+                      651.1807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 55,
+                    "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      653.9158,
+                      289.2465977169999,
+                      663.6807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 53,
+                    "exact_quote": "larity of the peritoneum, but not when there is abut-",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      666.4158,
+                      289.1525977131802,
+                      676.1807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 41,
+                    "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      81.023597717,
+                      678.9158,
+                      249.63359420700004,
+                      688.6807853372434
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  }
+                ]
+              },
+              "feature_name_raw": "altered signal intensity",
+              "feature_category": "Peritoneal appearance and tumor abutment criteria",
+              "model_semantic_review_unapproved": {
+                "status": "reviewed_unapproved",
+                "model_id": "gpt-6-luna",
+                "issue_codes": [
+                  "appearance_bearing_diagnostic_condition",
+                  "abutment_negation_and_Figure_reference_retained"
+                ],
+                "primary_assessment": "visual_evidence_suggested",
+                "assessment_policy_version": "model-primary-assessment-1"
+              },
+              "effective_role": "primary_candidate",
+              "structure_references_untrusted": [],
+              "figure_association": {
+                "status": "pending",
+                "figure_ids": [],
+                "proposed_figure_ids": [
+                  "figure-d27c34012b81ea974679bc66"
+                ],
+                "exact_markers": [
+                  {
+                    "number": "2",
+                    "panel": null,
+                    "exact_marker": "Fig. 2",
+                    "complex": false
+                  }
+                ],
+                "reasons": [
+                  "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "human_confirmation": null
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "single_source_candidate",
+          "needs_review": false,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O05-lesion-extent-measurement",
+      "document_id": "L07",
+      "concern": "direct_measurement_observation",
+      "judgement_basis": "semantic_observation_unapproved_not_gold",
+      "question": "观察完整T3句的up to/more than 5mm肿瘤浸润深度、分类条件与数值保真，不预设医学主证据正例。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000023",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 51,
+          "exact_quote": "T3 may be grouped into two prognostic categories,",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            67.023597717,
+            553.712993954884,
+            289.06859773035006,
+            563.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000024",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 51,
+          "exact_quote": "as follows: T3 a/b (good prognosis) with up to 5 mm",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            566.4158,
+            289.2455977379799,
+            576.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000025",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 53,
+          "exact_quote": "extramural invasion; and T3 c/d (higher risk of local",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            578.9158,
+            289.2945977284597,
+            588.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000026",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 47,
+          "exact_quote": "recurrence) with more than 5 mm invasion beyond",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            591.4158,
+            289.21759772272026,
+            601.1807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000027",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 23,
+          "exact_quote": "the muscularis propria.",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            81.023597717,
+            603.9158,
+            289.2625977284497,
+            613.6807853372434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "source_span_not_emitted_in_current_records",
+      "matches": [],
+      "strict_source_groups_for_matches": [],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O06-morphologic-angular-range",
+      "document_id": "L07",
+      "concern": "morphology_and_measurement",
+      "judgement_basis": "semantic_observation_unapproved_not_gold",
+      "question": "观察完整Polypoid形态定义及less than 90°；不因数字一刀切，不冒充病例实测9mm/35HU。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000070",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 2,
+          "end": 55,
+          "exact_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            306.141693115,
+            295.84699663988397,
+            544.1908149333892,
+            305.81478782824337
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000071",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 54,
+          "exact_quote": "trusions attached to the rectal wall with a broad base",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            319.322814941,
+            308.549802491,
+            544.2568149333599,
+            318.31478782824337
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000072",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 55,
+          "exact_quote": "(sessile) or stalk (pedunculated) and typically involve",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            319.322814941,
+            321.049802491,
+            544.3688149658099,
+            330.81478782824337
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000073",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "start": 0,
+          "end": 44,
+          "exact_quote": "less than 90° of the luminal circumferences.",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            319.322814941,
+            333.549802491,
+            544.3948149143005,
+            343.31478782824337
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L07-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "literal_source_matches_recorded_semantic_review_pending",
+      "matches": [
+        {
+          "record_id": "ev-c048fdf90540eb815c1a5444d2db072cef16b4e6",
+          "record_version": 2,
+          "record_actor": "automatic",
+          "source_record_sha256": "6c50549aa05c8a118b9fca1a1f14e85a1c037db049fdbdc35466338a105378a7",
+          "full_target_covered_in_quote": true,
+          "full_target_covered_in_context": false,
+          "any_literal_overlap": true,
+          "quote_is_exact_target_spans_only": true,
+          "full_new_original_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-\ntrusions attached to the rectal wall with a broad base\n(sessile) or stalk (pedunculated) and typically involve\nless than 90° of the luminal circumferences.",
+          "full_new_quote_fragments": [
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0005-l000070",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 2,
+              "end": 55,
+              "exact_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                306.141693115,
+                295.84699663988397,
+                544.1908149333892,
+                305.81478782824337
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0005-l000071",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 54,
+              "exact_quote": "trusions attached to the rectal wall with a broad base",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                319.322814941,
+                308.549802491,
+                544.2568149333599,
+                318.31478782824337
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0005-l000072",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 55,
+              "exact_quote": "(sessile) or stalk (pedunculated) and typically involve",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                319.322814941,
+                321.049802491,
+                544.3688149658099,
+                330.81478782824337
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "e21bc46051b0ea3513d7-p0005-l000073",
+              "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+              "start": 0,
+              "end": 44,
+              "exact_quote": "less than 90° of the luminal circumferences.",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                319.322814941,
+                333.549802491,
+                544.3948149143005,
+                343.31478782824337
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "full_new_context_fragments": [],
+          "full_new_context_before": "",
+          "full_new_context_after": "",
+          "model_primary_assessment_unapproved": "visual_evidence_suggested",
+          "delivered_role": "primary_candidate",
+          "source_attribution_unapproved": {
+            "origin": "background_definition",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000070",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 55,
+                "exact_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  306.141693115,
+                  295.84699663988397,
+                  544.1908149333892,
+                  305.81478782824337
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000071",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 54,
+                "exact_quote": "trusions attached to the rectal wall with a broad base",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  308.549802491,
+                  544.2568149333599,
+                  318.31478782824337
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000072",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 55,
+                "exact_quote": "(sessile) or stalk (pedunculated) and typically involve",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  321.049802491,
+                  544.3688149658099,
+                  330.81478782824337
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000073",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 44,
+                "exact_quote": "less than 90° of the luminal circumferences.",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  333.549802491,
+                  544.3948149143005,
+                  343.31478782824337
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "review_status": "needs_context",
+          "figure_association_unapproved": {
+            "status": "no_explicit_reference",
+            "figure_ids": [],
+            "proposed_figure_ids": [],
+            "exact_markers": [],
+            "reasons": [
+              "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "strict_source_key": "5d3318fd7a3e7bee1c300a5529995ac5602c39723a56620190069520b2cfa6c8"
+        }
+      ],
+      "strict_source_groups_for_matches": [
+        {
+          "group_id": "source-group-5d3318fd7a3e7bee1c300a5529995ac5602c39723a56620190069520b2cfa6c8",
+          "member_count": 1,
+          "members": [
+            {
+              "record_id": "ev-c048fdf90540eb815c1a5444d2db072cef16b4e6",
+              "record_version": 2,
+              "source_record_sha256": "6c50549aa05c8a118b9fca1a1f14e85a1c037db049fdbdc35466338a105378a7",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "review_events": [],
+              "source_attribution": {
+                "origin": "background_definition",
+                "cited_references": [],
+                "evidence": [
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0005-l000070",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 2,
+                    "end": 55,
+                    "exact_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-",
+                    "occurrence": 0,
+                    "physical_page": 5,
+                    "bbox": [
+                      306.141693115,
+                      295.84699663988397,
+                      544.1908149333892,
+                      305.81478782824337
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0005-l000071",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 54,
+                    "exact_quote": "trusions attached to the rectal wall with a broad base",
+                    "occurrence": 0,
+                    "physical_page": 5,
+                    "bbox": [
+                      319.322814941,
+                      308.549802491,
+                      544.2568149333599,
+                      318.31478782824337
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0005-l000072",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 55,
+                    "exact_quote": "(sessile) or stalk (pedunculated) and typically involve",
+                    "occurrence": 0,
+                    "physical_page": 5,
+                    "bbox": [
+                      319.322814941,
+                      321.049802491,
+                      544.3688149658099,
+                      330.81478782824337
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "e21bc46051b0ea3513d7-p0005-l000073",
+                    "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                    "start": 0,
+                    "end": 44,
+                    "exact_quote": "less than 90° of the luminal circumferences.",
+                    "occurrence": 0,
+                    "physical_page": 5,
+                    "bbox": [
+                      319.322814941,
+                      333.549802491,
+                      544.3948149143005,
+                      343.31478782824337
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  }
+                ]
+              },
+              "feature_name_raw": "Polypoid",
+              "feature_category": "Tumor morphology: polypoid growth and extent",
+              "model_semantic_review_unapproved": {
+                "status": "reviewed_unapproved",
+                "model_id": "gpt-6-luna",
+                "issue_codes": [
+                  "general_polypoid_morphology_definition",
+                  "extent_measurement_retained"
+                ],
+                "primary_assessment": "visual_evidence_suggested",
+                "assessment_policy_version": "model-primary-assessment-1"
+              },
+              "effective_role": "primary_candidate",
+              "structure_references_untrusted": [],
+              "figure_association": {
+                "status": "no_explicit_reference",
+                "figure_ids": [],
+                "proposed_figure_ids": [],
+                "exact_markers": [],
+                "reasons": [
+                  "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "human_confirmation": null
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "single_source_candidate",
+          "needs_review": false,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O07-Chinese-prose",
+      "document_id": "L01",
+      "concern": "chinese_source_fidelity",
+      "judgement_basis": "literal_source_observation_unapproved",
+      "question": "核对中文原文、换行及引文保真，开放保留未知视觉词待核；不改写或翻译。",
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+          "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+          "start": 0,
+          "end": 24,
+          "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            70.8661,
+            654.0134999999999,
+            297.68030000000016,
+            662.587673076923
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+          "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+          "start": 0,
+          "end": 24,
+          "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            51.0236,
+            669.0767,
+            297.6726,
+            677.0394473806751
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+          "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+          "occurrence": 0,
+          "physical_page": 3,
+          "bbox": [
+            51.0236,
+            682.10038,
+            297.64779999999996,
+            692.0394473806751
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L01-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "literal_source_matches_recorded_semantic_review_pending",
+      "matches": [
+        {
+          "record_id": "ev-459b87bb80863f511ba80a6f0ae036f1d1ef3a72",
+          "record_version": 2,
+          "record_actor": "automatic",
+          "source_record_sha256": "94369928b2beaa297a82c2d715fb178c06d8937fd3abf6f893452fd0643bf40c",
+          "full_target_covered_in_quote": true,
+          "full_target_covered_in_context": false,
+          "any_literal_overlap": true,
+          "quote_is_exact_target_spans_only": true,
+          "full_new_original_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、\n血运丰富，其周围的大、小血管增多、迂曲、扩张及增\n粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+          "full_new_quote_fragments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+              "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                70.8661,
+                654.0134999999999,
+                297.68030000000016,
+                662.587673076923
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+              "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+              "start": 0,
+              "end": 24,
+              "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                669.0767,
+                297.6726,
+                677.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+              "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+              "occurrence": 0,
+              "physical_page": 3,
+              "bbox": [
+                51.0236,
+                682.10038,
+                297.64779999999996,
+                692.0394473806751
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "full_new_context_fragments": [],
+          "full_new_context_before": "",
+          "full_new_context_after": "",
+          "model_primary_assessment_unapproved": "visual_evidence_suggested",
+          "delivered_role": "primary_candidate",
+          "source_attribution_unapproved": {
+            "origin": "cited_research",
+            "cited_references": [
+              "[22]"
+            ],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+                "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                "start": 0,
+                "end": 24,
+                "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  70.8661,
+                  654.0134999999999,
+                  297.68030000000016,
+                  662.587673076923
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+                "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                "start": 0,
+                "end": 24,
+                "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  51.0236,
+                  669.0767,
+                  297.6726,
+                  677.0394473806751
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+                "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                "start": 0,
+                "end": 25,
+                "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+                "occurrence": 0,
+                "physical_page": 3,
+                "bbox": [
+                  51.0236,
+                  682.10038,
+                  297.64779999999996,
+                  692.0394473806751
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "review_status": "needs_context",
+          "figure_association_unapproved": {
+            "status": "no_explicit_reference",
+            "figure_ids": [],
+            "proposed_figure_ids": [],
+            "exact_markers": [],
+            "reasons": [
+              "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "strict_source_key": "b5382d90efafd9d76894cbb811f6d14de8adbdcaf977ff4a274030d6851bad2b"
+        }
+      ],
+      "strict_source_groups_for_matches": [
+        {
+          "group_id": "source-group-b5382d90efafd9d76894cbb811f6d14de8adbdcaf977ff4a274030d6851bad2b",
+          "member_count": 1,
+          "members": [
+            {
+              "record_id": "ev-459b87bb80863f511ba80a6f0ae036f1d1ef3a72",
+              "record_version": 2,
+              "source_record_sha256": "94369928b2beaa297a82c2d715fb178c06d8937fd3abf6f893452fd0643bf40c",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "review_events": [],
+              "source_attribution": {
+                "origin": "cited_research",
+                "cited_references": [
+                  "[22]"
+                ],
+                "evidence": [
+                  {
+                    "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+                    "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                    "start": 0,
+                    "end": 24,
+                    "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      70.8661,
+                      654.0134999999999,
+                      297.68030000000016,
+                      662.587673076923
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+                    "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                    "start": 0,
+                    "end": 24,
+                    "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      51.0236,
+                      669.0767,
+                      297.6726,
+                      677.0394473806751
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+                    "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                    "start": 0,
+                    "end": 25,
+                    "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+                    "occurrence": 0,
+                    "physical_page": 3,
+                    "bbox": [
+                      51.0236,
+                      682.10038,
+                      297.64779999999996,
+                      692.0394473806751
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  }
+                ]
+              },
+              "feature_name_raw": "血管征",
+              "feature_category": "CT血管征形态学特征",
+              "model_semantic_review_unapproved": {
+                "status": "reviewed_unapproved",
+                "model_id": "gpt-6-luna",
+                "issue_codes": [],
+                "primary_assessment": "visual_evidence_suggested",
+                "assessment_policy_version": "model-primary-assessment-1"
+              },
+              "effective_role": "primary_candidate",
+              "structure_references_untrusted": [],
+              "figure_association": {
+                "status": "no_explicit_reference",
+                "figure_ids": [],
+                "proposed_figure_ids": [],
+                "exact_markers": [],
+                "reasons": [
+                  "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "human_confirmation": null
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "single_source_candidate",
+          "needs_review": false,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O08-Chinese-Figure-Note",
+      "document_id": "L01",
+      "concern": "chinese_source_fidelity_and_explicit_figure",
+      "judgement_basis": "literal_source_and_figure_observation_unapproved",
+      "question": "核对中文原Figure Note及a/b/c、箭头和明确整图联系；配图不明待核，不阻塞文字。",
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+          "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+          "start": 0,
+          "end": 64,
+          "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            68.0315,
+            734.5449,
+            557.9514999999993,
+            740.9150979045401
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+          "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            747.5449,
+            247.1836000000001,
+            753.9150979045401
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L01-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "literal_source_matches_recorded_semantic_review_pending",
+      "matches": [
+        {
+          "record_id": "ev-2c2b60e9a539f9370bcba9b7639781e431159538",
+          "record_version": 2,
+          "record_actor": "automatic",
+          "source_record_sha256": "123b827ff073bf0a763e9cb17c8a446dd266ee696d3bbed54191239eb4b246d7",
+          "full_target_covered_in_quote": true,
+          "full_target_covered_in_context": false,
+          "any_literal_overlap": true,
+          "quote_is_exact_target_spans_only": true,
+          "full_new_original_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多\n发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "full_new_quote_fragments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+              "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+              "start": 0,
+              "end": 64,
+              "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                68.0315,
+                734.5449,
+                557.9514999999993,
+                740.9150979045401
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+              "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+              "start": 0,
+              "end": 25,
+              "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+              "occurrence": 0,
+              "physical_page": 2,
+              "bbox": [
+                51.0236,
+                747.5449,
+                247.1836000000001,
+                753.9150979045401
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "full_new_context_fragments": [],
+          "full_new_context_before": "",
+          "full_new_context_after": "",
+          "model_primary_assessment_unapproved": "visual_evidence_suggested",
+          "delivered_role": "primary_candidate",
+          "source_attribution_unapproved": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                "start": 0,
+                "end": 64,
+                "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  68.0315,
+                  734.5449,
+                  557.9514999999993,
+                  740.9150979045401
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                "start": 0,
+                "end": 25,
+                "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  51.0236,
+                  747.5449,
+                  247.1836000000001,
+                  753.9150979045401
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "review_status": "pending",
+          "figure_association_unapproved": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-b93d8c5215cb3cbef32cb573"
+            ],
+            "exact_markers": [],
+            "reasons": [
+              "Figure 1: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "strict_source_key": "57bbd6165651bbd9bae66fa372f691366e9adfc9b20f2cf2dc7bbd2f6876ff4f"
+        }
+      ],
+      "strict_source_groups_for_matches": [
+        {
+          "group_id": "source-group-57bbd6165651bbd9bae66fa372f691366e9adfc9b20f2cf2dc7bbd2f6876ff4f",
+          "member_count": 1,
+          "members": [
+            {
+              "record_id": "ev-2c2b60e9a539f9370bcba9b7639781e431159538",
+              "record_version": 2,
+              "source_record_sha256": "123b827ff073bf0a763e9cb17c8a446dd266ee696d3bbed54191239eb4b246d7",
+              "record_actor": "automatic",
+              "review_status": "pending",
+              "review_events": [],
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": [],
+                "evidence": [
+                  {
+                    "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                    "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                    "start": 0,
+                    "end": 64,
+                    "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                    "occurrence": 0,
+                    "physical_page": 2,
+                    "bbox": [
+                      68.0315,
+                      734.5449,
+                      557.9514999999993,
+                      740.9150979045401
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  },
+                  {
+                    "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                    "text_version": "s3v3-030caa8389b4ce0d4cf349ec77c98733",
+                    "start": 0,
+                    "end": 25,
+                    "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                    "occurrence": 0,
+                    "physical_page": 2,
+                    "bbox": [
+                      51.0236,
+                      747.5449,
+                      247.1836000000001,
+                      753.9150979045401
+                    ],
+                    "location_precision": "whole_textline_not_exact_glyph"
+                  }
+                ]
+              },
+              "feature_name_raw": null,
+              "feature_category": "肺血管与肺结节关系及形态",
+              "model_semantic_review_unapproved": {
+                "status": "reviewed_unapproved",
+                "model_id": "gpt-6-luna",
+                "issue_codes": [],
+                "primary_assessment": "visual_evidence_suggested",
+                "assessment_policy_version": "model-primary-assessment-1"
+              },
+              "effective_role": "primary_candidate",
+              "structure_references_untrusted": [],
+              "figure_association": {
+                "status": "pending",
+                "figure_ids": [],
+                "proposed_figure_ids": [
+                  "figure-b93d8c5215cb3cbef32cb573"
+                ],
+                "exact_markers": [],
+                "reasons": [
+                  "Figure 1: complete Figure region/panels and caption identity need source-page verification."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "human_confirmation": null
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "single_source_candidate",
+          "needs_review": false,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O09-AAH-background-quantity",
+      "document_id": "L05",
+      "concern": "background_quantity_observation",
+      "judgement_basis": "ordinary_feedback_preserved_not_medical_approval",
+      "question": "保留此前背景安排看起来合理的意见；观察AAH<5mm完整语义，不为尺寸覆盖强行升主。",
+      "source_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000006",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 96,
+          "end": 119,
+          "exact_quote": " According to the clas-",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098693000004,
+            70.884178711,
+            544.20611578064,
+            79.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000007",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 115,
+          "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            83.384178711,
+            544.07009866439,
+            91.89413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000008",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 81,
+          "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.022098692999975,
+            95.884178711,
+            544.1960986910894,
+            104.39413669419332
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L05-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "source_span_not_emitted_in_current_records",
+      "matches": [],
+      "strict_source_groups_for_matches": [],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    },
+    {
+      "case_id": "O10-risk-threshold-background",
+      "document_id": "L05",
+      "concern": "standalone_risk_threshold_observation",
+      "judgement_basis": "ordinary_feedback_preserved_not_medical_approval",
+      "question": "观察≤12.6mm/CTR≤0.5风险结论的背景安排，不当病例直接实测尺寸正例或医学批准。",
+      "source_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000023",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 79,
+          "end": 118,
+          "exact_quote": " When studying IAC patients, those with",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            645.9228139649999,
+            544.3736134448092,
+            654.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000024",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 116,
+          "exact_quote": "nodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.02361344100001,
+            658.4228139649999,
+            544.1536121905501,
+            666.9327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000025",
+          "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+          "start": 0,
+          "end": 65,
+          "exact_quote": "components, which might be missed during pathological sectioning.",
+          "occurrence": 0,
+          "physical_page": 7,
+          "bbox": [
+            51.01361554099999,
+            670.922813965,
+            544.0626155429106,
+            679.4327719481932
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-f28c6bd9af1fe28f7e47c0de736fd1f2",
+      "complete_gold": false,
+      "sent_to_model_as_answers": false,
+      "medical_approval": false,
+      "job_id": "L05-B0",
+      "actual_run_started": true,
+      "output_available": true,
+      "status": "source_span_not_emitted_in_current_records",
+      "matches": [],
+      "strict_source_groups_for_matches": [],
+      "delivered_group_evidence_available": true,
+      "actual_duplicate_conflict_triggered": false,
+      "omissions_are_not_recall_pass_or_failure": true,
+      "known_isolated_negative_primary_match_requires_review": false,
+      "boundary_review_note": "Literal inclusion is only a review pointer. Read the complete new quote and context: a larger statement with an actual lesion appearance/comparison is not automatically wrong because it contains the known normal/conclusion span.",
+      "ordinary_human_review_of_this_new_output": "not_performed",
+      "medical_quality_approved": false
+    }
+  ],
+  "complete_gold": false,
+  "full_recall_measured": false,
+  "new_model_output_human_approved": false,
+  "medical_quality_approved": false,
+  "no_extra_model_calls": true,
+  "note": "Known source spans are regression observations, not a complete gold set. A missing output is not recall success/failure. Model role suggestions and mechanical groups are not medical or business approval. 9mm/35HU remain synthetic unit examples only."
+}

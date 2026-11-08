@@ -1,0 +1,154 @@
+{
+  "schema_version": "s4-core-review-materials-1",
+  "prepared_at": "2026-11-03T05:17:26.154743+00:00",
+  "review_state": "progress_handoff_prepared_no_round_3_requested_user_experiment_scope_pending",
+  "formal_reviews_used": 2,
+  "formal_reviews_limit": 3,
+  "formal_review_counter_changed": false,
+  "current_source_hash_scope": "current engineering files at preparation time; NEVER attributed to old real model runs",
+  "current_source_manifest": {
+    "packages/contracts/src/extraction-evidence.ts": {
+      "sha256": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+      "lines": 180
+    },
+    "packages/agent/src/article-scope.ts": {
+      "sha256": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+      "lines": 72
+    },
+    "packages/agent/src/extraction-budget.ts": {
+      "sha256": "7f9c8ea4c4ce1c720c3cbbdf83e9d6b44c43a5c4e6a7a09d03c61a2168055e5f",
+      "lines": 181
+    },
+    "packages/agent/src/extraction-pi.ts": {
+      "sha256": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+      "lines": 151
+    },
+    "packages/agent/src/extraction-store.ts": {
+      "sha256": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+      "lines": 123
+    },
+    "packages/agent/src/extraction-protocol.ts": {
+      "sha256": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+      "lines": 105
+    },
+    "packages/agent/src/extraction-tools.ts": {
+      "sha256": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+      "lines": 181
+    },
+    "packages/agent/src/extraction-summary.ts": {
+      "sha256": "b06ddcf632241a3084ae51259241d1453fc20c21d92438a5f7f3dbcb620561b3",
+      "lines": 202
+    },
+    "packages/agent/src/extraction-run.ts": {
+      "sha256": "5684c9dafaf61ab0cd39ff802594578c29a2a3a732f3df20f280f228bde6f78a",
+      "lines": 192
+    },
+    "packages/agent/src/evidence-validation.ts": {
+      "sha256": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+      "lines": 253
+    },
+    "packages/agent/src/scope-matching.ts": {
+      "sha256": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+      "lines": 158
+    },
+    "packages/agent/src/reconciliation.ts": {
+      "sha256": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+      "lines": 149
+    },
+    "packages/agent/src/summary-model-view.ts": {
+      "sha256": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+      "lines": 150
+    },
+    "package.json": {
+      "sha256": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "lines": 44
+    },
+    "packages/contracts/src/index.ts": {
+      "sha256": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+      "lines": 182
+    },
+    "packages/agent/src/index.ts": {
+      "sha256": "5e492701f31c231b0852170f0c296af394475ed2c1f41caa8e8ffb7b1b89d9b5",
+      "lines": 20
+    }
+  },
+  "existing_export_and_script_diff": "code/docs/acceptance/s4/core-existing-API.diff",
+  "interfaces": [
+    {
+      "entry": "runExtractionDocument(options)",
+      "behavior": "real Pi source batches -> validated pending 28-field candidates -> SQLite versions/events -> all-candidate single-paper summary; source reading/completion/quarantine and summary completion separate"
+    },
+    {
+      "entry": "ExtractionTools.definitions / invoke",
+      "behavior": "closed model batch_lines with host identity; all medical indices use one stable batch line table; trusted full submission entry retained; exact repeated text requires occurrence"
+    },
+    {
+      "entry": "ExtractionSummaryTools.definitions / invoke",
+      "behavior": "lossless source-fragment dictionary; whole-document line indices for actually re-read updates; all current versions reviewed_unapproved in independent strategy; neutral cases must be actually read and judged"
+    },
+    {
+      "entry": "packSummaryModelContext / unpackSummaryModelContext",
+      "behavior": "pure reversible JSON dictionary; no candidate/fact/context/location truncation; literal marker collisions escaped"
+    },
+    {
+      "entry": "validateEvidenceSubmission / matchEvidenceScope / reconcileEvidence",
+      "behavior": "exact source/version/read checks and limited explicit rules; unapproved model semantics remain separate; all-new terms open without catalog; real strict requires approved mapping; manual versions protected"
+    },
+    {
+      "entry": "ExtractionStore",
+      "behavior": "new S4-only SQLite tables; short transactions, CAS, candidate/event atomicity, immutable versions, human edits/approval preserved with pending proposals"
+    },
+    {
+      "entry": "ExtractionBudget",
+      "behavior": "one shared atomic budget object, all physical attempts counted; unknown usage reserves; cache input/reasoning output counted once; request/doc/global hard stop cancels only owned streams; original start and initial ledger limits retained"
+    }
+  ],
+  "current_caps": {
+    "physical_requests": 400,
+    "input_tokens": 2000000,
+    "output_tokens": 400000,
+    "effective_wall_seconds_from_original_start": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "batch_responses": 16,
+    "paid_API_waiting_for_user_scope_choice": true
+  },
+  "checks": {
+    "prior_current_full_regression": "code/docs/acceptance/s4/runtime-validation/pre-summary-model-view-and-neutral-case-review/summary.json",
+    "prior_full_regression_count": 169,
+    "prior_full_regression_not_claimed_for_later_summary_changes": true,
+    "current_affected_extraction_suite_log": "code/docs/acceptance/s4/runtime-validation/summary-current-extraction.txt",
+    "current_affected_extraction_suite_count": 118,
+    "current_summary_focused_count_is_subset": 7,
+    "current_summary_focused_log": "code/docs/acceptance/s4/runtime-validation/summary-view-cases-focused-tests.txt",
+    "current_typecheck_log": "code/docs/acceptance/s4/runtime-validation/summary-view-cases-typecheck.txt",
+    "current_checks_do_not_rerun_or_stack_prior_other_71_tests": true,
+    "dictionary_pure_checks": "code/docs/acceptance/s4/evidence-validation/summary-model-view-acceptance.json",
+    "dictionary_real_source_roundtrip": "code/docs/acceptance/s4/evidence-validation/summary-model-view-real/measurement.json",
+    "current_history_integrity": "code/docs/acceptance/s4/protected-history-verification.json",
+    "current_validation_summary": "code/docs/acceptance/s4/runtime-validation/summary.json",
+    "current_summary_schema": "s4-runtime-validation-summary-8",
+    "current_source_start_end_files": 44,
+    "current_source_changed_files": []
+  },
+  "real_evidence": {
+    "readable_report": "code/docs/acceptance/s4/index.html",
+    "matrix": "code/docs/acceptance/s4/matrix-progress.json",
+    "completed_same_source_version_conditions": [
+      "job-01 revision-6",
+      "job-06 revision-2"
+    ],
+    "source_version_proof": "each run source-provenance.json references one immutable shared source snapshot",
+    "pending_conditions": 12,
+    "new_dictionary_case_review_not_yet_paid_tested": true,
+    "scale_options": "code/docs/acceptance/s4/experiment-scale-options.json"
+  },
+  "material_risks": [
+    "medical gold/catalog and S3 source fidelity remain pending; no formal accuracy or model choice",
+    "original parse associations, table cells, cross-column order and candidate eligibility remain uncertain; acquisition-parameter example explicitly neutral audit case",
+    "new summary packet has reversible offline evidence, but real supplier throughput/review behavior still unmeasured; remaining matrix exceeds original input reserve"
+  ],
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "S5_started": false
+}

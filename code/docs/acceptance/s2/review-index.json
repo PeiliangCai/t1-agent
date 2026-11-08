@@ -1,0 +1,44 @@
+{
+  "formal_reviews_used_before_final": 1,
+  "formal_review_limit": 3,
+  "purpose": "minimal review package, no full repository or paper text",
+  "diff": "docs/acceptance/s2/core-review.diff",
+  "diff_method": "unified diff; package/tsconfig inverse baseline verified against immutable S1 manifest; new source files relative to empty",
+  "focus": {
+    "real_input_gate": "evaluation/src/evaluator.ts:validateRelations",
+    "one_to_one_maximum_matching": "evaluation/src/evaluator.ts:maximumMatching",
+    "out_of_scope_duplicate_failed_counts": "evaluation/src/evaluator.ts:scoreDocument",
+    "exposed_source_and_family_split_isolation": "evaluation/src/manifests.ts:manifestIssues",
+    "fixture_real_report_isolation": "scripts/evaluate-quality.ts"
+  },
+  "checks": {
+    "typecheck": "passed after explicit tuple fix",
+    "evaluation_tests": 28,
+    "existing_unit_tests": 15,
+    "existing_integration_tests": 8,
+    "build_web": "passed; existing 663.35 kB chunk warning only",
+    "first_failure": "docs/acceptance/s2/checks/2026-11-02T14-00-06-484132Z/check.log",
+    "full_success": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/result.json",
+    "latest_targeted_success": "docs/acceptance/s2/checks/2026-11-02T14-02-27-921527Z/result.json"
+  },
+  "last_fixture_clarification": "Made g2 a distinct square-body claim instead of a second identically worded blue-rim claim, so the synthetic graph no longer suggests duplicate gold is legitimate. Added explicit sequence_or_phase=null to meet evaluation contract; no medical gold or reviewed actor was introduced.",
+  "latest_fixture_expected": {
+    "tp": 2,
+    "fp": 1,
+    "fn": 0,
+    "official_acceptance": "not_assessed"
+  },
+  "first_failure_resolution": "TypeScript inferred string[][] for new Map; explicit [string,string] tuple annotation, no matching semantics change; main session explicitly declined new error review round.",
+  "preservation": "docs/acceptance/s2/handoff-docx-preservation.json",
+  "source_register": "evaluation/manifests/source-register.json",
+  "split_draft": "evaluation/manifests/family-split-draft.json",
+  "stage_gate_missing": [
+    "independent human full-text gold",
+    "medical review",
+    "approved annotation/scoring/medical taxonomy rules",
+    "confirmed family split and separately selected/sealed independent acceptance data"
+  ],
+  "S2_status": "in_progress",
+  "S2_passed": false,
+  "next_stage_started": false
+}

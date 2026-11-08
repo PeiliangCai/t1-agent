@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>本轮模型输出核验</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="review.css">
+  <script src="review.js" defer></script>
+</head>
+<body>
+  <header class="page-header">
+    <p class="eyebrow">原页对照 · 本轮真实输出</p>
+    <h1>本轮模型输出核验</h1>
+    <p>选择候选 → 对照原文、语境、图注及原页 → 三选并填写备注。图片可点击放大。</p>
+    <p class="scope">B0 已选定，本页只核验本轮三篇文献的真实输出。普通意见不改变业务审核版本，也不等于医学或产品批准。图片题仅在有配图或明确待核图引用时出现；没有图片不算文字错误，也不算配对正确。</p>
+    <div class="toolbar">
+      <button id="export" type="button" disabled>导出审核意见</button>
+      <label class="button secondary" for="import">导入审核意见</label>
+      <input id="import" type="file" accept="application/json,.json" hidden>
+      <button id="clear" type="button" class="quiet" disabled>清空本次记录</button>
+      <span id="progress" aria-live="polite">正在读取本次资料…</span>
+    </div>
+    <details class="storage-help">
+      <summary>保存与恢复本次核验进度</summary>
+      <p>审核意见保存在当前浏览器的这个访问地址。换地址、端口或浏览器，可能读不到原有进度；请及时导出，下次可导入恢复。网页不会上传或静默写入远端服务器。</p>
+      <p>当前访问地址：<span id="origin"></span>。导出的 JSON 可由你手动放回本页同目录，供后续读取。不同资料版本的意见不会自动套用。</p>
+    </details>
+    <p><a href="source-observations.html">查看10项源跨度观察的实际匹配与未发现项</a></p><p id="pack-summary" class="hint"></p><p id="group-summary" class="scope"></p><p><a id="all-outputs" href="all-candidates.html" target="_blank" rel="noopener">查看本轮全部未审核输出及未入样条目 ↗</a> · <a id="risk-comparisons" href="source-groups.html" target="_blank" rel="noopener">查看同源组、全部成员与冲突（待核） ↗</a></p><section id="run-summary" aria-label="本轮运行情况"><h2>本轮运行情况</h2><table class="run-table"><thead><tr><th>文献</th><th>本轮处理</th><th>主 / 背景 / 原始待核</th><th>任务范围与来源限制</th></tr></thead><tbody><tr data-job-id="L07-B0"><td>L07-B0</td><td>本次范围处理完成；输出尚未审核</td><td>22 / 4 / 0</td><td>任务源 909 块；共同书目排除 280 块；原解析保留 partial 标记；7 页图中文字尚未核验</td></tr><tr data-job-id="L01-B0"><td>L01-B0</td><td>本次范围处理完成；输出尚未审核</td><td>2 / 0 / 0</td><td>任务源 336 块；共同书目排除 73 块；原解析保留 partial 标记；1 页图中文字尚未核验</td></tr><tr data-job-id="L05-B0"><td>L05-B0</td><td>本次范围处理完成；输出尚未审核</td><td>0 / 0 / 0</td><td>任务源 523 块；共同书目排除 92 块；原解析保留 partial 标记；5 页图中文字尚未核验</td></tr></tbody></table><p class="hint">完成依据本次任务源范围及汇总状态；共同排除的书目不计任务未完成。整篇文章块数与任务源块数分别保留，原解析 partial 和图中文字限制也保留。处理完成不代表医学质量通过。</p></section><details class="storage-help"><summary>查看运行与覆盖的详细记录</summary><pre id="run-status" class="original-text"></pre></details><p id="message" class="message" role="status" aria-live="polite"></p>
+  </header>
+  <div class="workspace" id="workspace" hidden>
+    <aside class="case-sidebar">
+      <label for="kind-filter">选择案例</label>
+      <select id="kind-filter"><option value="all">全部文献</option><option value="L07">L07 · B0</option><option value="L01">L01 · B0</option><option value="L05">L05 · B0</option></select><label for="role-filter">候选分组</label><select id="role-filter"><option value="all">全部分组（含背景与拒绝）</option><option value="primary_candidate">主待核</option><option value="background_suggestion">仅背景建议（未人工确认）</option><option value="delivery_rejected">未进入候选导出的原始记录</option></select>
+      <nav id="case-list" aria-label="核验案例"></nav><p id="no-filter-match" class="hint" hidden>本页样本没有匹配条目；可查看全部未审核输出中的完整分组。</p>
+    </aside>
+    <main>
+      <div class="case-heading">
+        <div><p id="case-category" class="eyebrow"></p><h2 id="case-title"></h2></div>
+        <div class="case-navigation"><button id="previous" class="secondary" type="button">上一例</button><button id="next" class="secondary" type="button">下一例</button></div>
+      </div>
+      <p id="case-explanation" class="explanation"></p>
+      <div class="comparison">
+        <section class="comparison-panel">
+          <div class="panel-heading"><h3>原 PDF 对照</h3><label>物理页 <select id="page-select" aria-label="切换原页"></select></label></div>
+          <a id="original-pdf" class="pdf-link" target="_blank" rel="noopener">打开原 PDF 此页 ↗</a>
+          <button class="image-button" id="original-image-button" type="button"><img id="original-image" alt="原页，点击放大"></button>
+          <p class="hint">原 PDF 保留全文。页图为原页完整渲染，可点击放大；图目录参考不代表自动配图。</p>
+        </section>
+        <section class="comparison-panel">
+          <div class="panel-heading"><h3>本轮候选与图参考</h3><div class="view-switch" role="group" aria-label="当前结果"><button id="view-after" type="button" aria-pressed="true">当前结果</button><button id="view-before" type="button" aria-pressed="false">无旧版混入</button></div></div>
+          <p id="version-note" class="hint"></p>
+          <div id="parsed-view"></div>
+        </section>
+      </div>
+      <section class="opinions"><h3>逐项审核意见</h3><p class="hint">按原文相关性、语境和配图分别记录普通意见；不确定可选“无法判断”。基础样本每篇最多6条，另列定向观察及同源成员，不设置医学准确率门槛。</p><div id="questions"></div></section>
+      <details class="source-details"><summary>本例资料来源与版本</summary><div id="source-details"></div></details>
+    </main>
+  </div>
+  <dialog id="image-dialog">
+    <div class="zoom-toolbar"><strong id="zoom-title"></strong><button id="zoom-out" type="button" class="secondary">缩小 −</button><span id="zoom-level">100%</span><button id="zoom-in" type="button" class="secondary">放大 +</button><button id="zoom-reset" type="button" class="secondary">还原</button><button id="zoom-close" type="button">关闭</button></div>
+    <div id="zoom-scroll"><img id="zoom-image" alt="放大对照图"></div>
+  </dialog>
+</body>
+</html>

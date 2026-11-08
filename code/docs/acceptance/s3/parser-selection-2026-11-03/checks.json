@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-11-03T00:18:43.904509+08:00",
+  "all_required_checks_passed": true,
+  "typecheck": {
+    "status": "passed",
+    "log": "typecheck-final.log"
+  },
+  "affected_TS_parser_suite": {
+    "status": "passed",
+    "total": 20,
+    "new_selection_tests": 3,
+    "existing_parser_tests": 17,
+    "log": "parser-regression.log"
+  },
+  "real_preparse_default_and_override_branches": "Both adapters reach local structured CLI and reject changed original SHA before inference",
+  "actual_Pi_default_and_override_entry_checks": [
+    {
+      "candidate_id": "docling-standard-cpu",
+      "candidate_selection_source": "formal_project_configuration",
+      "report": "docs/acceptance/s3/parser-selection-2026-11-03/pi-integration/docling-standard-cpu-2026-11-02T16-16-41-780Z-1990de7c/report.json",
+      "sha256": "50079363dea901e3697fbe4579af7bb404a534056ac36ef355cce78016221119",
+      "model_execution": "scripted_loopback_mock",
+      "native_models_rerun": false,
+      "actual_Pi_SDK": true
+    },
+    {
+      "candidate_id": "mineru-basic-onnx-cpu",
+      "candidate_selection_source": "trusted_explicit_override",
+      "report": "docs/acceptance/s3/parser-selection-2026-11-03/pi-integration/mineru-basic-onnx-cpu-2026-11-02T16-16-41-736Z-934d4a62/report.json",
+      "sha256": "5f235e8ffaa2b621d22ffa9019fd9a323ed5263004f37c747342c1e5222e2205",
+      "model_execution": "scripted_loopback_mock",
+      "native_models_rerun": false,
+      "actual_Pi_SDK": true
+    }
+  ],
+  "native_model_benchmark_reruns": 0,
+  "paid_LLM_calls": 0,
+  "new_formal_reviews": 0,
+  "unchanged_baseline_checks": "Previous 85 tests/20 native runs/41-page AI review remain historical comparison evidence; unrelated suites not repeated"
+}

@@ -1,0 +1,28 @@
+{
+  "command": [
+    ".tools/node/bin/node",
+    "--import",
+    "tsx",
+    "scripts/extract-paper.ts",
+    "--pdf",
+    "evaluation/corpus/development-candidates/L05.pdf",
+    "--document-id",
+    "fresh-non-whitelisted-paper",
+    "--directory",
+    "docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05-final"
+  ],
+  "exit_code": 0,
+  "seconds": 31.96299722599997,
+  "stdout": "{\"status\":\"prepared_only_no_model_extraction\",\"directory\":\"/home/ecs-user/projects/t1-agent/code/docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05-final\",\"parser_status\":\"partial\",\"figure_discovery\":{\"status\":\"local_discovery_complete\"},\"figure_candidates\":5,\"paid_calls\":0}\n",
+  "stderr": "",
+  "source_sha256_before": {
+    "scripts/extract-paper.ts": "ef48c049698858025340987d3c5d2199abde9c3baf22545d9eb4b65de0f23d9a",
+    "packages/agent/src/extraction-run.ts": "1801c17dea2b6cc73ace7ecfa21d8fa6322ceffcf0b8ef2e84e894ccc1498a89",
+    "packages/agent/src/evidence-validation.ts": "8bcffc30a762507676e7fcaca8c9daada71c55d48d824bfda18144ee268ecea7",
+    "packages/agent/src/evidence-delivery.ts": "10a8fa55e79c7b60cedd32ab651d3562f8b3c0ea8d918cb13895f522b897710c",
+    "packages/agent/src/figure-assets.ts": "58425f73837f297acd0b1989e4950b776b1d53f9fb18c4d34e6a58f66e1d94b7",
+    "services/pdf-parser/figure_assets.py": "9bb5c10dee0cde9ff83a765827b3d6f74f0e80407de4774edf84d089d6270ce7",
+    "packages/contracts/src/figure-evidence.ts": "3641d3642ac32a2be4cd2c4d17f32420a489d2dd3971fdadc468427f0c866872"
+  },
+  "all_sources_match_after": true
+}

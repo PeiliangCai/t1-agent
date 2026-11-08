@@ -1,0 +1,22 @@
+{
+  "schema_version": "s4-wall-clock-adjustment-1",
+  "recorded_at": "2026-11-03T04:29:22.048831+00:00",
+  "authorized_by": "main_session_astra",
+  "from_seconds": 7200,
+  "to_seconds": 14400,
+  "original_experiment_started_at": "2026-11-03T02:52:42.293Z",
+  "reason": "Initial reversible operation protection window was consumed by actual protocol debugging; finish the already authorized S4 experiment with unchanged call and token caps.",
+  "unchanged_limits": {
+    "physical_requests_all_attempts": 400,
+    "input_tokens_including_cache": 2000000,
+    "output_tokens_including_reasoning": 400000,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "batch_responses": 16,
+    "transient_retries": 2
+  },
+  "ledger_reset": false,
+  "user_confirmed_resource_or_quality_threshold": false,
+  "formal_reviews_added": 0,
+  "decision_scope": "wall clock only, same original start, no extra token or request authorization"
+}

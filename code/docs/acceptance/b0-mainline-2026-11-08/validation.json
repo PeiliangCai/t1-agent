@@ -1,0 +1,146 @@
+{
+  "schema_version": "b0-mainline-implementation-validation-1",
+  "completed_at": "2026-11-08T09:15:24.102729+00:00",
+  "status": "implemented_and_offline_verified_real_model_unverified",
+  "additional_model_provider_requests": 0,
+  "paid_authorizations_reopened": false,
+  "formal_architecture_reviews_used": 3,
+  "formal_architecture_review_limit": 3,
+  "default_selection": {
+    "value": "B0",
+    "already_default_and_unchanged": true,
+    "new_user_switch_or_automatic_method_switch_added": false,
+    "F_retained_as_experimental_code": true
+  },
+  "current_versions": {
+    "primary_assessment_policy": "model-primary-assessment-1",
+    "diagnostic_visual_scope_rule": "visual-appearance-with-diagnostic-context-2",
+    "normal_anatomic_scope_rule": "normal-anatomic-and-tissue-context-only-2",
+    "source_grouping_policy": "strict-source-groups-1"
+  },
+  "scope_changes": {
+    "pure_normal_anatomy_or_normal_tissue_signal": "necessary_context_only_when_needed_for_target",
+    "standalone_diagnostic_interpretation": "necessary_context_only",
+    "complete_concrete_target_appearance_with_conditions_and_negation": "retain_complete_original",
+    "lesion_vs_normal_comparison_and_direct_lesion_dimensions": "remain_eligible",
+    "source_of_semantic_validation": "existing_single_summary_assessment; scripted routing tests do not prove actual model compliance"
+  },
+  "source_grouping": {
+    "location": "backward-compatible derived fields on delivery root, existing summary context and future experiment common metadata",
+    "key_guards": [
+      "run/task/scope/document/article-family/PDF/source-version/IR-version",
+      "ordered exact original quote spans and complete original quote",
+      "actual before/after/context spans and table support",
+      "disease/modality/sequence/applicability/assertion/numbers including their actual evidence"
+    ],
+    "excluded_from_identity_but_retained_in_members": [
+      "model feature labels/categories",
+      "source attribution and its evidence",
+      "model assessment and primary/background role",
+      "human review events and version-bound delivery confirmations",
+      "untrusted structure/Figure associations"
+    ],
+    "member_identity": [
+      "record_id",
+      "record_version",
+      "source_record_sha256"
+    ],
+    "conflicts_explicit": [
+      "source attribution",
+      "primary/background role",
+      "Figure/structure association",
+      "human review disagreement",
+      "internal Figure/Table marker used as only external-attribution evidence"
+    ],
+    "approved_export_gate": "every original member still requires its own version-bound confirmation; grouping cannot import unapproved or omitted members",
+    "reconciliation": "existing duplicate/possible_conflict links; same-source attribution disagreement is symmetric and unresolved; protected human versions get proposals; replay and existing links are idempotent",
+    "group_count_field": "unique_source_group_count",
+    "unique_source_group_count_is_medical_valid_description_count": false,
+    "raw_records_and_CSV_rows_retained": true,
+    "S5_single_group_presentation_implemented": false
+  },
+  "checks": [
+    {
+      "name": "affected_offline_regressions",
+      "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/strict-source-groups.test.ts tests/extraction/reconciliation.test.ts tests/extraction/primary-assessment.test.ts tests/extraction/verbatim-delivery.test.ts tests/extraction/source-selection.test.ts tests/extraction/metric-context-revision.test.ts tests/extraction/s4-summary-reliability.test.ts",
+      "exit_code": 0,
+      "tests": 65,
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0,
+      "log": "offline-regression-final.tap"
+    },
+    {
+      "name": "typescript",
+      "command": "bash scripts/with-node.sh npm exec tsc -- --noEmit",
+      "exit_code": 0,
+      "log": "typecheck-final.log"
+    },
+    {
+      "name": "current_offline_replay_matches_final_current_code",
+      "actual_runs": 5,
+      "original_member_fingerprints_preserved": 68,
+      "report": "derived-grouping-replay.json"
+    },
+    {
+      "name": "historical_source_snapshot_unchanged",
+      "files_checked": 59,
+      "report": "current-source-binding.json"
+    },
+    {
+      "name": "future_offline_source_hash_binding",
+      "standalone_module_included": true,
+      "grouping_version_registered": true,
+      "execution_directory_created": false,
+      "real_provider_requests": 0,
+      "evidence_test": "future offline preparation binds the standalone grouping module and its version without rewriting the frozen plan"
+    }
+  ],
+  "initial_regression": {
+    "tests": 30,
+    "passed": 27,
+    "failed": 3,
+    "failures_resolved": "one old count-object expectation updated for additive fields; two new synthetic fixture mistakes corrected",
+    "log": "offline-regression-initial.tap"
+  },
+  "offline_frozen_output_replay_totals": {
+    "original_records": 68,
+    "original_primary": 57,
+    "original_background": 11,
+    "offline_mechanical_source_groups": 63,
+    "duplicate_member_excess": 5
+  },
+  "historical_output_denominators_rewritten": false,
+  "historical_member_fingerprint_algorithms_changed": false,
+  "changed_existing_runtime_sources": [
+    "packages/agent/src/evidence-delivery.ts",
+    "packages/agent/src/evidence-validation.ts",
+    "packages/agent/src/extraction-run.ts",
+    "packages/agent/src/extraction-store.ts",
+    "packages/agent/src/extraction-summary.ts",
+    "packages/agent/src/index.ts",
+    "packages/agent/src/primary-evidence-assessment.ts",
+    "packages/agent/src/reconciliation.ts",
+    "scripts/compare-extraction-methods.ts"
+  ],
+  "source_change_manifest": "current-source-binding.json",
+  "source_diff": "source-changes.patch",
+  "unverified": [
+    "New prompts and source grouping have not been rerun against a real model/provider.",
+    "Normal anatomy/background classification remains a semantic model suggestion with explicit uncertainty and human review.",
+    "Mechanical exact-source grouping is not clinical deduplication or quality/accuracy improvement.",
+    "Old results and CSV/UI are not retroactively merged; S5 grouping presentation remains subsequent integration."
+  ],
+  "artifact_sha256": {
+    "before-behavior.json": "80d3389a3e7d62f79742db5e9adbac6eaf00ba1797e86989d53b2dc338282a72",
+    "current-source-binding.json": "3ccb4ea4bc74ef5c375b114dc6362e34e4056e89f5fdcb6b26c97d917ec211dc",
+    "derived-grouping-replay.json": "1046a5db246c086145bf9beb4f4f19cfd82d8906f1d15a6f92d74e3f0e232189",
+    "offline-regression-final.tap": "388e1b2a88e1938c1346fc3c53ce60d7d0b92cbe327b0de78fae09302f7a7f4a",
+    "offline-regression-initial.tap": "8f2b7b75d4fb60f5c07502581f3e4a679b151b2610228a9c5d87dd8e9db24daa",
+    "offline-regression.tap": "653174f568210647005584ea3f4ecbcdc1dad29e061836e1ba025c14ea924e29",
+    "source-binding-and-summary-regression.tap": "0778274b3c7560e3ce0c0617d9dfd2aa8cd7ab90f20209205ebcaa7da5c25d47",
+    "source-changes.patch": "c5b1f7f26c94be6404e23c929300ea9f051b7a096c00765443fdf6b7cbcae9e3",
+    "typecheck-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

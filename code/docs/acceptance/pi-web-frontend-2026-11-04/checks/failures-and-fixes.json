@@ -1,0 +1,50 @@
+{
+  "schema_version": "pi-web-failures-and-fixes-1",
+  "formal_review_rounds_used": 2,
+  "resolved_before_first_browser_attempt": [
+    {
+      "failure": "Root typecheck found missing not_checked Figure association state",
+      "fix": "Preserve unknown/not_checked state in the read-only view contract"
+    },
+    {
+      "failure": "Next typecheck found system is not an upstream theme preference",
+      "fix": "Use original Pi Web preference auto"
+    },
+    {
+      "failure": "Path allowlist test accepted dot-dot as an identifier segment",
+      "fix": "Reject dot and dot-dot segments in both entry and backend adapter"
+    }
+  ],
+  "first_browser_attempt": {
+    "checks_passed": 7,
+    "failed": "mobile_layout_and_direct_original_pdf_link",
+    "failure_reason": "Open mobile sidebar covered the navigation toggle, causing a real click timeout",
+    "fix": "Added a visible close button inside the mobile sidebar, then test real close/reopen/select behavior"
+  },
+  "visual_evidence_issue": {
+    "reported_by": "root visual inspection",
+    "failure": "CJK glyphs rendered as squares in screenshot on host without Chinese fonts",
+    "fix": "Ship local Noto Sans CJK SC woff2 + OFL; wait for font load and visually inspect refreshed screenshots",
+    "first_attempt_evidence": "../browser-first-attempt/"
+  },
+  "additional_verification": "Click physical-page source link and visually confirm the PDF viewer page, not only URL or file bytes",
+  "latest_retest_status": "10 browser checks passed after PDF.js repair, source page visually confirmed",
+  "native_pdf_viewer_observation": {
+    "clicked_physical_page": 8,
+    "browser_native_page_counter_observed": 9,
+    "visual_confirmation_failed": true,
+    "previous_auto_checks_insufficient": true,
+    "fix": "Replace native iframe with independent controlled single-page PDF.js renderer; assert completed canvas page=8 and original source text, then visually inspect screenshot",
+    "evidence": "../browser-native-viewer-attempt/02-explicit-original-figure.png"
+  },
+  "static_icon_failure": {
+    "reproduced_HTTP_404": [
+      "/icons/catppuccin/latte/_file.svg",
+      "/icons/catppuccin/mocha/_file.svg"
+    ],
+    "cause": "Guard allowed only top-level icons, but original TabBar uses nested theme assets",
+    "fix": "Allow only two exact upstream generic-file SVG theme paths; add HTTP200 assertions and failed static response collection",
+    "latest_retest": "both exact icon URLs HTTP200; 10/10 browser checks pass; no failed static resources"
+  },
+  "final_formal_review": "../formal-review-round2.json"
+}

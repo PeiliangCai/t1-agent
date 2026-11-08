@@ -1,0 +1,384 @@
+{
+  "schema_version": "s2-evaluation-1",
+  "dataset_id": "synthetic-max-matching-duplicate-cross-page",
+  "fixture": true,
+  "purpose": "fixture_verification",
+  "rule_version": "s2-scoring-draft-1",
+  "rules_status": "pending_confirmation",
+  "gold_version": "synthetic-only-1",
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "synthetic-scoring-only",
+    "matching_policy_version": "s2-scoring-draft-1"
+  },
+  "documents": [
+    {
+      "document_id": "synthetic-document-1",
+      "article_family_id": "synthetic-family-1",
+      "fixture": true,
+      "source_manifest_id": null,
+      "file_sha256": null,
+      "strata": {
+        "language": "synthetic",
+        "cancer_tag": "not_medical",
+        "modality_tag": "not_medical",
+        "layout_tag": "synthetic-cross-page"
+      },
+      "annotation": {
+        "status": "fixture",
+        "full_text_read": false,
+        "independent_of_predictions": false,
+        "annotator": null,
+        "completed_at": null,
+        "coverage": {
+          "all_physical_pages_checked": false,
+          "expected_page_count": null,
+          "checked_physical_pages": []
+        },
+        "medical_review": {
+          "status": "fixture",
+          "reviewer": null,
+          "reviewed_at": null,
+          "rationale": "Synthetic engineering fixture only; not a human/medical review."
+        }
+      },
+      "prediction_run": {
+        "run_id": "synthetic-run-1",
+        "state": "completed"
+      },
+      "gold_units": [
+        {
+          "unit_id": "g1",
+          "fixture": true,
+          "claim": {
+            "feature_name_raw": "synthetic blue rim",
+            "assertion": "affirmed",
+            "evidence_type": "observation",
+            "cancer_label": null,
+            "modality_label": null,
+            "conditions": [],
+            "numeric_expressions": [],
+            "sequence_or_phase": null
+          },
+          "segments": [
+            {
+              "physical_page": 1,
+              "printed_page_label": null,
+              "quote": "The synthetic toy shape has a blue rim and a square body.",
+              "block_id": "fixture-block-1",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            },
+            {
+              "physical_page": 2,
+              "printed_page_label": null,
+              "quote": "The same synthetic toy descriptors continue on a second page.",
+              "block_id": "fixture-block-2",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            }
+          ],
+          "necessary_context_segments": [],
+          "scope_review": {
+            "status": "fixture",
+            "reviewer": null,
+            "reviewed_at": null,
+            "rationale": "Synthetic engineering fixture only; not a human/medical review.",
+            "in_scope": true
+          }
+        },
+        {
+          "unit_id": "g2",
+          "fixture": true,
+          "claim": {
+            "feature_name_raw": "synthetic square body",
+            "assertion": "affirmed",
+            "evidence_type": "observation",
+            "cancer_label": null,
+            "modality_label": null,
+            "conditions": [],
+            "numeric_expressions": [],
+            "sequence_or_phase": null
+          },
+          "segments": [
+            {
+              "physical_page": 1,
+              "printed_page_label": null,
+              "quote": "The synthetic toy shape has a blue rim and a square body.",
+              "block_id": "fixture-block-1",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            },
+            {
+              "physical_page": 2,
+              "printed_page_label": null,
+              "quote": "The same synthetic toy descriptors continue on a second page.",
+              "block_id": "fixture-block-2",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            }
+          ],
+          "necessary_context_segments": [],
+          "scope_review": {
+            "status": "fixture",
+            "reviewer": null,
+            "reviewed_at": null,
+            "rationale": "Synthetic engineering fixture only; not a human/medical review.",
+            "in_scope": true
+          }
+        }
+      ],
+      "predictions": [
+        {
+          "prediction_id": "p1",
+          "fixture": true,
+          "claim": {
+            "feature_name_raw": "synthetic ambiguous blue-rim / square-body candidate",
+            "assertion": "affirmed",
+            "evidence_type": "observation",
+            "cancer_label": null,
+            "modality_label": null,
+            "conditions": [],
+            "numeric_expressions": [],
+            "sequence_or_phase": null
+          },
+          "segments": [
+            {
+              "physical_page": 1,
+              "printed_page_label": null,
+              "quote": "The synthetic toy shape has a blue rim and a square body.",
+              "block_id": "fixture-block-1",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            },
+            {
+              "physical_page": 2,
+              "printed_page_label": null,
+              "quote": "The same synthetic toy descriptors continue on a second page.",
+              "block_id": "fixture-block-2",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            }
+          ],
+          "necessary_context_segments": [],
+          "scope_review": {
+            "status": "fixture",
+            "reviewer": null,
+            "reviewed_at": null,
+            "rationale": "Synthetic engineering fixture only; not a human/medical review.",
+            "in_scope": true
+          }
+        },
+        {
+          "prediction_id": "p2",
+          "fixture": true,
+          "claim": {
+            "feature_name_raw": "synthetic blue rim",
+            "assertion": "affirmed",
+            "evidence_type": "observation",
+            "cancer_label": null,
+            "modality_label": null,
+            "conditions": [],
+            "numeric_expressions": [],
+            "sequence_or_phase": null
+          },
+          "segments": [
+            {
+              "physical_page": 1,
+              "printed_page_label": null,
+              "quote": "The synthetic toy shape has a blue rim and a square body.",
+              "block_id": "fixture-block-1",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            },
+            {
+              "physical_page": 2,
+              "printed_page_label": null,
+              "quote": "The same synthetic toy descriptors continue on a second page.",
+              "block_id": "fixture-block-2",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            }
+          ],
+          "necessary_context_segments": [],
+          "scope_review": {
+            "status": "fixture",
+            "reviewer": null,
+            "reviewed_at": null,
+            "rationale": "Synthetic engineering fixture only; not a human/medical review.",
+            "in_scope": true
+          }
+        },
+        {
+          "prediction_id": "p3-duplicate",
+          "fixture": true,
+          "claim": {
+            "feature_name_raw": "synthetic blue rim",
+            "assertion": "affirmed",
+            "evidence_type": "observation",
+            "cancer_label": null,
+            "modality_label": null,
+            "conditions": [],
+            "numeric_expressions": [],
+            "sequence_or_phase": null
+          },
+          "segments": [
+            {
+              "physical_page": 1,
+              "printed_page_label": null,
+              "quote": "The synthetic toy shape has a blue rim and a square body.",
+              "block_id": "fixture-block-1",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            },
+            {
+              "physical_page": 2,
+              "printed_page_label": null,
+              "quote": "The same synthetic toy descriptors continue on a second page.",
+              "block_id": "fixture-block-2",
+              "text_version": "synthetic-1",
+              "start": null,
+              "end": null,
+              "offset_unit": "unicode_code_point"
+            }
+          ],
+          "necessary_context_segments": [],
+          "scope_review": {
+            "status": "fixture",
+            "reviewer": null,
+            "reviewed_at": null,
+            "rationale": "Synthetic engineering fixture only; not a human/medical review.",
+            "in_scope": true
+          }
+        }
+      ],
+      "adjudication": {
+        "review": {
+          "status": "fixture",
+          "reviewer": null,
+          "reviewed_at": null,
+          "rationale": "Synthetic engineering fixture only; not a human/medical review."
+        },
+        "all_predictions_reviewed": true,
+        "all_gold_reviewed": true,
+        "all_candidate_pairs_reviewed": true,
+        "edges": [
+          {
+            "prediction_id": "p1",
+            "gold_unit_id": "g1",
+            "decision": "match",
+            "basis": "synthetic_fixture",
+            "rationale": "Synthetic adjacency, not inferred medical equivalence.",
+            "review": {
+              "status": "fixture",
+              "reviewer": null,
+              "reviewed_at": null,
+              "rationale": "Synthetic engineering fixture only; not a human/medical review."
+            },
+            "context_checks": {
+              "quote_faithful": true,
+              "scope_correct": true,
+              "assertion_preserved": true,
+              "conditions_preserved": true,
+              "units_preserved": true,
+              "cancer_modality_supported": true
+            }
+          },
+          {
+            "prediction_id": "p1",
+            "gold_unit_id": "g2",
+            "decision": "match",
+            "basis": "synthetic_fixture",
+            "rationale": "Synthetic adjacency, not inferred medical equivalence.",
+            "review": {
+              "status": "fixture",
+              "reviewer": null,
+              "reviewed_at": null,
+              "rationale": "Synthetic engineering fixture only; not a human/medical review."
+            },
+            "context_checks": {
+              "quote_faithful": true,
+              "scope_correct": true,
+              "assertion_preserved": true,
+              "conditions_preserved": true,
+              "units_preserved": true,
+              "cancer_modality_supported": true
+            }
+          },
+          {
+            "prediction_id": "p2",
+            "gold_unit_id": "g1",
+            "decision": "match",
+            "basis": "synthetic_fixture",
+            "rationale": "Synthetic adjacency, not inferred medical equivalence.",
+            "review": {
+              "status": "fixture",
+              "reviewer": null,
+              "reviewed_at": null,
+              "rationale": "Synthetic engineering fixture only; not a human/medical review."
+            },
+            "context_checks": {
+              "quote_faithful": true,
+              "scope_correct": true,
+              "assertion_preserved": true,
+              "conditions_preserved": true,
+              "units_preserved": true,
+              "cancer_modality_supported": true
+            }
+          },
+          {
+            "prediction_id": "p3-duplicate",
+            "gold_unit_id": "g1",
+            "decision": "match",
+            "basis": "synthetic_fixture",
+            "rationale": "Synthetic adjacency, not inferred medical equivalence.",
+            "review": {
+              "status": "fixture",
+              "reviewer": null,
+              "reviewed_at": null,
+              "rationale": "Synthetic engineering fixture only; not a human/medical review."
+            },
+            "context_checks": {
+              "quote_faithful": true,
+              "scope_correct": true,
+              "assertion_preserved": true,
+              "conditions_preserved": true,
+              "units_preserved": true,
+              "cancer_modality_supported": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

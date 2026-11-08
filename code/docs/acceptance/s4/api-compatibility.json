@@ -1,0 +1,428 @@
+{
+  "schema_version": "s4-api-compatibility-1",
+  "created_at": "2026-11-03T02:53:58.718Z",
+  "provider": "agicto",
+  "endpoint": "https://api.agicto.cn/v1",
+  "api_key_present": true,
+  "credentials_written": false,
+  "models_query": {
+    "observed_status": 200,
+    "observed_model_count": 227,
+    "inference_availability_not_proven_by_listing": true
+  },
+  "actual_Pi_SDK": "1.4.0",
+  "experiment_register": "docs/acceptance/s4/experiment-register.json",
+  "call_ledger": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/call-ledger.json",
+  "results": [
+    {
+      "model_id": "gpt-6.1-sol",
+      "profile": {
+        "model_id": "gpt-6.1-sol",
+        "api": "openai-responses",
+        "reasoning_effort": "medium",
+        "context_window": 32768,
+        "max_output_tokens": 8192,
+        "profile_version": "s4-development-medium-1"
+      },
+      "pi_audit": {
+        "pi_version": "1.4.0",
+        "model_id": "gpt-6.1-sol",
+        "api": "openai-responses",
+        "reasoning_effort": "medium",
+        "active_tools": [
+          "verify_synthetic_source"
+        ],
+        "context_file_count": 0,
+        "skill_count": 0,
+        "extension_count": 0,
+        "prompt_count": 0,
+        "theme_count": 0,
+        "in_memory_credentials": true,
+        "in_memory_session": true,
+        "default_discovery_disabled": true
+      },
+      "tool_calls": 1,
+      "success": true,
+      "settled": true,
+      "responses": 2,
+      "events": [
+        {
+          "type": "assistant_response",
+          "stop_reason": "toolUse"
+        },
+        {
+          "type": "tool_execution_start",
+          "tool": "verify_synthetic_source",
+          "call_id": "call_4e7fb2af4e244b778b876fd8ced99502|fc_0cea2ebd84da5a9c016ae94c940d7c81998aead81c6d8bb2fe"
+        },
+        {
+          "type": "tool_execution_end",
+          "tool": "verify_synthetic_source",
+          "call_id": "call_4e7fb2af4e244b778b876fd8ced99502|fc_0cea2ebd84da5a9c016ae94c940d7c81998aead81c6d8bb2fe",
+          "error": false
+        },
+        {
+          "type": "assistant_response",
+          "stop_reason": "stop"
+        }
+      ],
+      "usage": [
+        {
+          "input": 186,
+          "output": 54,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 10,
+          "totalTokens": 240,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        {
+          "input": 256,
+          "output": 7,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 263,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        }
+      ],
+      "request_ids": [
+        "b7b0fa39-2724-402a-8bd6-6a67c3aac3fc",
+        "517c9dd6-3cc2-4504-a618-eae6227b46a3"
+      ],
+      "transient_error": false,
+      "requests": [
+        {
+          "id": "b7b0fa39-2724-402a-8bd6-6a67c3aac3fc",
+          "model_id": "gpt-6.1-sol",
+          "purpose": "synthetic_tool_compatibility",
+          "attempt": 0,
+          "started_at": "2026-11-03T02:52:42.293Z",
+          "payload_sha256": "ac109e267e7d8f5fe9c11f38f341a7e05a2d335b4b1faaeefa33267d77d94b38",
+          "payload_bytes": 1092,
+          "input_ceiling": 1604,
+          "output_ceiling": 8192,
+          "usage_status": "provider_reported",
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "status": 200,
+          "provider_usage": {
+            "input_tokens": 186,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 54,
+            "output_tokens_details": {
+              "reasoning_tokens": 10
+            },
+            "total_tokens": 240,
+            "attribution": {
+              "items": {
+                "fc_0cea2ebd84da5a9c016ae94c940d7c81998aead81c6d8bb2fe": {
+                  "input_tokens": 0,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 44
+                },
+                "msg_0cea2ebd84da5a9c016ae94c831d9c8199957c7d81fcf902cb": {
+                  "input_tokens": 85,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "msg_0cea2ebd84da5a9c016ae94c831d9c8199b4f7ee29695c762f": {
+                  "input_tokens": 48,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "rs_0cea2ebd84da5a9c016ae94c9371388199955a70896fa9975f": {
+                  "input_tokens": 2,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 10
+                }
+              },
+              "request_fields": {
+                "tools": {
+                  "input_tokens": 51,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                }
+              }
+            }
+          },
+          "input_tokens": 186,
+          "output_tokens": 54,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 10,
+          "finished_at": "2026-11-03T02:53:09.425Z"
+        },
+        {
+          "id": "517c9dd6-3cc2-4504-a618-eae6227b46a3",
+          "model_id": "gpt-6.1-sol",
+          "purpose": "synthetic_tool_compatibility",
+          "attempt": 0,
+          "started_at": "2026-11-03T02:53:09.430Z",
+          "payload_sha256": "6a5336c7098ced251d8a3273bb8e19c58990eeff2fa4c038f47be4be5a6f3b26",
+          "payload_bytes": 3519,
+          "input_ceiling": 4031,
+          "output_ceiling": 8192,
+          "usage_status": "provider_reported",
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "status": 200,
+          "provider_usage": {
+            "input_tokens": 256,
+            "input_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            },
+            "output_tokens": 7,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 263,
+            "attribution": {
+              "items": {
+                "fc_0cea2ebd84da5a9c016ae94c940d7c81998aead81c6d8bb2fe": {
+                  "input_tokens": 44,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "fc_0cea2ebd84da5a9c016ae94c9d8ec881998bb88abcecd9d112": {
+                  "input_tokens": 26,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "msg_0cea2ebd84da5a9c016ae94c9d8ec88199997a24bbfafa8cbe": {
+                  "input_tokens": 48,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "msg_0cea2ebd84da5a9c016ae94c9d8ec8819999a1941efacea333": {
+                  "input_tokens": 85,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                },
+                "msg_0cea2ebd84da5a9c016ae94ca68c548199af8ddca9b0ef1141": {
+                  "input_tokens": 2,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 7
+                }
+              },
+              "request_fields": {
+                "tools": {
+                  "input_tokens": 51,
+                  "cached_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "output_tokens": 0
+                }
+              }
+            }
+          },
+          "input_tokens": 256,
+          "output_tokens": 7,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0,
+          "finished_at": "2026-11-03T02:53:27.285Z"
+        }
+      ],
+      "paper_text_sent": false,
+      "original_pdf_uploaded": false
+    },
+    {
+      "model_id": "gpt-6-astra",
+      "profile": {
+        "model_id": "gpt-6-astra",
+        "api": "openai-responses",
+        "reasoning_effort": "medium",
+        "context_window": 32768,
+        "max_output_tokens": 8192,
+        "profile_version": "s4-development-medium-1"
+      },
+      "pi_audit": {
+        "pi_version": "1.4.0",
+        "model_id": "gpt-6-astra",
+        "api": "openai-responses",
+        "reasoning_effort": "medium",
+        "active_tools": [
+          "verify_synthetic_source"
+        ],
+        "context_file_count": 0,
+        "skill_count": 0,
+        "extension_count": 0,
+        "prompt_count": 0,
+        "theme_count": 0,
+        "in_memory_credentials": true,
+        "in_memory_session": true,
+        "default_discovery_disabled": true
+      },
+      "tool_calls": 1,
+      "success": true,
+      "settled": true,
+      "responses": 2,
+      "events": [
+        {
+          "type": "assistant_response",
+          "stop_reason": "toolUse"
+        },
+        {
+          "type": "tool_execution_start",
+          "tool": "verify_synthetic_source",
+          "call_id": "call_71ac3139ce41476eaad3c938efc41587|fc_0d64334d1ed070d3016ae94cb8e7c88191899bfe3a417d1ba6"
+        },
+        {
+          "type": "tool_execution_end",
+          "tool": "verify_synthetic_source",
+          "call_id": "call_71ac3139ce41476eaad3c938efc41587|fc_0d64334d1ed070d3016ae94cb8e7c88191899bfe3a417d1ba6",
+          "error": false
+        },
+        {
+          "type": "assistant_response",
+          "stop_reason": "stop"
+        }
+      ],
+      "usage": [
+        {
+          "input": 6163,
+          "output": 75,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 11,
+          "totalTokens": 6238,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        {
+          "input": 6258,
+          "output": 13,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 6271,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        }
+      ],
+      "request_ids": [
+        "72ba5d1b-81b6-41df-ac91-1e4148118b02",
+        "6af190b9-866a-4904-9a3c-d13f1d86269d"
+      ],
+      "transient_error": false,
+      "requests": [
+        {
+          "id": "72ba5d1b-81b6-41df-ac91-1e4148118b02",
+          "model_id": "gpt-6-astra",
+          "purpose": "synthetic_tool_compatibility",
+          "attempt": 0,
+          "started_at": "2026-11-03T02:53:27.297Z",
+          "payload_sha256": "d8a3905f22194760d542b06d6b163eeb819c2c0ee500c17504532ffcd84e291e",
+          "payload_bytes": 1092,
+          "input_ceiling": 1604,
+          "output_ceiling": 8192,
+          "usage_status": "provider_reported",
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "status": 200,
+          "provider_usage": {
+            "input_tokens": 6163,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 75,
+            "output_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "total_tokens": 6238
+          },
+          "input_tokens": 6163,
+          "output_tokens": 75,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 11,
+          "finished_at": "2026-11-03T02:53:46.532Z"
+        },
+        {
+          "id": "6af190b9-866a-4904-9a3c-d13f1d86269d",
+          "model_id": "gpt-6-astra",
+          "purpose": "synthetic_tool_compatibility",
+          "attempt": 0,
+          "started_at": "2026-11-03T02:53:46.535Z",
+          "payload_sha256": "b715dcf7a72d6f0a8455b1f8dfdcc91c88372da11604f960346c614af02c9392",
+          "payload_bytes": 3451,
+          "input_ceiling": 3963,
+          "output_ceiling": 8192,
+          "usage_status": "provider_reported",
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "status": 200,
+          "provider_usage": {
+            "input_tokens": 6258,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 6271
+          },
+          "input_tokens": 6258,
+          "output_tokens": 13,
+          "cache_read_tokens": 0,
+          "cache_write_tokens": 0,
+          "reasoning_tokens": 0,
+          "finished_at": "2026-11-03T02:53:58.718Z"
+        }
+      ],
+      "paper_text_sent": false,
+      "original_pdf_uploaded": false
+    }
+  ],
+  "totals": {
+    "requests": 4,
+    "input_tokens": 12863,
+    "output_tokens": 149,
+    "conservative_missing_usage_requests": 0,
+    "elapsed_seconds": 76.425
+  },
+  "actual_cost": null,
+  "cost_status": "unknown_gateway_billing",
+  "formal_model_selected": false,
+  "original_pdf_uploads": 0,
+  "medical_quality_acceptance": false
+}

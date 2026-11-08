@@ -1,0 +1,437 @@
+{
+  "schema_version": "s3-engineering-delivery-1",
+  "recorded_at": "2026-11-02T14:53:57.683135+00:00",
+  "authorization": "code/docs/acceptance/s3/engineering-start-authorization.json",
+  "stage": "S3",
+  "status": "engineering_in_progress",
+  "stage_passed": false,
+  "engineering_delivery_status": "delivered_engineering_prototype_quality_acceptance_pending",
+  "formal_review_progress": {
+    "stage": "S3",
+    "formal_astra_reviews_used": 3,
+    "limit": 3,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 提前开工不能替代 S2/S3 验收；2. 候选解析器的资源和效果需实测后才能定案；3. 文本、表格和坐标的忠实性须对照原始 PDF 核验。"
+      },
+      {
+        "round": 2,
+        "node": "actual_error_reproduction",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 后端分块可能导致测试误判；2. 实际字符缺失尚未排除；3. 修复须保留逐码点与跨块校验，不能仅放宽断言使测试通过。",
+        "actual_failure_log": "code/docs/acceptance/s3/python-first-tests.log",
+        "recorded_at": "2026-11-02T14:40:18.240403+00:00"
+      },
+      {
+        "round": 3,
+        "node": "final_engineering_prototype_review",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 当前定位精度为整行，跨块引用须保留片段边界；2. 表格、阅读顺序和原页忠实度尚未人工核验；3. MinerU未实测，正式解析器尚未确定。",
+        "recorded_at": "2026-11-02T14:56:14.610481+00:00",
+        "stage_passed": false,
+        "approval_scope": "engineering_prototype_delivery_only",
+        "formal_stage_or_medical_acceptance": false
+      }
+    ],
+    "same_stage_counter_must_not_reset": true,
+    "review_budget_exhausted_for_same_S3_task": true
+  },
+  "S2_status": "in_progress",
+  "S2_stage_passed": false,
+  "S2_formal_reviews_used": 2,
+  "old_S0_S1_reviews": "sealed_3/3_unchanged",
+  "S4_S5_status": "authorized_after_technical_dependencies_not_started_this_iteration",
+  "implemented": [
+    "Local Python ParserAdapter and structured JSON parse/locate CLI",
+    "TS bridge without HTTP/Pi product integration",
+    "DocumentIR v2 contracts with v1 fixture compatibility",
+    "Versioned Unicode raw/normalized mappings and exact cross-block/page segments",
+    "Crop/rotation/UserUnit transformations retaining backend polygons and original PDF geometry",
+    "Explicit unsupported/errors/partial coverage; immutable output files"
+  ],
+  "text_backend_measurements": [
+    {
+      "source_id": "MED03",
+      "status": "ok",
+      "physical_pages": 9,
+      "blocks": 1411,
+      "text_code_points": 39005,
+      "cli_wall_seconds": 1.315083,
+      "metrics": {
+        "file_check_seconds": 0.000783,
+        "backend_init_seconds": 0.007498,
+        "first_text_seconds": 0.446638,
+        "total_seconds": 0.621563,
+        "cpu_user_seconds": 0.900113,
+        "cpu_system_seconds": 0.296094,
+        "peak_rss_bytes": 207310848,
+        "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+        "gpu_peak_memory_bytes": null,
+        "network_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "image_text_unverified_pages": [],
+      "failed_pages": []
+    },
+    {
+      "source_id": "L07",
+      "status": "partial",
+      "physical_pages": 15,
+      "blocks": 1189,
+      "text_code_points": 59830,
+      "cli_wall_seconds": 1.338161,
+      "metrics": {
+        "file_check_seconds": 0.00218,
+        "backend_init_seconds": 0.00932,
+        "first_text_seconds": 0.445877,
+        "total_seconds": 0.720033,
+        "cpu_user_seconds": 0.967054,
+        "cpu_system_seconds": 0.327657,
+        "peak_rss_bytes": 250081280,
+        "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+        "gpu_peak_memory_bytes": null,
+        "network_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "image_text_unverified_pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "failed_pages": []
+    },
+    {
+      "source_id": "L05",
+      "status": "partial",
+      "physical_pages": 10,
+      "blocks": 615,
+      "text_code_points": 33459,
+      "cli_wall_seconds": 1.011111,
+      "metrics": {
+        "file_check_seconds": 0.001823,
+        "backend_init_seconds": 0.008317,
+        "first_text_seconds": 0.438761,
+        "total_seconds": 0.595996,
+        "cpu_user_seconds": 0.888013,
+        "cpu_system_seconds": 0.282559,
+        "peak_rss_bytes": 203206656,
+        "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+        "gpu_peak_memory_bytes": null,
+        "network_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "image_text_unverified_pages": [
+        1,
+        4,
+        5,
+        6,
+        8
+      ],
+      "failed_pages": []
+    },
+    {
+      "source_id": "L01",
+      "status": "partial",
+      "physical_pages": 4,
+      "blocks": 409,
+      "text_code_points": 10522,
+      "cli_wall_seconds": 0.914878,
+      "metrics": {
+        "file_check_seconds": 0.001779,
+        "backend_init_seconds": 0.006857,
+        "first_text_seconds": 0.499231,
+        "total_seconds": 0.565129,
+        "cpu_user_seconds": 0.879047,
+        "cpu_system_seconds": 0.260717,
+        "peak_rss_bytes": 162316288,
+        "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+        "gpu_peak_memory_bytes": null,
+        "network_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "image_text_unverified_pages": [
+        2
+      ],
+      "failed_pages": []
+    },
+    {
+      "source_id": "L02",
+      "status": "partial",
+      "physical_pages": 3,
+      "blocks": 263,
+      "text_code_points": 7229,
+      "cli_wall_seconds": 0.832427,
+      "metrics": {
+        "file_check_seconds": 0.001603,
+        "backend_init_seconds": 0.00681,
+        "first_text_seconds": 0.489001,
+        "total_seconds": 0.535597,
+        "cpu_user_seconds": 0.839049,
+        "cpu_system_seconds": 0.265331,
+        "peak_rss_bytes": 153374720,
+        "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+        "gpu_peak_memory_bytes": null,
+        "network_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "image_text_unverified_pages": [
+        2
+      ],
+      "failed_pages": []
+    }
+  ],
+  "sample_scope": "Five previously exposed development candidates; never independent acceptance",
+  "total_physical_pages": 41,
+  "total_blocks": 3887,
+  "candidates": {
+    "docling_parse_text_adapter": {
+      "package": "docling-parse",
+      "version": "7.24.2",
+      "status": "implemented_and_measured",
+      "IR": "DocumentIR v2",
+      "model_free": true,
+      "table_structure": "not_reconstructed",
+      "reading_order": "backend_textline_order_unverified",
+      "human_fidelity_verified": false,
+      "measurement": "code/docs/acceptance/s3/runs/2026-11-02T14-41-35-628654Z/summary.json"
+    },
+    "docling_standard_native": {
+      "package": "docling",
+      "version": "2.145.0",
+      "status": "native_probe_completed_quality_unverified",
+      "IR_adapter": "not_implemented_native_outputs_only",
+      "OCR": false,
+      "device": "cpu",
+      "quality_verified": false,
+      "measurement": "code/docs/acceptance/s3/standard/2026-11-02T14-44-31-863991Z/result.json",
+      "reading_order_fallback_warnings": [
+        {
+          "source_id": "L01",
+          "physical_page": 1,
+          "separator_candidates": 8907
+        },
+        {
+          "source_id": "L02",
+          "physical_page": 1,
+          "separator_candidates": 6758
+        }
+      ],
+      "warnings_log": "code/docs/acceptance/s3/standard-probe-console.log"
+    },
+    "mineru": {
+      "version": "4.1.4",
+      "status": "official_sources_verified_not_installed_or_run",
+      "cpu_basic_supported_by_official_docs": true,
+      "hardware_failure_claimed": false,
+      "reason_not_run": "本轮工程边界优先完成可复用文本/定位适配及一套完整Docling原生试跑。尚未建立MinerU隔离依赖、固定模型、本地服务配置与项目输出对齐；未声称当前CPU/内存无法运行。",
+      "independent_benchmark_or_quality_claim": null
+    },
+    "formal_parser_selected": false,
+    "same_condition_quality_comparison_completed": false,
+    "comparison_note": "Text backend fresh-process CLI timings versus native model-initialization/reused-converter timings have different capabilities and resource scopes. Not a Docling-versus-MinerU or same-condition fidelity comparison."
+  },
+  "checks": {
+    "recorded_at": "2026-11-02T14:47:17.432078+00:00",
+    "checks": [
+      {
+        "name": "parser-contracts",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "parser:contracts"
+        ],
+        "duration_seconds": 0.397,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/parser-contracts.log",
+        "llm_calls": 0
+      },
+      {
+        "name": "check",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "check"
+        ],
+        "duration_seconds": 0.981,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/check.log",
+        "llm_calls": 0
+      },
+      {
+        "name": "test-parser-python",
+        "command": [
+          "/home/ecs-user/projects/t1-agent/code/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "services/pdf-parser/tests",
+          "-v"
+        ],
+        "duration_seconds": 1.902,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser-python.log",
+        "llm_calls": 0,
+        "python_tests_run": 9
+      },
+      {
+        "name": "test-parser",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:parser"
+        ],
+        "duration_seconds": 2.336,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 6,
+          "pass": 6,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-unit",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:unit"
+        ],
+        "duration_seconds": 1.059,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-unit.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 15,
+          "pass": 15,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-integration",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:integration"
+        ],
+        "duration_seconds": 2.876,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-integration.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 8,
+          "pass": 8,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-evaluation",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:evaluation"
+        ],
+        "duration_seconds": 1.375,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-evaluation.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 28,
+          "pass": 28,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "build-web",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "build:web"
+        ],
+        "duration_seconds": 0.386,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/build-web.log",
+        "llm_calls": 0
+      }
+    ],
+    "all_checks_passed": true,
+    "stage_passed": false,
+    "human_quality_verified": false,
+    "real_api_calls": 0,
+    "dependencies": "Current isolated .venv; includes CPU-only full Docling installation"
+  },
+  "resource_summary": "code/docs/acceptance/s3/resource-summary.json",
+  "source_verification": [
+    "code/docs/acceptance/s3/candidate-source-verification.json",
+    "code/docs/acceptance/s3/model-source-verification.json"
+  ],
+  "Unicode_failure_and_resolution": {
+    "initial_log": "code/docs/acceptance/s3/python-first-tests.log",
+    "cell_output": "code/docs/acceptance/s3/unicode-cell-split-reproduction.json",
+    "ToUnicode_diagnosis": "code/docs/acceptance/s3/unicode-generated-cmap-diagnosis.json",
+    "resolution": "Keep original generated failure PDF, create separate valid UTF-16BE ToUnicode fixture, strictly assert non-BMP/Greek/combining text and inline/cross-block code-point locations; no production PDF repair",
+    "final_test_log": "code/docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser-python.log"
+  },
+  "S2_scope_clarification": "code/docs/acceptance/s3/s2-u02-clarification.json",
+  "localization_previews": "code/docs/acceptance/s3/runs/2026-11-02T14-41-35-628654Z/localization-previews/index.json",
+  "pending_acceptance": [
+    "Human PDF comparison of text omissions, reading order, tables/captions and actual location fidelity",
+    "S2 human full-text gold, medical review, approved annotation/scoring details, final family splits and sealed independent corpus",
+    "Comparable cross-candidate study and joint formal parser selection",
+    "Final quality/performance thresholds jointly confirmed and frozen before S6"
+  ],
+  "quality_thresholds_changed": false,
+  "E01_to_E09_changed": false,
+  "formal_sample_count": null,
+  "remote_document_uploads": 0,
+  "paid_llm_calls": 0,
+  "docker_installed": false,
+  "public_service_started": false,
+  "final_engineering_review": "code/docs/acceptance/s3/final-review.json",
+  "readable_index": "code/docs/acceptance/s3/README.md",
+  "version_manifest": "code/docs/acceptance/s3/version-manifest.json",
+  "integrity_proof": "code/docs/acceptance/s3/final-integrity.json",
+  "cross_block_quote_authority": "quote/raw_quote are display combinations formed with the explicit joiner; authoritative evidence is each source segment with its exact block/version/code-point boundaries. Downstream must preserve boundaries and must not treat the combination as contiguous original text. Not connected to candidate submission in this iteration."
+}

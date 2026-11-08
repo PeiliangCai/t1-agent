@@ -1,0 +1,73 @@
+{
+  "schema_version": "t1-requirement-plan-final-handoff-1",
+  "recorded_at": "2026-11-04T10:14:01.765005+00:00",
+  "status": "plan_and_engineering_contract_synced_document_checks_passed_medical_quality_pending",
+  "owner": "/root/t1_requirement_plan",
+  "plan_version": "0.4",
+  "execution_guide_version": "0.2",
+  "live_files_updated": 11,
+  "validation": "code/docs/acceptance/requirement-revision-2026-11-04/plans/validation.json",
+  "checks_passed": 258,
+  "document_preservation": [
+    {
+      "document": "T1智能体开发计划.docx",
+      "before_sha256": "a9f3dddcad1620fe26720c94524db67e6b5cdca1353e1ab525af275f472b79bc",
+      "after_sha256": "875eff95f7661385fa6e24786071b2cc5a5361e835b725097e442c450c7e6752",
+      "original_paragraphs": 174,
+      "live_paragraphs": 192,
+      "changed_original_paragraphs": 19,
+      "unchanged_original_paragraphs": 155,
+      "appended_paragraphs": 18,
+      "all_other_zip_members_exact": true,
+      "historical_appendices_exact": true,
+      "all_existing_style_properties_exact": true
+    },
+    {
+      "document": "T1开发执行说明.docx",
+      "before_sha256": "6c2a94c71ed4d4d481fb8e43e7682e810f54a9a6bb9fe74b87e4e6cfb09e0cd4",
+      "after_sha256": "7b2e41ed74f5f91490411f0d15fee04154b8fd1e06aa94e5ebfcb9f0c2a2527d",
+      "original_paragraphs": 538,
+      "live_paragraphs": 556,
+      "changed_original_paragraphs": 71,
+      "unchanged_original_paragraphs": 467,
+      "appended_paragraphs": 18,
+      "all_other_zip_members_exact": true,
+      "historical_appendices_exact": true,
+      "all_existing_style_properties_exact": true
+    }
+  ],
+  "counts": {
+    "stages": 8,
+    "tasks": 27,
+    "decisions": 23,
+    "legacy_evidence_fields": 28,
+    "sidecar_contracts": 2,
+    "metrics": 13,
+    "functional_rules": 12
+  },
+  "cas_receipt": "code/docs/acceptance/requirement-revision-2026-11-04/plans/delivery-sync/cas-write-receipt.json",
+  "engineering_sync": "code/docs/acceptance/requirement-revision-2026-11-04/plans/delivery-sync/engineering-sync-summary.json",
+  "formal_review": {
+    "task": "requirement_revision",
+    "round": 2,
+    "limit": 3,
+    "decision": "continue",
+    "text": "判断：继续。风险：1. 原文定位校验不能替代相关性与语境的人工抽查；2. 多对象、矢量及复杂组图仍需核对，不能强行配对；3. 新协议尚未做付费模型实测，旧候选回放不能证明新策略最优。允许本轮工程交付，人工抽样验收仍待进行。",
+    "recorded_at": "2026-11-04T10:13:10.078032+00:00",
+    "source": "root user-configured GPT-6-Astra max final engineering review, exact root message",
+    "old_S4_review_counter": "sealed3/3 unchanged",
+    "medical_acceptance_passed": false
+  },
+  "old_S4_formal_reviews": "sealed3/3 unchanged",
+  "full_gold_required": false,
+  "full_gold_preparation_pending": false,
+  "human_output_sampling": "pending",
+  "numeric_sample_size_and_thresholds": "measure_then_jointly_confirm_not_current_engineering_start_blocker",
+  "medical_acceptance_passed": false,
+  "S5_complete_UI": "not_started_future",
+  "new_paid_API_calls": 0,
+  "new_model_branch_validated": false,
+  "word_pagination_visually_reviewed": false,
+  "other_agents_application_reports_or_permanent_rules_modified": false,
+  "own_temporary_note_cleanup": "delivery-sync/continuity-cleanup.json"
+}

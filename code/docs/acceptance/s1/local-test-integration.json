@@ -1,0 +1,16 @@
+{
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "npm",
+    "run",
+    "test:integration"
+  ],
+  "cwd": "/home/ecs-user/projects/t1-agent/code",
+  "started_at": "2026-11-02T09:51:10.225284+00:00",
+  "finished_at": "2026-11-02T09:51:13.110614+00:00",
+  "exit_code": 0,
+  "stdout": "\n> t1-agent@0.1.0 test:integration\n> tsx --test tests/integration/*.test.ts\n\n✔ session creation failure leaves the already persisted run failed with a terminal event, without API calls (857.676297ms)\n✔ HTTP SSE delivers a candidate committed through an independent SQLite connection without reconnecting (488.792242ms)\n✔ a settled mock Pi loop requires actual bound read/submission and persists business events (8.870155ms)\n✔ agent_end alone or a settled zero-read/no-submission run is failed, not completed (6.030734ms)\n✔ a cancelled run releases its session and remains cancelled (1.658843ms)\n✔ runtime errors preserve an existing failed/cancelled terminal state and the original sanitized cause (2.86558ms)\n✔ debug HTTP APIs expose fixture status and reject unknown IDs without model calls (60.59473ms)\n✔ SSE reconnect replays ordered saved events after the cursor; disconnect does not cancel the task (33.567187ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2718.488739\n",
+  "stderr": "",
+  "real_api_calls": 0
+}

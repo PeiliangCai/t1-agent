@@ -1,0 +1,865 @@
+{
+  "model_id": "gpt-6.1-sol",
+  "purpose": "explicit_synthetic_S4_protocol_probe",
+  "fixture": true,
+  "medical_evidence": false,
+  "success": true,
+  "record_count": 1,
+  "batch_completed": true,
+  "result": {
+    "settled": true,
+    "responses": 3,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "get_document_context",
+        "call_id": "call_c2f6bed3deb54f66ad6012e23e90b4ae|fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "get_document_context",
+        "call_id": "call_c2f6bed3deb54f66ad6012e23e90b4ae|fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call_354fac45c6dc4c08a5952b6b0fc1ff3d|fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call_354fac45c6dc4c08a5952b6b0fc1ff3d|fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb",
+        "error": false
+      }
+    ],
+    "usage": [
+      {
+        "input": 106,
+        "output": 112,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 95,
+        "totalTokens": 1370,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 271,
+        "output": 40,
+        "cacheRead": 1152,
+        "cacheWrite": 0,
+        "reasoning": 19,
+        "totalTokens": 1463,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 1531,
+        "output": 164,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1695,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "e5280e20-b887-4e53-bf02-ca62bbf20bcc",
+      "218c281a-dd7e-439e-8849-e9cca22f8106",
+      "58d280c8-008c-40df-a564-1cb715cf6001"
+    ],
+    "transient_error": false
+  },
+  "argument_samples": [
+    {
+      "call_id": "call_c2f6bed3deb54f66ad6012e23e90b4ae|fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08",
+      "tool": "get_document_context",
+      "argument_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "public_synthetic_argument_sample": "{}",
+      "truncated": false
+    },
+    {
+      "call_id": "call_354fac45c6dc4c08a5952b6b0fc1ff3d|fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514",
+      "tool": "read_document_blocks",
+      "argument_sha256": "56771035bb4e1c4505583f9a28da27f3df8fff03ae284f2a35eb7a76a7db8c18",
+      "public_synthetic_argument_sample": "{\"line_indices\":[]}",
+      "truncated": false
+    },
+    {
+      "call_id": "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb",
+      "tool": "submit_candidate_records",
+      "argument_sha256": "b41281e58cb4d9805a5bcd9506d86b861a607079092f82d1c03efc263f488f56",
+      "public_synthetic_argument_sample": "{\"batch_complete\":true,\"records\":[{\"assertion\":\"affirmed\",\"assertion_source_indices\":[0],\"cited_references\":[],\"condition_source_indices\":[],\"context_line_indices\":[0],\"disease_or_lesion\":null,\"evidence_type\":\"imaging_observation\",\"feature_binding_id\":null,\"feature_category\":\"margin\",\"feature_name_raw\":\"blue rim\",\"modality\":{\"source_indices\":[0],\"value\":\"CT\"},\"numeric_expressions\":[{\"original_text\":\"7 mm\",\"source_indices\":[0],\"unit_original\":\"mm\"}],\"origin\":\"study_authors\",\"provenance_source_indices\":[0],\"sequence_or_phase\":null,\"source_line_indices\":[0],\"updates_record_id\":\"blue-rim-ct-7mm\"}]}",
+      "truncated": false
+    }
+  ],
+  "records": [
+    {
+      "record": {
+        "record_id": "ev-0b0ca74f6d75b28cbbe70e11299b283f631441c2",
+        "document_id": "closed-probe-synthetic-document",
+        "article_family_id": "synthetic-family",
+        "bibliographic_identity": {
+          "title": "Synthetic S4 engineering fixture; not a medical paper",
+          "authors": [],
+          "venue": null,
+          "year": null,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "unverified"
+        },
+        "source_version": {
+          "file_sha256": "5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+          "source_kind": "synthetic_engineering_fixture",
+          "version": "sha256:5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+          "obtained_at": "2026-11-03T00:00:00Z"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "synthetic-line-1",
+          "bbox": [
+            10,
+            10,
+            500,
+            25
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "synthetic-line-1",
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+        "original_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "single_source_segment",
+          "contiguous_source_quote": true
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "blue rim",
+        "feature_category": "margin",
+        "evidence_type": "imaging_observation",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "unknown",
+          "original_wording": "",
+          "evidence": []
+        },
+        "numeric_expressions": [
+          {
+            "original_text": "7 mm",
+            "unit_original": "mm",
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          }
+        ],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "condition_requires_context",
+            "new_term_pending_human_review",
+            "includes_whole_source_line_quotes_not_minimal_feature_spans"
+          ],
+          "issues": [
+            {
+              "code": "condition_requires_context",
+              "severity": "requires_review",
+              "path": "applicability",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "synthetic-task",
+          "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+          "fixture": true,
+          "evidence_kind": "engineering_fixture",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "synthetic-unavailable-catalog-1",
+            "matching_policy_version": "exact-explicit-synonyms-1"
+          },
+          "catalog_version": "synthetic-unavailable-catalog-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "exact-explicit-synonyms-1",
+          "rule_version": "synthetic-s4-rules-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "synthetic-no-parser-call",
+          "read_block_ids": [
+            "synthetic-line-1"
+          ],
+          "provided_block_ids": [
+            "synthetic-line-1"
+          ],
+          "tool_call_ids": [
+            "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb"
+          ],
+          "source_binding": {
+            "task_id": "synthetic-task",
+            "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+            "document_id": "closed-probe-synthetic-document",
+            "file_sha256": "5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+            "source_version": "sha256:5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+            "text_version": "synthetic-code-point-text-5f9ebdca4485778e"
+          },
+          "updates_record_id": "blue-rim-ct-7mm"
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "version": 1,
+      "actor": "automatic",
+      "status": "active",
+      "created_at": "2026-11-03T04:01:45.312Z",
+      "reason": "insert"
+    }
+  ],
+  "events": [
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 1,
+      "type": "state",
+      "timestamp": "2026-11-03T04:00:34.254Z",
+      "detail": {
+        "state": "queued",
+        "medical_quality_approved": false
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 2,
+      "type": "state",
+      "timestamp": "2026-11-03T04:00:34.255Z",
+      "detail": {
+        "state": "extracting"
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 3,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:00:57.723Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "get_document_context",
+        "call_id": "call_c2f6bed3deb54f66ad6012e23e90b4ae|fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08",
+        "protocol": "whole_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 4,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:00:57.726Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_c2f6bed3deb54f66ad6012e23e90b4ae|fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08",
+        "name": "get_document_context",
+        "status": "ok"
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 5,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:01:17.601Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "read_document_blocks",
+        "call_id": "call_354fac45c6dc4c08a5952b6b0fc1ff3d|fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514",
+        "protocol": "whole_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 6,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:01:17.603Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_354fac45c6dc4c08a5952b6b0fc1ff3d|fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514",
+        "name": "read_document_blocks",
+        "status": "ok"
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 7,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:01:45.297Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "submit_candidate_records",
+        "call_id": "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb",
+        "protocol": "whole_lines",
+        "record_shapes": [
+          {
+            "source_line_count": 1,
+            "exact_fragment_count": 0,
+            "copied_source_quote_characters": 0,
+            "copied_context_quote_characters": 0
+          }
+        ]
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 8,
+      "type": "candidate",
+      "timestamp": "2026-11-03T04:01:45.312Z",
+      "detail": {
+        "record_id": "ev-0b0ca74f6d75b28cbbe70e11299b283f631441c2",
+        "record_version": 1,
+        "review_status": "needs_context",
+        "reason": "insert"
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 9,
+      "type": "reconciliation",
+      "timestamp": "2026-11-03T04:01:45.312Z",
+      "detail": {
+        "action": "insert",
+        "issues": [
+          "update_target_missing_or_outside_bound_run"
+        ]
+      }
+    },
+    {
+      "run_id": "closed-probe-2a2c8790-c6f0-469b-a555-3618d7232a87",
+      "seq": 10,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:01:45.314Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_c2b8c357b68945289399ada6837cc567|fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb",
+        "name": "submit_candidate_records",
+        "status": "ok"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "e5280e20-b887-4e53-bf02-ca62bbf20bcc",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:00:34.355Z",
+      "payload_sha256": "376f00832998b76abc56c1d6d2decf0b4385322d1b4018e4f6728024a6f50360",
+      "payload_bytes": 7717,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 8229,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 14,
+      "first_stream_event_at": "2026-11-03T04:00:56.093Z",
+      "last_stream_event_at": "2026-11-03T04:00:57.462Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_0f517dc2f80100a7016ae95c63f408819bbbece1fabf80126c",
+      "reasoning_visible_delta_characters": 45,
+      "tool_argument_delta_characters": 2,
+      "provider_usage": {
+        "input_tokens": 1258,
+        "input_tokens_details": {
+          "cached_tokens": 1152,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 112,
+        "output_tokens_details": {
+          "reasoning_tokens": 95
+        },
+        "total_tokens": 1370,
+        "attribution": {
+          "items": {
+            "fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 17
+            },
+            "msg_044691b9d2182a75016ae95c6c5d1c819ab52ffc4003f696eb": {
+              "input_tokens": 189,
+              "cached_tokens": 85,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_044691b9d2182a75016ae95c6c5d1c819abba8182718f04907": {
+              "input_tokens": 286,
+              "cached_tokens": 286,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "rs_044691b9d2182a75016ae95c73f950819ab72b882d4b524069": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 95
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 781,
+              "cached_tokens": 781,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "b84cd7709a642fdfbde4f35f20a639e21967a6abce937381a6d117211fb29571",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1258,
+      "output_tokens": 112,
+      "cache_read_tokens": 1152,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 95,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:00:57.721Z"
+    },
+    {
+      "id": "218c281a-dd7e-439e-8849-e9cca22f8106",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:00:57.731Z",
+      "payload_sha256": "382870ebb7d8676c374f3a0b09b83bd0d17e9458810a14b281524f7e54bfd27c",
+      "payload_bytes": 11821,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 12333,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 18,
+      "first_stream_event_at": "2026-11-03T04:01:15.890Z",
+      "last_stream_event_at": "2026-11-03T04:01:17.342Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_044691b9d2182a75016ae95c7af6c0819abd527145a2ecfb9e",
+      "reasoning_visible_delta_characters": 29,
+      "tool_argument_delta_characters": 19,
+      "provider_usage": {
+        "input_tokens": 1423,
+        "input_tokens_details": {
+          "cached_tokens": 1152,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 40,
+        "output_tokens_details": {
+          "reasoning_tokens": 19
+        },
+        "total_tokens": 1463,
+        "attribution": {
+          "items": {
+            "fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08": {
+              "input_tokens": 17,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95c823f18819aaab055c7f5d370e4": {
+              "input_tokens": 148,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 21
+            },
+            "msg_044691b9d2182a75016ae95c823f18819aa9d5786af153a6c6": {
+              "input_tokens": 286,
+              "cached_tokens": 286,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_044691b9d2182a75016ae95c823f18819abbbbcf00897250a6": {
+              "input_tokens": 189,
+              "cached_tokens": 85,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "rs_044691b9d2182a75016ae95c8aa474819abc8c400c3cfee012": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 19
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 781,
+              "cached_tokens": 781,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "3a7b3069ee60004866b55ccde911871eb0dd691f058f426b5616533c66812a86",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1423,
+      "output_tokens": 40,
+      "cache_read_tokens": 1152,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 19,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:01:17.599Z"
+    },
+    {
+      "id": "58d280c8-008c-40df-a564-1cb715cf6001",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:01:17.607Z",
+      "payload_sha256": "28f416ae21c1f8ea6d8b1b432143d04360e4f32eac200a50adebbfda6b7ddd01",
+      "payload_bytes": 14577,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 15089,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 157,
+      "first_stream_event_at": "2026-11-03T04:01:41.129Z",
+      "last_stream_event_at": "2026-11-03T04:01:45.040Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_044691b9d2182a75016ae95c924afc819ab78ba09cd5fb763c",
+      "tool_argument_delta_characters": 601,
+      "provider_usage": {
+        "input_tokens": 1531,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 164,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1695,
+        "attribution": {
+          "items": {
+            "fc_044691b9d2182a75016ae95c780e84819aa52664198fb7cd08": {
+              "input_tokens": 17,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95c8bb0b0819a99f377557b4f0514": {
+              "input_tokens": 21,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95c9ad778819a849fd6e8749fc53c": {
+              "input_tokens": 87,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95c9ad778819abe8f46235f48bfb3": {
+              "input_tokens": 148,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_044691b9d2182a75016ae95ca4e848819a82ae3d1a8e5875eb": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 164
+            },
+            "msg_044691b9d2182a75016ae95c9ad778819ab64c2ee16cdf1366": {
+              "input_tokens": 189,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_044691b9d2182a75016ae95c9ad778819abcf999b51d2bd2b0": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 781,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "e827bae0f0cc909f53f3752219fcd162867ed9958b23f24e3c618e21a50a79c5",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1531,
+      "output_tokens": 164,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:01:45.290Z"
+    }
+  ],
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6.1-sol",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  }
+}

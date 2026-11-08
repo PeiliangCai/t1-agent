@@ -1,0 +1,22 @@
+{
+  "schema_version": "s4-selection-source-mask-equivalence-limitation-1",
+  "recorded_at": "2026-11-03T12:53:47.650557+00:00",
+  "decision_authority": "main_session_daily_experiment_record_judgment_no_formal_review_consumed",
+  "frozen_implementation_retained": true,
+  "actual_paper_runs_planned": 5,
+  "logical_conditions": 8,
+  "equivalence_established": [
+    "selected source block mask",
+    "same extraction task contract and parameters"
+  ],
+  "equivalence_not_established": [
+    "byte-identical complete model-visible requests for hypothetical independent alias runs",
+    "independent R/FR model behavior",
+    "statistically negligible effect of host identity labels"
+  ],
+  "explanation": "Existing summary source_binding.run_id contains job suffixes such as L01-F/B0. The stored field model_visible_source_input_sha256 fingerprints selected source plus task contract, not every byte of a hypothetical full request.",
+  "alias_policy": "Aliases point to the exact representative F-run artifact and have no independent requests/latency/output measurement.",
+  "future_work": "Strict blinding and stochastic replication would be separate experimental variables.",
+  "current_default": "B0 unchanged",
+  "formal_review_used": 2
+}

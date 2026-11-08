@@ -1,0 +1,70 @@
+[
+  {
+    "candidate": "docling-standard-cpu",
+    "expected": "encrypted_pdf_unsupported",
+    "actual": {
+      "schema_version": "parser-result-2",
+      "run_id": "constructed-errors",
+      "status": "error",
+      "document": null,
+      "error": {
+        "code": "encrypted_pdf_unsupported",
+        "message": "Encrypted PDF requires a separately supported password workflow",
+        "retryable": false
+      }
+    },
+    "exit_code": 1,
+    "stderr": ""
+  },
+  {
+    "candidate": "mineru-basic-onnx-cpu",
+    "expected": "invalid_or_damaged_pdf",
+    "actual": {
+      "schema_version": "parser-result-2",
+      "run_id": "constructed-errors",
+      "status": "error",
+      "document": null,
+      "error": {
+        "code": "invalid_or_damaged_pdf",
+        "message": "PDF metadata/page tree cannot be decoded",
+        "retryable": false
+      }
+    },
+    "exit_code": 1,
+    "stderr": "EOF marker not found\n"
+  },
+  {
+    "candidate": "mineru-basic-onnx-cpu",
+    "expected": "file_sha256_mismatch",
+    "actual": {
+      "schema_version": "parser-result-2",
+      "run_id": "constructed-errors",
+      "status": "error",
+      "document": null,
+      "error": {
+        "code": "file_sha256_mismatch",
+        "message": "Original bytes differ from the expected SHA256",
+        "retryable": false
+      }
+    },
+    "exit_code": 1,
+    "stderr": ""
+  },
+  {
+    "candidate": "not-a-candidate",
+    "expected": "candidate_not_allowed",
+    "actual": {
+      "schema_version": "parser-result-2",
+      "run_id": "constructed-errors",
+      "status": "error",
+      "document": null,
+      "error": {
+        "code": "candidate_not_allowed",
+        "message": "An explicit allowed candidate is required",
+        "retryable": false
+      }
+    },
+    "exit_code": 1,
+    "stderr": ""
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "engineering": {
+    "status": "engineering_delivered_quality_pending",
+    "report": "code/docs/acceptance/requirement-revision-2026-11-04/index.html",
+    "source_manifest": "code/docs/acceptance/requirement-revision-2026-11-04/implementation-source-manifest.json",
+    "review_packet": "code/docs/acceptance/requirement-revision-2026-11-04/final-review-packet.json",
+    "support_matrix": "code/docs/acceptance/requirement-revision-2026-11-04/support-matrix.json",
+    "offline_replay": "code/docs/acceptance/requirement-revision-2026-11-04/offline-replay-report.json",
+    "figures": {
+      "real_pdfs": 5,
+      "numbered_figure_candidates": 12,
+      "unnumbered_region_candidates": 5,
+      "png_assets": 12,
+      "mechanically_checked_figures": 5,
+      "whole_figure_human_approved": false,
+      "inventory_complete": false
+    },
+    "historical_output_offline_compatibility": {
+      "unique_outputs": 5,
+      "logical_conditions": 8,
+      "reused_conditions_not_independent": 3,
+      "records": 119,
+      "association_counts": {
+        "paired": 1,
+        "pending": 7,
+        "no_explicit_reference": 111
+      },
+      "new_model_experiment": false,
+      "no_explicit_reference_means_no_images": false
+    },
+    "general_cpu_cli": {
+      "entry": "code/scripts/extract-paper.ts",
+      "record": "code/docs/acceptance/requirement-revision-2026-11-04/general-cli/fresh-L05-final-command.json",
+      "seconds": 31.96299722599997,
+      "parser_status": "partial",
+      "figure_candidates": 5,
+      "model_extraction_performed": false,
+      "paid_calls": 0
+    },
+    "checks": {
+      "record": "code/docs/acceptance/requirement-revision-2026-11-04/checks-source-binding-final/results.json",
+      "typecheck": "passed",
+      "extraction_tests": 162,
+      "figure_bridge_tests": 1,
+      "python_tests": 3,
+      "python_geometry_combinations": 8,
+      "python_record": "code/docs/acceptance/requirement-revision-2026-11-04/checks-final/figure-python.log"
+    },
+    "new_paid_API_calls": 0,
+    "new_live_model_extraction_branch_executed": false,
+    "new_medical_or_strategy_quality_claimed": false,
+    "human_sampling": "pending",
+    "full_original_PDF_fidelity_human_review": "pending",
+    "S5_complete_UI": "not_expanded",
+    "stage_passed": false
+  },
+  "formal_review_progress": {
+    "task": "requirement_revision",
+    "formal_astra_reviews_used": 2,
+    "limit": 3,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 删减原文可能丢失否定或适用条件；2. 图号或子图错配会形成错误图文对；3. 没有完整参考答案时，无法直接证明召回率或零误抽，需要明确新的核验方式。"
+      },
+      {
+        "round": 2,
+        "node": "final_engineering_delivery",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 原文定位校验不能替代相关性与语境的人工抽查；2. 多对象、矢量及复杂组图仍需核对，不能强行配对；3. 新协议尚未做付费模型实测，旧候选回放不能证明新策略最优。允许本轮工程交付，人工抽样验收仍待进行。",
+        "recorded_at": "2026-11-04T10:13:10.078032+00:00",
+        "record": "code/docs/acceptance/requirement-revision-2026-11-04/plans/delivery-sync/formal-review-input.json",
+        "engineering_delivery_can_close": true,
+        "medical_acceptance_passed": false,
+        "S5_complete_UI_started": false
+      }
+    ],
+    "reviewer": "user-configured root GPT-6-Astra max; no extra review agent",
+    "prior_S4_reviews": "sealed_3_of_3_unchanged",
+    "engineering_delivery_review_completed": true
+  },
+  "source_manifest_sha256": "25a3c93d7cbe0fbfdf7647751954532c15b15ebba8ea8e9354cb7890e657bacc",
+  "word_pagination_visually_reviewed": false
+}

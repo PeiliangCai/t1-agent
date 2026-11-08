@@ -1,0 +1,47 @@
+{
+  "schema_version": "b0-revalidation-user-confirmation-1",
+  "decision": "approved",
+  "user_quote": "可以的",
+  "confirmation_context": {
+    "purpose": "s4_b0_revalidation_no_method_comparison",
+    "prepared_plan_sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026",
+    "document_order": [
+      "L07",
+      "L01",
+      "L05"
+    ],
+    "method": "B0",
+    "model": {
+      "provider": "agicto",
+      "endpoint": "https://api.agicto.cn/v1",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "api": "openai-responses"
+    },
+    "limits": {
+      "requests": 128,
+      "input_tokens": 2500000,
+      "output_tokens": 160000,
+      "seconds": 3600,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "all_retries_share_one_budget_and_clock": true,
+    "first_request_starts_clock": true,
+    "one_run_per_paper_no_second_round_or_resume": true
+  },
+  "source": "Root main session relayed the latest user reply and assigned this agent sole execution authority for this exact plan.",
+  "root_observed_user_reply_at_UTC": "2026-11-08T15:01:48Z",
+  "recorded_at_UTC": "2026-11-08T15:03:35.938930+00:00",
+  "user_click_timestamp_known": false,
+  "message_id_supplied": false,
+  "old_paid143_and_unused81_closed": true,
+  "formal_architecture_reviews": {
+    "used": 3,
+    "limit": 3
+  },
+  "authorization_id": "b0-revalidation-20261108-58236e241ce1434aa53a782b1839632e"
+}

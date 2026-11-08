@@ -1,0 +1,374 @@
+{
+  "status": "12_current_documents_synced_local_reliability_verified_new_live_batch_pending_approval",
+  "date": "2026-11-05",
+  "parent_version": "0.4",
+  "child_version": "0.6",
+  "execution_guide_version": "0.4",
+  "approval": {
+    "user_approved": true,
+    "date": "2026-11-04",
+    "approved_readable_plan_sha256": "c764821baa57bedb09143b16f4ed8229d7b009ab813dbd9499a3af06bed92d39",
+    "scope": "主计划已批准、文档同步/精简与S0—S4顺序审计已完成；11月5日新实验另获明确授权，未把工程检查当医学通过。",
+    "current_readable_plan_sha256": "3991cb32b9080ecd247758c2f83c6582bea500e68b3560fe5acdea40a5add1c4"
+  },
+  "current_state": "local_reliability_verified_new_live_revalidation_pending_approval_quality_and_selection_pending",
+  "counts": {
+    "child_stages": 8,
+    "child_tasks": 27,
+    "metrics": 13,
+    "functional_rules": 14,
+    "evidence_base_fields": 28,
+    "independent_sidecar_contracts": 2,
+    "decisions": 24,
+    "repository_candidates": 12,
+    "versioned_extraction_policy_rules": 1,
+    "current_document_files_in_this_increment": 12
+  },
+  "current_document_checks": {
+    "JSON_CSV_parse": "passed",
+    "DOCX_body_table_header_footer_core": "passed",
+    "approved_three_scheme_rules": "passed",
+    "stable_IDs": "passed",
+    "mother_non_T1_paragraphs_preserved": "passed"
+  },
+  "not_done": [
+    "本轮三项可靠性修复经221/221抽取、37/37评估及tsc0本地验证，新API0；修复后真实模型效果及新L05-B0/F小批次仍待明确批准。旧216的L05-B0汇总未完、11候选含重复等事实保留；新输出人核/医学/产品批准0，S4完整质量、正式选优及完整S5仍未完成。",
+    "真实原PDF输出抽样人核、去重有效描述及正式三方案选优",
+    "新独立论文身份登记/封存/验收，医学目录关系核验",
+    "原PDF逐字忠实性、复杂整图/OCR及医学质量验收",
+    "完整S5上传至逐条审核导出、多任务交互验收",
+    "S6正式数量/阈值和独立性能质量验收、S7部署交付"
+  ],
+  "engineering_evidence": {
+    "S0": "code/docs/acceptance/s0/acceptance.json",
+    "S1": "code/docs/acceptance/s1/acceptance.json",
+    "parser_selection": "code/docs/acceptance/s3/parser-selection-2026-11-03/decision.json",
+    "original_text_figures": "code/docs/acceptance/requirement-revision-2026-11-04/index.html",
+    "frontend": "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+    "old_model_experiments": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html",
+    "reference_material_disposition": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/actual-deletions.json",
+    "local_reliability_repair": "code/docs/acceptance/s4-reliability-2026-11-05/report.json"
+  },
+  "formal_reviews": {
+    "pi_web_frontend": {
+      "used": 3,
+      "limit": 3,
+      "final_current_round_pending": false,
+      "final_completed": true,
+      "remaining": 0
+    },
+    "original_text_figure": {
+      "used": 2,
+      "limit": 3,
+      "closed": true
+    },
+    "old_S4": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S0_S1": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S3": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S2": {
+      "used": 2,
+      "limit": 3
+    }
+  },
+  "historical_records": {
+    "archive": "code/docs/project-history-2026-11-04.zip",
+    "original_current_files_member_prefix": "current-plan-before-reconcile/",
+    "user_approved_plan_member_prefix": "authorized-plan-2026-11-04/",
+    "scope": "旧确认原话、长阶段历史和先前版本保留为历史，不再作为现行有效指令。",
+    "evidence_time_rule": "旧S0—S4/前端handoff中的当时金标、未开工或付费预算只记录历史；当前状态以当前版本.json为准，旧预算不续用。",
+    "shared_summary": "code/docs/project-simplify-2026-11-04.json"
+  },
+  "this_sync_application_tests_run": false,
+  "Word_pagination_visually_reviewed": false,
+  "cleanup_engineering_validation": {
+    "record": "code/docs/project-simplify-2026-11-04.json#/validation",
+    "root_and_Next_typecheck": "passed",
+    "readonly_workbench_integration": {
+      "passed": 4,
+      "failed": 0
+    },
+    "scope": "本次目录精简必要检查，非S0—S4完整重审/医学或完整S5验收。"
+  },
+  "human_stage_approval": {
+    "record": "code/docs/acceptance/s2/s0-s1-human-approval-and-s2-handoff.json#/user_approval",
+    "stages": [
+      "S0",
+      "S1"
+    ],
+    "status": "passed",
+    "quote": "当前不涉及医学能力的实现，主要是配置。直接进入下一阶段吧，人工审核通过，但是需要记录一下是因为这些底层的配置什么的我看不懂。",
+    "basis": "用户自述不理解底层配置，基于已提供的交付说明和工程检查同意推进。",
+    "technical_details_individually_verified_by_user": false,
+    "independent_technical_audit": false,
+    "medical_acceptance": false,
+    "permanent_review_exemption": false
+  },
+  "last_status_update_Asia_Shanghai": "2026-11-05",
+  "current_stage_audit": {
+    "index": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json",
+    "ordered_audit_completed": true,
+    "all_stages_passed": false,
+    "stage_passed": {
+      "S0": true,
+      "S1": true,
+      "S2": false,
+      "S3": false,
+      "S4": false
+    },
+    "facts_and_logs": "具体当前工程、测试、限制及人核/新独立资料0等事实见此单一index，不在各当前文件复制日志。"
+  },
+  "current_evidence": {
+    "ordered_S0_S4_audit": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json"
+  },
+  "current_experiment_authorization": {
+    "status": "authorized_scope_executed_and_closed_no_further_automatic_calls",
+    "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+    "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+    "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+    "date_Asia_Shanghai": "2026-11-05",
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "user_confirmation_quote": "我同意你执行。",
+    "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+    "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+    "approved_at_utc": "2026-11-05T06:54:53.761Z",
+    "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+    "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+    "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+    "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+    "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+    "scope": {
+      "papers": [
+        "L01",
+        "L05"
+      ],
+      "methods": [
+        "B0",
+        "F",
+        "R"
+      ],
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "same_scope_necessary_single_point_repairs_and_retests": true
+    },
+    "shared_limits": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+    "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+    "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+    "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+    "request_count_sample": {
+      "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+      "requests_created": 22,
+      "final": false,
+      "usage_not_finalized": true
+    },
+    "current_paid_requests_running": false,
+    "old_189_authorization_or_ledger_reused": false,
+    "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+    "formal_model_finally_selected": false,
+    "winner": null,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "same_approval_must_not_be_requested_again": true,
+    "current_revision": {
+      "status": "executed_closed_summary_failure_and_all_candidates_preserved",
+      "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+      "plan": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+        "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+      },
+      "authorization": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+        "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+        "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+        "same_approved_at": "2026-11-05T06:54:53.761Z",
+        "same_confirmation_source": true,
+        "same_limits": true,
+        "parent_linkage": {
+          "schema_version": "three-method-revision-binding-1",
+          "declared_change": "visual_scope_prompt",
+          "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+          "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+          "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+          "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+          "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+        }
+      },
+      "rule_confirmation": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+        "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+        "user_choice": "只作必要背景，不独立抽取（推荐）",
+        "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+        "message_timestamp": null,
+        "scope_rule_version": "metric-definitions-context-only-1",
+        "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+      },
+      "prompt_change": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+        "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+        "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+        "removing_added_rule_restores_parent_system_exactly": true,
+        "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+        "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+        "actual_old_online_full_body_replay_equality_claimed": false,
+        "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+      },
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "focused_local_tests_reported": 4,
+      "root_tsc_exit_reported": 0,
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+      "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "budget_or_time_reset": false,
+      "original_prepared_parent_plan_and_authorization_unchanged": true,
+      "new_medical_human_review": 0,
+      "old_35_feedback_inherited": false,
+      "outcome_not_final": true
+    },
+    "authorization_granted": true,
+    "further_new_optimization_or_paid_calls_authorized": false,
+    "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "execution_closure": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+      "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+      "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+      "unused_requests_not_new_authorization": 84,
+      "no_further_API_calls_scheduled_or_permitted_automatically": true
+    }
+  },
+  "document_maintenance_paid_calls": 0,
+  "document_maintenance_paid_calls_scope": "文档维护0模型调用；本轮工程检查由核心执行者实际运行extraction221/221、evaluation37/37及root tsc0，新AGICTO0。旧197/37、前轮单项4/4和新reader14浏览器/9单元仅各自历史范围；旧189/216与reader原样保留，新小批次待明确批准。",
+  "current_ordered_audit_completed": true,
+  "current_comparison_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+  "current_task_final_formal_review": {
+    "used": 3,
+    "limit": 3,
+    "remaining": 0,
+    "final_completed": true,
+    "final_reserved": false,
+    "recorded_at_utc": "2026-11-05T02:36:19.775845+00:00",
+    "source": "主会话实际正式最终审查，第3/3轮；沿同一任务原2/3仅增加1轮",
+    "judgment": "判断：继续。风险：1.仅两篇开发论文且人工核验为零，尚不能确定医学质量或最优方案；2.汇总新策略存在子图编号、病例归属及数值元数据风险，暂不进入默认；3.解析仍有定位和整图待核项。工程成果可以交付，S2—S4不认定完整验收通过。",
+    "scope": "本轮工程与实测成果交接，不代替S2—S4完整验收、人工医学核验或选优",
+    "medical_quality_approved": false,
+    "winner": null,
+    "time_scope": "2026-11-05T02:35:37Z工程交接时的正式第3/3轮原话；当时人工核验0是历史事实，本轮35条普通初筛见current_user_feedback，不新增审查轮次。"
+  },
+  "current_development_output_review_record": "方案/子任务T1/当前版本.json#/current_development_output_review",
+  "current_simple_screening_interface_record": "方案/子任务T1/当前版本.json#/current_non_medical_screening_interface",
+  "current_user_feedback_record": "方案/子任务T1/当前版本.json#/current_user_feedback",
+  "current_user_feedback_checks": {
+    "record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "strict_frozen_binding": "passed",
+    "actual_ordinary_users": 1,
+    "ordinary_observations": 35,
+    "notes": 11,
+    "professional_medical_reviews": 0,
+    "product_record_approvals": 0,
+    "new_model_effect_verified": false,
+    "new_output_human_reviews": 0,
+    "actual_supplier_model_rounds_executed": 2
+  },
+  "historical_experiment_authorization_before_feedback_revalidation": {
+    "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+    "record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+    "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+    "date_Asia_Shanghai": "2026-11-05",
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "shared_limits": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+    "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+    "formal_model_finally_selected": false,
+    "winner": null,
+    "medical_quality_approved": false,
+    "current_paid_requests_running": false,
+    "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+    "time_continuation": {
+      "status": "completed_authorized_scope_no_more_paid_requests",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+      "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "original_window_expired": true,
+      "authorized_remaining_window_seconds": 11520,
+      "granted": true,
+      "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+      "approved_at_utc": "2026-11-05T02:16:15Z",
+      "resume_at_utc": "2026-11-05T02:16:52.744Z",
+      "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+      "new_paid_requests_allowed_now": false,
+      "scope": [
+        "L01-B0",
+        "L05-B0",
+        "L05-F",
+        "L05-R"
+      ],
+      "baseline_or_L01_F_rerun_allowed": false,
+      "request_or_token_caps_reset": false,
+      "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+    },
+    "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+  },
+  "current_feedback_revalidation_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+  "current_revalidation_readonly_viewer_record": "方案/子任务T1/当前版本.json#/current_revalidation_readonly_viewer",
+  "final_reader_validation": {
+    "status": "finalized_passed",
+    "entry": "code/apps/pi-web/public/output-review/revalidation.html",
+    "report": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/frontend/results.json",
+    "report_sha256": "5d49c5a9d45cd14a3227f623f89f9e0f88a0f2c122307cdb3b58264bc4ed8159",
+    "passed": true,
+    "actual_browser_execution": true,
+    "browser_checks": 14,
+    "focused_new_unit_tests": 9,
+    "static_typecheck": "passed",
+    "read_only": true,
+    "new_questionnaire": false,
+    "new_review_or_approval_writes": false,
+    "new_human_reviews": 0,
+    "representative_candidate_records": 24,
+    "parent_candidate_records": 13,
+    "child_candidate_records": 11,
+    "failed_attempt_partial_records_separate": 1,
+    "literal_source_context_spans": 75,
+    "actual_source_locates": 48,
+    "source_artifacts_checked": 159,
+    "round_source_snapshot_checks": 104,
+    "protected_files_unchanged_reported": 172,
+    "vscode_live_server_extension_exercised": false,
+    "tested_file_sha256": {
+      "code/apps/pi-web/public/output-review/revalidation.html": "54c7448a53752c6e9a79fa55f8de9795f83d7aa700a62cde2faa225afce39b33",
+      "code/apps/pi-web/public/output-review/revalidation.js": "86198191a6469072daf593a9b193e20a7e36adf3b43b66281db896dd19451906",
+      "code/apps/pi-web/public/output-review/revalidation.css": "b4a9d1d7645b2c155268cbbf13766a122794e0d8fb41cc2b712307bdeef147d3",
+      "code/apps/pi-web/public/output-review/revalidation-data-a296a9e3ff6e.json": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e"
+    }
+  },
+  "current_reliability_repair_record": "方案/子任务T1/当前版本.json#/current_reliability_repair",
+  "pending_reliability_revalidation_record": "方案/子任务T1/当前版本.json#/pending_reliability_revalidation"
+}

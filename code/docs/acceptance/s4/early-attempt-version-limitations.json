@@ -1,0 +1,17 @@
+{
+  "schema_version": "s4-version-evidence-limitations-1",
+  "scope": "job-01 early diagnostic attempts only",
+  "early_revision_1_and_2": {
+    "protocol": "full EvidenceSubmission with model-transcribed identity fields; revision2 added model-visible identity constants and independent SSE body deadline",
+    "exact_startup_source_file_hashes": "not_captured_for_these_early_attempts",
+    "available_evidence": ["separate attempt directories", "actual request ledger", "tool/event/coverage logs", "diagnostic interruption snapshots"],
+    "current_files_do_not_prove_early_runtime_source_version": true
+  },
+  "revision_3": {
+    "protocol": "s4-host-bound-compact-2; exact_quote source fragments plus indexed medical evidence; 240-second per-attempt batch timer",
+    "startup_source_hashes": "job-01-revision-3/source-provenance.json implementation_source_sha256",
+    "startup_hash_coverage": "10 listed agent implementation modules only; extraction-protocol.ts and contract schema source were not independently hashed in this early startup record",
+    "later_line_index_protocol_hot_loaded": false
+  },
+  "later_versions": "Each new process/run records source SHA at job startup. New line-index protocol or timer changes require a fresh full run; original attempts are never re-labelled."
+}

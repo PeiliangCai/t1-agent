@@ -1,0 +1,30 @@
+{
+  "schema_version": "s4-runtime-closed-contract-observation-1",
+  "source_log": "docs/acceptance/s4/runtime-validation/closed-finish-focused-tests.txt",
+  "simulation": "Installed Pi SDK and synthetic loopback model; this agent made no paid model call.",
+  "observed": {
+    "test_evidence": "real_probe_empty_selector_regression",
+    "real_probe_source": "docs/acceptance/s4/closed-protocol-2026-11-03T03-56-18-592Z/gpt-6.1-sol.json",
+    "real_probe_arguments": {
+      "block_ids": [
+        "synthetic-line-1"
+      ],
+      "line_indices": []
+    },
+    "hybrid_selected_line_indices": [
+      0
+    ],
+    "reverse_selected_line_indices": [
+      1
+    ],
+    "unread_other_line_rejected_before_its_explicit_read": true,
+    "closed_legacy_selector_rejected": true
+  },
+  "reported_real_probe": {
+    "path": "docs/acceptance/s4/closed-protocol-2026-11-03T03-56-18-592Z/gpt-6.1-sol.json",
+    "sha256": "575c851c421fb401db9d5a2ec5052346fed2ab3d8b3f319a8875b1ff21d656ff",
+    "sample_argument_sha256": "3cdbf5135475f03d50d0d50071ae43347041b70e58112ca0b6aba554b0261f6c",
+    "original_probe_success": false,
+    "attribution": "Real-provider probe executed by the implementation agent; sample independently read from its saved public synthetic artifact. Local replay was run after the fix."
+  }
+}

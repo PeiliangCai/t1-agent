@@ -1,0 +1,31 @@
+{
+  "name": "budget-full-extraction",
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "./node_modules/.bin/tsx",
+    "--test",
+    "tests/extraction/budget-custom-limits.test.ts",
+    "tests/extraction/evidence-validation.test.ts",
+    "tests/extraction/reconciliation.test.ts",
+    "tests/extraction/runtime.test.ts",
+    "tests/extraction/scope-matching.test.ts",
+    "tests/extraction/source-selection.test.ts",
+    "tests/extraction/summary-model-view.test.ts"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 9.207,
+  "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.log",
+  "started_at": "2026-11-03T12:39:30.707429+00:00",
+  "source_sha256_before": "0c3c443627764b468e5e95b232335e7f1a63819d2da230299215791d147564ad",
+  "source_sha256_after": "0c3c443627764b468e5e95b232335e7f1a63819d2da230299215791d147564ad",
+  "sources_unchanged": true,
+  "test_summary": {
+    "tests": 139,
+    "pass": 139,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  }
+}

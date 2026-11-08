@@ -1,0 +1,989 @@
+{
+  "schema_version": "s4-progress-handoff-1",
+  "prepared_at": "2026-11-03T16:43:09.432428+00:00",
+  "handoff_kind": "current_progress_not_stage_completion",
+  "authority": "user_relayed_supplier_exact_alias_confirmation_continues_original_Luna_scope_and_caps",
+  "formal_review_progress": {
+    "stage": "S4",
+    "formal_astra_reviews_used": 3,
+    "limit": 3,
+    "same_stage_counter_must_not_reset": true,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+        "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+      },
+      {
+        "round": 2,
+        "node": "actual_error_reproduction",
+        "decision": "modify",
+        "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+        "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+        "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+      },
+      {
+        "round": 3,
+        "node": "final_engineering_delivery",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. AI草稿、原页忠实性及医学正确性仍待人工复核；2. 两篇论文的单次对照不足以确定综合最优策略；3. 响应中断的未知用量和已记录的脚本差异限制了成本与复现结论。本轮工程交付可收尾，S4医学验收仍待完成。",
+        "recorded_at": "2026-11-03T16:43:09.432428+00:00",
+        "reviewer": "user-configured root GPT-6-Astra max;no extra review agent",
+        "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-review-packet.json",
+        "independent_validation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/artifact-validation/20261103T163751.177014Z-final/result.json",
+        "engineering_delivery_can_close": true,
+        "medical_acceptance_passed": false,
+        "S5_started": false
+      }
+    ],
+    "formal_review_window_closed": true
+  },
+  "sealed_other_stage_counts": {
+    "S0_S1": "3/3",
+    "S2": "2/3",
+    "S3": "3/3"
+  },
+  "stage_passed": false,
+  "quality_status": "pending",
+  "S5_started": false,
+  "implemented": [
+    "new actual Pi evidence saving/validation/progress/single-paper reconciliation chain",
+    "28-field source-bound candidates with Unicode code-point and whole-line geometry references",
+    "open empty catalog and explicit catalog trust; strict approved scope guard",
+    "immutable SQLite versions/CAS/manual protection and pending model proposals",
+    "full emitted-source inventory/explicit completion/quarantine/failed gaps",
+    "per-request and document hard deadlines/shared atomic budget/unknown usage reservations",
+    "lossless full-candidate source-fragment dictionary and read-gated neutral review cases"
+  ],
+  "files": {
+    "review_entry": "code/docs/acceptance/s4/index.html",
+    "current_core_interfaces": "code/docs/acceptance/s4/core-review-materials.json",
+    "small_public_API_diff": "code/docs/acceptance/s4/core-existing-API.diff",
+    "registered_matrix": "code/docs/acceptance/s4/matrix-progress.json",
+    "scale_choices": "code/docs/acceptance/s4/experiment-scale-options.json",
+    "actual_source_inventory": "code/docs/acceptance/s4/source-inventory/summary.json",
+    "medical_field_contract": "code/packages/contracts/src/extraction-evidence.ts",
+    "runtime_directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e",
+    "plan_status_sync": "code/docs/acceptance/s4/current-plan-progress-sync.json",
+    "DOCX_preservation": "code/docs/acceptance/s4/core-progress-docx-preservation.json",
+    "protected_history": "code/docs/acceptance/s4/protected-history-verification.json",
+    "current_engineering_source_manifest": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/source-snapshots/2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b/manifest.json",
+    "model_selection_user_correction": "code/docs/acceptance/s4/model-selection-user-correction.json",
+    "model_selection_DOCX_preservation": "code/docs/acceptance/s4/model-selection-docx-preservation.json",
+    "model_candidate_comparison": "code/docs/acceptance/s4/model-candidate-comparison-2026-11-03.json",
+    "medical_capability_selection_DOCX_preservation": "code/docs/acceptance/s4/medical-capability-selection-docx-preservation.json",
+    "historical_pre_selection_engineering_source_manifest": "code/docs/acceptance/s4/current-source-manifest.json",
+    "paid_selection_source_manifest": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-2026-11-03T12-41-27-983Z-ca96493b/source-snapshots/8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981/manifest.json",
+    "selection_report": "code/docs/acceptance/s4/selection-optimization/report.html",
+    "selection_source_and_identity_guard_diff": "code/docs/acceptance/s4/selection-optimization/model-identity-guard/guard.diff",
+    "selection_response_identity_support": "code/docs/acceptance/s4/selection-optimization/supplier-model-identity-support.txt",
+    "active_selection_report": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html"
+  },
+  "actual_real_model_conditions": [
+    {
+      "job_id": "job-01",
+      "execution_revision": 6,
+      "model_id": "gpt-6.1-sol",
+      "strategy": "baseline",
+      "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6",
+      "seconds": 779.0524818260001,
+      "candidate_count": 26,
+      "requests": 23,
+      "provider_input": 328384,
+      "provider_output": 13907,
+      "source_blocks_read": 409,
+      "source_blocks_explicitly_completed": 409,
+      "summary_complete": true,
+      "state": "partial",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "job-06",
+      "execution_revision": 2,
+      "model_id": "gpt-6-astra",
+      "strategy": "baseline",
+      "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2",
+      "seconds": 377.305573479,
+      "candidate_count": 17,
+      "requests": 18,
+      "provider_input": 214816,
+      "provider_output": 7181,
+      "source_blocks_read": 409,
+      "source_blocks_explicitly_completed": 409,
+      "summary_complete": true,
+      "state": "partial",
+      "medical_quality_approved": false
+    }
+  ],
+  "tests_by_version": {
+    "prior_protocol5_profile_fix_full_regression": {
+      "count": 169,
+      "passed": true,
+      "scope": "unit15+integration8+Node_parser20+evaluation28+extraction98",
+      "evidence": "code/docs/acceptance/s4/runtime-validation/pre-summary-model-view-and-neutral-case-review/summary.json",
+      "not_relabelled_as_current_summary_revision": true
+    },
+    "current_summary_dictionary_audit_document_indices": {
+      "focused_passed": 7,
+      "focused_is_subset": true,
+      "extraction_passed": 118,
+      "breakdown": {
+        "runtime": 52,
+        "pure_evidence_scope_reconciliation": 50,
+        "dictionary": 16
+      },
+      "typecheck_passed": true,
+      "source_manifest_summary_pending_refresh": false,
+      "evidence": "code/docs/acceptance/s4/runtime-validation/summary-current-extraction.txt",
+      "typecheck": "code/docs/acceptance/s4/runtime-validation/summary-view-cases-typecheck.txt",
+      "other71_tests_Python_web_not_repeated": true,
+      "summary": "code/docs/acceptance/s4/runtime-validation/summary.json",
+      "source_start_end_tracked_files": 44,
+      "source_start_end_changed_files": []
+    },
+    "real_source_reversible_view": {
+      "Sol26_and_Astra17_all_candidate_context_values_restored": true,
+      "byte_reduction_percent_range": [
+        56.62683518613682,
+        56.876788881379305
+      ],
+      "not_a_measured_token_cost_or_latency_reduction": true,
+      "evidence": "code/docs/acceptance/s4/evidence-validation/summary-model-view-real/measurement.json"
+    },
+    "source_selection_frozen_revision": {
+      "extraction_passed": 139,
+      "test_type_fix_focused_subset_passed": 9,
+      "typecheck_passed": true,
+      "unit_passed": 15,
+      "integration_passed": 8,
+      "evaluation_passed": 28,
+      "counts_not_added_to_old_versions": true,
+      "evidence": "code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-validation-summary.json",
+      "post_freeze": "code/docs/acceptance/s4/selection-optimization/runtime-validation/post-freeze-validation-summary.json"
+    },
+    "response_model_identity_guard_revision": {
+      "schema_version": "s4-response-model-guard-validation-1",
+      "recorded_at": "2026-11-03T13:17:48.406517+00:00",
+      "coding_agent_infrastructure_403_logged_separately": true,
+      "new_source_digest": "0a3463fc38f46b63e98c33a4af969add8f944ee6dcbc1519b24960bf29f94a48",
+      "new_source_snapshot": "docs/acceptance/s4/selection-optimization/model-identity-guard/source-snapshots/0a3463fc38f46b63e98c33a4af969add8f944ee6dcbc1519b24960bf29f94a48",
+      "source_hashes": {
+        "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+        "packages/agent/src/config.ts": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+        "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+        "packages/agent/src/extraction-budget.ts": "9b50e09e2bf1dbfa9e5a69a0fe5e7b7cdf0c0774800b5baa00f737b076f19067",
+        "packages/agent/src/extraction-pi.ts": "100e2d621262da5fea1abd1b286702f09374b4fb79c8c1d2332438b48416e06b",
+        "packages/agent/src/extraction-protocol.ts": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+        "packages/agent/src/extraction-run.ts": "f6062f1390238f96285f8db1cebb8410461c1e372e3429bcf3ce285259b50437",
+        "packages/agent/src/extraction-store.ts": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+        "packages/agent/src/extraction-summary.ts": "2b58c37d98a7ef5e1328134cf1fe7bb14bd8873e0246824b7cab837a0a7ca14b",
+        "packages/agent/src/extraction-tools.ts": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+        "packages/agent/src/fixtures.ts": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+        "packages/agent/src/index.ts": "29745ec322025ab63a83f757b41aa0024499bcd2748c2952833ca2a0398aa8ac",
+        "packages/agent/src/parser-selection.ts": "2ecdc2659bcb4809b3495a09ba59100333fef0498854f587328658ca3ca1c396",
+        "packages/agent/src/parser.ts": "6a5a8023374e275cdf42a7ecc6c9af041f261d2c5318523534dcb2990446aa5a",
+        "packages/agent/src/pi.ts": "4dec0e0cd20f21dc66a35bbf11d6543b7374d1b42e3de66541368ce161dc4082",
+        "packages/agent/src/real-run.ts": "b5e8accb933dedef1fa7a452549c836f7867c3722c9084d2c74d1931c12ba72c",
+        "packages/agent/src/real-tools.ts": "05cebc56a066ac60ba3e90253b5853fd8258b431fe5f829da8f268a1f85d21f1",
+        "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+        "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+        "packages/agent/src/source-selection.ts": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+        "packages/agent/src/store.ts": "da2e00b7750ab18eea120e03452f3f6a4511d28a3d2e284bd659d4d86f12ecf0",
+        "packages/agent/src/summary-model-view.ts": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+        "packages/agent/src/tools.ts": "c4c6e2cffccb4ec04fb06f4c3fb5c06d237fc72e0544435985b80d625650b310",
+        "packages/contracts/src/document-ir-v2.ts": "4e3060f7d87f084482920796391f548d2414d2614a33b6805953521f95088a65",
+        "packages/contracts/src/document-ir-v3.ts": "4b5189777d7a6ad657fb2becd04d9e408ccfd0ec200351d118a67c4d0f43ee87",
+        "packages/contracts/src/extraction-evidence.ts": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+        "packages/contracts/src/index.ts": "1279c60a471ca5e86d8629bd4d2b9fb6b41c705bd9e472aeaf4064a3a0bde528",
+        "tests/extraction/fixtures/runtime-responses.ts": "c024d0f5944dd4247a085b17968f65667740039442a735bd0ab7da2e97aef2ac",
+        "tests/extraction/response-model-identity.test.ts": "897c934bc2190db9dc6b7ab2baf2bd7ae9098fbc37b30bf695414dac409a21ac"
+      },
+      "source_start_end_identical_for_modified_files": true,
+      "sources_changed_from_paid_snapshot": [
+        "packages/agent/src/extraction-budget.ts",
+        "packages/agent/src/extraction-pi.ts"
+      ],
+      "paid_source_snapshot_digest": "8d5f81f2456bd72bae36907e0c0c3726caf1f1a59d92b376169787c620de2981",
+      "paid_results_relabelled_to_new_code": false,
+      "focused_tests": {
+        "passed": 5,
+        "failed": 0,
+        "scope": "unknown/matched/mismatch;sticky+reopen;raw local SSE;final response;next session/paper zero HTTP",
+        "log": "docs/acceptance/s4/selection-optimization/model-identity-guard/focused-test-initial.txt",
+        "subset_of_full_extraction_suite": true,
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "node",
+          "--import",
+          "tsx",
+          "--test",
+          "tests/extraction/response-model-identity.test.ts"
+        ],
+        "exit_code": 0
+      },
+      "extraction_suite": {
+        "passed": 144,
+        "failed": 0,
+        "log": "docs/acceptance/s4/selection-optimization/model-identity-guard/extraction-current.txt",
+        "not_added_to_old139_or118_or169": true,
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:extraction"
+        ],
+        "exit_code": 0
+      },
+      "typecheck": {
+        "passed": true,
+        "log": "docs/acceptance/s4/selection-optimization/model-identity-guard/typecheck-current.txt",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "check"
+        ],
+        "exit_code": 0
+      },
+      "real_supplier_validation": false,
+      "no_new_paid_requests": true,
+      "model_alias_mapping_approved": false,
+      "default_policy": "literal mismatch blocks subsequent requests and final success; usage retained; missing remains unknown; exact-name match not actual weight identity proof",
+      "formal_S4_reviews_used": 2,
+      "third_review_reserved": true
+    },
+    "exact_alias_continuation_revision": {
+      "extraction_passed": 148,
+      "focused_alias_passed": 4,
+      "focused_is_subset": true,
+      "typecheck_passed": true,
+      "source_snapshot": "4d2e0e2444d99514de348c66aae9ef61ee89bb004cb3a1324c7e777894597576",
+      "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/offline-validation.json",
+      "older_144_139_not_added": true
+    },
+    "closed_issue_eof_reliability_v2": {
+      "extraction_passed": 154,
+      "focused_passed": 6,
+      "focused_is_subset": true,
+      "typecheck_passed": true,
+      "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+      "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/offline-validation-reliability-v2.json",
+      "pilot_148_and_old144_139_not_added": true
+    },
+    "reliability_v2_common_main": {
+      "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+      "extraction_passed": 154,
+      "focused_passed": 6,
+      "focused_is_subset": true,
+      "typecheck_passed": true,
+      "not_added_to_historical_versions": true,
+      "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/offline-validation-reliability-v2.json"
+    }
+  },
+  "unverified": [
+    "human medical gold and approved taxonomy/rules absent",
+    "S3 source fidelity/table associations/image text need human review",
+    "AI draft literal overlaps are not medical correctness or recall",
+    "real pathology features not medically validated",
+    "supplier alias accepted from user relay;no independent weight identity verification",
+    "actual supplier invoice unknown"
+  ],
+  "budget": {
+    "original_start": "2026-11-03T02:52:42.293Z",
+    "requests_used": 133,
+    "inflight": 0,
+    "current_caps": {
+      "requests": 400,
+      "input": 2000000,
+      "output": 400000,
+      "wall_seconds_from_original_start": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "batch_responses": 16
+    },
+    "accounting": {
+      "requests_used": 133,
+      "measured_input": 1186673,
+      "unknown_input_reservation": 422621,
+      "measured_output": 76813,
+      "unknown_output_reservation": 65536,
+      "unknown_attempts": 8,
+      "remaining_requests": 267,
+      "remaining_input": 390706,
+      "remaining_output": 257651,
+      "effective_deadline": "2026-11-03T06:52:42.293000+00:00",
+      "remaining_wall_clock_minutes_at_report": 107.92665085
+    },
+    "no_ledger_or_old_run_reset": true,
+    "no_further_paid_process_running": true,
+    "paid_node_processes": [],
+    "actual_bill": "unknown"
+  },
+  "pending_user_choice": {
+    "status": "awaiting_explicit_user_model_and_test_plan_selection; paid_calls_blocked",
+    "A": "within original remaining caps run job13 Astra/L01 complete independent-review condition and both neutral cases; if complete 3/14, other11 pending",
+    "B": "requires explicit call-scale authorization; proposal700 requests/10M input/600k output/300min from original start; other assumptions and single-document limit proposal are unapproved",
+    "C": "no more API this iteration; deliver current core and2/14 real complete conditions; other12 stay pending",
+    "pending_job_ids": [
+      "job-02",
+      "job-03",
+      "job-04",
+      "job-05",
+      "job-07",
+      "job-08",
+      "job-09",
+      "job-10",
+      "job-11",
+      "job-12",
+      "job-13",
+      "job-14"
+    ],
+    "formal_review_round_3": "reserved for later final engineering review after explicit model/test-plan choice; not consumed by this correction",
+    "first_required_choice": "user chooses test models and test plan before any additional real API call",
+    "present_before_user_decision": [
+      "model_candidates",
+      "capability_and_interface_evidence",
+      "exact_model_IDs_and_reasoning_effort",
+      "test_scope",
+      "cost_estimate_and_call_or_token_allowance"
+    ],
+    "legacy_A_B_C_status": "suspended_historical_scale_proposals; old option selection cannot skip new model selection",
+    "pending_job_ids_meaning": "historical_execution_side_matrix_only; not_user_required_or_approved_plan",
+    "paid_calls_blocked_pending_explicit_decision": true,
+    "model_selection_correction_record": "code/docs/acceptance/s4/model-selection-user-correction.json",
+    "model_selection_criteria": {
+      "model_role": "T1_application_runtime_LLM; distinct from coding_agent_model_roles",
+      "important_dimension": "medical_paper_understanding_and_evidence_extraction_ability",
+      "comparison_dimensions": [
+        "中英文肿瘤影像术语理解",
+        "正文、图注和表格的关联",
+        "否定、不确定性和适用条件的保留",
+        "研究人群、本研究与转引内容的区分",
+        "原文及数值、单位忠实",
+        "无依据时不补写"
+      ],
+      "weights": null,
+      "S2_full_human_gold_dependency": "unchanged_and_pending",
+      "public_medical_QA_and_biomedical_research_scores": "distinct_from_T1_paper_extraction_quality",
+      "comparative_medical_strength": "not_established",
+      "prior_Luna_Sol_cost_led_first_choice": "withdrawn_pending_medical_evidence_and_paper_testing",
+      "detail_record": "code/docs/acceptance/s4/model-candidate-comparison-2026-11-03.json"
+    }
+  },
+  "important_actual_limits": [
+    "existing exact source checks do not establish medical correctness",
+    "whole-line references and display composites retain their boundaries; no minimal-phrase or contiguous-quote claim",
+    "L02 p3 suspected continuation20 blocks quarantined by source identity/page geometry; not human-approved exclusion",
+    "old schema/context/deadline failures and actual wall overruns retained in attempt history; new successful runs do not erase them"
+  ],
+  "report_execution_counts": {
+    "planned_conditions": 14,
+    "actual_paper_runs": 8,
+    "historical_paper_runs": 6,
+    "current_actual_paper_runs": 2,
+    "pending_conditions": 12,
+    "model_requests_including_probes_and_failures": 133
+  },
+  "formal_model_selected": false,
+  "report_validation": "code/docs/acceptance/s4/report-validation.json",
+  "active_authorization": "code/docs/acceptance/s4/selection-optimization/authorization.json",
+  "paid_calls_authorized_for_registered_selection_batch": true,
+  "pending_user_choice_historical_only": true,
+  "historical_pending_choice_preserved_in": "code/docs/acceptance/s4/selection-optimization/before-authorization-handoff.json",
+  "paid_calls_blocked_pending_explicit_user_decision": false,
+  "no_automatic_resume": true,
+  "current_selection_experiment": {
+    "status": "engineering_complete_quality_pending",
+    "stage_passed": false,
+    "quality_status": "quality_pending",
+    "record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.json",
+    "registry": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/experiment-register.json",
+    "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+    "runtime_directory": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2",
+    "readable_report": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html",
+    "supplier_alias_confirmation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "budget_carry_forward": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/budget-carry-forward.json",
+    "requested_model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "exact_response_alias": "igpt-6-luna",
+    "supplier_statement_source": "user_relayed",
+    "logical_conditions": 8,
+    "unique_source_masks": 5,
+    "complete_selected_input_chains": 5,
+    "actual_document_attempts": 5,
+    "joint_accounting": {
+      "requests": 262,
+      "prior_inference_requests": 28,
+      "prior_metadata_requests_no_inference_tokens": 1,
+      "continuation_inference_requests": 233,
+      "provider_input_tokens_including_cache": 2466957,
+      "provider_output_tokens_including_reasoning": 158202,
+      "provider_cache_read_tokens_included_in_input": 900662,
+      "provider_cache_write_tokens_included_in_input": 708876,
+      "provider_reasoning_tokens_included_in_output": 59489,
+      "unknown_input_reservation": 906325,
+      "unknown_output_reservation": 73728,
+      "unknown_usage_requests": 9,
+      "conservative_input_tokens": 3373282,
+      "conservative_output_tokens": 231930,
+      "remaining_requests": 38,
+      "joint_hard_caps": {
+        "requests": 300,
+        "input_tokens": 6000000,
+        "output_tokens": 400000
+      },
+      "old_unknown_reservation_retained": true,
+      "remaining_input_tokens": 2626718,
+      "remaining_output_tokens": 168070
+    },
+    "formal_model_selected": false,
+    "workspace_frozen_manifest_drift": {
+      "schema_version": "s4-concurrent-package-script-drift-1",
+      "observed_at": "2026-11-03T16:29:54.394920+00:00",
+      "package_file_mtime": "2026-11-03T16:11:42.804865+00:00",
+      "frozen_source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+      "frozen_manifest_total_files": 36,
+      "matching_current_files": 35,
+      "mismatches": [
+        {
+          "file": "package.json",
+          "expected_sha256": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+          "current_sha256": "540eaa2aae5ff617d5643e4ee9e8a57284a2452e9dcad44ca447b0d709d29d15"
+        }
+      ],
+      "changed_script_entries": {
+        "predev:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "prebuild:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "test:annotation": {
+          "before": null,
+          "after": "tsx --test tests/annotation-ui/*.test.ts"
+        },
+        "prepare:annotation-pdfs": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        }
+      },
+      "outside_scripts_objects_equal": true,
+      "package_lock_sha_still_matches": true,
+      "production_core_driver_medical_prompts_and_selection_files_match_frozen": true,
+      "actual_paid_invocation": "direct node --import tsx scripts/run-s4-selection-reliability.ts --run;not npm web/build/annotation scripts",
+      "new_annotation_script_entries_invoked_by_paid_driver": false,
+      "snapshot_rewritten": false,
+      "concurrent_changes_reverted": false,
+      "author_of_concurrent_edits": "not_yet_confirmed",
+      "assertion_failure_preserved": "all-frozen-current-hashes assertion failed at final local receipt;only package.json script entries differ",
+      "not_AN_AGICTO_request_or_medical_validation": true,
+      "source_loading_evidence": {
+        "owner_started_at": "2026-11-03T15:38:05.616Z",
+        "actual_invocation_uses_direct_node_not_npm_scripts": true,
+        "driver_static_imports_lines": "scripts/run-s4-selection-reliability.ts:2-14",
+        "config_loaded_once_before_owner_lock_lines": "scripts/run-s4-selection-reliability.ts:110-117",
+        "config_loader_reads_env_into_readonly_model_config": "packages/agent/src/config.ts:25-31",
+        "full_source_hash_check_scope": "one startup snapshot check at driver114-115;not a continuous filesystem monitor",
+        "shared_config_passed_to_all_jobs_lines": "scripts/run-s4-selection-reliability.ts:157-158",
+        "wrapper_only_sets_node_PATH_and_executes_arguments": "scripts/with-node.sh:1-9",
+        "only_driver_package_json_read": "snapshot hash/copy in driver49-54 before scheduling",
+        "new_scripts_not_referenced_by_core_driver": "literal search of packages/agent/src,packages/contracts/src anddriver found none",
+        "parser_spawn_is_python_only_not_called_for_reused_IR": "parser.ts78;driver uses assertParsedDocument,not PDF subprocess parser"
+      },
+      "impact_assessment": "All35 other frozen files match,package dependencies/type/exports andlock unchanged;the four new npm web/annotation script entries are not invoked by the recorded direct Node driver.Config andESM imports loaded before owner lock;no extraction-variable change identified.Full workspace/source equality is false andno claim is made about unrecorded environment changes."
+    },
+    "formal_review_progress": {
+      "stage": "S4",
+      "formal_astra_reviews_used": 3,
+      "limit": 3,
+      "same_stage_counter_must_not_reset": true,
+      "history": [
+        {
+          "round": 1,
+          "node": "planning",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+          "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+        },
+        {
+          "round": 2,
+          "node": "actual_error_reproduction",
+          "decision": "modify",
+          "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+          "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+          "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+        },
+        {
+          "round": 3,
+          "node": "final_engineering_delivery",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. AI草稿、原页忠实性及医学正确性仍待人工复核；2. 两篇论文的单次对照不足以确定综合最优策略；3. 响应中断的未知用量和已记录的脚本差异限制了成本与复现结论。本轮工程交付可收尾，S4医学验收仍待完成。",
+          "recorded_at": "2026-11-03T16:43:09.432428+00:00",
+          "reviewer": "user-configured root GPT-6-Astra max;no extra review agent",
+          "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-review-packet.json",
+          "independent_validation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/artifact-validation/20261103T163751.177014Z-final/result.json",
+          "engineering_delivery_can_close": true,
+          "medical_acceptance_passed": false,
+          "S5_started": false
+        }
+      ],
+      "formal_review_window_closed": true
+    },
+    "S5_started": false,
+    "full_comparison_completed": true,
+    "prior_identity_stop_is_historical": true,
+    "supplier_identity_basis": "user_relayed_exact_same_model_deployment_region_statement",
+    "no_automatic_extra_paid_runs_after_delivery": true,
+    "final_formal_review_record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-formal-review-round3.json"
+  },
+  "S4_final_formal_review_still_reserved": false,
+  "selection_optimization": {
+    "status": "engineering_complete_quality_pending",
+    "stage_passed": false,
+    "quality_status": "quality_pending",
+    "record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.json",
+    "registry": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/experiment-register.json",
+    "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+    "runtime_directory": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2",
+    "readable_report": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html",
+    "supplier_alias_confirmation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "budget_carry_forward": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/budget-carry-forward.json",
+    "requested_model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "exact_response_alias": "igpt-6-luna",
+    "supplier_statement_source": "user_relayed",
+    "logical_conditions": 8,
+    "unique_source_masks": 5,
+    "complete_selected_input_chains": 5,
+    "actual_document_attempts": 5,
+    "joint_accounting": {
+      "requests": 262,
+      "prior_inference_requests": 28,
+      "prior_metadata_requests_no_inference_tokens": 1,
+      "continuation_inference_requests": 233,
+      "provider_input_tokens_including_cache": 2466957,
+      "provider_output_tokens_including_reasoning": 158202,
+      "provider_cache_read_tokens_included_in_input": 900662,
+      "provider_cache_write_tokens_included_in_input": 708876,
+      "provider_reasoning_tokens_included_in_output": 59489,
+      "unknown_input_reservation": 906325,
+      "unknown_output_reservation": 73728,
+      "unknown_usage_requests": 9,
+      "conservative_input_tokens": 3373282,
+      "conservative_output_tokens": 231930,
+      "remaining_requests": 38,
+      "joint_hard_caps": {
+        "requests": 300,
+        "input_tokens": 6000000,
+        "output_tokens": 400000
+      },
+      "old_unknown_reservation_retained": true,
+      "remaining_input_tokens": 2626718,
+      "remaining_output_tokens": 168070
+    },
+    "formal_model_selected": false,
+    "workspace_frozen_manifest_drift": {
+      "schema_version": "s4-concurrent-package-script-drift-1",
+      "observed_at": "2026-11-03T16:29:54.394920+00:00",
+      "package_file_mtime": "2026-11-03T16:11:42.804865+00:00",
+      "frozen_source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+      "frozen_manifest_total_files": 36,
+      "matching_current_files": 35,
+      "mismatches": [
+        {
+          "file": "package.json",
+          "expected_sha256": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+          "current_sha256": "540eaa2aae5ff617d5643e4ee9e8a57284a2452e9dcad44ca447b0d709d29d15"
+        }
+      ],
+      "changed_script_entries": {
+        "predev:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "prebuild:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "test:annotation": {
+          "before": null,
+          "after": "tsx --test tests/annotation-ui/*.test.ts"
+        },
+        "prepare:annotation-pdfs": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        }
+      },
+      "outside_scripts_objects_equal": true,
+      "package_lock_sha_still_matches": true,
+      "production_core_driver_medical_prompts_and_selection_files_match_frozen": true,
+      "actual_paid_invocation": "direct node --import tsx scripts/run-s4-selection-reliability.ts --run;not npm web/build/annotation scripts",
+      "new_annotation_script_entries_invoked_by_paid_driver": false,
+      "snapshot_rewritten": false,
+      "concurrent_changes_reverted": false,
+      "author_of_concurrent_edits": "not_yet_confirmed",
+      "assertion_failure_preserved": "all-frozen-current-hashes assertion failed at final local receipt;only package.json script entries differ",
+      "not_AN_AGICTO_request_or_medical_validation": true,
+      "source_loading_evidence": {
+        "owner_started_at": "2026-11-03T15:38:05.616Z",
+        "actual_invocation_uses_direct_node_not_npm_scripts": true,
+        "driver_static_imports_lines": "scripts/run-s4-selection-reliability.ts:2-14",
+        "config_loaded_once_before_owner_lock_lines": "scripts/run-s4-selection-reliability.ts:110-117",
+        "config_loader_reads_env_into_readonly_model_config": "packages/agent/src/config.ts:25-31",
+        "full_source_hash_check_scope": "one startup snapshot check at driver114-115;not a continuous filesystem monitor",
+        "shared_config_passed_to_all_jobs_lines": "scripts/run-s4-selection-reliability.ts:157-158",
+        "wrapper_only_sets_node_PATH_and_executes_arguments": "scripts/with-node.sh:1-9",
+        "only_driver_package_json_read": "snapshot hash/copy in driver49-54 before scheduling",
+        "new_scripts_not_referenced_by_core_driver": "literal search of packages/agent/src,packages/contracts/src anddriver found none",
+        "parser_spawn_is_python_only_not_called_for_reused_IR": "parser.ts78;driver uses assertParsedDocument,not PDF subprocess parser"
+      },
+      "impact_assessment": "All35 other frozen files match,package dependencies/type/exports andlock unchanged;the four new npm web/annotation script entries are not invoked by the recorded direct Node driver.Config andESM imports loaded before owner lock;no extraction-variable change identified.Full workspace/source equality is false andno claim is made about unrecorded environment changes."
+    },
+    "formal_review_progress": {
+      "stage": "S4",
+      "formal_astra_reviews_used": 3,
+      "limit": 3,
+      "same_stage_counter_must_not_reset": true,
+      "history": [
+        {
+          "round": 1,
+          "node": "planning",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+          "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+        },
+        {
+          "round": 2,
+          "node": "actual_error_reproduction",
+          "decision": "modify",
+          "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+          "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+          "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+        },
+        {
+          "round": 3,
+          "node": "final_engineering_delivery",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. AI草稿、原页忠实性及医学正确性仍待人工复核；2. 两篇论文的单次对照不足以确定综合最优策略；3. 响应中断的未知用量和已记录的脚本差异限制了成本与复现结论。本轮工程交付可收尾，S4医学验收仍待完成。",
+          "recorded_at": "2026-11-03T16:43:09.432428+00:00",
+          "reviewer": "user-configured root GPT-6-Astra max;no extra review agent",
+          "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-review-packet.json",
+          "independent_validation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/artifact-validation/20261103T163751.177014Z-final/result.json",
+          "engineering_delivery_can_close": true,
+          "medical_acceptance_passed": false,
+          "S5_started": false
+        }
+      ],
+      "formal_review_window_closed": true
+    },
+    "S5_started": false,
+    "final_formal_review_record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-formal-review-round3.json"
+  },
+  "active_budget": {
+    "requests": 262,
+    "prior_inference_requests": 28,
+    "prior_metadata_requests_no_inference_tokens": 1,
+    "continuation_inference_requests": 233,
+    "provider_input_tokens_including_cache": 2466957,
+    "provider_output_tokens_including_reasoning": 158202,
+    "provider_cache_read_tokens_included_in_input": 900662,
+    "provider_cache_write_tokens_included_in_input": 708876,
+    "provider_reasoning_tokens_included_in_output": 59489,
+    "unknown_input_reservation": 906325,
+    "unknown_output_reservation": 73728,
+    "unknown_usage_requests": 9,
+    "conservative_input_tokens": 3373282,
+    "conservative_output_tokens": 231930,
+    "remaining_requests": 38,
+    "joint_hard_caps": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000
+    },
+    "old_unknown_reservation_retained": true,
+    "remaining_input_tokens": 2626718,
+    "remaining_output_tokens": 168070
+  },
+  "budget_scope": "historical_pre_selection_batch_preserved; see active_budget for current authorized experiment",
+  "no_paid_process_running_after_delivery": true,
+  "active_selection_continuation": {
+    "status": "engineering_complete_quality_pending",
+    "stage_passed": false,
+    "quality_status": "quality_pending",
+    "record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.json",
+    "registry": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/experiment-register.json",
+    "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+    "runtime_directory": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2",
+    "readable_report": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html",
+    "supplier_alias_confirmation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "budget_carry_forward": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/budget-carry-forward.json",
+    "requested_model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "exact_response_alias": "igpt-6-luna",
+    "supplier_statement_source": "user_relayed",
+    "logical_conditions": 8,
+    "unique_source_masks": 5,
+    "complete_selected_input_chains": 5,
+    "actual_document_attempts": 5,
+    "joint_accounting": {
+      "requests": 262,
+      "prior_inference_requests": 28,
+      "prior_metadata_requests_no_inference_tokens": 1,
+      "continuation_inference_requests": 233,
+      "provider_input_tokens_including_cache": 2466957,
+      "provider_output_tokens_including_reasoning": 158202,
+      "provider_cache_read_tokens_included_in_input": 900662,
+      "provider_cache_write_tokens_included_in_input": 708876,
+      "provider_reasoning_tokens_included_in_output": 59489,
+      "unknown_input_reservation": 906325,
+      "unknown_output_reservation": 73728,
+      "unknown_usage_requests": 9,
+      "conservative_input_tokens": 3373282,
+      "conservative_output_tokens": 231930,
+      "remaining_requests": 38,
+      "joint_hard_caps": {
+        "requests": 300,
+        "input_tokens": 6000000,
+        "output_tokens": 400000
+      },
+      "old_unknown_reservation_retained": true,
+      "remaining_input_tokens": 2626718,
+      "remaining_output_tokens": 168070
+    },
+    "formal_model_selected": false,
+    "workspace_frozen_manifest_drift": {
+      "schema_version": "s4-concurrent-package-script-drift-1",
+      "observed_at": "2026-11-03T16:29:54.394920+00:00",
+      "package_file_mtime": "2026-11-03T16:11:42.804865+00:00",
+      "frozen_source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+      "frozen_manifest_total_files": 36,
+      "matching_current_files": 35,
+      "mismatches": [
+        {
+          "file": "package.json",
+          "expected_sha256": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+          "current_sha256": "540eaa2aae5ff617d5643e4ee9e8a57284a2452e9dcad44ca447b0d709d29d15"
+        }
+      ],
+      "changed_script_entries": {
+        "predev:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "prebuild:web": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        },
+        "test:annotation": {
+          "before": null,
+          "after": "tsx --test tests/annotation-ui/*.test.ts"
+        },
+        "prepare:annotation-pdfs": {
+          "before": null,
+          "after": "tsx scripts/prepare-annotation-pdfs.ts"
+        }
+      },
+      "outside_scripts_objects_equal": true,
+      "package_lock_sha_still_matches": true,
+      "production_core_driver_medical_prompts_and_selection_files_match_frozen": true,
+      "actual_paid_invocation": "direct node --import tsx scripts/run-s4-selection-reliability.ts --run;not npm web/build/annotation scripts",
+      "new_annotation_script_entries_invoked_by_paid_driver": false,
+      "snapshot_rewritten": false,
+      "concurrent_changes_reverted": false,
+      "author_of_concurrent_edits": "not_yet_confirmed",
+      "assertion_failure_preserved": "all-frozen-current-hashes assertion failed at final local receipt;only package.json script entries differ",
+      "not_AN_AGICTO_request_or_medical_validation": true,
+      "source_loading_evidence": {
+        "owner_started_at": "2026-11-03T15:38:05.616Z",
+        "actual_invocation_uses_direct_node_not_npm_scripts": true,
+        "driver_static_imports_lines": "scripts/run-s4-selection-reliability.ts:2-14",
+        "config_loaded_once_before_owner_lock_lines": "scripts/run-s4-selection-reliability.ts:110-117",
+        "config_loader_reads_env_into_readonly_model_config": "packages/agent/src/config.ts:25-31",
+        "full_source_hash_check_scope": "one startup snapshot check at driver114-115;not a continuous filesystem monitor",
+        "shared_config_passed_to_all_jobs_lines": "scripts/run-s4-selection-reliability.ts:157-158",
+        "wrapper_only_sets_node_PATH_and_executes_arguments": "scripts/with-node.sh:1-9",
+        "only_driver_package_json_read": "snapshot hash/copy in driver49-54 before scheduling",
+        "new_scripts_not_referenced_by_core_driver": "literal search of packages/agent/src,packages/contracts/src anddriver found none",
+        "parser_spawn_is_python_only_not_called_for_reused_IR": "parser.ts78;driver uses assertParsedDocument,not PDF subprocess parser"
+      },
+      "impact_assessment": "All35 other frozen files match,package dependencies/type/exports andlock unchanged;the four new npm web/annotation script entries are not invoked by the recorded direct Node driver.Config andESM imports loaded before owner lock;no extraction-variable change identified.Full workspace/source equality is false andno claim is made about unrecorded environment changes."
+    },
+    "formal_review_progress": {
+      "stage": "S4",
+      "formal_astra_reviews_used": 3,
+      "limit": 3,
+      "same_stage_counter_must_not_reset": true,
+      "history": [
+        {
+          "round": 1,
+          "node": "planning",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+          "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+        },
+        {
+          "round": 2,
+          "node": "actual_error_reproduction",
+          "decision": "modify",
+          "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+          "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+          "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+        },
+        {
+          "round": 3,
+          "node": "final_engineering_delivery",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. AI草稿、原页忠实性及医学正确性仍待人工复核；2. 两篇论文的单次对照不足以确定综合最优策略；3. 响应中断的未知用量和已记录的脚本差异限制了成本与复现结论。本轮工程交付可收尾，S4医学验收仍待完成。",
+          "recorded_at": "2026-11-03T16:43:09.432428+00:00",
+          "reviewer": "user-configured root GPT-6-Astra max;no extra review agent",
+          "evidence": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-review-packet.json",
+          "independent_validation": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/artifact-validation/20261103T163751.177014Z-final/result.json",
+          "engineering_delivery_can_close": true,
+          "medical_acceptance_passed": false,
+          "S5_started": false
+        }
+      ],
+      "formal_review_window_closed": true
+    },
+    "S5_started": false,
+    "final_formal_review_record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-formal-review-round3.json"
+  },
+  "unverified_history_before_supplier_alias_confirmation": [
+    "AGICTO response name igpt-6-luna vs requested gpt-6-luna unresolved; no automatic API resume",
+    "full L01/L05 four-condition comparison incomplete",
+    "new identity guard has no real-supplier validation",
+    "full human medical gold and approved taxonomy/rules absent",
+    "S3 source fidelity/table associations/image text need human review",
+    "AI reference overlaps do not establish medical correctness or extraction recall",
+    "real pathology extraction not tested",
+    "single-run/no independent replicate limits strategy and model comparisons",
+    "actual supplier invoice unknown"
+  ],
+  "selection_optimization_previous_stopped_handoff": {
+    "record": "code/docs/acceptance/s4/selection-optimization/report.json",
+    "readable_report": "code/docs/acceptance/s4/selection-optimization/report.html",
+    "authorization": "code/docs/acceptance/s4/selection-optimization/authorization.json",
+    "status": "engineering_in_progress_paid_stopped_model_identity_unverified",
+    "stage_passed": false,
+    "quality_status": "quality_pending",
+    "test_model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "formal_model_selected": false,
+    "logical_conditions": 8,
+    "unique_inputs": 5,
+    "actual_paper_runs": 1,
+    "actual_accounting": {
+      "requests": 28,
+      "provider_input_tokens_including_cache": 157909,
+      "unknown_input_reservation": 121594,
+      "provider_output_tokens_including_reasoning": 14425,
+      "provider_cache_read_tokens_included_in_input": 50351,
+      "provider_cache_write_tokens_included_in_input": 68037,
+      "provider_reasoning_tokens_included_in_output": 6130,
+      "unknown_output_reservation": 8192,
+      "unknown_usage_requests": 1,
+      "inflight_requests": 0
+    },
+    "historical_requests_preserved": 133,
+    "combined_physical_requests": 29,
+    "metadata_http_requests": 1,
+    "remaining_requests": 271,
+    "full_comparison_completed": false,
+    "no_automatic_resume": true,
+    "resume_constraints": "code/docs/acceptance/s4/selection-optimization/no-auto-resume.json",
+    "active_hard_caps": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000
+    },
+    "effective_operational_limits": {
+      "global_wall_clock_seconds": 7200,
+      "per_request_seconds": 120,
+      "paper_document_seconds": 1800,
+      "paper_batch_max_responses": 16,
+      "probe_document_seconds": 300,
+      "probe_batch_max_responses": 8,
+      "ledger_document_seconds_900_and_batch_responses_8_are_defaults_overridden_by_explicit_paper_options": true
+    },
+    "AI_reference_is_not_gold": true,
+    "pathology_real_validation": false,
+    "formal_review_progress": {
+      "stage": "S4",
+      "formal_astra_reviews_used": 2,
+      "limit": 3,
+      "same_stage_counter_must_not_reset": true,
+      "history": [
+        {
+          "round": 1,
+          "node": "planning",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+          "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+        },
+        {
+          "round": 2,
+          "node": "actual_error_reproduction",
+          "decision": "modify",
+          "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+          "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+          "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+        }
+      ]
+    },
+    "S5_started": false
+  },
+  "current_selection_experiment_previous_stopped_handoff": {
+    "status": "interrupted_model_identity_unverified",
+    "full_comparison_completed": false,
+    "requests_used": 28,
+    "known_input_tokens": 157909,
+    "known_output_tokens": 14425,
+    "unknown_requests": 1,
+    "unknown_input_reservation": 121594,
+    "unknown_output_reservation": 8192,
+    "owned_pid_13222_killed_after_SIGSTOP": true,
+    "active_inference_requests": 0,
+    "requested_model": "gpt-6-luna",
+    "requested_effort": "medium",
+    "returned_model_distribution": {
+      "gpt-6-luna": 26,
+      "igpt-6-luna": 2
+    },
+    "identity_not_verified": true,
+    "no_automatic_resume": true,
+    "L01-B0": "409 emitted source blocks completed;13 pending candidates;summary interrupted;no completed paper comparison",
+    "other_conditions": "not_run",
+    "permanent_pause": "code/docs/acceptance/s4/selection-optimization/model-identity-pause-terminal.json",
+    "metadata_http_requests": 1,
+    "combined_physical_requests": 29,
+    "remaining_requests": 271,
+    "resume_guard_must_deduct_metadata_before_allowing_any_inference": true,
+    "readonly_metadata": "code/docs/acceptance/s4/selection-optimization/model-catalog-readonly.json",
+    "resume_constraints": "code/docs/acceptance/s4/selection-optimization/no-auto-resume.json",
+    "support_packet": "code/docs/acceptance/s4/selection-optimization/supplier-model-identity-support.txt",
+    "recovery": "code/docs/acceptance/s4/selection-optimization/interrupted-recovery.json",
+    "original_experiment_started_at": "2026-11-03T12:41:46.904Z",
+    "original_wall_clock_limit_seconds": 7200,
+    "waiting_does_not_reset_wall_clock": true,
+    "carry_forward_conservative_budget": {
+      "requests": 29,
+      "input_tokens": 279503,
+      "output_tokens": 22617
+    },
+    "new_registration_must_not_reset_budget_or_wall_clock": true,
+    "scope": "historical stopped batch before user-relayed supplier alias confirmation;see active_selection_continuation"
+  },
+  "report_execution_counts_scope": "historical pre-selection matrix;see active_selection_continuation for current comparison",
+  "actual_real_model_conditions_scope": "historical pre-selection matrix;current common-protocol main comparison has5 independent source inputs and8 logical conditions",
+  "registered_paid_experiment_terminal": true,
+  "no_automatic_resume_reason": "registered comparison terminal;no automatic extra run;not an unresolved model authorization choice",
+  "final_formal_review_record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-formal-review-round3.json",
+  "temporary_notes_cleanup_record": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/temporary-notes-cleanup.json"
+}

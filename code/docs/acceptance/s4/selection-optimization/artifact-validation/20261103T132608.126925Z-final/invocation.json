@@ -1,0 +1,62 @@
+{
+  "schema_version": "s4-selection-independent-check-invocation-1",
+  "recorded_at": "2026-11-03T13:27:17.902Z",
+  "command": [
+    "code/.venv/bin/python",
+    "-B",
+    "code/scripts/check-s4-selection-artifacts.py",
+    "--phase",
+    "final",
+    "--delivery-mode",
+    "stopped-handoff",
+    "--require-plan-sync"
+  ],
+  "observed_process_exit_code": 0,
+  "observed_wall_time_seconds": 0.490640608,
+  "process_stdout": {
+    "status": "pending",
+    "phase": "final",
+    "check_counts": {
+      "passed": 643,
+      "warning": 7,
+      "pending": 12,
+      "deferred": 1
+    },
+    "result": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/artifact-validation/20261103T132608.126925Z-final/result.json",
+    "report": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/artifact-validation/20261103T132608.126925Z-final/report.html",
+    "all_terminal": false,
+    "no_API_calls": true
+  },
+  "post_freeze_readback": {
+    "changed_since_final_run": [],
+    "delivery_consistency_status": "passed",
+    "stopped_handoff_artifact_checks_passed": true,
+    "overall_status": "pending",
+    "experiment_completion_status": "blocked_pending",
+    "artifact_counts": {
+      "passed": 643,
+      "warning": 7
+    },
+    "files_fingerprinted": 227,
+    "pending_checks": [
+      "L01-R awaits representative result",
+      "L01-FR awaits representative result",
+      "L05-FR awaits representative result",
+      "all 5 real paper outputs are terminal",
+      "returned model name differs: real identity unverified, comparison blocked",
+      "L01-F terminal result not yet registered",
+      "L01-R terminal result not yet registered",
+      "L01-FR terminal result not yet registered",
+      "L05-B0 terminal result not yet registered",
+      "L05-F terminal result not yet registered",
+      "L05-R terminal result not yet registered",
+      "L05-FR terminal result not yet registered"
+    ]
+  },
+  "conclusion": "stopped_handoff_consistent; experiment_blocked_pending; no_medical_or_stage_approval",
+  "final_artifact_checks_passed": false,
+  "stopped_handoff_artifact_checks_passed": true,
+  "api_calls_by_checker": 0,
+  "formal_reviews_added": 0,
+  "formal_S4_review_count_unchanged": "2/3"
+}

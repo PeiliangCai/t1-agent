@@ -1,0 +1,50 @@
+{
+  "schema_version": "pi-web-t1-implemented-contract-1",
+  "frontend": "http://127.0.0.1:5173",
+  "backend": "http://127.0.0.1:3210",
+  "readonly": true,
+  "gateway": "GET /api/t1/[...path] fixed backend + strict path/query/cursor allowlist",
+  "capabilities": {
+    "paper_upload": false,
+    "extraction_start": false,
+    "persisted_review": false,
+    "approved_export": false,
+    "full_S5_complete": false
+  },
+  "business_routes": [
+    "GET /api/workbench/capabilities",
+    "GET /api/workbench/papers",
+    "GET /api/workbench/papers/:paperId",
+    "GET /api/workbench/papers/:paperId/pdf",
+    "GET /api/workbench/papers/:paperId/figures/:assetId",
+    "GET /api/workbench/runs"
+  ],
+  "existing_S1_routes_retained": [
+    "GET /api/catalog",
+    "GET /api/runs/:runId",
+    "GET /api/runs/:runId/records",
+    "GET /api/runs/:runId/events"
+  ],
+  "historical_sources": {
+    "papers": 5,
+    "outputs": 5,
+    "records": 119,
+    "explicitly_paired_records": 1,
+    "new_paid_extraction": false,
+    "human_review_performed": false
+  },
+  "PDF_reader": "new T1 controlled PDF.js 6.5.438 single-page render; original PDF bytes verified in server and browser",
+  "retired": [
+    "old Vite application",
+    "complete reference answer preparation UI",
+    "annotation route/navigation",
+    "annotation packaging/preparation commands"
+  ],
+  "retirement_record": "annotation/retirement-manifest.json",
+  "review_delivery_core_preserved": "protected-core-checks.json",
+  "unavailable_upstream": [
+    "all generic agent/session/file/terminal/auth/model/MCP/plugin APIs",
+    "login page",
+    "service worker"
+  ]
+}

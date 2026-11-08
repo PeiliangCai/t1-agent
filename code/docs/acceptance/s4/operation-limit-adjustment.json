@@ -1,0 +1,31 @@
+{
+  "schema_version": "s4-operation-adjustment-1",
+  "recorded_at": "2026-11-03T03:50:11.648266+00:00",
+  "authority": "Main Astra scheduling authorization within the user-authorized S4 development experiment",
+  "scope": "new versions and new full runs only; no retroactive extension of running or failed attempts",
+  "initial_per_run_limits": {
+    "batch_responses": 8,
+    "document_seconds": 900
+  },
+  "authorized_per_run_maxima": {
+    "batch_responses": 16,
+    "document_seconds": 1800
+  },
+  "unchanged_global_limits": {
+    "physical_requests_all_attempts": 400,
+    "input_tokens_including_measured_cache": 2000000,
+    "output_tokens_including_reasoning": 400000,
+    "experiment_seconds_from_original_start": 7200,
+    "request_seconds": 120,
+    "transient_retries": 2
+  },
+  "ledger_reset": false,
+  "model_ids_changed": false,
+  "reasoning_effort_changed": false,
+  "numeric_acceptance_thresholds": "not established by these engineering operation limits",
+  "formal_reviews_added": 0,
+  "concurrency_allowed": {
+    "max_jobs": 2,
+    "owner": "one process, one budget object, synchronous atomic reservations and coordinated SQLite writes"
+  }
+}

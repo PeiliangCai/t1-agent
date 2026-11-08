@@ -1,0 +1,25 @@
+{
+  "package": "@earendil-works/pi-coding-agent",
+  "version": "1.4.0",
+  "registry": "https://registry.npmjs.org/%40earendil-works%2Fpi-coding-agent/1.4.0",
+  "repository": "https://github.com/earendil-works/pi",
+  "actual_installed_source_sha256": {
+    "dist/core/sdk.js": "992a539079e42f9dc577064e971afa9972a01dbffedb035f7cb68ab204d36964",
+    "dist/core/sdk.d.ts": "2cb83c8604497198eda83ba4691d9c001c971c6b358af05f42355afc7666c669",
+    "dist/core/resource-loader.js": "ad50235884ea6d5ee14cdae1efcfe6afef58b22b18ce574e81886d57ca9f4642",
+    "dist/core/resource-loader.d.ts": "948ac95e0eb67f29f78046404afdc94f4a12ade38a3a2f838a2628069bf70a8a",
+    "dist/core/model-runtime.js": "44d8017928eff6721d5a56b4e71f98bcafb124f5aa6e7d3f016491e11fcf6461",
+    "dist/core/model-runtime.d.ts": "5a7aac47a83c20316f593c74798f60ec4e521a0fddff03a0608dbc5514012bf5",
+    "dist/core/extensions/types.d.ts": "c5038d9410cfb13f5be391f46f13de338bc46ab4c9a7d064f7b962c0dc4a807c",
+    "dist/index.d.ts": "2f2c87d877a6502a11bcdbaf3be62c12a154ab87d795e954d44c50833d0efbcd"
+  },
+  "verified_public_interfaces": [
+    "ModelRuntime.create/registerProvider/setRuntimeApiKey",
+    "InMemoryCredentialStore from pi-ai (AuthStorage is not a public coding-agent export)",
+    "DefaultResourceLoader noContextFiles/noSkills/noExtensions/noPromptTemplates/noThemes",
+    "createAgentSession tools allowlist/customTools/modelRuntime",
+    "SessionManager.inMemory; SettingsManager.inMemory",
+    "session.subscribe agent_settled; session.abort; session.dispose"
+  ],
+  "archive_snapshot_used_for_orientation_only": true
+}

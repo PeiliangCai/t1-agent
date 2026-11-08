@@ -1,0 +1,165 @@
+{
+  "recorded_at": "2026-11-02T14:47:17.432078+00:00",
+  "checks": [
+    {
+      "name": "parser-contracts",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "parser:contracts"
+      ],
+      "duration_seconds": 0.397,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/parser-contracts.log",
+      "llm_calls": 0
+    },
+    {
+      "name": "check",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "check"
+      ],
+      "duration_seconds": 0.981,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/check.log",
+      "llm_calls": 0
+    },
+    {
+      "name": "test-parser-python",
+      "command": [
+        "/home/ecs-user/projects/t1-agent/code/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "services/pdf-parser/tests",
+        "-v"
+      ],
+      "duration_seconds": 1.902,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser-python.log",
+      "llm_calls": 0,
+      "python_tests_run": 9
+    },
+    {
+      "name": "test-parser",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:parser"
+      ],
+      "duration_seconds": 2.336,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser.log",
+      "llm_calls": 0,
+      "test_counts": {
+        "tests": 6,
+        "pass": 6,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "test-unit",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:unit"
+      ],
+      "duration_seconds": 1.059,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-unit.log",
+      "llm_calls": 0,
+      "test_counts": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "test-integration",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:integration"
+      ],
+      "duration_seconds": 2.876,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-integration.log",
+      "llm_calls": 0,
+      "test_counts": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "test-evaluation",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:evaluation"
+      ],
+      "duration_seconds": 1.375,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-evaluation.log",
+      "llm_calls": 0,
+      "test_counts": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "build-web",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "duration_seconds": 0.386,
+      "exit_code": 0,
+      "passed": true,
+      "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/build-web.log",
+      "llm_calls": 0
+    }
+  ],
+  "all_checks_passed": true,
+  "stage_passed": false,
+  "human_quality_verified": false,
+  "real_api_calls": 0,
+  "dependencies": "Current isolated .venv; includes CPU-only full Docling installation"
+}

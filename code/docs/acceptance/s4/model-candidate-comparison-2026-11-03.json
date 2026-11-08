@@ -1,0 +1,280 @@
+{
+  "schema_version": "s4-model-candidate-comparison-1",
+  "recorded_at": "2026-11-03T07:17:35.227631+00:00",
+  "comparison_date": "2026-11-03",
+  "authority": {
+    "user_quote": "先给候选对照",
+    "scope": "read_only_candidate_comparison_only; no_paid_API_authorization",
+    "source_verification": "parent_fetched_public_sources; not independently fetched by this execution subagent"
+  },
+  "user_selected": [],
+  "test_plan_approved": false,
+  "budget_confirmed": false,
+  "reasoning_effort_confirmed": false,
+  "additional_API_calls": 0,
+  "parent_fetched_public_sources": [
+    {
+      "source_id": "agicto-prices",
+      "url": "https://agicto.com/model",
+      "kind": "gateway_public_list_prices",
+      "checked_date": "2026-11-03",
+      "currency": "CNY",
+      "price_unit": "per_million_tokens",
+      "basis": "public_discounted_prices_observed_by_parent"
+    },
+    {
+      "source_id": "luna-official",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "kind": "official_capabilities"
+    },
+    {
+      "source_id": "sol-official",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "kind": "official_capabilities"
+    },
+    {
+      "source_id": "gemini-official",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+      "resolved_url": "https://aistudio.google.com/docs/models/gemini-3.8-flash",
+      "kind": "official_capabilities"
+    },
+    {
+      "source_id": "claude-official",
+      "url": "https://platform.claude.com/docs/en/models/sonnet-5-5/overview",
+      "kind": "official_capabilities"
+    },
+    {
+      "source_id": "agicto-compatibility",
+      "url": "https://docs.agicto.com/guides/openai-compatible",
+      "kind": "gateway_generic_interface_documentation",
+      "limit": "Examples primarily use Chat Completions; this does not prove that every candidate works with the existing Responses adapter."
+    },
+    {
+      "source_id": "gemini-domain-related-model-card",
+      "url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "kind": "official_model_card_evaluation_results",
+      "checked_date": "2026-11-03",
+      "observed_by": "parent_main_session; not independently fetched by this execution subagent",
+      "observed_benchmark_names": [
+        "BioMysteryBench",
+        "LABBench2",
+        "GDP.PDF"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "model_id": "gpt-6-luna",
+      "suggested_role": "low_price_baseline",
+      "public_CNY_per_million_tokens": {
+        "input": 0.63,
+        "output": 3.15,
+        "source_id": "agicto-prices"
+      },
+      "official_capabilities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "function_calling": true,
+        "structured_outputs": true,
+        "source_id": "luna-official"
+      },
+      "proposed_reasoning_effort": null,
+      "project_S4_real_chain_tested": false,
+      "T1_medical_extraction_quality_status": "not_established_by_project_comparative_evaluation",
+      "current_candidate_role_after_medical_criterion": "optional_cost_comparison"
+    },
+    {
+      "model_id": "gpt-6.1-sol",
+      "suggested_role": "existing_engineering_comparison",
+      "public_CNY_per_million_tokens": {
+        "input": 12.6,
+        "output": 63,
+        "source_id": "agicto-prices"
+      },
+      "official_capabilities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "function_calling": true,
+        "structured_outputs": true,
+        "source_id": "sol-official"
+      },
+      "historical_S4_reasoning_effort": "medium",
+      "proposed_reasoning_effort": null,
+      "project_S4_real_chain_tested": true,
+      "history_limit": "Historical engineering record only; not user model selection, medical quality approval, or authorization for new tests.",
+      "T1_medical_extraction_quality_status": "not_established_by_project_comparative_evaluation",
+      "current_candidate_role_after_medical_criterion": "main_candidate_for_user_choice"
+    },
+    {
+      "model_id": "gemini-3.8-flash",
+      "suggested_role": "different_provider_comparison",
+      "public_CNY_per_million_tokens": {
+        "input": 4.72,
+        "output": 23.63,
+        "source_id": "agicto-prices"
+      },
+      "official_capabilities": {
+        "input": [
+          "text",
+          "image",
+          "video",
+          "audio",
+          "PDF"
+        ],
+        "output": [
+          "text"
+        ],
+        "function_calling": true,
+        "structured_outputs": true,
+        "thinking_levels": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "source_id": "gemini-official"
+      },
+      "proposed_reasoning_effort": null,
+      "project_S4_real_chain_tested": false,
+      "T1_medical_extraction_quality_status": "not_established_by_project_comparative_evaluation",
+      "current_candidate_role_after_medical_criterion": "main_candidate_for_user_choice",
+      "public_indirect_domain_evidence_source_id": "gemini-domain-related-model-card"
+    },
+    {
+      "model_id": "claude-sonnet-5-5",
+      "suggested_role": "another_different_provider_option",
+      "public_CNY_per_million_tokens": {
+        "input": 12.6,
+        "output": 63,
+        "source_id": "agicto-prices"
+      },
+      "official_capabilities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "tool_loop_supported": true,
+        "forced_tool_behavior": "has_changes; adapter_compatibility_unverified",
+        "default_effort": "high",
+        "source_id": "claude-official"
+      },
+      "proposed_reasoning_effort": null,
+      "project_S4_real_chain_tested": false,
+      "T1_medical_extraction_quality_status": "not_established_by_project_comparative_evaluation",
+      "current_candidate_role_after_medical_criterion": "main_candidate_for_user_choice"
+    }
+  ],
+  "historical_reference_only": {
+    "model_id": "gpt-6-astra",
+    "public_CNY_per_million_tokens": {
+      "input": 63,
+      "output": 315,
+      "source_id": "agicto-prices"
+    },
+    "project_S4_real_chain_tested": true,
+    "first_round_additional_batch_testing_recommended": false,
+    "not_one_of_the_four_proposed_first_round_candidates": true
+  },
+  "parent_recommendations_not_user_decisions": [
+    {
+      "models": [
+        "gpt-6-luna",
+        "gpt-6.1-sol"
+      ],
+      "purpose": "low_price_baseline_plus_existing_engineering_comparison",
+      "recommendation_status": "withdrawn_as_first_choice_pending_medical_evidence_and_paper_testing"
+    },
+    {
+      "models": [
+        "gemini-3.8-flash",
+        "gpt-6.1-sol"
+      ],
+      "purpose": "alternative_if_cross_provider_comparison_is_prioritized",
+      "recommendation_status": "provisional_option_pending_medical_capability_reassessment; not_selected"
+    }
+  ],
+  "material_limits": [
+    "Public gateway listing does not establish account access, availability of image endpoints, streaming tool round trips, or compatibility with the existing Responses adapter.",
+    "Among the four proposed candidates, only Sol has historical real S4 project-chain records; Luna, Gemini, and Claude have not been tested in this project.",
+    "Public listed prices are not the actual account bill; caching and long-context surcharges are unknown.",
+    "No candidate reasoning effort, test scope, call/token allowance, or cost budget has been approved.",
+    "The current T1 flow sends source text and context and does not require visual input for that flow. Visual page review remains a user choice and is not included by default.",
+    "The historical 14-condition matrix and old A/B/C scale options are not an approved new test plan."
+  ],
+  "next_action": "continue_read_only_medical_evidence_comparison; user_selects_models_then_confirms_effort_scope_and_budget_before_any_real_API_call",
+  "medical_capability_selection_basis": {
+    "recorded_at": "2026-11-03T07:21:19.989321+00:00",
+    "user_quote": "这里所选择的模型应该是智能体的“大脑”吧。那我觉得可以增加一个选择的依据：医学能力强",
+    "model_role": "T1_application_runtime_LLM; distinct from coding_agent_model_roles",
+    "important_dimension": "medical_paper_understanding_and_evidence_extraction_ability",
+    "comparison_dimensions": [
+      "中英文肿瘤影像术语理解",
+      "正文、图注和表格的关联",
+      "否定、不确定性和适用条件的保留",
+      "研究人群、本研究与转引内容的区分",
+      "原文及数值、单位忠实",
+      "无依据时不补写"
+    ],
+    "weights": null,
+    "numeric_weights_or_thresholds_frozen": false,
+    "S2_full_human_gold_and_medical_review_dependencies": "unchanged_and_pending",
+    "comparative_T1_medical_strength": "not_established_by_current_project_evidence",
+    "evidence_categories": {
+      "public_medical_QA_benchmarks": "separate_indirect_reference; not_T1_extraction_quality_pass",
+      "public_biomedical_research_benchmarks": "separate_indirect_reference; not_T1_extraction_quality_pass",
+      "T1_medical_paper_evidence_extraction": "task_specific_evidence_required; comparative_evaluation_pending"
+    },
+    "automatic_model_or_reasoning_effort_selection": false,
+    "new_API_call_authorized": false,
+    "read_only_public_evidence_update": {
+      "recorded_at": "2026-11-03T07:22:08.074606+00:00",
+      "gemini_model_card": {
+        "source_id": "gemini-domain-related-model-card",
+        "biology_research_benchmarks": [
+          "BioMysteryBench",
+          "LABBench2"
+        ],
+        "other_observed_evaluation": "GDP.PDF",
+        "interpretation": "indirect_domain_related_evidence_only; not_a_tumor_CT_MRI_source_extraction_or_clinical_ability_ranking",
+        "numeric_scores_recorded": false
+      },
+      "other_official_materials_reviewed_by_parent": [
+        "OpenAI Luna official model capability page",
+        "OpenAI Sol official model capability page",
+        "Claude official capability and release materials"
+      ],
+      "four_way_same_version_reasoning_effort_and_question_set_medical_comparison_obtained_this_round": false,
+      "not_a_claim_that_no_such_evaluations_exist": true,
+      "search_aggregation_medical_scores_used": false,
+      "T1_medical_extraction_quality_for_all_candidates": "unverified"
+    }
+  },
+  "medical_selection_status": "four_candidates_remain_unselected; reassess_using_medical_evidence_and_paper_testing_before_recommending_first_choice",
+  "latest_parent_suggestion_not_user_selection": {
+    "basis": "medical_criterion_reassessment_without_comparative_T1_medical_quality_evidence",
+    "main_candidates": [
+      "gpt-6.1-sol",
+      "gemini-3.8-flash",
+      "claude-sonnet-5-5"
+    ],
+    "optional_cost_comparison": [
+      "gpt-6-luna"
+    ],
+    "medical_strength_ranking": null,
+    "user_selected": [],
+    "test_plan_approved": false,
+    "reasoning_effort_or_budget_selected": false
+  }
+}

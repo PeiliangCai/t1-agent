@@ -1,0 +1,64 @@
+{
+  "schema_version": "pdf-first-cleanup-1",
+  "updated_at_utc": "2026-11-07T14:34:23.449956+00:00",
+  "owner": "/root/pdf_first_plan_sync",
+  "status": "final_limited_cleanup_and_current_document_simplification_complete",
+  "reviewed_candidates": [
+    "现行方案/README内过期三方法执行说明",
+    "共享日志中重复的216/41结果大对象",
+    "scripts/日志/现行方案的.bak/.tmp/.pyc等可删临时项（未发现）"
+  ],
+  "documentation_reduction": {
+    "active_R_table_rows_removed": 2,
+    "old_paid_execute_examples_removed": true,
+    "large_historical_objects_replaced_with_report_references": true,
+    "original_approval_and_user_requirements_preserved": true,
+    "shared_logs_initial_bytes": 351249,
+    "shared_logs_current_bytes": 29047,
+    "current_file_bytes_before": 708115,
+    "current_file_bytes_after": 532192,
+    "current_files": 21
+  },
+  "physical_files_deleted_by_this_owner": [],
+  "method_owner_cleanup_report": "code/docs/acceptance/pdf-input-quality-2026-11-07/two-method-transition.json",
+  "method_owner_actual_deletions": [
+    {
+      "path": "code/scripts/prepare-feedback-revalidation.ts",
+      "before_sha256": "dfea23d70f5788c59c0390e76ad90cf6ddb5a2c761910acb3e323a5d3c53a147",
+      "absent_verified": true,
+      "reason": "已退役三方法旧付费驱动；历史审计reader/结果保留"
+    },
+    {
+      "path": "code/scripts/retry-feedback-revalidation.ts",
+      "before_sha256": "ee9d7f84df8710b06577656e2e1aeee76706c441276488494966fc6b724c7b84",
+      "absent_verified": true,
+      "reason": "已退役三方法旧付费驱动；历史审计reader/结果保留"
+    }
+  ],
+  "protected": [
+    "原PDF/绑定IR/Figure/结果/源码快照",
+    "封存授权、预算账本和失败",
+    "历史审计reader、普通用户人审JSON、旧输出页",
+    "永久.agent规则、T2/T3和他人文件"
+  ],
+  "new_backup_or_archive_copies_created": 0,
+  "new_paid_calls": 0,
+  "no_deletion_to_meet_count": true,
+  "method_owner_internal_branch_cleanup": [
+    "R/FR selector branches and reverse-only rule IDs",
+    "remove_irrelevant_agent comparison arm",
+    "historical feedback prepare/retry paid-execution drivers"
+  ],
+  "method_owner_retained_legacy_config": "code/config/three-method-comparison.json",
+  "method_owner_report_sha256": "d4c738c2a344977c61aae98ef8272f3429fd2274f66beb7d86d4b4f7c1219c75",
+  "own_temporary_records_created": 0,
+  "own_temporary_record_cleanup_required": false,
+  "shared_and_permanent_logs_retained": true,
+  "pipeline_owner_cleanup": {
+    "temporary_prepare_plan_and_unsigned_template_removed": true,
+    "own_temporary_log": "runtime-data/agent-notes/pipeline-contract-repair-2026-11-07.json",
+    "own_test_stdout_log": "runtime-data/agent-notes/pipeline-contract-final-tests.txt",
+    "own_temporary_logs_removed_after_handoff": true,
+    "permanent_or_other_agent_files_removed": false
+  }
+}

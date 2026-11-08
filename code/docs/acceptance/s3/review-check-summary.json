@@ -1,0 +1,197 @@
+{
+  "recorded_at": "2026-11-02T14:48:26.808366+00:00",
+  "review_scope": "S3 engineering minimum delivery; final stage/quality acceptance not requested",
+  "S3_formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "S2_formal_reviews_used": 2,
+  "old_S0_S1_reviews": "sealed_3/3",
+  "core_diff": "code/docs/acceptance/s3/core-review.diff",
+  "diff_method": "No Git repository exists; original changed core bytes reconstructed and SHA256 matched to immutable S1 manifest; selected new hunks only, not a complete patch.",
+  "changes": [
+    "Python local ParserAdapter/CLI with structured error and partial/unsupported states",
+    "DocumentIR v2 + v1 fixture-compatible union; file SHA, native/raw text and Unicode code-point mapping",
+    "Crop-relative rotation-aware coordinates, UserUnit scaling, native polygons and inverse PDF matrices",
+    "TS local subprocess bridge with identity, version/map/status validation; no HTTP/Pi integration",
+    "Immutable output artifacts and five exposed real-PDF measurements; no medical extraction",
+    "S2-U02 scope clarification in v0.2 appended guide; old guide and prior acceptance manifests unchanged"
+  ],
+  "checks": {
+    "recorded_at": "2026-11-02T14:47:17.432078+00:00",
+    "checks": [
+      {
+        "name": "parser-contracts",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "parser:contracts"
+        ],
+        "duration_seconds": 0.397,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/parser-contracts.log",
+        "llm_calls": 0
+      },
+      {
+        "name": "check",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "check"
+        ],
+        "duration_seconds": 0.981,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/check.log",
+        "llm_calls": 0
+      },
+      {
+        "name": "test-parser-python",
+        "command": [
+          "/home/ecs-user/projects/t1-agent/code/.venv/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "services/pdf-parser/tests",
+          "-v"
+        ],
+        "duration_seconds": 1.902,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser-python.log",
+        "llm_calls": 0,
+        "python_tests_run": 9
+      },
+      {
+        "name": "test-parser",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:parser"
+        ],
+        "duration_seconds": 2.336,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-parser.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 6,
+          "pass": 6,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-unit",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:unit"
+        ],
+        "duration_seconds": 1.059,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-unit.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 15,
+          "pass": 15,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-integration",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:integration"
+        ],
+        "duration_seconds": 2.876,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-integration.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 8,
+          "pass": 8,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "test-evaluation",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "test:evaluation"
+        ],
+        "duration_seconds": 1.375,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/test-evaluation.log",
+        "llm_calls": 0,
+        "test_counts": {
+          "tests": 28,
+          "pass": 28,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      {
+        "name": "build-web",
+        "command": [
+          "bash",
+          "scripts/with-node.sh",
+          "npm",
+          "run",
+          "build:web"
+        ],
+        "duration_seconds": 0.386,
+        "exit_code": 0,
+        "passed": true,
+        "log": "docs/acceptance/s3/checks/2026-11-02T14-47-06-118650Z/build-web.log",
+        "llm_calls": 0
+      }
+    ],
+    "all_checks_passed": true,
+    "stage_passed": false,
+    "human_quality_verified": false,
+    "real_api_calls": 0,
+    "dependencies": "Current isolated .venv; includes CPU-only full Docling installation"
+  },
+  "final_environment_freeze": "code/services/pdf-parser/requirements-cpu-standard.lock.txt",
+  "real_pdf_measurement": "code/docs/acceptance/s3/runs/2026-11-02T14-41-35-628654Z/summary.json",
+  "native_docling_probe": "code/docs/acceptance/s3/standard/2026-11-02T14-44-31-863991Z/result.json",
+  "mineru": "Official source/license/CPU resource verification only; no benchmark results",
+  "unresolved_acceptance": [
+    "Human source-page localization and text/reading-order/table fidelity verification",
+    "S2 full-text medical gold / medical review / approved scoring details / sealed independent corpus",
+    "Full cross-candidate comparable quality/performance study and joint formal parser selection",
+    "Final quality/performance thresholds jointly confirmed before S6"
+  ],
+  "stage_status": "engineering_in_progress",
+  "stage_passed": false,
+  "engineering_delivery": "code/docs/acceptance/s3/engineering-delivery.json",
+  "final_review": "code/docs/acceptance/s3/final-review.json"
+}

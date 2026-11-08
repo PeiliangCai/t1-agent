@@ -1,0 +1,104 @@
+{
+  "schema_version": "s4-b0-execution-and-derived-handoff-1",
+  "completed_at": "2026-11-08T15:47:52.743874+00:00",
+  "model_execution": {
+    "status": "finished_b0_runs_outputs_unreviewed",
+    "session_exit_code": 0,
+    "requests": 72,
+    "input_tokens": 1019869,
+    "output_tokens": 40302,
+    "missing_usage_requests": 0,
+    "first_request": "2026-11-08T15:04:46.965Z",
+    "last_request": "2026-11-08T15:35:37.536Z",
+    "all_three_jobs_task_summary_delivery_complete": true,
+    "raw_records": 28,
+    "primary_candidates": 24,
+    "background_suggestions": 4,
+    "original_strict_groups": 27,
+    "final_delivery_rejections": 0,
+    "ordinary_human_output_reviews": 0,
+    "medical_quality_approved": false,
+    "closed": true,
+    "unused56_not_permission": true
+  },
+  "paid_binding": {
+    "path": "docs/acceptance/s4-b0-revalidation-2026-11-08/output-binding.json",
+    "sha256": "77571cdec58805e18ddfc7ec79e735310c1da50c34b3dfdb08fe0bfb21b43826"
+  },
+  "postprocessing": {
+    "binding_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/binding.json",
+    "binding_sha256": "160bb61879aa4154c2071c52bd64957711370a33119619dfb1d8613fe394833a",
+    "index_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/same-source-review-index.json",
+    "index_sha256": "f79bb67d500ebf330bb0fd71ab0adb0e216d9a71c303841419bc6dec1630f9ea",
+    "policy_version": "same-source-review-index-1",
+    "helper_source_path": "packages/agent/src/strict-source-groups.ts",
+    "model_runtime_sha256": "54e5e4c499fd61c78b1301ebb2105039b6e58a9d67ebc5f2c0122f19fea43704",
+    "postprocessing_source_sha256": "189d64a26c0ceaaf8ea0d7dee9246b13e45a1ef4ea3605d369022771a4e04333",
+    "helper_used_in_paid_model_execution": false,
+    "extra_model_requests": 0,
+    "tests_passed": 15,
+    "tsc_exit_code": 0,
+    "L07_same_source_pairs_visible": 3,
+    "L07_readonly_source_context_groups": 23,
+    "original_L07_strict_groups_retained": 25,
+    "internal_reference_hints": 4,
+    "patient_equivalence_or_automatic_merge_claimed": false
+  },
+  "paid_intermediate_diagnostics": [
+    {
+      "job_id": "L07-B0",
+      "candidate_validation_rejected_events": 7,
+      "candidate_hard_issue_occurrences": {
+        "numeric_original_not_literal": 2,
+        "feature_name_not_in_evidence": 5,
+        "incomplete_context_statement": 1
+      },
+      "tool_protocol_rejected_events": 3,
+      "tool_protocol_error_occurrences": {
+        "choose_source_units_or_source_lines": 1,
+        "source_unit_not_available": 2
+      },
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    },
+    {
+      "job_id": "L01-B0",
+      "candidate_validation_rejected_events": 0,
+      "candidate_hard_issue_occurrences": {},
+      "tool_protocol_rejected_events": 0,
+      "tool_protocol_error_occurrences": {},
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    },
+    {
+      "job_id": "L05-B0",
+      "candidate_validation_rejected_events": 0,
+      "candidate_hard_issue_occurrences": {},
+      "tool_protocol_rejected_events": 0,
+      "tool_protocol_error_occurrences": {},
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    }
+  ],
+  "current_source_guard": "66 frozen snapshots strict-match plan; 65 unchanged current modules match paid SHA; only the declared helper must match derived binding new SHA. All old artifact guards remain.",
+  "observations": "10 source observations sealed before helper change. Missing output does not prove recall. New model roles and ordinary inspection do not grant medical/business approval.",
+  "followup_owners": {
+    "root": "Overall S4 assessment and user response",
+    "current_output_feedback": "Current plans, shared budget/status and document updates",
+    "new_output_review": "New static review package, 65+1 source guard and future ordinary feedback binding"
+  },
+  "formal_architecture_reviews_used": 3,
+  "formal_architecture_review_limit": 3
+}

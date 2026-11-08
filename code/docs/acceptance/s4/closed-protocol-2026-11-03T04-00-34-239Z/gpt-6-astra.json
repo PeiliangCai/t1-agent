@@ -1,0 +1,664 @@
+{
+  "model_id": "gpt-6-astra",
+  "purpose": "explicit_synthetic_S4_protocol_probe",
+  "fixture": true,
+  "medical_evidence": false,
+  "success": true,
+  "record_count": 1,
+  "batch_completed": true,
+  "result": {
+    "settled": true,
+    "responses": 2,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call_4014ee1b3503411b8f02cc24eceafe70|fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call_4014ee1b3503411b8f02cc24eceafe70|fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab",
+        "error": false
+      }
+    ],
+    "usage": [
+      {
+        "input": 5483,
+        "output": 91,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 49,
+        "totalTokens": 5574,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 3,
+        "output": 113,
+        "cacheRead": 0,
+        "cacheWrite": 1495,
+        "reasoning": 0,
+        "totalTokens": 1611,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "12e51938-b2ed-4db5-95ec-39e536570994",
+      "5db29ad8-db3e-4b64-9271-ae95f2b09546"
+    ],
+    "transient_error": false
+  },
+  "argument_samples": [
+    {
+      "call_id": "call_4014ee1b3503411b8f02cc24eceafe70|fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703",
+      "tool": "read_document_blocks",
+      "argument_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "public_synthetic_argument_sample": "{}",
+      "truncated": false
+    },
+    {
+      "call_id": "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab",
+      "tool": "submit_candidate_records",
+      "argument_sha256": "ee6c4fd44b2c0b6fe941c5b29f8fb26f0e94f1a2312db48ca213ac587a41821f",
+      "public_synthetic_argument_sample": "{\"batch_complete\":true,\"records\":[{\"source_line_indices\":[0],\"feature_name_raw\":\"blue rim\",\"feature_category\":\"margin\",\"evidence_type\":\"imaging_observation\",\"assertion\":\"affirmed\",\"origin\":\"study_authors\",\"modality\":{\"value\":\"CT\",\"source_indices\":[0]},\"disease_or_lesion\":null,\"sequence_or_phase\":null,\"numeric_expressions\":[{\"original_text\":\"7 mm\",\"unit_original\":\"mm\",\"source_indices\":[0]}]}]}",
+      "truncated": false
+    }
+  ],
+  "records": [
+    {
+      "record": {
+        "record_id": "ev-88dd22c7eacf0bb3410bd688c0ebbe2ee486cc96",
+        "document_id": "closed-probe-synthetic-document",
+        "article_family_id": "synthetic-family",
+        "bibliographic_identity": {
+          "title": "Synthetic S4 engineering fixture; not a medical paper",
+          "authors": [],
+          "venue": null,
+          "year": null,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "unverified"
+        },
+        "source_version": {
+          "file_sha256": "5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+          "source_kind": "synthetic_engineering_fixture",
+          "version": "sha256:5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+          "obtained_at": "2026-11-03T00:00:00Z"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "synthetic-line-1",
+          "bbox": [
+            10,
+            10,
+            500,
+            25
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "synthetic-line-1",
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+        "original_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "single_source_segment",
+          "contiguous_source_quote": true
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "blue rim",
+        "feature_category": "margin",
+        "evidence_type": "imaging_observation",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "unknown",
+          "original_wording": "",
+          "evidence": []
+        },
+        "numeric_expressions": [
+          {
+            "original_text": "7 mm",
+            "unit_original": "mm",
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-5f9ebdca4485778e",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          }
+        ],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "condition_requires_context",
+            "new_term_pending_human_review",
+            "includes_whole_source_line_quotes_not_minimal_feature_spans"
+          ],
+          "issues": [
+            {
+              "code": "condition_requires_context",
+              "severity": "requires_review",
+              "path": "applicability",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "synthetic-task",
+          "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+          "fixture": true,
+          "evidence_kind": "engineering_fixture",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "synthetic-unavailable-catalog-1",
+            "matching_policy_version": "exact-explicit-synonyms-1"
+          },
+          "catalog_version": "synthetic-unavailable-catalog-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "exact-explicit-synonyms-1",
+          "rule_version": "synthetic-s4-rules-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6-astra",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "synthetic-no-parser-call",
+          "read_block_ids": [
+            "synthetic-line-1"
+          ],
+          "provided_block_ids": [
+            "synthetic-line-1"
+          ],
+          "tool_call_ids": [
+            "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab"
+          ],
+          "source_binding": {
+            "task_id": "synthetic-task",
+            "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+            "document_id": "closed-probe-synthetic-document",
+            "file_sha256": "5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+            "source_version": "sha256:5f9ebdca4485778eaf8557811d450b7dbe9dfbdc962f44ce3eb8caf984e539c8",
+            "text_version": "synthetic-code-point-text-5f9ebdca4485778e"
+          },
+          "updates_record_id": null
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "version": 1,
+      "actor": "automatic",
+      "status": "active",
+      "created_at": "2026-11-03T04:02:09.041Z",
+      "reason": "insert"
+    }
+  ],
+  "events": [
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 1,
+      "type": "state",
+      "timestamp": "2026-11-03T04:01:45.332Z",
+      "detail": {
+        "state": "queued",
+        "medical_quality_approved": false
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 2,
+      "type": "state",
+      "timestamp": "2026-11-03T04:01:45.333Z",
+      "detail": {
+        "state": "extracting"
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 3,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:02:02.075Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "read_document_blocks",
+        "call_id": "call_4014ee1b3503411b8f02cc24eceafe70|fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703",
+        "protocol": "whole_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 4,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:02:02.077Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_4014ee1b3503411b8f02cc24eceafe70|fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703",
+        "name": "read_document_blocks",
+        "status": "ok"
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 5,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:02:09.035Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "submit_candidate_records",
+        "call_id": "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab",
+        "protocol": "whole_lines",
+        "record_shapes": [
+          {
+            "source_line_count": 1,
+            "exact_fragment_count": 0,
+            "copied_source_quote_characters": 0,
+            "copied_context_quote_characters": 0
+          }
+        ]
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 6,
+      "type": "candidate",
+      "timestamp": "2026-11-03T04:02:09.041Z",
+      "detail": {
+        "record_id": "ev-88dd22c7eacf0bb3410bd688c0ebbe2ee486cc96",
+        "record_version": 1,
+        "review_status": "needs_context",
+        "reason": "insert"
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 7,
+      "type": "reconciliation",
+      "timestamp": "2026-11-03T04:02:09.041Z",
+      "detail": {
+        "action": "insert",
+        "issues": []
+      }
+    },
+    {
+      "run_id": "closed-probe-d5dfbb90-6d5d-490c-bd06-ab7875cedca6",
+      "seq": 8,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:02:09.043Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_Fxwo2EP2oyoIWqZKPNlPkRWw|fc_0cca979d425acf4c016ae95cbf5df88191bc909de243536fab",
+        "name": "submit_candidate_records",
+        "status": "ok"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "12e51938-b2ed-4db5-95ec-39e536570994",
+      "model_id": "gpt-6-astra",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6-astra",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:01:45.344Z",
+      "payload_sha256": "771dff33dc493af9a32f58edcb962de3c0dc59b04b26207e1186d77396352851",
+      "payload_bytes": 7717,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 8229,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 37,
+      "first_stream_event_at": "2026-11-03T04:02:00.611Z",
+      "last_stream_event_at": "2026-11-03T04:02:01.824Z",
+      "provider_response_model": "gpt-6-astra",
+      "provider_response_id": "resp_0cca979d425acf4c016ae95caf8774819199e7282b23418d14",
+      "reasoning_visible_delta_characters": 50,
+      "text_delta_characters": 100,
+      "tool_argument_delta_characters": 2,
+      "provider_usage": {
+        "input_tokens": 5483,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 91,
+        "output_tokens_details": {
+          "reasoning_tokens": 49
+        },
+        "total_tokens": 5574,
+        "attribution": {
+          "items": {
+            "fc_0cca979d425acf4c016ae95cb91e4c8191afaedf9a7266a703": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 17
+            },
+            "msg_0cca979d425acf4c016ae95caf888c81918bd8a5a316d09af6": {
+              "input_tokens": 189,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_0cca979d425acf4c016ae95caf888c8191b5e119cc22b488c8": {
+              "input_tokens": 285,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_0cca979d425acf4c016ae95cb81014819186867c062c1dce3a": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 25
+            },
+            "rs_0cca979d425acf4c016ae95cb5ce7081918a78d461dfa1a575": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 49
+            }
+          },
+          "request_fields": {
+            "instructions": {
+              "input_tokens": 4114,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "tools": {
+              "input_tokens": 893,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "56687071e43688740cb8985220909b02a04743cd1ee2a9221d36a71be40163d1",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 5483,
+      "output_tokens": 91,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 49,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:02:02.073Z"
+    },
+    {
+      "id": "5db29ad8-db3e-4b64-9271-ae95f2b09546",
+      "model_id": "gpt-6-astra",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6-astra",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:02:02.081Z",
+      "payload_sha256": "e44f4ad453d80c1801b5687cb1a248feaf5e6b12557faa70df62cbe0a2e8057a",
+      "payload_bytes": 11027,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 11539,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 47,
+      "first_stream_event_at": "2026-11-03T04:02:07.736Z",
+      "last_stream_event_at": "2026-11-03T04:02:08.731Z",
+      "provider_response_model": "gpt-6-astra",
+      "provider_response_id": "resp_0cca979d425acf4c016ae95cbe4fa88191babf4bb8b89caab1",
+      "tool_argument_delta_characters": 395,
+      "provider_usage": {
+        "input_tokens": 1498,
+        "input_tokens_details": {
+          "cache_write_tokens": 1495,
+          "cached_tokens": 0
+        },
+        "output_tokens": 113,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1611
+      },
+      "response_stream_sha256": "fb7456e81211143b7a60fa3cdb8f00aae59c6bc45121cd8fdc9ace3673ccf6d3",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1498,
+      "output_tokens": 113,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 1495,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:02:09.031Z"
+    }
+  ],
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6-astra",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "model_id": "gpt-6-astra",
+  "purpose": "explicit_synthetic_S4_protocol_probe",
+  "fixture": true,
+  "medical_evidence": false,
+  "protocol_version": "s4-unified-batch-lines-5",
+  "profile_version": "s4-development-medium-official-context-3",
+  "success": false,
+  "record_count": 0,
+  "batch_completed": false,
+  "result": {
+    "settled": true,
+    "responses": 1,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "error"
+      }
+    ],
+    "usage": [
+      {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "totalTokens": 0,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "bb35811b-adb4-4766-918f-e7969e86db67"
+    ],
+    "error": {
+      "type": "ContractError",
+      "code": "model_response_failed"
+    },
+    "transient_error": false
+  },
+  "argument_samples": [],
+  "records": [],
+  "events": [
+    {
+      "run_id": "closed-probe-ac39fbea-d857-4d03-9d3d-02960c4a0014",
+      "seq": 1,
+      "type": "state",
+      "timestamp": "2026-11-03T04:29:58.688Z",
+      "detail": {
+        "state": "queued",
+        "medical_quality_approved": false
+      }
+    },
+    {
+      "run_id": "closed-probe-ac39fbea-d857-4d03-9d3d-02960c4a0014",
+      "seq": 2,
+      "type": "state",
+      "timestamp": "2026-11-03T04:29:58.690Z",
+      "detail": {
+        "state": "extracting"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "bb35811b-adb4-4766-918f-e7969e86db67",
+      "model_id": "gpt-6-astra",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6-astra",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:29:58.701Z",
+      "payload_sha256": "0e8130a34814cd2909c80f9b3976ff7450f2f535cb919195944c59e4815b6fc0",
+      "payload_bytes": 8059,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "missing_usage_conservative_reservation",
+      "local_payload_estimate": 8571,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 2167,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 1,
+      "first_stream_event_at": "2026-11-03T04:30:07.230Z",
+      "last_stream_event_at": "2026-11-03T04:30:07.230Z",
+      "text_delta_characters": 0,
+      "response_stream_sha256": "c6c86b0d6d685b3480a7d8f8b00c290bfc4a27cf0f851d9c092f0bc1c16e277d",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "finished_at": "2026-11-03T04:31:36.727Z"
+    }
+  ],
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6-astra",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "model_context_window_metadata": 1050000,
+    "model_capacity_source": "official_OpenAI_model_specification_not_supplier_stress_test",
+    "application_context_estimate_limit": 128000,
+    "configured_max_output_tokens": 8192,
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  }
+}

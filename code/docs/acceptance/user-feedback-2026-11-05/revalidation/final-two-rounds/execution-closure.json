@@ -1,0 +1,53 @@
+{
+  "schema_version": "feedback-revalidation-execution-closure-1",
+  "recorded_at": "2026-11-05T08:26:43.500912+00:00",
+  "scope_status": "Authorized work completed; no further API calls scheduled or permitted automatically by this handoff.",
+  "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+  "original_first_call_at": "2026-11-05T06:55:03.968Z",
+  "last_request_finished_at": "2026-11-05T08:07:45.878Z",
+  "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+  "canonical_ledger": "runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+  "canonical_ledger_sha256": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+  "spent": {
+    "requests": 216,
+    "input_tokens": 1750064,
+    "output_tokens": 59428,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "unused_caps_not_new_authorization": {
+    "requests": 84,
+    "input_tokens": 4249936,
+    "output_tokens": 340572
+  },
+  "settled_requests": 216,
+  "missing_usage_requests": 0,
+  "owner_lock_present": false,
+  "halted": null,
+  "api_processes_remaining": [],
+  "historical_189_ledger_unchanged": true,
+  "combined_request_count": 405,
+  "actual_model_name_metadata_counts": {
+    "matched": 216
+  },
+  "new_effective_representative_candidates": {
+    "round1": 13,
+    "round2": 11,
+    "failed_attempt_partial_candidates_separate": 1
+  },
+  "candidate_medical_or_product_approval": false,
+  "formal_review_used": 3,
+  "formal_review_limit": 3,
+  "final_report": "final-two-rounds/report.json",
+  "reader_manifest": "final-two-rounds/reader-manifest.json",
+  "reader_manifest_sha256": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+  "final_source_artifacts_all_match": 159,
+  "verification": {
+    "single_scope_rule_offline": "metric-context-offline.log:4/4",
+    "final_typescript": "final-two-rounds/final-tsc.log:exit0",
+    "actual_parent_source_only_one_prompt_rule_changed": "metric-context-revision/prompt-change.json; not proof of equality of every online payload",
+    "initial_repair_wide_tests_historical": "core-extraction197/197, core-evaluation37/37 before the paid rounds"
+  },
+  "temporary_log_removed_after_parent_handoff": "runtime-data/agent-notes/feedback-real-revalidation-2026-11-05.json",
+  "permanent_or_shared_logs_not_removed": true
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "s4-runtime-validation-initial-failures-1",
+  "date": "2026-11-03",
+  "source": "executed_by_GPT-6.1-Sol_max_runtime_validation_agent",
+  "simulation": "Synthetic engineering DocumentIR and loopback Responses SSE; installed Pi SDK; no paid API, real PDF or medical gold annotations",
+  "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/runtime.test.ts",
+  "first_full_run": { "tests": 19, "pass": 17, "fail": 2 },
+  "reproduction_command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='cancellation after|selected cancer' tests/extraction/runtime.test.ts",
+  "failures": [
+    {
+      "test": "cancellation after a candidate commit preserves it and cannot claim batch or document completion",
+      "observed_assertion": "retry events: actual 1, expected 0",
+      "observed_correct_behavior": "cancelled state, one saved candidate, incomplete source coverage, and exactly two physical loopback requests",
+      "implementation_owner_notified": "t1_s4_execution"
+    },
+    {
+      "test": "selected cancer, modality or feature scope with an unavailable catalog blocks before model network",
+      "observed_assertion": "unavailable catalog must block cancers before any model request: actual 2, expected 0",
+      "observed_condition": "cancers selected with unavailable empty evidence catalog",
+      "implementation_owner_notified": "t1_s4_execution"
+    }
+  ],
+  "limitations": [
+    "This is runtime behavior validation, not a medical accuracy or recall assessment.",
+    "A separate summary read-before-update regression was added after its implementation fix and passed on its first execution; no initial failure is claimed for that regression."
+  ]
+}

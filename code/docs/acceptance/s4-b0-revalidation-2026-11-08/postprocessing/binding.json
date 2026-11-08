@@ -1,0 +1,50 @@
+{
+  "schema_version": "b0-derived-source-review-binding-1",
+  "finalized": true,
+  "finalized_at": "2026-11-08T15:45:14.118Z",
+  "path_base": "code",
+  "policy_version": "same-source-review-index-1",
+  "parent_output_binding_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/output-binding.json",
+  "parent_output_binding_sha256": "77571cdec58805e18ddfc7ec79e735310c1da50c34b3dfdb08fe0bfb21b43826",
+  "helper_source_path": "packages/agent/src/strict-source-groups.ts",
+  "model_runtime_sha256": "54e5e4c499fd61c78b1301ebb2105039b6e58a9d67ebc5f2c0122f19fea43704",
+  "postprocessing_source_sha256": "189d64a26c0ceaaf8ea0d7dee9246b13e45a1ef4ea3605d369022771a4e04333",
+  "model_runtime_source_snapshot_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/source-snapshot/packages/agent/src/strict-source-groups.ts",
+  "source_review_index_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/same-source-review-index.json",
+  "source_review_index_sha256": "f79bb67d500ebf330bb0fd71ab0adb0e216d9a71c303841419bc6dec1630f9ea",
+  "offline_test_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/offline-tests.log",
+  "offline_test_sha256": "9348619ef7c379ed3f5faee483ef4939a208cb1ab82716ca00de0f560ad24fdf",
+  "offline_typecheck_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/typecheck.log",
+  "offline_typecheck_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "verification_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/verification.json",
+  "verification_sha256": "3dd6feaa3dd4e587a568ecbf2d5fb1c9f34330a7ead608f0262e6fab2a2e458a",
+  "generator_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/generate-index.mjs",
+  "generator_sha256": "b7a544965a1b13e88d32d13f21bc432035831b41e5f95df3a8b800b11d7b57cf",
+  "source_results": [
+    {
+      "job_id": "L07-B0",
+      "result_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/L07-B0/result.json",
+      "result_sha256": "a68a89f17b57260717e0786fbfad288c765d78e5d1f9eade50cdc61ddcd47a67"
+    },
+    {
+      "job_id": "L01-B0",
+      "result_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/L01-B0/result.json",
+      "result_sha256": "149426509fd1e713723c72439e1dc62010bc4b866c7bc9a8d8e595c1f995ae98"
+    },
+    {
+      "job_id": "L05-B0",
+      "result_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/L05-B0/result.json",
+      "result_sha256": "de56841595caaeedbf2a0a4f1f13198cd745710d35a727c8eee559338d98a339"
+    }
+  ],
+  "guard_policy": {
+    "all_66_model_snapshots_must_match_plan": true,
+    "other_65_current_sources_must_match_paid_plan": true,
+    "only_this_current_helper_accepts_the_new_derived_binding_hash": true,
+    "all_original_result_export_ledger_hash_guards_retained": true
+  },
+  "helper_used_in_paid_model_execution": false,
+  "additional_real_model_provider_requests": 0,
+  "original_paid_outputs_rewritten": false,
+  "medical_quality_approved": false
+}

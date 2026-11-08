@@ -1,0 +1,48 @@
+{
+  "schema_version": "s4-report-effective-deadline-semantic-supplement-1",
+  "created_at": "2026-11-03T05:04:59.311091+00:00",
+  "change": "Show initial and effective ledger wall-clock limits separately; show archived per-run protocol/profile/concurrency/maxima; show neutral cases and only source-matched actual semantic audit events.",
+  "focused_test": {
+    "command": "python3 tests/extraction/report_smoke.py ReportSmoke.test_effective_deadline_and_semantic_cases_follow_actual_matching_events_only",
+    "tests": 1,
+    "passed": 1,
+    "failed": 0,
+    "exit_code": 0,
+    "log": "report-effective-deadline-semantic-smoke.log"
+  },
+  "initial_ledger_seconds": 7200,
+  "effective_ledger_seconds": 14400,
+  "wall_clock_adjustments_preserved": [
+    {
+      "from_seconds": 7200,
+      "to_seconds": 14400,
+      "authorized_by": "main_session_astra",
+      "recorded_at": "2026-11-03T04:29:22.048831+00:00",
+      "evidence_sha256": "7e171655bbbfaf8c6893c1623181ec60886762b7dd9aa4faef320dbdbbc71ec0"
+    }
+  ],
+  "semantic_case_count": 2,
+  "recorded_semantic_audit_review_events": 0,
+  "not_run_is_not_completed": true,
+  "render_validation": {
+    "schema_version": "s4-report-render-validation-1",
+    "generated_at": "2026-11-03T05:04:58.475697+00:00",
+    "html_parsed": true,
+    "script_elements": 1,
+    "missing_internal_anchors": [],
+    "missing_local_link_files": [],
+    "source_span_or_composite_mismatches": [],
+    "passed": true,
+    "medical_semantics_verified": false,
+    "stage_passed": false,
+    "html_sha256": "1bcb18c0c7bc7d125def0dc7b20315b5a88357a8d9a47ba3bd731f9fbe88fdba",
+    "generator_sha256": "84c85e31534514db22c574441db0764a811cc75e7e46ed41e1a0c8bca9a51c0c"
+  },
+  "new_paid_calls": 0,
+  "candidate_modifications": false,
+  "stage_passed": false,
+  "file_sha256": {
+    "scripts/render-s4-report.py": "84c85e31534514db22c574441db0764a811cc75e7e46ed41e1a0c8bca9a51c0c",
+    "tests/extraction/report_smoke.py": "d5584ccfe42da9f5d93d11a1a2fdbba8d30ddcb18fe7dba875697611acbf5a04"
+  }
+}

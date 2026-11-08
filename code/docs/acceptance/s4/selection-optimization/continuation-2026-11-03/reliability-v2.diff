@@ -1,0 +1,309 @@
+--- pilot1/packages/agent/src/extraction-tools.ts
++++ reliability-v2/packages/agent/src/extraction-tools.ts
+@@ -119,7 +119,8 @@
+       Type.Object({ block_ids: ReadSchema.properties.block_ids, line_indices: lineSelection }, closed);
+     const schemas = [Type.Object({}, closed), modelReadSchema, Type.Object({}, closed),
+       Type.Object({ records: Type.Array(modelRecordSchema, { maxItems: 3 }), batch_complete: Type.Boolean() }, closed),
+-      Type.Object({ reason: IssueSchema.properties.reason, block_ids: IssueSchema.properties.block_ids }, closed)];
++      isClosed ? Type.Object({ reason: IssueSchema.properties.reason, line_indices: lineSelection }, closed) :
++        Type.Object({ reason: IssueSchema.properties.reason, block_ids: IssueSchema.properties.block_ids }, closed)];
+     const descriptions = ['Get immutable scope, source identity and current assigned batch.',
+       'Read current assigned source lines and boundary context. Call with {} to read the whole batch once. Each line has a stable line_index for this batch; source_line_indices select entire original lines without recopying them. They are whole-line quotes, not minimal feature phrases.',
+       'Read the explicit versioned catalog. An unavailable catalog does not restrict open extraction; drafts are never approved.',
+@@ -127,7 +128,8 @@
+         'Submit at most THREE candidates. ALL *_line_indices and each medical/numeric line_indices refer directly to the SAME source_lines.line_index table returned by read_document_blocks. There is no per-record renumbering. Host copies original lines and binds identity. No exact_quote/source_fragments/source_indices fields. feature_name_raw must be verbatim or null. Submit as needed; only accepted batch_complete=true completes the batch; records=[] is valid.' : this.modelProtocol === 'whole_lines' ?
+         'Submit at most THREE candidates using ONLY source_line_indices and optional context_line_indices from read lines. Exact_quote/source_fragments/context_fragments are NOT fields in this interface. Host copies whole original lines, binds identity and builds the full evidence record. Medical-field source_indices index your selected lines, zero based. feature_name_raw must be verbatim or null. Continue submissions as needed; only batch_complete=true explicitly completes the assigned batch; records=[] is valid.' :
+         'Submit at most THREE concise source-backed candidates. Prefer source_line_indices from read lines: the host copies exact WHOLE original lines. Optional source_fragments may instead select exact shorter quotes. Choose exactly one source selection. Medical-field source_indices index the selected source fragments (zero based), not the whole batch. Host binds identity and full contract. Continue submitting as needed; only batch_complete=true explicitly completes all assigned blocks, including legitimate records=[].',
+-      'Report unresolved context, article attribution, scope or processing questions without inventing an answer.'];
++      isClosed ? 'Report unresolved context or table/figure associations. Optional line_indices use the SAME returned source_lines table; omit to bind the assigned batch. This only records a diagnostic, never marks blocks read or extraction complete. No block_ids field exists.' :
++        'Report unresolved context, article attribution, scope or processing questions without inventing an answer.'];
+     return TOOL_NAMES.map((name, index) => defineTool({ name, label: name, description: descriptions[index]!, parameters: schemas[index]!, executionMode: 'sequential',
+       execute: async (id, params, signal) => {
+         let invoked = false;
+@@ -151,6 +153,11 @@
+         const expanded = name === 'submit_candidate_records' ? { ...rest,
+           records: (modelParams.records as Array<IndexedEvidence | BatchLineEvidence>).map(record => this.modelProtocol === 'batch_lines' ?
+             expandBatchLineEvidence(record as BatchLineEvidence, lines, this.sourceBinding()) : expandIndexedEvidence(record as IndexedEvidence, lines, this.sourceBinding())) } :
++          name === 'report_context_issue' && isClosed ? { ...rest, block_ids: hasLineSelection ? (line_indices as number[]).map(i => {
++            const line = lines[i]; if (!line) throw new ContractError('source_line_index_out_of_range');
++            if (!this.readBlocks.has(line.block_id)) throw new ContractError('issue_source_line_not_read');
++            return line.block_id;
++          }) : [...this.batch.assigned_block_ids] } :
+           name === 'read_document_blocks' && hasLineSelection ? { ...rest, block_ids: (line_indices as number[]).map(i => {
+             if (!lines[i]) throw new ContractError('source_line_index_out_of_range'); return lines[i]!.block_id;
+           }) } : rest;
+@@ -170,7 +177,7 @@
+             warning: 'Whole decoded source lines; native structure and reading order unverified. Nonadjacent lines must not be presented as one continuous sentence.' };
+         }
+         return { content: [{ type: 'text' as const, text: JSON.stringify(result) }],
+-          details: { fixture: false, medical_approval: false, protocol: this.modelProtocol === 'batch_lines' ? 's4-unified-batch-lines-5' : this.modelProtocol === 'whole_lines' ? 's4-closed-lines-4' : 's4-host-bound-lines-3' } };
++          details: { fixture: false, medical_approval: false, protocol: this.modelProtocol === 'batch_lines' ? 's4-unified-batch-lines-6' : this.modelProtocol === 'whole_lines' ? 's4-closed-lines-4' : 's4-host-bound-lines-3' } };
+         } catch (error) {
+           if (!invoked) this.store.event(this.ids.run_id, 'tool_protocol_rejected', { batch_id: this.batch.batch_id, tool: name, call_id: id,
+             error_code: error instanceof ContractError ? error.code : 'tool_protocol_failed' });
+--- pilot1/packages/agent/src/extraction-pi.ts
++++ reliability-v2/packages/agent/src/extraction-pi.ts
+@@ -27,6 +27,7 @@
+ Uncertain article membership, wrong table/caption associations or missing context must be reported, never silently resolved.
+ Every candidate remains pending or needs_context. Never create human approval, alter source text or call other services.
+ Be efficient: use the current batch and supplied context; submit all valid candidates together and explicitly complete the assigned batch even with zero candidates.`;
++export const EXTRACTION_STREAM_EOF_MESSAGE = 'OpenAI Responses stream ended before a terminal response event';
+ 
+ export async function createExtractionSession(config: ModelConfig, profile: ExtractionModelProfile, definitions: ToolDefinition[],
+   directory: string, budget: ExtractionBudget, purpose: string, attempt = 0, maxResponses: number = S4_LIMITS.batch_responses,
+@@ -123,10 +124,14 @@
+         }
+       }
+       const sdkError = event.message.errorMessage;
++      if (entry && sdkError === EXTRACTION_STREAM_EOF_MESSAGE) {
++        entry.error_code ??= 'provider_stream_missing_terminal_event'; budget.persist();
++      }
+       events.push({ type: 'assistant_response', stop_reason: event.message.stopReason,
+         ...(typeof sdkError === 'string' && sdkError ? { sdk_error_sha256: createHash('sha256').update(sdkError).digest('hex'),
+           sdk_error_characters: sdkError.length,
+-          sdk_error_classification: /capacity|overload|rate.?limit|too many requests/i.test(sdkError) ? 'provider_capacity_or_rate_limit' :
++          sdk_error_classification: sdkError === EXTRACTION_STREAM_EOF_MESSAGE ? 'provider_stream_missing_terminal_event' :
++            /capacity|overload|rate.?limit|too many requests/i.test(sdkError) ? 'provider_capacity_or_rate_limit' :
+             /timeout|timed out|connection|network|fetch failed|socket/i.test(sdkError) ? 'transport_or_timeout' :
+             /application_context_estimate_limit/.test(sdkError) ? 'application_context_estimate_limit' : 'unclassified_sdk_error' } : {}) });
+       if (['error', 'aborted', 'length'].includes(event.message.stopReason)) apiFailed = true;
+@@ -151,6 +156,7 @@
+     for (const entry of entries) if (!entry.finished_at) { try { budget.settle(entry); } catch { /* ledger retains limit */ } }
+   }
+   return { settled, responses, events, usage, request_ids: entries.map(e => e.id), error,
+-    transient_error: budget.ledger.halted !== 'response_model_identity_mismatch' &&
+-      entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) || ['transport_failure', 'request_time_limit'].includes(e.error_code ?? '')) };
++    transient_error: budget.ledger.halted === null &&
++      entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) ||
++        ['transport_failure', 'request_time_limit', 'provider_stream_missing_terminal_event'].includes(e.error_code ?? '')) };
+ }
+--- pilot1/packages/agent/src/extraction-run.ts
++++ reliability-v2/packages/agent/src/extraction-run.ts
+@@ -49,6 +49,7 @@
+   const read = new Set<string>(), summaryRead = new Set<string>(), completed = new Set<string>(), failed = new Set<string>();
+   let firstCandidate: number | null = null, contextExposures = 0, summaryCompleted = false, documentSummary = '';
+   const attempts: Array<Record<string, unknown>> = [];
++  const summaryAttempts: Array<Record<string, unknown>> = [];
+   let error: ReturnType<typeof safeError> | undefined;
+   try {
+     if (input.scope.catalog_version !== catalog.catalog_version) throw new ContractError('catalog_version_mismatch');
+@@ -133,10 +134,14 @@
+       if (!succeeded) batch.assigned_block_ids.forEach(id => failed.add(id));
+     }
+     store.transition(input.run_id, 'reconciling');
++    let finalSummaryReport: Record<string, unknown> | undefined;
++    for (let summaryAttempt = 0; summaryAttempt <= S4_LIMITS.transient_retries; summaryAttempt++) {
++    if (signal.aborted) throw new ContractError(options.signal?.aborted ? 'run_cancelled' : 'document_time_limit');
++    budget.check();
+     const summaryTools = new ExtractionSummaryTools({ input, document, catalog, metadata,
+       allowDevelopmentCatalog: options.allowDevelopmentCatalog }, article, store, strategy, options.semanticAuditCases, selection);
+-    const summarySession = await createExtractionSession(config, profile, summaryTools.definitions(), resolve(directory, 'whole-document-summary'), budget,
+-      input.run_id + ':whole-document-summary', 0, batchMaxResponses);
++    const summarySession = await createExtractionSession(config, profile, summaryTools.definitions(), resolve(directory, 'whole-document-summary-attempt-' + summaryAttempt), budget,
++      input.run_id + ':whole-document-summary', summaryAttempt, batchMaxResponses);
+     const previousSummaryFinish = summarySession.session.agent.finishTurn;
+     summarySession.session.agent.finishTurn = async (turn, finishSignal) => {
+       const decision = await previousSummaryFinish?.(turn, finishSignal);
+@@ -153,11 +158,25 @@
+       'Call submit_candidate_records to save a short Chinese summary, reviews, possible links, validated source-backed updates if needed (otherwise updates=[]), and summary_complete=true. ' +
+       'Never mark medical/human approval, never overwrite human revisions. Finish after successful saving.', budget, signal,
+       Math.max(1, documentTimeout - (performance.now() - started)));
+-    await writeFile(resolve(directory, 'whole-document-summary.json'), JSON.stringify({ strategy, audit: summarySession.audit,
++    finalSummaryReport = { strategy, attempt: summaryAttempt, audit: summarySession.audit,
+       result: summaryResult, request_accounting: summarySession.entries, summary: summaryTools.summary, issues: summaryTools.issues,
+-      semantic_audit_reviews: [...summaryTools.auditCaseReviews.values()], semantic_audit_cases_required: (options.semanticAuditCases ?? []).map(c => c.case_id) }, null, 2) + '\n', { flag: 'wx' });
++      semantic_audit_reviews: [...summaryTools.auditCaseReviews.values()], semantic_audit_cases_required: (options.semanticAuditCases ?? []).map(c => c.case_id) };
++    const summaryPath = resolve(directory, 'whole-document-summary-attempt-' + summaryAttempt + '.json');
++    await writeFile(summaryPath, JSON.stringify(finalSummaryReport, null, 2) + '\n', { flag: 'wx' });
+     summaryCompleted = !summaryResult.error && summaryTools.completed; documentSummary = summaryTools.summary;
+     for (const id of summaryTools.readBlocks) { summaryRead.add(id); read.add(id); }
++    summaryAttempts.push({ attempt: summaryAttempt, status: summaryCompleted ? 'completed' : 'failed', path: summaryPath,
++      error: summaryResult.error, request_ids: summarySession.entries.map(entry => entry.id),
++      candidate_versions_after_attempt: store.versions(input.run_id).length });
++    if (summaryCompleted) break;
++    if (signal.aborted) throw new ContractError(options.signal?.aborted ? 'run_cancelled' : 'document_time_limit');
++    if (!summaryResult.transient_error || budget.ledger.halted || summaryAttempt === S4_LIMITS.transient_retries) break;
++    store.event(input.run_id, 'summary_retry', { next_attempt: summaryAttempt + 1, max_retries: S4_LIMITS.transient_retries,
++      reason: 'transient_provider_or_transport_error', fresh_session_reads_current_versions: true, human_versions_protected: true });
++    await new Promise(resolve => setTimeout(resolve, 250 * (summaryAttempt + 1)));
++    }
++    await writeFile(resolve(directory, 'whole-document-summary.json'), JSON.stringify({ ...finalSummaryReport,
++      recovery_policy: 'fresh_session_on_transient_error_maximum2_retries', attempts: summaryAttempts }, null, 2) + '\n', { flag: 'wx' });
+     if (!summaryCompleted) throw new ContractError('whole_document_summary_incomplete');
+     const complete = completed.size === article.included_block_ids.length && !failed.size && !article.quarantined_block_ids.length && document.parser.status === 'parsed';
+     store.transition(input.run_id, complete ? 'completed' : 'partial');
+@@ -176,8 +195,9 @@
+     formal_model_selected: false, actual_Pi_SDK: '1.4.0', original_pdf_uploads: 0,
+     operation_limits: { document_timeout_ms: documentTimeout, batch_max_responses: batchMaxResponses,
+       request_seconds: S4_LIMITS.request_seconds, original_ledger_limits_retained: true,
++      transient_retries: S4_LIMITS.transient_retries, summary_fresh_session_retries: S4_LIMITS.transient_retries,
+       call_and_token_caps_unchanged: true, effective_global_wall_clock_seconds: budget.wallClockSeconds },
+-    candidate_count: snapshot.candidates.length, candidate_versions: store.versions(input.run_id).length,
++    candidate_count: snapshot.candidates.length, candidate_versions: store.versions(input.run_id).length, summary_attempts: summaryAttempts,
+     first_candidate_seconds: firstCandidate, total_seconds: (performance.now() - started) / 1000,
+     timing_scope: 'cached_real_DocumentIR_to_Pi_candidates_and_summary_not_fresh_PDF_end_to_end',
+     coverage: { physical_pages: document.pages.length, parser_status: document.parser.status,
+--- pilot1/tests/extraction/fixtures/runtime-responses.ts
++++ reliability-v2/tests/extraction/fixtures/runtime-responses.ts
+@@ -24,6 +24,7 @@
+ export type ResponsesStep = {
+   text?: string;
+   response_model?: string;
++  omit_terminal_event?: boolean;
+   calls?: ScriptedToolCall[];
+   usage?: ResponsesUsage | null;
+   status?: number;
+@@ -109,7 +110,7 @@
+         send({ type: 'response.output_item.done', output_index: index, item });
+         output.push(item);
+       }
+-      send({ type: step.incomplete ? 'response.incomplete' : 'response.completed', response: {
++      if (!step.omit_terminal_event) send({ type: step.incomplete ? 'response.incomplete' : 'response.completed', response: {
+         id, object: 'response', model: step.response_model ?? body.model, status: step.incomplete ? 'incomplete' : 'completed', output,
+         ...(step.incomplete ? { incomplete_details: { reason: 'max_output_tokens' } } : {}),
+         ...(step.usage === null ? {} : { usage: step.usage ?? normalUsage }),
+--- pilot1/tests/extraction/closed-issue-eof-recovery.test.ts
++++ reliability-v2/tests/extraction/closed-issue-eof-recovery.test.ts
+@@ -0,0 +1,142 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { mkdtemp, rm } from 'node:fs/promises';
++import { join } from 'node:path';
++import { tmpdir } from 'node:os';
++import { ExtractionStore } from '../../packages/agent/src/extraction-store.js';
++import { ExtractionTools } from '../../packages/agent/src/extraction-tools.js';
++import { ExtractionBudget, S4_LIMITS } from '../../packages/agent/src/extraction-budget.js';
++import { buildArticleScope, planExtractionBatches } from '../../packages/agent/src/article-scope.js';
++import { developmentProfile } from '../../packages/agent/src/extraction-pi.js';
++import { runExtractionDocument } from '../../packages/agent/src/extraction-run.js';
++import { makeEvidenceFixture } from './fixtures/evidence-fixtures.js';
++import { createRuntimeResponsesFixture, type ResponsesStep } from './fixtures/runtime-responses.js';
++
++async function temporary<T>(body: (directory: string) => Promise<T>) {
++  const directory = await mkdtemp(join(tmpdir(), 's4-reliability-v2-'));
++  try { return await body(directory); } finally { await rm(directory, { recursive: true, force: true }); }
++}
++const batchZero: ResponsesStep = { calls: [{ name: 'read_document_blocks', arguments: {} },
++  { name: 'submit_candidate_records', arguments: { records: [], batch_complete: true } }] };
++const summaryZero: ResponsesStep = { calls: [{ name: 'get_document_context', arguments: {} },
++  { name: 'submit_candidate_records', arguments: { summary: 'Synthetic only.', reviews: [], links: [], updates: [], summary_complete: true } }] };
++function context() {
++  const fixture = makeEvidenceFixture(['Synthetic table line.', 'A different batch source.']);
++  const store = new ExtractionStore(':memory:'); store.create(fixture.input, fixture.context.metadata); store.transition(fixture.input.run_id, 'extracting');
++  const article = buildArticleScope(fixture.document), batch = planExtractionBatches(fixture.document, article, { maxBlocks: 1, contextBlocks: 0 })[0]!;
++  const tools = new ExtractionTools(fixture.context, batch, article, store, 'batch_lines');
++  const execute = (name: string, params: Record<string, unknown>) => {
++    const definition = tools.definitions().find(tool => tool.name === name)!;
++    return definition.execute('synthetic-' + name, params, undefined, undefined, {} as Parameters<typeof definition.execute>[4]);
++  };
++  return { fixture, store, tools, execute };
++}
++
++test('closed issue omission binds assigned IDs but never reads, completes or fabricates zero candidates', async () => {
++  const c = context();
++  try {
++    await c.execute('report_context_issue', { reason: 'Synthetic missing table header.' });
++    const issue = c.store.events(c.fixture.input.run_id).find(e => e.type === 'context_issue')!;
++    assert.deepEqual(issue.detail.block_ids, [c.fixture.document.blocks[0]!.block_id]);
++    assert.equal(c.tools.readBlocks.size, 0); assert.equal(c.tools.completed, false);
++    assert.equal(c.store.current(c.fixture.input.run_id).length, 0);
++    await assert.rejects(c.execute('report_context_issue', { reason: 'Guessed opaque batch ID.', block_ids: ['batch-0005'] }), /schema_validation_failed/);
++    await assert.rejects(c.tools.invoke('report_context_issue', { ...c.tools.ids, reason: 'Legacy unauthorized ID.', block_ids: ['batch-0005'] }, 'raw'), /issue_block_not_authorized/);
++    await assert.rejects(c.tools.invoke('report_context_issue', { ...c.tools.ids, reason: 'Legacy cross batch ID.', block_ids: [c.fixture.document.blocks[1]!.block_id] }, 'raw-cross'), /issue_block_not_authorized/);
++  } finally { c.store.close(); }
++});
++
++test('closed issue indices must be returned/read and in this batch; host supplies the source ID', async () => {
++  const c = context();
++  try {
++    await assert.rejects(c.execute('report_context_issue', { reason: 'Not yet read.', line_indices: [0] }), /issue_source_line_not_read/);
++    await c.execute('read_document_blocks', {});
++    await c.execute('report_context_issue', { reason: 'Synthetic table ambiguity.', line_indices: [0] });
++    assert.deepEqual(c.tools.issues[0]!.block_ids, [c.fixture.document.blocks[0]!.block_id]);
++    assert.equal(c.tools.completed, false);
++    await assert.rejects(c.execute('report_context_issue', { reason: 'Outside allowed table.', line_indices: [1] }), /source_line_index_out_of_range/);
++    await assert.rejects(c.execute('report_context_issue', { reason: 'Out of range.', line_indices: [256] }), /schema_validation_failed/);
++  } finally { c.store.close(); }
++});
++
++async function runLocal(directory: string, steps: Parameters<typeof createRuntimeResponsesFixture>[0],
++  options: { fixture?: ReturnType<typeof makeEvidenceFixture>; store?: ExtractionStore; oneRequestBudget?: boolean } = {}) {
++  const server = await createRuntimeResponsesFixture(steps), fixture = options.fixture ?? makeEvidenceFixture(), store = options.store ?? new ExtractionStore(':memory:');
++  const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint, Date.now, options.oneRequestBudget ? {
++    limits: { ...S4_LIMITS, requests: 1 }, authorization: { id: 'synthetic-one-request', source: 'synthetic:no-network-outside-loopback', recorded_at: '2026-11-03T00:00:00Z' },
++  } : {});
++  fixture.input.runtime_profile = { ...fixture.input.runtime_profile, provider: server.config.provider, model_id: server.config.modelId, endpoint: server.endpoint };
++  try {
++    const result = await runExtractionDocument({ input: fixture.input, document: fixture.document, catalog: fixture.catalog, metadata: fixture.context.metadata,
++      profile: developmentProfile(server.config.modelId), config: server.config, budget, store, directory: join(directory, 'run'), strategy: 'baseline' });
++    return { result, requests: server.requests.length, budget };
++  } finally { await server.close(); if (!options.store) store.close(); }
++}
++
++test('exact missing-terminal EOF retries a batch while retaining the failed unknown reservation', async () => {
++  await temporary(async directory => {
++    const { result, requests, budget } = await runLocal(directory, [{ text: 'Synthetic truncation.', omit_terminal_event: true }, batchZero, summaryZero]);
++    assert.equal(result.error, undefined); assert.equal(requests, 3);
++    assert.equal(result.coverage.explicitly_completed_source_blocks, 1);
++    assert.equal(result.events.filter(e => e.type === 'retry').length, 1);
++    assert.equal(budget.ledger.requests[0]!.error_code, 'provider_stream_missing_terminal_event');
++    assert.equal(budget.ledger.requests[0]!.usage_status, 'missing_usage_conservative_reservation');
++    assert.equal(budget.totals().conservative_missing_usage_requests, 1);
++    assert.ok(budget.totals().input_tokens >= budget.ledger.requests[0]!.input_ceiling);
++  });
++});
++
++test('whole-paper summary stops after two fresh-session retries and preserves all three failures', async () => {
++  await temporary(async directory => {
++    const eof: ResponsesStep = { text: 'Synthetic truncation.', omit_terminal_event: true };
++    const { result, requests, budget } = await runLocal(directory, [batchZero, eof, eof, eof]);
++    assert.equal(requests, 4); assert.equal(result.error?.code, 'whole_document_summary_incomplete');
++    assert.equal(result.summary_attempts.length, 3);
++    assert.equal(result.events.filter(e => e.type === 'summary_retry').length, 2);
++    assert.equal(result.coverage.source_block_processing_complete, true);
++    assert.equal(result.coverage.whole_document_summary_complete, false);
++    assert.equal(result.coverage.full_document_extraction_completed, false);
++    assert.equal(budget.totals().conservative_missing_usage_requests, 3);
++  });
++});
++
++test('fresh summary retry re-reads current versions and keeps a concurrent human revision active with model proposals', async () => {
++  await temporary(async directory => {
++    const fixture = makeEvidenceFixture(), store = new ExtractionStore(':memory:');
++    let recordId = '';
++    const steps = (request: { index: number }): ResponsesStep => {
++      if (request.index === 0) return { calls: [
++        { name: 'read_document_blocks', arguments: {} }, { name: 'submit_candidate_records', arguments: { records: [{ source_line_indices: [0], feature_name_raw: 'spiculation',
++          feature_category: 'margin', evidence_type: 'imaging_observation', assertion: 'affirmed', origin: 'study_authors',
++          disease_or_lesion: { value: 'lung cancer', line_indices: [0] }, modality: { value: 'CT', line_indices: [0] } }], batch_complete: true } },
++      ] };
++      if (request.index === 1 || request.index === 3) return { calls: [{ name: 'get_document_context', arguments: {} }] };
++      if (request.index === 2) {
++        const current = store.current(fixture.input.run_id)[0]!; recordId = current.record.record_id;
++        const human = structuredClone(current); human.version = 2; human.actor = 'human'; human.reason = 'synthetic-human-edit-during-EOF';
++        human.record.translation_zh = 'Synthetic human revision retained.';
++        store.db.prepare('INSERT INTO s4_versions VALUES(?,?,?,?)').run(fixture.input.run_id, recordId, 2, JSON.stringify(human));
++        return { omit_terminal_event: true };
++      }
++      return { calls: [{ name: 'submit_candidate_records', arguments: { summary: 'Synthetic transport recovery only.',
++        reviews: [{ record_id: recordId, expected_version: 2, issue_codes: [] }], links: [], updates: [], summary_complete: true } }] };
++    };
++    try {
++      const { result, requests } = await runLocal(directory, steps, { fixture, store });
++      assert.equal(result.error, undefined); assert.equal(requests, 5); assert.equal(result.summary_attempts.length, 2);
++      const active = store.current(fixture.input.run_id)[0]!;
++      assert.equal(active.actor, 'human'); assert.equal(active.version, 2);
++      assert.equal(active.record.translation_zh, 'Synthetic human revision retained.');
++      assert.ok(store.versions(fixture.input.run_id).some(v => v.version === 3 && v.status === 'proposed' && v.actor === 'automatic'));
++    } finally { store.close(); }
++  });
++});
++
++test('a shared hard budget prevents EOF retries after its last permitted physical request', async () => {
++  await temporary(async directory => {
++    const { result, requests, budget } = await runLocal(directory, [{ omit_terminal_event: true }], { oneRequestBudget: true });
++    assert.equal(requests, 1); assert.equal(budget.totals().requests, 1);
++    assert.equal(budget.ledger.halted, 'experiment_request_limit');
++    assert.ok(result.error); assert.equal(result.events.filter(e => e.type === 'retry' || e.type === 'summary_retry').length, 0);
++  });
++});

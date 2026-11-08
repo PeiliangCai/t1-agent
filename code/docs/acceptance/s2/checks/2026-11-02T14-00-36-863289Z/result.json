@@ -1,0 +1,146 @@
+{
+  "started_at": "2026-11-02T14:00:36.863757+00:00",
+  "updated_at": "2026-11-02T14:00:44.225900+00:00",
+  "checks": [
+    {
+      "name": "check",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "check"
+      ],
+      "started_at": "2026-11-02T14:00:36.863757+00:00",
+      "finished_at": "2026-11-02T14:00:37.737180+00:00",
+      "duration_seconds": 0.873,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/check.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "test-evaluation",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:evaluation"
+      ],
+      "started_at": "2026-11-02T14:00:37.737442+00:00",
+      "finished_at": "2026-11-02T14:00:39.195733+00:00",
+      "duration_seconds": 1.458,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-evaluation.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "test-unit",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:unit"
+      ],
+      "started_at": "2026-11-02T14:00:39.196026+00:00",
+      "finished_at": "2026-11-02T14:00:40.301418+00:00",
+      "duration_seconds": 1.105,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-unit.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "test-integration",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:integration"
+      ],
+      "started_at": "2026-11-02T14:00:40.301690+00:00",
+      "finished_at": "2026-11-02T14:00:43.158614+00:00",
+      "duration_seconds": 2.857,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/test-integration.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "build-web",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "build:web"
+      ],
+      "started_at": "2026-11-02T14:00:43.158931+00:00",
+      "finished_at": "2026-11-02T14:00:43.546902+00:00",
+      "duration_seconds": 0.388,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/build-web.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "fixture-example",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:quality",
+        "--",
+        "--input",
+        "evaluation/fixtures/scoring/synthetic-example.json",
+        "--output",
+        "evaluation/reports/fixtures/2026-11-02T14-00-36-863289Z.json"
+      ],
+      "started_at": "2026-11-02T14:00:43.547216+00:00",
+      "finished_at": "2026-11-02T14:00:43.884950+00:00",
+      "duration_seconds": 0.338,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/fixture-example.log",
+      "real_api_calls": 0
+    },
+    {
+      "name": "real-pending-example",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "eval:quality",
+        "--",
+        "--input",
+        "evaluation/annotations/templates/unevaluable-real-input.json",
+        "--output",
+        "evaluation/reports/real/2026-11-02T14-00-36-863289Z.json"
+      ],
+      "started_at": "2026-11-02T14:00:43.885274+00:00",
+      "finished_at": "2026-11-02T14:00:44.225792+00:00",
+      "duration_seconds": 0.341,
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "passed_expected_behavior": true,
+      "log": "docs/acceptance/s2/checks/2026-11-02T14-00-36-863289Z/real-pending-example.log",
+      "real_api_calls": 0
+    }
+  ],
+  "all_expected_behaviors_passed": true,
+  "real_api_calls": 0,
+  "medical_quality_measured": false,
+  "S2_stage_passed": false
+}

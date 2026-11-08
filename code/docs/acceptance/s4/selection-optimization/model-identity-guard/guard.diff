@@ -1,0 +1,240 @@
+--- before/packages/agent/src/extraction-budget.ts
++++ guard/packages/agent/src/extraction-budget.ts
+@@ -32,6 +32,11 @@
+ function sameAuthorization(value: unknown, expected: ExtractionBudgetAuthorization): boolean {
+   return validAuthorization(value) && value.id === expected.id && value.source === expected.source && value.recorded_at === expected.recorded_at;
+ }
++export type ResponseModelIdentityStatus = 'unknown' | 'matched' | 'mismatch';
++export interface ResponseModelObservation {
++  source: 'provider_stream_event.response.model'; event_type: string; observed_at: string;
++  expected_model: string; actual_model?: string; status: ResponseModelIdentityStatus;
++}
+ export interface RequestAccounting {
+   id: string; model_id: string; purpose: string; attempt: number; started_at: string; finished_at?: string;
+   payload_sha256: string; payload_bytes: number; input_ceiling: number; output_ceiling: number;
+@@ -41,6 +46,9 @@
+   reservation_policy?: 'trusted_profile_context_quota_not_provider_hard_limit';
+   local_payload_estimate?: number; provider_input_exceeds_local_estimate?: boolean; input_reservation_exceeded?: boolean;
+   provider_response_model?: string; provider_response_id?: string;
++  response_model_identity_status?: ResponseModelIdentityStatus;
++  response_model_observations?: ResponseModelObservation[];
++  response_model_identity_evidence_scope?: 'provider_reported_name_only_not_weight_identity_or_HTTP_body_replay';
+   configured_deadline_ms?: number;
+   stream_event_count?: number; first_stream_event_at?: string; last_stream_event_at?: string;
+   tool_argument_delta_characters?: number; reasoning_visible_delta_characters?: number; text_delta_characters?: number;
+@@ -124,8 +132,24 @@
+       started_at: new Date(this.now()).toISOString(), payload_sha256: createHash('sha256').update(payload).digest('hex'),
+       payload_bytes: bytes, input_ceiling: inputCeiling, output_ceiling: maxOutput, usage_status: 'reserved',
+       local_payload_estimate: bytes + 512, reservation_policy: 'trusted_profile_context_quota_not_provider_hard_limit',
++      response_model_identity_status: 'unknown',
++      response_model_identity_evidence_scope: 'provider_reported_name_only_not_weight_identity_or_HTTP_body_replay',
+       actual_cost: null, cost_status: 'unknown_gateway_billing' };
+     this.ledger.requests.push(entry); this.persist(); return entry;
++  }
++  /** Compare literal provider event metadata; this neither authenticates model weights nor stores the HTTP body. */
++  observeResponseModel(entry: RequestAccounting, actualModel: unknown, eventType: string) {
++    const status: ResponseModelIdentityStatus = typeof actualModel !== 'string' ? 'unknown' :
++      actualModel === entry.model_id ? 'matched' : 'mismatch';
++    const observation: ResponseModelObservation = { source: 'provider_stream_event.response.model', event_type: eventType,
++      observed_at: new Date(this.now()).toISOString(), expected_model: entry.model_id, status,
++      ...(typeof actualModel === 'string' ? { actual_model: actualModel } : {}) };
++    (entry.response_model_observations ??= []).push(observation);
++    // Retain the first explicit value as well as every later event, including contradictory names.
++    if (typeof actualModel === 'string') entry.provider_response_model ??= actualModel;
++    if (entry.response_model_identity_status !== 'mismatch' && status !== 'unknown') entry.response_model_identity_status = status;
++    if (status === 'mismatch') this.ledger.halted = 'response_model_identity_mismatch';
++    this.persist(); // Do not throw/abort here: the in-flight stream must still deliver its usage.
+   }
+   settle(entry: RequestAccounting, usage?: Usage) {
+     if (usage && Number.isFinite(usage.totalTokens) && usage.totalTokens > 0) {
+--- before/packages/agent/src/extraction-pi.ts
++++ guard/packages/agent/src/extraction-pi.ts
+@@ -90,8 +90,8 @@
+       const usage = e.response?.usage ?? e.usage;
+       if (usage && entries.length) entries.at(-1)!.provider_usage = numericUsage(usage);
+       const response = e.response as { model?: unknown; id?: unknown } | undefined;
+-      if (entries.length && typeof response?.model === 'string' && /^[a-zA-Z0-9_./:@+-]{1,160}$/.test(response.model)) entries.at(-1)!.provider_response_model = response.model;
+       if (entries.length && typeof response?.id === 'string' && /^[a-zA-Z0-9_./:@+-]{1,160}$/.test(response.id)) entries.at(-1)!.provider_response_id = response.id;
++      if (entry && response) budget.observeResponseModel(entry, response.model, counterEvent.type ?? 'unknown_event_type');
+       if (Date.now() - lastTelemetryPersist >= 1000) { lastTelemetryPersist = Date.now(); budget.persist(); }
+     } });
+   };
+@@ -118,7 +118,9 @@
+     if (event.type === 'message_end' && event.message.role === 'assistant') {
+       responses++; usage.push(event.message.usage);
+       const entry = entries.at(-1); if (entry && !entry.finished_at) {
+-        try { budget.settle(entry, event.message.usage); } catch { void session.abort(); }
++        try { budget.settle(entry, event.message.usage); } catch {
++          if (budget.ledger.halted !== 'response_model_identity_mismatch') void session.abort();
++        }
+       }
+       const sdkError = event.message.errorMessage;
+       events.push({ type: 'assistant_response', stop_reason: event.message.stopReason,
+@@ -138,7 +140,9 @@
+   let error: ReturnType<typeof safeError> | undefined;
+   try {
+     if (signal?.aborted) throw new ContractError('run_cancelled');
++    budget.check();
+     await Promise.race([session.prompt(prompt), stopped]);
++    if (budget.ledger.halted === 'response_model_identity_mismatch') throw new ContractError(budget.ledger.halted);
+     if (!settled || apiFailed) throw new ContractError(created.policyFailureCode ?? budget.ledger.halted ??
+       entries.at(-1)?.error_code ?? (apiFailed ? 'model_response_failed' : 'pi_not_settled'));
+   } catch (cause) { error = safeError(cause); }
+@@ -147,5 +151,6 @@
+     for (const entry of entries) if (!entry.finished_at) { try { budget.settle(entry); } catch { /* ledger retains limit */ } }
+   }
+   return { settled, responses, events, usage, request_ids: entries.map(e => e.id), error,
+-    transient_error: entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) || ['transport_failure', 'request_time_limit'].includes(e.error_code ?? '')) };
++    transient_error: budget.ledger.halted !== 'response_model_identity_mismatch' &&
++      entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) || ['transport_failure', 'request_time_limit'].includes(e.error_code ?? '')) };
+ }
+--- before/tests/extraction/fixtures/runtime-responses.ts
++++ guard/tests/extraction/fixtures/runtime-responses.ts
+@@ -23,6 +23,7 @@
+ }
+ export type ResponsesStep = {
+   text?: string;
++  response_model?: string;
+   calls?: ScriptedToolCall[];
+   usage?: ResponsesUsage | null;
+   status?: number;
+@@ -109,7 +110,7 @@
+         output.push(item);
+       }
+       send({ type: step.incomplete ? 'response.incomplete' : 'response.completed', response: {
+-        id, object: 'response', model: body.model, status: step.incomplete ? 'incomplete' : 'completed', output,
++        id, object: 'response', model: step.response_model ?? body.model, status: step.incomplete ? 'incomplete' : 'completed', output,
+         ...(step.incomplete ? { incomplete_details: { reason: 'max_output_tokens' } } : {}),
+         ...(step.usage === null ? {} : { usage: step.usage ?? normalUsage }),
+       } });
+--- before/tests/extraction/response-model-identity.test.ts
++++ guard/tests/extraction/response-model-identity.test.ts
+@@ -0,0 +1,128 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { mkdtemp, rm } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import { join } from 'node:path';
++import type { Usage } from '@earendil-works/pi-ai';
++import { ExtractionBudget } from '../../packages/agent/src/extraction-budget.js';
++import { createExtractionSession, developmentProfile, promptExtractionSession } from '../../packages/agent/src/extraction-pi.js';
++import { ExtractionStore } from '../../packages/agent/src/extraction-store.js';
++import { runExtractionDocument } from '../../packages/agent/src/extraction-run.js';
++import { makeEvidenceFixture } from './fixtures/evidence-fixtures.js';
++import { createRuntimeResponsesFixture } from './fixtures/runtime-responses.js';
++
++const usage: Usage = { input: 70, output: 30, cacheRead: 20, cacheWrite: 10, reasoning: 12, totalTokens: 130,
++  cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, total: 0 } };
++async function temporary<T>(body: (directory: string) => Promise<T>) {
++  const directory = await mkdtemp(join(tmpdir(), 't1-response-identity-'));
++  try { return await body(directory); } finally { await rm(directory, { recursive: true, force: true }); }
++}
++
++test('literal mismatch preserves every raw observation and usage, and the halt survives later matching events and reopen', async () => {
++  await temporary(async directory => {
++    const path = join(directory, 'ledger.json'), budget = new ExtractionBudget(path, 'http://127.0.0.1:1/v1');
++    const entry = budget.begin('gpt-6-luna', 'synthetic-not-paid', 0, '{}', 100);
++    budget.observeResponseModel(entry, undefined, 'response.created');
++    assert.equal(entry.response_model_identity_status, 'unknown');
++    budget.observeResponseModel(entry, 'gpt-6-luna', 'response.in_progress');
++    budget.observeResponseModel(entry, 'igpt-6-luna', 'response.completed');
++    budget.observeResponseModel(entry, 'gpt-6-luna', 'response.completed');
++    assert.equal(entry.provider_response_model, 'gpt-6-luna');
++    assert.equal(entry.response_model_identity_status, 'mismatch');
++    assert.equal(budget.ledger.halted, 'response_model_identity_mismatch');
++    assert.deepEqual(entry.response_model_observations!.map(o => o.actual_model), [undefined, 'gpt-6-luna', 'igpt-6-luna', 'gpt-6-luna']);
++    assert.ok(entry.response_model_observations!.every(o => o.source === 'provider_stream_event.response.model'));
++    assert.throws(() => budget.settle(entry, usage), /response_model_identity_mismatch/);
++    assert.equal(entry.usage_status, 'provider_reported');
++    assert.equal(entry.input_tokens, 100); assert.equal(entry.output_tokens, 30); assert.equal(entry.reasoning_tokens, 12);
++    assert.ok(entry.finished_at);
++    const reopened = new ExtractionBudget(path, budget.endpoint);
++    assert.throws(() => reopened.begin('gpt-6-luna', 'must-not-send-next', 0, '{}', 100), /response_model_identity_mismatch/);
++    assert.equal(reopened.totals().requests, 1);
++    assert.equal(reopened.ledger.requests[0]!.response_model_observations![2]!.actual_model, 'igpt-6-luna');
++  });
++});
++
++test('an absent model name stays unknown, never counts as a matched model or authenticated weights', async () => {
++  await temporary(async directory => {
++    const budget = new ExtractionBudget(join(directory, 'ledger.json'), 'http://127.0.0.1:1/v1');
++    const entry = budget.begin('gpt-6-luna', 'synthetic-not-paid', 0, '{}', 100);
++    for (const missing of [undefined, null, 7, {}]) budget.observeResponseModel(entry, missing, 'response.created');
++    budget.settle(entry, usage);
++    assert.equal(entry.response_model_identity_status, 'unknown');
++    assert.equal(entry.provider_response_model, undefined);
++    assert.equal(budget.ledger.halted, null);
++    assert.equal(entry.response_model_identity_evidence_scope, 'provider_reported_name_only_not_weight_identity_or_HTTP_body_replay');
++  });
++});
++
++test('a normal local SSE preserves the provider name verbatim and allows a matching session to finish', async () => {
++  await temporary(async directory => {
++    const server = await createRuntimeResponsesFixture([{ text: 'Synthetic fixture only.' }]);
++    try {
++      const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint);
++      const created = await createExtractionSession(server.config, developmentProfile(server.config.modelId), [], directory, budget, 'matching-local-SSE');
++      const result = await promptExtractionSession(created, 'Synthetic local fixture only.', budget);
++      assert.equal(result.error, undefined);
++      assert.equal(result.settled, true); assert.equal(server.requests.length, 1);
++      assert.equal(budget.ledger.requests[0]!.provider_response_model, server.config.modelId);
++      assert.equal(budget.ledger.requests[0]!.response_model_identity_status, 'matched');
++      assert.equal(budget.ledger.halted, null);
++    } finally { await server.close(); }
++  });
++});
++
++test('a mismatch on the final SSE response fails even when the session otherwise settled with no next request', async () => {
++  await temporary(async directory => {
++    const rawModel = 'igpt-6-luna';
++    const server = await createRuntimeResponsesFixture([{ text: 'Synthetic fixture only.', response_model: rawModel,
++      usage: { input_tokens: 120, output_tokens: 40, total_tokens: 160, input_tokens_details: { cached_tokens: 20 }, output_tokens_details: { reasoning_tokens: 17 } } }]);
++    try {
++      const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint);
++      const created = await createExtractionSession(server.config, developmentProfile(server.config.modelId), [], directory, budget, 'last-response-local-SSE');
++      const result = await promptExtractionSession(created, 'Synthetic local fixture only.', budget);
++      assert.equal(result.settled, true);
++      assert.equal(result.error?.code, 'response_model_identity_mismatch');
++      assert.equal(result.transient_error, false);
++      assert.equal(server.requests.length, 1);
++      const entry = budget.ledger.requests[0]!;
++      assert.equal(entry.provider_response_model, rawModel);
++      assert.equal(entry.response_model_identity_status, 'mismatch');
++      assert.equal(entry.usage_status, 'provider_reported');
++      assert.equal(entry.input_tokens, 120); assert.equal(entry.cache_read_tokens, 20);
++      assert.equal(entry.output_tokens, 40); assert.equal(entry.reasoning_tokens, 17);
++      assert.equal(entry.response_hash_scope, 'complete_decoded_HTTP_body');
++      assert.equal(entry.response_model_observations!.at(-1)!.event_type, 'response.completed');
++      const next = await createExtractionSession(server.config, developmentProfile(server.config.modelId), [], join(directory, 'next'), budget, 'must-not-send-next-session');
++      const stopped = await promptExtractionSession(next, 'Must not reach HTTP.', budget);
++      assert.equal(stopped.error?.code, 'response_model_identity_mismatch');
++      assert.equal(next.entries.length, 0); assert.equal(server.requests.length, 1);
++    } finally { await server.close(); }
++  });
++});
++
++test('a tool-complete response with an unapproved name cannot make a paper condition pass or launch summary/next paper', async () => {
++  await temporary(async directory => {
++    const server = await createRuntimeResponsesFixture([{ response_model: 'igpt-6-luna', calls: [
++      { name: 'read_document_blocks', arguments: {} },
++      { name: 'submit_candidate_records', arguments: { records: [], batch_complete: true } },
++    ] }]);
++    const store = new ExtractionStore(':memory:');
++    try {
++      const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint);
++      for (const n of [1, 2]) {
++        const f = makeEvidenceFixture(['Synthetic imaging statement.'], { runId: 'identity-run-' + n, documentId: 'identity-document-' + n });
++        f.input.runtime_profile = { ...f.input.runtime_profile, provider: server.config.provider, model_id: server.config.modelId, endpoint: server.endpoint };
++        const result = await runExtractionDocument({ input: f.input, document: f.document, catalog: f.catalog, metadata: f.context.metadata,
++          profile: developmentProfile(server.config.modelId), config: server.config, budget, store, directory: join(directory, 'run-' + n), strategy: 'baseline' });
++        assert.ok(result.error);
++        assert.notEqual(result.state, 'completed');
++        assert.equal(result.coverage.whole_document_summary_complete, false);
++        assert.equal(result.coverage.full_document_extraction_completed, false);
++        assert.equal(budget.ledger.halted, 'response_model_identity_mismatch');
++        assert.equal(server.requests.length, 1);
++      }
++      assert.equal(budget.totals().requests, 1);
++    } finally { store.close(); await server.close(); }
++  });
++});

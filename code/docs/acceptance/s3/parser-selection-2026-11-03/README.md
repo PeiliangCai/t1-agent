@@ -1,0 +1,29 @@
+# 已正式选定Docling主解析器
+
+用户于2026-11-03T00:15:10.486456+08:00确认：“确认 Docling 为正式主解析器（推荐）”。正式主用 **完整Docling2.145.0 CPU + docling-parse7.24.2原文锚点**；MinerU4.1.4 basic ONNX保留显式对照。
+
+组件选定不表示质量通过：S3仍`engineering_in_progress / quality_pending / stage_passed=false`，S2人工金标/医学复核/规则与分组仍待办；原门槛不变，S4/S5未启动，S3审查维持3/3。
+
+|项目|当前决定|
+|---|---|
+|主解析器|Docling完整CPU，4线程、表结构开启、OCR/远程服务关闭；固定layout/table模型与版本见配置|
+|权威出处|独立解码PDF原文字行，保留逐段Unicode码点segments；组合quote不等于连续原文，行框不等于字框|
+|对照|MinerU basic ONNX CPU，显式指定；不自动改成主用，不默认启用更重VLM模式|
+|已有问题|表格错格/旋转方向、图注错挂及图组、注释/元数据/正文顺序；保留错误并拒绝冲突关系，未自动修挂|
+|后续边界|人类逐字/医学质量仍待核；L02 p3别篇区域排除属S4未实现，不能自动当本篇证据|
+
+[正式决定原话及依据SHA](decision.json) · [项目配置](../../../../config/pdf-parser.json) · [本次检查](checks.json) · [增量交付](selection-delivery.json) · [Word保留证明](docx-preservation.json)。
+
+[选型前中文比较报告](../comparison-2026-11-02/index.html)、[机器数据](../comparison-2026-11-02/comparison-data.json)、原20次native、41页AI核验和85项测试记录**均为决定前快照，原样保留**。其中“尚待共同选型”是该报告形成时的历史状态，已由本记录完成选型，不应误解为用户决定未记录。
+
+受信Node调用方：`createConfiguredPdfParserAdapter()`默认正式Docling；`createConfiguredPdfParserAdapter({candidateId: 'mineru-basic-onnx-cpu'})`显式对照。固定配置与用户决定SHA绑定，模型五个受限工具不能改选或指定任意路径；直接Python底层CLI保持显式候选，不静默变更既有实验调用。
+
+```bash
+# 正式默认读取配置，复用之前真实解析结果，仅验证Pi来源读取而不重跑模型
+bash scripts/with-node.sh npm run verify:s3:pi -- --parser-result docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json
+# 显式MinerU对照
+bash scripts/with-node.sh npm run verify:s3:pi -- --candidate-id mineru-basic-onnx-cpu --parser-result docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/mineru-basic-onnx-cpu/L01.json
+# 如需真正重新解析单篇，使用 --documents L01 代替 --parser-result；本轮没有重复运行native基准。
+```
+
+本次类型检查及受影响TS解析套件20项（原17+新3）通过；默认Docling/显式MinerU各1份真实IR→真Pi SDK读取成功，均partial/候选0，本机mock各4次，无真实/付费LLM调用。底层两分支也实际走本地CLI校验SHA错误，未推理新模型。原解析/医学能力没有因选型而扩大。

@@ -1,0 +1,122 @@
+{
+  "title": "Scope",
+  "type": "object",
+  "required": [
+    "scope_version",
+    "cancers",
+    "image_types",
+    "features",
+    "catalog_version",
+    "matching_policy_version"
+  ],
+  "properties": {
+    "scope_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "cancers": {
+      "type": "object",
+      "required": [
+        "mode",
+        "ids"
+      ],
+      "properties": {
+        "mode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "all"
+            },
+            {
+              "type": "string",
+              "const": "selected"
+            }
+          ]
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "image_types": {
+      "type": "object",
+      "required": [
+        "mode",
+        "ids"
+      ],
+      "properties": {
+        "mode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "all"
+            },
+            {
+              "type": "string",
+              "const": "selected"
+            }
+          ]
+        },
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "features": {
+      "type": "object",
+      "required": [
+        "mode",
+        "binding_ids"
+      ],
+      "properties": {
+        "mode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "all"
+            },
+            {
+              "type": "string",
+              "const": "selected"
+            }
+          ]
+        },
+        "binding_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalog_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "matching_policy_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    }
+  },
+  "additionalProperties": false
+}

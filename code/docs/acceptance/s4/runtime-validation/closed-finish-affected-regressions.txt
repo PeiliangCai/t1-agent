@@ -1,0 +1,38 @@
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (29.716538ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":0,"requests":1}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":3,"candidates":0,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0003","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":0,"requests":3}
+✔ full Pi run processes every assigned block once and explicitly completes zero-candidate batches (384.54053ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":2}
+✔ assistant stopping after delivered reads leaves a failed batch and a partial run (66.340518ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ transient model failures retry at most twice and retain already saved candidates with missing coverage (869.570174ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ HTTP 200 followed by stalled SSE hits the independent request deadline, retries twice and retains saved candidates (1089.961109ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":1}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":2}
+{"test_evidence":"document_deadline_hard_stop","document_timeout_ms":600,"request_deadline_ms":120000,"run_wall_ms":609,"stalled_response_close_ms":565,"server_forced_disconnect":false,"request_error_code":"pi_session_time_limit","request_usage_status":"missing_usage_conservative_reservation","requests":2,"saved_candidates":1,"completed_blocks":1,"missing_blocks":2,"retries":0,"whole_document_summary_complete":false,"quiet_observation_ms":350}
+✔ document deadline closes an active model stream before its request deadline and preserves completed, saved and missing work (978.347164ms)
+✔ an independent summary must review every candidate and its stored review never grants human approval (5.827998ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ cancellation after a candidate commit preserves it and cannot claim batch or document completion (56.608166ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ budget exhaustion after candidate persistence stops new requests and saves a partial result (70.193036ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+✔ approved cancer and modality selections allow open extraction when the feature catalog is empty (71.419405ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":3}
+✔ line-index Pi saves exact whole lines and all 28 fields while unsupported medical observations stay unknown (81.216456ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":1,"requests":1}
+✔ line-index nonadjacent source selection remains separate segments with an explicit review warning (64.676427ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5025.938015

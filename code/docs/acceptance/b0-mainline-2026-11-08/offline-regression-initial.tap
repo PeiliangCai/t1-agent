@@ -1,0 +1,99 @@
+✔ actual C03/C06 legacy issue strings never silently classify; explicit structured background routing retains every source span (226.791479ms)
+✔ mixed and uncertain actual C07/C09 retain complete text; literal Fig.2, caption membership and measurement words are separate facts (262.25626ms)
+✔ both real delivery-rejected L07 records still fail the original context guard even when suggested as background (188.881895ms)
+✔ user-confirmed scope examples route complete appearance and necessary negation, standalone conclusion and pure normal range separately (199.788344ms)
+✔ new shared summary requires assessment, exposes omitted coverage, and rechecks a new version; old protocol remains readable (15.947951ms)
+✔ model assessment of a human current version remains a proposal and cannot move that version to background (4.827072ms)
+✖ background JSON/CSV, sampling and audit retain total denominator; a genuine bound human approval can override the suggestion (58.146998ms)
+✔ an exact resubmission is idempotent across tool call IDs and never writes another version (20.809648ms)
+✔ the first candidate generates a reversible insert proposal with no expected parent version (6.487082ms)
+✔ the same literal observation at different anchors is linked while retaining both locations (5.06571ms)
+✔ identical quote text with different known lesions, modalities, phases or conditions remains separate (9.029715ms)
+✔ later context constraining an unknown applicability generates a new immutable version with CAS (3.718799ms)
+✔ unknown-to-sourced sequence enrichment creates a version; it is never interpreted as negation (2.912359ms)
+✔ human edited or approved active versions are preserved and automatic changes only become proposals (6.619078ms)
+✔ a retry of an already persisted human-protected proposal remains idempotent (1.830778ms)
+✔ stale expected versions and explicitly changed known source contexts preserve proposals (1.680181ms)
+✔ explicit same-condition affirmative/negative observations link conflicts without resolving either source (1.853492ms)
+✔ unknown assertions and differently attributed source studies are not treated as contradictory negatives (1.972497ms)
+✔ different numeric measurements are possible conflicts requiring review, not inferred medical contradictions (1.535501ms)
+✔ another run, document version or article cannot become a duplicate or update target (5.588273ms)
+✔ same record ID with distinct data never authorizes silent overwrite (1.839567ms)
+✔ frozen F attribution variants form one mechanical group with both versions, unresolved Figure and original fingerprints intact (269.056551ms)
+✔ frozen B0 category-only duplicate retains both records but has one source group (177.15974ms)
+✖ strict grouping never joins different source bindings, clinical evidence, conditions, literal anchors or actual contexts (4.712423ms)
+✔ role, Figure and human-decision disagreements remain visible without selecting or changing a member (5.641224ms)
+✔ new same-source attribution variants receive symmetric unresolved links and idempotent replay preserves every original version (15.42337ms)
+✔ conflict linking protects a human current version and preserves its original approval as an immutable version (10.792372ms)
+✔ one existing summary sees the group but must still assess both current member versions, without derived-group writes (15.124014ms)
+✖ approved export never borrows another member approval or includes a member outside the actual export set (9.598893ms)
+✔ only explicit internal structure markers trigger the narrow provenance warning; external citations are not rewritten (2.342896ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 27
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1900.873409
+
+✖ failing tests:
+
+test at tests/extraction/primary-assessment.test.ts:1:11927
+✖ background JSON/CSV, sampling and audit retain total denominator; a genuine bound human approval can override the suggestion (58.146998ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      background_suggestion_count: 1,
+      model_classification_is_not_quality_improvement: true,
+      primary_candidate_count: 0,
+  +   same_source_duplicate_member_count: 0,
+  +   source_grouping_is_not_medical_deduplication: true,
+      total_output_count: 1,
+  +   unique_source_group_count: 1
+    }
+  
+      at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/primary-assessment.test.ts:171:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { total_output_count: 1, primary_candidate_count: 0, background_suggestion_count: 1, unique_source_group_count: 1, same_source_duplicate_member_count: 0, source_grouping_is_not_medical_deduplication: true, model_classification_is_not_quality_improvement: true },
+    expected: { total_output_count: 1, primary_candidate_count: 0, background_suggestion_count: 1, model_classification_is_not_quality_improvement: true },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/extraction/strict-source-groups.test.ts:1:5215
+✖ strict grouping never joins different source bindings, clinical evidence, conditions, literal anchors or actual contexts (4.712423ms)
+  TypeError [Error]: Cannot read properties of null (reading 'record_id')
+      at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/strict-source-groups.test.ts:89:46)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at tests/extraction/strict-source-groups.test.ts:1:13379
+✖ approved export never borrows another member approval or includes a member outside the actual export set (9.598893ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /approved_export_requires_each_record_confirmation/. Input:
+  
+  'ContractError: schema_validation_failed'
+  
+      at async TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/strict-source-groups.test.ts:194:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: ContractError: schema_validation_failed
+        at assertSchema (/home/ecs-user/projects/t1-agent/code/packages/contracts/src/index.ts:116:42)
+        at exportEvidenceDelivery (/home/ecs-user/projects/t1-agent/code/packages/agent/src/evidence-delivery.ts:309:5)
+        at TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/strict-source-groups.test.ts:194:26)
+        at async Test.run (node:internal/test_runner/test:1409:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:974:7),
+    expected: /approved_export_requires_each_record_confirmation/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

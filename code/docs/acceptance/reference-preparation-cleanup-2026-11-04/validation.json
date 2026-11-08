@@ -1,0 +1,114 @@
+{
+  "schema_version": "reference-preparation-cleanup-validation-1",
+  "status": "passed_for_cleanup_and_necessary_dependency_repairs",
+  "completed_at": "2026-11-04T13:43:56.112217+00:00",
+  "existing_test_results": [
+    {
+      "name": "evaluation",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "test:evaluation"
+      ],
+      "started_at": "2026-11-04T13:34:04.523293+00:00",
+      "finished_at": "2026-11-04T13:34:07.130118+00:00",
+      "duration_seconds": 2.607,
+      "exit_code": 0,
+      "passed": true,
+      "log": "evaluation.log",
+      "external_model_calls": 0,
+      "dependency_installations": 0
+    },
+    {
+      "name": "ai-import",
+      "command": [
+        ".venv/bin/python",
+        "scripts/test-import-ai-reference.py"
+      ],
+      "started_at": "2026-11-04T13:34:04.515184+00:00",
+      "finished_at": "2026-11-04T13:34:04.803972+00:00",
+      "duration_seconds": 0.289,
+      "exit_code": 0,
+      "passed": true,
+      "log": "ai-import.log",
+      "external_model_calls": 0,
+      "dependency_installations": 0
+    },
+    {
+      "name": "typecheck",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "npm",
+        "run",
+        "check"
+      ],
+      "started_at": "2026-11-04T13:34:04.512475+00:00",
+      "finished_at": "2026-11-04T13:34:09.222623+00:00",
+      "duration_seconds": 4.71,
+      "exit_code": 0,
+      "passed": true,
+      "log": "typecheck.log",
+      "external_model_calls": 0,
+      "dependency_installations": 0
+    },
+    {
+      "name": "workbench-integration",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "node_modules/.bin/tsx",
+        "--test",
+        "tests/integration/workbench.test.ts",
+        "tests/integration/runtime.test.ts"
+      ],
+      "started_at": "2026-11-04T13:34:04.521416+00:00",
+      "finished_at": "2026-11-04T13:34:08.609050+00:00",
+      "duration_seconds": 4.088,
+      "exit_code": 0,
+      "passed": true,
+      "log": "workbench-integration.log",
+      "external_model_calls": 0,
+      "dependency_installations": 0
+    }
+  ],
+  "test_counts": {
+    "evaluation": 27,
+    "ai_import_local": 9,
+    "workbench_and_runtime_integration": 10
+  },
+  "typecheck": "root_and_Next_passed",
+  "generator_validation": "generator-validation.json",
+  "protected_sha_validation": "preservation-validation.json",
+  "protected_sha_result": {
+    "checked_files": 4407,
+    "all_unchanged": true,
+    "measurement_time": "2026-11-04T13:34:59.189643+00:00"
+  },
+  "disposition_snapshot": {
+    "rows": 780,
+    "actual_deleted": 201,
+    "actual_moved": 1,
+    "not_deleted_by_this_cleanup": 578,
+    "retained_present_at_snapshot": 575,
+    "outside_scope_currently_absent": [
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04-annotation.json",
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04-plan.json",
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04.json"
+    ],
+    "all_this_cleanup_deletion_and_move_actions_consistent": true,
+    "issues": [],
+    "observed_at": "2026-11-04T13:43:56.112217+00:00"
+  },
+  "no_tests_or_protected_hash_validation_rerun_after_latest_boundary": true,
+  "shared_development_documents": "8份此前写入已交接文档窗口；不作为本窗口最终同步验收，不要求后续SHA等于旧after。见documentation-handoff.json。",
+  "not_run": [
+    "browser",
+    "model_or_paid_API",
+    "dependency_installation",
+    "historical_verify-s3-integrity.py"
+  ],
+  "historical_verifier_boundary": "verify-s3-integrity.py保留冻结S3阶段语义；其旧指南引用不是当前活动准备入口，不为跑通而改写旧结论。"
+}

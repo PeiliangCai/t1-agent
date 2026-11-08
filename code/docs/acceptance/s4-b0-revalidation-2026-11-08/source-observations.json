@@ -1,0 +1,259 @@
+{
+  "schema_version": "b0-source-observations-1",
+  "complete_gold": false,
+  "observations_sent_as_model_answers": false,
+  "omissions_are_not_automatic_recall_failure": true,
+  "medical_quality_approved": false,
+  "cases": [
+    {
+      "case_id": "O01-normal-tissue",
+      "document_id": "L07",
+      "concern": "normal_tissue",
+      "judgement_basis": "user_confirmed_isolated_negative",
+      "question": "核对纯正常黏膜下层T2信号是否误列独立主目标；只在理解病灶必要时作背景/上下文。未出现不证明背景已保留。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000074",
+          "exact_quote": "Submucosa The submucosa is the middle rectal layer",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000075",
+          "exact_quote": "which is hyperintense on T2WI.",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O02-standalone-conclusion",
+      "document_id": "L07",
+      "concern": "standalone_conclusion",
+      "judgement_basis": "user_confirmed_isolated_negative",
+      "question": "核对纯诊断结论是否误列独立主目标，不仅见tumor/abutment升主；C21只是已知偏差展示清晰度。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000030",
+          "exact_quote": " Rectal tumor abutting the peritoneum alone should not be",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0004-l000031",
+          "exact_quote": "considered peritoneal invasion.",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O03-complete-condition",
+      "document_id": "L07",
+      "concern": "conditional_appearance_negation",
+      "judgement_basis": "source_fidelity_and_user_confirmed_complete_sentence",
+      "question": "若选中外观句，保留altered signal/thickening/nodularity、but not abutment及Fig.2。缺项不自动当召回失败。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O04-same-source-attribution",
+      "document_id": "L07",
+      "concern": "same_source_attribution",
+      "judgement_basis": "mechanical_same_source_conflict_regression",
+      "question": "观察同一精确源及语境分组、归因/角色差异及待核；Fig.2不是外部文献。只产一条时不声称真实触发并解决归因冲突。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000030",
+          "exact_quote": "T4a or peritoneal invasion is suspected on MRI when",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000031",
+          "exact_quote": "there is altered signal intensity, thickening, or nodu-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000032",
+          "exact_quote": "larity of the peritoneum, but not when there is abut-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000033",
+          "exact_quote": "ment of the peritoneum by tumor (Fig. 2).",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O05-lesion-extent-measurement",
+      "document_id": "L07",
+      "concern": "direct_measurement_observation",
+      "judgement_basis": "semantic_observation_unapproved_not_gold",
+      "question": "观察完整T3句的up to/more than 5mm肿瘤浸润深度、分类条件与数值保真，不预设医学主证据正例。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000023",
+          "exact_quote": "T3 may be grouped into two prognostic categories,",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000024",
+          "exact_quote": "as follows: T3 a/b (good prognosis) with up to 5 mm",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000025",
+          "exact_quote": "extramural invasion; and T3 c/d (higher risk of local",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000026",
+          "exact_quote": "recurrence) with more than 5 mm invasion beyond",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0003-l000027",
+          "exact_quote": "the muscularis propria.",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O06-morphologic-angular-range",
+      "document_id": "L07",
+      "concern": "morphology_and_measurement",
+      "judgement_basis": "semantic_observation_unapproved_not_gold",
+      "question": "观察完整Polypoid形态定义及less than 90°；不因数字一刀切，不冒充病例实测9mm/35HU。",
+      "source_fragments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000070",
+          "exact_quote": "Polypoid Polypoid lesions are intraluminal tumor pro-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000071",
+          "exact_quote": "trusions attached to the rectal wall with a broad base",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000072",
+          "exact_quote": "(sessile) or stalk (pedunculated) and typically involve",
+          "occurrence": 0
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0005-l000073",
+          "exact_quote": "less than 90° of the luminal circumferences.",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O07-Chinese-prose",
+      "document_id": "L01",
+      "concern": "chinese_source_fidelity",
+      "judgement_basis": "literal_source_observation_unapproved",
+      "question": "核对中文原文、换行及引文保真，开放保留未知视觉词待核；不改写或翻译。",
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000114",
+          "exact_quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、",
+          "occurrence": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000115",
+          "exact_quote": "血运丰富，其周围的大、小血管增多、迂曲、扩张及增",
+          "occurrence": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0003-l000116",
+          "exact_quote": "粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O08-Chinese-Figure-Note",
+      "document_id": "L01",
+      "concern": "chinese_source_fidelity_and_explicit_figure",
+      "judgement_basis": "literal_source_and_figure_observation_unapproved",
+      "question": "核对中文原Figure Note及a/b/c、箭头和明确整图联系；配图不明待核，不阻塞文字。",
+      "source_fragments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+          "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+          "occurrence": 0
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+          "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O09-AAH-background-quantity",
+      "document_id": "L05",
+      "concern": "background_quantity_observation",
+      "judgement_basis": "ordinary_feedback_preserved_not_medical_approval",
+      "question": "保留此前背景安排看起来合理的意见；观察AAH<5mm完整语义，不为尺寸覆盖强行升主。",
+      "source_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000006",
+          "exact_quote": " According to the clas-",
+          "occurrence": 0
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000007",
+          "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+          "occurrence": 0
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000008",
+          "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+          "occurrence": 0
+        }
+      ]
+    },
+    {
+      "case_id": "O10-risk-threshold-background",
+      "document_id": "L05",
+      "concern": "standalone_risk_threshold_observation",
+      "judgement_basis": "ordinary_feedback_preserved_not_medical_approval",
+      "question": "观察≤12.6mm/CTR≤0.5风险结论的背景安排，不当病例直接实测尺寸正例或医学批准。",
+      "source_fragments": [
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000023",
+          "exact_quote": " When studying IAC patients, those with",
+          "occurrence": 0
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000024",
+          "exact_quote": "nodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid",
+          "occurrence": 0
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0007-l000025",
+          "exact_quote": "components, which might be missed during pathological sectioning.",
+          "occurrence": 0
+        }
+      ]
+    }
+  ]
+}

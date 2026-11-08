@@ -1,0 +1,42 @@
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (24.438652ms)
+✔ summary completion requires reading every current candidate including candidates added by its updates (214.978058ms)
+{"test_evidence":"summary_dictionary_runtime_roundtrip","all_candidate_count":1,"trusted_context_bytes":2692,"packet_bytes":1830,"whole_context_restores_exactly":true,"candidate_versions_unchanged":true,"medical_approval":false}
+✔ summary dictionary sent through installed Pi restores the complete trusted context without truncating candidates (37.162969ms)
+{"test_evidence":"neutral_case_runtime_coverage","cases":2,"actual_source_and_context_read_required":true,"focus_only_read_does_not_satisfy_context":true,"source_binding_checked":true,"unapproved_judgments":2,"cases_are_gold":false,"medical_approval":false,"candidate_changes_from_case_reports":0}
+✔ independent summary must actually read every neutral audit case source and records only unapproved judgments (65.174407ms)
+✖ summary updates use immutable document indices above the batch range and reject unread or legacy references (1.978409ms)
+{"test_evidence":"independent_summary_version_coverage","mode":"automatic-update","completed_unapproved_review":true,"updated_version_requires_new_review":true,"human_active_preserved":false,"medical_approval_from_model":false}
+{"test_evidence":"independent_summary_version_coverage","mode":"human-protected","completed_unapproved_review":true,"updated_version_requires_new_review":false,"human_active_preserved":true,"medical_approval_from_model":false}
+✔ independent summary re-reviews updated versions and preserves human active versions with unapproved proposals (79.889709ms)
+
+Interrupted while running:
+
+⚠ tests/extraction/runtime.test.ts (tests/extraction/runtime.test.ts:1:1)
+✖ tests/extraction/runtime.test.ts (173393.059857ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173398.03048
+
+✖ failing tests:
+
+test at tests/extraction/runtime.test.ts:6:69677
+✖ summary updates use immutable document indices above the batch range and reject unread or legacy references (1.978409ms)
+  Error [ContractError]: s4_illegal_transition
+      at ExtractionStore.transition (/home/ecs-user/projects/t1-agent/code/packages/agent/src/extraction-store.ts:46:49)
+      at <anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:1576:66)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async temporary (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:27:16)
+      at async TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:1553:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    code: 's4_illegal_transition'
+  }
+
+test at tests/extraction/runtime.test.ts:1:1
+✖ tests/extraction/runtime.test.ts (173393.059857ms)
+  'Promise resolution is still pending but the event loop has already resolved'

@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "plugins": [],
+    "paths": { "@/hooks/useI18n": ["./static-i18n.ts"] }
+  },
+  "include": ["./*.ts", "./*.tsx"],
+  "exclude": ["node_modules"]
+}

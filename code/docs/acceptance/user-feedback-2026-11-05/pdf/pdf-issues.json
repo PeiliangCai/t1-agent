@@ -1,0 +1,1761 @@
+{
+  "schema_version": "pdf-feedback-evidence-1",
+  "generated_at": "2026-11-05T06:20:18.684450+00:00",
+  "scope": "Local source/relationship diagnosis and CPU Figure sidecar derivation; no new PDF parser evaluation or paid model execution",
+  "formal_reviews_used": 3,
+  "formal_reviews_added": 0,
+  "new_paid_calls": 0,
+  "new_remote_calls": 0,
+  "parser_rerun": false,
+  "issues": [
+    {
+      "id": "S09",
+      "classification": "separate_title_sample_and_incomplete_figure_context_catalog",
+      "user_note": "提取的内容缺失，当前提取出来的原文片段是图片的“Figure Caption”，但图片下方还有“Figure Note”未被抽取。我觉得这个“Figure Note”则是对图像特征的描述，应该也需要被提取出来。",
+      "physical_page": 2,
+      "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+      "pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "ir_path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/parser-result.json",
+      "ir_sha256": "f0446a29a034194ea2a6b78eb57b47b4f877ebc3a60308feae912b4e9d55b8dd",
+      "source_segments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "start": 0,
+          "end": 64,
+          "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            68.0315,
+            734.5449,
+            557.9514999999993,
+            740.9150979045401
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            747.5449,
+            247.1836000000001,
+            753.9150979045401
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+          "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+          "start": 0,
+          "end": 20,
+          "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            228.7417,
+            760.5129,
+            383.54169999999965,
+            767.0164622817229
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/paper-37340ec9-269d-4290-be92-f8cfebbcadf9/docling-standard-cpu-fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2.json",
+        "sha256": "fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2",
+        "format": "candidate_native_json"
+      },
+      "native_texts": [
+        {
+          "children": [],
+          "content_layer": "body",
+          "label": "caption",
+          "orig": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多 发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "parent": {
+            "$ref": "#/pictures/0"
+          },
+          "prov": [
+            {
+              "bbox": {
+                "b": 70.96690209545989,
+                "coord_origin": "BOTTOMLEFT",
+                "l": 51.0236,
+                "r": 557.9514999999993,
+                "t": 90.33709999999996
+              },
+              "charspan": [
+                0,
+                90
+              ],
+              "page_no": 2
+            }
+          ],
+          "self_ref": "#/texts/36",
+          "text": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多 发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。"
+        },
+        {
+          "children": [],
+          "content_layer": "body",
+          "label": "caption",
+          "orig": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+          "parent": {
+            "$ref": "#/body"
+          },
+          "prov": [
+            {
+              "bbox": {
+                "b": 57.865537718277096,
+                "coord_origin": "BOTTOMLEFT",
+                "l": 228.7417,
+                "r": 383.54169999999965,
+                "t": 64.3691
+              },
+              "charspan": [
+                0,
+                20
+              ],
+              "page_no": 2
+            }
+          ],
+          "self_ref": "#/texts/40",
+          "text": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移"
+        }
+      ],
+      "native_picture": {
+        "annotations": [],
+        "captions": [
+          {
+            "$ref": "#/texts/36"
+          }
+        ],
+        "children": [
+          {
+            "$ref": "#/texts/36"
+          },
+          {
+            "$ref": "#/texts/37"
+          },
+          {
+            "$ref": "#/texts/38"
+          },
+          {
+            "$ref": "#/texts/39"
+          }
+        ],
+        "content_layer": "body",
+        "footnotes": [],
+        "label": "picture",
+        "parent": {
+          "$ref": "#/body"
+        },
+        "prov": [
+          {
+            "bbox": {
+              "b": 96.91136868829892,
+              "coord_origin": "BOTTOMLEFT",
+              "l": 100.19820168716406,
+              "r": 511.04644820893185,
+              "t": 249.39791718749996
+            },
+            "charspan": [
+              0,
+              0
+            ],
+            "page_no": 2
+          }
+        ],
+        "references": [],
+        "self_ref": "#/pictures/0"
+      },
+      "ir_units": [
+        {
+          "unit_id": "b2d15dc5c7b32184-u-25c3636ebc33c9c6",
+          "native_ref": "#/texts/36",
+          "kind": "caption",
+          "native_label": "caption",
+          "native_text": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多 发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "native_original_text": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多 发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+          "native_text_role": "processed_native_not_literal_quote",
+          "content_layer": "body",
+          "source_segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 64
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 25
+            }
+          ],
+          "provenance": [
+            {
+              "physical_page": 2,
+              "bbox": [
+                51.0236,
+                734.5449,
+                557.9514999999993,
+                753.9150979045401
+              ],
+              "coordinate_system": "crop_rotated_top_left_pt",
+              "native_ref": "#/texts/36",
+              "native_bbox": {
+                "l": 51.0236,
+                "t": 90.33709999999996,
+                "r": 557.9514999999993,
+                "b": 70.96690209545989,
+                "coord_origin": "BOTTOMLEFT"
+              },
+              "native_page_size": [
+                612.283,
+                824.882
+              ],
+              "precision": "native_element_bbox",
+              "native_charspan": [
+                0,
+                90
+              ]
+            }
+          ],
+          "mapping": {
+            "status": "normalized_alignment",
+            "method": "geometry_and_nfkd_whitespace_hyphen_alignment_3",
+            "matched_native_code_points": 89,
+            "alignable_native_code_points": 89,
+            "transformations": [
+              "NFKD/whitespace/hyphens ignored for matching only; source text is retained verbatim"
+            ],
+            "warnings": [
+              "Native processed text differs from literal segments; preserve segment boundaries and source spelling"
+            ]
+          }
+        },
+        {
+          "unit_id": "b2d15dc5c7b32184-u-917bab35a4dc5dd4",
+          "native_ref": "#/texts/40",
+          "kind": "caption",
+          "native_label": "caption",
+          "native_text": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+          "native_original_text": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+          "native_text_role": "processed_native_not_literal_quote",
+          "content_layer": "body",
+          "source_segments": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+              "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+              "start": 0,
+              "end": 20
+            }
+          ],
+          "provenance": [
+            {
+              "physical_page": 2,
+              "bbox": [
+                228.7417,
+                760.5129,
+                383.54169999999965,
+                767.0164622817229
+              ],
+              "coordinate_system": "crop_rotated_top_left_pt",
+              "native_ref": "#/texts/40",
+              "native_bbox": {
+                "l": 228.7417,
+                "t": 64.3691,
+                "r": 383.54169999999965,
+                "b": 57.865537718277096,
+                "coord_origin": "BOTTOMLEFT"
+              },
+              "native_page_size": [
+                612.283,
+                824.882
+              ],
+              "precision": "native_element_bbox",
+              "native_charspan": [
+                0,
+                20
+              ]
+            }
+          ],
+          "mapping": {
+            "status": "exact",
+            "method": "geometry_and_nfkd_whitespace_hyphen_alignment_3",
+            "matched_native_code_points": 19,
+            "alignable_native_code_points": 19,
+            "transformations": [
+              "NFKD/whitespace/hyphens ignored for matching only; source text is retained verbatim"
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "ir_picture_relation": {
+        "picture_id": "b2d15dc5c7b32184-u-9fdcab23f3677323",
+        "native_ref": "#/pictures/0",
+        "physical_pages": [
+          2
+        ],
+        "caption_unit_ids": [
+          "b2d15dc5c7b32184-u-25c3636ebc33c9c6"
+        ],
+        "footnote_unit_ids": [],
+        "association_basis": "native_explicit",
+        "association_status": "native_unverified",
+        "association_issues": [],
+        "caption_relationships": [
+          {
+            "unit_id": "b2d15dc5c7b32184-u-25c3636ebc33c9c6",
+            "native_retained": true,
+            "project_status": "unverified",
+            "reason": "native_link_retained_not_human_verified"
+          }
+        ],
+        "usable_for_semantic_interpretation": false
+      },
+      "layer_diagnosis": {
+        "pdf_text_decoder": "Complete Note literal spans already present",
+        "docling_layout": "Note and numbered title are separate caption units; source links retained as unverified",
+        "source_selection": "All target blocks kept in B0 and F",
+        "model_reading": "All target blocks in saved batch-0002 read trace",
+        "candidate_extraction": "Note exists in other original B0/F records; no global Note omission",
+        "sample": "S09 selected a title-only record; no Note context in that sampled record",
+        "figure_discovery": "Numbered-caption-only discovery omitted Note context and treated its lines as paragraph barriers"
+      },
+      "selected_sample": {
+        "document_id": "L01",
+        "record_id": "ev-18a71bf739b2026921372f3048cbde481887f8ab",
+        "record_version": 1,
+        "version_actor": "automatic",
+        "run_id": "comparison-e346c0dd-2969-479c-9e0b-2327707214d1:source-L01:input-eeb1f242a497",
+        "result_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-F/result.json",
+        "result_sha256": "c8a4cef2132903cb39aa7ce4253274010c5feb33012892f540210b6a46140759",
+        "source_record_sha256": "380c0f237017de221e06247cb33d168249815ce57707ae9d5c40cca79c76b56b",
+        "text_fingerprint": "1d91e68c27f383149474053807319ee9dbfde7d50d21da14f23132a16a30162a",
+        "delivery_fingerprint": "22cab5706a47dbb678b0406295bd3a52fe57aeeba49b6f239b38270657025c20",
+        "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+        "physical_pages": [
+          2
+        ],
+        "source_types": [
+          "图注（机器定位；未人核）"
+        ],
+        "original_fragments": [
+          {
+            "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+            "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+            "start": 0,
+            "end": 20,
+            "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+            "occurrence": 0,
+            "physical_page": 2,
+            "bbox": [
+              228.7417,
+              760.5129,
+              383.54169999999965,
+              767.0164622817229
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          }
+        ],
+        "context_fragments": [],
+        "figure_association": {
+          "status": "pending",
+          "figure_ids": [],
+          "proposed_figure_ids": [
+            "figure-5aa579101e55b068111d8932"
+          ],
+          "exact_markers": [
+            {
+              "number": "1",
+              "panel": null,
+              "exact_marker": "图1",
+              "complex": false
+            }
+          ],
+          "reasons": [
+            "Figure 1: complete Figure region/panels and caption identity need source-page verification."
+          ],
+          "no_figure_claimed": false,
+          "human_approved": false
+        },
+        "figure_status_label": "图文待核，未批准",
+        "figure_ids": [
+          "figure-5aa579101e55b068111d8932"
+        ],
+        "fields": {
+          "feature_name_raw": "低分化腺癌",
+          "feature_category": "Tumor diagnosis and metastatic sites in figure-caption case",
+          "evidence_type": "imaging_observation",
+          "disease_or_lesion": {
+            "value": "低分化腺癌伴小脑及肋骨转移",
+            "status": "source_observed",
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                "start": 0,
+                "end": 20,
+                "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  228.7417,
+                  760.5129,
+                  383.54169999999965,
+                  767.0164622817229
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "modality": {
+            "value": null,
+            "status": "unknown",
+            "evidence": []
+          },
+          "sequence_or_phase": null,
+          "numeric_expressions": [],
+          "assertion": {
+            "value": "affirmed",
+            "original_wording": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                "start": 0,
+                "end": 20,
+                "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  228.7417,
+                  760.5129,
+                  383.54169999999965,
+                  767.0164622817229
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "applicability": {
+            "status": "unknown",
+            "original_wording": "",
+            "evidence": []
+          },
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                "start": 0,
+                "end": 20,
+                "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                "occurrence": 0,
+                "physical_page": 2,
+                "bbox": [
+                  228.7417,
+                  760.5129,
+                  383.54169999999965,
+                  767.0164622817229
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "context_status": "needs_context",
+          "review_status": "needs_context",
+          "automatic_checks_status": "requires_review",
+          "automatic_issue_codes": [
+            "numeric_expression_missing",
+            "new_term_pending_human_review"
+          ],
+          "automatic_issues": [
+            {
+              "code": "numeric_expression_missing",
+              "severity": "requires_review",
+              "path": "numeric_expressions",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "duplicate_and_conflict_links": []
+        },
+        "human_approved": false,
+        "product_export_approved": false
+      },
+      "existing_model_chain": [
+        {
+          "job_id": "L01-B0",
+          "selection_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-B0/source-selection.json",
+          "selection_sha256": "03e38916fd525333d0f97c01ce20a2ed18eb990cedf99ccb8dd4c11e98bbb1c7",
+          "selection_entries": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+              "document_line_index": 164,
+              "physical_page": 2,
+              "text_sha256": "d01b52d71a114cd315b851524a236212d77ba1934287bcc03afe475e9cbae99c",
+              "code_points": 64,
+              "state": "kept",
+              "rule_ids": [
+                "B0_ALL_ELIGIBLE"
+              ],
+              "reasons": [
+                "Unfiltered emitted source block."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-25c3636ebc33c9c6"
+              ],
+              "article_eligible": true
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+              "document_line_index": 165,
+              "physical_page": 2,
+              "text_sha256": "1f2025d43b1f956befdc984e7f75414aa4e50ba02f0abcc57c34ca6bda48562f",
+              "code_points": 25,
+              "state": "kept",
+              "rule_ids": [
+                "B0_ALL_ELIGIBLE"
+              ],
+              "reasons": [
+                "Unfiltered emitted source block."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-25c3636ebc33c9c6"
+              ],
+              "article_eligible": true
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+              "document_line_index": 166,
+              "physical_page": 2,
+              "text_sha256": "ba4cf880faef48f94e03406a36d4ca941fc0357d30f181d098a6a5ae09af5bc4",
+              "code_points": 20,
+              "state": "kept",
+              "rule_ids": [
+                "B0_ALL_ELIGIBLE"
+              ],
+              "reasons": [
+                "Unfiltered emitted source block."
+              ],
+              "context_of_block_ids": [],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-917bab35a4dc5dd4"
+              ],
+              "article_eligible": true
+            }
+          ],
+          "read_trace_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-B0/batch-0002-attempt-0.json",
+          "read_trace_sha256": "8e0bb63064afdda957199e4f68ef014ff1abede38f734ebba76f92a67815131c",
+          "target_blocks_actually_read": [
+            "9b90e6cc9c86705d08a4-p0002-l000087",
+            "9b90e6cc9c86705d08a4-p0002-l000088",
+            "9b90e6cc9c86705d08a4-p0002-l000089"
+          ],
+          "result_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-B0/result.json",
+          "result_sha256": "aa5647988e26a37ae09a1d04dbc2a75ce3acd92d61b9500c093c58f53f589018",
+          "other_existing_note_records": [
+            {
+              "record_id": "ev-6a9039358474a8b9475c8dbd916bf73938df61f0",
+              "record_version": 1,
+              "source_segments": [
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 64,
+                  "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    68.0315,
+                    734.5449,
+                    557.9514999999993,
+                    740.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 25,
+                  "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    51.0236,
+                    747.5449,
+                    247.1836000000001,
+                    753.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 20,
+                  "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    228.7417,
+                    760.5129,
+                    383.54169999999965,
+                    767.0164622817229
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "job_id": "L01-F",
+          "selection_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-F/source-selection.json",
+          "selection_sha256": "2448491f11b900777df3a71f78138f68e6ec9e25767fc280b047ad558bd4163f",
+          "selection_entries": [
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+              "document_line_index": 164,
+              "physical_page": 2,
+              "text_sha256": "d01b52d71a114cd315b851524a236212d77ba1934287bcc03afe475e9cbae99c",
+              "code_points": 64,
+              "state": "kept",
+              "rule_ids": [
+                "KEEP_STRUCTURE_OR_FIGURE_TABLE"
+              ],
+              "reasons": [
+                "Figure/table/note or uncertain structural mapping; preserve source context."
+              ],
+              "context_of_block_ids": [
+                "9b90e6cc9c86705d08a4-p0002-l000085",
+                "9b90e6cc9c86705d08a4-p0002-l000086",
+                "9b90e6cc9c86705d08a4-p0002-l000088",
+                "9b90e6cc9c86705d08a4-p0002-l000089"
+              ],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-25c3636ebc33c9c6"
+              ],
+              "article_eligible": true
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+              "document_line_index": 165,
+              "physical_page": 2,
+              "text_sha256": "1f2025d43b1f956befdc984e7f75414aa4e50ba02f0abcc57c34ca6bda48562f",
+              "code_points": 25,
+              "state": "kept",
+              "rule_ids": [
+                "KEEP_STRUCTURE_OR_FIGURE_TABLE"
+              ],
+              "reasons": [
+                "Figure/table/note or uncertain structural mapping; preserve source context."
+              ],
+              "context_of_block_ids": [
+                "9b90e6cc9c86705d08a4-p0002-l000086",
+                "9b90e6cc9c86705d08a4-p0002-l000087",
+                "9b90e6cc9c86705d08a4-p0002-l000089",
+                "9b90e6cc9c86705d08a4-p0003-l000000"
+              ],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-25c3636ebc33c9c6"
+              ],
+              "article_eligible": true
+            },
+            {
+              "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+              "document_line_index": 166,
+              "physical_page": 2,
+              "text_sha256": "ba4cf880faef48f94e03406a36d4ca941fc0357d30f181d098a6a5ae09af5bc4",
+              "code_points": 20,
+              "state": "kept",
+              "rule_ids": [
+                "KEEP_STRUCTURE_OR_FIGURE_TABLE"
+              ],
+              "reasons": [
+                "Figure/table/note or uncertain structural mapping; preserve source context."
+              ],
+              "context_of_block_ids": [
+                "9b90e6cc9c86705d08a4-p0002-l000087",
+                "9b90e6cc9c86705d08a4-p0002-l000088",
+                "9b90e6cc9c86705d08a4-p0003-l000000",
+                "9b90e6cc9c86705d08a4-p0003-l000001"
+              ],
+              "structure_unit_ids": [
+                "b2d15dc5c7b32184-u-917bab35a4dc5dd4"
+              ],
+              "article_eligible": true
+            }
+          ],
+          "read_trace_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-F/batch-0002-attempt-0.json",
+          "read_trace_sha256": "9932a838b24c1cffe1fbd6c907f38e93ddc2f6eda8354439a0706a05d2cee3e2",
+          "target_blocks_actually_read": [
+            "9b90e6cc9c86705d08a4-p0002-l000087",
+            "9b90e6cc9c86705d08a4-p0002-l000088",
+            "9b90e6cc9c86705d08a4-p0002-l000089"
+          ],
+          "result_path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-F/result.json",
+          "result_sha256": "c8a4cef2132903cb39aa7ce4253274010c5feb33012892f540210b6a46140759",
+          "other_existing_note_records": [
+            {
+              "record_id": "ev-18a71bf739b2026921372f3048cbde481887f8ab",
+              "record_version": 1,
+              "source_segments": [
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 20,
+                  "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    228.7417,
+                    760.5129,
+                    383.54169999999965,
+                    767.0164622817229
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                }
+              ]
+            },
+            {
+              "record_id": "ev-5d78689efe1ea1ce880ec5476fe32acaa0b443b9",
+              "record_version": 3,
+              "source_segments": [
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 64,
+                  "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    68.0315,
+                    734.5449,
+                    557.9514999999993,
+                    740.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 25,
+                  "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    51.0236,
+                    747.5449,
+                    247.1836000000001,
+                    753.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                }
+              ]
+            },
+            {
+              "record_id": "ev-abeceee6617b8fc585d6b4f2ff3f5df0c6228f6f",
+              "record_version": 2,
+              "source_segments": [
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 64,
+                  "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    68.0315,
+                    734.5449,
+                    557.9514999999993,
+                    740.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 25,
+                  "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    51.0236,
+                    747.5449,
+                    247.1836000000001,
+                    753.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 20,
+                  "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    228.7417,
+                    760.5129,
+                    383.54169999999965,
+                    767.0164622817229
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                }
+              ]
+            },
+            {
+              "record_id": "ev-fd786196098d239b0c3746dbc995a7e6a3f53110",
+              "record_version": 1,
+              "source_segments": [
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 64,
+                  "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    68.0315,
+                    734.5449,
+                    557.9514999999993,
+                    740.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                },
+                {
+                  "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+                  "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+                  "start": 0,
+                  "end": 25,
+                  "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+                  "occurrence": 0,
+                  "physical_page": 2,
+                  "bbox": [
+                    51.0236,
+                    747.5449,
+                    247.1836000000001,
+                    753.9150979045401
+                  ],
+                  "location_precision": "whole_textline_not_exact_glyph"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "fix": {
+        "files": [
+          "services/pdf-parser/figure_assets.py",
+          "services/pdf-parser/tests/test_figure_assets.py"
+        ],
+        "rule": "Explicit body caption/footnote Note marker + full literal lines + one native picture owner + tight same-page stacked geometry + one adjacent numbered caption + no table/column/prose conflict",
+        "does_not_infer": [
+          "subpanel crops",
+          "missing text",
+          "following prose continuation",
+          "cross-page Note links",
+          "medical image eligibility"
+        ],
+        "numbered_caption_identity_stable": true,
+        "caption_before": [
+          {
+            "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+            "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+            "start": 0,
+            "end": 20,
+            "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+            "occurrence": 0,
+            "physical_page": 2,
+            "bbox": [
+              228.7417,
+              760.5129,
+              383.54169999999965,
+              767.0164622817229
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          }
+        ],
+        "caption_after": [
+          {
+            "block_id": "9b90e6cc9c86705d08a4-p0002-l000087",
+            "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+            "start": 0,
+            "end": 64,
+            "exact_quote": "注：（a）为横断位肺窗肺血管与肺结节相连（箭）；（b）为横断位纵隔窗肺血管与肺结节相连（箭）；（c）冠状位最大密度投影图像显示多",
+            "occurrence": 0,
+            "physical_page": 2,
+            "bbox": [
+              68.0315,
+              734.5449,
+              557.9514999999993,
+              740.9150979045401
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          },
+          {
+            "block_id": "9b90e6cc9c86705d08a4-p0002-l000088",
+            "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+            "start": 0,
+            "end": 25,
+            "exact_quote": "发肺血管指向肺结节，末端增粗，呈抱球样改变（箭）。",
+            "occurrence": 0,
+            "physical_page": 2,
+            "bbox": [
+              51.0236,
+              747.5449,
+              247.1836000000001,
+              753.9150979045401
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          },
+          {
+            "block_id": "9b90e6cc9c86705d08a4-p0002-l000089",
+            "text_version": "s3v3-20da829c37f551374352da36d50b681c",
+            "start": 0,
+            "end": 20,
+            "exact_quote": "图1 右肺上叶低分化腺癌伴小脑及肋骨转移",
+            "occurrence": 0,
+            "physical_page": 2,
+            "bbox": [
+              228.7417,
+              760.5129,
+              383.54169999999965,
+              767.0164622817229
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          }
+        ],
+        "derived_catalog_path": "docs/acceptance/user-feedback-2026-11-05/pdf/derived/L01/catalog.json",
+        "derived_catalog_sha256": "dca2476dfb0bc09ed5d0d5f911a2ba08e2d830c5d5587cbc809cf747157a7436",
+        "original_region_bbox": [
+          100.19820168716406,
+          575.4840828125,
+          511.04644820893185,
+          727.970631311701
+        ],
+        "derived_region_bbox": [
+          100.19820168716406,
+          575.4840828125,
+          511.04644820893185,
+          727.970631311701
+        ],
+        "region_bbox_unchanged": true,
+        "old_png_sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "derived_png_sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "png_bytes_identical_to_original_unassigned_region": true,
+        "verification_remains": {
+          "status": "needs_review",
+          "method": "native_candidate_only",
+          "actor": null,
+          "checked_at": null,
+          "notes": "Separately parsed explicit Note retained as source segments after unique native-link and same-page geometry checks; Note/caption relation remains unverified. Independent numbered source caption + unique connected picture region + adjacency + no paragraph barrier; whole-Figure/panel completeness still needs source-page check.",
+          "all_panels_included": false,
+          "caption_figure_identity_checked": false,
+          "human_approved": false
+        },
+        "source_page_geometry_check": {
+          "command": ".venv/bin/python local original_image_objects check on original L01.pdf physical page 2",
+          "execution": "local CPU PDFium, no parser/model rerun",
+          "exit_code": 0,
+          "top_level_original_bitmap_count": 1,
+          "original_bitmap_bbox": [
+            101.43261294273758,
+            576.2737269490112,
+            510.8503870572625,
+            718.8891314493522
+          ],
+          "original_bitmap_fully_contained": true
+        },
+        "coding_agent_visual_comparison": {
+          "reference_page_image": "docs/acceptance/s3/comparison-2026-11-02/page-review/v1/L01-p02-original.png",
+          "derived_image": "docs/acceptance/user-feedback-2026-11-05/pdf/derived/L01/figure-5aa579101e55b068111d8932-p2-0.png",
+          "observation": "All three printed CT panels and their (a)/(b)/(c) labels are visible as on original physical page 2. Note and numbered caption remain independent literal text context, outside the PNG.",
+          "human_review": false,
+          "medical_quality_approved": false,
+          "verification_status_changed": false
+        }
+      }
+    },
+    {
+      "id": "S15",
+      "related_samples": [
+        "S22",
+        "S29"
+      ],
+      "classification": "explicit_statistical_figure_reference_proposed_only",
+      "user_note": "提取的内容像是在说实验时需要测量的量、需要分析的特征。并不是对肿瘤医学图像特征的文字描述，而且提取的图像是实验的一个图，而不是肿瘤医学影像，这和预期的完全不符合。",
+      "pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+      "pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "ir_path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/parser-result.json",
+      "ir_sha256": "72cdfd801fb46100573eaf94ad27edbb15133ff6490a8b0f3a762c07e3c86b83",
+      "figure2_literal_caption": [
+        {
+          "block_id": "95dde964ad802d61602a-p0005-l000082",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "start": 0,
+          "end": 31,
+          "exact_quote": "Fig. 2 Lasso regression select-",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            51.092640304500264,
+            233.63681393399975,
+            157.46163718500026,
+            240.98234892271307
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0005-l000083",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "start": 0,
+          "end": 29,
+          "exact_quote": "ing independent risk factors,",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            51.09263907200025,
+            243.63281393399973,
+            151.97063907200035,
+            250.8662782197141
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0005-l000084",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "start": 0,
+          "end": 23,
+          "exact_quote": "with Log(λ) being 2.619",
+          "occurrence": 0,
+          "physical_page": 5,
+          "bbox": [
+            51.09263907200025,
+            253.6288139339997,
+            134.12913907200027,
+            260.8622782197141
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "body_literal_support": [
+        {
+          "block_id": "95dde964ad802d61602a-p0005-l000015",
+          "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+          "text": "into the LASSO regression. (Fig. 2) The coefficients for the pleural traction sign and CTR > 0.5 were 0. (Table 3) After",
+          "page": 5,
+          "bbox": [
+            50.993617390999816,
+            621.879814698,
+            544.2106079209996,
+            630.3897726811932
+          ]
+        }
+      ],
+      "original_samples": [
+        {
+          "id": "S15",
+          "job_id": "L05-B0",
+          "record_id": "ev-e46bead5526dd1d8aec9dde20a1760e24a152c76",
+          "association": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-2bdb8c56d2a095d1a74fd9d9"
+            ],
+            "exact_markers": [
+              {
+                "number": "2",
+                "panel": null,
+                "exact_marker": "Fig. 2",
+                "complex": false
+              }
+            ],
+            "reasons": [
+              "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "pack_view_figure_ids": [
+            "figure-2bdb8c56d2a095d1a74fd9d9"
+          ],
+          "pack_status_label": "图文待核，未批准"
+        },
+        {
+          "id": "S22",
+          "job_id": "L05-F",
+          "record_id": "ev-72ecdae61a0ea779890469a28a82cefabefbde44",
+          "association": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-2bdb8c56d2a095d1a74fd9d9"
+            ],
+            "exact_markers": [
+              {
+                "number": "2",
+                "panel": null,
+                "exact_marker": "Fig. 2",
+                "complex": false
+              }
+            ],
+            "reasons": [
+              "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "pack_view_figure_ids": [
+            "figure-2bdb8c56d2a095d1a74fd9d9"
+          ],
+          "pack_status_label": "图文待核，未批准"
+        },
+        {
+          "id": "S29",
+          "job_id": "L05-R",
+          "record_id": "ev-2bf70dbd1d23ea5c4d6af4de57b54819b5614684",
+          "association": {
+            "status": "pending",
+            "figure_ids": [],
+            "proposed_figure_ids": [
+              "figure-2bdb8c56d2a095d1a74fd9d9"
+            ],
+            "exact_markers": [
+              {
+                "number": "2",
+                "panel": null,
+                "exact_marker": "Fig. 2",
+                "complex": false
+              }
+            ],
+            "reasons": [
+              "Figure 2: complete Figure region/panels and caption identity need source-page verification."
+            ],
+            "no_figure_claimed": false,
+            "human_approved": false
+          },
+          "pack_view_figure_ids": [
+            "figure-2bdb8c56d2a095d1a74fd9d9"
+          ],
+          "pack_status_label": "图文待核，未批准"
+        }
+      ],
+      "finding": "Literal caption identifies Lasso regression selecting independent risk factors. Original associations are pending proposals, with no Figure2 regions and no verified pairing. The pack view figure_ids include proposed references.",
+      "handoff": "Core/FE owners received evidence to prevent statistical figures from being treated as tumor medical-image illustrations; no role schema or original output modified here.",
+      "figure_purpose_evidence": [
+        {
+          "figure_id": "figure-6f2f78d82c79e082a3e4a99c",
+          "figure_number": "1",
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0004-l000005",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 36,
+              "exact_quote": "Fig. 1 Patients' recruitment process",
+              "occurrence": 0,
+              "physical_page": 4,
+              "bbox": [
+                51.023601531,
+                604.940802491,
+                175.97445153424707,
+                612.2863374797133
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_bound_use": "participant_recruitment_flow",
+          "use_basis": "Literal source caption, not color, figure number or inferred image contents",
+          "medical_illustration_eligibility": "exclude_from_medical_image_illustration",
+          "existing_verification": {
+            "status": "needs_review",
+            "method": "native_candidate_only",
+            "actor": null,
+            "checked_at": null,
+            "notes": "Independent numbered source caption + unique connected picture region + adjacency + no paragraph barrier; whole-Figure/panel completeness still needs source-page check.",
+            "all_panels_included": false,
+            "caption_figure_identity_checked": false,
+            "human_approved": false
+          },
+          "existing_region_count": 1
+        },
+        {
+          "figure_id": "figure-2bdb8c56d2a095d1a74fd9d9",
+          "figure_number": "2",
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000082",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 31,
+              "exact_quote": "Fig. 2 Lasso regression select-",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.092640304500264,
+                233.63681393399975,
+                157.46163718500026,
+                240.98234892271307
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000083",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 29,
+              "exact_quote": "ing independent risk factors,",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.09263907200025,
+                243.63281393399973,
+                151.97063907200035,
+                250.8662782197141
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0005-l000084",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 23,
+              "exact_quote": "with Log(λ) being 2.619",
+              "occurrence": 0,
+              "physical_page": 5,
+              "bbox": [
+                51.09263907200025,
+                253.6288139339997,
+                134.12913907200027,
+                260.8622782197141
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_bound_use": "statistical_lasso_feature_selection",
+          "use_basis": "Literal source caption, not color, figure number or inferred image contents",
+          "medical_illustration_eligibility": "exclude_from_medical_image_illustration",
+          "existing_verification": {
+            "status": "needs_review",
+            "method": "native_candidate_only",
+            "actor": null,
+            "checked_at": null,
+            "notes": "No unique compatible whole-Figure region; caption retained and no rectangle guessed.",
+            "all_panels_included": false,
+            "caption_figure_identity_checked": false,
+            "human_approved": false
+          },
+          "existing_region_count": 0
+        },
+        {
+          "figure_id": "figure-95c36a2a5d5cbc49f10637a3",
+          "figure_number": "3",
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0006-l000087",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 63,
+              "exact_quote": "Fig. 3 Nomogram for predicting frozen section pathology upgrade",
+              "occurrence": 0,
+              "physical_page": 6,
+              "bbox": [
+                51.023601531,
+                475.727698243,
+                287.110251531,
+                483.07323323171335
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_bound_use": "statistical_prediction_nomogram",
+          "use_basis": "Literal source caption, not color, figure number or inferred image contents",
+          "medical_illustration_eligibility": "exclude_from_medical_image_illustration",
+          "existing_verification": {
+            "status": "needs_review",
+            "method": "native_candidate_only",
+            "actor": null,
+            "checked_at": null,
+            "notes": "No unique compatible whole-Figure region; caption retained and no rectangle guessed.",
+            "all_panels_included": false,
+            "caption_figure_identity_checked": false,
+            "human_approved": false
+          },
+          "existing_region_count": 0
+        },
+        {
+          "figure_id": "figure-616ca126ac6d24e11b1329fa",
+          "figure_number": "4",
+          "evidence": [
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000018",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 142,
+              "exact_quote": "Fig. 4 CT and pathological sections for the three groups. A-C are the chest CT, × 100 frozen section, and × 100 paraffin section for a patient",
+              "occurrence": 0,
+              "physical_page": 8,
+              "bbox": [
+                51.023601531,
+                438.8607854,
+                544.2607490659998,
+                446.2063203887133
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000019",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 138,
+              "exact_quote": "with both FS and FP diagnosed as AIS. D-F represent the chest CT, × 100 frozen section, and × 100 paraffin section for a patient diagnosed",
+              "occurrence": 0,
+              "physical_page": 8,
+              "bbox": [
+                51.02361203699991,
+                448.8567854,
+                544.2522586592528,
+                456.09024968571424
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000020",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 142,
+              "exact_quote": "with MIA in FS and IAC in FP. G-I depict the chest CT, × 100 frozen section, and × 100 paraffin section for a patient with FS and FP diagnosed",
+              "occurrence": 0,
+              "physical_page": 8,
+              "bbox": [
+                51.023616711999864,
+                458.85278539999996,
+                544.2539646294995,
+                466.0862496857142
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            },
+            {
+              "block_id": "95dde964ad802d61602a-p0008-l000021",
+              "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+              "start": 0,
+              "end": 6,
+              "exact_quote": "as IAC",
+              "occurrence": 0,
+              "physical_page": 8,
+              "bbox": [
+                51.02361462949983,
+                468.84878539999994,
+                72.32461462949985,
+                476.0822496857142
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "source_bound_use": "explicit_ct_and_pathological_sections",
+          "use_basis": "Literal source caption, not color, figure number or inferred image contents",
+          "medical_illustration_eligibility": "requires_source_page_and_record_context_check",
+          "existing_verification": {
+            "status": "mechanically_checked",
+            "method": "single_pdf_bitmap_caption_guard_1",
+            "actor": "local-deterministic-figure-guard-1",
+            "checked_at": "2026-11-04T16:02:49.394651+00:00",
+            "notes": "Unique source-numbered caption, no paragraph barrier, one complete top-level original PDF bitmap matching the whole detector region; no nearby uncontained bitmap. Engineering structural check, not human/medical approval.",
+            "all_panels_included": true,
+            "caption_figure_identity_checked": true,
+            "human_approved": false,
+            "mechanical_evidence": {
+              "pdf_image_object_count": 1,
+              "original_image_bbox": [
+                53.80920062992126,
+                57.749342816500715,
+                541.4667993700787,
+                426.87014224751067
+              ],
+              "caption_number_unique": true,
+              "no_nearby_uncontained_visual_objects": true,
+              "no_intervening_paragraph": true,
+              "native_region_matches_complete_pdf_bitmap": true
+            }
+          },
+          "existing_region_count": 1
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "commands": [
+      {
+        "command": "timeout 120 .venv/bin/python -m unittest discover -s services/pdf-parser/tests -p test_figure_assets.py -v",
+        "cwd": "code/",
+        "exit_code": 0,
+        "tests": 6,
+        "seconds_reported_by_unittest": 2.974,
+        "log_path": "docs/acceptance/user-feedback-2026-11-05/pdf/figure-assets-tests.log"
+      },
+      {
+        "command": "timeout 120 .venv/bin/python services/pdf-parser/figure_assets.py --document runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/parser-result.json --output docs/acceptance/user-feedback-2026-11-05/pdf/derived/L01",
+        "cwd": "code/",
+        "exit_code": 0,
+        "figures": 1,
+        "regions": 1,
+        "mechanically_checked": 0,
+        "log_path": "docs/acceptance/user-feedback-2026-11-05/pdf/derive-l01.log"
+      }
+    ],
+    "negative_subcases": [
+      "body_text",
+      "unlinked_footnote",
+      "table_note",
+      "conflicting_native_parent",
+      "two_pictures",
+      "two_figures",
+      "other_column",
+      "multi_column_note",
+      "intervening_prose",
+      "remote_note"
+    ],
+    "tests_use_local_cpu": true,
+    "fresh_docling_parse_executed": false,
+    "new_medical_quality_approval": false,
+    "not_verified": [
+      "New extraction model behavior: no paid rerun authorized",
+      "Complete Figure/panel identity and clinical suitability: still needs review",
+      "Generality beyond local development sources and constructed CPU fixtures"
+    ]
+  },
+  "preservation": {
+    "scope": "Original source inputs plus feedback-frozen outer manifest, ZIP and inner manifest; ZIP artifact contents and present public asset copies checked against frozen hashes",
+    "checks": [
+      {
+        "path": "evaluation/corpus/development-candidates/L01.pdf",
+        "expected_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "actual_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/parser-result.json",
+        "expected_sha256": "f0446a29a034194ea2a6b78eb57b47b4f877ebc3a60308feae912b4e9d55b8dd",
+        "actual_sha256": "f0446a29a034194ea2a6b78eb57b47b4f877ebc3a60308feae912b4e9d55b8dd",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/figure-assets/catalog.json",
+        "expected_sha256": "a6add874bb6b985c0caa5139e29805d3c3fd9e7340139dc4c32d0a556740a027",
+        "actual_sha256": "a6add874bb6b985c0caa5139e29805d3c3fd9e7340139dc4c32d0a556740a027",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current/figure-assets/region-66a62428a2c1eb1fea316514-p2-0.png",
+        "expected_sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "actual_sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "matches": true
+      },
+      {
+        "path": "evaluation/corpus/development-candidates/L05.pdf",
+        "expected_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "actual_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/parser-result.json",
+        "expected_sha256": "72cdfd801fb46100573eaf94ad27edbb15133ff6490a8b0f3a762c07e3c86b83",
+        "actual_sha256": "72cdfd801fb46100573eaf94ad27edbb15133ff6490a8b0f3a762c07e3c86b83",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/catalog.json",
+        "expected_sha256": "bcc0ceb1a291b770d509ac2ee277cfa4a602630465deb09d5e1904bc20e8c66e",
+        "actual_sha256": "bcc0ceb1a291b770d509ac2ee277cfa4a602630465deb09d5e1904bc20e8c66e",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/figure-6f2f78d82c79e082a3e4a99c-p4-0.png",
+        "expected_sha256": "044207d1bb1e777d2282343ddc5238463a066ac547bb6b1220a09e6776329861",
+        "actual_sha256": "044207d1bb1e777d2282343ddc5238463a066ac547bb6b1220a09e6776329861",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/figure-616ca126ac6d24e11b1329fa-p8-0.png",
+        "expected_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "actual_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed/figure-assets/region-1dc729915c1f7b68c4c3f13b-p5-0.png",
+        "expected_sha256": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+        "actual_sha256": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/plan.json",
+        "expected_sha256": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+        "actual_sha256": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/report.json",
+        "expected_sha256": "ceceed61c7f1464623b0c89cf7948376cb04f4d15032f649b0ecc64504e5a832",
+        "actual_sha256": "ceceed61c7f1464623b0c89cf7948376cb04f4d15032f649b0ecc64504e5a832",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json",
+        "expected_sha256": "8f99e1fd455c213d1edb5f95d973fc5c0049eeec1b1a75b2f85f3f5966e452f2",
+        "actual_sha256": "8f99e1fd455c213d1edb5f95d973fc5c0049eeec1b1a75b2f85f3f5966e452f2",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/manifest.json",
+        "expected_sha256": "a9e5c2877f8c98314656a4b4c8f6028e22d9282e6ec75e51789469892389451c",
+        "actual_sha256": "a9e5c2877f8c98314656a4b4c8f6028e22d9282e6ec75e51789469892389451c",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+        "expected_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+        "actual_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/index.json",
+        "expected_sha256": "d3a4d32020047795ba8ae134b9000dc720b0929ddb450b0c769b517daf7b16b9",
+        "actual_sha256": "d3a4d32020047795ba8ae134b9000dc720b0929ddb450b0c769b517daf7b16b9",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-final/comparison.json",
+        "expected_sha256": "405226b55d482de60b889cb84c538238251ce2ce346ebc34c5984d0df43f023c",
+        "actual_sha256": "405226b55d482de60b889cb84c538238251ce2ce346ebc34c5984d0df43f023c",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-final/review.html",
+        "expected_sha256": "58273c400723f1be33ce1ca2e1c423682141c7f785c72393ccd6242c71a59a64",
+        "actual_sha256": "58273c400723f1be33ce1ca2e1c423682141c7f785c72393ccd6242c71a59a64",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-B0/result.json",
+        "expected_sha256": "aa5647988e26a37ae09a1d04dbc2a75ce3acd92d61b9500c093c58f53f589018",
+        "actual_sha256": "aa5647988e26a37ae09a1d04dbc2a75ce3acd92d61b9500c093c58f53f589018",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L01-F/result.json",
+        "expected_sha256": "c8a4cef2132903cb39aa7ce4253274010c5feb33012892f540210b6a46140759",
+        "actual_sha256": "c8a4cef2132903cb39aa7ce4253274010c5feb33012892f540210b6a46140759",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L05-B0/result.json",
+        "expected_sha256": "425f156bd12440d1285e58f91db199a13b01f52f997869d1654a7e4717e9713a",
+        "actual_sha256": "425f156bd12440d1285e58f91db199a13b01f52f997869d1654a7e4717e9713a",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L05-F/result.json",
+        "expected_sha256": "89b9d71788a4b343079b811932d952de8f0496fea1c87fe49ee8592fc37e2a28",
+        "actual_sha256": "89b9d71788a4b343079b811932d952de8f0496fea1c87fe49ee8592fc37e2a28",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/L05-R/result.json",
+        "expected_sha256": "3605972e56d56436405e5d5bf9bb73e2eb79b9e405d79a6a79ecf63447d788ae",
+        "actual_sha256": "3605972e56d56436405e5d5bf9bb73e2eb79b9e405d79a6a79ecf63447d788ae",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L01-B0/pair-report.json",
+        "expected_sha256": "4ebfd8c2c889b233caa8b778f7919b996bf98e5860d0230cbc10daea310634c6",
+        "actual_sha256": "4ebfd8c2c889b233caa8b778f7919b996bf98e5860d0230cbc10daea310634c6",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L01-B0/before/result.json",
+        "expected_sha256": "1ff97b4cc4fa9af8086e6e2d5b7e2b3af5929c0e93d0a74bb310747632fbf75b",
+        "actual_sha256": "1ff97b4cc4fa9af8086e6e2d5b7e2b3af5929c0e93d0a74bb310747632fbf75b",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L01-B0/after/result.json",
+        "expected_sha256": "21794031aafb9974bcaf01b54d0008ed1e4db4c6d7a6dbe7052c214643da6b8a",
+        "actual_sha256": "21794031aafb9974bcaf01b54d0008ed1e4db4c6d7a6dbe7052c214643da6b8a",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L05-R/pair-report.json",
+        "expected_sha256": "4b90c043b7a0c276a4d9469acbc26b159a85252404fc3409e64c9d2548d0d42b",
+        "actual_sha256": "4b90c043b7a0c276a4d9469acbc26b159a85252404fc3409e64c9d2548d0d42b",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L05-R/before/result.json",
+        "expected_sha256": "3d9484cd4b24b14727b6087477bef30b771c6b6cd1103be070b97750768cc81f",
+        "actual_sha256": "3d9484cd4b24b14727b6087477bef30b771c6b6cd1103be070b97750768cc81f",
+        "matches": true
+      },
+      {
+        "path": "runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L05-R/after/result.json",
+        "expected_sha256": "f692d6dd78304e6a8e6557847462c0c7013dce5a282af3d23ab73267a496e68a",
+        "actual_sha256": "f692d6dd78304e6a8e6557847462c0c7013dce5a282af3d23ab73267a496e68a",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/manifest.json",
+        "expected_sha256": "9c88aede860464d5e32a53596e45e2e752ff8d290bc6244049aa6a7c9c76f80c",
+        "actual_sha256": "9c88aede860464d5e32a53596e45e2e752ff8d290bc6244049aa6a7c9c76f80c",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip",
+        "expected_sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+        "actual_sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+        "matches": true
+      },
+      {
+        "path": "apps/pi-web/public/output-review/pack-manifest.json",
+        "expected_sha256": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+        "actual_sha256": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+        "matches": true
+      },
+      {
+        "path": "apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json",
+        "expected_sha256": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+        "actual_sha256": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!pack-manifest.json",
+        "expected_sha256": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+        "actual_sha256": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!核验表.xlsx",
+        "expected_sha256": "3fd6a224ad2c55dd12dc48302dba6f092dee38da8aaf2356728b7cec52feea6f",
+        "actual_sha256": "3fd6a224ad2c55dd12dc48302dba6f092dee38da8aaf2356728b7cec52feea6f",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!review.html",
+        "expected_sha256": "015af008684fd4ce711a4177c9248705192a3a53a4d5e1273f31eb8b0de88106",
+        "actual_sha256": "015af008684fd4ce711a4177c9248705192a3a53a4d5e1273f31eb8b0de88106",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!pdf/L01.pdf",
+        "expected_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "actual_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!pdf/L05.pdf",
+        "expected_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "actual_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "matches": true
+      },
+      {
+        "path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip!figures/L05-figure-616ca126ac6d24e11b1329fa-0.png",
+        "expected_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "actual_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "matches": true
+      },
+      {
+        "path": "apps/pi-web/public/output-review/pdf/L01.pdf",
+        "expected_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "actual_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "matches": true
+      },
+      {
+        "path": "apps/pi-web/public/output-review/pdf/L05.pdf",
+        "expected_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "actual_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "matches": true
+      },
+      {
+        "path": "apps/pi-web/public/output-review/figures/L05-figure-616ca126ac6d24e11b1329fa-0.png",
+        "expected_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "actual_sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "matches": true
+      }
+    ],
+    "all_checked_hashes_match": true,
+    "original_ledger": {
+      "path": "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+      "sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+      "totals": {
+        "requests": 189,
+        "input_tokens": 3198316,
+        "output_tokens": 122639,
+        "settled": 189,
+        "missing_usage": 0,
+        "halted": null
+      }
+    },
+    "source_input_count": 29,
+    "pack_artifact_count": 5,
+    "outer_manifest_path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/manifest.json",
+    "zip_path": "docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip",
+    "manifest_layers": "Feedback frozen_manifest_sha256 refers to outer acceptance manifest. Public pack-manifest.json equals ZIP inner manifest; workbook/review.html are ZIP entries."
+  },
+  "source_change_sha256": [
+    {
+      "path": "services/pdf-parser/figure_assets.py",
+      "before": "9bb5c10dee0cde9ff83a765827b3d6f74f0e80407de4774edf84d089d6270ce7",
+      "after": "330eb6a39317207b34a8e2a98647fb515340704f1def0e5c2a3734581150d63d"
+    },
+    {
+      "path": "services/pdf-parser/tests/test_figure_assets.py",
+      "before": "0c2924442951284576ba174cf15aa6423eca99d82e8be32eca369cfc852869ce",
+      "after": "ca71fcd6c0042d056987efaf73648a63e62a1dae39c5b036a2445c03a2027317"
+    }
+  ],
+  "handoff": {
+    "status": "complete_pdf_scope",
+    "code_files": [
+      "services/pdf-parser/figure_assets.py",
+      "services/pdf-parser/tests/test_figure_assets.py"
+    ],
+    "temporary_owned_copies_removed": [
+      "code/runtime-data/user-feedback-2026-11-05/pdf/source-before/services/pdf-parser/figure_assets.py",
+      "code/runtime-data/user-feedback-2026-11-05/pdf/source-before/services/pdf-parser/tests/test_figure_assets.py",
+      "code/runtime-data/agent-notes/user-feedback-2026-11-05-pdf.json"
+    ],
+    "source_before_after_sha256_retained": true,
+    "formal_reviews_used": 3,
+    "formal_reviews_added": 0,
+    "new_paid_calls": 0
+  }
+}

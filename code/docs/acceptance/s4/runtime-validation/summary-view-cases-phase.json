@@ -1,0 +1,67 @@
+{
+  "schema_version": "s4-summary-view-cases-focused-1",
+  "counts": {
+    "tests": 7,
+    "pass": 7,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "typecheck_exit_code": 0,
+  "source_start": "docs/acceptance/s4/runtime-validation/summary-view-cases-run-start.json",
+  "source_changes_during_tests": [],
+  "observed": [
+    {
+      "test_evidence": "summary_dictionary_runtime_roundtrip",
+      "all_candidate_count": 1,
+      "trusted_context_bytes": 3571,
+      "packet_bytes": 2709,
+      "whole_context_restores_exactly": true,
+      "candidate_versions_unchanged": true,
+      "medical_approval": false
+    },
+    {
+      "test_evidence": "neutral_case_runtime_coverage",
+      "cases": 2,
+      "actual_source_and_context_read_required": true,
+      "focus_only_read_does_not_satisfy_context": true,
+      "source_binding_checked": true,
+      "unapproved_judgments": 2,
+      "cases_are_gold": false,
+      "medical_approval": false,
+      "candidate_changes_from_case_reports": 0
+    },
+    {
+      "test_evidence": "summary_document_line_authorization",
+      "read_order": [
+        301,
+        300
+      ],
+      "immutable_document_indices_not_rebased": true,
+      "unread_attempts_saved_no_candidate": true,
+      "old_source_fields_rejected": true,
+      "out_of_range_index_rejected": 302,
+      "saved_full_records": 1,
+      "medical_approval": false
+    },
+    {
+      "test_evidence": "independent_summary_version_coverage",
+      "mode": "automatic-update",
+      "completed_unapproved_review": true,
+      "updated_version_requires_new_review": true,
+      "human_active_preserved": false,
+      "medical_approval_from_model": false
+    },
+    {
+      "test_evidence": "independent_summary_version_coverage",
+      "mode": "human-protected",
+      "completed_unapproved_review": true,
+      "updated_version_requires_new_review": false,
+      "human_active_preserved": true,
+      "medical_approval_from_model": false
+    }
+  ],
+  "initial_attempt_note": "docs/acceptance/s4/runtime-validation/summary-view-cases-initial-note.json",
+  "metadata_assertion_adaptation": "The implementation owner intentionally replaced global_limits_unchanged with original_ledger_limits_retained/call_and_token_caps_unchanged/effective_global_wall_clock_seconds; only the stale test assertion was adapted."
+}

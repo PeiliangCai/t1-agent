@@ -1,0 +1,23 @@
+{
+  "schema_version": "s4-runtime-category-case-observation-1",
+  "source_log": "docs/acceptance/s4/runtime-validation/category-length-focused-test.txt",
+  "real_failure": {
+    "path": "docs/acceptance/s4/closed-Sol-schema-failure.json",
+    "sha256": "a51731d46f0349a44d26514a1945d254d316e5753f8b2970deb513ed4f1899c8",
+    "argument_sha256": "8e3e263390d86323d596278cfa26d760b5f44b1ee420146f5dd59bf44299c382",
+    "actual_error_path": "/records/1/feature_category",
+    "actual_error_limit": 80,
+    "actual_category_code_points": 82
+  },
+  "observed": {
+    "test_evidence": "actual_category_length_replay",
+    "original_argument_sha256": "8e3e263390d86323d596278cfa26d760b5f44b1ee420146f5dd59bf44299c382",
+    "category_code_points": 82,
+    "original_shape_passed_sdk_schema": true,
+    "source_layer_rejections": 3,
+    "rejection_code": "feature_name_not_in_evidence",
+    "valid_synthetic_record_saved": true,
+    "saved_category_unchanged": true
+  },
+  "simulation": "Original public safe argument payload replayed with the installed Pi SDK against synthetic loopback source lines; no paid model call and no clinical correctness claim."
+}

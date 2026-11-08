@@ -1,0 +1,98 @@
+{
+  "schema_version": "output-review-frontend-implementation-validation-1",
+  "checked_at": "2026-11-05T04:06:49.611423+00:00",
+  "entry": "code/apps/pi-web/public/output-review/index.html",
+  "source": "code/apps/pi-web/output-review/",
+  "build_script": "code/apps/pi-web/output-review/build.mjs",
+  "static_directory_self_contained": true,
+  "frozen_zip_sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+  "frozen_manifest_sha256": "9c88aede860464d5e32a53596e45e2e752ff8d290bc6244049aa6a7c9c76f80c",
+  "pack_id": "cc939653193b71c047cdc1e3314f923b234ebef7aefbfaf2f8cbf9adfa20845f",
+  "questionnaire_version": "ordinary-screening-2026-11-05-v1",
+  "random_records": 30,
+  "separate_risk_records": 5,
+  "frozen_fragment_rows": 286,
+  "original_assets": {
+    "pdfs": 2,
+    "whole_image_png": 1,
+    "bytes_equal_frozen_zip": true
+  },
+  "reused_pi_web_component": "components/ImagePreview.tsx (original unchanged)",
+  "image_preview_original_sha256": "48d6bf1242ff61a672ee60fad4b77cd5ec5e501a692b49faf489402ca57a8dc6",
+  "local_runtime_assets": [
+    "React production bundle",
+    "PDF.js legacy worker/cmaps/standard_fonts/wasm + license",
+    "Existing pi-web Noto CJK WOFF2 + OFL license"
+  ],
+  "static_directory_files": 213,
+  "static_directory_bytes": 22305295,
+  "tested_static_delivery_sha256": {
+    "index.html": "3aee26d1caa65e9428b3a4913ead6c1beb2e19d7f6f58c88886455a8e43b6d38",
+    "review.js": "dc48725143920421bd26efef1594848077489d3cf173558e6d09219ab8666ddd",
+    "review.css": "6afb347e2697d12e4908801dcda0bef6c2a9e1478ad63e916b5da1dad12737f9"
+  },
+  "checks": [
+    {
+      "command": "code/.tools/node/bin/node code/node_modules/tsx/dist/cli.mjs --test code/apps/pi-web/output-review/model.test.mjs",
+      "exit_code": 0,
+      "passed": 13,
+      "failed": 0,
+      "scope": [
+        "exact frozen bindings",
+        "explicit draft/record/defer and disjoint counts",
+        "strict import pack/questionnaire/version/fingerprint/enumeration/duplicate/role/approval/source-injection rejection",
+        "timestamps and professional pending",
+        "save read-back/quota/disabled/CAS conflicts",
+        "rebuild retains unknown user files and original ImagePreview"
+      ]
+    },
+    {
+      "cwd": "code/apps/pi-web",
+      "command": "../../.tools/node/bin/node node_modules/typescript/bin/tsc --noEmit --project output-review/tsconfig.json",
+      "exit_code": 0
+    },
+    {
+      "cwd": "code/apps/pi-web",
+      "command": "../../.tools/node/bin/node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "exit_code": 0
+    },
+    {
+      "cwd": "code/apps/pi-web",
+      "command": "../../.tools/node/bin/node node_modules/eslint/bin/eslint.js output-review/main.tsx output-review/pdf-viewer.tsx output-review/model.ts output-review/storage.ts output-review/types.ts output-review/static-i18n.ts output-review/build.mjs output-review/model.test.mjs",
+      "exit_code": 0
+    },
+    {
+      "browser_evidence": "code/docs/acceptance/output-review-frontend-2026-11-05/browser/results.json",
+      "exit_code": 0,
+      "passed": 17,
+      "failed": 0,
+      "actual_browser_execution": true,
+      "protected_input_files_unchanged": 31
+    }
+  ],
+  "behavior": {
+    "storage": "localStorage isolated by exact pack and questionnaire; explicit failures are visible; no silent server writes",
+    "submit": "successful browser save records only current item and advances; failed save or conflict stays on current draft including within pending filter; answers and notes retained for JSON backup",
+    "imports": "strict full 35-item identity/enum/pending/role validation; explicit replacement confirmation; damaged or incompatible imports leave current progress unchanged; no imported source text is applied",
+    "cross_tab": "different progress pauses stale writes; export current memory before explicitly loading other tab",
+    "ordinary_observations": "non_medical_user only; professional context/terminology/attribution/medical_pairing all pending; three approvals false",
+    "source": "independent literal quotes translate=no; approximate PDF box and physical-page navigation; missing figure assets remain unreviewed"
+  },
+  "actual_human_reviews": 0,
+  "actual_medical_reviews": 0,
+  "paid_requests": 0,
+  "historical_paid_ledger_requests": 189,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "formal_review": {
+    "used": 3,
+    "maximum": 3,
+    "additional_rounds": 0
+  },
+  "limits": [
+    "Real browser tests used local static HTTP, including nested non-secure context without crypto.subtle or File System Access; VSCode Live Server extension and its actual WebSocket refresh were not exercised",
+    "Automated browser clicks are software evidence, not real human/medical review",
+    "This static tool does not complete full S5 or change models, methods, original outputs, old ZIP/Excel, source PDFs/IR/SQLite or the paid ledger"
+  ]
+}

@@ -1,0 +1,1014 @@
+{
+  "schema_version": "pdf-whole-figure-review-1",
+  "recorded_at": "2026-11-07T16:06:32.891384+00:00",
+  "status": "engineering_repair_and_static_user_review_ready",
+  "scope": "整图/图注/原页实际工程核验与裁边修复，以及表格/续段/整图静态非医学核验页。表格与续段算法由独立owner交接，不在本报告重复归功。",
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "new_paid_calls": 0,
+  "new_model_extraction_run": false,
+  "prompt_or_model_strategy_changed": false,
+  "input_quality_passed": false,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "actual_user_reviews": 0,
+  "implementation": {
+    "modified_or_added_files": [
+      {
+        "path": "services/pdf-parser/figure_assets.py",
+        "before_sha256": "bb6efda32fbe5406018df46e270b9d6ec4783379f4f495f803f5e5f3ae918606",
+        "after_sha256": "1c30f1a6026cbe01f7619b2e47d058ca2e2a339e1a4d77db17e52bf07130303f"
+      },
+      {
+        "path": "services/pdf-parser/tests/test_figure_assets.py",
+        "before_sha256": "ca71fcd6c0042d056987efaf73648a63e62a1dae39c5b036a2445c03a2027317",
+        "after_sha256": "c1c37c1862cb86e3ab301f1b8f20cba94b00bd12e04974dc5f1856a70ab20608"
+      },
+      {
+        "path": "scripts/compare-extraction-methods.ts",
+        "before_sha256": "6ae8867b8c4fe4a2c7d6d78b82ca60f1ba7ef417a4a1c2edaa7fbce048820ffa",
+        "after_sha256": "ce60962916f2de112408be2737ebdd05e261ae93d2954b3760e6c474e3492e90"
+      },
+      {
+        "path": "config/two-method-comparison.json",
+        "before_sha256": "b8ef8e14fb7d02a4ac89494346861e586904be4d4ae5e6fde66cf1d4ca6f7b62",
+        "after_sha256": "218aa654634d707eafcce1190ecd1ca35bb35966d679754c0ee8854f06b3be29"
+      },
+      {
+        "path": "tests/extraction/s4-reliability-preparation.test.ts",
+        "before_sha256": "eecfc48a09d0b3b16ad7fbef38a57b98f3daa30522162443f19eaa9dc7bb1979",
+        "after_sha256": "59f83356d87eb839336b6c5dc450f665b072c5cc23f90dcd0ce4b5817e7b4c0e"
+      },
+      {
+        "path": "scripts/build-input-review.py",
+        "before_sha256": null,
+        "after_sha256": "d978f7c85baa51a7afbcf86989efeca56b29a97513b68b3a5bb96cfb03537da4"
+      },
+      {
+        "path": "scripts/verify-input-review-browser.mjs",
+        "before_sha256": null,
+        "after_sha256": "553af305b404896cf2f7fb6d8e21942192df36c8a6715286c2f41de7f615e991"
+      },
+      {
+        "path": "apps/pi-web/public/input-review/index.html",
+        "before_sha256": null,
+        "after_sha256": "7878db1624d642a5bcf7136d0f82044db580e1542cfce9745e58b23dabffea0c"
+      },
+      {
+        "path": "apps/pi-web/public/input-review/review.css",
+        "before_sha256": null,
+        "after_sha256": "3801d808441749caa7046bb1fdc4911e42b4f50da4f445b7c94c0bf4e0343c52"
+      },
+      {
+        "path": "apps/pi-web/public/input-review/review.js",
+        "before_sha256": null,
+        "after_sha256": "9e298becda6b0ae186298cc659618c5a42b6c071642d8efd0a562820ff4034f4"
+      }
+    ],
+    "deleted_source_files": [],
+    "repair": "小幅裁边补齐独立于图注/医学批准流程，在Note/双栏图注早退前执行；只union原整图范围与唯一顶层PDF位图，保留较宽原图注/矢量范围。",
+    "guards": {
+      "unique_top_level_bitmap": true,
+      "minimum_existing_bitmap_coverage": 0.98,
+      "maximum_missing_margin_pt": 8,
+      "other_bitmap_distance_guard_pt": 24,
+      "inside_bound_page": true,
+      "unrelated_body_in_new_margin_rejected": true,
+      "verification_fields_changed_by_completion": false
+    },
+    "small_revertible_figure_patch": "--- before/services/pdf-parser/figure_assets.py\n+++ after/services/pdf-parser/figure_assets.py\n@@ -302,6 +302,40 @@\n     return objects\n \n \n+def complete_bitmap_render_bounds(figure, image_objects, page_info, document=None):\n+    \"\"\"Do not clip an almost-contained original bitmap, even when its caption needs review.\n+\n+    This repairs only render geometry. It does not establish caption, panel,\n+    case or medical identity and never changes verification/approval fields.\n+    \"\"\"\n+    if len(figure['region_specs']) != 1:\n+        return 'not_one_region'\n+    spec = figure['region_specs'][0]; box = spec['bbox']\n+    intersecting = [o for o in image_objects if overlap(o['bbox'], box) > 0]\n+    if len(intersecting) != 1 or not intersecting[0]['top_level']:\n+        return 'ambiguous_or_nested_bitmap'\n+    original = intersecting[0]['bbox']\n+    area = (original[2]-original[0])*(original[3]-original[1])\n+    missing_margin = max(0, box[0]-original[0], box[1]-original[1], original[2]-box[2], original[3]-box[3])\n+    if area <= 0 or overlap(original, box)/area < 0.98 or missing_margin > 8:\n+        return 'bitmap_outside_small_rounding_margin'\n+    if any(o is not intersecting[0] and distance(o['bbox'], box) <= 24 for o in image_objects):\n+        return 'nearby_uncontained_bitmap'\n+    full = union([box, original])\n+    if not (0 <= full[0] < full[2] <= page_info['width'] and 0 <= full[1] < full[3] <= page_info['height']):\n+        return 'bitmap_outside_bound_page'\n+    if full == box:\n+        return 'already_contains_complete_bitmap'\n+    caption_ids = {s['block_id'] for s in figure['caption_segments']}\n+    if document and any(b['page'] == spec['physical_page'] and b['block_id'] not in caption_ids\n+                        and len(b['text'].strip()) > 16\n+                        and overlap(b['bbox'], full) > overlap(b['bbox'], box) + 0.01\n+                        for b in document['blocks']):\n+        return 'unrelated_source_text_in_added_margin'\n+    spec['bbox'] = full\n+    return 'completed_original_bitmap_render_bounds'\n+\n+\n def mechanically_check(figure, candidate, all_candidates, image_objects, page_info, document=None, external_paths=()):\n     # A newly grouped native Note is review context, never automatic proof of\n     # caption identity, complete panels or suitability as a medical image.\n@@ -311,7 +345,7 @@\n         return\n     if sum(c['figure_number'] == figure['figure_number'] for c in all_candidates) != 1:\n         return\n-    box = candidate['region_specs'][0]['bbox']\n+    box = figure['region_specs'][0]['bbox']\n     intersecting = [o for o in image_objects if overlap(o['bbox'], box) > 0]\n     if len(intersecting) != 1 or not intersecting[0]['top_level']:\n         return\n@@ -333,11 +367,11 @@\n     if any(c is not candidate and c['figure_number'] and any(s['physical_page'] == candidate['region_specs'][0]['physical_page'] and\n            distance(s['bbox'], box) <= 72 for s in c['caption_segments']) for c in all_candidates):\n         return\n-    # Crop the union, so detector rounding can never trim the original PDF bitmap.\n+    # Pure geometry completion runs separately, including for caption/Note review\n+    # cases. A refused completion must not be bypassed by an approval path.\n     full = union([box, original])\n-    if not (0 <= full[0] < full[2] <= page_info['width'] and 0 <= full[1] < full[3] <= page_info['height']):\n-        return\n-    figure['region_specs'][0]['bbox'] = full\n+    if full != box or not (0 <= full[0] < full[2] <= page_info['width'] and 0 <= full[1] < full[3] <= page_info['height']):\n+        return\n     figure['verification'] = {'status': 'mechanically_checked', 'method': 'single_pdf_bitmap_caption_guard_1',\n        'actor': 'local-deterministic-figure-guard-1', 'checked_at': datetime.now(timezone.utc).isoformat(),\n        'notes': 'Unique source-numbered caption, no paragraph barrier, one complete top-level original PDF bitmap matching the whole detector region; no nearby uncontained bitmap. Engineering structural check, not human/medical approval.',\n@@ -385,7 +419,9 @@\n                                 points.append((dx.value*info['width']/sx, dy.value*info['height']/sy))\n                         if len(points) == 2:\n                             paths.append([min(p[0] for p in points), min(p[1] for p in points), max(p[0] for p in points), max(p[1] for p in points)])\n-                    mechanically_check(figure, candidate, candidates, original_image_objects(page, info), info, document, paths)\n+                    image_objects = original_image_objects(page, info)\n+                    complete_bitmap_render_bounds(figure, image_objects, info, document)\n+                    mechanically_check(figure, candidate, candidates, image_objects, info, document, paths)\n                 finally:\n                     page.close()\n             specs = figure.pop('region_specs'); figure['regions'] = []\n",
+    "figure_contract_changed": false
+  },
+  "actual_figure_checks": [
+    {
+      "source_id": "L07",
+      "figure_number": "2",
+      "physical_page": 4,
+      "result": "crop_repaired",
+      "engineering_observation": "实际对照原p4及修前/修后PNG：上排A/B示意图、下排C/D扫描图均在；补齐位图右侧2.49pt/底部1.83pt。左右图注18个原文片段均保留，文字不改写。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-d2efd4e9a2edb49026cb7bec-p4-0.png",
+        "bbox": [
+          85.7342730820419,
+          57.99896585033821,
+          507.1649332273342,
+          410.6677539118828
+        ],
+        "sha256": "8faae7c517ecc6462bcd5ec0f5d347135169c707d23d88c3537c264247eac138",
+        "width_px": 844,
+        "height_px": 706
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-61f0d21cfe9b39b246b0413c-p4-0.png",
+        "bbox": [
+          85.61975013123359,
+          57.749342816500715,
+          509.65624986876634,
+          412.4953058321479
+        ],
+        "sha256": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+        "width_px": 849,
+        "height_px": 711
+      },
+      "original_pdf_bitmap_bbox": [
+        85.61975013123359,
+        57.749342816500715,
+        509.65624986876634,
+        412.4953058321479
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 18,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "needs_review",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5"
+    },
+    {
+      "source_id": "L07",
+      "figure_number": "3",
+      "physical_page": 6,
+      "result": "crop_repaired",
+      "engineering_observation": "实际对照原p6及PNG：左图例、中定位示意、右侧A-D均在；补齐底部0.80pt。双栏图注8片段及pos-/teriorly原连字符保留。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-c31ff4fbd4f9f5fab2f287b8-p6-0.png",
+        "bbox": [
+          84.92230287108966,
+          56.43614318306561,
+          511.3339654561497,
+          316.6355905030994
+        ],
+        "sha256": "a8daca6dcadae7e143e37816774052341d7bfdbbda6190885d1bac658976d284",
+        "width_px": 855,
+        "height_px": 522
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-5617c1c9bc71f439149d59fb-p6-0.png",
+        "bbox": [
+          84.92230287108966,
+          56.43614318306561,
+          511.3339654561497,
+          317.43388762446654
+        ],
+        "sha256": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+        "width_px": 855,
+        "height_px": 523
+      },
+      "original_pdf_bitmap_bbox": [
+        85.05728461942256,
+        57.749342816500715,
+        510.21871538057735,
+        317.43388762446654
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 8,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "needs_review",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5"
+    },
+    {
+      "source_id": "L07",
+      "figure_number": "6",
+      "physical_page": 9,
+      "result": "crop_repaired",
+      "engineering_observation": "实际对照原p9及PNG：补齐底部2.39pt与右侧0.79pt，带星号MRI脚注现在完整可见；保留左侧图注。该图为分期/再分期判据示意表，非MRI扫描图。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-f28252603bc7a26303c1cd7e-p9-0.png",
+        "bbox": [
+          49.82917758590903,
+          54.12683826152352,
+          543.4867543973986,
+          453.853796080617
+        ],
+        "sha256": "5543845177853d08d5104eb895864d8e00391da10ccda1b0f514c867c92c63e0",
+        "width_px": 989,
+        "height_px": 800
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-4b4d9d13ea25dd16b7c9e866-p9-0.png",
+        "bbox": [
+          49.82917758590903,
+          54.12683826152352,
+          544.2791269291338,
+          456.24480796586056
+        ],
+        "sha256": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+        "width_px": 990,
+        "height_px": 805
+      },
+      "original_pdf_bitmap_bbox": [
+        184.2387032020997,
+        57.749342816500715,
+        544.2791269291338,
+        456.24480796586056
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 4,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "needs_review",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5"
+    },
+    {
+      "source_id": "L07",
+      "figure_number": "4",
+      "physical_page": 7,
+      "result": "visually_checked_no_crop_change",
+      "engineering_observation": "实际对照原p7及PNG：四幅大图与左侧21片段图注对应，页脚出版社标志未混入整图。保留此前正确整图与误配防护，本轮无需裁图修改。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-a99cce51fc140a769574dceb-p7-0.png",
+        "bbox": [
+          185.2830279728422,
+          363.55900602357576,
+          544.2791269291338,
+          715.5543570412518
+        ],
+        "sha256": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+        "width_px": 719,
+        "height_px": 705
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-e18998e3bc8242aa9ec677d6-p7-0.png",
+        "bbox": [
+          185.2830279728422,
+          363.55900602357576,
+          544.2791269291338,
+          715.5543570412518
+        ],
+        "sha256": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+        "width_px": 719,
+        "height_px": 705
+      },
+      "original_pdf_bitmap_bbox": [
+        185.42613039370076,
+        363.6208620199147,
+        544.2791269291338,
+        715.5543570412518
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 21,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "mechanically_checked",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5"
+    },
+    {
+      "source_id": "L07",
+      "figure_number": "5",
+      "physical_page": 8,
+      "result": "visually_checked_no_crop_change",
+      "engineering_observation": "实际对照原p8及PNG：上下A/B、图内文字与右上小图均保留，左侧19片段图注对应；本轮无需裁图修改。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-d72666319abad1b29919e284-p8-0.png",
+        "bbox": [
+          182.5757036704249,
+          57.749342816500715,
+          544.2791269291338,
+          407.55786201991464
+        ],
+        "sha256": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+        "width_px": 724,
+        "height_px": 701
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-1ab49282a12e3052ef055ede-p8-0.png",
+        "bbox": [
+          182.5757036704249,
+          57.749342816500715,
+          544.2791269291338,
+          407.55786201991464
+        ],
+        "sha256": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+        "width_px": 724,
+        "height_px": 701
+      },
+      "original_pdf_bitmap_bbox": [
+        184.2387032020997,
+        57.749342816500715,
+        544.2791269291338,
+        407.55786201991464
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 19,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "mechanically_checked",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5"
+    },
+    {
+      "source_id": "L05",
+      "figure_number": "4",
+      "physical_page": 8,
+      "result": "visually_checked_no_crop_change",
+      "engineering_observation": "实际对照原p8及PNG：A-I九面板和4片段图注均保留，A-C/D-F/G-I原文分组可对照；本轮无需裁图修改。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/figure-57b880d5b5500aa36ccc09d7-p8-0.png",
+        "bbox": [
+          53.083783191450486,
+          56.39628634976316,
+          541.762655031345,
+          426.87014224751067
+        ],
+        "sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "width_px": 978,
+        "height_px": 742
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/figure-6d7f9bf10fc4bd2fbedba77e-p8-0.png",
+        "bbox": [
+          53.083783191450486,
+          56.39628634976316,
+          541.762655031345,
+          426.87014224751067
+        ],
+        "sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "width_px": 978,
+        "height_px": 742
+      },
+      "original_pdf_bitmap_bbox": [
+        53.80920062992126,
+        57.749342816500715,
+        541.4667993700787,
+        426.87014224751067
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 4,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "mechanically_checked",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b"
+    },
+    {
+      "source_id": "L01",
+      "figure_number": "1",
+      "physical_page": 2,
+      "result": "visually_checked_no_crop_change",
+      "engineering_observation": "实际对照原p2及PNG：（a）（b）（c）三CT面板、箭头、两行明确Note及图名共3原文片段均保留，顺序与原页一致；本轮无需裁图修改。",
+      "before": {
+        "path": "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/figure-assets/figure-1b49caa223849330345d33b7-p2-0.png",
+        "bbox": [
+          100.19820168716406,
+          575.4840828125,
+          511.04644820893185,
+          727.970631311701
+        ],
+        "sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "width_px": 823,
+        "height_px": 306
+      },
+      "after": {
+        "path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L01/figure-assets/figure-65024a8b54e3eef8d50eecb1-p2-0.png",
+        "bbox": [
+          100.19820168716406,
+          575.4840828125,
+          511.04644820893185,
+          727.970631311701
+        ],
+        "sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "width_px": 823,
+        "height_px": 306
+      },
+      "original_pdf_bitmap_bbox": [
+        101.43261294273758,
+        576.2737269490112,
+        510.8503870572625,
+        718.8891314493522
+      ],
+      "after_contains_complete_original_bitmap": true,
+      "literal_caption_segments": 3,
+      "caption_characters_unchanged": true,
+      "catalog_verification_status": "needs_review",
+      "human_approved": false,
+      "medical_quality_approved": false,
+      "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8"
+    }
+  ],
+  "current_source_pairing": {
+    "catalogs": [
+      {
+        "source_id": "L01",
+        "ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+        "catalog_path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L01/figure-assets/catalog.json",
+        "catalog_sha256": "5d8e75d3d650f1b137cbba989c8628084f2b5985fc4280cc4daa122807d681a0",
+        "figures": 1
+      },
+      {
+        "source_id": "L05",
+        "ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+        "catalog_path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/catalog.json",
+        "catalog_sha256": "67a0541d7c7b079239a28ee349fd585baad6c54d3b5cf28ca5752b6760b1cbb5",
+        "figures": 5
+      },
+      {
+        "source_id": "L07",
+        "ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+        "catalog_path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/catalog.json",
+        "catalog_sha256": "d7c062b3e8dfb15f1be548335b298faf63dbeeb14c216d069e1fbd255d136a05",
+        "figures": 7
+      }
+    ],
+    "default_config": "config/two-method-comparison.json",
+    "optional_figure_catalog_keeps_inside_code_pdf_ir_catalog_asset_sha_guards": true,
+    "auxiliary_module_sha_guard": "source_geometry.py/source_tables.py/source_continuations.py必须齐全且与当前SHA逐项匹配，并进入runtime source snapshot。语料许可先于helper/PDF/IR读取；不会吞缺失文件。",
+    "source_evidence_unit_version": "literal-source-sentences-4",
+    "current_runtime_source_sha256": {
+      "scripts/compare-extraction-methods.ts": "ce60962916f2de112408be2737ebdd05e261ae93d2954b3760e6c474e3492e90",
+      "services/pdf-parser/figure_assets.py": "1c30f1a6026cbe01f7619b2e47d058ca2e2a339e1a4d77db17e52bf07130303f",
+      "services/pdf-parser/structured.py": "a5c54d972b605596fb274c19b76af6cdb43ecf68017f76c4b3e214357d030e9b",
+      "services/pdf-parser/source_geometry.py": "169183f0d17dab9b21638c563f975616c1aaeceaafef42fc9514b33631ef8857",
+      "services/pdf-parser/source_tables.py": "240b0b189cf855ebca2d4b58b3c915c326176d403b240186eb55c0ba382e1dde",
+      "services/pdf-parser/source_continuations.py": "d3588495586f2c35eeef7d715117ff5cda5648a51fad77217c1998d39b3fbfc4",
+      "packages/agent/src/source-evidence-units.ts": "0ca65cb699f7e44adda660b98ecbabd6556b47cf1000d3e05414f60bf110093e",
+      "packages/agent/src/extraction-tools.ts": "00a9bf6d910e86758683ac6cf279c2c72ac05b38ce0335162fe7e35685762d04"
+    },
+    "runtime_source_snapshot_sha256": "3966a3786cb3bd48edc1594ef0fa3f951b144c0ab7ed7c06aab01286db439773"
+  },
+  "offline_prepare": {
+    "status": "prepared_no_model_calls_pending_new_user_authorization",
+    "paid_calls": 0,
+    "input_quality_status": "pending_separate_validation",
+    "offline_preparation_is_input_quality_approval": false,
+    "papers": [
+      {
+        "id": "L01",
+        "methods": 2,
+        "unique_inputs": 2,
+        "masks": [
+          {
+            "job": "L01-B0",
+            "kept": 409,
+            "batches": 4,
+            "equivalent_to": null
+          },
+          {
+            "job": "L01-F",
+            "kept": 344,
+            "batches": 3,
+            "equivalent_to": null
+          }
+        ]
+      },
+      {
+        "id": "L05",
+        "methods": 2,
+        "unique_inputs": 2,
+        "masks": [
+          {
+            "job": "L05-B0",
+            "kept": 615,
+            "batches": 6,
+            "equivalent_to": null
+          },
+          {
+            "job": "L05-F",
+            "kept": 524,
+            "batches": 5,
+            "equivalent_to": null
+          }
+        ]
+      }
+    ],
+    "current_source_bindings": [
+      {
+        "document_id": "L01",
+        "ir_path": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L01/parser-result.json",
+        "ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+        "figure_catalog_path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L01/figure-assets/catalog.json",
+        "figure_catalog_sha256": "5d8e75d3d650f1b137cbba989c8628084f2b5985fc4280cc4daa122807d681a0",
+        "text_version": "s3v3-79f276b4bbb797f3e7930714c614270a"
+      },
+      {
+        "document_id": "L05",
+        "ir_path": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L05/parser-result.json",
+        "ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+        "figure_catalog_path": "docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/catalog.json",
+        "figure_catalog_sha256": "67a0541d7c7b079239a28ee349fd585baad6c54d3b5cf28ca5752b6760b1cbb5",
+        "text_version": "s3v3-6921d9455f442a773f0cd9e5b9f5f92f"
+      }
+    ],
+    "unsigned_execute_rejection": "new_comparison_user_authorization_required",
+    "temporary_prepared_plan_removed": true,
+    "note": "默认B0/F选块仍为L01 409/344、L05 615/524。当前结构/工具版本已变，不能把新输入与旧付费实验当成只差R退役的单变量对比；本次离线准备不是执行授权。",
+    "source_evidence_unit_version": "literal-source-sentences-4",
+    "runtime_source_snapshot_sha256": "3966a3786cb3bd48edc1594ef0fa3f951b144c0ab7ed7c06aab01286db439773"
+  },
+  "static_review_page": {
+    "entry": "apps/pi-web/public/input-review/index.html",
+    "open_with": "在VSCode远端对该index.html使用Open with Live Server；普通HTTP下可用，无Next/Fastify/部署/API。",
+    "pack_id": "pdf-structure-review-2026-11-07-v1",
+    "pack_sha256": "5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+    "data_path": "apps/pi-web/public/input-review/data.json",
+    "data_file_sha256": "cd62468396767a5b26a753d8fa821490330581788a0351785dcd0aef5bd01834",
+    "cases": 20,
+    "questions": 43,
+    "case_types": {
+      "figure": 7,
+      "table": 3,
+      "continuation": 10
+    },
+    "original_pdf_files": 3,
+    "original_page_pngs": 15,
+    "default_view": "修后；可切修前，点图放大，原页PNG与同SHA PDF物理页链接可对照。",
+    "readable_table": "表4显示25行×7列、滚动提示及展开全表/收起。实际浏览器滚至Diameter末行并核对视口可见，另验证全表展开/收起。空说明条隐藏。",
+    "caption_display": "同页原行紧凑显示，逐片段原字符/换行/source_segment保留，只显示一次同页导航；续段第1/2部分仍独立显示。",
+    "storage_key": "t1-pdf-input-review:pdf-structure-review-2026-11-07-v1:5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+    "storage_scope": "当前浏览器的地址/端口；换地址、端口或浏览器可能读不到，页面已明确提示。",
+    "export_schema": "pdf-input-review-opinions-1",
+    "export_import": "显式下载/导入JSON；每条意见绑定PDF SHA、artifact SHA与case版本，错误版本/批准声明/重复意见原子拒绝。可由用户手动把下载JSON放回页面目录，网页不会静默写远端。",
+    "crypto_subtle_required": false,
+    "approval_semantics": "看起来正确只记录非医学用户初筛；不写human_approved/医学/产品批准。",
+    "case_manifest": [
+      {
+        "case_id": "L07-P09-F6",
+        "title": "图6：底部脚注与上下示意图",
+        "source_id": "L07",
+        "physical_pages": [
+          9
+        ],
+        "case_version": "PDF结构核验版1 · d7c062b3e8df",
+        "artifact_sha256": "3f39f0aa3b8427798d621a37cf5fea92cf0582c56bfb59a57bb43b235ee49b39"
+      },
+      {
+        "case_id": "L07-P04-F2",
+        "title": "图2：四面板与双栏图注",
+        "source_id": "L07",
+        "physical_pages": [
+          4
+        ],
+        "case_version": "PDF结构核验版1 · d7c062b3e8df",
+        "artifact_sha256": "3b9f8a4d36d3144b9260d67b456d130fa591a43c57d17b0c2b25576d3b871d0a"
+      },
+      {
+        "case_id": "L07-P06-F3",
+        "title": "图3：图例、A-D与跨栏图注",
+        "source_id": "L07",
+        "physical_pages": [
+          6
+        ],
+        "case_version": "PDF结构核验版1 · d7c062b3e8df",
+        "artifact_sha256": "3de4ba862bcd7278880b5247186ce7f1fc39f3e2d8338a0205477c42b41b056a"
+      },
+      {
+        "case_id": "L07-P07-F4-CONTROL",
+        "title": "图4：四幅图与出版社标志",
+        "source_id": "L07",
+        "physical_pages": [
+          7
+        ],
+        "case_version": "PDF结构核验版1 · d7c062b3e8df",
+        "artifact_sha256": "fc4ca350de5a6eeaad26af61c3e764feb854a262e3a70093e53b77ddd9476ec3"
+      },
+      {
+        "case_id": "L07-P08-F5-CONTROL",
+        "title": "图5：上下A/B示意图",
+        "source_id": "L07",
+        "physical_pages": [
+          8
+        ],
+        "case_version": "PDF结构核验版1 · d7c062b3e8df",
+        "artifact_sha256": "39666064998546ea10b4206581ccd14dbe66484faaf3ed866ceddf97895ba9d4"
+      },
+      {
+        "case_id": "L05-P08-F4",
+        "title": "图4：A-I九联图及三组图注",
+        "source_id": "L05",
+        "physical_pages": [
+          8
+        ],
+        "case_version": "PDF结构核验版1 · 67a0541d7c7b",
+        "artifact_sha256": "970233ed750bb073c1868be0076b2ab45857943aa138cdefe85b35a4436959dc"
+      },
+      {
+        "case_id": "L01-P02-F1",
+        "title": "图1：三CT面板、Note与图名",
+        "source_id": "L01",
+        "physical_pages": [
+          2
+        ],
+        "case_version": "PDF结构核验版1 · 5d8e75d3d650",
+        "artifact_sha256": "b79e945669682a5024c1f76df19c7a95af59677f9aacff88a3ae83d9449b4f4e"
+      },
+      {
+        "case_id": "L01-continuation-e044f321ee",
+        "title": "L01 · p1 正文续接",
+        "source_id": "L01",
+        "physical_pages": [
+          1
+        ],
+        "case_version": "PDF结构核验版1 · f4a0e64cbf17",
+        "artifact_sha256": "e4e5c41902a666c9772c70c59efee5448a7a168eb5b493e7e91dc01542170936"
+      },
+      {
+        "case_id": "L01-continuation-44c944031c",
+        "title": "L01 · p1→2 正文续接",
+        "source_id": "L01",
+        "physical_pages": [
+          1,
+          2
+        ],
+        "case_version": "PDF结构核验版1 · e8129513b2db",
+        "artifact_sha256": "97dd79fc7f36edbf518bdb01096c35364b70d3c946ef74b1a805368838336cb1"
+      },
+      {
+        "case_id": "L01-continuation-6bd96a14b1",
+        "title": "L01 · p4 参考文献续接",
+        "source_id": "L01",
+        "physical_pages": [
+          4
+        ],
+        "case_version": "PDF结构核验版1 · 14215e83e8ca",
+        "artifact_sha256": "dad58c071cd7670745928ad84205226df5ae4b346649a0755cfd9c1fdd21614d"
+      },
+      {
+        "case_id": "L05-p7-Table4",
+        "title": "L05 · p7 表4：行列和多级表头",
+        "source_id": "L05",
+        "physical_pages": [
+          7
+        ],
+        "case_version": "PDF结构核验版1 · 0ab2d620a8a6",
+        "artifact_sha256": "d9ffeec194a15ffc207487da04ad6ae15eed6518d43435be8a2d9d907d655d8b"
+      },
+      {
+        "case_id": "L05-p5-Table2",
+        "title": "L05 · p5 表2：行列和多级表头",
+        "source_id": "L05",
+        "physical_pages": [
+          5
+        ],
+        "case_version": "PDF结构核验版1 · fedd57b0a927",
+        "artifact_sha256": "1028b05508f0e9fdc99fc5d79a03e66885e665983ddb7db1fbb46fe4b9bcb642"
+      },
+      {
+        "case_id": "L05-p6-Table3",
+        "title": "L05 · p6 表3：行列和表头",
+        "source_id": "L05",
+        "physical_pages": [
+          6
+        ],
+        "case_version": "PDF结构核验版1 · 73fee6479f6e",
+        "artifact_sha256": "70b6586018346d897daf51f91f3f2ce04c6a704c00052a0071199e9710ec5373"
+      },
+      {
+        "case_id": "L07-continuation-0c24dc4dd1",
+        "title": "L07 · p4 Fig2图注续接",
+        "source_id": "L07",
+        "physical_pages": [
+          4
+        ],
+        "case_version": "PDF结构核验版1 · d456a1afd9d6",
+        "artifact_sha256": "66156d0476bc8ba265e357c7b8f33ae0c65d946e700ca0ba8f63840b927f72dd"
+      },
+      {
+        "case_id": "L07-continuation-6cdbf91641",
+        "title": "L07 · p6 Fig3图注续接",
+        "source_id": "L07",
+        "physical_pages": [
+          6
+        ],
+        "case_version": "PDF结构核验版1 · 0461cf51d6c4",
+        "artifact_sha256": "1188bc8d4531c8df2ed1cf40937894f93da21c09d7d0901ceb2bcdeee8dac54c"
+      },
+      {
+        "case_id": "L07-continuation-d2ae8157db",
+        "title": "L07 · p7 正文续接",
+        "source_id": "L07",
+        "physical_pages": [
+          7
+        ],
+        "case_version": "PDF结构核验版1 · 8af0ba331b6b",
+        "artifact_sha256": "728c0af68d2b7413aeea0dc39664270e08c0249a1ea569d8f9df3e7c18044ff0"
+      },
+      {
+        "case_id": "L07-continuation-b05928da2b",
+        "title": "L07 · p9→10 正文续接",
+        "source_id": "L07",
+        "physical_pages": [
+          9,
+          10
+        ],
+        "case_version": "PDF结构核验版1 · 231ff646467b",
+        "artifact_sha256": "d34e2c71bb9706145f8c2464b2baeddcc9b744d6c5d89764e578a45b6d8388f5"
+      },
+      {
+        "case_id": "L07-continuation-9d2555b748",
+        "title": "L07 · p10 正文续接",
+        "source_id": "L07",
+        "physical_pages": [
+          10
+        ],
+        "case_version": "PDF结构核验版1 · c56b6722169e",
+        "artifact_sha256": "e06a179112a04d89ba1c1cb72cd5b933d8905de0b4366b7c90b57fc9a6cf2bc1"
+      },
+      {
+        "case_id": "L07-continuation-0a2b4909f8",
+        "title": "L07 · p11 正文续接",
+        "source_id": "L07",
+        "physical_pages": [
+          11
+        ],
+        "case_version": "PDF结构核验版1 · 2417975b1e3e",
+        "artifact_sha256": "064fe1ad181125f46973d4ad789091fde88eb3409ce293c5b37028ab93d00cd2"
+      },
+      {
+        "case_id": "L07-continuation-2846906f1d",
+        "title": "L07 · p13 参考文献续接",
+        "source_id": "L07",
+        "physical_pages": [
+          13
+        ],
+        "case_version": "PDF结构核验版1 · 1c8f22690365",
+        "artifact_sha256": "0ebfd671c2d2525beea8efef1d4abaac8e90474bc4b8f1ea6ec909515df10db2"
+      }
+    ],
+    "final_pack_frozen": true,
+    "table3_actual_repair": {
+      "parser_owner_report": "docs/acceptance/pdf-structure-review-2026-11-07/table-continuation-report.json",
+      "native_before": "17×8；误带左题、虚构空列、Group2末行拆格、错误Fig3题名关系被拒绝。",
+      "after": "实际规则界定的17排印基线×6列，89格/102槽，341非空码点；逻辑表头1层，LASSO/Coefficient同格，12.78(± 4.71)原字符同格。",
+      "title": "三行Table3源题单独展示，非原native误配Fig3。",
+      "page_questions": "只用交接的三个专属问题，避免继承不适用的多级表头泛问。",
+      "medical_quality_approved": false
+    }
+  },
+  "checks": {
+    "figure_python": {
+      "passed": 10,
+      "failed": 0,
+      "command": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -p test_figure_assets.py -v"
+    },
+    "targeted_cli": {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsx --test tests/extraction/method-comparison.test.ts tests/extraction/s4-reliability-preparation.test.ts",
+      "passed": 13,
+      "failed": 0
+    },
+    "typecheck": {
+      "command": "bash scripts/with-node.sh node_modules/.bin/tsc --noEmit",
+      "exit_code": 0,
+      "checkpoint": "CLI guard phase exit0; final unit4 shared typecheck also exit0."
+    },
+    "browser": {
+      "status": "passed",
+      "actual_Chromium": true,
+      "server": "local static HTTP, nested mount",
+      "pack_sha256": "5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+      "screenshot_cjk_font": "Existing local .tools/pdf-parser/fonts; no external font request or page CSS injection.",
+      "cases": 20,
+      "questions": 43,
+      "checks": [
+        {
+          "id": "static_nested_entry",
+          "status": "passed",
+          "detail": "Actual Chromium opens a nested static directory; no app server or default verdict."
+        },
+        {
+          "id": "before_after_source_link",
+          "status": "passed",
+          "detail": "Figure6 defaults to repaired crop; before/after use different bound PNGs and original PDF page9."
+        },
+        {
+          "id": "image_zoom",
+          "status": "passed",
+          "detail": "Real dialog opens full PNG, zooms, resets and closes with Escape."
+        },
+        {
+          "id": "opinion_save_restore_and_plain_text",
+          "status": "passed",
+          "detail": "Verdict, issue type, location and literal note survive reload; note HTML is never executed."
+        },
+        {
+          "id": "compact_literal_caption",
+          "status": "passed",
+          "detail": "Figure4 keeps every original line and source span in one compact page group with one original-page navigation."
+        },
+        {
+          "id": "readable_table_and_independent_opinion",
+          "status": "passed",
+          "detail": "Table4 shows25×7 and scroll guidance; Chromium actually scrolls to final Diameter row, expands all rows, and collapses; opinions stay distinct."
+        },
+        {
+          "id": "table3_actual_repair_and_source_page",
+          "status": "passed",
+          "detail": "The real Table3 case shows its native17×8 before result, repaired single-cell12.78/4.71, and original PDF physical page6."
+        },
+        {
+          "id": "case_and_page_switching",
+          "status": "passed",
+          "detail": "Case navigation and multi-page original PNG/PDF locations switch to the exact requested source page."
+        },
+        {
+          "id": "bound_export_import_and_invalid_import_rollback",
+          "status": "passed",
+          "detail": "Actual browser download restores after clearing; wrong pack/PDF, approval claims and duplicates reject without changing saved opinions."
+        },
+        {
+          "id": "mobile_readability",
+          "status": "passed",
+          "detail": "Mobile layout preserves controls and contains wide tables/images within scrollable panels."
+        },
+        {
+          "id": "static_only_and_no_server_writes",
+          "status": "passed",
+          "detail": "All browser requests stay in the static directory, GET/HEAD only; page/assets unchanged after opinion interactions."
+        }
+      ],
+      "page_errors": [],
+      "external_requests": [],
+      "failed_resources": [],
+      "non_static_or_write_requests": [],
+      "static_delivery_sha256": {
+        "apps/pi-web/public/input-review/assets/14324f16cf559bf769ad.png": "14324f16cf559bf769ade1ec7a6af4903068b4c012b15cb19a407c0afdd20b9d",
+        "apps/pi-web/public/input-review/assets/2bf270105a68120afa04.png": "2bf270105a68120afa04bbfdf5dbab7d64cfd6f08e68a78fcceae85a733d4c7a",
+        "apps/pi-web/public/input-review/assets/3218360d2938159d6312.png": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+        "apps/pi-web/public/input-review/assets/3be8a233be39baee2e1b.png": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+        "apps/pi-web/public/input-review/assets/5543845177853d08d510.png": "5543845177853d08d5104eb895864d8e00391da10ccda1b0f514c867c92c63e0",
+        "apps/pi-web/public/input-review/assets/55a9a2241324174a7202.png": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+        "apps/pi-web/public/input-review/assets/574e8df1356e8c0cdc73.png": "574e8df1356e8c0cdc7323232bef0638c7437b51374e45278fa1cf9b1b9a254e",
+        "apps/pi-web/public/input-review/assets/5d7d901bd62832793baa.png": "5d7d901bd62832793baa0ee628c18a99fce4fba2ca5f7a87876945ce8e075772",
+        "apps/pi-web/public/input-review/assets/75ffd21d4760e41e395e.png": "75ffd21d4760e41e395ed448c8afd1435c696d5630e15f74191f62cd44dc1c47",
+        "apps/pi-web/public/input-review/assets/8677a837131696001b7d.png": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+        "apps/pi-web/public/input-review/assets/86f9c08bfd6724f5f22d.png": "86f9c08bfd6724f5f22ddebc53f7aa19d14d88997418cc3b601e34819a0f4fca",
+        "apps/pi-web/public/input-review/assets/8f5e38ac6575cd776469.pdf": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "apps/pi-web/public/input-review/assets/8faae7c517ecc6462bcd.png": "8faae7c517ecc6462bcd5ec0f5d347135169c707d23d88c3537c264247eac138",
+        "apps/pi-web/public/input-review/assets/9551fe16c5f7a3213050.png": "9551fe16c5f7a32130509abd8a8c5f72353737e80228e02421e08c74379cc515",
+        "apps/pi-web/public/input-review/assets/9705c2cee82ac3dbb0c6.png": "9705c2cee82ac3dbb0c6420ab7e73dec86751ec0cb14069cfa258aabe2f80440",
+        "apps/pi-web/public/input-review/assets/a1e382253a3e05e67fe6.png": "a1e382253a3e05e67fe62f30c9492702158e1408d89792585c23cbb9735c1259",
+        "apps/pi-web/public/input-review/assets/a8daca6dcadae7e143e3.png": "a8daca6dcadae7e143e37816774052341d7bfdbbda6190885d1bac658976d284",
+        "apps/pi-web/public/input-review/assets/b7850a291694e3c7018f.pdf": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "apps/pi-web/public/input-review/assets/bd60db7e7fe5c7950ac8.pdf": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "apps/pi-web/public/input-review/assets/c829be401704022df231.png": "c829be401704022df231bcf6b833276da8cd39dbeb9ecc2b759139848085e47d",
+        "apps/pi-web/public/input-review/assets/c93911eb84a508edc7ec.png": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+        "apps/pi-web/public/input-review/assets/ca2df7108b935263c8b6.png": "ca2df7108b935263c8b62f6283d1c9ab2c20d8b06f0c869257ed9dcff6c93d1f",
+        "apps/pi-web/public/input-review/assets/dae3c2ca8da3bbb32bf3.png": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+        "apps/pi-web/public/input-review/assets/e1c0f533de6b1eae95de.png": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+        "apps/pi-web/public/input-review/assets/ec397232d29c3fccc5ce.png": "ec397232d29c3fccc5ce754fd8edf3bd5b9887536c1be27e9bc8b79dd33e781c",
+        "apps/pi-web/public/input-review/assets/f2113131a378cd703729.png": "f2113131a378cd70372936c8927f6e83d5dfcc3f81c239607a08f4f97524f638",
+        "apps/pi-web/public/input-review/assets/f8ef86a9ddfa46c790ae.png": "f8ef86a9ddfa46c790aeb10fdd917c9974effce3a61b3bbfa311e96601368c23",
+        "apps/pi-web/public/input-review/assets/fbee86e076e0a0d4dee3.png": "fbee86e076e0a0d4dee3e8d69409ef818eed9fb345dd9aac02d4a9ba2d94839a",
+        "apps/pi-web/public/input-review/data.json": "cd62468396767a5b26a753d8fa821490330581788a0351785dcd0aef5bd01834",
+        "apps/pi-web/public/input-review/index.html": "7878db1624d642a5bcf7136d0f82044db580e1542cfce9745e58b23dabffea0c",
+        "apps/pi-web/public/input-review/review.css": "3801d808441749caa7046bb1fdc4911e42b4f50da4f445b7c94c0bf4e0343c52",
+        "apps/pi-web/public/input-review/review.js": "9e298becda6b0ae186298cc659618c5a42b6c071642d8efd0a562820ff4034f4"
+      },
+      "storage_key": "t1-pdf-input-review:pdf-structure-review-2026-11-07-v1:5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+      "temporary_downloads_removed": true,
+      "paid_calls": 0
+    },
+    "shared_owner_final_regressions": {
+      "extraction": {
+        "passed": 249,
+        "failed": 0,
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/extraction-tests-unit4.log",
+        "status": "passed"
+      },
+      "parser_typescript": {
+        "passed": 21,
+        "failed": 0,
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/parser-typescript-unit4.log",
+        "status": "passed"
+      },
+      "python": {
+        "passed": 45,
+        "failed": 0,
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/python-tests-unit4.log",
+        "status": "passed"
+      },
+      "typescript": {
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/typescript-unit4-final.log",
+        "status": "passed",
+        "exit_code": 0,
+        "confirmation": "PDFowner confirmed actual process exit0; empty log is expected."
+      },
+      "source_recovery_tool_tests": {
+        "passed": 5,
+        "failed": 0,
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/tool-check-unit4.log"
+      }
+    },
+    "first_regression_then_fix": {
+      "extraction_first": {
+        "passed": 247,
+        "failed": 1,
+        "reason": "新helper SHA提前读取使隔离cwd先ENOENT，遮蔽独立语料禁用的既有优先守卫。移至许可通过后懒读取，13定点、unit3全248、Table3/unit4最终全249均绿。",
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/extraction-tests.log"
+      },
+      "typescript_first": {
+        "reason": "DocumentIR2|3 config union的auxiliary字段未窄化；加schema_version===3 guard，最终tsc通过。",
+        "log": "docs/acceptance/pdf-structure-review-2026-11-07/typescript-cli-before-fix.log"
+      }
+    },
+    "screenshot_review": {
+      "actually_viewed": true,
+      "paths": [
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/00-default.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/01-figure6-after.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/02-figure6-before.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/03-readable-table4.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/05-continuation.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/06-compact-caption.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/07-table4-last-row.png",
+        "docs/acceptance/pdf-structure-review-2026-11-07/browser/08-table3-before-after-repaired.png"
+      ],
+      "note": "验收机原先缺CJK字体导致截图方框；仅用仓库已有本地字体配置Chromium后重取，未改页面CSS字体或发外网请求。截图中测试意见来自临时浏览器，无真实用户审核。"
+    }
+  },
+  "historical_preservation": {
+    "checked_files": 65,
+    "unchanged_files": 65,
+    "mismatches": [],
+    "original_41_manifest": "docs/acceptance/pdf-input-quality-2026-11-07/two-method-transition.json",
+    "final_sha256": {
+      "apps/pi-web/public/output-review/build-info.json": "e45cbb0eeb992406919969942b51cfc16f39c0f9ab4c5bcc3c4b232df6d15ba9",
+      "apps/pi-web/public/output-review/index.html": "3aee26d1caa65e9428b3a4913ead6c1beb2e19d7f6f58c88886455a8e43b6d38",
+      "apps/pi-web/public/output-review/pack-manifest.json": "b28bc39ca1b6e9a449bc1af42f5920b38851f70bc3238180b21eaa9c415395d3",
+      "apps/pi-web/public/output-review/reliability-build.json": "5bb92ae3e703f818cfd5bd3143ef2da6824470434ba90bdabfc5f647a27351be",
+      "apps/pi-web/public/output-review/reliability-data-413fa83644c5.json": "413fa83644c519d8ca69056d34458dd6d7ed69ee19cd640a9fd4ea82af5afaa5",
+      "apps/pi-web/public/output-review/reliability-evidence-map.json": "232d7616b950169a9a3301f24391117236149821f7026f2b1febf461f97a60d9",
+      "apps/pi-web/public/output-review/reliability.html": "b2efb8005ba8d7babe2bdbc44bf9b6ae369851ebba23267178910d5a0cab04e9",
+      "apps/pi-web/public/output-review/revalidation-build.json": "a68173217caa23ef0d5a2521914c5bdcf256405766066168baea845682ea10fc",
+      "apps/pi-web/public/output-review/revalidation-data-a296a9e3ff6e.json": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+      "apps/pi-web/public/output-review/revalidation.html": "54c7448a53752c6e9a79fa55f8de9795f83d7aa700a62cde2faa225afce39b33",
+      "apps/pi-web/public/output-review/source-groups.json": "3bd4bdf8aaf55aadc28afc7be5c1ab057b1cece8ea34f0c1584dad9ff42f3fbb",
+      "apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+      "config/three-method-comparison.json": "dcf6b349996878b54911339f2d1934e9132293d17f3916717bbf13b1ef516b69",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json": "7a6f4038d199fe162e8d16ae756082d9d321abb6b69c8bac74caf547bc712ec7",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/authorization.json": "7a6f4038d199fe162e8d16ae756082d9d321abb6b69c8bac74caf547bc712ec7",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/report.json": "ceceed61c7f1464623b0c89cf7948376cb04f4d15032f649b0ecc64504e5a832",
+      "docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/plan.json": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/analysis-addendum.json": "7a9c9029b2184db17b75b38cbc323645df495e1138ef05b8af0319ab0b00f035",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/reader-manifest.json": "413fa83644c519d8ca69056d34458dd6d7ed69ee19cd640a9fd4ea82af5afaa5",
+      "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json": "390cea6385ae3fd35a26ce8672c95b903438cd6894eab6aac78de2312b3d1f96",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/new-ledger-snapshot.json": "a5731ca72a25e6a28e5b04c86d0b6648499c1a222b8cdc0e5e9122e832284747",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json": "8a344f3dae21279268f094028972bec0e3a96e89f348e8e3c3865d741408056b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json": "492d87259cc62bb80b196f148017287c7aef31d0183e53be012935c15b1f4d82",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/new-ledger-snapshot.json": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/report.json": "9a267a15e1e79a8e0460b4f59bf884f0e3ad0f560ec6334c3309560221116085",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/authorization.json": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/report.json": "622664ab6c24d86baeab1dcccc042e7ed34ae5f9fd7de2ffb1f4453c99dbd258",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/authorization.json": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/report.json": "1c475d48f9a239100b4c65edac70094699b7ab3c58e8c20afdc3165806e53540",
+      "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+      "evaluation/corpus/development-candidates/L01.pdf": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "evaluation/corpus/development-candidates/L02.pdf": "14a37c26847110e3dce0fad50e95cec4459348b0c6da7ef793a1d333bd6e1c12",
+      "evaluation/corpus/development-candidates/L05.pdf": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "evaluation/corpus/development-candidates/L07.pdf": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "evaluation/corpus/development-candidates/MED03.pdf": "36038f5e0ad453343334326a3ba03e6c94e3687ca88574640d54be7056ffa760",
+      "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+      "runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+      "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb/call-ledger.json": "7ba30592e6e4313e677bf5d04d74a8b2e2ef6786f54ead99e9ce3fde84f4518f",
+      "docs/acceptance/pdf-input-quality-2026-11-07/two-method-transition.json": "d4c738c2a344977c61aae98ef8272f3429fd2274f66beb7d86d4b4f7c1219c75",
+      "docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json": "42f1481ac7d7b25629795d4486ac6fb291e8c38525ede0459fb86371a3760b58",
+      "docs/acceptance/pdf-input-quality-2026-11-07/parser-quality-report.json": "8362386a7c056b5d138b399ea1afe404a37565a2dc527378f651c75358b6e379",
+      "docs/acceptance/pdf-input-quality-2026-11-07/source-checkpoint.json": "3ddabad990c1b49bd789813e9992230aadb25cc6531cfdbff30b62ca29c1999d",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/figure-assets/catalog.json": "0e3b81db688a55bd3fcfbf7cf26df87c4a955a8c04c6ed38ebefbe5dadee0567",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/figure-assets/figure-1b49caa223849330345d33b7-p2-0.png": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L01/parser-result.json": "3b62358dd9932e4bcaab6dde7d9e3e9af92faf1457f01706744c3769f19ddd78",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L02/figure-assets/catalog.json": "0cc662d37aa462e0143f978754d7772a279514de91b126141eb74b53cca74570",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L02/figure-assets/figure-4dba8cb38f730da60a8a0ef9-p2-0.png": "2f28492bf056aae81adb9f6bd1f9a6c5d49ffa54f7313c46f9fb73471702eb52",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L02/parser-result.json": "f92d60e6b7f54b8574ec48ac1c3f239ed04342fe038c61e8b9b01621ed2fb007",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/catalog.json": "28a08aaf83baf793408eb6e5e1b0204e91a6efce3881fd18c04178f12c99e2aa",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/figure-57b880d5b5500aa36ccc09d7-p8-0.png": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/figure-87672d68bc9441bb9449d78f-p4-0.png": "044207d1bb1e777d2282343ddc5238463a066ac547bb6b1220a09e6776329861",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/figure-assets/region-7c92b32237f6245bf4e46ce6-p5-0.png": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L05/parser-result.json": "1f041bc0d6b23766f43e6a8c925eeed0e04ceb378e5c6fb60d7812b01def32d1",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/catalog.json": "db0e9012138756b5dcedbcba17da409cfee0b4b925064ad95ca7b2db65f54681",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-a99cce51fc140a769574dceb-p7-0.png": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-c0e0a67116af5f8a603400dd-p3-0.png": "aeda95cfe2fc125c540bb5919f70e100e089f3e13ca3e165bd5ee6762c01ab9c",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-c31ff4fbd4f9f5fab2f287b8-p6-0.png": "a8daca6dcadae7e143e37816774052341d7bfdbbda6190885d1bac658976d284",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-d2efd4e9a2edb49026cb7bec-p4-0.png": "8faae7c517ecc6462bcd5ec0f5d347135169c707d23d88c3537c264247eac138",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-d72666319abad1b29919e284-p8-0.png": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/figure-f28252603bc7a26303c1cd7e-p9-0.png": "5543845177853d08d5104eb895864d8e00391da10ccda1b0f514c867c92c63e0",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/figure-assets/region-9cadc9ca71f30ee8dc58753b-p2-0.png": "071efffc5ee53ce022d561b60e19dfda5fb4a14a62a097f49b4c49aa86a7b5d3",
+      "docs/acceptance/pdf-input-quality-2026-11-07/derived/L07/parser-result.json": "a7a764ba9ba08b209649860c40037fa6e40501445bfdc2c01d3d539ee38d5f34"
+    },
+    "old_figures_ir_reports_ledgers_user_review_files_overwritten": false,
+    "final_checked_at": "2026-11-07T16:07:45.055082+00:00"
+  },
+  "limits_and_user_review_remaining": [
+    "L07图2/3双栏图注、L01 Note的自动目录标记仍保守；本报告给出实际工程几何/字面观察，未代替用户或医学审核。",
+    "2条参考文献续接仍是待用户判断候选，未自动升级为关系成立。",
+    "图型/病例对应的医学含义与目标配图适用性未获批准；统计图、流程图、图6示意表不能据本次几何正确自动当医学扫描证据。",
+    "本次页面未纳入L02和L05统计图2/3的缺region案例，不将其视为已修复；不宣称整篇PDF/全部复杂表格和续段已通过。",
+    "无付费比较、模型抽取收益或正式选优结论。"
+  ],
+  "cleanup": {
+    "handoff_pending": false,
+    "own_temporary_preview_and_note_removed": true,
+    "own_build_syntax_pyc_removed": true,
+    "removed_paths": [
+      "runtime-data/agent-notes/figure-review-preview-iu0m8l4f",
+      "runtime-data/agent-notes/figure-review-2026-11-07.json",
+      "scripts/__pycache__/build-input-review.cpython-312.pyc"
+    ],
+    "permanent_page_assets_scripts_screenshots_and_old_sealed_artifacts_retained": true
+  }
+}

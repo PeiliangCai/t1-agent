@@ -1,0 +1,132 @@
+{
+  "schema_version": "two-method-comparison-config-1",
+  "bibliography_scope_rule_version": "explicit-bibliography-task-scope-1",
+  "source_selection_rule_version": "s4-explainable-source-selection-3",
+  "input_readiness_report": "docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+  "status": "prepared_pending_new_user_authorization",
+  "execute_model_calls": false,
+  "formal_model_selected": false,
+  "papers": [
+    {
+      "source_id": "L01",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json"
+    },
+    {
+      "source_id": "L05",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json"
+    },
+    {
+      "source_id": "L07",
+      "prepared_directory": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07",
+      "figure_catalog": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json"
+    }
+  ],
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "catalog": {
+    "catalog_version": "medical-unavailable-1",
+    "status": "unavailable",
+    "fixture": false,
+    "cancers": [],
+    "image_types": [],
+    "features": [],
+    "bindings": []
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "batch_options": {
+    "maxCodePoints": 8500,
+    "maxBlocks": 128,
+    "contextBlocks": 6
+  },
+  "strategy": "baseline",
+  "concurrency": 1,
+  "figure_pairing": "shared_bound_original_catalog_exact_caption_and_whole_Figure_guard",
+  "proposed_limits": {
+    "requests": 128,
+    "input_tokens": 3000000,
+    "output_tokens": 240000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "response_model_alias_policy": {
+    "policy_id": "user-relayed-agicto-deployment-region-luna-20261103",
+    "source": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+    "exact_pairs": [
+      {
+        "requested_model": "gpt-6-luna",
+        "response_model": "igpt-6-luna"
+      },
+      {
+        "requested_model": "igpt-6-luna",
+        "response_model": "gpt-6-luna"
+      }
+    ]
+  },
+  "optimization": {
+    "kind": "one_current_B0_F_selection3_round_then_output_review_stop",
+    "only_comparison_variable": "source_input_preprocessing",
+    "parent_plan": null,
+    "declared_change": null
+  },
+  "quality": {
+    "full_reference_answer_required": false,
+    "sampling_rules": "evaluation/rules/output-sampling.json",
+    "actual_human_reviews": 0,
+    "sample_count": null,
+    "thresholds": null,
+    "winner": null
+  },
+  "price_estimate": {
+    "status": "not_repriced_no_new_spend_authorized",
+    "actual_account_billing_known": false,
+    "historical_price_snapshot": "config/three-method-comparison.json#/price_estimate",
+    "binding_budget_is_requests_tokens_and_wallclock": true
+  },
+  "experiment_scope": {
+    "current_conditions": [
+      "B0",
+      "F"
+    ],
+    "logical_conditions_per_paper": 2,
+    "expected_unique_extractions": "derive_from_prepared_plan; equal inputs share a representative",
+    "input_quality_validation": "Current L01/L05/L07 default-parser and scoped source/geometry/transport checks are recorded in input_readiness_report; this is not medical approval or a guarantee for all PDFs.",
+    "after_one_round": "prepare source-bound output review materials and stop; no automatic optimization/retest/new-paper loop",
+    "all_proposed_limits_are_unsigned": true,
+    "one_shared_total_cap_including_all_attempts": true,
+    "over_cap_behavior": "stop_and_preserve_partial_results",
+    "new_user_authorization_granted": false,
+    "closed_historical_experiments": "The 189/216/41-call runs, their ledgers and the expired November 5 deadline remain closed; remaining quotas are not permission."
+  },
+  "methods": [
+    "B0",
+    "F"
+  ]
+}

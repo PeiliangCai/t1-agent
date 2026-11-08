@@ -1,0 +1,197 @@
+{
+  "implementation_files": [
+    "packages/agent/src/extraction-budget.ts",
+    "tests/extraction/budget-custom-limits.test.ts"
+  ],
+  "new_batch_limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 7200
+  },
+  "authorization_fields": [
+    "id",
+    "source",
+    "recorded_at"
+  ],
+  "custom_ledger_requires_identical_limits_and_authorization_on_reopen": true,
+  "legacy_default_schema_retained": true,
+  "wall_clock_adjustment_restricted_to_legacy_default_limits": true,
+  "paid_api_requests_made": 0,
+  "formal_architecture_reviews_added": 0,
+  "validation_runs": [
+    {
+      "name": "budget-custom-limits-node24",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "./node_modules/.bin/tsx",
+        "--test",
+        "tests/extraction/budget-custom-limits.test.ts"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 1.245,
+      "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits-node24.log",
+      "started_at": "2026-11-03T12:37:03.321911+00:00",
+      "test_summary": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "budget-legacy-regression-node24",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "./node_modules/.bin/tsx",
+        "--test",
+        "--test-name-pattern=budget|provider input|request, input|explicit wall-clock|network guard|authorized operation caps",
+        "tests/extraction/runtime.test.ts"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 3.723,
+      "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.log",
+      "started_at": "2026-11-03T12:37:03.324271+00:00",
+      "test_summary": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "budget-full-extraction",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "./node_modules/.bin/tsx",
+        "--test",
+        "tests/extraction/budget-custom-limits.test.ts",
+        "tests/extraction/evidence-validation.test.ts",
+        "tests/extraction/reconciliation.test.ts",
+        "tests/extraction/runtime.test.ts",
+        "tests/extraction/scope-matching.test.ts",
+        "tests/extraction/source-selection.test.ts",
+        "tests/extraction/summary-model-view.test.ts"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 9.207,
+      "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.log",
+      "started_at": "2026-11-03T12:39:30.707429+00:00",
+      "source_sha256_before": "0c3c443627764b468e5e95b232335e7f1a63819d2da230299215791d147564ad",
+      "source_sha256_after": "0c3c443627764b468e5e95b232335e7f1a63819d2da230299215791d147564ad",
+      "sources_unchanged": true,
+      "test_summary": {
+        "tests": 139,
+        "pass": 139,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "budget-final-source-selection",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "./node_modules/.bin/tsx",
+        "--test",
+        "tests/extraction/source-selection.test.ts"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 1.403,
+      "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.log",
+      "started_at": "2026-11-03T12:41:21.819249+00:00",
+      "source_sha256_before": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+      "source_sha256_after": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+      "scripts_sha256_before": "90bc4978070e93450f83a4c5e28d24ceba31abc8b71af785f7560b9ca2d11e9d",
+      "scripts_sha256_after": "90bc4978070e93450f83a4c5e28d24ceba31abc8b71af785f7560b9ca2d11e9d",
+      "sources_unchanged": true,
+      "test_summary": {
+        "tests": 9,
+        "pass": 9,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "budget-final-tsc-recheck",
+      "command": [
+        "bash",
+        "scripts/with-node.sh",
+        "./node_modules/.bin/tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 1.114,
+      "log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.log",
+      "started_at": "2026-11-03T12:41:21.815280+00:00",
+      "source_sha256_before": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+      "source_sha256_after": "bb9378fb27c0f248770f336804336797bc128e8c88c805dd551697caaa470ecf",
+      "scripts_sha256_before": "90bc4978070e93450f83a4c5e28d24ceba31abc8b71af785f7560b9ca2d11e9d",
+      "scripts_sha256_after": "90bc4978070e93450f83a4c5e28d24ceba31abc8b71af785f7560b9ca2d11e9d",
+      "sources_unchanged": true,
+      "test_summary": {}
+    }
+  ],
+  "full_extraction_case_count": 139,
+  "counts_are_not_additive": true,
+  "changes_since_full_extraction_run": [
+    {
+      "path": "tests/extraction/source-selection.test.ts",
+      "before_sha256": "cf8291aed3ae988b296fb622b1df7873b3230743bb0c26760ca2ee23478fe7b8",
+      "after_sha256": "83ea79f5241960c504cf36d10d3538b04748fe82213c8d472ca88da03bfed3e6"
+    }
+  ],
+  "raw_logs_including_initial_failures": [
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits-node24.log",
+      "sha256": "e636810c82022cad0e7cf2f626f4a5b0d309edb473b494e78cd578eefbeb74ff"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-custom-limits.log",
+      "sha256": "8a9a7419d4d99388d5170a5cefaea75da125529957bbb9868bffb09e5615bc17"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-source-selection.log",
+      "sha256": "ef8f7160936de8c6ca26ae108d808ccfbd4fe9ec4806750e7bde4f9bd85444a2"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc-recheck.log",
+      "sha256": "a08b7a66726ab0edf4fd1ed91b9f23908133a0d727ac2ae005207f95e44f7e48"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-final-tsc.log",
+      "sha256": "b9bb822ee543d2937d669e6de4ae6162063df89828e112527d4e74c4b8dad5ab"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-full-extraction.log",
+      "sha256": "1d4a0f9b4c08f8e636d2b6a952bde7a54a5c3a9e4ef534052c4643afb5e8c8c9"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression-node24.log",
+      "sha256": "49ed3428c94499740037499489d8af5400d8669093d63c59a2f390350eced6ea"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-legacy-regression.log",
+      "sha256": "08f661052b7acc0f0c45d1daf09ef759af7c9ca590c4fd5f81e275e3f314ed8a"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc-node24.log",
+      "sha256": "f781877ff9bc08d6d523bee30228b977651d7c17a06f5b764a72ab922a9b7370"
+    },
+    {
+      "path": "docs/acceptance/s4/selection-optimization/runtime-validation/budget-tsc.log",
+      "sha256": "f19138e7485cdc4cc444ad650d6a5383324a1fd9158b726e1d908d663d03bffd"
+    }
+  ]
+}

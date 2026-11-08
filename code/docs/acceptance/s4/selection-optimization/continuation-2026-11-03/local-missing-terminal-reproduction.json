@@ -1,0 +1,99 @@
+{
+  "schema_version": "s4-local-terminal-EOF-reproduction-1",
+  "fixture": true,
+  "no_AGICTO_or_other_external_inference_requests": true,
+  "local_http_requests": 1,
+  "emitted_terminal_event": false,
+  "emitted_usage": false,
+  "result": {
+    "settled": true,
+    "responses": 1,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "error",
+        "sdk_error_sha256": "eeea6204fa1abd9f02dd697d3b5db001c6e81100014b44d87837fc995901b79a",
+        "sdk_error_characters": 62,
+        "sdk_error_classification": "unclassified_sdk_error"
+      }
+    ],
+    "usage": [
+      {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "totalTokens": 0,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "c63746d7-c5ac-4d6c-be57-fc34f43391b6"
+    ],
+    "error": {
+      "type": "ContractError",
+      "code": "model_response_failed"
+    },
+    "transient_error": false
+  },
+  "request_accounting": [
+    {
+      "id": "c63746d7-c5ac-4d6c-be57-fc34f43391b6",
+      "model_id": "gpt-6-luna",
+      "purpose": "synthetic_EOF_reproduction",
+      "attempt": 0,
+      "started_at": "2026-11-03T15:06:59.633Z",
+      "payload_sha256": "301bad0cb40ef8818579590cbb09706a5c4cf662843666bc558ea33d4adbfdd0",
+      "payload_bytes": 1762,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "missing_usage_conservative_reservation",
+      "local_payload_estimate": 2274,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 422,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 2,
+      "first_stream_event_at": "2026-11-03T15:06:59.652Z",
+      "last_stream_event_at": "2026-11-03T15:06:59.653Z",
+      "provider_response_id": "resp-local-missing-terminal",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-03T15:06:59.652Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.in_progress",
+          "observed_at": "2026-11-03T15:06:59.653Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        }
+      ],
+      "provider_response_model": "gpt-6-luna",
+      "response_stream_sha256": "27df659b29728b4823978c01e23a4bed18b87b68988033a26681bfa65846b1b4",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "finished_at": "2026-11-03T15:06:59.658Z"
+    }
+  ],
+  "same_error_hash_as_real_failures": true,
+  "production_client_behavior": "detects missing terminal event but classifies as nontransient;no proof of historical upstream closure cause"
+}

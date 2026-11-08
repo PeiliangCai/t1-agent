@@ -1,0 +1,305 @@
+--- before/packages/contracts/src/index.ts
++++ after/packages/contracts/src/index.ts
+@@ -1,4 +1,6 @@
+ import { Type, type Static, type TSchema } from 'typebox';
+ import { Value } from 'typebox/value';
++import { DocumentIRV2Schema } from './document-ir-v2.js';
++export * from './document-ir-v2.js';
+ 
+ const closed = { additionalProperties: false } as const;
+@@ -37,5 +39,5 @@
+ }, closed);
+ export type Block = Static<typeof BlockSchema>;
+-export const DocumentIRSchema = Type.Object({
++export const DocumentIRV1Schema = Type.Object({
+   schema_version: Type.Literal('1'), document_id: id, file_sha256: Type.String({ pattern: '^[a-f0-9]{64}$' }),
+   fixture: Type.Boolean(), evidence_kind: Type.Union([Type.Literal('engineering_fixture'), Type.Literal('real_paper')]),
+@@ -49,4 +51,6 @@
+     excluded: Type.Array(Type.Object({ block_id: id, reason: id }, closed)) }, closed),
+ }, closed);
++export const DocumentIRSchema = Type.Union([DocumentIRV1Schema, DocumentIRV2Schema]);
++export type DocumentIRV1 = Static<typeof DocumentIRV1Schema>;
+ export type DocumentIR = Static<typeof DocumentIRSchema>;
+ 
+@@ -171,4 +175,5 @@
+ }
+ export class UnimplementedParserAdapter implements ParserAdapter {
++  // Historical S1 compatibility stub. S3 implements LocalPythonParserAdapter.
+   async parse(): Promise<DocumentIR> { throw new ContractError('real_pdf_parser_not_implemented_until_S3'); }
+ }
+--- before/apps/server/src/app.ts
++++ after/apps/server/src/app.ts
+@@ -11,5 +11,6 @@
+     return reply.code(code === 'run_not_found' ? 404 : 400).send({ error: code });
+   });
+-  app.get('/health', async () => ({ status: 'ok', stage: 'S1', fixture_only: true, real_pdf_parser: 'not_implemented_until_S3' }));
++  app.get('/health', async () => ({ status: 'ok', stage: 'S1', fixture_only: true,
++    real_pdf_parser: 'local_cli_implemented_http_not_connected', parser_engineering_stage: 'S3', parser_stage_passed: false }));
+   app.get('/api/catalog', async () => catalog);
+   app.get<{ Params: { runId: string } }>('/api/runs/:runId', async request => store.snapshot(request.params.runId));
+
+# Selected new implementation excerpts, not a complete applicable patch.
+--- /dev/null
++++ services/pdf-parser/adapter.py
+@@ -0,0 +95,41 @@
++def page_geometry(pdf_page):
++    """Docling cells are CropBox-relative AND already /Rotate-transformed.
++
++    Canonical geometry is displayed crop top-left in typographic points. Raw
++    PDF boxes and inverse matrices are retained for PDF.js viewport conversion.
++    """
++    crop, media = [float(x) for x in pdf_page.cropbox], [float(x) for x in pdf_page.mediabox]
++    rotation, unit = int(pdf_page.rotation) % 360, float(pdf_page.user_unit)
++    l, b, r, t = crop
++    w, h = r - l, t - b
++    if not all(math.isfinite(x) for x in [*crop, *media, unit]) or w <= 0 or h <= 0 or unit <= 0 or rotation not in [0, 90, 180, 270]:
++        raise ParserError('unsupported_page_geometry', 'Invalid dimensions, UserUnit, or page rotation')
++    if l < media[0] - 1e-6 or b < media[1] - 1e-6 or r > media[2] + 1e-6 or t > media[3] + 1e-6:
++        raise ParserError('unsupported_page_geometry', 'CropBox outside MediaBox requires separate validation')
++    dw, dh = (h, w) if rotation in [90, 270] else (w, h)
++    matrix = {0: [1, 0, 0, 1, l, b], 90: [0, 1, -1, 0, l + w, b],
++              180: [-1, 0, 0, -1, l + w, b + h], 270: [0, -1, 1, 0, l, b + h]}[rotation]
++    origin = apply_matrix(matrix, 0, dh)
++    px, py = apply_matrix(matrix, 1 / unit, dh), apply_matrix(matrix, 0, dh - 1 / unit)
++    canonical_to_pdf = [px[0] - origin[0], px[1] - origin[1], py[0] - origin[0], py[1] - origin[1], *origin]
++    return {'width': dw * unit, 'height': dh * unit, 'rotation': rotation, 'coordinate_unit': 'pt',
++            'coordinate_system': 'crop_rotated_top_left', 'pdf_user_unit': unit,
++            'pdf_crop_box': crop, 'pdf_media_box': media, 'backend_to_pdf': matrix, 'canonical_to_pdf': canonical_to_pdf,
++            'backend_coordinate_system': 'docling_crop_rotated_bottom_left_pdf_user_units',
++            'conversion_version': 'docling-crop-rotation-userunit-1'}
++
++
++def geometry_for_cell(cell, geometry):
++    rect = cell.rect
++    if str(rect.coord_origin.value) != 'BOTTOMLEFT':
++        raise ParserError('unsupported_coordinate_origin', 'Backend coordinate origin changed')
++    polygon = [(float(getattr(rect, f'r_x{i}')), float(getattr(rect, f'r_y{i}'))) for i in range(4)]
++    if not all(math.isfinite(v) for p in polygon for v in p):
++        raise ParserError('invalid_cell_geometry', 'Non-finite backend coordinates')
++    unit = geometry['pdf_user_unit']
++    canonical = [(x * unit, geometry['height'] - y * unit) for x, y in polygon]
++    pdf = [apply_matrix(geometry['backend_to_pdf'], x, y) for x, y in polygon]
++    return box_of(canonical), {'coordinate_system': geometry['backend_coordinate_system'], 'bbox': box_of(polygon),
++                               'polygon': [v for p in polygon for v in p], 'pdf_bbox': box_of(pdf),
++                               'precision': 'whole_textline_not_exact_glyph'}
++
+@@ -0,0 +137,29 @@
++def resolve_segments(document: dict, *, document_id: str, text_version: str, segments: list, joiner: str = ''):
++    """Resolve block/version/code-point references without a full-text search."""
++    if document_id != document['document_id']:
++        raise ParserError('document_id_mismatch', 'Reference belongs to another document')
++    if text_version != document['text_version']:
++        raise ParserError('text_version_mismatch', 'Reference belongs to another text version')
++    if not segments or not isinstance(joiner, str):
++        raise ParserError('invalid_segments', 'At least one exact segment and a string joiner are required')
++    blocks = {b['block_id']: b for b in document['blocks']}
++    located, quotes, raw_quotes = [], [], []
++    previous = (-1, -1)
++    for segment in segments:
++        if segment.get('text_version') != text_version:
++            raise ParserError('text_version_mismatch', 'Each segment must bind the same text version')
++        block = blocks.get(segment.get('block_id'))
++        if block is None:
++            raise ParserError('unknown_block', 'Referenced block does not exist in this document version')
++        start, end = segment.get('start'), segment.get('end')
++        raw_start, raw_end = normalized_to_raw(block, start, end)
++        if (block['reading_order'], start) < previous:
++            raise ParserError('segments_out_of_order', 'Segments must not overlap or reverse source order')
++        previous = (block['reading_order'], end)
++        quotes.append(block['text'][start:end]); raw_quotes.append(block['raw_text'][raw_start:raw_end])
++        located.append({**segment, 'physical_page': block['page'], 'bbox': block['bbox'],
++                        'source_geometry': block['source_geometry'], 'raw_start': raw_start, 'raw_end': raw_end})
++    return {'document_id': document_id, 'text_version': text_version, 'unit': 'unicode_code_point',
++            'interval': '[start,end)', 'joiner': joiner, 'quote': joiner.join(quotes),
++            'raw_quote': joiner.join(raw_quotes), 'segments': located, 'medical_semantics_verified': False}
++
+@@ -0,0 +269,6 @@
++                                                                  line_cells_content_level=ContentLevel.COMPUTE_AND_MATERIALIZE,
++                                                                  shapes_content_level=ContentLevel.SKIP,
++                                                                  bitmaps_content_level=ContentLevel.COMPUTE_AND_MATERIALIZE,
++                                                                  include_bitmap_bytes=False))
++            if backend is None or not backend.is_loaded() or backend.number_of_pages() != page_count:
++                raise ParserError('backend_page_count_mismatch', 'Backend and PDF page tree disagree')
+@@ -0,0 +310,15 @@
++                        first_text_seconds = time.monotonic() - started
++                    status = 'text_layer_extracted_images_unverified' if has_text and bitmaps else 'text_layer_extracted_fidelity_unverified' if has_text else 'ocr_required_no_text_layer' if bitmaps else 'blank_or_vector_page_unverified'
++                    base.update({'width': geometry['width'], 'height': geometry['height'], 'rotation': geometry['rotation'],
++                                 'geometry': geometry, 'backend_dimension': page.dimension.model_dump(mode='json'),
++                                 'status': status, 'text_layer_present': has_text, 'bitmap_count': bitmaps,
++                                 'ocr_requirement': 'possible_image_text_unverified' if has_text and bitmaps else 'required' if bitmaps else 'not_detected' if has_text else 'unknown'})
++                    blocks.extend(page_blocks)
++                except Exception as exc:
++                    code = exc.code if isinstance(exc, ParserError) else 'page_decode_failed'
++                    base['error'] = {'code': code, 'exception_type': type(exc).__name__}
++                    failures.append({'physical_page': physical_page, 'code': code})
++                base['duration_seconds'] = round(time.monotonic() - page_started, 6)
++                pages.append(base)
++        finally:
++            with native_stdout_to_stderr():
+@@ -0,0 +326,7 @@
++        raw_digest = sha256(json.dumps([(b['block_id'], b['raw_text'], b['bbox']) for b in blocks], ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
++        text_version = 's3-' + sha256((identity + raw_digest).encode()).hexdigest()[:32]
++        for block in blocks:
++            block['text_version'] = text_version
++        decoded = [p['physical_page'] for p in pages if p['status'] != 'failed']
++        text_pages = [p['physical_page'] for p in pages if p['text_layer_present']]
++        no_text = [p['physical_page'] for p in pages if p['status'] != 'failed' and not p['text_layer_present']]
+@@ -0,0 +337,18 @@
++        return {
++            'schema_version': '2', 'document_id': value.document_id, 'file_sha256': value.file_sha256,
++            'fixture': value.fixture, 'evidence_kind': 'engineering_fixture' if value.fixture else 'real_paper', 'title': None,
++            'source': {'file_reference': str(path.relative_to(self.allowed_root)), 'bytes': len(raw), 'original_modified': False},
++            'parser': {'id': self.parser_id, 'version': backend_version, 'status': state, 'config': config, 'config_digest': config_digest},
++            'text_version': text_version, 'raw_text_version': text_version + '-raw', 'offset_unit': 'unicode_code_point',
++            'offset_interval': '[start,end)', 'normalization_version': NORMALIZATION_VERSION, 'pages': pages, 'blocks': blocks,
++            'coverage': {'expected_block_ids': ids, 'processed_block_ids': ids, 'failed_block_ids': [], 'excluded': [],
++                         'scope': 'emitted_text_layer_blocks_only', 'physical_pages_expected': list(range(1, page_count + 1)),
++                         'decoded_pages': decoded, 'text_layer_pages': text_pages, 'failed_pages': failures,
++                         'pages_without_text': no_text, 'image_text_unverified_pages': image_unverified,
++                         'page_enumeration_complete': len(pages) == page_count, 'text_layer_decode_complete': len(text_pages) == page_count,
++                         'full_content_coverage_verified': False, 'fidelity_human_verified': False,
++                         'table_structure': 'not_reconstructed', 'reading_order': 'backend_textline_order_unverified',
++                         'limitations': ['No OCR or text burned into images', 'No table/header/footnote or caption association',
++                                         'Backend line order preserved; multi-column reading order unverified',
++                                         'Whole textline coordinates; exact glyph highlighting not implemented',
++                                         'Decoded text, Unicode, units, superscripts and omissions require human PDF comparison']},
+
+# Selected new implementation excerpts, not a complete applicable patch.
+--- /dev/null
++++ packages/contracts/src/document-ir-v2.ts
+@@ -0,0 +12,29 @@
++export const NormalizationRunSchema = Type.Object({
++  raw_start: Type.Integer({ minimum: 0 }), raw_end: Type.Integer({ minimum: 0 }),
++  normalized_start: Type.Integer({ minimum: 0 }), normalized_end: Type.Integer({ minimum: 0 }),
++  kind: Type.Enum(['identity', 'newline']),
++}, closed);
++
++export const PageGeometrySchema = Type.Object({
++  width: Type.Number({ exclusiveMinimum: 0 }), height: Type.Number({ exclusiveMinimum: 0 }),
++  rotation: Type.Enum([0, 90, 180, 270]), coordinate_unit: Type.Literal('pt'),
++  coordinate_system: Type.Literal('crop_rotated_top_left'), pdf_user_unit: Type.Number({ exclusiveMinimum: 0 }),
++  pdf_crop_box: box, pdf_media_box: box, backend_to_pdf: matrix, canonical_to_pdf: matrix,
++  backend_coordinate_system: Type.Literal('docling_crop_rotated_bottom_left_pdf_user_units'),
++  conversion_version: Type.Literal('docling-crop-rotation-userunit-1'),
++}, closed);
++
++export const SourceGeometrySchema = Type.Object({
++  coordinate_system: Type.Literal('docling_crop_rotated_bottom_left_pdf_user_units'), bbox: box,
++  polygon: Type.Array(Type.Number(), { minItems: 8, maxItems: 8 }), pdf_bbox: box,
++  precision: Type.Literal('whole_textline_not_exact_glyph'),
++}, closed);
++
++export const BlockV2Schema = Type.Object({
++  block_id: id, document_id: id, text_version: id, text: Type.String(), raw_text: Type.String(), backend_text: Type.String(),
++  raw_text_source: Type.Literal('backend_cell_orig'), normalization_map: Type.Array(NormalizationRunSchema),
++  page: Type.Integer({ minimum: 1 }), type: Type.Literal('text'), semantic_type_status: Type.Literal('unclassified_textline'),
++  reading_order: Type.Integer({ minimum: 0 }), bbox: box, source_geometry: SourceGeometrySchema,
++  backend_cell_index: Type.Integer({ minimum: 0 }),
++}, closed);
++export type BlockV2 = Static<typeof BlockV2Schema>;
+@@ -0,0 +47,8 @@
++  source: Type.Object({ file_reference: Type.String({ minLength: 1 }), bytes: Type.Integer({ minimum: 1 }), original_modified: Type.Literal(false) }, closed),
++  parser: Type.Object({ id, version: id, status: Type.Enum(['parsed', 'partial', 'unsupported']),
++    config: Type.Object({ adapter_version: id, adapter_sha256: hash, config_revision: id, normalization_version: id,
++      do_sanitization: Type.Literal(false), keep_glyphs: Type.Literal(false), ocr_enabled: Type.Literal(false),
++      table_reconstruction: Type.Literal(false), reading_order: Type.Literal('backend_textline_order_unverified'), metadata_backend: id }, closed),
++    config_digest: hash,
++  }, closed),
++  text_version: id, raw_text_version: id, offset_unit: Type.Literal('unicode_code_point'), offset_interval: Type.Literal('[start,end)'),
+@@ -0,0 +75,4 @@
++    file_check_seconds: Type.Number({ minimum: 0 }), backend_init_seconds: Type.Number({ minimum: 0 }),
++    first_text_seconds: nullableNumber, total_seconds: Type.Number({ minimum: 0 }),
++    cpu_user_seconds: Type.Number({ minimum: 0 }), cpu_system_seconds: Type.Number({ minimum: 0 }),
++    peak_rss_bytes: Type.Integer({ minimum: 0 }), peak_rss_scope: Type.Literal('current_process_lifetime_linux_ru_maxrss'),
+@@ -0,0 +139,20 @@
++export function resolveDocumentSegments(document: DocumentIRV2, reference: { document_id: string; text_version: string; segments: ExactSegment[]; joiner: string }) {
++  if (reference.document_id !== document.document_id) throw new Error('document_id_mismatch');
++  if (reference.text_version !== document.text_version) throw new Error('text_version_mismatch');
++  if (!reference.segments.length || typeof reference.joiner !== 'string') throw new Error('invalid_segments');
++  const blocks = new Map(document.blocks.map(b => [b.block_id, b]));
++  let previousOrder = -1, previousEnd = -1;
++  const located = reference.segments.map(segment => {
++    if (segment.text_version !== document.text_version) throw new Error('text_version_mismatch');
++    const block = blocks.get(segment.block_id);
++    if (!block) throw new Error('unknown_block');
++    const [rawStart, rawEnd] = rawRange(block, segment.start, segment.end);
++    if (block.reading_order < previousOrder || block.reading_order === previousOrder && segment.start < previousEnd) throw new Error('segments_out_of_order');
++    previousOrder = block.reading_order; previousEnd = segment.end;
++    return { ...segment, physical_page: block.page, bbox: block.bbox, source_geometry: block.source_geometry,
++      raw_start: rawStart, raw_end: rawEnd, quote: Array.from(block.text).slice(segment.start, segment.end).join(''),
++      raw_quote: Array.from(block.raw_text).slice(rawStart, rawEnd).join('') };
++  });
++  return { ...reference, unit: 'unicode_code_point' as const, interval: '[start,end)' as const,
++    quote: located.map(s => s.quote).join(reference.joiner), raw_quote: located.map(s => s.raw_quote).join(reference.joiner),
++    segments: located.map(({ quote, raw_quote, ...segment }) => segment), medical_semantics_verified: false as const };
+
+# Selected new implementation excerpts, not a complete applicable patch.
+--- /dev/null
++++ packages/agent/src/parser.ts
+@@ -0,0 +50,19 @@
++      child.stderr.on('data', () => {});
++      child.on('error', () => finish(new LocalParserError('parser_process_unavailable')));
++      child.on('close', (code) => {
++        if (ended) return;
++        try {
++          const payload: unknown = JSON.parse(Buffer.concat(chunks).toString('utf8'));
++          assertSchema(ParserResultSchema, payload);
++          if (payload.run_id !== input.run_id) throw new LocalParserError('parser_run_mismatch');
++          if (payload.document) {
++            assertSchema(DocumentIRV2Schema, payload.document);
++            if (documentIRV2Issues(payload.document).length) throw new LocalParserError('invalid_document_ir');
++            if (payload.document.document_id !== input.document_id || payload.document.file_sha256 !== input.file_sha256 ||
++              payload.document.fixture !== Boolean(input.fixture)) throw new LocalParserError('parser_identity_mismatch');
++          }
++          const expectedCode = payload.status === 'ok' ? 0 : payload.status === 'error' ? 1 : 2;
++          if (code !== expectedCode) throw new LocalParserError('parser_exit_status_mismatch');
++          finish(undefined, payload);
++        } catch (error) { finish(error instanceof LocalParserError ? error : new LocalParserError('invalid_parser_result')); }
++      });
+
+# Selected new implementation excerpts, not a complete applicable patch.
+--- /dev/null
++++ services/pdf-parser/tests/test_adapter.py
+@@ -0,0 +121,42 @@
++    def test_unicode_code_point_offsets_in_an_actual_constructed_pdf(self):
++        path = self.out / 'unicode-text.pdf'
++        generated = self.out / 'unicode-generated-reportlab-original.pdf'
++        pdfmetrics.registerFont(TTFont('S3Unicode', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
++        canvas = Canvas(str(generated), pagesize=(400, 200)); canvas.setFont('S3Unicode', 14)
++        expected = '😀 β e\u0301 7 mm²'
++        canvas.drawString(30, 170, expected); canvas.showPage(); canvas.save()
++        # ReportLab 5.1.0 emits <1F600> for the astral destination. Keep that
++        # original generated PDF as failure evidence; create a separate valid
++        # test PDF whose ToUnicode uses the required UTF-16BE surrogate pair.
++        # Production PDFs are never changed or repaired by this test helper.
++        reader, writer = PdfReader(generated), PdfWriter()
++        repaired = 0
++        for font_reference in reader.pages[0]['/Resources']['/Font'].values():
++            font = font_reference.get_object()
++            if '/ToUnicode' in font:
++                original = font['/ToUnicode'].get_object().get_data()
++                if b'<1F600>' in original:
++                    stream = DecodedStreamObject()
++                    stream.set_data(original.replace(b'<1F600>', b'<D83DDE00>'))
++                    font[NameObject('/ToUnicode')] = stream
++                    repaired += 1
++        self.assertEqual(repaired, 1)
++        writer.add_page(reader.pages[0]); writer.write(path)
++        (self.out / 'unicode-generator-repair.json').write_text(json.dumps({
++            'generator': 'reportlab-5.1.0', 'generated_original': generated.name, 'valid_test_pdf': path.name,
++            'before_destination': '<1F600>', 'after_destination': '<D83DDE00>', 'expected_code_point': 'U+1F600',
++            'basis': 'Adobe PDF Reference 1.7 section 5.9.2: ToUnicode destinations use UTF-16BE',
++            'source': 'https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/pdfreference1.7old.pdf',
++            'only_constructed_fixture_changed': True, 'production_repair_enabled': False}, indent=2) + '\n')
++        document = self.parse(path)
++        self.assertEqual(' '.join(b['raw_text'] for b in document['blocks']), expected)
++        emoji_block = next(b for b in document['blocks'] if '😀' in b['text'])
++        beta_start = emoji_block['text'].index('β')
++        beta = resolve_segments(document, document_id=document['document_id'], text_version=document['text_version'],
++                                segments=[{'block_id': emoji_block['block_id'], 'text_version': document['text_version'], 'start': beta_start, 'end': beta_start + 1}])
++        self.assertEqual(beta['quote'], 'β')
++        self.assertEqual(beta_start, 2)  # UTF-16 would count the leading emoji twice.
++        block = next(b for b in document['blocks'] if '7 mm' in b['text'])
++        start = block['text'].index('7 mm²')
++        located = resolve_segments(document, document_id=document['document_id'], text_version=document['text_version'],
++                                   segments=[{'block_id': block['block_id'], 'text_version': document['text_version'], 'start': start, 'end': start + 5}])

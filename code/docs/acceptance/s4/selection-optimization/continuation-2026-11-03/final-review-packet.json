@@ -1,0 +1,180 @@
+{
+  "schema_version": "s4-final-engineering-review-minimal-1",
+  "prepared_at": "2026-11-03T16:34:58.215663+00:00",
+  "requested_formal_round": 3,
+  "rounds_used_at_submission": 2,
+  "same_S4_review_counter_no_reset": true,
+  "cohort_id": "reliability-v2-main",
+  "source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+  "source_diff_path": "docs/acceptance/s4/selection-optimization/continuation-2026-11-03/final-review-required-source.diff",
+  "source_diff_sha256": "c6b1a7229e1802415c6bf92b02311f0214b5d56b64d57c6dd201c956cc43e237",
+  "validation": {
+    "extraction_passed": 154,
+    "focused6_is_subset": true,
+    "typecheck_exit_code": 0,
+    "evidence": "docs/acceptance/s4/selection-optimization/continuation-2026-11-03/offline-validation-reliability-v2.json",
+    "no_claim_that_older139_144_148_are_current": true
+  },
+  "actual5_same_protocol_results": [
+    {
+      "job_id": "L01-B0",
+      "status": "selected_input_finished_quality_pending",
+      "completed_vs_selected_source_blocks": [
+        409,
+        409
+      ],
+      "whole_document_summary_complete": true,
+      "requests": 27,
+      "provider_input_output": [
+        180169,
+        14583
+      ],
+      "unknown_input_output_reservation": [
+        41538,
+        8192
+      ],
+      "candidate_count_descriptive_only": 21,
+      "unselected_source_readback": 0,
+      "fully_located_AI_rows": 12,
+      "current_primary_quote_literal_interval_coverage_rows": 3
+    },
+    {
+      "job_id": "L01-F",
+      "status": "selected_input_finished_quality_pending",
+      "completed_vs_selected_source_blocks": [
+        344,
+        344
+      ],
+      "whole_document_summary_complete": true,
+      "requests": 28,
+      "provider_input_output": [
+        389902,
+        18376
+      ],
+      "unknown_input_output_reservation": [
+        60165,
+        8192
+      ],
+      "candidate_count_descriptive_only": 34,
+      "unselected_source_readback": 65,
+      "fully_located_AI_rows": 12,
+      "current_primary_quote_literal_interval_coverage_rows": 9
+    },
+    {
+      "job_id": "L05-B0",
+      "status": "selected_input_finished_quality_pending",
+      "completed_vs_selected_source_blocks": [
+        615,
+        615
+      ],
+      "whole_document_summary_complete": true,
+      "requests": 26,
+      "provider_input_output": [
+        329973,
+        15256
+      ],
+      "unknown_input_output_reservation": [
+        201326,
+        8192
+      ],
+      "candidate_count_descriptive_only": 21,
+      "unselected_source_readback": 0,
+      "fully_located_AI_rows": 7,
+      "current_primary_quote_literal_interval_coverage_rows": 4
+    },
+    {
+      "job_id": "L05-F",
+      "status": "selected_input_finished_quality_pending",
+      "completed_vs_selected_source_blocks": [
+        524,
+        524
+      ],
+      "whole_document_summary_complete": true,
+      "requests": 23,
+      "provider_input_output": [
+        307086,
+        12891
+      ],
+      "unknown_input_output_reservation": [
+        0,
+        0
+      ],
+      "candidate_count_descriptive_only": 20,
+      "unselected_source_readback": 4,
+      "fully_located_AI_rows": 7,
+      "current_primary_quote_literal_interval_coverage_rows": 4
+    },
+    {
+      "job_id": "L05-R",
+      "status": "selected_input_finished_quality_pending",
+      "completed_vs_selected_source_blocks": [
+        525,
+        525
+      ],
+      "whole_document_summary_complete": true,
+      "requests": 34,
+      "provider_input_output": [
+        350336,
+        24706
+      ],
+      "unknown_input_output_reservation": [
+        300381,
+        16384
+      ],
+      "candidate_count_descriptive_only": 23,
+      "unselected_source_readback": 0,
+      "fully_located_AI_rows": 7,
+      "current_primary_quote_literal_interval_coverage_rows": 4
+    }
+  ],
+  "all8_logical_conditions_use5_real_runs_3_reuses_not_independently_tested": true,
+  "joint_budget": {
+    "requests": 262,
+    "prior_inference_requests": 28,
+    "prior_metadata_requests_no_inference_tokens": 1,
+    "continuation_inference_requests": 233,
+    "provider_input_tokens_including_cache": 2466957,
+    "provider_output_tokens_including_reasoning": 158202,
+    "provider_cache_read_tokens_included_in_input": 900662,
+    "provider_cache_write_tokens_included_in_input": 708876,
+    "provider_reasoning_tokens_included_in_output": 59489,
+    "unknown_input_reservation": 906325,
+    "unknown_output_reservation": 73728,
+    "unknown_usage_requests": 9,
+    "conservative_input_tokens": 3373282,
+    "conservative_output_tokens": 231930,
+    "remaining_requests": 38,
+    "joint_hard_caps": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000
+    },
+    "old_unknown_reservation_retained": true,
+    "remaining_input_tokens": 2626718,
+    "remaining_output_tokens": 168070
+  },
+  "failure_preservation": "2 batch EOF recovered;L05-B0 summary1 andR summary2 EOF recovered withinmax2;allunknowns/versions/pilot1 retained",
+  "posthoc_qualification_contract": "docs/acceptance/s4/selection-optimization/continuation-2026-11-03/posthoc-comparison-contract.json",
+  "source_drift": {
+    "all_source_hash_check": "failed",
+    "matching_manifest_entries": 35,
+    "total_manifest_entries": 36,
+    "difference": "only package.json4web/annotation npm scripts;outside scripts/lock/core/driver/medicalvariables same",
+    "actual_direct_Node_driver_uses_these_scripts": false,
+    "concurrent_editor_identity": "unknown",
+    "evidence": "docs/acceptance/s4/selection-optimization/continuation-2026-11-03/concurrent-package-script-drift.json"
+  },
+  "unverified": [
+    "S2 complete human medical gold andapproved medical catalog unavailable",
+    "S3 source PDF fidelity/table association/image text nothumanverified",
+    "AI56 drafts notgold;19 uniquely locatable rows/37 unresolved;literal interval coverage notmedical recallorcorrectness",
+    "single trial perunique input;3source-mask aliases noindependent retest;concurrency/provider randomness/recovery confoundtimeandcost",
+    "supplier exactalias accepted fromuser relay;no independent weightsorinvoice verification",
+    "pathologycell/nucleus/tissue realmedicalvalidation pending"
+  ],
+  "recommendation": "Engineering selected-input+summary5/5 complete;keepB0 default.L01F hasmore literal AI source coverage3→9of12but known input180169→389902andall65omittedblocks reread.L05literal result4of7for all3realruns.Notenough evidence to chooseglobalmedical bestorchange default.",
+  "stage_passed": false,
+  "S5_started": false,
+  "ready_for_independent_experiment_data_check": true,
+  "plan_sync_will_append_current2of3_then_narrow_final_review_update": true
+}

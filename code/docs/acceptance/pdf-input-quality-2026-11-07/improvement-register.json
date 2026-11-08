@@ -1,0 +1,353 @@
+{
+  "schema_version": "pdf-first-improvement-register-1",
+  "updated_at_utc": "2026-11-07T14:30:35.829233+00:00",
+  "purpose": "单一原因与逐项改进登记；现行文档引用本文件，不将相关性推测写成已证因果。",
+  "current_order": [
+    "PDF输入质量与论文组织结构核验",
+    "工程流程职责与状态收口",
+    "Prompt与工具接口简化",
+    "提示、字段契约与程序校验逐项一致性复验",
+    "全部离线回归通过后，以同一输入版本重新比较B0/F；付费调用须有新的明确许可"
+  ],
+  "current_status": "offline_local_repairs_delivered_PDF_quality_and_B0_F_comparison_pending",
+  "methods": {
+    "active": [
+      "B0",
+      "F"
+    ],
+    "retired": [
+      "R",
+      "FR"
+    ],
+    "retirement_is_user_scope_decision_not_experiment_winner": true
+  },
+  "authorization": {
+    "new_paid_calls_authorized": false,
+    "new_paid_request_limit": 0,
+    "last41_batch_closed": true,
+    "unused23_is_not_permission": true,
+    "formal_reviews_used": 3,
+    "formal_review_limit": 3,
+    "new_formal_rounds": 0
+  },
+  "change_record_contract": {
+    "per_change": [
+      "before",
+      "declared_change",
+      "fixed_variables",
+      "after",
+      "offline_evidence",
+      "outcome",
+      "retain_or_rollback"
+    ],
+    "result_rule": "工程/契约修复可集成交付，单因素收益只在真实固定其余条件的对照下宣称；未做实验则为待证。",
+    "paid_recomparison_prerequisites": [
+      "PDF局部问题与覆盖限制有可回看的离线证据",
+      "流程职责/状态、Prompt/工具、一致性复验均完成离线回归",
+      "两组共享同一源PDF/IR与公共规则版本；是否正向预筛及相应选块差异正是方法变量",
+      "新模型/范围/额度/时窗获得明确许可"
+    ]
+  },
+  "items": [
+    {
+      "id": "PDF01",
+      "order": 1,
+      "topic": "PDF内容与论文组织结构",
+      "status": "local_checkpoint_verified_open_quality_limits",
+      "owner": "/root/pdf_structure_first",
+      "facts": [
+        "已有跨栏图注/图号或标志误配、多级表格等局部结构问题；旧IR保存了解码文本及候选原生结构，不能说全部结构丢失。",
+        "L01/L05页均解码且无failed block，IR仍partial；完整文本层解码不证明原文、阅读顺序和图表关系全部保真。"
+      ],
+      "hypotheses": [
+        "PDF局部问题影响后续定位/语境的程度待量化；其为提取不佳主因尚未证明。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json",
+        "code/docs/acceptance/user-feedback-2026-11-05/pdf/pdf-issues.json",
+        "code/docs/acceptance/s3/comparison-2026-11-02/page-review/v1/native-grid-index.json",
+        "code/docs/acceptance/s3/comparison-2026-11-02/page-review/v1/originals-index.json"
+      ],
+      "planned_change": "在已选Docling2.145.0 CPU＋docling-parse7.24.2下改善和显式保留章节/段落/跨栏顺序、图注/Note/图号、表格层级与来源锚点；歧义保留待核，不生成缺失原文。",
+      "fixed_variables": [
+        "不重新选择GPU/解析器",
+        "原PDF与旧IR/Figure/账本/用户人审不变",
+        "不调用付费模型"
+      ],
+      "completion_conditions": [
+        "逐个已发现缺陷有原页/旧结果/新结果及定位证据",
+        "正文顺序、章节/段落、图注/Note/图号、多级表格等分别核验；异常与未覆盖保留",
+        "本地回归及真实开发PDF离线复验结果可回看",
+        "不承诺全篇100%准确或将page decoded作为结构保真结论"
+      ],
+      "result": {
+        "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/parser-quality-report.json",
+        "before_after": "L07 Fig2图注9→18源段、Fig3 4→8，各region0→1，仍needs_review；章节层级与有界结构上下文进入读取/汇总接口。",
+        "raw_and_native_boundary": "冻结native+raw离线重建新IR；原raw块ID/文字/框/原生顺序保持；另仅L01真实CPU入口22.398秒，预期partial，native SHA与冻结一致。",
+        "context_boundary": "标题最多320码点，显式处理后非引用语境，不计为已读原文；段落/单元格/标题数量与遗漏明确，原文不截断。",
+        "table4": "保留25条准确raw基线，隔离错误cell/header关系并拒绝作为主证据或数值支持；正确多级语义网格未恢复。",
+        "causal_limits": [
+          "L01/L05/L07逐span的source_segments均未变；离散partial片段夹杂漏洞只在构造反例验证，不能算真实三篇改善",
+          "L02离线重建34格改善使用本轮之前已有小格几何逻辑，不计本轮新收益",
+          "L07 p7/p8/p9恢复和L02文章归属防护为旧逻辑，不重记本轮成果"
+        ],
+        "validation": {
+          "Python_parser": {
+            "passed": 32,
+            "failed": 0,
+            "log": "python-tests.log"
+          },
+          "TypeScript_parser": {
+            "passed": 21,
+            "failed": 0,
+            "log": "parser-typescript-tests.log"
+          },
+          "TypeScript_extraction_final": {
+            "passed": 236,
+            "failed": 0,
+            "log": "extraction-tests-final.log"
+          },
+          "TypeScript_compile": {
+            "passed": true,
+            "log": "typescript-final.log"
+          },
+          "external_model_quality_test_performed": false,
+          "test_provider_requests": "Some existing regressions use local scripted HTTP fixtures; they perform no LLM inference."
+        },
+        "readiness": "可继续纯离线流程/Prompt/工具一致性工作；完整PDF质量、S3、模型质量/成本和B0/F比较均未通过。"
+      },
+      "retain_or_rollback": "保留本轮已回归的局部修复和隔离保护；表4正确语义网格、跨页/跨栏衔接与复杂整图等继续待核，不放行模型比较。",
+      "current_boundary": "输入结构透传/局部隔离仍在离线验证；语义表格等未解决项保留，不阻止后续有明确边界的纯离线工程，但继续阻止模型比较。"
+    },
+    {
+      "id": "FLOW01",
+      "order": 2,
+      "topic": "工程流程职责与状态收口",
+      "status": "completed_offline",
+      "facts": [
+        "中断、显式更新退化insert、汇总历史上下文累积和半写入曾有实际工程问题；Nov5已有离线重现与修复，221/37/tsc0是当时工程证据。",
+        "最新41调用：B0六候选汇总被feature_name_not_in_evidence拒绝且未留部分更新，F两候选汇总完成，两run均partial。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/report.json",
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json"
+      ],
+      "planned_change": "PDF源码与回归稳定后，只对已知职责、状态与更新路径缺口做局部调整，不重构；保留已验证修复和严格校验，逐项记录实际证据。",
+      "fixed_variables": [
+        "保持原文/范围/版本/人工批准校验严格",
+        "保持历史输出及预算证据",
+        "前置遵守共用契约"
+      ],
+      "completion_conditions": [
+        "明确唯一状态owner、完成/partial/失败条件和事件顺序",
+        "异常、更新幂等、原子写入/回滚、人工版本保护离线复验",
+        "不把所选块处理或summary成功等同全PDF完成"
+      ],
+      "result": {
+        "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json",
+        "stage_record": "#/stages/0",
+        "scope": "Add bounded local rejection diagnostics only: host input index/path, feature-name preview/length/SHA, host-resolved document line/code-point reference or unresolved quote hash.",
+        "outcome": "Future fixture errors are traceable within the bounded diagnostic. Existing state/reconciliation/LRU behavior passed; the historical B0 rejected literal remains unknown.",
+        "offline_evidence_record": "#/stages/0/offline_evidence",
+        "full_PDF_or_model_quality_approved": false
+      },
+      "retain_or_rollback": "retain",
+      "owner": "/root/two_method_transition",
+      "planned_result_report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json"
+    },
+    {
+      "id": "PROMPT01",
+      "order": 3,
+      "topic": "Prompt与工具接口复杂性及约束披露",
+      "status": "completed_offline",
+      "facts": [
+        "B0/F汇总均曾同时传source_unit_ids和source_line_indices，分别同会话纠正一次。",
+        "原始特征名的目标契约是原文字符或null；工具描述覆盖和summary提示存在披露缺口，batch提示已有相关说明。新离线检查又确认旧containsLiteral实际进行了NFC、大小写和空白fold，旧“严格逐字校验该字段”的表述不完整。",
+        "失败字段原始值和完整失败调用参数未保存，无法认定具体字面错误来源。",
+        "上述宽松仅指feature_name_raw元数据字段；主原文quote本来严格，不受此发现影响。旧B0失败值未保留，不能据此归因大小写/空白差异。"
+      ],
+      "hypotheses": [
+        "长提示、多组选择参数、便宜模型能力与采样随机性可能影响遵约；均未做各自单因素实验。",
+        "提示遗漏可能参与B0特征名拒绝，直接因果尚未证明。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json",
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json"
+      ],
+      "planned_change": "依最终流程减少重复规则和歧义接口，用共用契约明确字段与互斥选择；保留严格校验和有限纠错，不凭猜测放宽。",
+      "fixed_variables": [
+        "按已收口工程流程",
+        "保留业务目标/原文/范围和人工批准边界",
+        "不同时换模型并宣称prompt收益"
+      ],
+      "completion_conditions": [
+        "batch/summary均可见feature_name_raw逐字或null及互斥选择规则",
+        "工具描述/schema/提示与真实返回值相符",
+        "代表合法/非法参数与错误反馈离线复验"
+      ],
+      "result": {
+        "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json",
+        "stage_record": "#/stages/1",
+        "scope": "Share raw-feature, source/context selector, stage-specific coordinate, source-unit boundary, native-title and table-support declarations in extraction-protocol.ts, then reuse them in both schemas/tools and user prompts.",
+        "outcome": "Current batch/summary disclosure matches the tested interface and actual returned field names; model adherence or benefit was not measured.",
+        "offline_evidence_record": "#/stages/1/offline_evidence",
+        "full_PDF_or_model_quality_approved": false,
+        "semantic_boundary": "只完成共用接口/提示契约的有限离线修复；不表示所有语义Prompt问题已解决，临床阈值等误收风险仍待单项实验或人工核验。"
+      },
+      "retain_or_rollback": "retain",
+      "owner": "/root/two_method_transition",
+      "planned_result_report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json"
+    },
+    {
+      "id": "ALIGN01",
+      "order": 4,
+      "topic": "提示、字段契约与程序校验集中一致性复验",
+      "status": "completed_offline",
+      "facts": [
+        "已确认存在局部约束披露不一致；共用契约从前两步即遵守，最后再集中核验。",
+        "旧feature_name_raw校验复用NFC/大小写/空白fold；已授权只将该raw字段改为严格字符匹配或null，其他术语归一化及医学口径保持。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json"
+      ],
+      "planned_change": "按字段/业务规则逐项对照batch/summary提示、工具说明、schema、程序validator与状态/交付含义。 单列raw特征名校验的旧fold→严格字符或null改动、前后反例和回归；旧结果不追改。",
+      "fixed_variables": [
+        "同一业务契约与版本",
+        "不追改旧冻结输出"
+      ],
+      "completion_conditions": [
+        "可空/必填/字面来源/互斥参数/表格支持/范围和审核状态逐项一致",
+        "合法边界与典型失败都留离线结果",
+        "未通过项明确阻塞后续付费比较",
+        "raw特征名严格字符或null修复有前后证据；其他术语归一化、主quote和历史结果不变"
+      ],
+      "result": {
+        "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json",
+        "stage_record": "#/stages/2",
+        "scope": "Require exact raw-name characters in selected evidence in addition to the existing term-boundary check. Add only the feature-name-raw-exact-1 automatic-check version.",
+        "outcome": "The full offline prerequisite contract matrix completed. No model-effectiveness, exhaustive PDF-fidelity, clinical-quality or winner conclusion follows.",
+        "offline_evidence_record": "#/stages/2/offline_evidence",
+        "full_PDF_or_model_quality_approved": false,
+        "final_regression": {
+          "extraction_passed": 243,
+          "extraction_failed": 0,
+          "tsc_exit": 0
+        },
+        "initial_failure_boundary": "初轮242/243中旧成功fixture依赖大小写fold；fixture改回真实原字面后，独立最终243/243通过，未放宽validator。",
+        "historical_B0_failed_value": null
+      },
+      "retain_or_rollback": "retain",
+      "owner": "/root/two_method_transition",
+      "planned_result_report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json"
+    },
+    {
+      "id": "COMPARE01",
+      "order": 5,
+      "topic": "重新比较B0与正向预筛F",
+      "status": "not_started_PDF_quality_open_and_no_new_paid_permission",
+      "facts": [
+        "旧41调用B0六条主原文均在F kept、实际派发和已读清单，不能简单解释为F把这些主句删除。",
+        "旧L01 F/R完整输入相同，L05只差一块140码点；无独立广泛排名依据，R退休来自用户当前决定。",
+        "8身份/11版本不是8条有效描述；旧35条初筛与新输出版本不同，新输出人核0。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/analysis-addendum.json",
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json",
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json"
+      ],
+      "planned_change": "全部前置离线回归通过后，固定同一源PDF/IR及公共规则版本、论文/范围、模型/推理设置、输出/配图与计量条件；只比较是否正向预筛及由此产生的选块差异，每个优化点单列记录。",
+      "fixed_variables": [
+        "两组同一源PDF/IR及公共规则版本；两方法选块差异是变量",
+        "失败/纠错/重试统一计量",
+        "新付费许可前零调用"
+      ],
+      "completion_conditions": [
+        "新计划仅B0/F，历史R可读不执行",
+        "以真实输出核验相关性、语境、来源和图片，记录n/待核/适用范围",
+        "不由候选数量、一次随机结果或集成修复判赢家/准确率"
+      ],
+      "result": null,
+      "retain_or_rollback": null,
+      "local_preparation_result": {
+        "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json#/final_default_offline_prepare",
+        "runtime_binding": "最终6个runtime文件SHA已绑定",
+        "conditions": [
+          "B0",
+          "F"
+        ],
+        "source_unit_version": "literal-source-sentences-2",
+        "raw_feature_contract_version": "feature-name-raw-exact-1",
+        "paid_calls": 0,
+        "unsigned_execute_rejected": true,
+        "input_quality_status": "pending_separate_validation",
+        "offline_prepare_is_quality_approval": false
+      }
+    },
+    {
+      "id": "CORPUS01",
+      "order": "conditional_before_future_comparison",
+      "topic": "按需要补少量开发论文",
+      "status": "optional_not_started",
+      "facts": [
+        "L01/L05均属肺癌CT开发材料，不能支持跨癌种/模态广泛质量结论；目标视觉描述密度尚未系统测定。"
+      ],
+      "before": [
+        "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json"
+      ],
+      "planned_change": "必要时按版式、图表结构及目标内容密度补少量公开论文，明确开发/回归/独立验收用途；继续按输出抽样核验。",
+      "completion_conditions": [
+        "登记身份/SHA/论文族并保持资料用途隔离",
+        "不恢复完整标准答案制作任务或作为开发前置",
+        "额外模型调用单独取得实际许可"
+      ],
+      "result": null,
+      "retain_or_rollback": null
+    }
+  ],
+  "shared_contract": "feature_name_raw只能为所选证据的精确原字符或null，保留大小写、空白、换行、连字符及Unicode形式，并保留原词边界保护；source_unit_ids/source_line_indices二选一，context选择亦互斥。batch/summary字段说明、工具、实际user prompt和validator代表场景已离线复验；仅新提交的raw字段收紧，其他术语归一化及主原文quote规则不变。模型遵约、收益和医学质量尚未实测。",
+  "historical_reports": {
+    "189": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/report.json",
+    "summary_pairs": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json",
+    "216": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json",
+    "41": "code/docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json"
+  },
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "method_winner": null,
+  "current_plan_version": "0.7",
+  "original_approved_plan_version": "0.6",
+  "revision": "pdf-first-two-method-2026-11-07",
+  "current_source_evidence_unit_version": "literal-source-sentences-2",
+  "followup_pipeline_report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json",
+  "parser_checkpoint": {
+    "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/parser-quality-report.json",
+    "sha256": "8362386a7c056b5d138b399ea1afe404a37565a2dc527378f651c75358b6e379",
+    "source_checkpoint": "code/docs/acceptance/pdf-input-quality-2026-11-07/source-checkpoint.json",
+    "quality_accepted": false,
+    "can_continue_pure_offline_pipeline_work": true,
+    "can_start_model_comparison": false
+  },
+  "order_rationale": "先减少输入内容与结构的不确定性，再确定流程职责与状态，让Prompt/工具匹配最终流程，最后集中复验共用契约；保持每项前后证据与未解决范围。",
+  "pipeline_checkpoint": {
+    "report": "code/docs/acceptance/pdf-input-quality-2026-11-07/pipeline-contract-repair.json",
+    "completed_local_stages": [
+      "FLOW01",
+      "PROMPT01",
+      "ALIGN01"
+    ],
+    "final_extraction": 243,
+    "tsc_exit": 0,
+    "paid_calls": 0,
+    "quality_approval": false
+  },
+  "current_next_steps": [
+    "原页核验尚存复杂表格、多级表头、跨页/跨栏续段与整图/图注关系；L05表4正确语义网格尚未恢复",
+    "处理并复验PDF输入质量前置范围，再固定同一源PDF/IR及公共规则版本准备B0/F比较，选块差异是方法变量",
+    "新模型调用仍须明确的新模型、范围、额度与时窗许可；当前0调用许可，不以离线绿灯自动放行"
+  ],
+  "unresolved_semantic_risks": [
+    "临床治疗阈值句是否被误收为独立视觉描述",
+    "仅面板/病例诊断背景的图注及条件性诊断解释是否仅属必要语境",
+    "本轮不调整临床阈值或医学 eligibility 策略；后续单项实验和输出人核另留证据，不自动扩大付费范围"
+  ]
+}

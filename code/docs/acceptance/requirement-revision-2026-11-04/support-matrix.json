@@ -1,0 +1,41 @@
+{
+  "schema_version": "requirement-revision-support-matrix-1",
+  "text_output": "ordered exact source fragments; no generated translation/paraphrase/reconstruction",
+  "image_asset": "CPU render of original PDF region, PNG, original PDF unchanged",
+  "automatic_whole_figure_conditions": [
+    "原文编号图注可完整定位且图号唯一",
+    "唯一相邻连通候选图像区域且无正文隔断",
+    "恰有一个顶层完整PDF位图与区域边界吻合",
+    "周围无遗漏的其他位图、图外矢量部分或未包含的独立子图标号",
+    "正确旋转CropBox页坐标和有限渲染区域，文件SHA一致"
+  ],
+  "pair_conditions": [
+    "描述原文中显式图号，或描述原文与原图注区间重叠",
+    "整幅资产mechanically_checked或来源页工程核对完成",
+    "无已知病例/病灶/模态/条件/子图冲突；图号列表和范围歧义不猜首项"
+  ],
+  "pending_cases": [
+    "多对象或矢量Figure",
+    "嵌套Form图像",
+    "没有唯一图注与整幅区域",
+    "图号/Panel冲突或列表歧义",
+    "明确图号存在但配图待核"
+  ],
+  "no_image_behavior": "仍交付有效原文；not_checked/no_explicit_reference/pending不等于原文没有配图",
+  "source_identity_failures": "PDF缺失或SHA变化、IR/input/metadata/图目录文献或文本版本不一致停止新抽取或导出；不能降级为普通图失败；缓存保留为历史且阻止未核验已审核导出。",
+  "figure_failure_with_valid_source": "图像分组或渲染失败记录failed_text_still_deliverable，文字仍可处理；带图导出若资产丢失/改动拒绝；显式省略图目录可按not_checked交付候选/有效已审核文字。",
+  "review": "逐条text_only或text_and_figures确认；文本指纹与全图文指纹分开；旧human当前approved版本只延续文字审核，不继承新图批准。",
+  "supplements": "现有S2标注备注/争议与引文分开；本轮不扩建医生补充UI，新增导出的原文不接收自由撰写内容。",
+  "not_validated": [
+    "新模型API在新契约下的医学抽取质量",
+    "人工抽样医学核验",
+    "真实新付费多策略实验",
+    "完整S5上传审核界面",
+    "全PDF原文逐字忠实性",
+    "扫描/OCR能力"
+  ],
+  "paid_calls_this_task": 0,
+  "S5_product_ui_started_by_this_task": false,
+  "human_sample_size": null,
+  "stage_passed": false
+}

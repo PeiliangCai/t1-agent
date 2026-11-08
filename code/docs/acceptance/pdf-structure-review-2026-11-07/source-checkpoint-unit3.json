@@ -1,0 +1,164 @@
+{
+  "schema_version": "table-continuation-source-checkpoint-1",
+  "files": [
+    {
+      "path": "services/pdf-parser/structured.py",
+      "sha256": "23449303057dfab021a4f8bbee545422f9df3a69c53e4b8c217db8724076a1b2"
+    },
+    {
+      "path": "services/pdf-parser/source_geometry.py",
+      "sha256": "169183f0d17dab9b21638c563f975616c1aaeceaafef42fc9514b33631ef8857"
+    },
+    {
+      "path": "services/pdf-parser/source_tables.py",
+      "sha256": "b852a0341a7aa1f40258b9b796520ec91ad6d8a6631a9a7fbadf447d2dc37dd7"
+    },
+    {
+      "path": "services/pdf-parser/source_continuations.py",
+      "sha256": "d3588495586f2c35eeef7d715117ff5cda5648a51fad77217c1998d39b3fbfc4"
+    },
+    {
+      "path": "services/pdf-parser/tests/test_source_recovery.py",
+      "sha256": "d0246cb60637a919005b3b085a7978af31c58d402e5dc088f2f197b22c019eb6"
+    },
+    {
+      "path": "packages/contracts/src/document-ir-v3.ts",
+      "sha256": "81c5fddc85bf330e9563a2373fd44972189182351a2aa6807e7e15e6fb2c4326"
+    },
+    {
+      "path": "packages/agent/src/document-structure-context.ts",
+      "sha256": "de17e0319bb0d086521bf63de897993314d96da808bfd78998569d317c128ec9"
+    },
+    {
+      "path": "packages/agent/src/source-evidence-units.ts",
+      "sha256": "c79a308cbc542fa5c72d95a820a55ce9ac2a58339a61e3bf1679179e2553c918"
+    },
+    {
+      "path": "packages/agent/src/visual-evidence-policy.ts",
+      "sha256": "c4ff30f52da9b27b59efda5b2361c4c3743d92cec15526a878561dbebade0101"
+    },
+    {
+      "path": "packages/agent/src/parser.ts",
+      "sha256": "2d6cf43dc22911fcf9c3c6c52460ce3753aabcdc9ada80c4ca1794e4787e569b"
+    },
+    {
+      "path": "tests/extraction/pdf-source-recovery.test.ts",
+      "sha256": "c2bf1ea9eed6ee026a2098cc8d093193ba9fb1c90834b966328f22704bca97cb"
+    },
+    {
+      "path": "scripts/repair-pdf-source-structure.py",
+      "sha256": "2fc72677e7c58ac3337a3229f70d77dcbb0e24caa8a041839480ff6388202739"
+    },
+    {
+      "path": "scripts/inspect-source-recovery.ts",
+      "sha256": "a41d1eb2565b9d0e2939bf0e36b6bab6f0546ab8e14f42609dad522b6553b396"
+    }
+  ],
+  "source_unit_version": "literal-source-sentences-3",
+  "IRs": [
+    {
+      "source_id": "L01",
+      "document_id": "L01",
+      "source_pdf_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "pdf_path": "evaluation/corpus/development-candidates/L01.pdf",
+      "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L01/parser-result.json",
+      "parser_result_sha256": "2e77b62fa6d95b804a80778be0830d5266c317e0e3c817ad1a788db7866caf31",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/paper-37340ec9-269d-4290-be92-f8cfebbcadf9/docling-standard-cpu-fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2.json",
+        "sha256": "fa502b087c550a647654dad8ae23c6ac4afaaec6912cb7f80b7cfae44f3d0ac2",
+        "format": "candidate_native_json"
+      },
+      "grids": [
+        {
+          "native_ref": "#/tables/0",
+          "native_rows": 6,
+          "native_cols": 8,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 7,
+          "source_cols": 8
+        },
+        {
+          "native_ref": "#/tables/1",
+          "native_rows": 18,
+          "native_cols": 5,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 18,
+          "source_cols": 5
+        }
+      ],
+      "checked_continuations": 2,
+      "unresolved_continuations": 1
+    },
+    {
+      "source_id": "L05",
+      "document_id": "L05",
+      "source_pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "pdf_path": "evaluation/corpus/development-candidates/L05.pdf",
+      "text_version": "s3v3-ff44958f101c958d8bea38d880119734",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L05/parser-result.json",
+      "parser_result_sha256": "c3c6afd41fdd127ccb715541d7656bdccaa07080363b6ec0fd960bbd5b403e09",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/paper-3c5c6972-a1be-4fd8-8964-334a8c4edf7c/docling-standard-cpu-cae7c6def0835c2f7e31cbf4b5dc5992008676bc77ad1395d5237b58e88f590b.json",
+        "sha256": "cae7c6def0835c2f7e31cbf4b5dc5992008676bc77ad1395d5237b58e88f590b",
+        "format": "candidate_native_json"
+      },
+      "grids": [
+        {
+          "native_ref": "#/tables/0",
+          "native_rows": 4,
+          "native_cols": 10,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 4,
+          "source_cols": 10
+        },
+        {
+          "native_ref": "#/tables/1",
+          "native_rows": 10,
+          "native_cols": 8,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 10,
+          "source_cols": 8
+        },
+        {
+          "native_ref": "#/tables/2",
+          "native_rows": 17,
+          "native_cols": 8,
+          "source_grid_status": "unresolved",
+          "source_rows": null,
+          "source_cols": null
+        },
+        {
+          "native_ref": "#/tables/3",
+          "native_rows": 15,
+          "native_cols": 7,
+          "source_grid_status": "geometry_checked",
+          "source_rows": 25,
+          "source_cols": 7
+        }
+      ],
+      "checked_continuations": 0,
+      "unresolved_continuations": 0
+    },
+    {
+      "source_id": "L07",
+      "document_id": "L07",
+      "source_pdf_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "pdf_path": "evaluation/corpus/development-candidates/L07.pdf",
+      "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+      "parser_result": "docs/acceptance/pdf-structure-review-2026-11-07/derived/L07/parser-result.json",
+      "parser_result_sha256": "01369f56780ab0c2d4fab2e80fe5f4a3c9b00738645965f6a9eb743dfec047d6",
+      "raw_anchors_identical": true,
+      "native_artifact": {
+        "path": "runtime-data/s3-native-artifacts/s3-cpu-comparison-reuse/docling-standard-cpu-15a8d628cf86f4b664b9a3e8b3e5b3bdf58428b5cec48761e4bc6d07c4314eb7.json",
+        "sha256": "15a8d628cf86f4b664b9a3e8b3e5b3bdf58428b5cec48761e4bc6d07c4314eb7",
+        "format": "candidate_native_json"
+      },
+      "grids": [],
+      "checked_continuations": 6,
+      "unresolved_continuations": 1
+    }
+  ]
+}

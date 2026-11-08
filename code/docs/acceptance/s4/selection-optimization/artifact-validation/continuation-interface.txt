@@ -1,0 +1,58 @@
+同一S4任务的continuation核验接口（2026-11-03，用户转述厂商确认之后）
+
+本轮入口：
+code/.venv/bin/python -B code/scripts/check-s4-selection-artifacts.py --base code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03 --phase final --require-plan-sync
+
+检查器按注册表schema=s4-selection-continuation-1自动选择兼容分支。
+仅在lead已冻结真实结果、报告与计划增量后运行完整核验；不会反复扫描进行中的实验。
+输出只在该base下artifact-validation/的新时间戳目录，并写latest.json指针；不修改lead产物或发API。
+
+授权及记账口径：
+1. 厂商说明由用户转述，原话和来源保留在supplier-alias-confirmation.json。运行时仅允许
+   outgoing gpt-6-luna / medium与精确response igpt-6-luna别名；不剥前缀、不变更大小写、不作模糊匹配。
+   检查原始response_model_observations、首个原始provider_response_model与alias policy ID/source，
+   区分matched/confirmed_alias/unknown/mismatch。用户确认不等于本检查器独立联系厂商或验证权重。
+2. 旧selection消耗29请求（28推理+1GET）、保守输入279503、保守输出22617继续携带。
+   continuation仅可用271请求、5720497输入、377383输出；旧133请求保持独立历史范围。
+   所有失败、重试和unknown保守预留均计入联合300/6000000/400000额度；缓存/推理不能重复相加。
+3. 旧7200s起点、halted字段及账本SHA保持；新局部保护窗口<=10800s从首次continuation推理起算，
+   这是记录明确的工程时间保护，不是新增用户预算，也不是清空旧消耗。
+
+实验与来源口径：
+4. 5个唯一条件、8逻辑行；允许失败唯一条件按预定规则从头必要重跑，因此真实文档attempt可>=5。
+   attempt_history与当前attempt必须各有独立run_id/结果/请求归属；所有失败产物和开销保留。
+   selected_attempt必须是首次工程完整attempt，不按候选质量、候选数量或速度挑优。
+   3个等价别名仍只引用F代表产物，不算独立请求、延迟样本或随机重复试验。
+5. 按run_id归属物理请求并核对每attempt和condition总消耗。并发时间线按attempt区分，<=2，
+   允许同一条件顺序重跑；不能同时启动同条件多个attempt。未知usage不证明120秒超时。
+6. 每次实际run的core源码、原PDF/IR、mask/批次、输出版本、必要retry launcher各自可追踪。
+   规则/prompt/契约不以AI答案调整；opaque run_id差异不被说成完整请求逐字相同或严格盲化。
+7. AI表仍human_verified=false、not_gold=true；仅冻结后做来源保留与字面区间对照，
+   37未决行不按0分，不能产生医学precision/recall/F1。旧中断13候选仍为历史诊断材料。
+8. DOCX仅增量保全、S2/S3与医学gate不变；工程交付核验与医学质量批准分别记录。
+   检查器不追加正式Astra审查、不重置同一S4计数；最终正式审查由主会话安排。
+
+后续固定协议版本决定（同一任务、同一预算与3h起点）：
+pilot1五个首轮attempt全部保留为历史故障/工程材料，包括当时已完整的L01-F。
+closed issue的位置字段宿主绑定与missing-terminal EOF有限恢复修复后，主比较改为统一target revision的5唯一条件。
+“首次工程完整”只在预先固定target cohort内选择，不能跨协议版本选旧F或按质量/速度挑优。
+工具schema与可靠性变更须单独列出，不能把其收益表述成F/R医学效果；实际兼容以lead冻结的cohort/版本契约为准。
+
+reliability-v2-main兼容补充：
+target源码固定2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b，
+有效宿主协议s4-unified-batch-lines-6。文档内部batch/summary恢复最多各3个attempt（首次+最多2次），
+全部请求、失败前候选快照与不可变版本须保留。报告的batch与summary记账可加总；failed/retry
+是阶段内部子集标记，不可再加一次；纯补读tokens无法从整次请求usage独立归因。
+三层posthoc分别核对initial input保留、主quote精确区间、context/readback曝光，未决值保留null。
+每次物理请求导出须保留所有原始模型名称/观察/usage并标明pilot或target；完成状态以target
+所选源块显式完成及summary终态复算，不能仅凭总体state或旧pilot完整F升级。
+
+终态资格口径：result.records须等于versions中每ID最新非proposed版本，主quote/context仅使用
+status=active、review_status非rejected、evidence_validation.quote_located=true的当前候选。
+历史/被替代/proposed版本只作审计，不用其并集补覆盖；pending/needs_context仍不代表医学正确。
+实际全源hash一致=false：仅接受concurrent-package-script-drift.json记录的package.json四项
+annotation脚本新增，且独立比较原快照、发现时副本与当前完整JSON；其它任何差异仍失败。
+该精确差异保留warning与原始SHA，不声称整个工作区与付费快照逐字一致或排除未记录环境变化。
+
+旧检查器源码已按SHA归档在artifact-validation/checker-versions/；上一轮stopped-handoff receipt不覆盖。
+新工程产物通过也不代表人工gold、医学质量或S4整体医学验收通过。

@@ -1,0 +1,451 @@
+{
+  "version": "0.4",
+  "checked_date": "2026-11-01",
+  "review_type": "targeted_discovery_not_systematic_review",
+  "candidate_papers": [
+    {
+      "given_label": "TPARMI/可能的TPAMI",
+      "status": "identity_unresolved",
+      "title": null,
+      "authors": null,
+      "doi": null,
+      "note": "期刊或拼写线索不足以唯一识别文章；不能指认为主题相近的文章。"
+    },
+    {
+      "given_label": "TEVC",
+      "status": "identity_unresolved",
+      "title": null,
+      "authors": null,
+      "doi": null,
+      "note": "期刊简称不足以唯一识别导师讨论的文章。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "MED01",
+      "title": "The Lung Image Database Consortium (LIDC) and Image Database Resource Initiative (IDRI): A Completed Reference Database of Lung Nodules on CT Scans",
+      "year": 2011,
+      "doi": "10.1118/1.3528204",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3041807/",
+      "reviewed": "原始研究的标注流程与特征说明",
+      "supports": "肺结节轮廓、位置及毛刺、分叶、球形程度、实性程度、边缘、内部结构、显著性和恶性可能性等医师评分。",
+      "limits": "医师评分和影像学恶性可能性不能直接替代病理确诊；保留多医师原始分歧。"
+    },
+    {
+      "id": "MED02",
+      "title": "Fleischner Society: Glossary of Terms for Thoracic Imaging",
+      "year": 2024,
+      "doi": "10.1148/radiol.232558",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10902601/",
+      "reviewed": "摘要、元数据及定向术语检索；本轮未完整获取全文",
+      "supports": "建立胸部影像标准术语和定义的来源。",
+      "limits": "具体词条、枚举和判读规则进入实现前仍需逐条核对；不能据摘要自动填入临床阈值。"
+    },
+    {
+      "id": "MED03",
+      "title": "Structured reporting of computed tomography in the staging of colon cancer: a Delphi consensus proposal",
+      "year": 2022,
+      "online_year": 2021,
+      "doi": "10.1007/s11547-021-01418-9",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8795004/",
+      "alternate_url": "https://pubmed.ncbi.nlm.nih.gov/34741722/",
+      "reviewed": "PubMed 摘要及报告部分的定向摘录；PMC 全文访问间歇受限",
+      "supports": "结肠癌 CT 结构化报告中的病灶部位、类型、大小、局部侵犯、分期和转移等字段。",
+      "limits": "本文提供报告字段，不证明公开分割数据集包含所有这些标签。"
+    },
+    {
+      "id": "MED04",
+      "title": "Rectal cancer lexicon 2023 revised and updated consensus statement from the Society of Abdominal Radiology Colorectal and Anal Cancer Disease-Focused Panel",
+      "year": 2023,
+      "doi": "10.1007/s00261-023-03893-2",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10444656/",
+      "reviewed": "原文的术语、初始分期、解剖和 MRI 序列说明",
+      "supports": "直肠癌 MRI 的局部分期、壁外侵犯、MRF、淋巴结和括约肌关系等。",
+      "limits": "存在适用序列、解剖定位及判读能力限制；应与更新共识核对。"
+    },
+    {
+      "id": "MED05",
+      "title": "MRI to guide clinical management of rectal cancer: updated consensus recommendations from the European Society of Gastrointestinal and Abdominal Radiology (ESGAR)—PART I primary staging",
+      "year": 2026,
+      "doi": "10.1007/s00330-025-12274-w",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13212678/",
+      "reviewed": "原文主要建议、表 2 和表 3，结构化报告说明",
+      "supports": "STO 定位、MRF、EMVI、淋巴结及初始分期的序列适用范围。",
+      "limits": "初始分期与再分期分开；DWI 不应单独承担初始 cT、MRF 或 EMVI 判定。"
+    },
+    {
+      "id": "DATA01",
+      "title": "The Medical Segmentation Decathlon",
+      "year": 2022,
+      "doi": "10.1038/s41467-022-30695-9",
+      "url": "https://www.nature.com/articles/s41467-022-30695-9",
+      "reviewed": "原始数据说明和数据可用性",
+      "supports": "肺肿瘤 CT 与结肠癌 CT 分割任务，可作为首版数据候选。",
+      "limits": "当前工作区尚未下载数据；分割标签不能自动补全形态、病理、侵犯和报告标签。"
+    },
+    {
+      "id": "DATA02",
+      "title": "LIDC-IDRI collection",
+      "year": null,
+      "doi": "10.7937/K9/TCIA.2015.LO9QL9SX",
+      "url": "https://www.cancerimagingarchive.net/collection/lidc-idri/",
+      "reviewed": "TCIA 集合说明及 MED01 原始论文",
+      "supports": "肺结节 CT、轮廓和多医师特征标注的候选数据。",
+      "limits": "尚未下载；使用 XML 标注时需核对病例、结节、医师和标签对应关系。"
+    },
+    {
+      "id": "DATA03",
+      "title": "Towards semi-supervised multi-modal rectal cancer segmentation: A large-scale dataset and a multi-teacher uncertainty-aware network",
+      "year": 2024,
+      "doi": "10.1016/j.eswa.2024.124734",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0957417424016014",
+      "repository": "https://github.com/yuqiuyuqiu/RC4",
+      "reviewed": "出版者摘要和作者仓库",
+      "supports": "RC4 是直肠癌 MRI 数据候选。",
+      "limits": "2026-11-01 查阅仓库仅见 README 与 LICENSE，未核实可用下载入口；暂不视为已取得数据。"
+    },
+    {
+      "id": "MOD01",
+      "title": "NVIDIA NGC monai_maisi_ct_generative model description",
+      "year": null,
+      "url": "https://catalog.ngc.nvidia.com/orgs/nvidia/monaitoolkit/models/monai_maisi_ct_generative",
+      "reviewed": "官方输入、输出、大小控制、参数优先关系和显存要求",
+      "supports": "CT 与配套分割掩膜；肺部肿瘤和结肠原发癌的归一化大小控制。",
+      "limits": "大小参数不等于毫米直径；有条件参数优先级；细粒度征象未获生成保证。文档描述尚未在本项目试跑。"
+    },
+    {
+      "id": "MOD02",
+      "title": "NVIDIA MAISI NIM 1.0.1 Model Details",
+      "year": null,
+      "url": "https://docs.nvidia.com/nim/medical/maisi/1.0.1/model-details",
+      "reviewed": "官方参数、输出和测试硬件",
+      "supports": "CT 三维生成接口、部分解剖大小控制及 512³ 生成的 80GB 级测试配置。",
+      "limits": "NIM 与 MONAI bundle 是不同后端形态，参数取值、优先级和硬件要求分别核对。"
+    },
+    {
+      "id": "MOD03",
+      "title": "Qwen3-8B official model card",
+      "year": null,
+      "url": "https://huggingface.co/Qwen/Qwen3-8B",
+      "reviewed": "官方模型卡",
+      "supports": "需求解析与受约束文本生成的候选语言模型。",
+      "limits": "本项目的医学需求解析效果尚未验证。"
+    },
+    {
+      "id": "MOD04",
+      "title": "Qwen3-VL-8B-Instruct official model card",
+      "year": null,
+      "url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "reviewed": "官方模型卡",
+      "supports": "首个图文数据格式适配对象的候选。",
+      "limits": "数据可读取与医学能力有效是不同验收项；尚未训练或测评。"
+    },
+    {
+      "id": "OPT01",
+      "title": "pymoo constraint handling and multi-objective optimization documentation",
+      "year": null,
+      "url": "https://pymoo.org/constraints/index.html",
+      "reviewed": "官方约束处理和算法目录",
+      "supports": "NSGA-II 等约束多目标优化方法的实现候选。",
+      "limits": "尚未验证在本任务中的生成成本、效率和适应性。"
+    },
+    {
+      "id": "SEG01",
+      "title": "nnU-Net official repository",
+      "year": null,
+      "url": "https://github.com/MIC-DKFZ/nnUNet",
+      "reviewed": "官方仓库说明",
+      "supports": "训练独立病灶分割检查器的候选工具。",
+      "limits": "尚无本项目训练好的检查器；分割一致性不能单独证明医学合理性。"
+    },
+    {
+      "id": "ENG01",
+      "title": "本方案提出的工程度量与数据契约",
+      "year": 2026,
+      "url": null,
+      "reviewed": "工程设计建议",
+      "supports": "几何测量、配置字段、缺失值和状态管理的实现约定。",
+      "limits": "不作为临床共识、诊断依据或原论文公式；实现后需用已知几何体和实测样本核验。"
+    },
+    {
+      "id": "TOOL01",
+      "title": "Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents",
+      "authors": [
+        "Timothy Kassis",
+        "Vinayak Agarwal",
+        "Yuhuan He",
+        "Darshil Patel",
+        "Aubrey M. Brueckner"
+      ],
+      "year": 2026,
+      "doi": "10.48550/arXiv.2609.00065",
+      "url": "https://arxiv.org/abs/2609.00065",
+      "reviewed": "arXiv 当前记录和摘要；2026-11-01 所见为 v2，引用使用无版本后缀的当前记录",
+      "supports": "本次使用 literature-review 技能组织定向检索、来源核对和记录的方法出处。",
+      "limits": "检索工具来源，单列说明；不作为医学特征、算法性能或临床结论的证据。"
+    },
+    {
+      "id": "PI01",
+      "title": "Pi仓库定位与组件",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/README.md",
+      "path": "README.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "智能体运行组件、SDK/RPC、可扩展机制及MIT许可",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI02",
+      "title": "Pi智能体核心",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/agent/README.md",
+      "path": "packages/agent/README.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "工具执行、事件流和状态接口",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI03",
+      "title": "Pi TypeScript SDK",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/sdk.md",
+      "path": "packages/coding-agent/docs/sdk.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "应用嵌入、会话与资源管理",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI04",
+      "title": "Pi RPC",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/rpc.md",
+      "path": "packages/coding-agent/docs/rpc.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "基于子进程JSONL的跨语言接入，需自行接到业务服务",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI05",
+      "title": "Pi Skills",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/skills.md",
+      "path": "packages/coding-agent/docs/skills.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "任务指令与辅助资源封装；Skill为可选实现形式",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI06",
+      "title": "Pi扩展",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/extensions.md",
+      "path": "packages/coding-agent/docs/extensions.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "自定义工具及生命周期扩展",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI07",
+      "title": "Pi权限边界",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/security.md",
+      "path": "packages/coding-agent/docs/security.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "默认继承启动进程权限，应用需配置实际隔离",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI08",
+      "title": "Pi容器化",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/coding-agent/docs/containerization.md",
+      "path": "packages/coding-agent/docs/containerization.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "完整进程可放入Docker等隔离环境",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    },
+    {
+      "id": "PI09",
+      "title": "Pi持久化运行时",
+      "url": "https://github.com/earendil-works/pi/blob/2c8d1feb147f6b3d97e855da803bfe7b19f3c403/packages/durable/README.md",
+      "path": "packages/durable/README.md",
+      "commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+      "supports": "实验性任务恢复组件；外部副作用的幂等仍由调用方实现",
+      "reviewed": "官方文档或源码静态核验，未运行应用"
+    }
+  ],
+  "runtime_status": {
+    "model_weights_downloaded": false,
+    "datasets_downloaded": false,
+    "image_generation_executed": false,
+    "medical_evaluators_validated": false,
+    "real_user_parameter_confirmation_recorded": false,
+    "pi_source_reviewed": true,
+    "pi_integration_executed": true,
+    "pi_integration_scope": "T1基础已验收；不代表T2—T5集成完成。"
+  },
+  "architecture_decisions": [
+    "用户明确同意采用earendil-works/pi作为总课题及T1的智能体基座。",
+    "数据集生成需求的默认参数逐项确认属于T2至T3的前置流程；T1论文抽取不设置用户参数逐项确认节点。",
+    "功能可由普通程序、工具接口、扩展或Skill按需要实现，不要求全部使用Skill。",
+    "外部状态按实际需要由项目实现存储与中断处理，不要求Pi内置所有持久化能力。",
+    "工具、文件、服务和运行环境的权限边界由项目配置。"
+  ],
+  "pi_review_commit": "2c8d1feb147f6b3d97e855da803bfe7b19f3c403",
+  "current_T1_selection": {
+    "document": "子任务T1/T1智能体开发计划.docx",
+    "version": "0.7",
+    "execution_guide": "子任务T1/T1开发执行说明.docx",
+    "execution_guide_version": "0.5",
+    "approved": true,
+    "status": "targeted_PDF_repairs_engineering_checked_review_page_delivered_user_feedback_pending",
+    "current_data": "子任务T1/当前版本.json",
+    "mandatory_comparison": [
+      "单独智能体B0",
+      "正向规则预筛＋智能体F"
+    ],
+    "new_paid_call_budget": null,
+    "current_experiment_authorization": {
+      "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+      "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "current_paid_requests_running": false,
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "time_continuation": {
+        "status": "completed_authorized_scope_no_more_paid_requests",
+        "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+        "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+        "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+        "original_window_expired": true,
+        "authorized_remaining_window_seconds": 11520,
+        "granted": true,
+        "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+        "approved_at_utc": "2026-11-05T02:16:15Z",
+        "resume_at_utc": "2026-11-05T02:16:52.744Z",
+        "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+        "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+        "new_paid_requests_allowed_now": false,
+        "scope": [
+          "L01-B0",
+          "L05-B0",
+          "L05-F",
+          "L05-R"
+        ],
+        "baseline_or_L01_F_rerun_allowed": false,
+        "request_or_token_caps_reset": false,
+        "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+      },
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+    },
+    "ordered_S0_S4_audit_completed": true,
+    "all_T1_stages_passed": false,
+    "current_authority": "子任务T1/T1智能体开发计划.docx",
+    "current_improvement_record": "code/docs/acceptance/pdf-structure-review-2026-11-07/",
+    "R_status": "retired_historical_only",
+    "original_approved_plan_version": "0.6",
+    "revision": "pdf-first-two-method-2026-11-07",
+    "approval_scope": "用户最新方向同步；旧v0.6计划批准记录保留，不认定质量通过。",
+    "historical_paid_budget_record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json"
+  },
+  "T1_runtime_status": {
+    "pi_SDK": "1.4.0_engineering_verified",
+    "Docling": "2.145.0_CPU_selected",
+    "frontend": "single_Next_pi_web_readonly_foundation_delivered",
+    "formal_model_selected": false,
+    "required_three_scheme_comparison_complete": false,
+    "new_paid_call_budget": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "medical_quality_approved": false,
+    "current_experiment_authorized": false,
+    "current_experiment_model": "AGICTO gpt-6-luna medium",
+    "current_experiment_authorization": {
+      "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+      "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "current_paid_requests_running": false,
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "time_continuation": {
+        "status": "completed_authorized_scope_no_more_paid_requests",
+        "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+        "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+        "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+        "original_window_expired": true,
+        "authorized_remaining_window_seconds": 11520,
+        "granted": true,
+        "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+        "approved_at_utc": "2026-11-05T02:16:15Z",
+        "resume_at_utc": "2026-11-05T02:16:52.744Z",
+        "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+        "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+        "new_paid_requests_allowed_now": false,
+        "scope": [
+          "L01-B0",
+          "L05-B0",
+          "L05-F",
+          "L05-R"
+        ],
+        "baseline_or_L01_F_rerun_allowed": false,
+        "request_or_token_caps_reset": false,
+        "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+      },
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+    },
+    "initial_three_method_model_runs_complete": true
+  },
+  "current_comparison_results_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+  "current_T1_improvement": {
+    "record": "code/docs/acceptance/pdf-input-quality-2026-11-07/improvement-register.json",
+    "authority": "子任务T1/T1智能体开发计划.docx",
+    "status": "authorized_round_stopped_delivery_failure_offline_fix_verified_human_review_pending",
+    "paid_calls_authorized": true,
+    "next": "S0–S4当前范围工程复核已完成；Table1完整统计值/colspan、F正向检索与任务覆盖分列已验证。用户批准的一轮三源B0/F真实比较正在执行，6逻辑5实际，当前用量以唯一新ledger为准；结束后输出抽查，不自动优化，医学/产品及正式赢家未批准。",
+    "current_evidence_directory": "code/docs/acceptance/s0-s4-recheck-2026-11-08/",
+    "review_record": "子任务T1/当前版本.json#/current_PDF_structure_review",
+    "feedback_and_bibliography_scope_record": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json",
+    "feedback_and_bibliography_scope_report_sha256": "a7580f82ed8353c79f62ae82d4d72b3f49d37cae83b1df2149ff341c85d2146c",
+    "readonly_scope_correction_status": "offline_verified",
+    "current_engineering_report": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+    "bibliography_method_user_accepted": true,
+    "new_paid_request_limit": 128,
+    "authorization_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/comparison/authorization.json",
+    "can_execute_now": false,
+    "current_live_ledger": "code/runtime-data/s4-budget-owners/6b7c06e4a0436006dbba085bb498b32a3950e7a39d1b4b756837a642cd6311ad/call-ledger.json",
+    "execution_handoff_received": true,
+    "current_paid_requests_running": false,
+    "current_execution_preconditions": "原本轮源前置通过后真实执行，现已guard失败停止，局部修复仅离线验证；不得以旧前置或剩12发起续跑。",
+    "current_next_steps": [
+      "以新核验页对当前实际输出作普通抽查；医学/产品和正式方法未通过",
+      "保留原失败、SQL/phase/ledger/源snapshot及两拒绝原版本；不补字或重写结果",
+      "逐条/小批提交和工具元数据仅记观察，沿用既定输入→工程/提示→一致性顺序，本轮无新增优化或API"
+    ]
+  },
+  "historical_records": {
+    "comparison_results_record_before_current_recheck": "方案/子任务T1/当前版本.json#/current_comparison_results"
+  }
+}

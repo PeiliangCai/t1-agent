@@ -1,0 +1,116 @@
+{
+  "schema_version": "three-method-comparison-config-1",
+  "status": "prepared_pending_new_user_authorization",
+  "execute_model_calls": false,
+  "formal_model_selected": false,
+  "papers": [
+    {
+      "source_id": "L01",
+      "prepared_directory": "runtime-data/s0-s4-current-2026-11-04/L01-cpu-current"
+    },
+    {
+      "source_id": "L05",
+      "prepared_directory": "runtime-data/s0-s4-current-2026-11-04/L05-cpu-fixed"
+    }
+  ],
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "catalog": {
+    "catalog_version": "medical-unavailable-1",
+    "status": "unavailable",
+    "fixture": false,
+    "cancers": [],
+    "image_types": [],
+    "features": [],
+    "bindings": []
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "batch_options": {
+    "maxCodePoints": 8500,
+    "maxBlocks": 128,
+    "contextBlocks": 6
+  },
+  "strategy": "baseline",
+  "concurrency": 1,
+  "figure_pairing": "shared_bound_original_catalog_exact_caption_and_whole_Figure_guard",
+  "proposed_limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "response_model_alias_policy": {
+    "policy_id": "user-relayed-agicto-deployment-region-luna-20261103",
+    "source": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+    "exact_pairs": [
+      {
+        "requested_model": "gpt-6-luna",
+        "response_model": "igpt-6-luna"
+      },
+      {
+        "requested_model": "igpt-6-luna",
+        "response_model": "gpt-6-luna"
+      }
+    ]
+  },
+  "optimization": {
+    "kind": "initial_current_protocol_three_input_methods",
+    "only_comparison_variable": "source_input_preprocessing",
+    "parent_plan": null,
+    "declared_change": null
+  },
+  "quality": {
+    "full_reference_answer_required": false,
+    "sampling_rules": "evaluation/rules/output-sampling.json",
+    "actual_human_reviews": 0,
+    "sample_count": null,
+    "thresholds": null,
+    "winner": null
+  },
+  "price_estimate": {
+    "source": "https://agicto.com/model?companyId=0&freeType=0&typeId=0",
+    "verified_by": "main_session_public_page_no_authenticated_or_paid_call",
+    "verified_date": "2026-11-04",
+    "currency": "CNY",
+    "per_million_input": 0.63,
+    "per_million_output": 3.15,
+    "proposed_token_cap_estimate": 5.04,
+    "account_billing_known": false
+  },
+  "experiment_scope": {
+    "initial_logical_conditions": 6,
+    "expected_unique_initial_extractions": 5,
+    "equal_input_reuse": "L01 F/R entire model-visible Pi prompt/tool/schema/result protocol verified equivalent; R reuses F and is not independent empirical evidence",
+    "followup": "same model and these two papers only, necessary one-point fixes/retests",
+    "one_shared_total_cap_including_all_attempts": true,
+    "over_cap_behavior": "stop_and_preserve_partial_results",
+    "new_user_authorization_granted": false
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "version": "s2-confirmations-output-sampling-2026-11-04",
+  "user_action_required_now": false,
+  "reason": "现行计划采用输出抽查，完整参考答案与旧人员安排均不作为工程开工前置；未核医学关系/正式样本与数值仍待共同确定。",
+  "staffing_user_quote": "历史人员安排记录仅作背景，不替代真实审核人；本轮不预填审核签字。",
+  "items": [
+    {
+      "id": "S2-U01",
+      "topic": "同篇重复输出的人工归并与有效描述计数",
+      "status": "pending_later_confirmation",
+      "proposal": "仅对实际核验输出记录同主体/条件/断言的canonical组，条件不同或冲突另列；未核条目不能算已验证有效数量。",
+      "options": [
+        "抽查中记录canonical组和条件差异，正式口径待共同确定",
+        "歧义项保留待核，不由自动文本去重替代医学判断"
+      ],
+      "requires_medical_review": true
+    },
+    {
+      "id": "S2-U02",
+      "topic": "定义/本研究观察/转引的输出核验",
+      "status": "pending_later_confirmation",
+      "proposal": "对输出抽样检查原文、类型和必要上下文，区分定义、本研究观察和转引；不要求先阅读全文制作完整标准答案。",
+      "options": [
+        "按原PDF抽样记录相关性、语境、来源及类型",
+        "有歧义留待复核并记录核验范围"
+      ],
+      "requires_medical_review": true,
+      "confirmed_scope": "保留论文对视觉表现的定义、观察与条件，区分作者本研究结果和转述其他文献；临床结论作必要上下文。",
+      "confirmed_scope_source": "方案/子任务T1/T1智能体开发计划.docx：二、业务流程与技术路线／原文规则；方案/子任务T1/待讨论实现决策.csv：D04（癌种、模态、特征及输入边界）"
+    },
+    {
+      "id": "S2-U03",
+      "topic": "复合临床条目的影像依据",
+      "status": "pending_later_confirmation",
+      "proposal": "逐条拆开具体影像外观或测量与分期/风险结论；结论作必要语境，争议不强行批准。",
+      "options": [
+        "逐条拆分并留待医学复核",
+        "暂缓有争议条目，记录缺项且不计作已验证"
+      ],
+      "requires_medical_review": true
+    },
+    {
+      "id": "S2-U04",
+      "topic": "最终分组与独立验收资料",
+      "status": "pending_full_text_and_source_review",
+      "proposal": "现有14来源/13族均已曝光；只能开发/回归或参考。新资料须通过独立intake登记身份/文件，真实核对后封存；正式数量待共同确定。",
+      "options": [
+        "按新资料登记/封存流程准备独立论文，实际身份核对后确认",
+        "资料不足先列缺项，不把已曝光来源重新命名为独立集"
+      ],
+      "requires_medical_review": false,
+      "identity_review_scope": "论文身份、原件SHA、DOI、论文族和既有曝光核对由有来源记录的人工确认；该确认不是医学批准。医学适用性及正式验收抽样另行核验。"
+    }
+  ],
+  "numeric_thresholds": null,
+  "formal_sample_count": null,
+  "clarification_record": "code/docs/acceptance/s3/engineering-start-authorization.json",
+  "current_rules": "evaluation/rules/output-sampling.json",
+  "legacy_gold_scoring_optional": true,
+  "full_reference_answer_required": false
+}

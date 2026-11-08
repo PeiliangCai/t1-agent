@@ -1,0 +1,20 @@
+
+> t1-agent@0.1.0 test:integration
+> tsx --test tests/integration/*.test.ts
+
+✔ session creation failure leaves the already persisted run failed with a terminal event, without API calls (1291.025232ms)
+✔ HTTP SSE delivers a candidate committed through an independent SQLite connection without reconnecting (505.749613ms)
+✔ a settled mock Pi loop requires actual bound read/submission and persists business events (14.133344ms)
+✔ agent_end alone or a settled zero-read/no-submission run is failed, not completed (9.521738ms)
+✔ a cancelled run releases its session and remains cancelled (4.251901ms)
+✔ runtime errors preserve an existing failed/cancelled terminal state and the original sanitized cause (16.952428ms)
+✔ debug HTTP APIs expose fixture status and reject unknown IDs without model calls (91.682414ms)
+✔ SSE reconnect replays ordered saved events after the cursor; disconnect does not cancel the task (40.371825ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5506.946591

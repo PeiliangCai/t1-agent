@@ -1,0 +1,65 @@
+# Local credentials and machine-specific secrets.
+.env
+.env.*
+!.env.example
+.git-credentials
+.netrc
+.aws/
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Installed dependencies, downloaded tools, and generated application output.
+node_modules/
+.venv/
+venv/
+.tools/
+.next/
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Local runs and databases. The one retained database is a regression fixture.
+runtime-data/
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+!/code/docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/evidence-snapshot.sqlite
+
+# Historical source backups and generated browser screenshots stay local.
+/code/docs/project-history-*.zip
+/code/docs/acceptance/**/before*/
+/code/docs/acceptance/**/before-*.html
+/code/docs/acceptance/**/browser*/
+/code/docs/acceptance/**/frontend/
+/code/docs/acceptance/**/*.png
+!/code/docs/acceptance/**/figure-assets/**/*.png
+!/code/docs/acceptance/**/real-figures-final/**/*.png
+!/code/docs/acceptance/**/output-review/assets/**/*.png
+!/code/docs/acceptance/pdf-structure-review-2026-11-07/figures/**/*.png
+
+# Retain the current parser fixtures; omit superseded benchmark copies.
+/code/docs/acceptance/s3/install/
+/code/docs/acceptance/s3/runs/
+/code/docs/acceptance/s3/comparison-2026-11-02/page-review/
+/code/docs/acceptance/s3/comparison-2026-11-02/runs/*
+!/code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/
+/code/docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/cold/
+/code/docs/acceptance/s3/comparison-2026-11-02/docling-MED03-probe.json
+/code/docs/acceptance/s3/comparison-2026-11-02/mineru-L01-first.json
+/code/docs/acceptance/s3/comparison-2026-11-02/mineru-dry-run.json
+/code/docs/acceptance/s3/comparison-2026-11-02/mineru-install-report.json

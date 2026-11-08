@@ -1,0 +1,233 @@
+{
+  "confirmed_decisions": {
+    "E01": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "同意建议方案（推荐）",
+      "pi_integration": "TypeScript SDK",
+      "backend": [
+        "Node.js",
+        "TypeScript",
+        "Fastify"
+      ],
+      "frontend": [
+        "React",
+        "TypeScript",
+        "PDF.js"
+      ],
+      "pdf_parser_adapter": "Python",
+      "version_pinning": "S1核验并锁定Pi及依赖的具体版本"
+    },
+    "E02": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "可以",
+      "database": "SQLite",
+      "database_mode": "WAL_with_short_transactions",
+      "database_contents": [
+        "论文身份、文件引用和校验值",
+        "逐篇任务及独立运行记录",
+        "抽取范围、规则/词表/模型版本快照",
+        "候选、人工审核及修订版本",
+        "必要进度事件及导出记录"
+      ],
+      "file_storage": "cloud_server_persistent_volume_for_original_pdf_and_parser_files",
+      "database_storage": "persistent_disk_on_application_server",
+      "event_transport": "SSE",
+      "user_actions_transport": "HTTP_API",
+      "execution_model": "single_backend_manages_multiple_independent_concurrent_tasks_with_coordinated_database_writes",
+      "write_policy": "短事务；等待解析或模型返回时不占用写事务；记录保存成功后再推送候选与必要事件。",
+      "page_recovery": "按运行编号与事件序号隔离更新、去重，重连后补齐事件或重新读取当前状态；刷新/关闭页面不自动取消后台任务。",
+      "pdf_lifecycle": "任务保留期间保留PDF；删除时告知清理内容并保留其他任务仍引用的文件；缺失时提示，重新上传同一文件并校验后恢复关联。",
+      "backend_interruption": "沿用E05：保留已保存成果，标明中断/失败，由用户创建新运行从头抽取。",
+      "checkpoint_resume_in_v1": false,
+      "cross_document_query_in_v1": false,
+      "validation": "核验持久化、历史回看、审核版本、断线恢复、并行任务隔离及同时写入/审核响应；并发上限仍待实测。",
+      "future_reassessment": "若实测写入瓶颈明显或需要多服务器共同执行，再评估迁移服务型数据库。",
+      "implementation_started": false
+    },
+    "E03": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "A，支持中英文",
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "v1_required_pdf_coverage": "正文及待提取文字具有可用文本层的PDF",
+      "deferred_coverage": [
+        "扫描型PDF",
+        "需要OCR的混合型PDF"
+      ],
+      "coverage_behavior": "检测到需要OCR或无法覆盖的内容时明确提示；不得将遗漏这些内容的结果标成全文完整处理。",
+      "ocr_requirement_in_v1": false
+    },
+    "E04": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "同意。后续可以请医学研究人员协助复核（是指开发期间评测是吗？）",
+      "application_review": "候选逐条由使用者核对原文与抽取范围，人工通过的条目进入已审核导出；医学争议可另请相关人员协助。",
+      "evaluation_reference": "针对选定评测论文，由人工阅读全文制作并核对参考答案，用于评估漏抽与误抽。",
+      "medical_researcher_role": "主要在开发评测阶段协助核对参考答案，复核医学术语、特征归类和适用条件等争议。",
+      "reviewer_availability": "用户表示后续可以邀请医学研究人员；具体人员、标注分工与参与安排尚未落实，在S2准备阶段确定。",
+      "medical_review_completed": false
+    },
+    "E05": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "选择A，断点续跑的基础是不是前面存入SQLite中的内容？",
+      "recovery_mode": "manual_full_extraction_rerun",
+      "transient_errors": "对短暂API错误进行有上限的自动重试。",
+      "interruption": "后端退出、电脑关机或重试失败时，保留已保存的范围、候选和人工审核记录，明确标记中断/失败状态。",
+      "rerun": "用户重试创建新的运行记录，从头执行抽取；旧结果和审核记录保留，不无痕覆盖。",
+      "browser_lifecycle": "前端刷新或关闭不应自动取消仍在后端运行的任务。",
+      "checkpoint_resume_in_v1": false,
+      "checkpoint_note": "已有持久化可为后续续跑提供基础，但不能据此声称已支持断点恢复；后续还需处理单元状态、版本一致性、幂等提交与恢复逻辑。",
+      "future_extension_id": "T1-F01",
+      "future_extension_status": "recorded_for_future_consideration_not_in_v1"
+    },
+    "E06": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "改为在云服务器开发，PDF解析器可使用更强资源；其余E06内容均同意。",
+      "development_environment": "cloud_server",
+      "pdf_parser_deployment": "project_cloud_server",
+      "parser_selection": "对照中英文文本型PDF的定位、阅读顺序、信息保留、质量、耗时及资源；不受本地电脑配置限制，S3实测后共同确定。",
+      "llm_deployment": "cloud_api",
+      "model_selection": "S1选择测试模型验证接口，S4结合真实论文对照后共同确定正式模型。",
+      "llm_input": "对全文按块处理，发送当前所需文本和上下文。",
+      "original_pdf_storage": "项目云服务器持久化数据卷；不默认整份提交给第三方模型服务。",
+      "not_yet_selected": [
+        "云服务器地域核验",
+        "是否需要调整现有CPU/内存/GPU资源",
+        "正式解析器及版本",
+        "测试及正式模型ID",
+        "API区域/端点",
+        "第三方解析服务"
+      ],
+      "current_cloud_provider": "Alibaba Cloud"
+    },
+    "E07": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "同意",
+      "S2": "固定评价及标注规则、初步目标，划分并隔离开发与独立验收论文。",
+      "S3_S4": "依据开发集实测和实际使用要求共同确定最终数值门槛。",
+      "S6": "使用未参与选型和调参的独立论文，按事先固定的门槛验收；未达标时改进系统后复验。",
+      "numeric_thresholds_frozen": false,
+      "numeric_thresholds_approved": false
+    },
+    "E08": {
+      "date": "2026-11-02",
+      "status": "confirmed_with_measurement_followups",
+      "users": "single_user_self",
+      "development_environment": "cloud_server",
+      "multiple_independent_tasks_concurrently_required_in_v1": true,
+      "submission_mode": "one_document_per_task",
+      "batch_submission_in_v1": false,
+      "future_batch_extension": true,
+      "target_concurrency": null,
+      "latency_target": null,
+      "latency_policy": "在保证质量前提下尽量缩短首批及全文等待，先实测再共同确定。",
+      "document_load_policy": "按实际PDF全文件页数及正文/图表/参考文献/附录构成、语言、会刊文体、文本量和文件体积设计负载；投稿限制不能当作实际文件页数。",
+      "survey": "资料来源.json#/paper_length_survey",
+      "remaining_implementation_choices": [
+        "并发资源上限",
+        "最终等待门槛",
+        "正式评测样本数量与配置",
+        "地域/现有资源核验及后续配置",
+        "本人访问方式"
+      ]
+    },
+    "E09": {
+      "date": "2026-11-02",
+      "status": "confirmed",
+      "user_answer": "同意全部规则，初始全部不限（推荐）",
+      "selector_rules": {
+        "initial_modes": {
+          "cancers": "all",
+          "image_types": "all",
+          "features": "all"
+        },
+        "initial_status": "confirmed_all_unrestricted",
+        "restricted_empty_behavior": "提示补选或由用户主动改为不限，处理前不启动任务；系统不自行放宽范围。",
+        "upstream_change_behavior": "重新检查下游适用关系，保留仍有效的选择，标出失效项，由用户调整后开始。",
+        "submit_behavior": "展示本次范围，点击开始抽取即保存范围快照并执行。",
+        "default_item_confirmation_popups": false,
+        "taxonomy_policy": "S2核验大类、亚类及特征类别的具体包含关系并记录来源；上下位关系与同义词分别维护。",
+        "benchmark_scope_as_initial_default": false
+      },
+      "each_level_allows": [
+        "all",
+        "selected_multiple"
+      ],
+      "restricted_features": "selected_features_and_corresponding_synonyms_only",
+      "unrestricted_features": "open_extraction_within_current_cancer_and_image_type_new_terms_pending_review",
+      "implementation_started": false,
+      "medical_taxonomy_verified": false
+    }
+  },
+  "followups": [
+    {
+      "item": "Pi SDK published types and actual tool/event behavior",
+      "stage": "S1",
+      "blocking": "S1 gate until verified"
+    },
+    {
+      "item": "AGICTO authentication and real Pi tool roundtrip",
+      "stage": "S1",
+      "blocking": "S1 gate until verified"
+    },
+    {
+      "item": "medical taxonomy, synonyms, source-backed bindings, reference annotation and reviewer arrangements",
+      "stage": "S2"
+    },
+    {
+      "item": "real parser and CPU/GPU sizing from comparable PDF benchmarks",
+      "stage": "S3"
+    },
+    {
+      "item": "formal extraction model and strategies",
+      "stage": "S4"
+    },
+    {
+      "item": "quality/performance numeric thresholds",
+      "stage": "S3/S4; freeze before S6",
+      "policy": "E07; independent test papers excluded from tuning"
+    },
+    {
+      "item": "concurrency capacity and final latency requirements",
+      "stage": "S5/S6",
+      "minimum_functional_requirement": "at least two independently submitted tasks actually overlap"
+    },
+    {
+      "item": "persistent volume/restart validation and production access",
+      "stage": "S5/S7"
+    },
+    {
+      "item": "Docker/Compose installation and deployment validation",
+      "stage": "S7"
+    },
+    {
+      "item": "production API region/retention and any third-party parser transfer",
+      "stage": "before first real paper transfer; S3/S4",
+      "policy": "S1 sends fixture only; full original PDF not uploaded to model API"
+    }
+  ],
+  "development_access": {
+    "bind_host": "127.0.0.1",
+    "remote_access_suggestion": "SSH local port forwarding",
+    "ssh_tunnel_tested": false,
+    "public_exposure_authorized": false
+  },
+  "interruption_policy": "bounded_retry_then_manual_new_run_full_extraction; old_results_retained",
+  "documentation_reconciliation": "workflow.persistence.chosen_interruption_policy=null is an obsolete placeholder; E05 governs the incremental state sync",
+  "formal_astra_reviews_used": 1,
+  "formal_review_limit": 3,
+  "planning_review": "continue",
+  "planning_review_risks": [
+    "API connectivity alone is not a Pi tool loop",
+    "default Pi resource discovery",
+    "fixtures confused with real paper evidence"
+  ]
+}

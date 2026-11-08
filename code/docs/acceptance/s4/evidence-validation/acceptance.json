@@ -1,0 +1,95 @@
+{
+  "schema_version": "s4-evidence-validation-acceptance-1",
+  "stage": "S4",
+  "scope": "pure_contract_and_validation_engineering_only",
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "human_gold_available": false,
+  "precision": "not_evaluable",
+  "recall": "not_evaluable",
+  "formal_review_counter_at_handoff": {
+    "S4": {
+      "used": 2,
+      "limit": 3
+    },
+    "new_review_started_by_this_agent": false
+  },
+  "files": [
+    "packages/contracts/src/extraction-evidence.ts",
+    "packages/agent/src/evidence-validation.ts",
+    "packages/agent/src/scope-matching.ts",
+    "packages/agent/src/reconciliation.ts",
+    "tests/extraction/fixtures/evidence-fixtures.ts",
+    "tests/extraction/evidence-validation.test.ts",
+    "tests/extraction/scope-matching.test.ts",
+    "tests/extraction/reconciliation.test.ts"
+  ],
+  "field_count": 28,
+  "apis": {
+    "validateEvidenceSubmission": "(submission: unknown, context: EvidenceValidationContext) -> {accepted,record,issues,scope_match}; hard rejects produce record:null; requires_review preserves a needs_context candidate",
+    "locateEvidenceFragment": "Exact PDF raw block text, 0-based occurrence, Unicode code-point [start,end), whole text-line bbox only",
+    "evidenceScopeIssues": "Preflight approved taxonomy/features, explicit development opt-in, no automatic broadening",
+    "matchEvidenceScope": "Strict canonical/approved sourced aliases only; open new terms retain candidate with no forced binding",
+    "reconcileEvidence": "Pure insert/link/append_version/append_proposal advice; caller must persist transactionally with expected_version CAS"
+  },
+  "verification": [
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" node_modules/.bin/tsx --test tests/extraction/evidence-validation.test.ts tests/extraction/scope-matching.test.ts tests/extraction/reconciliation.test.ts",
+      "cwd": "code/",
+      "exit_code": 0,
+      "tests": 48,
+      "passed": 48,
+      "failed": 0,
+      "log": "final-pure-tests.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" node_modules/.bin/tsx --test tests/*.test.ts",
+      "cwd": "code/",
+      "exit_code": 0,
+      "tests": 15,
+      "passed": 15,
+      "failed": 0,
+      "log": "legacy-unit-tests.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" node_modules/.bin/tsc --noEmit",
+      "cwd": "code/",
+      "exit_code": 0,
+      "log": "final-typecheck.log"
+    }
+  ],
+  "preserved_failures": [
+    {
+      "log": "first-pure-tests.log",
+      "tests": 31,
+      "passed": 17,
+      "failed": 14,
+      "causes": [
+        "synthetic catalog bindings accidentally contained a forbidden synonyms property",
+        "synthetic source fragments shared object identity with field evidence; editing a source quote changed evidence but not original_wording"
+      ],
+      "resolution": "corrected synthetic fixture construction; second-pure-tests.log shows 31/31"
+    },
+    {
+      "log": "typecheck.log",
+      "exit_code": 1,
+      "cause": "TS2345: noUncheckedIndexedAccess widened a context-pair element to undefined",
+      "resolution": "preserved tuple shape with as const; typecheck-after-fix.log and final-typecheck.log exit 0"
+    }
+  ],
+  "limitations": [
+    "All dedicated evidence test material is synthetic engineering data, never a medical gold set or medically approved catalog.",
+    "Lexical checks can identify explicit omissions/inconsistencies but cannot validate full clinical semantics, antecedents, table layout, or attribution. Cross-block field associations are flagged for review.",
+    "medical_semantics_verified remains false; model_semantic_review and human_approval are separate; no automatic approved state or T2 handoff.",
+    "Native tables/pictures/structure units remain unverified hints. Quotes come only from source blocks; line boxes do not locate individual glyphs.",
+    "The caller owns storage, rejection events, source metadata trust, concurrency/CAS and actual model review.",
+    "No git repository metadata is present in the workspace; file hashes are recorded instead of a Git diff."
+  ],
+  "unperformed": [
+    "paid model calls",
+    "medical annotation or approval",
+    "permission changes",
+    "dependency installation",
+    "public index/package/plan changes"
+  ]
+}

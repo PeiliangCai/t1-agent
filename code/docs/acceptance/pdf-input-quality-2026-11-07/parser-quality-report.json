@@ -1,0 +1,206 @@
+{
+  "schema_version": "pdf-input-quality-report-1",
+  "status": "local_parser_and_model_input_checkpoint_complete_with_explicit_open_limits",
+  "formal_reviews_used": 3,
+  "formal_reviews_added": 0,
+  "paid_model_calls": 0,
+  "external_LLM_calls": 0,
+  "scope": "Docling CPU stays selected; L01/L05 retained source/native output rebuilt, L07/L02 known evidence checked; one actual current L01 CPU entry run. No method/model comparison.",
+  "checkpoint": "source-checkpoint.json binds code before later FLOW/PROMPT/ALIGN changes; later changes require their own input/engineering checkpoint, not another parser quality claim.",
+  "baseline": {
+    "L01": {
+      "physical_pages": 4,
+      "raw_blocks": 409,
+      "ambiguous_units": 2
+    },
+    "L05": {
+      "physical_pages": 10,
+      "raw_blocks": 615,
+      "partial_or_unmapped_units": 6,
+      "ambiguous_units": 8
+    }
+  },
+  "independent_changes": [
+    {
+      "id": "PDF01",
+      "state": "fixed_derived_caption_context_not_human_verified_relation",
+      "failure": "Frozen L07 Fig2/Fig3 catalog kept only left caption half (9/4 segments), and each had no Figure region because right caption text became a paragraph barrier.",
+      "change": "Only unique, explicitly picture-linked, same-band two-column lower-case continuations with no paragraph barrier are added as separate source segments to a new catalog. Native links remain unchanged; automatic mechanical approval is disabled for these continuations.",
+      "check": {
+        "before": {
+          "Fig2": {
+            "caption_segments": 9,
+            "regions": 0
+          },
+          "Fig3": {
+            "caption_segments": 4,
+            "regions": 0
+          }
+        },
+        "after": {
+          "Fig2": {
+            "caption_segments": 18,
+            "regions": 1
+          },
+          "Fig3": {
+            "caption_segments": 8,
+            "regions": 1
+          }
+        },
+        "status": "needs_review",
+        "tests": "test_input_quality.py: real L07, intervening paragraph and duplicate-candidate negative cases",
+        "evidence": "derived/L07/figure-assets/catalog.json"
+      }
+    },
+    {
+      "id": "PDF02",
+      "state": "fixed_native_metadata_loss_with_explicit_inference",
+      "failure": "IR dropped native heading level; vendor body hierarchy/heading levels are flat and cannot express printed 1/1.4 or 2/2.2/2.2.1 nesting.",
+      "change": "Retain native_heading_level, keep native tree/order, add numbering_inferred parent paths over existing heading labels; metadata headings are distinguished. Native heading display is bounded and labelled processed context, never literal/read evidence.",
+      "check": {
+        "L01_heading_count": 13,
+        "L05_heading_count": 20,
+        "example": "L01 1.4 retains native_level=1; inferred_level=2 and inferred parent 1.",
+        "tests": "Python heading-path regression; TS outside-window heading context/read-accounting regression"
+      }
+    },
+    {
+      "id": "PDF03",
+      "state": "fixed_structure_transport",
+      "failure": "Statement read protocol collapsed native structure to kind+line indices and omitted prose paragraph hierarchy, mapping states, table headers/grid risks and multi-region provenance; summary read/window projection also lacked this context.",
+      "change": "Transmit a current-window structure projection through actual batch read, summary read and latest working-set projection. Raw lines/order are unchanged; no body text copy. Heading display capped320 code points; paragraphs/cells capped24, headings16, omissions explicit.",
+      "check": {
+        "actual_tool_read": "actual-statement-read-L05-table4.json",
+        "returned_lines": 14,
+        "host_read_lines": 14,
+        "packet_JSON_bytes": 6564,
+        "maximum_128_line_structure_JSON_bytes": {
+          "L01": 17677,
+          "L05": 17294,
+          "L07": 9689,
+          "L02": 19380
+        },
+        "tests": "actual tool read and summary eviction regressions",
+        "evidence": "input-context-diagnostics.json"
+      }
+    },
+    {
+      "id": "PDF04",
+      "state": "isolated_not_reconstructed",
+      "failure": "Viewed L05 p7 Table4 has two-level headers and separate N/Y rows, while native15x7 grid merges source baselines and has6 partial/unmapped plus2 ambiguous cells in this table. Raw table lines could otherwise fall back to unknown/body when cell mapping fails.",
+      "change": "Keep all raw lines and native artifact; expose25 decoded source baselines explicitly as nonsemantic rows. Mark source_conflict (relationship error, not assertion that literal values are wrong). Suppress conflicted cell/header relationships in model input; table-region spans cannot be primary and a named conflicted table cannot supply numeric support. Unverified tables without source conflicts retain their hints and are not globally rejected.",
+      "check": {
+        "native_grid_still": {
+          "rows": 15,
+          "cols": 7
+        },
+        "decoded_baselines": 25,
+        "support_semantics": "blocked_due_to_structure_conflict",
+        "model_cells": [],
+        "tests": "real table raw/neighbor prose/caption role, support rejection and unverified-table negative regression"
+      },
+      "remaining": "Correct Table4 semantic row/cell/header grid is not restored."
+    },
+    {
+      "id": "PDF05",
+      "state": "explicit_boundary_context_and_false_completeness_guard",
+      "failure": "L01 visible p1→p2 word continuation 过/敏 is split by native units. Han-character first-letter heuristic could label the p2 start complete.",
+      "change": "Expose cross-page/column continuation candidates without concatenating spans; incoming candidates prevent certifying a sentence start solely from its first character.",
+      "check": {
+        "L01_candidates": 2,
+        "source_text_joined": false,
+        "following_fragment_start": "敏",
+        "completeness": "unverified",
+        "tests": "TS real cross-page source-unit regression"
+      },
+      "remaining": "Generic paragraph continuation is not automatically verified or merged; some context may remain outside batch authorization and is explicitly counted."
+    },
+    {
+      "id": "PDF06",
+      "state": "local_synthetic_anchor_safety_fix_no_observed_L01_L05_L07_span_change",
+      "failure": "Constructed align_sources counterexample matches disjoint alpha/12345/omega ranges in a single decoded line; min/max used to swallow EXTRA/OTHER into an apparent mapped span.",
+      "change": "Keep disjoint exact ranges separate, retain partial status even if concatenating the surviving strings happens to equal native text.",
+      "check": {
+        "synthetic_source": "alpha EXTRA 12345 OTHER omega",
+        "retained_spans": [
+          "alpha",
+          "12345",
+          "omega"
+        ],
+        "mapping": "partial",
+        "real_L01_L05_L07_source_segments_unchanged": true
+      },
+      "attribution_limit": "This is a code-level regression, not an observed real-paper improvement in the three retained sources."
+    }
+  ],
+  "preserved_existing_repairs": [
+    "L01 Figure1 explicit Note remains three literal caption/Note segments; rendered PNG SHA unchanged:8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250.",
+    "L07 p7 wrong Springer-caption vendor link remains rejected; independent whole-picture candidate recovery on p7/p8/p9 predates this change.",
+    "L02 p3 foreign-article continuation guard already exists:20 source blocks quarantined pending human, raw original coverage unchanged. The old survey statement that no article guard exists is historical, not current.",
+    "L02 offline rebuild maps34 formerly unmapped table cells using a small-cell geometry rule already present before this task; no new looser matching is credited. L01/L05 repeated-value ambiguity counts stay2/8."
+  ],
+  "immutable_evidence": {
+    "all_four_PDF_SHA_checked": true,
+    "all_native_artifact_SHA_checked": true,
+    "raw_text_block_IDs_geometry_normalization_identical": true,
+    "native_reading_order_identical": true,
+    "new_text_versions_separate_from_paid_or_reviewed_history": true,
+    "historical_paid_outputs_human_feedback_original_PDFs_modified": false,
+    "details": "parser-diagnostics.json"
+  },
+  "live_entry": {
+    "source": "L01",
+    "result": "live-L01/parser-result.json",
+    "catalog": "live-L01/figure-assets/catalog.json",
+    "CPU_entry_elapsed_seconds": 22.398,
+    "exit_code": 2,
+    "status": "partial",
+    "expected_partial": true,
+    "native_SHA_matches_retained": true,
+    "network_model_access_offline": true,
+    "LLM_calls": 0,
+    "details": "live-L01-execution.json"
+  },
+  "validation": {
+    "Python_parser": {
+      "passed": 32,
+      "failed": 0,
+      "log": "python-tests.log"
+    },
+    "TypeScript_parser": {
+      "passed": 21,
+      "failed": 0,
+      "log": "parser-typescript-tests.log"
+    },
+    "TypeScript_extraction_final": {
+      "passed": 236,
+      "failed": 0,
+      "log": "extraction-tests-final.log"
+    },
+    "TypeScript_compile": {
+      "passed": true,
+      "log": "typescript-final.log"
+    },
+    "external_model_quality_test_performed": false,
+    "test_provider_requests": "Some existing regressions use local scripted HTTP fixtures; they perform no LLM inference."
+  },
+  "readiness": {
+    "continue_pure_offline_engineering_prompt_alignment": true,
+    "core_user_decision_required_for_this_checkpoint": false,
+    "formal_model_comparison_started": false,
+    "input_condition": "Use the new SHA-bound IR/catalog and current structure tool projection. Raw evidence remains authoritative; conflicted table cell/header semantics are withheld and rejected, incomplete continuation boundaries remain unverified. Do not consume stored native JSON/grid as approved evidence.",
+    "next_specific_gaps": [
+      "If Table4 numeric-support semantics are required, reconstruct/verify its true multi-level cells/rows before enabling that support; current raw baselines are not a repaired grid.",
+      "Continue bounded flow/prompt/tool-contract work using local fixture/real source read diagnostics; keep later effects separate from parser changes.",
+      "Cross-page/column paragraph linking, complex Figure completeness/type, heading correctness and other-document membership still need targeted source-page verification."
+    ],
+    "limits": "No claim of100% full-document organization/fidelity, medical approval, S3 pass, new model quality/cost benefit or method winner."
+  },
+  "report_files": [
+    "parser-diagnostics.json",
+    "page-observations.json",
+    "input-context-diagnostics.json",
+    "actual-statement-read-L05-table4.json",
+    "source-checkpoint.json"
+  ]
+}

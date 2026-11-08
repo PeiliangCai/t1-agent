@@ -1,0 +1,25 @@
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (28.810127ms)
+✔ summary completion requires reading every current candidate including candidates added by its updates (208.814789ms)
+{"run_id":"limits-defaults","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"limits-authorized-max","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"limits-one-response","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"sixteen-physical-true","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":16}
+{"run_id":"sixteen-physical-false","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":16}
+✔ authorized operation caps accept sixteen responses and thirty minutes while preserving defaults and global limits (632.733581ms)
+{"test_evidence":"summary_dictionary_runtime_roundtrip","all_candidate_count":1,"trusted_context_bytes":3571,"packet_bytes":2709,"whole_context_restores_exactly":true,"candidate_versions_unchanged":true,"medical_approval":false}
+✔ summary dictionary sent through installed Pi restores the complete trusted context without truncating candidates (26.971ms)
+{"test_evidence":"neutral_case_runtime_coverage","cases":2,"actual_source_and_context_read_required":true,"focus_only_read_does_not_satisfy_context":true,"source_binding_checked":true,"unapproved_judgments":2,"cases_are_gold":false,"medical_approval":false,"candidate_changes_from_case_reports":0}
+✔ independent summary must actually read every neutral audit case source and records only unapproved judgments (54.173639ms)
+{"test_evidence":"summary_document_line_authorization","read_order":[301,300],"immutable_document_indices_not_rebased":true,"unread_attempts_saved_no_candidate":true,"old_source_fields_rejected":true,"out_of_range_index_rejected":302,"saved_full_records":1,"medical_approval":false}
+✔ summary updates use immutable document indices above the batch range and reject unread or legacy references (64.952501ms)
+{"test_evidence":"independent_summary_version_coverage","mode":"automatic-update","completed_unapproved_review":true,"updated_version_requires_new_review":true,"human_active_preserved":false,"medical_approval_from_model":false}
+{"test_evidence":"independent_summary_version_coverage","mode":"human-protected","completed_unapproved_review":true,"updated_version_requires_new_review":false,"human_active_preserved":true,"medical_approval_from_model":false}
+✔ independent summary re-reviews updated versions and preserves human active versions with unapproved proposals (64.815318ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2272.940048

@@ -1,0 +1,12 @@
+{
+  "schema_version": "s4-runtime-validation-proposal-failure-1",
+  "date": "2026-11-03",
+  "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='human version stays|possible link|selected cancer|approved cancer|cancellation after' tests/extraction/runtime.test.ts",
+  "reproduction_command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='human version stays' tests/extraction/runtime.test.ts",
+  "test": "a human version stays active while repeated automatic updates preserve one idempotent proposal",
+  "observed_assertion": { "actual": "proposed_update", "expected": "idempotent" },
+  "condition": "A preexisting synthetic human edit remains active. The same automatic source-backed update is submitted twice through ExtractionTools.",
+  "cause_reported_to_implementation_owner": "Tools passed current active versions to reconciliation, hiding proposed history needed to detect a replay.",
+  "simulation": "Synthetic engineering fixture, local SQLite only; no paid model, real paper or medical approval.",
+  "formal_review": "Ordinary implementation repair; existing S4 formal review count remains 2 of 3."
+}

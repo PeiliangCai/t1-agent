@@ -1,0 +1,16 @@
+{
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "npm",
+    "run",
+    "build:web"
+  ],
+  "cwd": "/home/ecs-user/projects/t1-agent/code",
+  "started_at": "2026-11-02T09:40:10.728960+00:00",
+  "finished_at": "2026-11-02T09:40:11.158787+00:00",
+  "exit_code": 0,
+  "stdout": "\n> t1-agent@0.1.0 build:web\n> vite build apps/web\n\nvite v8.3.5 building client environment for production...\ntransforming...\n✓ 16 modules transformed.\nrendering chunks...\ncomputing gzip size...\napps/web/dist/index.html                   0.35 kB │ gzip:   0.28 kB\napps/web/dist/assets/index-CH0wRSRa.css    0.23 kB │ gzip:   0.19 kB\napps/web/dist/assets/index-Se03Rant.js   663.35 kB │ gzip: 201.87 kB\n\n✓ built in 208ms\n",
+  "stderr": "[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n",
+  "real_api_calls": 0
+}

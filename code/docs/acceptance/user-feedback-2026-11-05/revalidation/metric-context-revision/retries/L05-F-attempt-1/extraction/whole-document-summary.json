@@ -1,0 +1,399 @@
+{
+  "strategy": "baseline",
+  "attempt": 0,
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6-luna",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "model_context_window_metadata": 1050000,
+    "model_capacity_source": "official_OpenAI_model_specification_not_supplier_stress_test",
+    "application_context_estimate_limit": 128000,
+    "configured_max_output_tokens": 8192,
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  },
+  "result": {
+    "settled": true,
+    "responses": 3,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "get_document_context",
+        "call_id": "call_W85zyt724rw4ZD9NwAaP7Nwc|fc_0eb2665b372a0238016aec393802f08196a247a11d34e61db6"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "get_document_context",
+        "call_id": "call_W85zyt724rw4ZD9NwAaP7Nwc|fc_0eb2665b372a0238016aec393802f08196a247a11d34e61db6",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call_FxcTB3mAelt1N1gAc5J3Nxfy|fc_0eb2665b372a0238016aec3941110081969f25cbe7278ebe58"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call_FxcTB3mAelt1N1gAc5J3Nxfy|fc_0eb2665b372a0238016aec3941110081969f25cbe7278ebe58",
+        "error": false
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "lookup_feature_bindings",
+        "call_id": "call_XRpmMnBV4nqECRzrEGEfGpap|fc_0eb2665b372a0238016aec3941111081968ba7ffa8fd3bdc1f"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "lookup_feature_bindings",
+        "call_id": "call_XRpmMnBV4nqECRzrEGEfGpap|fc_0eb2665b372a0238016aec3941111081968ba7ffa8fd3bdc1f",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call_TeC8MUbSW7qBrC8A5i06D8ly|fc_0eb2665b372a0238016aec394e25f88196bca3c1c80d3e689d"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call_TeC8MUbSW7qBrC8A5i06D8ly|fc_0eb2665b372a0238016aec394e25f88196bca3c1c80d3e689d",
+        "error": false
+      }
+    ],
+    "usage": [
+      {
+        "input": 3,
+        "output": 15,
+        "cacheRead": 2165,
+        "cacheWrite": 284,
+        "reasoning": 0,
+        "totalTokens": 2467,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 3,
+        "output": 149,
+        "cacheRead": 2449,
+        "cacheWrite": 4408,
+        "reasoning": 50,
+        "totalTokens": 7009,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 3,
+        "output": 467,
+        "cacheRead": 2165,
+        "cacheWrite": 5209,
+        "reasoning": 198,
+        "totalTokens": 7844,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "7a1468b7-3734-45a0-b4f2-182d6f30b190",
+      "737cfed7-7003-4378-9f55-675da5c237de",
+      "d264a8af-751f-4864-8cea-dbde63604a60"
+    ],
+    "transient_error": false
+  },
+  "request_accounting": [
+    {
+      "id": "7a1468b7-3734-45a0-b4f2-182d6f30b190",
+      "model_id": "gpt-6-luna",
+      "purpose": "comparison-7aa93a47-ea59-4d36-807e-f5ff92ef52bd:source-L05:input-222bb49d95bd:necessary-retry-1:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-05T08:07:16.117Z",
+      "payload_sha256": "966acffe1a534c011881584b38874ce9d614f5df57b9b4c4f4c1190753785c64",
+      "payload_bytes": 13976,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 14488,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 3883,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 7,
+      "first_stream_event_at": "2026-11-05T08:07:21.067Z",
+      "last_stream_event_at": "2026-11-05T08:07:21.813Z",
+      "provider_response_id": "resp_0eb2665b372a0238016aec3935c204819695ccc4c80e3ec286",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-05T08:07:21.067Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.in_progress",
+          "observed_at": "2026-11-05T08:07:21.076Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-05T08:07:21.813Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        }
+      ],
+      "provider_response_model": "gpt-6-luna",
+      "tool_argument_delta_characters": 2,
+      "provider_usage": {
+        "input_tokens": 2452,
+        "input_tokens_details": {
+          "cache_write_tokens": 284,
+          "cached_tokens": 2165
+        },
+        "output_tokens": 15,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2467
+      },
+      "response_stream_sha256": "9a4427babfab845848d672df70c9e35548aaebb7cbd76e78354a2e87df04b353",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 2452,
+      "output_tokens": 15,
+      "cache_read_tokens": 2165,
+      "cache_write_tokens": 284,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-05T08:07:22.125Z"
+    },
+    {
+      "id": "737cfed7-7003-4378-9f55-675da5c237de",
+      "model_id": "gpt-6-luna",
+      "purpose": "comparison-7aa93a47-ea59-4d36-807e-f5ff92ef52bd:source-L05:input-222bb49d95bd:necessary-retry-1:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-05T08:07:22.137Z",
+      "payload_sha256": "56312910e494348d8c036a20df023ac1e059e46747a689adbd26b442a78d4773",
+      "payload_bytes": 28467,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 28979,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 6275,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 100,
+      "first_stream_event_at": "2026-11-05T08:07:28.851Z",
+      "last_stream_event_at": "2026-11-05T08:07:32.694Z",
+      "provider_response_id": "resp_0eb2665b372a0238016aec393cc5508196ab6ac22a235fd70f",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-05T08:07:28.851Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.in_progress",
+          "observed_at": "2026-11-05T08:07:28.892Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-05T08:07:32.694Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        }
+      ],
+      "provider_response_model": "gpt-6-luna",
+      "reasoning_visible_delta_characters": 448,
+      "tool_argument_delta_characters": 128,
+      "provider_usage": {
+        "input_tokens": 6860,
+        "input_tokens_details": {
+          "cache_write_tokens": 4408,
+          "cached_tokens": 2449
+        },
+        "output_tokens": 149,
+        "output_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "total_tokens": 7009
+      },
+      "response_stream_sha256": "119df60a2b42e53c2128ae87502c05c9e480c60d28d90aca082082b14818e52d",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 6860,
+      "output_tokens": 149,
+      "cache_read_tokens": 2449,
+      "cache_write_tokens": 4408,
+      "reasoning_tokens": 50,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-05T08:07:33.055Z"
+    },
+    {
+      "id": "d264a8af-751f-4864-8cea-dbde63604a60",
+      "model_id": "gpt-6-luna",
+      "purpose": "comparison-7aa93a47-ea59-4d36-807e-f5ff92ef52bd:source-L05:input-222bb49d95bd:necessary-retry-1:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-05T08:07:33.065Z",
+      "payload_sha256": "1c4f2c414c07c8b0805b4fbc84a036168411b0de40e93e673b9a5afb68399057",
+      "payload_bytes": 33357,
+      "input_ceiling": 33869,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 33869,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 7420,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 67,
+      "first_stream_event_at": "2026-11-05T08:07:43.003Z",
+      "last_stream_event_at": "2026-11-05T08:07:45.516Z",
+      "provider_response_id": "resp_0eb2665b372a0238016aec394a4cc48196b6b832ca58b9801a",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-05T08:07:43.003Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.in_progress",
+          "observed_at": "2026-11-05T08:07:43.049Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-05T08:07:45.516Z",
+          "expected_model": "gpt-6-luna",
+          "status": "matched",
+          "actual_model": "gpt-6-luna"
+        }
+      ],
+      "provider_response_model": "gpt-6-luna",
+      "tool_argument_delta_characters": 775,
+      "provider_usage": {
+        "input_tokens": 7377,
+        "input_tokens_details": {
+          "cache_write_tokens": 5209,
+          "cached_tokens": 2165
+        },
+        "output_tokens": 467,
+        "output_tokens_details": {
+          "reasoning_tokens": 198
+        },
+        "total_tokens": 7844
+      },
+      "response_stream_sha256": "f8d88be56660360872013ae34f057b476f9fdc8eb969baa17d0cfb6dc1208d0f",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 7377,
+      "output_tokens": 467,
+      "cache_read_tokens": 2165,
+      "cache_write_tokens": 5209,
+      "reasoning_tokens": 198,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-05T08:07:45.878Z"
+    }
+  ],
+  "summary": "已核对本文现有候选与原文。该候选是背景定义，包含AAH区别说明及“typically measures less than 5 mm”；保留完整原句和原始数字单位。未发现同篇其他候选可构成重复或冲突。",
+  "issues": [],
+  "semantic_audit_reviews": [],
+  "semantic_audit_cases_required": [],
+  "recovery_policy": "fresh_session_on_transient_error_maximum2_retries",
+  "attempts": [
+    {
+      "attempt": 0,
+      "status": "completed",
+      "path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/whole-document-summary-attempt-0.json",
+      "request_ids": [
+        "7a1468b7-3734-45a0-b4f2-182d6f30b190",
+        "737cfed7-7003-4378-9f55-675da5c237de",
+        "d264a8af-751f-4864-8cea-dbde63604a60"
+      ],
+      "candidate_versions_after_attempt": 1
+    }
+  ]
+}

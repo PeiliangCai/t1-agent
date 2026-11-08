@@ -1,0 +1,21 @@
+{
+  "schema_version": "s4-application-context-diagnostic-initial-1",
+  "log": "docs/acceptance/s4/runtime-validation/unified-indices-sdk-focused-tests.initial.txt",
+  "tests": 6,
+  "pass": 5,
+  "fail": 1,
+  "typecheck_exit_code": 0,
+  "observed_assertion": {
+    "actual_error_code": "model_response_failed",
+    "expected_error_code": "application_context_estimate_limit"
+  },
+  "scope": "The independent application context guard stopped before a second physical API request; the failure is diagnostic classification, not bypassed context or budget protection.",
+  "implementation_owner_notified": true,
+  "source_sha256_captured_after_initial_failure": {
+    "packages/agent/src/extraction-pi.ts": "129ba80fe519fcac0932413fc6d389ae0e1fbea1d3cf73fb90f0d9b492cd12cb",
+    "packages/agent/src/extraction-budget.ts": "7f9c8ea4c4ce1c720c3cbbdf83e9d6b44c43a5c4e6a7a09d03c61a2168055e5f",
+    "packages/agent/src/extraction-protocol.ts": "32198a90ca1b278483486d9947e5d35815dce70b4fe9b497ff84320da52a0938",
+    "packages/agent/src/extraction-tools.ts": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+    "tests/extraction/runtime.test.ts": "a7de4bb75a0d20394d56de2385a4a791efada85f81cf3787c6fc8b669587f4f0"
+  }
+}

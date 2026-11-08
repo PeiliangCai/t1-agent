@@ -1,0 +1,708 @@
+{
+  "schema_version": "comparison-error-cases-1",
+  "cases": [
+    {
+      "job_id": "L01-B0",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0002",
+        "call_id": "call_26sAEXBVFoM950E1pcJaDvdZ|fc_05d30153c7bf3d2a016aeb5e88b29c8194b0c2cc3bd330cdee",
+        "issues": [
+          {
+            "code": "source_segments_out_of_order_or_overlapping",
+            "severity": "reject",
+            "path": "source_fragments[2]",
+            "detail": ""
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[5]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "modality_not_grounded_in_source",
+            "severity": "requires_review",
+            "path": "modality",
+            "detail": "Submitted value \"横断位肺窗、横断位纵隔窗、冠状位最大密度投影图像\" was not retained as a source fact."
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-B0",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_x5vdhJ708y5mQQwFYRQlFsjp|fc_06b206196d80639c016aeb5ef68a0c8193bea3666ea16a6953",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-B0",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_x5vdhJ708y5mQQwFYRQlFsjp|fc_06b206196d80639c016aeb5ef68a0c8193bea3666ea16a6953",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-B0",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_x5vdhJ708y5mQQwFYRQlFsjp|fc_06b206196d80639c016aeb5ef68a0c8193bea3666ea16a6953",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_74Q1IpYll2MtUTISNe0qjyyT|fc_039e2ac1001effd7016aeb5fd1371c8195adccc4e4668f0302",
+        "issues": [
+          {
+            "code": "disease_or_lesion_not_grounded_in_source",
+            "severity": "requires_review",
+            "path": "disease_or_lesion",
+            "detail": "Submitted value \"NSCLC\" was not retained as a source fact."
+          },
+          {
+            "code": "numeric_original_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].original_text",
+            "detail": ""
+          },
+          {
+            "code": "cross_block_field_relationship_requires_review",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": "Field text is located, but the semantic relationship between blocks is unverified."
+          },
+          {
+            "code": "coreference_requires_context",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_g57hHdMXw5LOso6YKWvKKjVI|fc_093c4f77eafe1ab6016aeb60f8d4088197b748e1f3571d85d1",
+        "issues": [
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "cross_block_field_relationship_requires_review",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": "Field text is located, but the semantic relationship between blocks is unverified."
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_g57hHdMXw5LOso6YKWvKKjVI|fc_093c4f77eafe1ab6016aeb60f8d4088197b748e1f3571d85d1",
+        "issues": [
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "cross_block_field_relationship_requires_review",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": "Field text is located, but the semantic relationship between blocks is unverified."
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_g57hHdMXw5LOso6YKWvKKjVI|fc_093c4f77eafe1ab6016aeb60f8d4088197b748e1f3571d85d1",
+        "issues": [
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "cross_block_field_relationship_requires_review",
+            "severity": "requires_review",
+            "path": "context_fragments",
+            "detail": "Field text is located, but the semantic relationship between blocks is unverified."
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_04kA83OOHmlFU650FVt5YT5C|fc_093c4f77eafe1ab6016aeb610db2788197890530fb20a69213",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[2]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_04kA83OOHmlFU650FVt5YT5C|fc_093c4f77eafe1ab6016aeb610db2788197890530fb20a69213",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[2]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L01-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0003",
+        "call_id": "call_04kA83OOHmlFU650FVt5YT5C|fc_093c4f77eafe1ab6016aeb610db2788197890530fb20a69213",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[2]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-B0",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0005",
+        "call_id": "call_OnUClOPOGPCc8QTsG2ODsgYg|fc_03ed1e112daa232b016aeb62e14964819383d51d2d673e2c77",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[5]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[7]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0004",
+        "call_id": "call_xCMZlYMDTY94K9Tio04OSBbl|fc_079532c5496ab2e3016aeb64bdf85481908285b42bc9a619db",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[5]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-F",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0005",
+        "call_id": "call_vm9I9OI0JNMDtCrrldIXrGrD|fc_0f3adeb74054105b016aeb650dbb1c8195826248d0c7a82ceb",
+        "issues": [
+          {
+            "code": "assertion_requires_context",
+            "severity": "requires_review",
+            "path": "assertion",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-R",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0004",
+        "call_id": "call_QkAkpTkOFKockazaPTP2pKjc|fc_0320fe941acae128016aeb65e9e9888190a9d569aef5a31ed2",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[8]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "source_attribution_requires_review",
+            "severity": "requires_review",
+            "path": "provenance",
+            "detail": ""
+          },
+          {
+            "code": "numeric_original_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[2].original_text",
+            "detail": ""
+          },
+          {
+            "code": "numeric_expression_missing",
+            "severity": "requires_review",
+            "path": "numeric_expressions",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-R",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0004",
+        "call_id": "call_QkAkpTkOFKockazaPTP2pKjc|fc_0320fe941acae128016aeb65e9e9888190a9d569aef5a31ed2",
+        "issues": [
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[3]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "nonadjacent_source_segments_require_context",
+            "severity": "requires_review",
+            "path": "source_fragments[8]",
+            "detail": "Nonadjacent source fragments form a display composite; omitted intervening text and semantic continuity require review."
+          },
+          {
+            "code": "source_attribution_requires_review",
+            "severity": "requires_review",
+            "path": "provenance",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[1].unit_original",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    },
+    {
+      "job_id": "L05-R",
+      "category": "candidate_validation_rejected",
+      "detail": {
+        "batch_id": "batch-0005",
+        "call_id": "call_9p3B7ConAPfdB0XoRttFYonm|fc_04236cb5fd59c156016aeb663aac8c819793fd26b39fc44188",
+        "issues": [
+          {
+            "code": "assertion_requires_context",
+            "severity": "requires_review",
+            "path": "assertion",
+            "detail": ""
+          },
+          {
+            "code": "numeric_unit_not_literal",
+            "severity": "reject",
+            "path": "numeric_expressions[0].unit_original",
+            "detail": ""
+          }
+        ],
+        "scope_match": {
+          "status": "blocked",
+          "matched_binding_id": null,
+          "feature_match": "none",
+          "development_catalog_used": false,
+          "basis": [],
+          "issues": []
+        }
+      },
+      "medical_adjudication": "not_performed"
+    }
+  ],
+  "medical_errors_adjudicated": false,
+  "full_reference_answer_required": false
+}

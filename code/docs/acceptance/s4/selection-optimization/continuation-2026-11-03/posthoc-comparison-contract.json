@@ -1,0 +1,2257 @@
+{
+  "schema_version": "s4-terminal-current-version-literal-contract-1",
+  "target_cohort_id": "reliability-v2-main",
+  "qualification": [
+    "terminal result.records equals latest persisted non-proposed version per record_id",
+    "version.status is exactly active",
+    "record.review_status is not rejected",
+    "record.evidence_validation.quote_located is true"
+  ],
+  "pending_and_needs_context_remain_unapproved_candidates_not_medically_correct_findings": true,
+  "history_superseded_and_proposed_never_extend_main_quote_or_context_interval_union": true,
+  "duplicate_or_conflict_links_do_not_create_extra_independent_medical_discoveries": true,
+  "same_interval_repetition_does_not_add_interval_union_coverage": true,
+  "rows": [
+    {
+      "job_id": "L01-B0",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-B0/result.json",
+      "original_result_sha256": "d0c036e2df7d21ceb62c87e045531ca865536aaf32bd99da95ac3c8581ba2265",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-00f24fac089845f9cafe71491d54fbff88444803",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-04e53197faea6481c3d2f09068f0a6bdaffdd2ea",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-18cf7edea35dc5ed3b59fa6a2274168e83150c89",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-18ff3c911a5cb16a4479541553c8a4392f4cddc6",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2110aa694e3892a656ba7744561325f1510c1aaa",
+          "version": 3,
+          "status": "active",
+          "review_status": "pending"
+        },
+        {
+          "record_id": "ev-32f84333ea6d7b53608acfaabefa41186d0a5a2a",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6d6c331cc8d384be3a168dfc8a6e385f0283c052",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-72cf49225e913f6b3573180c589dc6569c8cabdb",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-73ffc56d7dd884e076d5b6b32acc931ba42bdc3e",
+          "version": 2,
+          "status": "active",
+          "review_status": "pending"
+        },
+        {
+          "record_id": "ev-76664fe29061787f4d5a8d20fd637ebd0f059ac1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7c9071717da3f44641fc124e848e62f72576ff3a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7c9bbb0e169f122a2d2841e49ad0af672c33548d",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-acc4ee299a04fb657e1c51cb846c76916065fc69",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ae84d31ad498097442e99a664309302199ed9b89",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b19dfd7626b4173421737b7d625ebc6750e9f081",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c5d1c903197bcbc250fba000241542bb100b5d80",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ccabd1c6af8c689564506ad2a619dec98dd18ce3",
+          "version": 1,
+          "status": "active",
+          "review_status": "pending"
+        },
+        {
+          "record_id": "ev-e684e35d4157c7f3dad58d7d8d8dac083286c844",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f2a713dd081edf6a1012c005b9768abcb9a69276",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f2cb7cef38ca1b0788f886b31bae63cac9b3f0cd",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f3c807a36701221a603685cf367dfbca7c8d2979",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-18ff3c911a5cb16a4479541553c8a4392f4cddc6",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-2110aa694e3892a656ba7744561325f1510c1aaa",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "pending",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-2110aa694e3892a656ba7744561325f1510c1aaa",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "pending",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-32f84333ea6d7b53608acfaabefa41186d0a5a2a",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-73ffc56d7dd884e076d5b6b32acc931ba42bdc3e",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "pending",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-76664fe29061787f4d5a8d20fd637ebd0f059ac1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c5d1c903197bcbc250fba000241542bb100b5d80",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c5d1c903197bcbc250fba000241542bb100b5d80",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-f2cb7cef38ca1b0788f886b31bae63cac9b3f0cd",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L01-F",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-F/result.json",
+      "original_result_sha256": "65522f64b5f5949502b40c8e558a2000f12323774de50735834abeff3fec9321",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-010342f74161a09d3ffaedc337b103b87eca3194",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0f10e13c18bbaab0e9a99c7a8ba0b9f9421679fc",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1a342de70a2d4db32b3baf34fcfae5e25954ddff",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2b0fcaed1db72f352f7a15f200cc275279e588b2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-42aed9d864801b5717f9c971a6ddbd9a0e7e4454",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-57e349015e89fcdb8579d4cc8b05bbbf7558dc83",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5be8d1d9fd9e020f3cc74d8fdb142970856809a9",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6d2d2eca71207738aabc774282d9cd8bdfbb5d7e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-74ca51b2ccea1a13874fc566c4d9815340c44a01",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7679b313600487666f60e17a32c7d12091796d4e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-89c30b361c6e8d13ffcd23b0e195ee7891b8058d",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ff43bf1dc9a0e561f5b32a8120b2994c219881a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-9fe9cbef40ab30c7c47abe13a314ac8894dcf6d2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a6f22db3594545bde6d86bcd41ead0680cca9411",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a85dadf0e5ee102d14cd9c80988e7aae0c6d2971",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ac16d96bb612f91dc7f97fd51cc3a5816dabe1ae",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-be1f4a92092e98889ae72f91130a2ea443e7b46a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c19661b077e3f54d856401c22b10f62c9d731255",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c85b053cc7cd7e6ae7e9acbbe5a4b86559517e78",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d73ef00a7e32a3cfbdea13fd7d0ba50b88afc46e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-dded793fd0569ddaa0052dead2503ffd83efcac8",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e6a69d5a695ac48cd8641b1107b6b1deead46db6",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-fc223a9d89e4f7f216bd90ff2caa0f7f0b059ea0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ff490033ba247a54377a497446d72c9cdaa43427",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L01-R",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-F/result.json",
+      "original_result_sha256": "65522f64b5f5949502b40c8e558a2000f12323774de50735834abeff3fec9321",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-010342f74161a09d3ffaedc337b103b87eca3194",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0f10e13c18bbaab0e9a99c7a8ba0b9f9421679fc",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1a342de70a2d4db32b3baf34fcfae5e25954ddff",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2b0fcaed1db72f352f7a15f200cc275279e588b2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-42aed9d864801b5717f9c971a6ddbd9a0e7e4454",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-57e349015e89fcdb8579d4cc8b05bbbf7558dc83",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5be8d1d9fd9e020f3cc74d8fdb142970856809a9",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6d2d2eca71207738aabc774282d9cd8bdfbb5d7e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-74ca51b2ccea1a13874fc566c4d9815340c44a01",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7679b313600487666f60e17a32c7d12091796d4e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-89c30b361c6e8d13ffcd23b0e195ee7891b8058d",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ff43bf1dc9a0e561f5b32a8120b2994c219881a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-9fe9cbef40ab30c7c47abe13a314ac8894dcf6d2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a6f22db3594545bde6d86bcd41ead0680cca9411",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a85dadf0e5ee102d14cd9c80988e7aae0c6d2971",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ac16d96bb612f91dc7f97fd51cc3a5816dabe1ae",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-be1f4a92092e98889ae72f91130a2ea443e7b46a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c19661b077e3f54d856401c22b10f62c9d731255",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c85b053cc7cd7e6ae7e9acbbe5a4b86559517e78",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d73ef00a7e32a3cfbdea13fd7d0ba50b88afc46e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-dded793fd0569ddaa0052dead2503ffd83efcac8",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e6a69d5a695ac48cd8641b1107b6b1deead46db6",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-fc223a9d89e4f7f216bd90ff2caa0f7f0b059ea0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ff490033ba247a54377a497446d72c9cdaa43427",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L01-FR",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L01-F/result.json",
+      "original_result_sha256": "65522f64b5f5949502b40c8e558a2000f12323774de50735834abeff3fec9321",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-010342f74161a09d3ffaedc337b103b87eca3194",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-0f10e13c18bbaab0e9a99c7a8ba0b9f9421679fc",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1a342de70a2d4db32b3baf34fcfae5e25954ddff",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2b0fcaed1db72f352f7a15f200cc275279e588b2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-42aed9d864801b5717f9c971a6ddbd9a0e7e4454",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-57e349015e89fcdb8579d4cc8b05bbbf7558dc83",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5be8d1d9fd9e020f3cc74d8fdb142970856809a9",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6d2d2eca71207738aabc774282d9cd8bdfbb5d7e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-74ca51b2ccea1a13874fc566c4d9815340c44a01",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7679b313600487666f60e17a32c7d12091796d4e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-89c30b361c6e8d13ffcd23b0e195ee7891b8058d",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8ff43bf1dc9a0e561f5b32a8120b2994c219881a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-9fe9cbef40ab30c7c47abe13a314ac8894dcf6d2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a6f22db3594545bde6d86bcd41ead0680cca9411",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a85dadf0e5ee102d14cd9c80988e7aae0c6d2971",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ac16d96bb612f91dc7f97fd51cc3a5816dabe1ae",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-be1f4a92092e98889ae72f91130a2ea443e7b46a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c19661b077e3f54d856401c22b10f62c9d731255",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c85b053cc7cd7e6ae7e9acbbe5a4b86559517e78",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d73ef00a7e32a3cfbdea13fd7d0ba50b88afc46e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-dded793fd0569ddaa0052dead2503ffd83efcac8",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e6a69d5a695ac48cd8641b1107b6b1deead46db6",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-fc223a9d89e4f7f216bd90ff2caa0f7f0b059ea0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ff490033ba247a54377a497446d72c9cdaa43427",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-0dc5540346804b0fafeb3c7f65f509939f54e2a1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-21ad8fdea91c9ca5a16381830fbf8ee66307f273",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-5d09240986fad141ddf5c47c70317d8dc4854006",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-62922eab1859ceecce583f6ce379596ae4d2a0f7",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-6624c76692448bdb406827e8cbc4e9f9e992ca02",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8ec9ad7e0154dc9951b72677e0e999fe452e3035",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-920bb04e976653b95db732c72e747b76b237b530",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-bb074a00c5db51d46baabdd2e379bd7d9639a41b",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c964c3103daa5d0cc57242f570c087bf6a1f7da1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-f1d41d862eebd7bcb72738641232902cf8711bc4",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L05-B0",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-B0/result.json",
+      "original_result_sha256": "1d87011e6a51c9c78a0344d73075eb8fa2694cfcab52d751e9e68ca39140a3a3",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-0e0934189c004e3c238706c8ddc6bfc5d4516e99",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1412d27da4f938b8a17e061b24ccb2ca6e667ef6",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2e03984d86eb1a60f13387302b9e8b9655cd8d0b",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-3bf8a0566e5ebfd5db1531465485880e3aed2962",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-3c9992c94e33a18b6c86c27de3f167d6ad30337e",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-457869014c3d5fa7cf63937c0ce12be79b927d80",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-51a1f0ad4aa61517c7261fb0050e700bbb4bfecd",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-59ad52a8e359008d9e4af6fc70f75ac3db5b4080",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-68951b92f86056fe3f55781debea94241074cff3",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-6bdfed5b9ac749133bd9a947a1f6cac8295464b0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8fb17978e1fafbb1ca52f15ae55bb6361a6d7e1a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-9e873764d4e0ecb2455a1e9c60215fdd7c26b986",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a130efa2daaa7c6a99814be4e5dc84bc1e771345",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a4be3d484ed722f6a6c57d310d70b704619d2eb7",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a6dcacf3acdd61bd6724fe9a414035b59e2b305e",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-abd997f05c18a1c392d52648c3135eb192c70678",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b001dd4d7020d362d7e2fab91328b88f20825f4b",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c9addad916d13585d174432e999b2fa957ed7734",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d72684d20fae14225a4e80dc7b5f8b13750f95f7",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e089e933d16b3823de1bf529ea777db8952c6266",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e990bc7ac9b72fd4735f1358608929aac4579b9f",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-0e0934189c004e3c238706c8ddc6bfc5d4516e99",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-1412d27da4f938b8a17e061b24ccb2ca6e667ef6",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-3bf8a0566e5ebfd5db1531465485880e3aed2962",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-59ad52a8e359008d9e4af6fc70f75ac3db5b4080",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a130efa2daaa7c6a99814be4e5dc84bc1e771345",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a6dcacf3acdd61bd6724fe9a414035b59e2b305e",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-abd997f05c18a1c392d52648c3135eb192c70678",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-b001dd4d7020d362d7e2fab91328b88f20825f4b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-c9addad916d13585d174432e999b2fa957ed7734",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L05-F",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-F/result.json",
+      "original_result_sha256": "a17b877d1443fa7588a09f8f9f0c7f9999485cd37470b46ea2a093dcdc3fa992",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-043449637df34692554353a11d0525aee7739fc2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-16e0f513c810b0694185ca672271ec9f036bafbe",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2e88d6a1fe1158e74cc5edd59187bd285a236ffc",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7560e3bc87ac30214adb0947b695429c7373ac05",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-793f7de532182b7de26f621edaa7d4a193c85b5e",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-83599600f050e9a5e0bda003bcb68fd879bd16b1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8a39c33430e3d9b7631af285d9b0becb8b3c7629",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8de5c2bd90e674232496a63087dfefac268ab2d0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8f068a954951b049ac98ebc2ff1e84b77e2b3900",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a198a43728ecee5198d672a0592734f2e20e667b",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a90b5335a1909b16d67628e335422744bb832e42",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b614ccbdeb5d25ed8191725e229893a004ac5781",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-bc2525ddaaced89ff9b52e45f95065aec629c049",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-dfbd5bc0ced09e9332d9ac2d113b04b57b357284",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e9c77c22b21722bfb15015f8834d21b4ee84ef23",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f30d17d06cd4ff01e7282dd88b5a6bb95f7e4836",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-fe9fe09cfe6c21540d847aa9e439732ba07c0bd4",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-16e0f513c810b0694185ca672271ec9f036bafbe",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-2e88d6a1fe1158e74cc5edd59187bd285a236ffc",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-7560e3bc87ac30214adb0947b695429c7373ac05",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-793f7de532182b7de26f621edaa7d4a193c85b5e",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-83599600f050e9a5e0bda003bcb68fd879bd16b1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8a39c33430e3d9b7631af285d9b0becb8b3c7629",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8f068a954951b049ac98ebc2ff1e84b77e2b3900",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a198a43728ecee5198d672a0592734f2e20e667b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a90b5335a1909b16d67628e335422744bb832e42",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-dfbd5bc0ced09e9332d9ac2d113b04b57b357284",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-e9c77c22b21722bfb15015f8834d21b4ee84ef23",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L05-R",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-R/result.json",
+      "original_result_sha256": "5e6485c097808a8651a16cb1b0794ae049ec9474d141bf2c28c6d59d7ea01ed2",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-053a9978f725a4a0fd184d360acbcf4c29bf19fd",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1d7b883d3ca680aa6e74e28316d48bcf9525c844",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2464bfdc20b1efc7292518c78bb93e159cd658e6",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-31068e6268c1842f945c4d5f87be03a2315e58fa",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-3729146d3b9e64eb3e7b14a6376119f9e6904716",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-3d3fa37cfd9128430812c9eeccf5ae84f92a0bd3",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-3dc28beb7794fc90235762c0ed21a2cb708f1a85",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-49181c9716bbb069121f9e4c4ebc29c9b808b452",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-74e6a1c71336851abc2738e2b61a8ee953e3e2ef",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-77a529195df8ca5d55cbedb7e7f4d26186751ec3",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-793907395937789427ed5b337eaacff15d0b359b",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7f3b096d18fb61dd9784e5f44de27fb122e83b51",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-84002d6b65823058bf54119d42e5d12097e5ef51",
+          "version": 2,
+          "status": "active",
+          "review_status": "pending"
+        },
+        {
+          "record_id": "ev-84d7f7a06c55b774f7ee6561fe76fb59dabba86d",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a39d34d8f3e771ab7ffac897d0e5c0fdc644e5a9",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b4bd3b7e91901ad5404defc2e78b552cb56a3cda",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b4c8dc09ec43126e26bbf2fd1e7d90cf9b983ea6",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-c50d719f499331220af340cf64be3bc0a09ba23f",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d72cf1538fd461a61c9d0be99e13b2cf753d7575",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-d809991c675d2b0b0fa21df84543e9e3b70c0385",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-ea335ad3d0ce4140ee1b26231a1c796d86d437c5",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-edde1810b8af9497602090847790527a34d7ed4a",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f4b64ce57947e761f341135ebb8de8066bcb645d",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-053a9978f725a4a0fd184d360acbcf4c29bf19fd",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-31068e6268c1842f945c4d5f87be03a2315e58fa",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-3729146d3b9e64eb3e7b14a6376119f9e6904716",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-3d3fa37cfd9128430812c9eeccf5ae84f92a0bd3",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-3dc28beb7794fc90235762c0ed21a2cb708f1a85",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-49181c9716bbb069121f9e4c4ebc29c9b808b452",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-74e6a1c71336851abc2738e2b61a8ee953e3e2ef",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-77a529195df8ca5d55cbedb7e7f4d26186751ec3",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-84002d6b65823058bf54119d42e5d12097e5ef51",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-84d7f7a06c55b774f7ee6561fe76fb59dabba86d",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a39d34d8f3e771ab7ffac897d0e5c0fdc644e5a9",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-b4bd3b7e91901ad5404defc2e78b552cb56a3cda",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-d809991c675d2b0b0fa21df84543e9e3b70c0385",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-ea335ad3d0ce4140ee1b26231a1c796d86d437c5",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-f4b64ce57947e761f341135ebb8de8066bcb645d",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    },
+    {
+      "job_id": "L05-FR",
+      "original_result_path": "/home/ecs-user/projects/t1-agent/code/runtime-data/s4/selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2/reliability-v2-main/L05-F/result.json",
+      "original_result_sha256": "a17b877d1443fa7588a09f8f9f0c7f9999485cd37470b46ea2a093dcdc3fa992",
+      "eligible_current_versions": [
+        {
+          "record_id": "ev-043449637df34692554353a11d0525aee7739fc2",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-16e0f513c810b0694185ca672271ec9f036bafbe",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-2e88d6a1fe1158e74cc5edd59187bd285a236ffc",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-7560e3bc87ac30214adb0947b695429c7373ac05",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-793f7de532182b7de26f621edaa7d4a193c85b5e",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-83599600f050e9a5e0bda003bcb68fd879bd16b1",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8a39c33430e3d9b7631af285d9b0becb8b3c7629",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8de5c2bd90e674232496a63087dfefac268ab2d0",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-8f068a954951b049ac98ebc2ff1e84b77e2b3900",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a198a43728ecee5198d672a0592734f2e20e667b",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-a90b5335a1909b16d67628e335422744bb832e42",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-b614ccbdeb5d25ed8191725e229893a004ac5781",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-bc2525ddaaced89ff9b52e45f95065aec629c049",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 3,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-dfbd5bc0ced09e9332d9ac2d113b04b57b357284",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-e9c77c22b21722bfb15015f8834d21b4ee84ef23",
+          "version": 2,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-f30d17d06cd4ff01e7282dd88b5a6bb95f7e4836",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        },
+        {
+          "record_id": "ev-fe9fe09cfe6c21540d847aa9e439732ba07c0bd4",
+          "version": 1,
+          "status": "active",
+          "review_status": "needs_context"
+        }
+      ],
+      "history_proposals_and_ineligible_current_audit_only": [
+        {
+          "record_id": "ev-16e0f513c810b0694185ca672271ec9f036bafbe",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-1f2cc7eb2939ed88d680007b843f6f5d7506dadf",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-2e88d6a1fe1158e74cc5edd59187bd285a236ffc",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-4aebad7a05bcd3c28cdaf358645f9b809eb0a97a",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-7560e3bc87ac30214adb0947b695429c7373ac05",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-793f7de532182b7de26f621edaa7d4a193c85b5e",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-83599600f050e9a5e0bda003bcb68fd879bd16b1",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8a39c33430e3d9b7631af285d9b0becb8b3c7629",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-8f068a954951b049ac98ebc2ff1e84b77e2b3900",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a198a43728ecee5198d672a0592734f2e20e667b",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-a90b5335a1909b16d67628e335422744bb832e42",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-cbfffbc909ca5c1310594383770fcb702e25b3e8",
+          "version": 2,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-dfbd5bc0ced09e9332d9ac2d113b04b57b357284",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        },
+        {
+          "record_id": "ev-e9c77c22b21722bfb15015f8834d21b4ee84ef23",
+          "version": 1,
+          "status": "active",
+          "actor": "automatic",
+          "review_status": "needs_context",
+          "reason": "superseded_version",
+          "eligible_for_main_quote_union": false
+        }
+      ]
+    }
+  ]
+}

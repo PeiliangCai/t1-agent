@@ -1,0 +1,201 @@
+{
+  "schema_version": "s4-scale-options-1",
+  "created_at": "2026-11-03T05:04:46.693949+00:00",
+  "decision_status": "proposals_not_executed",
+  "new_paid_calls": 0,
+  "limits_changed_by_this_script": false,
+  "accounting": {
+    "requests_used": 133,
+    "measured_input": 1186673,
+    "unknown_input_reservation": 422621,
+    "measured_output": 76813,
+    "unknown_output_reservation": 65536,
+    "unknown_attempts": 8,
+    "remaining_requests": 267,
+    "remaining_input": 390706,
+    "remaining_output": 257651,
+    "effective_deadline": "2026-11-03T06:52:42.293000+00:00",
+    "remaining_wall_clock_minutes_at_report": 107.92665085
+  },
+  "complete_same_version_L01_samples": [
+    {
+      "job_id": "job-01",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:ca5ae3e1",
+      "model_id": "gpt-6.1-sol",
+      "result_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6/result.json",
+      "assigned_blocks": 409,
+      "requests": 23,
+      "input_tokens": 328384,
+      "output_tokens": 13907,
+      "summary_input_tokens": 176286,
+      "seconds": 779.0524818260001,
+      "candidates": 26,
+      "medical_quality_approved": false,
+      "flat_price_scenario_CNY": 5.013779400000001
+    },
+    {
+      "job_id": "job-06",
+      "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-06:13911dd7",
+      "model_id": "gpt-6-astra",
+      "result_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2/result.json",
+      "assigned_blocks": 409,
+      "requests": 18,
+      "input_tokens": 214816,
+      "output_tokens": 7181,
+      "summary_input_tokens": 66560,
+      "seconds": 377.305573479,
+      "candidates": 17,
+      "medical_quality_approved": false,
+      "flat_price_scenario_CNY": 15.795423
+    }
+  ],
+  "offline_model_view_evidence": "code/docs/acceptance/s4/evidence-validation/summary-model-view-real/measurement.json",
+  "offline_byte_reduction_is_not_measured_token_cost_or_latency_reduction": true,
+  "option_A": {
+    "scope": "one complete L01 independent_context_review condition, preferentially job-13 Astra, within the unchanged existing call/token caps",
+    "why_Astra_for_bounded_engineering_test": "lower observed L01 input and wall time in this development pair, not a medical quality preference",
+    "estimated_additional_requests_range": [
+      18,
+      28
+    ],
+    "estimated_additional_input_range": [
+      200000,
+      330000
+    ],
+    "estimated_additional_output_range": [
+      10000,
+      25000
+    ],
+    "estimated_wall_minutes_range": [
+      10,
+      25
+    ],
+    "flat_price_scenario_CNY_range": [
+      15.75,
+      28.665
+    ],
+    "new_caps_requested": false,
+    "stop_policy": "existing atomic reservations and 30-minute per-document / 16-response per-batch bounds; save partial if limits prevent completion",
+    "expected_deliverable_if_completed": "3 of 14 conditions; all L01 source blocks plus every current candidate reviewed_unapproved and both neutral cases actually read and judged; 11 conditions remain pending",
+    "complete_run_guaranteed": false
+  },
+  "option_B": {
+    "scope": "execute all original 14 conditions; 12 remain pending at this report",
+    "model_ids_and_medium_unchanged": true,
+    "remaining_original_blocks_including_quarantine": 10596,
+    "remaining_assigned_blocks": 10556,
+    "per_model_reference_projection": [
+      {
+        "model_id": "gpt-6.1-sol",
+        "pending_job_ids": [
+          "job-02",
+          "job-03",
+          "job-04",
+          "job-05",
+          "job-11",
+          "job-12"
+        ],
+        "pending_assigned_blocks": 5278,
+        "L01_block_multiplier": 12.904645476772616,
+        "old_protocol_requests_linear": 296.80684596577015,
+        "old_protocol_input_linear": 4237679.100244499,
+        "old_protocol_output_linear": 179464.90464547678,
+        "old_protocol_serial_seconds_linear": 10053.396085764372,
+        "byte_ratio_input_scenario_not_measured_tokens": 2943784.290713138,
+        "old_protocol_flat_price_scenario_CNY": 64.70104565574572,
+        "byte_ratio_flat_price_scenario_CNY": 48.39797105565058
+      },
+      {
+        "model_id": "gpt-6-astra",
+        "pending_job_ids": [
+          "job-07",
+          "job-08",
+          "job-09",
+          "job-10",
+          "job-13",
+          "job-14"
+        ],
+        "pending_assigned_blocks": 5278,
+        "L01_block_multiplier": 12.904645476772616,
+        "old_protocol_requests_linear": 232.2836185819071,
+        "old_protocol_input_linear": 2772124.322738386,
+        "old_protocol_output_linear": 92668.25916870416,
+        "old_protocol_serial_seconds_linear": 4868.994662156875,
+        "byte_ratio_input_scenario_not_measured_tokens": 2285737.633553952,
+        "old_protocol_flat_price_scenario_CNY": 203.83433397066014,
+        "byte_ratio_flat_price_scenario_CNY": 173.1919725520408
+      }
+    ],
+    "reference_totals": {
+      "old_protocol_requests_linear": 529.0904645476772,
+      "old_protocol_input_linear": 7009803.422982885,
+      "old_protocol_output_linear": 272133.16381418094,
+      "old_protocol_serial_seconds_linear": 14922.390747921247,
+      "byte_ratio_input_scenario_not_measured_tokens": 5229521.92426709,
+      "old_protocol_flat_price_scenario_CNY": 268.53537962640587,
+      "byte_ratio_flat_price_scenario_CNY": 221.58994360769137
+    },
+    "minimum_total_caps_implied_by_old_L01_linear_reference_without_safety_margin": {
+      "requests": 663,
+      "input_tokens": 8619098,
+      "output_tokens": 414483
+    },
+    "buffered_operational_cap_proposal_not_authorized": {
+      "requests_total_all_attempts": 700,
+      "input_tokens_total_including_cache": 10000000,
+      "output_tokens_total_including_reasoning": 600000,
+      "experiment_seconds_from_original_start": 18000,
+      "document_seconds_maximum": 3600,
+      "batch_responses": 16,
+      "request_seconds": 120,
+      "transient_retries": 2,
+      "concurrency": 2
+    },
+    "time_reference": {
+      "serial_minutes": 248.7065124653541,
+      "ideal_two_worker_minutes_without_overlap_losses": 124.35325623267705,
+      "long_Sol_MED03_minutes_from_block_linear_reference": 44.79393039349984,
+      "long_Sol_L07_minutes_from_block_linear_reference": 37.746267354976126
+    },
+    "uncertainty": [
+      "only one small exposed Chinese paper per model; article and format differences may dominate",
+      "new dictionary and independent review/case checks have not yet been measured through the real supplier",
+      "byte ratio is not a verified token ratio; additional reviews and retries are excluded from linear reference",
+      "upper caps allow bounded attempts, never guarantee full extraction or medical accuracy"
+    ],
+    "approval_required_before_applying_proposed_call_scale": true
+  },
+  "stop_now_boundary": {
+    "completed_engineering_conditions": 2,
+    "pending_matrix_job_ids": [
+      "job-02",
+      "job-03",
+      "job-04",
+      "job-05",
+      "job-07",
+      "job-08",
+      "job-09",
+      "job-10",
+      "job-11",
+      "job-12",
+      "job-13",
+      "job-14"
+    ],
+    "unfinished_R09": "remaining model/strategy and article comparisons; formal model selection",
+    "unfinished_R10": "real independent semantic review and neutral-case verification; medical gold-based validation",
+    "unfinished_R11": "real independent-review findings/updates not yet observed; human medical approval remains pending",
+    "unfinished_R12": "other four papers and broad scope/generalization trials, full manual gold, independent acceptance and numeric thresholds",
+    "stage_passed": false,
+    "S5_started": false
+  },
+  "pricing": {
+    "source": "https://agicto.com/model",
+    "verified_date": "2026-11-03",
+    "currency": "CNY",
+    "assumption_file": "code/docs/acceptance/s4/pricing-assumptions.json",
+    "missing_usage_excluded_from_price_estimates": true,
+    "cache_and_account_discount_applicability": "unknown",
+    "actual_cost": null,
+    "actual_bill": "unknown"
+  }
+}

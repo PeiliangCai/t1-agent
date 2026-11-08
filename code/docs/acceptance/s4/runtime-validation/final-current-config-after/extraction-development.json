@@ -1,0 +1,40 @@
+{
+  "schema_version": "s4-development-experiment-1",
+  "formal_model_selected": false,
+  "provider": "agicto",
+  "api": "openai-responses",
+  "model_ids": [
+    "gpt-6.1-sol",
+    "gpt-6-astra"
+  ],
+  "reasoning_effort": "medium",
+  "catalog_default": {
+    "catalog_version": "medical-unavailable-1",
+    "status": "unavailable",
+    "fixture": false,
+    "features": [],
+    "bindings": []
+  },
+  "original_pdf_uploads_allowed": false,
+  "operation_limits": {
+    "requests_all_attempts": 400,
+    "input_tokens_including_measured_cache": 2000000,
+    "output_tokens_including_reasoning": 400000,
+    "experiment_seconds": 14400,
+    "document_seconds": 1800,
+    "request_seconds": 120,
+    "transient_retries": 2,
+    "document_seconds_note": "new runs only; initial ledger limits retain the original 900-second historical setting"
+  },
+  "input_reservation_policy": "at least 32768 operational tokens plus conservative payload estimate; independent of model capacity; missing usage stays unknown with reservation; not a provider hard limit",
+  "usage_policy": "Pi normalized input+cacheRead+cacheWrite counts input once; output includes reasoning already, reasoning is a reported subset",
+  "actual_cost": null,
+  "cost_status": "unknown_gateway_billing",
+  "per_run_authorized_maxima": {
+    "batch_responses": 16,
+    "document_seconds": 1800
+  },
+  "operation_adjustment_record": "docs/acceptance/s4/operation-limit-adjustment.json",
+  "model_protocol": "s4-unified-batch-lines-5",
+  "wall_clock_adjustment_record": "docs/acceptance/s4/wall-clock-adjustment.json"
+}

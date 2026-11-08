@@ -1,0 +1,44 @@
+{
+  "schema_version": "s4-reliability-explicit-user-confirmation-1",
+  "user_response": {
+    "verbatim": "批准",
+    "user_message_at_utc": null,
+    "recorded_at_utc": "2026-11-05T13:19:35.148Z",
+    "received_from": "main_session_GPT-6-Astra_max_explicit_user_approval_relay"
+  },
+  "time_basis": "Actual local UTC recording/signature time; the user message timestamp was not supplied and is not inferred.",
+  "authorization_granted": true,
+  "same_approval_must_not_be_requested_again": true,
+  "prepared_plan": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/plan.json",
+  "prepared_plan_sha256": "75977832a6b09df7df1a5fbbc71b7e28e29e93ec7a5d75637464188109006625",
+  "unsigned_template_sha256": "ba06930c1f5f314e847bc04a5bde62f4851fc79937c83de5cd13bdcbbc022e20",
+  "scope": {
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses",
+    "execution_job_ids": [
+      "L05-B0",
+      "L05-F"
+    ],
+    "purpose": "integrated_reliability_smoke_only_no_single_variable_gain_or_method_ranking",
+    "source_pdf_default_uploads": 0
+  },
+  "limits": {
+    "requests": 64,
+    "input_tokens": 1500000,
+    "output_tokens": 160000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "all_failures_corrections_and_retries_count": true,
+  "new_independent_authorization_id": "S4-reliability-L05-B0-F-Luna-medium-20261105-b5ed841b-7e18-41b7-8aed-a8c978e0ac6f",
+  "new_budget_owner": "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb",
+  "old189_and216_authorizations_or_ledgers_reused_or_reset": false,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": "reference-preparation-cleanup-final-summary-1",
+  "status": "cleanup_complete_development_documents_handed_off",
+  "completed_at": "2026-11-04T13:43:56.112217+00:00",
+  "deleted_existing_project_files": 201,
+  "deleted_existing_project_size_bytes": 149092036,
+  "size_interpretation": "删除目标原文件大小合计；未实测磁盘块净释放量。未为删除目标创建备份ZIP或Trash副本。",
+  "groups": {
+    "offline_distribution": 26,
+    "retirement_payload": 8,
+    "annotation_qa": 142,
+    "human_preparation": 24,
+    "guide_generator": 1
+  },
+  "moved_files": [
+    {
+      "path": "code/evaluation/annotations/templates/unevaluable-real-input.json",
+      "size_bytes": 653,
+      "sha256": "c6210984e6ffcdc5de91cfd119ebcf011152afc5f1fad71adae94b3044184b0f",
+      "mtime_ns": 1793627871898744120,
+      "destination": "code/evaluation/fixtures/scoring/unevaluable-real-input.json",
+      "reason": "保留可选计分器的无参考不产出指标负向输入，迁入工程fixture目录；fixture:false及输入语义不变。"
+    }
+  ],
+  "original_inventory_disposition": {
+    "rows": 780,
+    "actual_deleted": 201,
+    "actual_moved": 1,
+    "not_deleted_by_this_cleanup": 578,
+    "retained_present_at_snapshot": 575,
+    "outside_scope_currently_absent": [
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04-annotation.json",
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04-plan.json",
+      "code/runtime-data/agent-notes/pi-web-frontend-2026-11-04.json"
+    ],
+    "all_this_cleanup_deletion_and_move_actions_consistent": true,
+    "issues": [],
+    "observed_at": "2026-11-04T13:43:56.112217+00:00"
+  },
+  "retained_definition": "保留指未被本轮删除；共享开发文档当前内容和后续正确措辞由另一文档窗口维护，合法外部改动不视为本轮失败。3项其他任务日志当前缺失，归因未知/本轮范围外，不追查、不恢复。",
+  "shared_document_handoff": "documentation-handoff.json",
+  "shared_document_writes_stopped": true,
+  "no_rollback_or_further_sync": true,
+  "no_further_application_or_test_changes_or_validation_reruns": true,
+  "necessary_code_changes": [
+    {
+      "path": "code/tests/evaluation/cli.test.ts",
+      "before_sha256": "cfb1baf1efd5fe538b98f1d3a5ffbfae4ab7092b858bf6a72e3568a49c49959d",
+      "after_sha256": "4034a13a4180d5f119da2d24c85f9c7b3e0fc9cba38cc90ea76d135a3b2b78ee"
+    },
+    {
+      "path": "code/tests/evaluation/evaluator.test.ts",
+      "before_sha256": "baafcc77bdfc0ef39d15a3b608febc88f5b45df0cee74904dae812d6ef6eaaab",
+      "after_sha256": "b376d9d137a81122ceb9c5f3d3645d1e50ee67c470a1426f4ab9a5f2072d7f90"
+    },
+    {
+      "path": "code/scripts/check-s2.py",
+      "before_sha256": "af26962b2c42fd53256bba0802d65d789b2ebc0820566db0c0d7e6ad76da8eff",
+      "after_sha256": "073769a7c3d6f98723a2c34f08be90cab6563d85963bb9b55e5d669f86d2fe85"
+    },
+    {
+      "path": "code/tests/evaluation/materials.test.ts",
+      "before_sha256": "ed115ae5a05d62ddc56402c0d143d80cbc73860d935afc88ebb4f595c4c8a705",
+      "after_sha256": "3345fcdaeafbb884dd51bdd7024dc44247b9b6f9d9e017a9e12974ac839795ca"
+    },
+    {
+      "path": "code/scripts/prepare-s2-materials.py",
+      "before_sha256": "7e36883dbc819540b7cfa2c94b5178bdb5eebd8c4a6d7903f7294413505e04f3",
+      "after_sha256": "4840f6e3ce4613d2dd3016b64338662ea5742366c3a3bc8ac676a87c67fe7960"
+    }
+  ],
+  "retained_for_current_or_future_use": [
+    "AI原工作簿原路径、7份reference-drafts、10份S4来源对照及衍生报告",
+    "evaluation/src、contracts、rules、shared source/corpus/catalog/manifests和可选评测入口",
+    "现用pi-web、原PDF/PDF.js、受限Pi抽取、真实结果人工审核/导出",
+    "现用浏览器验证复用的annotation-browser/qa-tmp工具",
+    "必要S0—S4结果/快照、一般方案与research档案、过去退役manifest与小型源哈希证据"
+  ],
+  "validation": "validation.json",
+  "tests": {
+    "evaluation": "27/27",
+    "ai_import_local": "9/9",
+    "workbench_runtime_integration": "10/10",
+    "npm_check": "root_and_Next_passed",
+    "protected_hashes": "4407/4407_unchanged_at_existing_validation"
+  },
+  "historical_reference_boundary": "其它旧阶段证据、原780项盘点CSV及冻结S3验证器保留当时事实，可能包含已删路径；原inventory目录未改写。此前annotation/physical-cleanup.json副本不再写入，最终验证以本目录actual-deletions.json为准。",
+  "formal_reviews": "不新增/重置旧任务正式审查次数。",
+  "temporary_artifacts_removed": [
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/prepare-proposal.py",
+      "size_bytes": 10790,
+      "sha256": "e8f0dca1f170f3ad79932a442f6141e88cea876769037b4700f6c1b1e2f207c1",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/apply-cleanup.py",
+      "size_bytes": 4665,
+      "sha256": "d6c1367ff852e7605b596d0fe9bb3479fce04277403060276fd8c643499cdfab",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/repair-code.py",
+      "size_bytes": 3807,
+      "sha256": "7d1d07b7692eff0dd61c1b44fd7714be74e16c4cb43a37ead60a8ea2f99b2b53",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/sync-effective-policy.py",
+      "size_bytes": 13512,
+      "sha256": "530812d0a09c2c2de631c05cc72a57570f0b4999df5880627093b968aa1c44b0",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/run-check.py",
+      "size_bytes": 912,
+      "sha256": "6eec80898af14963dd1ca808f3339c1f58e5dfe171aa72210c6bf7b11c5a4c21",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/README.md.patch",
+      "size_bytes": 1781,
+      "sha256": "41d77220172dcdeb693de7e8b3e0fde9fc7b97151b94a587a47068361bd1ce16",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/check-s2.py.patch",
+      "size_bytes": 822,
+      "sha256": "4da37249a6cd898b97a0be9ffd5103c76c9bd2fac7229b4a0ab125b049727668",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/cli.test.ts.patch",
+      "size_bytes": 725,
+      "sha256": "b817dd93149675622aeef23fda8f27cbacd36bcffcd381a6f80b6f015938eaf5",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/evaluator.test.ts.patch",
+      "size_bytes": 743,
+      "sha256": "a881bbe08c3256a9fab520380aee94025bbd9c31d7aeb380555ca0d7802ff3fd",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/materials.test.ts.patch",
+      "size_bytes": 972,
+      "sha256": "72170b654e9d818917831e5dbcd98d6591e3aa6987fa62b477f86a9cf0c6415b",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/prepare-s2-materials.py.patch",
+      "size_bytes": 20944,
+      "sha256": "3bec4933fddc2ad03a6ca3bbade7f053b770b52a8944adcb388e56849f03529b",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/开发计划.json.patch",
+      "size_bytes": 32872,
+      "sha256": "8a78598dc790de17908b29795e19c388d41d6561b31c413709b705d360efd59d",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/开发阶段与验收.csv.patch",
+      "size_bytes": 18045,
+      "sha256": "1d5338fc41ed94096c32585ef981f8b809f9895395f871c52d0d8d246a87e6eb",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/当前版本.json.patch",
+      "size_bytes": 8013,
+      "sha256": "7ffef9190ed0288265ba25fac8c2572d82ef7546fc9356c771937cae7eac1156",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/待讨论实现决策.csv.patch",
+      "size_bytes": 20056,
+      "sha256": "06e3f16faf2ce55ebc564c06fb351ca6db851c0bd772f3014c7433827730c23d",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/质量与性能验收契约.json.patch",
+      "size_bytes": 7238,
+      "sha256": "010c3ca479f03f1dd507db8cbb70e93b7623c67426f21cea57291bdfc1e42fd0",
+      "status": "removed_task_temporary_artifact"
+    },
+    {
+      "path": "code/runtime-data/agent-notes/reference-preparation-cleanup-2026-11-04.json",
+      "size_bytes": 620,
+      "sha256": "74b672d97257f67a1964dfed5b2a4e02cf0e49c552f45035230aad5be4c1e0c1",
+      "status": "removed_task_temporary_artifact"
+    }
+  ],
+  "temporary_cleanup_not_added_to_original_project_deletion_count": true
+}

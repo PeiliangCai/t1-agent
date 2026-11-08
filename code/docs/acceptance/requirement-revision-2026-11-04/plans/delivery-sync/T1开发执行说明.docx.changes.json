@@ -1,0 +1,47 @@
+[
+  {
+    "paragraph_zero_based": 261,
+    "before": "• 支持逐篇创建多个独立任务并行执行及切换查看；按运行编号隔离范围、进度事件、候选和审核成果，使用可配置的并发上限及排队机制。实现人工增删改、原文片段重选、核准/拒绝/待上下文及操作记录。使用记录版本检查并发修改，全文复核不能无痕覆盖人工修订。 对当前原文、Figure/图注和关联内容逐条真实确认，审核事件绑定record_version及delivery_fingerprint；抽样核验不替代产品审核。",
+    "after": "• 支持逐篇创建多个独立任务并行执行及切换查看；按运行编号隔离范围、进度事件、候选和审核成果，使用可配置的并发上限及排队机制。实现人工增删改、原文片段重选、核准/拒绝/待上下文及操作记录。使用记录版本检查并发修改，全文复核不能无痕覆盖人工修订。 已审核导出仍逐条真实人工确认当前版本，并明确review_scope：text_only绑定record_version及text_fingerprint，只批准原文/上下文，delivery_fingerprint为空且配图留待核；text_and_figures另须匹配完整delivery_fingerprint并确认原图、原图注及关联。导出标明approved_text_only、approved_text_and_figures或candidate；旧当前版本真实人审只延续文字，不自动批准新图，审核理由/医生补充与论文原文分开标来源。"
+  },
+  {
+    "paragraph_zero_based": 324,
+    "before": "范围、状态、来源、片段边界、原图/原图注和覆盖可还原；已审核输出逐条绑定当前record_version与delivery_fingerprint的真实人工确认。",
+    "after": "范围、状态、来源、片段边界、原图/原图注和覆盖可还原；已审核输出逐条绑定record_version与text_fingerprint的文字确认；text_and_figures另须完整delivery_fingerprint，文字批准不自动批准新图。"
+  },
+  {
+    "paragraph_zero_based": 339,
+    "before": "在/home/ecs-user/projects/t1-agent承接T1，应用根目录code/，方案/与research/保留原位。先完整读取最新现行T1智能体开发计划.docx、T1开发执行说明.docx、当前版本.json、开发计划.json、开发阶段与验收.csv、开发任务清单.csv、抽取结果字段规范.csv、质量与性能验收契约.json、待讨论实现决策.csv、验收清单.csv，以及根AGENTS.md。尊重用户Word修改，写前以最新live字节为基线并作CAS、备份及逐段差异；仅维护DOCX计划。当前是requirement_revision真实新需求任务，旧S4冻结工程数据和3/3审查不重评不重置，本次规划审查已用1/3。输出只选择论文原文，模型不得重新组织、改写或翻译视觉描述；可删无关内容，离散片段各有出处/边界，保留必要否定、不确定、条件和数值单位。文本优先；明确关联才配整幅Figure原图＋原图注，保留子图编号，不自动裁病灶或猜子图；无图仍交付文本，不确定标待核，不当作真无图。取消逐篇完整金标及其阶段阻塞；开发验收用逐段原文/出处自动检查＋抽样人工核验相关性、语境和图文配对，不要求专家先读完全文。样本数和正式数值待实测共同确认，不设100%或固定n，不由抽样/模型自评宣称总体零误抽或已抽大部分；已审核导出仍逐条人工确认当前记录及图文内容。保留纯LLM、规则正向＋LLM、规则反向＋LLM三思路，FR可附加；B0默认不擅改，正式应用模型未选，本轮不新增付费API或重开旧试验。医学目录、来源/同义/上下位与适用关系继续待核，不限模式可开放选择原文，严格模式仍须受信依据。既有Pi SDK/技术栈、Docling正式主用、SQLite/数据卷/SSE、方案B、逐篇提交并行、重跑及PDF生命周期等未变。长期多篇采集与图像资产规模性能纳入规划，本轮不等于必须完成S5批量UI。S2仍in_progress，S3/S4质量pending且stage_passed=false，取消依赖不自动passed，S5完整交互未启动。工程完成与测试按code/docs/acceptance/requirement-revision-2026-11-04/真实证据同步，旧证据原样保留；每次交接说明已完成、实际验证、剩余未验及用户待定事项。",
+    "after": "在/home/ecs-user/projects/t1-agent承接T1，应用根目录code/，方案/与research/保留原位。先完整读取最新现行T1智能体开发计划.docx、T1开发执行说明.docx、当前版本.json、开发计划.json、开发阶段与验收.csv、开发任务清单.csv、抽取结果字段规范.csv、质量与性能验收契约.json、待讨论实现决策.csv、验收清单.csv，以及根AGENTS.md。尊重用户Word修改，写前以最新live字节为基线并作CAS、备份及逐段差异；仅维护DOCX计划。当前是requirement_revision真实新需求任务，旧S4冻结工程数据和3/3审查不重评不重置，本次规划审查已用1/3。输出只选择论文原文，模型不得重新组织、改写或翻译视觉描述；可删无关内容，离散片段各有出处/边界，保留必要否定、不确定、条件和数值单位。文本优先；明确关联才配整幅Figure原图＋原图注，保留子图编号，不自动裁病灶或猜子图；无图仍交付文本，不确定标待核，不当作真无图。取消逐篇完整金标及其阶段阻塞；开发验收用逐段原文/出处自动检查＋抽样人工核验相关性、语境和图文配对，不要求专家先读完全文。样本数和正式数值待实测共同确认，不设100%或固定n，不由抽样/模型自评宣称总体零误抽或已抽大部分；已审核导出仍逐条确认当前文字或图文范围与对应指纹，旧文字批准不继承新图。保留纯LLM、规则正向＋LLM、规则反向＋LLM三思路，FR可附加；B0默认不擅改，正式应用模型未选，本轮不新增付费API或重开旧试验。医学目录、来源/同义/上下位与适用关系继续待核，不限模式可开放选择原文，严格模式仍须受信依据。既有Pi SDK/技术栈、Docling正式主用、SQLite/数据卷/SSE、方案B、逐篇提交并行、重跑及PDF生命周期等未变。长期多篇采集与图像资产规模性能纳入规划，本轮不等于必须完成S5批量UI。S2仍in_progress，S3/S4质量pending且stage_passed=false，取消依赖不自动passed，S5完整交互未启动。工程完成与测试按code/docs/acceptance/requirement-revision-2026-11-04/真实证据同步，旧证据原样保留；每次交接说明已完成、实际验证、剩余未验及用户待定事项。 已审核导出仍逐条真实人工确认当前版本，并明确review_scope：text_only绑定record_version及text_fingerprint，只批准原文/上下文，delivery_fingerprint为空且配图留待核；text_and_figures另须匹配完整delivery_fingerprint并确认原图、原图注及关联。导出标明approved_text_only、approved_text_and_figures或candidate；旧当前版本真实人审只延续文字，不自动批准新图，审核理由/医生补充与论文原文分开标来源。 当前本次需求工程交付可审阅，真实新模型分支和人工抽样未完成，审查计数与交付证据见文末最新增量。"
+  },
+  {
+    "paragraph_zero_based": 543,
+    "before": "开发验收采用逐段原文一致性与出处自动检查，加抽样人工核验相关性、否定/条件等语境及图文配对；不要求专家先阅读全文制作完整参考答案。抽样数量与正式数值门槛待实测后共同确定，不能由抽样或模型自评宣称总体零误抽或已抽出大部分。已审核导出仍须逐条真实人工确认当前版本及图文交付内容。 医学特征目录、来源、同义/上下位及适用关系仍按原约定待核；不能把取消的金标交付写成已完成。",
+    "after": "开发验收采用逐段原文一致性与出处自动检查，加抽样人工核验相关性、否定/条件等语境及图文配对；不要求专家先阅读全文制作完整参考答案。抽样数量与正式数值门槛待实测后共同确定，不能由抽样或模型自评宣称总体零误抽或已抽出大部分。已审核导出仍逐条真实人工确认当前版本，并明确review_scope：text_only绑定record_version及text_fingerprint，只批准原文/上下文，delivery_fingerprint为空且配图留待核；text_and_figures另须匹配完整delivery_fingerprint并确认原图、原图注及关联。导出标明approved_text_only、approved_text_and_figures或candidate；旧当前版本真实人审只延续文字，不自动批准新图，审核理由/医生补充与论文原文分开标来源。 医学特征目录、来源、同义/上下位及适用关系仍按原约定待核；不能把取消的金标交付写成已完成。"
+  },
+  {
+    "paragraph_zero_based": 88,
+    "before": "逐段校验原文一致、文本版本/偏移/出处、独立片段边界、数值单位与状态；图文只接受明确依据并核验资产，不以自动检查冒充人工审核。",
+    "after": "逐段校验原文一致、文本版本/偏移/出处、独立片段边界、数值单位与状态；图文只接受明确依据并核验资产，不以自动检查冒充人工审核。 源PDF缺失、SHA变化或PDF/IR/input/metadata/目录的文献、来源版本、文本版本错配必须停止新抽取或已审核导出，旧候选保留为历史；不能当普通图失败放行。仅在来源有效而图分组/渲染失败时，标记失败/待核并继续交付文字。"
+  },
+  {
+    "paragraph_zero_based": 104,
+    "before": "本节是待实现的接口设计，不表示已有HTTP服务或可直接运行的代码。S1先实现Schema、范围传递和样例工具；S3/S4再接入真实解析与医学抽取。",
+    "after": "本节保留既定接口职责和契约分工，实现状态以最新阶段证据及本次工程交付为准；S1基础集成已完成，S3/S4已有工程产物，但不代表完整S5 HTTP上传/审核界面或医学验收通过。"
+  },
+  {
+    "paragraph_zero_based": 125,
+    "before": "FigureAssetCatalog为独立版本化侧契约：绑定document_id、原PDF SHA256和text_version；保存Figure编号、panel_labels、原图注caption_segments及整幅Figure的regions资产（路径、SHA256、物理页、框/坐标系、像素尺寸与渲染比例）。整图区域可保留PDF原始像素或忠实渲染，不生成/修补病灶，不猜子图；需标明整图来源核验状态，不能用单个内嵌小图冒充整幅Figure。",
+    "after": "FigureAssetCatalog为独立版本化侧契约：绑定document_id、原PDF SHA256和text_version；保存Figure编号、panel_labels、原图注caption_segments及整幅Figure的regions资产（路径、SHA256、物理页、框/坐标系、像素尺寸与渲染比例）。整图区域可保留PDF原始像素或忠实渲染，不生成/修补病灶，不猜子图；需标明整图来源核验状态，不能用单个内嵌小图冒充整幅Figure。 当前verification.status为mechanically_checked/whole_figure_checked/needs_review，human_approved始终false；目录inventory_complete=false，不声称全篇图片齐全。自动整图仅支持严格唯一顶层完整位图、原文唯一图号/图注和无隔断/遗漏对象的机械核验，矢量/嵌套Form/多对象等待核。"
+  },
+  {
+    "paragraph_zero_based": 186,
+    "before": "人工批准绑定当前record_version与包含原文/图注/资产及关联状态的delivery_fingerprint；任何内容或来源变化须重新逐条确认。后续模型核验只生成新版本/待核建议，不能覆盖人工版本，也不能用开发抽样结果批准未审核记录。",
+    "after": "已审核导出仍逐条真实人工确认当前版本，并明确review_scope：text_only绑定record_version及text_fingerprint，只批准原文/上下文，delivery_fingerprint为空且配图留待核；text_and_figures另须匹配完整delivery_fingerprint并确认原图、原图注及关联。导出标明approved_text_only、approved_text_and_figures或candidate；旧当前版本真实人审只延续文字，不自动批准新图，审核理由/医生补充与论文原文分开标来源。 文本或图注/资产/关联改变按对应指纹重新确认；后续模型只提建议，不覆盖人工版本，开发抽样不自动批准记录。"
+  },
+  {
+    "paragraph_zero_based": 189,
+    "before": "保留现有S0—S7顺序及任务编号。每阶段记录输入、完成的工作、实际产物、检查结果、剩余问题与是否通过；工程检查通过不代替医学复核。以下命令名称是建议由应用提供的入口，当前尚不存在。",
+    "after": "保留S0—S7及任务编号，当前完成状态见最新机器记录和工程证据。阶段交付记录输入、版本、实际检查、未验证项及是否通过；工程测试不替代医学/人工抽样。命令以code/中实际脚本为准，历史建议入口不等于全部产品已实现。"
+  }
+]

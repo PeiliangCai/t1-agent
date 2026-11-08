@@ -1,0 +1,49 @@
+{
+  "stage": "S0",
+  "task_ids": [
+    "T1-R01",
+    "T1-R02"
+  ],
+  "status": "passed",
+  "accepted_at": "2026-11-02T09:25:05.738857+00:00",
+  "basis": "Execution guide paragraphs 191–198; stage CSV S0 gate",
+  "gate_results": {
+    "confirmed_choices_reused": true,
+    "remaining_choices_assigned_to_stages": true,
+    "technical_route_for_S1_explicit": true,
+    "scope_and_evidence_semantics_documented": true,
+    "environment_and_local_Node_verified": true,
+    "input_support_distinguished_from_validation": true
+  },
+  "commands": [
+    {
+      "command": "python3 scripts/install-node.py",
+      "result": "official archive SHA256 checked; project-local node/npm executed"
+    },
+    {
+      "command": "python3 scripts/prepare-s0.py",
+      "result": "source mirrors, scope hash and evidence generation passed"
+    }
+  ],
+  "artifacts": [
+    "source-inputs.json",
+    "support-matrix.json",
+    "decisions.json",
+    "environment.json",
+    "model-configuration.json",
+    "node-provenance.json"
+  ],
+  "not_validated": [
+    "Pi integration",
+    "real API authentication",
+    "real PDF parsing",
+    "medical extraction",
+    "medical reference reviews",
+    "Docker deployment",
+    "production storage durability",
+    "SSH access",
+    "numeric quality/performance thresholds"
+  ],
+  "formal_astra_reviews_used": 1,
+  "formal_astra_review_limit": 3
+}

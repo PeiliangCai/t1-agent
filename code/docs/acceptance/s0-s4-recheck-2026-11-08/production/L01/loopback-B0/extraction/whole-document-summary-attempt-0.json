@@ -1,0 +1,316 @@
+{
+  "strategy": "baseline",
+  "attempt": 0,
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "s4-synthetic-responses",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "model_context_window_metadata": 1050000,
+    "model_capacity_source": "official_OpenAI_model_specification_not_supplier_stress_test",
+    "application_context_estimate_limit": 128000,
+    "configured_max_output_tokens": 8192,
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  },
+  "result": {
+    "settled": true,
+    "responses": 2,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "get_document_context",
+        "call_id": "call-fixture-6-0|fc-fixture-6-0",
+        "argument_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "argument_characters": 2,
+        "property_names": [],
+        "selectors": {}
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "get_document_context",
+        "call_id": "call-fixture-6-0|fc-fixture-6-0",
+        "error": false,
+        "result_characters": 5886,
+        "result_sha256": "62111e48a939b0fbb14e1c2c296d2a335958db25d55a0c037ce40b3d651fc06e"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call-fixture-6-1|fc-fixture-6-1",
+        "argument_sha256": "c926b6a14271a21e3c2c435388618ea545669f5b02d1513f7e6fabc975897029",
+        "argument_characters": 140,
+        "property_names": [
+          "line_indices"
+        ],
+        "selectors": {
+          "line_indices": [
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            131,
+            170,
+            145,
+            147,
+            149,
+            151,
+            0
+          ]
+        }
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call-fixture-6-1|fc-fixture-6-1",
+        "error": false,
+        "result_characters": 24843,
+        "result_sha256": "801d2a3ae9be60234eea517f63373d8c34f6076bb6931f2173f6c6800bb52bb4"
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call-fixture-7-0|fc-fixture-7-0",
+        "argument_sha256": "c93479aec60848e23650eb248efd91ad96681c3d3b5b78a8d1eee8a41e31b397",
+        "argument_characters": 149,
+        "property_names": [
+          "summary",
+          "reviews",
+          "links",
+          "updates",
+          "summary_complete"
+        ],
+        "selectors": {
+          "updates": [],
+          "summary_complete": true
+        }
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call-fixture-7-0|fc-fixture-7-0",
+        "error": false,
+        "result_characters": 337,
+        "result_sha256": "e9635bd5339e56b5a38f368558a2bbb144322c2309adf625de0e7d82f37e62dd"
+      }
+    ],
+    "usage": [
+      {
+        "input": 100,
+        "output": 20,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 120,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 100,
+        "output": 20,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 120,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "bd36c5d4-ca7e-4152-9f5f-5faed67d2786",
+      "66874100-0313-4ed7-9ca1-a9b64ab1f00a"
+    ],
+    "transient_error": false
+  },
+  "request_accounting": [
+    {
+      "id": "bd36c5d4-ca7e-4152-9f5f-5faed67d2786",
+      "model_id": "s4-synthetic-responses",
+      "purpose": "fresh-L01-B0:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-08T03:31:42.779Z",
+      "payload_sha256": "4824346ee35ddf08d617d2e0f43df9df1ce529d544a7b57fc2ef16372d07cd9c",
+      "payload_bytes": 21638,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 22150,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 6068,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "request_id": "fixture-request-6",
+      "stream_event_count": 10,
+      "first_stream_event_at": "2026-11-08T03:31:42.782Z",
+      "last_stream_event_at": "2026-11-08T03:31:42.783Z",
+      "provider_response_id": "resp-fixture-6",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-08T03:31:42.782Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "unknown"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-08T03:31:42.783Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "matched",
+          "actual_model": "s4-synthetic-responses"
+        }
+      ],
+      "tool_argument_delta_characters": 142,
+      "provider_usage": {
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "total_tokens": 120
+      },
+      "provider_response_model": "s4-synthetic-responses",
+      "response_stream_sha256": "1cbd99ddfeb185d9fbb6274eb82d3b9aa55f0ae17d6cde9337e10b7ca6fb69b5",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 100,
+      "output_tokens": 20,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-08T03:31:42.783Z"
+    },
+    {
+      "id": "66874100-0313-4ed7-9ca1-a9b64ab1f00a",
+      "model_id": "s4-synthetic-responses",
+      "purpose": "fresh-L01-B0:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-08T03:31:42.793Z",
+      "payload_sha256": "3fbff82e01a9292bb2971d4397ae75e92f7e78874b9a98bf138ad28c2351fe0e",
+      "payload_bytes": 54233,
+      "input_ceiling": 54745,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 54745,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 8137,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "request_id": "fixture-request-7",
+      "stream_event_count": 6,
+      "first_stream_event_at": "2026-11-08T03:31:42.795Z",
+      "last_stream_event_at": "2026-11-08T03:31:42.795Z",
+      "provider_response_id": "resp-fixture-7",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-08T03:31:42.795Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "unknown"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-08T03:31:42.795Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "matched",
+          "actual_model": "s4-synthetic-responses"
+        }
+      ],
+      "tool_argument_delta_characters": 149,
+      "provider_usage": {
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "total_tokens": 120
+      },
+      "provider_response_model": "s4-synthetic-responses",
+      "response_stream_sha256": "b5f5175aab12adb230906f7b2f92052b27a087cc5701dcf61d012ac5efff97f2",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 100,
+      "output_tokens": 20,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-08T03:31:42.796Z"
+    }
+  ],
+  "summary": "Loopback protocol transport only; no model extraction or medical judgment.",
+  "issues": [],
+  "semantic_audit_reviews": [],
+  "semantic_audit_cases_required": []
+}

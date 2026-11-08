@@ -1,0 +1,45 @@
+{
+  "schema_version": "comparison-user-confirmation-1",
+  "confirmation_call_id": "call_050cdd8602314d81b478ef3c07d9f8a5",
+  "question_index": 0,
+  "user_confirmation_quote": "批准本轮 Luna medium、上述范围与上限（推荐）",
+  "user_approved": true,
+  "first_persisted_confirmation_record": "2026-11-08T06:27:26.947437Z",
+  "original_user_event_timestamp": null,
+  "approval_time_basis": "first_persisted_confirmation_record_not_user_click_time",
+  "prepared_plan": "code/docs/acceptance/output-feedback-2026-11-08/comparison/plan.json",
+  "prepared_plan_sha256": "7b948130b139fe283284fe8e83dc19a0e32c69ece93cc1f47bc80802214f2b59",
+  "approved_scope": {
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "papers": [
+      "L01",
+      "L05",
+      "L07"
+    ],
+    "methods": [
+      "B0",
+      "F"
+    ],
+    "logical_jobs": 6,
+    "physical_jobs_with_L01_equivalent_reuse": 5
+  },
+  "approved_shared_limits": {
+    "requests": 224,
+    "input_tokens": 4000000,
+    "output_tokens": 240000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "all_attempts_including_retries_count": true,
+  "one_round_then_output_review_stop": true,
+  "stop_on_budget_contract_or_delivery_failure": true,
+  "old_116_round_and_unused12_closed_not_reused": true,
+  "formal_reviews_used": 3,
+  "new_formal_review_rounds": 0
+}

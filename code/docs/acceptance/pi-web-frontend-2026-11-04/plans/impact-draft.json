@@ -1,0 +1,192 @@
+{
+  "schema_version": "t1-pi-web-planning-impact-draft-1",
+  "created_at": "2026-11-04T12:17:25.273064+00:00",
+  "status": "draft_waiting_user_integration_choice_and_root_planning_review",
+  "basis": {
+    "current_plan": "0.4",
+    "execution_guide": "0.2",
+    "new_user_requirement": "pi前端界面以https://github.com/agegr/pi-web为基础；调整原计划，检查已实现影响并修改",
+    "repository_inspection_owner": "/root/t1_pi_web_frontend",
+    "formal_reviews_used": 0
+  },
+  "proposal": {
+    "plan_version": "0.5",
+    "execution_guide_version": "0.3",
+    "change_scope": "替换或适配正式前端基础，复用已存在功能；本轮不自动完成S5完整产品流程",
+    "frontend_base_confirmed": "agegr/pi-web",
+    "integration_form": "pending_user_decision",
+    "upstream_pin_and_license": "pending_engineering_source_verification",
+    "preserve_api": "Fastify业务API、Pi TypeScript SDK和E02 SQLite/WAL/数据卷/SSE职责继续沿用，除非用户另作明确决定",
+    "existing_ui_reality": "apps/web是可选S2人工标注工具；当前HTTP为S1只读fixture inspector，不是完整抽取UI",
+    "no_paid_API": true
+  },
+  "decision_options": {
+    "full_upstream_frontend": "若用户选择整体上游Next.js前端，则只修订前端运行/构建/目录和发布职责；上游后端路由、WebSocket/RPC不自动替代T1受限SDK与持久化业务协议",
+    "substantial_component_port": "若用户选择React组件实质移植，则沿用Vite构建并保留来源/commit/许可；明确移植的真实组件、布局和依赖，不仅模仿配色"
+  },
+  "live_targets": [
+    {
+      "name": "T1智能体开发计划.docx",
+      "sha256_at_inventory": "875eff95f7661385fa6e24786071b2cc5a5361e835b725097e442c450c7e6752"
+    },
+    {
+      "name": "T1开发执行说明.docx",
+      "sha256_at_inventory": "7b2e41ed74f5f91490411f0d15fee04154b8fd1e06aa94e5ebfcb9f0c2a2527d"
+    },
+    {
+      "name": "开发计划.json",
+      "sha256_at_inventory": "04e6c04284bc10b517e67dc1cd86772ca05e3f6adf397df2d1b05b72756c8830"
+    },
+    {
+      "name": "当前版本.json",
+      "sha256_at_inventory": "a7d827c15167939e34733ee1684dc980fac4e1513369bf57ef37e382de889fc4"
+    },
+    {
+      "name": "开发阶段与验收.csv",
+      "sha256_at_inventory": "7ca61ef149be9b942e5f94046814b087ac7fdee83e97c0229dd850cc93bf7896"
+    },
+    {
+      "name": "开发任务清单.csv",
+      "sha256_at_inventory": "14412a7d9e9e52742a43a130bf397a1e045ae4687159e0510301cf49abf65253"
+    },
+    {
+      "name": "待讨论实现决策.csv",
+      "sha256_at_inventory": "ef002f2c05c10e2fcb663b337ec5fe1c26e1ffd2ef804a3f41ef4592083d3065"
+    },
+    {
+      "name": "质量与性能验收契约.json",
+      "sha256_at_inventory": "4ef254a9baa19d4e19a1bd189a1a79895ca9857679d1fb8131b59b988730f90e"
+    },
+    {
+      "name": "验收清单.csv",
+      "sha256_at_inventory": "e943d552bea65eca2ce07a11a98cff239de2c994b6683c225484fe80b75771e8"
+    },
+    {
+      "name": "资料来源.json",
+      "sha256_at_inventory": "72362593c1493adcfc28336de7778de3f8421523e1a29568eb88fb306b2a7019"
+    },
+    {
+      "name": "开源项目调研.csv",
+      "sha256_at_inventory": "fa28edb15eec1346d63be51db8089c6f0f3cac46092f1b1c3be8077ab07c0b7b"
+    },
+    {
+      "name": "材料检查结果.json",
+      "sha256_at_inventory": "5f69462ce41a80da3fa4c89c63d32e05ee633c38a7f117b65696f62613e10b71"
+    }
+  ],
+  "docx_active_paragraph_targets_zero_based": {
+    "T1智能体开发计划.docx": {
+      "10": "实现技术栈正文增加pi-web正式前端基础与接入决定",
+      "35": "S5主要工作补pi-web组件/布局对已有契约适配，仍区分完整产品待办",
+      "36": "S5验收补来源与当前功能回归，不因换界面passed",
+      "41": "部署根据用户选择记录前端构建/服务方式",
+      "45": "预期源码交付补来源、固定commit与许可记录"
+    },
+    "T1开发执行说明.docx": {
+      "1": "版本、日期和本次前端需求标题",
+      "2": "当前有效修订、历史覆盖和完整S5状态",
+      "3": "当前交接入口由旧requirement_revision转本次前端修订，保留旧任务2/3",
+      "37": "E01历史表覆盖说明追加新前端决定，E01原表41—43不动",
+      "71": "有效技术栈正文补pi-web及所选接入形式",
+      "75": "前端模块名称/职责",
+      "76": "前端模块工作补pi-web与既有候选/来源/人工标注适配",
+      "100": "目录说明以live实现而非历史建议为准",
+      "101": "正式前端与可选S2标注工具目录职责明确",
+      "104": "当前实现程度说明仅S1只读fixture HTTP和可选S2标注",
+      "126": "PDF.js仍用于原页定位的契约，不等于新增功能完成",
+      "192": "沿用E01历史与本次有效前端覆盖决定",
+      "204": "工程骨架现行目录调整、不重开S1已验收",
+      "225": "最小调试入口与正式界面完成度区分",
+      "258": "S5联动选择以pi-web基础适配，完整工作流仍待办",
+      "259": "原文整图展示要求接到pi-web基础",
+      "260": "SSE/HTTP业务契约保留，上游通信实现不能绕过业务持久化",
+      "265": "S5工程适配交付与整阶段验收区分",
+      "275": "按用户选择更新前端部署描述",
+      "332": "测试入口说明依实际scripts，补上游构建与功能回归",
+      "337": "交接最新任务与完整S5状态",
+      "338": "历史E01和本次前端决定有效性",
+      "339": "启动模板补pi-web接入形式/commit/许可/剩余S5，旧2/3及S4 3/3保存",
+      "342": "技术依据追加核验pi-web来源范围",
+      "356": "有效用户需求覆盖增加前端基础"
+    }
+  },
+  "structured_contract_updates": [
+    {
+      "files": [
+        "开发计划.json",
+        "当前版本.json"
+      ],
+      "changes": [
+        "版本及最新任务字段",
+        "architecture.application_stack.frontend和显式frontend_base/integration字段",
+        "S5工作/交付/验收和R13—R16前端适配但不改原阶段passed状态",
+        "独立frontend_revision状态、来源、实际验证/待办与本轮正式审查计数",
+        "E01—E09旧confirmed_decisions和旧requirement_revision整块保留"
+      ]
+    },
+    {
+      "files": [
+        "开发阶段与验收.csv",
+        "开发任务清单.csv"
+      ],
+      "changes": [
+        "S5/R13—R16补pi-web基础、既有功能适配和完整产品待办",
+        "保留27任务及其依赖，不把已批准路线当完成实现"
+      ]
+    },
+    {
+      "files": [
+        "待讨论实现决策.csv"
+      ],
+      "changes": [
+        "D17现行说明链接本次前端覆盖，保留原E01事实",
+        "新增D24前端基础已定、接入形式按用户选择；之后只列真实待定部分"
+      ]
+    },
+    {
+      "files": [
+        "质量与性能验收契约.json",
+        "验收清单.csv"
+      ],
+      "changes": [
+        "新增F13前端基础来源/实质复用/既有功能回归验收",
+        "F01/F03/F06/F08保留原文、范围、审核、SSE恢复要求，状态据实际证据；不声称S5全完成",
+        "不改13个指标数值及医学质量pending"
+      ]
+    },
+    {
+      "files": [
+        "资料来源.json",
+        "开源项目调研.csv"
+      ],
+      "changes": [
+        "增加agegr/pi-web固定提交、官方README/package/源码/许可证依据",
+        "只写源码核验或实际已测功能，不把stars或上游功能等同本项目已通过"
+      ]
+    },
+    {
+      "files": [
+        "材料检查结果.json"
+      ],
+      "changes": [
+        "新增本轮文档检查、跨文件一致性和保全证据，历史检查不追溯改写"
+      ]
+    }
+  ],
+  "explicit_no_change": [
+    "抽取结果字段规范.csv现有28字段和两个侧契约",
+    "原始论文/旧冻结试验/已完成S0/S1验收证据",
+    "E01—E09确认事实和历史附录XML原文",
+    "S2目录/人工抽样待核、S3/S4医学质量pending、旧S4封存3/3",
+    "本次前端任务不新增付费授权、不变更B0/F/R/FR、正式模型未选",
+    "原文不改写/不翻译、独立片段、必要否定/条件出处、整幅Figure+原图注明确关联、text_only/text_and_figures指纹规则",
+    "不新增独立MD计划、不改根总课题版本或research资料位置"
+  ],
+  "validation_plan": [
+    "临写重新读取live并CAS检查，新增before快照与manifest",
+    "DOCX只改明确有效段落及追加本次生效记录；所有历史段/表/E01—E09原XML和其他ZIP成员逐字节保留；保留所有原pPr/rPr样式",
+    "JSON/CSV结构、阶段/任务/决策/功能计数及多文件版本/来源/完成度一致性",
+    "引用工程执行者实际检查记录；应用构建/测试由执行者完成，不编造医学或全S5通过",
+    "生成逐段changes/preservation、JSON/CSV diff、validation和最终交接JSON"
+  ]
+}

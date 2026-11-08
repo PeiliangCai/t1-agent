@@ -1,0 +1,246 @@
+{
+  "schema_version": "s4-b0-preparation-engineering-validation-1",
+  "completed_at": "2026-11-08T14:31:54.096791+00:00",
+  "status": "offline_ready_waiting_for_new_explicit_user_authorization",
+  "formal_architecture_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds_this_turn": 0
+  },
+  "additional_real_model_provider_requests": 0,
+  "real_execution_started": false,
+  "new_user_authorization_signed": false,
+  "autonomy_window_ended_UTC": "2026-11-08T10:53:21Z",
+  "previous_paid_round_and_remaining_quota_closed": true,
+  "plan": {
+    "absolute_path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/plan.json",
+    "sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026",
+    "purpose": "s4_b0_revalidation_no_method_comparison",
+    "execution_order": [
+      "L07-B0",
+      "L01-B0",
+      "L05-B0"
+    ],
+    "model": {
+      "provider": "agicto",
+      "endpoint": "https://api.agicto.cn/v1",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "api": "openai-responses"
+    },
+    "proposed_limits": {
+      "requests": 128,
+      "input_tokens": 2500000,
+      "output_tokens": 160000,
+      "seconds": 3600,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "versions": {
+      "evidence_policy_version": "visual-statements-2",
+      "source_evidence_unit_version": "literal-source-sentences-4",
+      "primary_assessment_policy_version": "model-primary-assessment-1",
+      "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-2",
+      "normal_anatomic_scope_rule_version": "normal-anatomic-and-tissue-context-only-2",
+      "source_grouping_policy_version": "strict-source-groups-1",
+      "bibliography_scope_rule_version": "explicit-bibliography-task-scope-1",
+      "source_selection_rule_version": "s4-explainable-source-selection-3"
+    },
+    "source_snapshot_files": 66,
+    "source_observations": 10,
+    "all_runtime_source_snapshot_hashes_match": true,
+    "input_snapshot": "prepared/input-snapshot/",
+    "authorization_template_status": "pending_user_confirmation",
+    "execution_directory_exists": false
+  },
+  "preflight": {
+    "path": "prepared/preflight.json",
+    "sha256": "f459ef58a4df3a6559f9224b45b173067ce2dd852caf6bf87d7fd07a245c79ec",
+    "status": "offline_inputs_ready_pending_new_user_authorization",
+    "authorization_binding_checked": false,
+    "this_report_is_not_user_authorization": true
+  },
+  "tests": {
+    "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/b0-revalidation.test.ts tests/extraction/two-method-transition.test.ts tests/extraction/metric-context-revision.test.ts tests/extraction/method-comparison.test.ts",
+    "exit_code": 0,
+    "tests": 26,
+    "passed": 26,
+    "failed": 0,
+    "skipped": 0,
+    "log": "offline-tests-initial.log",
+    "scope": "Binding/caps/zero-fetch preparation/snapshot tamper/scheduler/ledger/old-entry compatibility only. Simulated scheduling or loopback responses do not prove model semantics."
+  },
+  "typescript": {
+    "command": "bash scripts/with-node.sh npm exec tsc -- --noEmit",
+    "exit_code": 0,
+    "log": "typecheck-initial.log"
+  },
+  "prior_65_test_result": {
+    "path": "docs/acceptance/b0-mainline-2026-11-08/validation.json",
+    "time_scope": "Earlier result only, not the verification count for this new runner.",
+    "prior_runtime_file_unchanged_since_turn_start": {
+      "packages/agent/src/primary-evidence-assessment.ts": true,
+      "packages/agent/src/strict-source-groups.ts": true,
+      "packages/agent/src/evidence-validation.ts": true,
+      "packages/agent/src/reconciliation.ts": true,
+      "packages/agent/src/extraction-store.ts": true,
+      "packages/agent/src/evidence-delivery.ts": true,
+      "packages/agent/src/extraction-summary.ts": true,
+      "packages/agent/src/extraction-run.ts": true,
+      "packages/agent/src/index.ts": true,
+      "scripts/compare-extraction-methods.ts": false
+    }
+  },
+  "engineering_clause_audit": [
+    {
+      "area": "完整原文、Unicode原字符和必要语境",
+      "implementation": [
+        "evidence-validation.ts",
+        "visual-evidence-policy.ts",
+        "source-evidence-units.ts"
+      ],
+      "state": "existing_core_unchanged_this_turn",
+      "remaining": "新真实输出仍需逐段来源和普通人核，不由机械通过宣称医学相关性。"
+    },
+    {
+      "area": "范围、未知特征与开放词表",
+      "implementation": [
+        "scope-matching.ts",
+        "source-selection.ts",
+        "extraction-tools.ts"
+      ],
+      "state": "existing_core_unchanged_this_turn",
+      "remaining": "医学目录及S5联动网页另列；本轮B0按既有不限scope，不把未批准词表作为正式医学目录。"
+    },
+    {
+      "area": "同源重复、归因/角色冲突和版本追溯",
+      "implementation": [
+        "strict-source-groups.ts",
+        "reconciliation.ts",
+        "extraction-store.ts"
+      ],
+      "state": "prior_65_offline_checks_real_model_pending",
+      "remaining": "新模型是否遵从未知；保留所有成员，不把机械组数当有效医学描述数或自动合并CSV。"
+    },
+    {
+      "area": "语境与明确整图/Figure Note联系",
+      "implementation": [
+        "evidence-delivery.ts",
+        "figure-assets.ts"
+      ],
+      "state": "current_source_catalog_asset_binding_rechecked_offline",
+      "remaining": "图型/医学配对和必要语境语义仍需真实输出核验；原parser.partial/OCR限制保留，不变为S4工程失败。"
+    },
+    {
+      "area": "模型/受限工具/同次summary/当前assessment覆盖",
+      "implementation": [
+        "extraction-run.ts",
+        "extraction-summary.ts",
+        "extraction-pi.ts"
+      ],
+      "state": "existing_runtime_plus_new_B0_terminal_gate",
+      "remaining": "新提示仍未真实复验；计划观测问题不作为模型预置答案。"
+    },
+    {
+      "area": "状态、共享预算、失败停止与候选导出",
+      "implementation": [
+        "b0-revalidation.ts",
+        "prepared-extraction-sources.ts",
+        "experiment-authorization.ts",
+        "extraction-budget.ts"
+      ],
+      "state": "new_targeted_offline_checks_passed",
+      "remaining": "真实API执行未获新许可；S5网页、逐条真实人审和已审核导出工作流不在本次补写。"
+    },
+    {
+      "area": "正式单B0冻结计划及preflight",
+      "implementation": [
+        "scripts/revalidate-b0.ts",
+        "config/b0-s4-revalidation.json"
+      ],
+      "state": "reviewable_plan_frozen_offline_ready_pending_user_authorization",
+      "remaining": "根已提出额度确认，只有后续明确新授权和唯一执行指派才可调用；不复用旧143轮或81余额。"
+    }
+  ],
+  "actual_gap_addressed": "A frozen, purpose-specific single-B0 revalidation entry with current-source reuse, shared authorization/budget and stop-before-next-job terminal checks. No new core extraction bug was reproduced in this audit.",
+  "changes": [
+    {
+      "path": "packages/agent/src/b0-revalidation.ts",
+      "sha256": "f6807b00ef23c33d17676789ffc0a36ba6947bfad6f1be4a8b7ff4ddce21b39d"
+    },
+    {
+      "path": "packages/agent/src/prepared-extraction-sources.ts",
+      "sha256": "aca935db42f66174d192465cea86aa25cabf4d0a915d35618dfbb1c97243bc7e"
+    },
+    {
+      "path": "packages/agent/src/experiment-authorization.ts",
+      "sha256": "09679023c349530b2688205afd6c21c331c656ee5f7710a8078f9ffa82799d2d"
+    },
+    {
+      "path": "scripts/revalidate-b0.ts",
+      "sha256": "2018797c3a6f2265cac03c24ade3a49f62884d7da000b082457635618e024ceb"
+    },
+    {
+      "path": "scripts/compare-extraction-methods.ts",
+      "sha256": "44ef5dbb63681c4501afc49143295c7db3c031de445b21075f493b5ebb43de46"
+    },
+    {
+      "path": "config/b0-s4-revalidation.json",
+      "sha256": "550d202022a7069ab54de7cdce405df584d35f5eba8827381db18a2499557e66"
+    },
+    {
+      "path": "tests/extraction/b0-revalidation.test.ts",
+      "sha256": "e275b4ab950639b180f986713220eba35cd2ebcd52e6837d99ddb52ee5c96c6f"
+    },
+    {
+      "path": "docs/acceptance/s4-b0-revalidation-2026-11-08/source-observations.json",
+      "sha256": "bd47fb08d6b31970e6b6e76a49828d365ecab782982113c8b616be6f9defdfbe"
+    }
+  ],
+  "execution_controls": {
+    "each_paper_once": true,
+    "all_retries_counted": true,
+    "first_physical_request_starts_one_shared_clock": true,
+    "failure_stops_following_papers": true,
+    "terminal_checks": [
+      "task_processing_complete",
+      "selected_source_block_processing_complete",
+      "task_scope_source_block_processing_complete",
+      "whole_document_summary_complete",
+      "primary_assessment_validation",
+      "current_record_assessment_fields",
+      "delivery_validation",
+      "candidate_export_success"
+    ],
+    "SIGINT_SIGTERM": "Abort the active run, preserve raw results and shared accounting; no automatic resume.",
+    "existing_execution_or_owner": "Exclusive new paths; refuse overwrite or prior owner reuse.",
+    "raw_parser_partial": "Retained limitation, not automatic failure.",
+    "automatic_second_round_or_cap_extension": false
+  },
+  "observation_scope": {
+    "not_complete_gold": true,
+    "not_independent_medical_acceptance": true,
+    "no_automatic_recall_failure_on_omission": true,
+    "negative_cases": "Known isolated normal tissue and pure conclusion boundaries, without forcing all normal comparison sentences out.",
+    "conditional_sentence": "If emitted, inspect complete appearance/conditions/negation/Figure marker.",
+    "direct_measurement": "L07 extent/angular morphology quantities are semantic observations; no invented real 9mm/35HU case, no forced promotion of prior L05 backgrounds.",
+    "Chinese": "Actual L01 prose and original Figure Note.",
+    "conflict": "Inspect actual source groups only; if a duplicate conflict is not produced, do not claim that trigger was demonstrated."
+  },
+  "not_implemented_this_turn": [
+    "S5 full webpage/upload/review/export UI",
+    "S2 medical catalog approval",
+    "S6 formal numeric thresholds or independent acceptance",
+    "A new B0/F comparison",
+    "Any paid model run or medical-quality pass"
+  ],
+  "artifact_sha256": {
+    "source-observations.json": "bd47fb08d6b31970e6b6e76a49828d365ecab782982113c8b616be6f9defdfbe",
+    "typecheck-initial.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline-runtime-source.json": "298b9b3d1907be5025749ef31ef7f128ab64699eda4c69f6d562fee6cbca355b",
+    "offline-tests-initial.log": "44d7d03f852e35cdfb8842dbe8ac9f453fbef13b3a067c03ba26445e3b331638"
+  }
+}

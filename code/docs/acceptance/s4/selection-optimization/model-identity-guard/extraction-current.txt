@@ -1,0 +1,210 @@
+
+> t1-agent@0.1.0 test:extraction
+> tsx --test tests/extraction/*.test.ts
+
+✔ nondefault limits require a complete authorization before a new ledger can be created (35.965363ms)
+✔ authorized 300/6M/400K accounting includes cache and reasoning once and preserves unknown usage on reopen (13.34067ms)
+✔ the authorized request limit stops at 300 and a reopen never clears the halt or request history (925.698899ms)
+✔ six million input tokens include both cache classes and reserve the next request before it starts (3.092319ms)
+✔ reported input beyond the six million cap remains recorded and prevents another request (5.462005ms)
+✔ 400K output includes reasoning once and rejects the next output reservation (5.604954ms)
+✔ unreported usage keeps both reservation caps after reopening an authorized ledger (5.529842ms)
+✔ reopening rejects changed configured limits or authorization without rewriting the existing ledger (7.165325ms)
+✔ ledger-file limit and authorization tampering are rejected instead of silently adopting new authority (19.384817ms)
+✔ legacy default ledgers retain their original schema, accounting, and strict default limits (9.482901ms)
+✔ legacy wall-clock adjustments cannot extend or be imported into a nondefault authorized batch (16.472612ms)
+✔ guarded fetch uses instance batch, output reservation, request deadline, and total wall-clock limits (37.340156ms)
+✔ valid synthetic evidence preserves the exact 28 fields and never becomes model, human or medical approval (29.004929ms)
+✔ non-BMP and combining characters use unnormalized Unicode code-point offsets and whole-line boxes (13.381883ms)
+✔ duplicate and overlapping occurrences require explicit zero-based disambiguation (6.516219ms)
+✔ cross-block, cross-page quotes preserve boundaries, exact strings, pages and the explicit display joiner (5.365932ms)
+✔ nonadjacent cross-page fragments stay separate and require context rather than gaining semantic continuity (6.415018ms)
+✔ gaps within one source line require context while adjoining source spans preserve exact boundaries (6.463501ms)
+✔ overlapping segments and forged or processed native text are rejected (1.312709ms)
+✔ every task/run/document/SHA/source/text version is bound and rejects drift (5.864857ms)
+✔ source and all field evidence must both be provided and read (1.876479ms)
+✔ ungrounded user-selected disease is downgraded to unknown, never stored as a paper fact (4.083231ms)
+✔ omitted negation and conditions produce review findings and retain the omitted source line (8.813775ms)
+✔ uncertainty and unresolved pronouns cannot silently become definite medical statements (1.560768ms)
+✔ numbers and units are literal source evidence; rewrites reject and omissions require review (18.12042ms)
+✔ attached units and superscript areas remain exact and are never silently reduced to linear units (5.987567ms)
+✔ negation and conditions in explicitly supplied later context are also flagged, without semantic approval (3.085557ms)
+✔ a located observation in another paragraph remains an unverified semantic association (2.496885ms)
+✔ unknown is distinct from negation; unsupported assertion wording and raw feature names reject (2.924239ms)
+✔ unverified native table/figure relationships become needs_context even when native association is explicit (2.748563ms)
+✔ article-boundary quarantine retains evidence as uncertain, never as a user-approved exclusion (2.414935ms)
+✔ definitions and cited research retain distinct attribution and missing reference findings (4.195028ms)
+✔ paper instructions remain quoted data; validation does not mutate submissions, context or catalog (3.496769ms)
+✔ an exact resubmission is idempotent across tool call IDs and never writes another version (37.3907ms)
+✔ the first candidate generates a reversible insert proposal with no expected parent version (23.8826ms)
+✔ the same literal observation at different anchors is linked while retaining both locations (22.203223ms)
+✔ identical quote text with different known lesions, modalities, phases or conditions remains separate (20.702749ms)
+✔ later context constraining an unknown applicability generates a new immutable version with CAS (12.545396ms)
+✔ unknown-to-sourced sequence enrichment creates a version; it is never interpreted as negation (9.863833ms)
+✔ human edited or approved active versions are preserved and automatic changes only become proposals (18.250165ms)
+✔ a retry of an already persisted human-protected proposal remains idempotent (7.742959ms)
+✔ stale expected versions and explicitly changed known source contexts preserve proposals (6.141723ms)
+✔ explicit same-condition affirmative/negative observations link conflicts without resolving either source (6.400837ms)
+✔ unknown assertions and differently attributed source studies are not treated as contradictory negatives (3.224956ms)
+✔ different numeric measurements are possible conflicts requiring review, not inferred medical contradictions (6.014294ms)
+✔ another run, document version or article cannot become a duplicate or update target (23.433182ms)
+✔ same record ID with distinct data never authorizes silent overwrite (2.571521ms)
+✔ literal mismatch preserves every raw observation and usage, and the halt survives later matching events and reopen (46.635385ms)
+✔ an absent model name stays unknown, never counts as a matched model or authenticated weights (22.192253ms)
+✔ a normal local SSE preserves the provider name verbatim and allows a matching session to finish (180.176823ms)
+✔ a mismatch on the final SSE response fails even when the session otherwise settled with no next request (31.357524ms)
+{"run_id":"identity-run-1","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":1}
+✔ a tool-complete response with an unapproved name cannot make a paper condition pass or launch summary/next paper (52.212916ms)
+✔ budget counts cache once, includes reasoning in output once, and retains unknown usage across reopen (28.307685ms)
+✔ provider input above a local payload estimate is explicit, and above reservation halts at the real limit (3.938991ms)
+✔ request, input, output and experiment-time boundaries reject before another network attempt (637.669388ms)
+{"test_evidence":"explicit_wall_clock_adjustment","default_seconds":7200,"authorized_seconds":14400,"authorization_entries":1,"restart_preserved_request_count":1,"original_start_preserved":true,"token_and_request_limits_unchanged":true,"extended_deadline_enforced_at_ms":14400000,"halted_experiment_extension_rejected":true}
+✔ explicit wall-clock authorization extends only elapsed time and survives reopen without resetting the experiment ledger (5.063574ms)
+✔ network guard rejects changed destination and model payload without counting a physical request (31.432203ms)
+✔ concurrent jobs sharing one budget reserve before network and cannot jointly exceed the remaining input cap (7.039441ms)
+✔ installed Pi Responses adapter reports cached input and reasoning without double counting (108.310113ms)
+{"test_evidence":"installed_sdk_context_clamp_replay","observed_usage":{"input_tokens":25781,"output_tokens":72,"total_tokens":25853},"historical_context_window":32768,"new_context_window":1050000,"historical_wire_output_limits":[8192,16],"new_wire_output_limits":[8192,8192],"historical_input_reservations":[32768,32768],"new_input_reservations":[32768,32768],"reported_token_totals":[{"requests":2,"input_tokens":32485,"output_tokens":88,"conservative_missing_usage_requests":0,"elapsed_seconds":0.02},{"requests":2,"input_tokens":32485,"output_tokens":88,"conservative_missing_usage_requests":0,"elapsed_seconds":0.011}],"gateway_context_window_verified":false}
+✔ installed SDK replay of observed usage keeps the new output allowance while context metadata leaves budget reservations unchanged (57.303121ms)
+{"test_evidence":"independent_application_context_stop","nominal_context_metadata":1050000,"application_estimate_limit":128000,"synthetic_reported_input":130000,"physical_requests":1,"reserved_input":32768,"stop_code":"application_context_estimate_limit","original_global_token_caps_unchanged":true}
+✔ nominal context metadata does not bypass the independent application estimate stop or enlarge experiment budgets (20.924593ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":11,"expected_blocks":11,"candidates":2,"requests":2}
+{"test_evidence":"unified_batch_lines_and_compact_receipt","first_source_lines":[5,7],"second_source_lines":[8,9],"all_medical_numeric_and_provenance_indices_share_batch_namespace":true,"saved_full_records":2,"top_level_fields_per_record":28,"receipt_characters":680,"persisted_records_characters":16980,"full_nonadjacent_diagnostic_retained":true,"compact_receipt_omits_diagnostic_detail_and_scope_basis":true}
+✔ unified batch line indices map across records and compact receipts preserve complete stored evidence (119.730911ms)
+{"test_evidence":"unified_batch_line_authorization","read_lines":[5,6],"unread_reference_line":9,"rejected_unread_field_variants":6,"out_of_range_medical_line":11,"legacy_source_indices_rejected_without_guessing":true,"saved_source_supported_candidates":1,"batch_completed":false}
+✔ unified batch medical and context indices reject unread, out-of-range and legacy local evidence selectors (44.205268ms)
+✔ assigned source inventory is unique while overlapping context requires its own batch acknowledgement (1.659523ms)
+✔ tool boundary refuses a partial invalid read, foreign run, unknown tool, and forged source identity (2.849893ms)
+✔ continuation region is version-bound quarantine and remains an explicit uncovered source region (1.151733ms)
+✔ Pi has only business tools and forged calls cannot turn PDF instructions into trusted authority (31.629525ms)
+✔ candidate versions commit before their events, survive reopen, and repeated submission is idempotent (32.031812ms)
+✔ SQLite competing stale writers fail CAS atomically and cannot cross run boundaries (33.863115ms)
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (5.182959ms)
+✔ a human version stays active while repeated automatic updates preserve one idempotent proposal (10.066551ms)
+✔ a possible link to approved human evidence is stored only as an unapproved proposal (7.414767ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":0,"requests":1}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":3,"candidates":0,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0003","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":0,"requests":3}
+✔ full Pi run processes every assigned block once and explicitly completes zero-candidate batches (113.377158ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":2}
+✔ assistant stopping after delivered reads leaves a failed batch and a partial run (62.698869ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ transient model failures retry at most twice and retain already saved candidates with missing coverage (870.271809ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ HTTP 200 followed by stalled SSE hits the independent request deadline, retries twice and retains saved candidates (1090.541436ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":1}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":3,"candidates":1,"requests":2}
+{"test_evidence":"document_deadline_hard_stop","document_timeout_ms":600,"request_deadline_ms":120000,"run_wall_ms":608,"stalled_response_close_ms":564,"server_forced_disconnect":false,"request_error_code":"pi_session_time_limit","request_usage_status":"missing_usage_conservative_reservation","requests":2,"saved_candidates":1,"completed_blocks":1,"missing_blocks":2,"retries":0,"whole_document_summary_complete":false,"quiet_observation_ms":350}
+✔ document deadline closes an active model stream before its request deadline and preserves completed, saved and missing work (976.992446ms)
+{"test_evidence":"delayed_sdk_prompt_settlement","host_timeout_ms":500,"host_return_ms":502,"wrapper_settled_at_host_return":false,"watchdog_released_at_host_return":false,"client_closed_response_before_cleanup":true,"request_deadline_ms":120000,"saved_candidates":1}
+✔ host prompt deadline does not wait for delayed SDK prompt settlement and actively closes its stream (510.758765ms)
+✔ an independent summary must review every candidate and its stored review never grants human approval (5.085918ms)
+✔ a looping local model cannot exceed the configured per-batch physical response limit (45.572722ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ cancellation after a candidate commit preserves it and cannot claim batch or document completion (53.870515ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ budget exhaustion after candidate persistence stops new requests and saves a partial result (60.452193ms)
+✔ selected cancer, modality or feature scope with an unavailable catalog blocks before model network (62.895882ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+✔ approved cancer and modality selections allow open extraction when the feature catalog is empty (71.923316ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":5,"expected_blocks":5,"candidates":4,"requests":3}
+✔ closed whole-line Pi submissions preserve 28 fields and finish without acknowledgement responses (91.247536ms)
+{"test_evidence":"closed_unknown_contract","saved_unknown_forms":["omitted","null","object_value_null_empty_indices"],"saved_records":3,"rejected_feedback":[{"call_id":"call-fixture-1-0","feedback":"Validation failed for tool \"submit_candidate_records\":\n  - records.0.source_line_indices: must have required properties source_line_indices\n  - records.0.source_fragments: schema is false\n  - records.0: must not have additional properties\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_fragments\": [\n        {"},{"call_id":"call-fixture-1-1","feedback":"Validation failed for tool \"submit_candidate_records\":\n  - records.0.context_fragments: schema is false\n  - records.0: must not have additional properties\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_indices\": [\n        0\n      ],\n      \"feature_name_raw\": \"spiculation\",\n      \"feature_category\": \"mar"},{"call_id":"call-fixture-1-2","feedback":"source_line_index_out_of_range"},{"call_id":"call-fixture-1-3","feedback":"Validation failed for tool \"submit_candidate_records\":\n  - records.0.disease_or_lesion.source_indices: must have required properties source_indices\n  - records.0.disease_or_lesion: must be null\n  - records.0.disease_or_lesion: must match a schema in anyOf\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_i"},{"call_id":"call-fixture-1-4","feedback":"Validation failed for tool \"submit_candidate_records\":\n  - records.0.modality: must be object\n  - records.0.modality: must be null\n  - records.0.modality: must match a schema in anyOf\n\nReceived arguments:\n{\n  \"records\": [\n    {\n      \"source_line_indices\": [\n        0\n      ],\n      \"feature_name_raw\": \"spiculation\",\n "}]}
+✔ closed schema rejects copied quote fields and malformed observations while accepting all documented unknown forms (37.890399ms)
+{"test_evidence":"real_probe_empty_selector_regression","real_probe_source":"docs/acceptance/s4/closed-protocol-2026-11-03T03-56-18-592Z/gpt-6.1-sol.json","real_probe_arguments":{"block_ids":["synthetic-line-1"],"line_indices":[]},"hybrid_selected_line_indices":[0],"reverse_selected_line_indices":[1],"unread_other_line_rejected_before_its_explicit_read":true,"closed_legacy_selector_rejected":true}
+✔ empty read selections from the real probe preserve explicit subsets and closed mode rejects legacy block selectors (58.828286ms)
+✔ summary completion requires reading every current candidate including candidates added by its updates (36.727033ms)
+{"run_id":"limits-defaults","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"limits-authorized-max","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"limits-one-response","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"sixteen-physical-true","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":16}
+{"run_id":"sixteen-physical-false","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":16}
+✔ authorized operation caps accept sixteen responses and thirty minutes while preserving defaults and global limits (585.122123ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":2,"candidates":1,"requests":1}
+{"test_evidence":"protocol_diagnostic_pause","requests":1,"state":"partial","saved_candidates":1,"error_code":"sdk_tool_argument_validation_failed_or_unclassified_tool_error","error_response_sha256":"2e901246d6163bf4af0932e69ca7dfe0cd16fad5c9568f103fd7b0e694759860","invalid_argument_sha256":"f37d0fd352c28556fbe9280d05b3ac24b6d119b9fa7b9b574f22c549c1c4a0f7","retries":0,"summary_started":false,"persisted_pause_after_reopen":true}
+✔ protocol diagnostic pause keeps error hashes and stops before another batch, retry or summary (50.448874ms)
+{"run_id":"stopped-cancel","model_id":"synthetic-stopped-cancel","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"healthy-cancel","model_id":"synthetic-healthy-cancel","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"stopped-cancel","model_id":"synthetic-stopped-cancel","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":4}
+{"run_id":"healthy-cancel","model_id":"synthetic-healthy-cancel","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":4}
+{"test_evidence":"concurrent_document_cancellation_isolation","stop_mode":"cancel","streams_overlapped_before_stop":true,"stopped_state":"cancelled","healthy_state":"completed","stopped_candidates":1,"healthy_candidates":1,"stopped_completed_blocks":1,"healthy_completed_blocks":2,"stopped_missing_blocks":1,"healthy_transport_remained_open_until_released":true,"shared_requests":5,"stopped_requests":2,"healthy_requests":3,"shared_input_tokens":33168,"shared_output_tokens":8272,"conservative_missing_usage_requests":1}
+{"run_id":"stopped-deadline","model_id":"synthetic-stopped-deadline","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"healthy-deadline","model_id":"synthetic-healthy-deadline","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"stopped-deadline","model_id":"synthetic-stopped-deadline","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":4}
+{"run_id":"healthy-deadline","model_id":"synthetic-healthy-deadline","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":4}
+{"test_evidence":"concurrent_document_cancellation_isolation","stop_mode":"deadline","streams_overlapped_before_stop":true,"stopped_state":"partial","healthy_state":"completed","stopped_candidates":1,"healthy_candidates":1,"stopped_completed_blocks":1,"healthy_completed_blocks":2,"stopped_missing_blocks":1,"healthy_transport_remained_open_until_released":true,"shared_requests":5,"stopped_requests":2,"healthy_requests":3,"shared_input_tokens":33168,"shared_output_tokens":8272,"conservative_missing_usage_requests":1}
+✔ overlapping Pi document jobs share budget while cancellation or deadline closes only their own active stream (895.71444ms)
+{"test_evidence":"actual_category_length_replay","original_argument_sha256":"8e3e263390d86323d596278cfa26d760b5f44b1ee420146f5dd59bf44299c382","category_code_points":82,"original_shape_passed_sdk_schema":true,"source_layer_rejections":3,"rejection_code":"feature_name_not_in_evidence","valid_synthetic_record_saved":true,"saved_category_unchanged":true}
+✔ actual eighty-two-character category payload passes closed schema without bypassing source validation or truncating the saved category (29.554782ms)
+{"test_evidence":"summary_dictionary_runtime_roundtrip","all_candidate_count":1,"trusted_context_bytes":3571,"packet_bytes":2709,"whole_context_restores_exactly":true,"candidate_versions_unchanged":true,"medical_approval":false}
+✔ summary dictionary sent through installed Pi restores the complete trusted context without truncating candidates (37.151628ms)
+{"test_evidence":"neutral_case_runtime_coverage","cases":2,"actual_source_and_context_read_required":true,"focus_only_read_does_not_satisfy_context":true,"source_binding_checked":true,"unapproved_judgments":2,"cases_are_gold":false,"medical_approval":false,"candidate_changes_from_case_reports":0}
+✔ independent summary must actually read every neutral audit case source and records only unapproved judgments (48.153909ms)
+{"test_evidence":"summary_document_line_authorization","read_order":[301,300],"immutable_document_indices_not_rebased":true,"unread_attempts_saved_no_candidate":true,"old_source_fields_rejected":true,"out_of_range_index_rejected":302,"saved_full_records":1,"medical_approval":false}
+✔ summary updates use immutable document indices above the batch range and reject unread or legacy references (48.584672ms)
+{"test_evidence":"independent_summary_version_coverage","mode":"automatic-update","completed_unapproved_review":true,"updated_version_requires_new_review":true,"human_active_preserved":false,"medical_approval_from_model":false}
+{"test_evidence":"independent_summary_version_coverage","mode":"human-protected","completed_unapproved_review":true,"updated_version_requires_new_review":false,"human_active_preserved":true,"medical_approval_from_model":false}
+✔ independent summary re-reviews updated versions and preserves human active versions with unapproved proposals (76.253633ms)
+✔ compact Pi rejects unread evidence, out-of-range source indices, extra identity and legacy full submissions (29.937908ms)
+✔ compact indices cannot authorize a source block that was read in another batch (22.246577ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":1,"requests":1}
+✔ compact omitted medical observations stay unknown despite approved selected cancer and modality scope (62.123485ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":3}
+✔ line-index Pi saves exact whole lines and all 28 fields while unsupported medical observations stay unknown (103.271032ms)
+✔ line-index Pi rejects unread lines, invalid selections and out-of-range indices without partial read authorization (37.797591ms)
+✔ line-index namespaces are batch-local and previous-batch lines cannot authorize current evidence (38.431324ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":1,"requests":1}
+✔ line-index nonadjacent source selection remains separate segments with an explicit review warning (62.525607ms)
+✔ Pi timeout aborts a held local response and preserves conservative request usage (87.828168ms)
+✔ the initial all/all/all scope accepts new terms with an empty unavailable formal catalog (17.376244ms)
+✔ restricted mode without an approved catalog or bindings is blocked and never widened (6.549708ms)
+✔ approved taxonomy selections do not require any feature catalog when features are unrestricted (4.305817ms)
+✔ open extraction retains a feature in a different sourced cancer without forcing an existing inapplicable binding (3.14392ms)
+✔ selected-empty, invalid selections, version drift and inapplicable upstream changes block the run (5.165859ms)
+✔ canonical names and explicitly approved sourced synonyms match exact selected bindings (9.141127ms)
+✔ draft aliases, feature categories and parent/child terms are not implicit synonyms (13.298998ms)
+✔ development catalog usage requires explicit enablement and remains labelled development_only (1.335902ms)
+✔ the S1 fixture catalog cannot become a real approved medical vocabulary (4.110969ms)
+✔ source cancer and modality mismatches are out of scope despite valid user selections (2.110926ms)
+✔ unknown source facts need context instead of borrowing the selected cancer or modality (0.731107ms)
+✔ a selected binding ID cannot force a different raw source feature into scope (6.026779ms)
+✔ sequence conditions are checked explicitly and unspecified sequences require context (2.29617ms)
+✔ multiple equally matching bindings need explicit disambiguation and do not take the first (1.482647ms)
+✔ a source-less approval entry is unusable and literal matching respects word boundaries (1.317235ms)
+✔ B0 retains every eligible exact source line and no condition rewrites original text (5.804535ms)
+✔ F defers only explicit nonvisual text; R excludes it from input copy; unknowns remain kept (1.669461ms)
+✔ negation, uncertainty, numeric measurements, morphology and cell/nucleus/tissue descriptions survive (0.861888ms)
+✔ a reference-looking body sentence without a source References heading is never removed (0.279137ms)
+✔ unmapped table pages, captions and uncertain mappings default to retained source context (0.697984ms)
+✔ article quarantine cannot be restored by retrieval cues or context expansion (0.609472ms)
+✔ explicit source links require a shared figure/table ID and block incompatible case/modality/phase/panel (1.350842ms)
+✔ summary can explicitly re-read omitted original lines but cannot cite them before actual read (12.983249ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":2,"expected_blocks":3,"candidates":0,"requests":1}
+✔ filtered end-to-end run completes only dispatched blocks and preserves omitted blocks as coverage gaps (205.707058ms)
+✔ complete fragments are stored once and every field and occurrence roundtrips without changing the input (4.185075ms)
+✔ all candidates, context and geometry survive large repeated-fragment views without truncation (47.980841ms)
+✔ an entire 28-field evidence record roundtrips without editing clinical or review fields (19.876779ms)
+✔ nonadjacent cross-page boundaries, segment order and the explicit display joiner remain unchanged (0.672175ms)
+✔ same text at another block, version, occurrence, offset, page or bbox is never conflated (0.637108ms)
+✔ object property order normalizes for dedup while Unicode text is never normalized or rewritten (0.409518ms)
+✔ incomplete or extended fragment-like objects remain intact ordinary JSON rather than losing extra metadata (0.662319ms)
+✔ paper strings containing reference or script syntax stay uninterpreted strings (0.282915ms)
+✔ literal marker objects are escaped reversibly at every level and never become source references (2.20837ms)
+✔ prototype-looking JSON keys roundtrip as own data without altering object prototypes (0.412871ms)
+✔ unpacking produces independent JSON copies and never mutates the dictionary or other occurrences (0.994367ms)
+✔ scalar JSON and shared object identities normalize without changing JSON values (1.843139ms)
+✔ cycles and values that cannot be represented as strict JSON reject with explicit errors (1.174412ms)
+✔ missing, duplicated or malformed dictionary references reject rather than producing partial evidence (0.50605ms)
+✔ wrong envelopes, missing tables, unused entries and malformed literal escapes reject clearly (1.06644ms)
+✔ stable packing gives deterministic bytes for equivalent JSON values (0.647847ms)
+ℹ tests 144
+ℹ suites 0
+ℹ pass 144
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9592.929115

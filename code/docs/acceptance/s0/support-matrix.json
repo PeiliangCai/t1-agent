@@ -1,0 +1,104 @@
+{
+  "schema_version": "1",
+  "stage": "S0",
+  "basis": "T1智能体开发计划.docx; E01–E09",
+  "capability_claim": "planned_support_not_implemented_or_medically_validated",
+  "matrix": [
+    {
+      "input": "public_published_pdf_with_usable_text_layer",
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "planned_in_v1": true,
+      "engineering_validated": false,
+      "medical_quality_validated": false,
+      "validation_stage": "S3/S4/S6"
+    },
+    {
+      "input": "scanned_pdf_or_mixed_pdf_requiring_OCR",
+      "planned_in_v1": false,
+      "behavior": "detect_and_report_incomplete_coverage",
+      "validation_stage": "S3/S6"
+    },
+    {
+      "dimension": "cancer",
+      "input_allowlist": null,
+      "initial_evaluation": [
+        "lung_cancer",
+        "colorectal_cancer"
+      ],
+      "medical_quality_validated": false
+    },
+    {
+      "dimension": "image_family",
+      "accepted": [
+        "radiology",
+        "pathology",
+        "endoscopy"
+      ],
+      "initial_evaluation": [
+        "CT",
+        "MRI"
+      ],
+      "other_modalities": "not_validated",
+      "medical_quality_validated": false
+    },
+    {
+      "dimension": "tables_captions_figures",
+      "planned": "extract_available_text_and_necessary_context; no inference_from_image_as_original_quote",
+      "coverage": "not_validated_until_S3"
+    },
+    {
+      "dimension": "S1",
+      "input": "human_prepared_text_or_simulated_DocumentIR",
+      "fixture": true,
+      "usable_as_paper_evidence": false
+    }
+  ],
+  "scope_semantics": {
+    "initial_modes": {
+      "cancers": "all",
+      "image_types": "all",
+      "features": "all"
+    },
+    "selected": "nonempty_valid_choices_required",
+    "upstream_change": "keep_valid_and_mark_invalid; user_resolves_before_start",
+    "missing_catalog": "all_allowed; selected_cannot_silently_widen",
+    "restricted_output": "selected_bindings_and_verified_synonyms_only",
+    "all_output": "open_within_cancer_and_image_scope; new_terms_pending_review",
+    "user_selection_is_source_fact": false,
+    "default_parameter_popups": false
+  },
+  "feature_entry_fields": [
+    "feature_id",
+    "raw_name",
+    "normalized_name",
+    "synonyms",
+    "category",
+    "source",
+    "version"
+  ],
+  "feature_binding_fields": [
+    "binding_id",
+    "feature_id",
+    "disease_or_lesion",
+    "image_type",
+    "sequence_or_phase_conditions",
+    "source",
+    "version"
+  ],
+  "binding_relation": "explicit_many_to_many; hierarchy_and_synonyms_are_separate",
+  "human_review": "real_record_level_approval_before_approved_export; automatic_validation_does_not_approve",
+  "medical_reference_reviewers": {
+    "status": "not_yet_arranged",
+    "followup_stage": "S2"
+  },
+  "delivery": "B_per_document_review_and_export",
+  "deferred": [
+    "batch_submission",
+    "cross_document_query",
+    "checkpoint_resume_T1-F01",
+    "OCR"
+  ]
+}

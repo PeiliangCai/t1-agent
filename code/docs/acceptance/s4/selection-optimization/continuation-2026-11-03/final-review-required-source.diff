@@ -1,0 +1,310 @@
+--- /dev/null
++++ current/packages/agent/src/source-selection.ts
+@@ -0,0 +1,162 @@
++import { createHash } from 'node:crypto';
++import { ContractError } from '@t1/contracts';
++import type { ArticleScopeManifest, ExtractionDocument } from './article-scope.js';
++
++export type SourceSelectionCondition = 'B0' | 'F' | 'R' | 'FR';
++export type SourceSelectionState = 'kept' | 'deferred' | 'excluded';
++export const SOURCE_SELECTION_VERSION = 's4-explainable-source-selection-1';
++export interface SourceSelectionEntry {
++  block_id: string; document_line_index: number; physical_page: number; text_sha256: string;
++  code_points: number; state: SourceSelectionState; rule_ids: string[]; reasons: string[];
++  context_of_block_ids: string[]; structure_unit_ids: string[]; article_eligible: boolean;
++}
++export interface SourceSelectionManifest {
++  schema_version: 's4-source-selection-1'; rule_version: string; condition: SourceSelectionCondition;
++  document_id: string; file_sha256: string; text_version: string; article_scope_digest: string;
++  entries: SourceSelectionEntry[]; kept_block_ids: string[]; deferred_block_ids: string[]; excluded_block_ids: string[];
++  counts: Record<SourceSelectionState, number>; code_points: Record<SourceSelectionState, number>;
++  original_source_changed: false; medical_rules_approved: false; unknown_default: 'kept';
++  full_document_coverage_implied: false; digest: string;
++}
++const sha = (text: string) => createHash('sha256').update(text).digest('hex');
++// Broad bilingual retrieval cues, not a feature taxonomy or medical decision rule.
++const visual = /(?:形态|形状|边缘|边界|轮廓|密度|信号|强化|钙化|坏死|分叶|毛刺|空洞|囊|磨玻璃|血管|胸膜|支气管|结节|肿块|长径|短径|直径|厚度|细胞|细胞核|核仁|染色|组织结构|腺体|间质|异型|分化|浸润|排列|纹理|影像|图像|\b(?:shape|morpholog\w*|margin\w*|border\w*|contour\w*|densit\w*|attenuation|signal|enhanc\w*|calcif\w*|necros\w*|lobulat\w*|spicul\w*|cavit\w*|cyst\w*|ground[ -]glass|vascular|pleural|bronch\w*|nodule\w*|mass|diameter\w*|thickness|cell\w*|nucle\w*|chromatin|histolog\w*|tissue|gland\w*|stroma\w*|atypi\w*|differentiat\w*|invas\w*|architecture|texture|imaging|radiolog\w*)\b)/i;
++const modality = /(?:\b(?:CT|MRI?|PET|DWI|ADC|T1WI|T2WI|H&E|HE|ultrasound|microscop\w*)\b|磁共振|超声|断层|显微|病理)/i;
++const qualified = /(?:\b(?:no|not|without|absence|negative|uncertain|possible|may|might|suspect\w*|if|when|except|whereas)\b|未见|未|无|不|否认|可能|疑似|除外|仅|条件|期|扫描|重建)/i;
++const numeric = /(?:\d|[０-９])\s*(?:[.,．]\s*\d+)?\s*(?:mm|cm|μm|µm|nm|HU|%|％|ms|秒|毫米|厘米|倍|例|岁|[×x]|±|[<>=≤≥＞＜])/i;
++const figureTable = /(?:\b(?:fig(?:ure)?s?\.?|tables?)\s*\d+|[图表]\s*[0-9０-９]+|注[：:]|\b(?:note|abbreviations?)\s*[:：])/i;
++const referenceHeading = /^(?:【?参考文献】?|references|bibliography)\s*[:：]?$/i;
++const adminHeading = /^(?:acknowledg(?:e)?ments?|author contributions?|funding|data availability|availability of data(?: and materials)?|declarations|ethics(?: approval(?: and consent to participate)?)?|competing interests?|conflicts? of interest|consent for publication|致谢|基金(?:项目)?|利益冲突|作者贡献|伦理声明)\s*[:：]?$/i;
++const heading = /^(?:\d+(?:\.\d+)*\s+.{1,90}|(?:introduction|abstract|background|methods?|materials? and methods?|results?|discussion|conclusions?|references|bibliography|limitations?|supplementary information|acknowledg(?:e)?ments?|declarations))\s*$/i;
++const bibliographicEnd = /(?:\b(?:18|19|20)\d{2}\s*[;，,]\s*\d+\s*(?:\([^)]*\))?\s*[:：]\s*[\dA-Za-z-]+|https?:\s*\/\/\s*(?:doi\.org|dx\.doi\.org)|\bdoi\s*[:：]|\[J\])/i;
++const referenceStart = /^(?:\[\s*\d+\s*\]|\d+\s*[.．、])\s*\S/;
++const explicitBoilerplate = /^(?:【中图分类号】|【文献标识码】|【文章编号】|©\s*\d{4}|copyright\s+©|publisher['’]s note\b|vol:\.\(1234567890\)|\|\s*https?:\/\/doi\.org\/|open access\s+this article is licensed under|the authors declare no competing interests\.?$)/i;
++const statisticalOnly = /^(?:(?:all )?statistical analys(?:is|es) (?:was|were) (?:performed|conducted|carried out)|(?:所有)?(?:统计分析|统计学分析).*(?:SPSS|R\s*软件|软件)|采用\s*(?:SPSS|SAS)\s*[\d.]+.*(?:分析|统计))/i;
++
++/** Original blocks are never edited. Missing cues and uncertain structure stay visible. */
++export function selectSourceBlocks(document: ExtractionDocument, article: ArticleScopeManifest,
++  condition: SourceSelectionCondition = 'B0'): SourceSelectionManifest {
++  if (!['B0', 'F', 'R', 'FR'].includes(condition)) throw new ContractError('invalid_source_selection_condition');
++  if (document.document_id !== article.document_id || document.file_sha256 !== article.file_sha256 || document.text_version !== article.text_version)
++    throw new ContractError('source_selection_binding_mismatch');
++  const eligible = new Set(article.included_block_ids), positive = condition === 'F' || condition === 'FR', reverse = condition === 'R' || condition === 'FR';
++  const structural = new Map<string, string[]>(), protectedIds = new Set<string>();
++  if (document.schema_version === '3') {
++    for (const u of document.structure.units) {
++      for (const s of u.source_segments) {
++        const values = structural.get(s.block_id) ?? []; values.push(u.unit_id); structural.set(s.block_id, values);
++        if (['caption', 'table', 'table_cell', 'footnote'].includes(u.kind) || ['partial', 'unmapped', 'ambiguous'].includes(u.mapping.status)) protectedIds.add(s.block_id);
++      }
++    }
++    // An unmapped table/figure cannot identify its exact source lines safely. Keep its entire page.
++    const unknownStructurePages = new Set(document.structure.units.filter(u => ['table', 'table_cell', 'caption'].includes(u.kind) &&
++      (!u.source_segments.length || !['exact', 'normalized_alignment'].includes(u.mapping.status))).flatMap(u => u.provenance.map(p => p.physical_page)));
++    document.blocks.filter(b => unknownStructurePages.has(b.page)).forEach(b => protectedIds.add(b.block_id));
++  }
++  const references = new Set<number>(), administrative = new Set<number>();
++  let region: 'reference' | 'admin' | undefined;
++  for (let i = 0; i < document.blocks.length; i++) {
++    const text = document.blocks[i]!.text.trim();
++    if (referenceHeading.test(text)) { region = 'reference'; continue; }
++    if (adminHeading.test(text)) { region = 'admin'; continue; }
++    if (heading.test(text)) region = undefined;
++    if (region === 'reference') references.add(i);
++    if (region === 'admin') administrative.add(i);
++  }
++  // Drop only complete, clearly numbered bibliographic entries. A dangling tail stays unknown.
++  const bibliography = new Set<number>();
++  for (const start of references) {
++    if (!referenceStart.test(document.blocks[start]!.text.trim())) continue;
++    const group: number[] = [];
++    for (let j = start; j < document.blocks.length && j < start + 16 && references.has(j); j++) {
++      if (j > start && referenceStart.test(document.blocks[j]!.text.trim())) break;
++      group.push(j);
++      if (bibliographicEnd.test(document.blocks[j]!.text)) { group.forEach(n => bibliography.add(n)); break; }
++    }
++  }
++  const entries = document.blocks.map((b, i): SourceSelectionEntry => {
++    const rules: string[] = [], reasons: string[] = [];
++    const add = (rule: string, reason: string) => { rules.push(rule); reasons.push(reason); };
++    let state: SourceSelectionState = 'kept';
++    const raw = b.text.trim(), isProtected = protectedIds.has(b.block_id) || figureTable.test(raw);
++    if (!eligible.has(b.block_id)) { state = 'deferred'; add('ARTICLE_QUARANTINE', 'Article membership is pending human review; not dispatched.'); }
++    else if (condition === 'B0') add('B0_ALL_ELIGIBLE', 'Unfiltered emitted source block.');
++    else if (isProtected) add('KEEP_STRUCTURE_OR_FIGURE_TABLE', 'Figure/table/note or uncertain structural mapping; preserve source context.');
++    else if (reverse && (bibliography.has(i) || explicitBoilerplate.test(raw))) {
++      state = 'excluded'; add(bibliography.has(i) ? 'R_CONFIRMED_BIBLIOGRAPHY' : 'R_EXPLICIT_BOILERPLATE', 'Clearly bibliographic/administrative text excluded from input copy only; original remains available.');
++    } else if (positive && (bibliography.has(i) || explicitBoilerplate.test(raw))) {
++      state = 'deferred'; add(bibliography.has(i) ? 'F_BIBLIOGRAPHY_DEFERRED' : 'F_BOILERPLATE_DEFERRED', 'No primary visual evidence expected from this explicit non-content class; may be re-read.');
++    } else if (visual.test(raw) || modality.test(raw)) add('F_VISUAL_OR_MODALITY_CUE', 'Broad imaging or cell/nucleus/tissue retrieval cue; not a medical finding.');
++    else if (qualified.test(raw) || numeric.test(raw)) add('KEEP_QUALIFIER_OR_NUMERIC', 'Preserve negation, uncertainty, numerical values and applicable conditions.');
++    else if (positive && (administrative.has(i) && /(?:grant|funded|funding|author|consent|ethic|data|利益|基金|资助|作者|同意|伦理)/i.test(raw) || statisticalOnly.test(raw))) {
++      state = 'deferred'; add('F_EXPLICIT_NONVISUAL_DEFERRED', 'Explicit administrative/statistical software sentence deferred; ambiguous text is retained.');
++    } else add('KEEP_UNKNOWN', 'No safe reason to omit this source block; unknown defaults to kept.');
++    return { block_id: b.block_id, document_line_index: i, physical_page: b.page, text_sha256: sha(b.text),
++      code_points: Array.from(b.text).length, state, rule_ids: rules, reasons, context_of_block_ids: [],
++      structure_unit_ids: structural.get(b.block_id) ?? [], article_eligible: eligible.has(b.block_id) };
++  });
++  if (positive) {
++    // Expand from evidence/qualifier/structure seeds, never recursively from added context.
++    const seeds = entries.filter(e => e.state === 'kept' && e.rule_ids.some(r => ['F_VISUAL_OR_MODALITY_CUE', 'KEEP_QUALIFIER_OR_NUMERIC', 'KEEP_STRUCTURE_OR_FIGURE_TABLE'].includes(r)));
++    for (const seed of seeds) {
++      for (let i = Math.max(0, seed.document_line_index - 2); i <= Math.min(entries.length - 1, seed.document_line_index + 2); i++) {
++        const e = entries[i]!;
++        if (!e.article_eligible || e.state === 'excluded' || e.block_id === seed.block_id) continue;
++        // Explicit bibliography/boilerplate is a boundary, not a missing clinical qualifier.
++        if (e.rule_ids.some(r => /BIBLIOGRAPHY|BOILERPLATE/.test(r))) continue;
++        if (e.state === 'deferred') { e.state = 'kept'; e.rule_ids.push('KEEP_CONTEXT_NEIGHBOR'); e.reasons.push('Restored two-line boundary context around a retrieval seed.'); }
++        if (!e.context_of_block_ids.includes(seed.block_id)) e.context_of_block_ids.push(seed.block_id);
++      }
++      if (document.schema_version === '3') for (const unit of document.structure.units.filter(u =>
++        ['exact', 'normalized_alignment'].includes(u.mapping.status) && u.source_segments.some(s => s.block_id === seed.block_id))) {
++        for (const s of unit.source_segments) {
++          const e = entries.find(x => x.block_id === s.block_id);
++          if (!e?.article_eligible || e.state === 'excluded' || e.rule_ids.some(r => /BIBLIOGRAPHY|BOILERPLATE/.test(r))) continue;
++          if (e.state === 'deferred') { e.state = 'kept'; e.rule_ids.push('KEEP_MAPPED_UNIT_CONTEXT'); e.reasons.push('All exact/aligned source lines of the same native unit are retained as context; relation is unverified.'); }
++          if (e.block_id !== seed.block_id && !e.context_of_block_ids.includes(seed.block_id)) e.context_of_block_ids.push(seed.block_id);
++        }
++      }
++    }
++  }
++  const ids = (state: SourceSelectionState) => entries.filter(e => e.state === state && e.article_eligible).map(e => e.block_id);
++  const counts = Object.fromEntries(['kept', 'deferred', 'excluded'].map(state => [state, entries.filter(e => e.state === state).length])) as Record<SourceSelectionState, number>;
++  const codePoints = Object.fromEntries(['kept', 'deferred', 'excluded'].map(state => [state, entries.filter(e => e.state === state).reduce((n, e) => n + e.code_points, 0)])) as Record<SourceSelectionState, number>;
++  const manifest = { schema_version: 's4-source-selection-1' as const, rule_version: SOURCE_SELECTION_VERSION, condition,
++    document_id: document.document_id, file_sha256: document.file_sha256, text_version: document.text_version, article_scope_digest: article.digest,
++    entries, kept_block_ids: ids('kept'), deferred_block_ids: ids('deferred'), excluded_block_ids: ids('excluded'), counts, code_points: codePoints,
++    original_source_changed: false as const, medical_rules_approved: false as const, unknown_default: 'kept' as const, full_document_coverage_implied: false as const };
++  return { ...manifest, digest: sha(JSON.stringify(manifest)) };
++}
++
++/** Independent diagnostic variable: exact figure/table IDs suggest links, never merged assertions. */
++export function proposeExplicitSourceLinks(document: ExtractionDocument, article: ArticleScopeManifest) {
++  const allowed = new Set(article.included_block_ids);
++  const mentions = document.blocks.flatMap((b, lineIndex) => {
++    if (!allowed.has(b.block_id)) return [];
++    const pattern = /\b(fig(?:ure)?s?\.?|tables?)\s*(\d+)(?:\s*\(?([a-z])\)?)?(?=\s|[.,;:)\]]|$)|([图表])\s*(\d+)(?:\s*([A-Za-z]))?/gi;
++    return [...b.text.matchAll(pattern)].map(m => ({ block_id: b.block_id, document_line_index: lineIndex, physical_page: b.page,
++      identifier: (/^(?:tab|表)/i.test(m[1] ?? m[4] ?? '') ? 'table:' : 'figure:') + (m[2] ?? m[5]),
++      panel: (m[3] ?? m[6] ?? '').toLowerCase() || null, exact_marker: m[0], text: b.text }));
++  });
++  const values = (text: string, re: RegExp) => [...new Set([...text.matchAll(re)].map(m => (m[1] ?? m[0]).toLowerCase().replace(/\s+/g, '')))];
++  const links = [];
++  for (let i = 0; i < mentions.length; i++) for (let j = i + 1; j < mentions.length; j++) {
++    const a = mentions[i]!, b = mentions[j]!;
++    if (a.block_id === b.block_id || a.identifier !== b.identifier) continue;
++    const checks = {
++      case: [values(a.text, /(?:\bcase\s*(?:no\.?\s*)?|病例\s*)(\d+)/gi), values(b.text, /(?:\bcase\s*(?:no\.?\s*)?|病例\s*)(\d+)/gi)],
++      lesion: [values(a.text, /(?:\blesion\s*(?:no\.?\s*)?|病灶\s*)(\d+)/gi), values(b.text, /(?:\blesion\s*(?:no\.?\s*)?|病灶\s*)(\d+)/gi)],
++      modality: [values(a.text, /\b(CT|MRI|PET|ultrasound)\b/gi), values(b.text, /\b(CT|MRI|PET|ultrasound)\b/gi)],
++      condition: [values(a.text, /\b(arterial|venous|delayed|unenhanced|T1WI|T2WI|DWI|ADC)\b/gi), values(b.text, /\b(arterial|venous|delayed|unenhanced|T1WI|T2WI|DWI|ADC)\b/gi)],
++    };
++    const conflicts = Object.entries(checks).filter(([, [x, y]]) => x!.length && y!.length && !x!.some(v => y!.includes(v))).map(([k]) => k);
++    if (a.panel && b.panel && a.panel !== b.panel) conflicts.push('panel');
++    const missing = Object.entries(checks).filter(([, [x, y]]) => !x!.length || !y!.length).map(([k]) => k);
++    links.push({ identifier: a.identifier, from: { ...a, text: undefined }, to: { ...b, text: undefined },
++      status: conflicts.length ? 'blocked_incompatible_conditions' : missing.length ? 'pending_identity_or_conditions' : 'compatible_explicit_markers_pending_review',
++      conflicts, unknown_dimensions: missing, checks, relation_is_unapproved: true, assertion_merge_allowed: false });
++  }
++  return { schema_version: 's4-explicit-source-link-candidates-1', document_id: document.document_id,
++    file_sha256: document.file_sha256, text_version: document.text_version, experimental_variable: 'offline_only_not_in_main_selection_prompts',
++    full_source_text_included_in_prompt: false, links, medical_approval: false };
++}
+--- pilot1/packages/agent/src/extraction-tools.ts
++++ reliability-v2/packages/agent/src/extraction-tools.ts
+@@ -119,7 +119,8 @@
+       Type.Object({ block_ids: ReadSchema.properties.block_ids, line_indices: lineSelection }, closed);
+     const schemas = [Type.Object({}, closed), modelReadSchema, Type.Object({}, closed),
+       Type.Object({ records: Type.Array(modelRecordSchema, { maxItems: 3 }), batch_complete: Type.Boolean() }, closed),
+-      Type.Object({ reason: IssueSchema.properties.reason, block_ids: IssueSchema.properties.block_ids }, closed)];
++      isClosed ? Type.Object({ reason: IssueSchema.properties.reason, line_indices: lineSelection }, closed) :
++        Type.Object({ reason: IssueSchema.properties.reason, block_ids: IssueSchema.properties.block_ids }, closed)];
+     const descriptions = ['Get immutable scope, source identity and current assigned batch.',
+       'Read current assigned source lines and boundary context. Call with {} to read the whole batch once. Each line has a stable line_index for this batch; source_line_indices select entire original lines without recopying them. They are whole-line quotes, not minimal feature phrases.',
+       'Read the explicit versioned catalog. An unavailable catalog does not restrict open extraction; drafts are never approved.',
+@@ -127,7 +128,8 @@
+         'Submit at most THREE candidates. ALL *_line_indices and each medical/numeric line_indices refer directly to the SAME source_lines.line_index table returned by read_document_blocks. There is no per-record renumbering. Host copies original lines and binds identity. No exact_quote/source_fragments/source_indices fields. feature_name_raw must be verbatim or null. Submit as needed; only accepted batch_complete=true completes the batch; records=[] is valid.' : this.modelProtocol === 'whole_lines' ?
+         'Submit at most THREE candidates using ONLY source_line_indices and optional context_line_indices from read lines. Exact_quote/source_fragments/context_fragments are NOT fields in this interface. Host copies whole original lines, binds identity and builds the full evidence record. Medical-field source_indices index your selected lines, zero based. feature_name_raw must be verbatim or null. Continue submissions as needed; only batch_complete=true explicitly completes the assigned batch; records=[] is valid.' :
+         'Submit at most THREE concise source-backed candidates. Prefer source_line_indices from read lines: the host copies exact WHOLE original lines. Optional source_fragments may instead select exact shorter quotes. Choose exactly one source selection. Medical-field source_indices index the selected source fragments (zero based), not the whole batch. Host binds identity and full contract. Continue submitting as needed; only batch_complete=true explicitly completes all assigned blocks, including legitimate records=[].',
+-      'Report unresolved context, article attribution, scope or processing questions without inventing an answer.'];
++      isClosed ? 'Report unresolved context or table/figure associations. Optional line_indices use the SAME returned source_lines table; omit to bind the assigned batch. This only records a diagnostic, never marks blocks read or extraction complete. No block_ids field exists.' :
++        'Report unresolved context, article attribution, scope or processing questions without inventing an answer.'];
+     return TOOL_NAMES.map((name, index) => defineTool({ name, label: name, description: descriptions[index]!, parameters: schemas[index]!, executionMode: 'sequential',
+       execute: async (id, params, signal) => {
+         let invoked = false;
+@@ -151,6 +153,11 @@
+         const expanded = name === 'submit_candidate_records' ? { ...rest,
+           records: (modelParams.records as Array<IndexedEvidence | BatchLineEvidence>).map(record => this.modelProtocol === 'batch_lines' ?
+             expandBatchLineEvidence(record as BatchLineEvidence, lines, this.sourceBinding()) : expandIndexedEvidence(record as IndexedEvidence, lines, this.sourceBinding())) } :
++          name === 'report_context_issue' && isClosed ? { ...rest, block_ids: hasLineSelection ? (line_indices as number[]).map(i => {
++            const line = lines[i]; if (!line) throw new ContractError('source_line_index_out_of_range');
++            if (!this.readBlocks.has(line.block_id)) throw new ContractError('issue_source_line_not_read');
++            return line.block_id;
++          }) : [...this.batch.assigned_block_ids] } :
+           name === 'read_document_blocks' && hasLineSelection ? { ...rest, block_ids: (line_indices as number[]).map(i => {
+             if (!lines[i]) throw new ContractError('source_line_index_out_of_range'); return lines[i]!.block_id;
+           }) } : rest;
+@@ -170,7 +177,7 @@
+             warning: 'Whole decoded source lines; native structure and reading order unverified. Nonadjacent lines must not be presented as one continuous sentence.' };
+         }
+         return { content: [{ type: 'text' as const, text: JSON.stringify(result) }],
+-          details: { fixture: false, medical_approval: false, protocol: this.modelProtocol === 'batch_lines' ? 's4-unified-batch-lines-5' : this.modelProtocol === 'whole_lines' ? 's4-closed-lines-4' : 's4-host-bound-lines-3' } };
++          details: { fixture: false, medical_approval: false, protocol: this.modelProtocol === 'batch_lines' ? 's4-unified-batch-lines-6' : this.modelProtocol === 'whole_lines' ? 's4-closed-lines-4' : 's4-host-bound-lines-3' } };
+         } catch (error) {
+           if (!invoked) this.store.event(this.ids.run_id, 'tool_protocol_rejected', { batch_id: this.batch.batch_id, tool: name, call_id: id,
+             error_code: error instanceof ContractError ? error.code : 'tool_protocol_failed' });
+--- pilot1/packages/agent/src/extraction-pi.ts
++++ reliability-v2/packages/agent/src/extraction-pi.ts
+@@ -27,6 +27,7 @@
+ Uncertain article membership, wrong table/caption associations or missing context must be reported, never silently resolved.
+ Every candidate remains pending or needs_context. Never create human approval, alter source text or call other services.
+ Be efficient: use the current batch and supplied context; submit all valid candidates together and explicitly complete the assigned batch even with zero candidates.`;
++export const EXTRACTION_STREAM_EOF_MESSAGE = 'OpenAI Responses stream ended before a terminal response event';
+ 
+ export async function createExtractionSession(config: ModelConfig, profile: ExtractionModelProfile, definitions: ToolDefinition[],
+   directory: string, budget: ExtractionBudget, purpose: string, attempt = 0, maxResponses: number = S4_LIMITS.batch_responses,
+@@ -123,10 +124,14 @@
+         }
+       }
+       const sdkError = event.message.errorMessage;
++      if (entry && sdkError === EXTRACTION_STREAM_EOF_MESSAGE) {
++        entry.error_code ??= 'provider_stream_missing_terminal_event'; budget.persist();
++      }
+       events.push({ type: 'assistant_response', stop_reason: event.message.stopReason,
+         ...(typeof sdkError === 'string' && sdkError ? { sdk_error_sha256: createHash('sha256').update(sdkError).digest('hex'),
+           sdk_error_characters: sdkError.length,
+-          sdk_error_classification: /capacity|overload|rate.?limit|too many requests/i.test(sdkError) ? 'provider_capacity_or_rate_limit' :
++          sdk_error_classification: sdkError === EXTRACTION_STREAM_EOF_MESSAGE ? 'provider_stream_missing_terminal_event' :
++            /capacity|overload|rate.?limit|too many requests/i.test(sdkError) ? 'provider_capacity_or_rate_limit' :
+             /timeout|timed out|connection|network|fetch failed|socket/i.test(sdkError) ? 'transport_or_timeout' :
+             /application_context_estimate_limit/.test(sdkError) ? 'application_context_estimate_limit' : 'unclassified_sdk_error' } : {}) });
+       if (['error', 'aborted', 'length'].includes(event.message.stopReason)) apiFailed = true;
+@@ -151,6 +156,7 @@
+     for (const entry of entries) if (!entry.finished_at) { try { budget.settle(entry); } catch { /* ledger retains limit */ } }
+   }
+   return { settled, responses, events, usage, request_ids: entries.map(e => e.id), error,
+-    transient_error: budget.ledger.halted !== 'response_model_identity_mismatch' &&
+-      entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) || ['transport_failure', 'request_time_limit'].includes(e.error_code ?? '')) };
++    transient_error: budget.ledger.halted === null &&
++      entries.some(e => [408, 429, 500, 502, 503, 504].includes(e.status ?? 0) ||
++        ['transport_failure', 'request_time_limit', 'provider_stream_missing_terminal_event'].includes(e.error_code ?? '')) };
+ }
+--- pilot1/packages/agent/src/extraction-run.ts
++++ reliability-v2/packages/agent/src/extraction-run.ts
+@@ -49,6 +49,7 @@
+   const read = new Set<string>(), summaryRead = new Set<string>(), completed = new Set<string>(), failed = new Set<string>();
+   let firstCandidate: number | null = null, contextExposures = 0, summaryCompleted = false, documentSummary = '';
+   const attempts: Array<Record<string, unknown>> = [];
++  const summaryAttempts: Array<Record<string, unknown>> = [];
+   let error: ReturnType<typeof safeError> | undefined;
+   try {
+     if (input.scope.catalog_version !== catalog.catalog_version) throw new ContractError('catalog_version_mismatch');
+@@ -133,10 +134,14 @@
+       if (!succeeded) batch.assigned_block_ids.forEach(id => failed.add(id));
+     }
+     store.transition(input.run_id, 'reconciling');
++    let finalSummaryReport: Record<string, unknown> | undefined;
++    for (let summaryAttempt = 0; summaryAttempt <= S4_LIMITS.transient_retries; summaryAttempt++) {
++    if (signal.aborted) throw new ContractError(options.signal?.aborted ? 'run_cancelled' : 'document_time_limit');
++    budget.check();
+     const summaryTools = new ExtractionSummaryTools({ input, document, catalog, metadata,
+       allowDevelopmentCatalog: options.allowDevelopmentCatalog }, article, store, strategy, options.semanticAuditCases, selection);
+-    const summarySession = await createExtractionSession(config, profile, summaryTools.definitions(), resolve(directory, 'whole-document-summary'), budget,
+-      input.run_id + ':whole-document-summary', 0, batchMaxResponses);
++    const summarySession = await createExtractionSession(config, profile, summaryTools.definitions(), resolve(directory, 'whole-document-summary-attempt-' + summaryAttempt), budget,
++      input.run_id + ':whole-document-summary', summaryAttempt, batchMaxResponses);
+     const previousSummaryFinish = summarySession.session.agent.finishTurn;
+     summarySession.session.agent.finishTurn = async (turn, finishSignal) => {
+       const decision = await previousSummaryFinish?.(turn, finishSignal);
+@@ -153,11 +158,25 @@
+       'Call submit_candidate_records to save a short Chinese summary, reviews, possible links, validated source-backed updates if needed (otherwise updates=[]), and summary_complete=true. ' +
+       'Never mark medical/human approval, never overwrite human revisions. Finish after successful saving.', budget, signal,
+       Math.max(1, documentTimeout - (performance.now() - started)));
+-    await writeFile(resolve(directory, 'whole-document-summary.json'), JSON.stringify({ strategy, audit: summarySession.audit,
++    finalSummaryReport = { strategy, attempt: summaryAttempt, audit: summarySession.audit,
+       result: summaryResult, request_accounting: summarySession.entries, summary: summaryTools.summary, issues: summaryTools.issues,
+-      semantic_audit_reviews: [...summaryTools.auditCaseReviews.values()], semantic_audit_cases_required: (options.semanticAuditCases ?? []).map(c => c.case_id) }, null, 2) + '\n', { flag: 'wx' });
++      semantic_audit_reviews: [...summaryTools.auditCaseReviews.values()], semantic_audit_cases_required: (options.semanticAuditCases ?? []).map(c => c.case_id) };
++    const summaryPath = resolve(directory, 'whole-document-summary-attempt-' + summaryAttempt + '.json');
++    await writeFile(summaryPath, JSON.stringify(finalSummaryReport, null, 2) + '\n', { flag: 'wx' });
+     summaryCompleted = !summaryResult.error && summaryTools.completed; documentSummary = summaryTools.summary;
+     for (const id of summaryTools.readBlocks) { summaryRead.add(id); read.add(id); }
++    summaryAttempts.push({ attempt: summaryAttempt, status: summaryCompleted ? 'completed' : 'failed', path: summaryPath,
++      error: summaryResult.error, request_ids: summarySession.entries.map(entry => entry.id),
++      candidate_versions_after_attempt: store.versions(input.run_id).length });
++    if (summaryCompleted) break;
++    if (signal.aborted) throw new ContractError(options.signal?.aborted ? 'run_cancelled' : 'document_time_limit');
++    if (!summaryResult.transient_error || budget.ledger.halted || summaryAttempt === S4_LIMITS.transient_retries) break;
++    store.event(input.run_id, 'summary_retry', { next_attempt: summaryAttempt + 1, max_retries: S4_LIMITS.transient_retries,
++      reason: 'transient_provider_or_transport_error', fresh_session_reads_current_versions: true, human_versions_protected: true });
++    await new Promise(resolve => setTimeout(resolve, 250 * (summaryAttempt + 1)));
++    }
++    await writeFile(resolve(directory, 'whole-document-summary.json'), JSON.stringify({ ...finalSummaryReport,
++      recovery_policy: 'fresh_session_on_transient_error_maximum2_retries', attempts: summaryAttempts }, null, 2) + '\n', { flag: 'wx' });
+     if (!summaryCompleted) throw new ContractError('whole_document_summary_incomplete');
+     const complete = completed.size === article.included_block_ids.length && !failed.size && !article.quarantined_block_ids.length && document.parser.status === 'parsed';
+     store.transition(input.run_id, complete ? 'completed' : 'partial');
+@@ -176,8 +195,9 @@
+     formal_model_selected: false, actual_Pi_SDK: '1.4.0', original_pdf_uploads: 0,
+     operation_limits: { document_timeout_ms: documentTimeout, batch_max_responses: batchMaxResponses,
+       request_seconds: S4_LIMITS.request_seconds, original_ledger_limits_retained: true,
++      transient_retries: S4_LIMITS.transient_retries, summary_fresh_session_retries: S4_LIMITS.transient_retries,
+       call_and_token_caps_unchanged: true, effective_global_wall_clock_seconds: budget.wallClockSeconds },
+-    candidate_count: snapshot.candidates.length, candidate_versions: store.versions(input.run_id).length,
++    candidate_count: snapshot.candidates.length, candidate_versions: store.versions(input.run_id).length, summary_attempts: summaryAttempts,
+     first_candidate_seconds: firstCandidate, total_seconds: (performance.now() - started) / 1000,
+     timing_scope: 'cached_real_DocumentIR_to_Pi_candidates_and_summary_not_fresh_PDF_end_to_end',
+     coverage: { physical_pages: document.pages.length, parser_status: document.parser.status,

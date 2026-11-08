@@ -1,0 +1,135 @@
+{
+  "schema_version": "s4-runtime-validation-summary-1",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T03:15:02.582198+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "runtime_test_count": 25,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/runtime-tests.txt",
+  "checks": [
+    {
+      "suite": "extraction",
+      "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/*.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/all-extraction-tests.txt",
+      "tests": 73,
+      "pass": 73,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "unit",
+      "command": "bash scripts/with-node.sh npm run test:unit",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/regression-unit.txt",
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "integration",
+      "command": "bash scripts/with-node.sh npm run test:integration",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/regression-integration.txt",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "parser",
+      "command": "bash scripts/with-node.sh npm run test:parser",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/regression-parser.txt",
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "evaluation",
+      "command": "bash scripts/with-node.sh npm run test:evaluation",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/regression-evaluation.txt",
+      "tests": 28,
+      "pass": 28,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 144,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/typecheck.txt"
+  },
+  "runtime_scope": [
+    "Installed Pi SDK and synthetic loopback Responses SSE, no paid API calls",
+    "Explicit batch completion, zero candidates, overlapping context and missing coverage",
+    "Whitelisted tools, untrusted source instructions, forged run/task/source identity and read authorization",
+    "SQLite version/event transaction, rollback, competing stale CAS writers and reopen",
+    "Automatic proposal replay, human active-version protection and unapproved model review",
+    "Cache/reasoning usage accounting, missing-usage reservation and fixed experiment ceilings",
+    "HTTP 200 then SSE body stall with 80ms request deadline, exactly two retries, persisted candidate retention",
+    "Approved cancer/modality taxonomy with empty features allows open feature extraction"
+  ],
+  "regressions_reproduced_and_fixed": [
+    {
+      "case": "External cancellation incorrectly emitted a retry event",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Unavailable catalog did not preflight an invalid selected cancer",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Repeated human-protected automatic update created another proposal",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/proposal-idempotency-failure.json",
+      "regression_passed": true
+    }
+  ],
+  "additional_fix_regressions": [
+    "Summary source evidence must be explicitly read before updates; first runtime execution occurred after the fix",
+    "Approved human records remain active while proposed links reset approval metadata",
+    "Body-stall deadline was reported by a separate real-provider execution, then verified locally after the fix; this agent did not perform that paid call"
+  ],
+  "limitations": [
+    "No medical correctness, recall, gold-standard accuracy, or billing correctness is established by these engineering tests.",
+    "The SSE deadline uses the supported shorter 80ms test deadline; it does not wait 120 seconds or establish real-provider latency.",
+    "Reopen persistence is verified; process kill/crash injection and UI task resumption are outside this test scope.",
+    "Existing Node parser tests ran, but unchanged Python unittest and unchanged web build/browser flows were not repeated."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "467f0011ac817aabbd9c3beb75318ff4f3c0d694cdcf55a2ce59fa1248f36c02",
+    "tests/extraction/fixtures/runtime-responses.ts": "fdc6b9650eec83ea2ce1460cad63d417a8ac5ef9991b19e8931129adf3b6fcb7",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "0dd7fa333dcbb37aaa4b38aabd35f7538b7170f657238cb569491a78b6f3c0ad",
+    "packages/agent/src/extraction-pi.ts": "b736831e2c0f81a88e203ae3a00a5d5f5466bf4ebbd96f0c047589fcda34e2ca",
+    "packages/agent/src/extraction-run.ts": "aec179ade15b815cbb538321da81e1f46185b735149a07dedcaf9b3e0b2bb596",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "82c35b7b48e02970172a46d167fb1008292745ca483fb722946a87a57b13ecfc",
+    "packages/agent/src/extraction-tools.ts": "af79b29ed989b85da7fb8d1ca7f1a5a5a79e93f76436741cdf6a09ce0e1fb5e7",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "760d409145ce30833f81e8bde721d556b526bfd3340c59c3d12bf3142efe7323",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04"
+  }
+}

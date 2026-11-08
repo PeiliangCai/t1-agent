@@ -1,0 +1,122 @@
+{
+  "schema_version": "t1-pi-web-plan-delivery-facts-1",
+  "recorded_at": "2026-11-04T13:11:12.790463+00:00",
+  "actual_checks_completed": true,
+  "complete_S5_passed": false,
+  "medical_acceptance_passed": false,
+  "new_paid_API_calls": 0,
+  "engineering_summary": "统一code/apps/pi-web／Next.js前端基础已工程交付，旧完整答案准备UI及Vite已归档退役；根/Next类型、Next生产构建、10项本地集成和10项Chromium检查通过，PDF.js真实物理8页跳转已验证。5篇119条历史原文、1明确配图只读回看，0新模型/付费；完整S5与医学质量未通过。",
+  "engineering_evidence": {
+    "status": "engineering_delivered_root_final_review2_completed_complete_S5_and_medical_quality_pending",
+    "report": "code/docs/acceptance/pi-web-frontend-2026-11-04/index.html",
+    "handoff": "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+    "source_modifications": "code/docs/acceptance/pi-web-frontend-2026-11-04/source-changes.json",
+    "implementation_source_manifest": "code/docs/acceptance/pi-web-frontend-2026-11-04/implementation-source-manifest.json",
+    "source_counts": {
+      "original": 1209,
+      "same_path_unchanged": 1098,
+      "relocated_unchanged": 104,
+      "modified": 7,
+      "new_T1_code": 6,
+      "new_static_resources": 204
+    },
+    "checks": {
+      "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/final-checks.json",
+      "root_and_Next_typecheck": "passed",
+      "Next_production_build": "passed",
+      "local_integration_passed": 10,
+      "local_integration_failed": 0,
+      "Chromium_passed": 10,
+      "Chromium_failed": 0,
+      "uncaught_errors": 0,
+      "failed_static_resources": 0,
+      "external_model_requests": 0
+    },
+    "browser": "code/docs/acceptance/pi-web-frontend-2026-11-04/browser/results.json",
+    "read_only_historical_corpus": {
+      "papers": 5,
+      "historical_original_text_records": 119,
+      "explicit_whole_figure_associations": 1,
+      "new_model_extraction": false,
+      "human_medical_approval": false
+    },
+    "PDF_source_viewer": {
+      "implementation": "controlled_PDFjs_single_page_getPage_render",
+      "version": "6.5.438",
+      "observed_physical_page": 8,
+      "rendered_canvas_physical_page": 8,
+      "original_page_Figure4_text_checked": true,
+      "all_page_fidelity_proven": false
+    },
+    "retirement": {
+      "manifest": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retirement-manifest.json",
+      "archived_active_files": 233,
+      "original_Vite_source_files_SHA_verified": 28,
+      "existing_offline_files_equal_original_ZIP": 25,
+      "legacy_migration_or_offline_rebuild_tests_run": false,
+      "active_preparation_UI": false
+    },
+    "protected_core": {
+      "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/protected-core-checks.json",
+      "files": 31,
+      "all_SHA256_unchanged": true
+    },
+    "versions": {
+      "Next": "16.4.4",
+      "React": "19.2.4",
+      "PDFjs": "6.5.438",
+      "backend_restricted_Pi": "1.4.0",
+      "frontend_upstream_Pi_dependency": "1.5.0",
+      "generic_coding_session_started": false
+    },
+    "entry": {
+      "url": "http://127.0.0.1:5173",
+      "backend": "http://127.0.0.1:3210",
+      "application": "code/apps/pi-web",
+      "scripts": [
+        "dev:web",
+        "build:web",
+        "start:web",
+        "check"
+      ],
+      "wrapper": "code/scripts/pi-web.mjs",
+      "Vite_active_dependency": false
+    },
+    "new_paid_API_calls": 0,
+    "new_live_model_extraction_branch_executed": false,
+    "full_S5_complete": false,
+    "medical_quality_approved": false,
+    "deployment_beyond_local_loopback_verified": false,
+    "human_sampling": "pending"
+  },
+  "source_implementation_check_summary": "统一Next类型/生产构建、10集成及10浏览器通过；1209=1098原路径原样+104原字节移动+7修改，新增6源码/204静态资源；仅前端只读工程，不是医学/完整S5验收。",
+  "evidence_files": [
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/source-changes.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/final-checks.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/browser/results.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retirement-manifest.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/protected-core-checks.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/implementation-source-manifest.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/visual-verification.json",
+    "code/docs/acceptance/pi-web-frontend-2026-11-04/index.html"
+  ],
+  "root_final_review": {
+    "round": 2,
+    "node": "final_engineering_delivery",
+    "decision": "continue",
+    "text": "判断：继续。风险：1. 当前接通的是已有成果查看，完整 S5 上传、抽取、审核流程仍未完成；2. 原文和图片的工程校验不能替代医学审核；3. 后续更新 pi-web 时需复核适配差异。本轮前端改造与旧工具退役满足工程交付条件。",
+    "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/root-final-review-round2.json",
+    "reviewer": "/root user-configured GPT-6-Astra max main session",
+    "medical_acceptance_passed": false,
+    "complete_S5_passed": false
+  },
+  "docx_delivery_paragraphs": [
+    "统一Next／pi-web前端基础工程交付｜补齐旧完整答案准备工具退役｜2026-11-04",
+    "正式应用为code/apps/pi-web；从code/通过dev:web/build:web/start:web及scripts/pi-web.mjs运行，当前本机入口http://127.0.0.1:5173，Fastify只读后台3210。上游1209文件互斥核验为1098原路径原样、104原字节移动、7原文件内容修改，另6个T1源码及204字体/PDF.js静态资源；原MIT与锁定提交档案保留，source-changes.json和upstream-diff.patch记录必要修改。",
+    "已适配5篇、119条历史原文记录及1条明确整幅Figure配对的只读回看；来源、文件/资产SHA及原文片段重建校验保留，候选与未审核状态不改为批准。S1运行/SSE只是明确隔离的工程fixture，真实历史候选不是新模型实测；本轮外部模型/付费调用0。",
+    "实际工程检查：根后端与独立Next类型、Next生产构建、10项本地集成、10项Chromium回归均通过；两个原主题图标HTTP200，静态资源失败与未捕获浏览器错误0。原生PDFviewer实际页码不一致的失败日志保留，现使用PDF.js6.5.438受控单页getPage/render，L05点击原文物理第8页、canvas真实第8页及原页Figure4内容已检查；中文字体和手机导航修复经最终回归。此项不证明所有PDF页或医学忠实性。",
+    "旧完整答案准备工具233个活动文件已归档撤下，原Vite28文件SHA核对、既有离线目录25文件与原ZIP一致；/annotation和相关活动导航/脚本/依赖退役。旧源码、未发布迁移中间态、既有离线实物、指南/模板和AI参考资料只留历史；没有重建或验收旧标注迁移、打印/PDF/离线兼容。该清理是补齐之前已取消完整答案要求的遗留功能，不是重新取消要求；真实结果逐条人工审核和医生补充出处继续保留。",
+    "31份原抽取、审核与交付core文件SHA均未改变。后端受限Pi1.4.0保持；前端上游Pi1.5.0仅独立依赖，没有启动通用coding会话。完整S5的论文上传、启动抽取、持久化真实审核与已审核导出未完成；S2/医学目录、原PDF人类忠实性、开发抽样、独立验收与正式数值仍pending，当前仅本机loopback工程验证。"
+  ]
+}

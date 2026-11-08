@@ -1,0 +1,125 @@
+{
+  "stage": "S1",
+  "task_ids": [
+    "T1-R23",
+    "T1-R24",
+    "T1-R25",
+    "T1-R26"
+  ],
+  "status": "passed",
+  "accepted_at": "2026-11-02T09:57:45.725Z",
+  "gate_results": {
+    "pinned_dependency_source_verified": true,
+    "schema_and_scope_checks_passed": true,
+    "tool_permissions_passed": true,
+    "real_model_via_pi_tool_roundtrip_passed": true,
+    "result_state_event_return_passed": true,
+    "engineering_fixture_distinguished": true,
+    "parser_adapter_explicitly_unimplemented": true
+  },
+  "code_files_sha256": {
+    "package.json": "de31e93bf2989d140e16ec031c6cb432bb03cfccc7cfb34e81d4ceefc692e584",
+    "package-lock.json": "0431e81ded496b0c3412dd34e4ee5ce4a985e831f4fd252ff2211116692fed22",
+    "packages/contracts/src/index.ts": "bc9667eba8ec0bb03e69874424d2accecf8762403c7b298d83a6660dd72043a3",
+    "packages/agent/src/pi.ts": "9d073e1eee9b0dd311d5651c6631c7e733de5cb23ebccf9b8250cbe39a9c54a7",
+    "packages/agent/src/tools.ts": "6fa68ba63148e48e3a6af477d470b1c5906b32626404586e2bd3840b34a01f50",
+    "packages/agent/src/store.ts": "bbdcc716218a28698a5719412c92e7b81ccff2925c9d3a2ab11401fd1f756d88",
+    "packages/agent/src/config.ts": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4"
+  },
+  "real_smoke_evidence": "smoke-pi-2026-11-02T09-40-50-350Z.json",
+  "local_check_evidence": [
+    "local-check.json",
+    "local-test-unit.json",
+    "local-test-integration.json",
+    "local-build-web.json"
+  ],
+  "engineering_evidence_only": true,
+  "medical_quality_validated": false,
+  "formal_model_selected": false,
+  "numeric_thresholds_frozen": false,
+  "not_validated": [
+    "S3 real PDF parsing and original PDF fidelity",
+    "S4 medical extraction and formal model",
+    "S2 medical taxonomy/annotation/reviewer availability",
+    "S5 full workflow/review/export and actual multi-task throughput",
+    "S6 numeric quality/performance targets",
+    "S7 Docker and production access/storage deployment"
+  ],
+  "api_usage": {
+    "assistant_requests_observed": 4,
+    "token_usage": [
+      {
+        "input": 641,
+        "output": 157,
+        "total": 798,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      {
+        "input": 1210,
+        "output": 79,
+        "total": 1289,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      {
+        "input": 1410,
+        "output": 104,
+        "total": 1514,
+        "cache_read": 0,
+        "cache_write": 0
+      },
+      {
+        "input": 1569,
+        "output": 32,
+        "total": 1601,
+        "cache_read": 0,
+        "cache_write": 0
+      }
+    ],
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing; internal_zero_price_placeholders_are_not_actual_cost"
+  },
+  "real_smoke_version": {
+    "report": "smoke-pi-2026-11-02T09-40-50-350Z.json",
+    "sha256": "1e5040102e171aa3649a373eb9e3ba3f0527547285889ac11f08ae874308274f",
+    "source_code_hashes": {
+      "packages/contracts/src/index.ts": "bc9667eba8ec0bb03e69874424d2accecf8762403c7b298d83a6660dd72043a3",
+      "packages/agent/src/config.ts": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+      "packages/agent/src/fixtures.ts": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+      "packages/agent/src/store.ts": "ecf1ec144377f58d78a4ec098bf8962b40715d37f746c6d7338615bf4d749977",
+      "packages/agent/src/tools.ts": "6fa68ba63148e48e3a6af477d470b1c5906b32626404586e2bd3840b34a01f50",
+      "packages/agent/src/pi.ts": "e1ef9e2d1d39d7fbbb2221aaa75c7afc28a419f8bf4f97560f2a6ec00bdce8c7",
+      "scripts/smoke-pi.ts": "30397d1793633619bc0c8c279a8a6c0a4ddf612eab10cbbf48b77a809622c99b",
+      "apps/server/src/app.ts": "263617befea9e960cc7d36185fbbe8bc6ce5c7d8129c0ed57f25b43f1dae5133",
+      "tests/contracts.test.ts": "8c0bbe1a7f6b5533e57d304dec5f6c32df094d2350be5d22d8028c454d746f41",
+      "tests/tools.test.ts": "dadeceffd9879c7898864d3c18353653448bae95e8d6b1e3c68e11402c67bb14",
+      "tests/integration/runtime.test.ts": "d4163f31d948eb7ea1b11d9c3dd3dada26ab80859fec21b1112262100bac02e9"
+    },
+    "version_label": "before_review_round_2_fixes"
+  },
+  "post_smoke_changes": {
+    "evidence": "post-review-fixes.json",
+    "scope": [
+      "packages/agent/src/store.ts",
+      "packages/agent/src/pi.ts",
+      "scripts/smoke-pi.ts",
+      "apps/server/src/app.ts",
+      "tests/integration/runtime.test.ts"
+    ],
+    "offline_regressions": "15 unit + 8 integration; typecheck passed",
+    "additional_real_api_calls": 0
+  },
+  "formal_astra_reviews_used": 3,
+  "formal_astra_review_limit": 3,
+  "final_formal_review": "round_3_main_session_continue",
+  "final_review_risks": [
+    "Engineering fixtures do not validate real PDF or medical quality",
+    "Concurrency capacity, production access control and deployment recovery require later-stage checks",
+    "Real API evidence covers the pre-fix success path; later fixes have offline regression evidence"
+  ],
+  "next_stage": {
+    "id": "S2",
+    "status": "not_started"
+  }
+}

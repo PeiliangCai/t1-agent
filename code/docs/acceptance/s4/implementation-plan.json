@@ -1,0 +1,93 @@
+{
+  "recorded_at": "2026-11-03T10:48:52.501722+08:00",
+  "status": "authorized_engineering_in_progress",
+  "stage_passed": false,
+  "authority": [
+    "方案/子任务T1/T1智能体开发计划.docx",
+    "方案/子任务T1/T1开发执行说明.docx",
+    "方案/子任务T1/当前版本.json",
+    "方案/子任务T1/开发计划.json",
+    "方案/子任务T1/开发阶段与验收.csv",
+    "方案/子任务T1/开发任务清单.csv",
+    "方案/子任务T1/抽取结果字段规范.csv",
+    "方案/子任务T1/质量与性能验收契约.json",
+    "方案/子任务T1/待讨论实现决策.csv",
+    "方案/子任务T1/验收清单.csv"
+  ],
+  "clause_index_convention": "all XML w:p, zero-based",
+  "mapping": {
+    "T1-R09": [
+      245,
+      246,
+      247,
+      248,
+      249,
+      254
+    ],
+    "T1-R10": [
+      250,
+      251,
+      252
+    ],
+    "T1-R11": [
+      251,
+      253
+    ],
+    "T1-R12": [
+      247,
+      249,
+      255,
+      256
+    ]
+  },
+  "shared_clauses": [
+    "94-98",
+    "105-109",
+    "127-158",
+    "182-187",
+    "V02-V09"
+  ],
+  "pipeline": [
+    "version-bound article scope and complete source-block inventory",
+    "bounded Pi batches with explicit zero-result completion",
+    "program source/scope validation and separate semantic model review",
+    "persist real pending candidates/events",
+    "whole-document reconciliation with protected human versions",
+    "model/strategy comparison and limits/coverage/cost reports"
+  ],
+  "catalog_trust": [
+    "approved",
+    "development_only",
+    "unavailable"
+  ],
+  "unapproved_default_catalog": "none; real unrestricted extraction works with an empty catalog",
+  "real_strict_without_approved_catalog": "reject explicitly; development rules require explicit trusted enablement and output marking",
+  "article_boundary": "quarantine L02 p3 continuation region by SHA/text version/page/geometry; unresolved coverage remains visible",
+  "experiment_matrix": {
+    "compatibility": "one synthetic tool round trip per candidate first, at most four requests",
+    "baseline": "both candidates x all five exposed development PDFs",
+    "independent_context_review_strategy": "both candidates x MED03 and L01",
+    "whole_document_runs": 14
+  },
+  "limits": {
+    "models": [
+      "gpt-6.1-sol",
+      "gpt-6-astra"
+    ],
+    "reasoning_effort": "medium",
+    "provider": "agicto",
+    "max_requests_all_attempts": 400,
+    "max_input_tokens_including_measured_cache": 2000000,
+    "max_output_tokens_including_reasoning": 400000,
+    "max_experiment_seconds": 7200,
+    "max_document_seconds": 900,
+    "max_request_seconds": 120,
+    "max_transient_retries": 2,
+    "max_output_tokens_per_response": 8192,
+    "max_assistant_responses_per_batch": 8,
+    "on_limit": "persist_partial_and_stop_no_automatic_budget_expansion",
+    "formal_model_selected": false
+  },
+  "formal_medical_accuracy": "not_evaluable_without_approved_human_gold",
+  "S5_UI": "not_started"
+}

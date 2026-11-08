@@ -1,0 +1,128 @@
+{
+  "schema_version": "s4-integrated-reliability-revalidation-proposal-1",
+  "prepared_at": "2026-11-05T11:44:59.774291+00:00",
+  "status": "prepared_pending_new_explicit_user_authorization",
+  "execute_model_calls": false,
+  "new_paid_calls": 0,
+  "purpose": "Only integrated engineering reliability of the final combined fixes; no single-variable gain, method ranking, medical quality claim or S4 stage pass.",
+  "prepared_plan": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/plan.json",
+  "prepared_plan_sha256": "75977832a6b09df7df1a5fbbc71b7e28e29e93ec7a5d75637464188109006625",
+  "current_runtime_sources_digest": "8658b5e538b22a04e6ac0db8d43b2dbc3ca880bd6283910ca5082db5f25d0c4a",
+  "authorization_template": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/authorization-template.json",
+  "authorization_template_sha256": "ba06930c1f5f314e847bc04a5bde62f4851fc79937c83de5cd13bdcbbc022e20",
+  "provider_model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "jobs": [
+    {
+      "job_id": "L05-B0",
+      "condition": "B0",
+      "selected_blocks": 615,
+      "batch_count": 6,
+      "independent_model_run": true,
+      "scope": "Full originally selected input plus whole-document reconciliation; parser remains partial; all outputs unapproved."
+    },
+    {
+      "job_id": "L05-F",
+      "condition": "F",
+      "selected_blocks": 524,
+      "batch_count": 5,
+      "independent_model_run": true,
+      "scope": "Full originally selected input plus whole-document reconciliation; parser remains partial; all outputs unapproved."
+    }
+  ],
+  "source_freeze": "source-freeze.json",
+  "steps": [
+    {
+      "step": 1,
+      "action": "After explicit approval, record a new authorization id/time/source bound to this exact plan SHA and these lower shared caps; use a new independent owner and ledger. No old ledger is copied, reset or mutated.",
+      "calls": 0
+    },
+    {
+      "step": 2,
+      "action": "Run L05-B0 once through the existing runner. Check metered finite corrections, complete selected blocks, summary current-version coverage, atomic errors, exact source windows, proposed revisions/history and all unresolved conditions."
+    },
+    {
+      "step": 3,
+      "action": "Run L05-F once under the same new owner and remaining shared cap. Stop on unsafe protocol failure, any hard cap, cancellation or timeout. Do not start an additional whole-paper retry or another method automatically."
+    },
+    {
+      "step": 4,
+      "action": "Seal all requests/errors/partial outputs, response-model identity and usage; compare reliability observations against preserved old evidence. Never overwrite the old reader or report."
+    }
+  ],
+  "planned_limits": {
+    "requests": 64,
+    "input_tokens": 1500000,
+    "output_tokens": 160000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "estimated_requests": [
+    40,
+    55
+  ],
+  "estimate_basis": "Old child L05-B0 used33 requests including the incomplete summary; the final successful child L05-F representative used18. Their51 total is a conservative planning reference, not a measured post-fix cost.",
+  "estimated_minutes": [
+    10,
+    25
+  ],
+  "estimated_input_tokens": [
+    400000,
+    900000
+  ],
+  "estimated_output_tokens": [
+    12000,
+    30000
+  ],
+  "worst_case": {
+    "requests": 64,
+    "input_tokens_including_cache": 1500000,
+    "output_tokens_including_reasoning": 160000,
+    "seconds_from_first_request": 1800,
+    "all_corrections_failures_retries_shared": true,
+    "completion_guaranteed": false,
+    "all_stage_response_retries_theoretical_without_global_cap": 624,
+    "global_cap_takes_precedence": true
+  },
+  "old_budget_audit": {
+    "old189_requests": 189,
+    "closed_current_requests": 216,
+    "input_tokens": 1750064,
+    "output_tokens": 59428,
+    "old_deadline_utc": "2026-11-05T10:55:03.968Z",
+    "remaining_caps_are_not_authorization": {
+      "requests": 84,
+      "input_tokens": 4249936,
+      "output_tokens": 340572
+    },
+    "same_owner_direct_resume_supported": false,
+    "why": "Existing runner has no applicable generic time-extension mechanism; its specialized old summary resume is bound to another four-job cohort/11520 seconds. The canonical216 ledger SHA is sealed in execution-closure. Reader159 sources use immutable ledger snapshots, so the snapshots themselves could survive canonical writes, but changing canonical would stale the closure pin. No such writes were made.",
+    "recommended": "New explicit small-batch approval and independent new authorization/ledger. No reset or reuse of old216/189.",
+    "prospective_combined_current_plus_new_max": {
+      "requests": 280,
+      "input_tokens": 3250064,
+      "output_tokens": 219428
+    },
+    "numerically_fits_old_remaining_caps_but_not_direct_authority": true
+  },
+  "commands": {
+    "prepare_executed_offline": "bash scripts/with-node.sh npm run s4:compare -- prepare --directory docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared --config docs/acceptance/s4-reliability-2026-11-05/revalidation-config.json",
+    "execute_only_after_new_explicit_approval_and_authorization_file": "bash scripts/with-node.sh npm run s4:compare -- execute --directory docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared --authorization docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/authorization.json"
+  },
+  "not_authorized_now": [
+    "No signed authorization.json exists",
+    "No new execution directory or background API process has been started",
+    "Unsigned template is deliberately rejected by the runner"
+  ],
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3
+}

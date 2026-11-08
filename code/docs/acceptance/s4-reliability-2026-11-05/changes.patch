@@ -1,0 +1,1223 @@
+--- a/packages/agent/src/extraction-tool-recovery.ts
++++ b/packages/agent/src/extraction-tool-recovery.ts
+@@ -0,0 +1,83 @@
++import { createHash } from 'node:crypto';
++import type { Agent, AgentTurnContext } from '@earendil-works/pi-agent-core';
++import { TOOL_NAMES } from './tools.js';
++
++const correctable = [ 'schema_validation_failed', 'choose_one_read_selection', 'choose_source_units_or_source_lines',
++  'choose_context_units_or_context_lines', 'choose_exact_fragments_or_whole_source_lines', 'source_line_index_out_of_range',
++  'source_evidence_index_out_of_range', 'source_unit_not_available', 'batch_completion_requires_all_assigned_blocks_read' ];
++const fatal = ['host_identity_override_or_unregistered_tool', 'summary_update_validation_failed', 'summary_source_not_authorized',
++  'cross_task_or_batch_access_denied', 'cross_task_access_denied', 'source_binding_mismatch', 'update_target_missing_or_outside_bound_run',
++  'update_target_feature_mismatch', 'block_not_authorized', 'source_block_not_read', 'evidence_version_conflict'];
++const digest = (value: string) => createHash('sha256').update(value).digest('hex');
++const registered = (name: string) => (TOOL_NAMES as readonly string[]).includes(name);
++const identityKeys = new Set(['binding', 'run_id', 'task_id', 'document_id', 'file_sha256', 'source_version', 'text_version',
++  'scope', 'path', 'endpoint', 'url', 'api_key', 'token']);
++function changesIdentity(value: unknown): boolean {
++  if (Array.isArray(value)) return value.some(changesIdentity);
++  return !!value && typeof value === 'object' && Object.entries(value).some(([key, item]) => identityKeys.has(key) || changesIdentity(item));
++}
++/** Retain exact safe selector arrays, never arbitrary source text, SDK errors, credentials or a wire body. */
++export function toolArgumentDiagnostic(value: unknown): { argument_sha256: string; argument_characters: number; property_names: string[]; selectors: Record<string, unknown> } {
++  const raw = JSON.stringify(value) ?? 'null', p = value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
++  const selectors = Object.fromEntries(Object.entries(p).flatMap(([key, item]) => {
++    if ((key === 'line_indices' || key.endsWith('_line_indices')) && Array.isArray(item)) return [[key, item.filter(v => Number.isSafeInteger(v))]];
++    if (['block_ids', 'source_unit_ids', 'context_unit_ids'].includes(key) && Array.isArray(item)) return [[key, item.filter(v =>
++      typeof v === 'string' && /^(?:su-\d{1,12}|[a-f\d]{8,80}-p\d+-l\d+|synthetic-[a-z\d-]+)$/i.test(v))]];
++    if ((key === 'records' || key === 'updates') && Array.isArray(item)) return [[key, item.slice(0, 6).map(toolArgumentDiagnostic)]];
++    if (['batch_complete', 'summary_complete', 'expected_version'].includes(key) && ['boolean', 'number'].includes(typeof item)) return [[key, item]];
++    return [];
++  }));
++  return { argument_sha256: digest(raw), argument_characters: raw.length,
++    property_names: Object.keys(p).map(k => /^[a-z_]{0,64}$/.test(k) ? k : '[unrecognized_property]'), selectors };
++}
++export function classifyToolError(text: string): string {
++  return fatal.find(code => text.includes(code)) ?? correctable.find(code => text.includes(code)) ??
++    (/Validation failed for tool|Invalid arguments for tool|invalid tool arguments/i.test(text) ? 'schema_validation_failed' :
++      'sdk_tool_argument_validation_failed_or_unclassified_tool_error');
++}
++
++/** A correction is another ordinary metered response in this session, never a hidden retry or parameter rewrite. */
++export class BoundedToolRecovery {
++  stopped = false;
++  private corrections = 0;
++  private readonly corrected = new Set<string>();
++  constructor(readonly agent: Agent, readonly diagnostic: (type: string, detail: Record<string, unknown>) => void) {
++    const previousBeforeTool = agent.beforeToolCall;
++    agent.beforeToolCall = async (context, signal) => {
++      const unsafeTurn = context.assistantMessage.content.some(block => block.type === 'toolCall' &&
++        (!registered(block.name) || changesIdentity(block.arguments)));
++      if (unsafeTurn) return { block: true, terminate: true, reason: 'host_identity_override_or_unregistered_tool' };
++      return previousBeforeTool?.(context, signal);
++    };
++  }
++  afterTurn(turn: AgentTurnContext): { action: 'continue' | 'end' } | undefined {
++    const failed = turn.toolResults.filter(r => r.isError);
++    if (!failed.length) return;
++    const calls = turn.message.content.filter(block => block.type === 'toolCall');
++    const samples = failed.map(r => {
++      const call = calls.find(c => c.id === r.toolCallId);
++      const errorText = JSON.stringify(r.content);
++      return { tool: registered(r.toolName) ? r.toolName : 'unregistered', call_id: r.toolCallId,
++        error_code: classifyToolError(errorText), error_response_sha256: digest(errorText),
++        ...toolArgumentDiagnostic(call?.arguments), changes_identity: changesIdentity(call?.arguments) };
++    });
++    const signatures = samples.map(s => `${s.tool}:${s.error_code}:${s.argument_sha256}`);
++    const unsafe = samples.some(s => s.tool === 'unregistered' || s.changes_identity || !correctable.includes(s.error_code));
++    const repeated = signatures.some(signature => this.corrected.has(signature));
++    const allowed = !unsafe && !repeated && this.corrections < 2;
++    const detail = { error_code: samples[0]!.error_code, error_response_sha256: digest(JSON.stringify(failed)),
++      failed_argument_samples: samples, correction_number: this.corrections + (allowed ? 1 : 0), correction_limit: 2,
++      parameters_rewritten: false, same_session: true,
++      ...(allowed ? {} : { stop_reason: unsafe ? 'not_in_safe_correction_allowlist' : repeated ? 'repeated_invalid_arguments' : 'correction_limit' }) };
++    this.diagnostic(allowed ? 'protocol_correction' : 'protocol_diagnostic_pause', detail);
++    if (!allowed) { this.stopped = true; return { action: 'end' }; }
++    this.corrections++; signatures.forEach(signature => this.corrected.add(signature));
++    this.agent.steer({ role: 'user', timestamp: Date.now(), content:
++      `Host protocol diagnostic: ${samples.map(s => s.error_code).join(', ')}. The invalid call was rejected. ` +
++      'Correct only your tool arguments within this same immutable task and source binding, using the registered schema and IDs actually returned by tools. ' +
++      'Do not guess, pad or normalize an opaque ID. Choose exactly one source selector and at most one context selector. ' +
++      'For a batch read use {} or line_indices; a summary read requires exactly one nonempty line_indices or block_ids array. ' +
++      `No arguments were rewritten by the host. ${2 - this.corrections} further distinct correction opportunities remain; all calls use the existing budget.` });
++    return { action: 'continue' };
++  }
++}
+--- a/packages/agent/src/extraction-run.ts
++++ b/packages/agent/src/extraction-run.ts
+@@ -1,6 +1,5 @@
+ import { mkdir, writeFile } from 'node:fs/promises';
+ import { resolve } from 'node:path';
+-import { createHash } from 'node:crypto';
+ import { assertSchema, RunInputSchema, EvidenceCatalogSchema, ContractError, type RunInput,
+   type EvidenceCatalog, type EvidenceValidationContext, type FigureAssetCatalog } from '@t1/contracts';
+ import { safeError, type ModelConfig } from './config.js';
+@@ -17,6 +16,7 @@
+ import { assertFigureCatalog, buildEvidenceDelivery } from './evidence-delivery.js';
+ import { addSourceStatementContext, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
+ import { VISUAL_STATEMENT_POLICY_VERSION } from './visual-evidence-policy.js';
++import { BoundedToolRecovery } from './extraction-tool-recovery.js';
+ 
+ export interface ExtractionRunOptions {
+   input: RunInput; document: ExtractionDocument; catalog: EvidenceCatalog; metadata: EvidenceValidationContext['metadata'];
+@@ -98,31 +98,17 @@
+         const created = await createExtractionSession(config, profile, tools.definitions(), resolve(directory, batch.batch_id + '-attempt-' + attempt), budget,
+           input.run_id + ':' + batch.batch_id, attempt, batchMaxResponses);
+         const previousFinish = created.session.agent.finishTurn;
+-        let protocolPaused = false;
++        const recovery = new BoundedToolRecovery(created.session.agent, (type, detail) =>
++          store.event(input.run_id, type, { batch_id: batch.batch_id, ...detail }));
+         created.session.agent.finishTurn = async (turn, finishSignal) => {
+           const decision = await previousFinish?.(turn, finishSignal);
+-          if (!signal.aborted && turn.toolResults.some(r => r.isError)) {
+-            protocolPaused = true;
+-            const failed = turn.toolResults.filter(r => r.isError);
+-            const errorText = JSON.stringify(failed);
+-            const codes = errorText.match(/schema_validation_failed|choose_one_read_selection|choose_exact_fragments_or_whole_source_lines|source_line_index_out_of_range|source_evidence_index_out_of_range|source_block_not_read/g) ?? [];
+-            store.event(input.run_id, 'protocol_diagnostic_pause', { batch_id: batch.batch_id,
+-              error_code: codes[0] ?? 'sdk_tool_argument_validation_failed_or_unclassified_tool_error',
+-              error_response_sha256: createHash('sha256').update(errorText).digest('hex'),
+-              failed_argument_samples: turn.message.content.filter(block => block.type === 'toolCall').map(block => {
+-                const raw = JSON.stringify(block.arguments), redacted = raw.split(config.apiKey()).join('[REDACTED]').replace(/sk-[A-Za-z0-9_-]{12,}/g, '[REDACTED]');
+-                return { tool: block.name, call_id: block.id, argument_sha256: createHash('sha256').update(raw).digest('hex'),
+-                  public_source_sample: metadata.source_version.source_kind === 'public_published_pdf_development' ? redacted.slice(0, 3000) : undefined,
+-                  truncated: redacted.length > 3000 };
+-              }) });
+-            return { action: 'end' };
+-          }
+-          return tools.completed ? { action: 'end' } : decision ?? undefined;
++          const correction = !signal.aborted ? recovery.afterTurn(turn) : undefined;
++          return recovery.stopped || tools.completed ? { action: 'end' } : correction ?? decision ?? undefined;
+         };
+         const result = await promptExtractionSession(created,
+           'Extract the current assigned batch. Task, document, source and batch identity are immutable and bound by the host; do not supply or copy IDs into tool arguments.\n' +
+           `Immutable scope: ${JSON.stringify(input.scope)}; catalog_status=${catalog.status}; strategy=${strategy}.\n` +
+-          'First call read_document_blocks omitting block_ids to read all assigned source text and boundary context efficiently. ' +
++          'First call read_document_blocks with {} to read all assigned source text and boundary context efficiently; never add an empty property name. ' +
+           `Use ${VISUAL_STATEMENT_POLICY_VERSION}: extract in-scope prose/caption visual appearance, definitions or dimensions; preserve complete statements and necessary qualifiers across source lines. ` +
+           'Use evidence_type and source provenance to distinguish definitions, this-study observations and cited research. ' +
+           'Unknown facts remain unknown with null values and empty evidence. Do not infer facts from selection. ' +
+@@ -133,7 +119,7 @@
+           'After all assigned blocks have been considered, call submit_candidate_records with batch_complete=true, including records=[] if there are no candidates. ' +
+           'The host ends the session after the successful completion tool result; no acknowledgement response is needed. A medical reviewer has not approved any result.', budget, signal,
+           Math.max(1, documentTimeout - (performance.now() - started)));
+-        if (protocolPaused) result.error = safeError(new ContractError('model_tool_protocol_diagnostic_pause'));
++        if (recovery.stopped) result.error = safeError(new ContractError('model_tool_protocol_diagnostic_pause'));
+         for (const id of tools.readBlocks) read.add(id);
+         contextExposures += batch.context_block_ids.filter(id => tools.readBlocks.has(id)).length;
+         const detail = { ...batch, attempt, status: !result.error && tools.completed ? 'completed' : 'failed',
+@@ -150,7 +136,7 @@
+           status: detail.status, completed_blocks: completed.size + (detail.status === 'completed' ? batch.assigned_block_ids.length : 0),
+           expected_blocks: article.included_block_ids.length, candidates: store.current(input.run_id).length, requests: budget.totals().requests }) + '\n');
+         if (!result.error && tools.completed) { batch.assigned_block_ids.forEach(id => completed.add(id)); succeeded = true; break; }
+-        if (protocolPaused) throw new ContractError('model_tool_protocol_diagnostic_pause');
++        if (recovery.stopped) throw new ContractError('model_tool_protocol_diagnostic_pause');
+         if (signal.aborted) throw new ContractError(options.signal?.aborted ? 'run_cancelled' : 'document_time_limit');
+         if (!result.transient_error || attempt === S4_LIMITS.transient_retries) break;
+         store.event(input.run_id, 'retry', { batch_id: batch.batch_id, next_attempt: attempt + 1, reason: 'transient_provider_or_transport_error' });
+@@ -167,23 +153,32 @@
+       allowDevelopmentCatalog: options.allowDevelopmentCatalog, evidencePolicyVersion: VISUAL_STATEMENT_POLICY_VERSION }, article, store, strategy, options.semanticAuditCases, selection);
+     const summarySession = await createExtractionSession(config, profile, summaryTools.definitions(), resolve(directory, 'whole-document-summary-attempt-' + summaryAttempt), budget,
+       input.run_id + ':whole-document-summary', summaryAttempt, batchMaxResponses);
++    const previousSummaryTransform = summarySession.session.agent.transformContext;
++    summarySession.session.agent.transformContext = async (messages, transformSignal) =>
++      summaryTools.projectModelMessages(previousSummaryTransform ? await previousSummaryTransform(messages, transformSignal) : messages);
+     const previousSummaryFinish = summarySession.session.agent.finishTurn;
++    const summaryRecovery = new BoundedToolRecovery(summarySession.session.agent, (type, detail) =>
++      store.event(input.run_id, type, { phase: 'whole_document_summary', ...detail }));
+     summarySession.session.agent.finishTurn = async (turn, finishSignal) => {
+       const decision = await previousSummaryFinish?.(turn, finishSignal);
+-      return summaryTools.completed ? { action: 'end' } : decision ?? undefined;
++      const correction = !signal.aborted ? summaryRecovery.afterTurn(turn) : undefined;
++      return summaryRecovery.stopped || summaryTools.completed ? { action: 'end' } : correction ?? decision ?? undefined;
+     };
+     const summaryResult = await promptExtractionSession(summarySession,
+       'Perform single-paper whole-document reconciliation. Identity is host-bound: do not include run/document IDs in tool arguments. ' +
+       'Call get_document_context to read ALL candidates with exact source segments. Check same-paper duplicates/conflicts, disease/modality applicability, pronouns and later conditions. ' +
+       'Use read_document_blocks to resolve missing source context; keep ambiguity explicit. Keep original conflicting statements separately. ' +
++      'Read only the specific lines needed for a candidate or audit case. The transport keeps at most 128 exact original lines in a current working set; older transport copies are replaced by explicit receipts. All candidate text/context stays complete. Explicitly re-read any evicted line before using it in an update. ' +
+       `Every source-backed update uses ${VISUAL_STATEMENT_POLICY_VERSION}: complete source_unit_ids when available, prose/caption primary descriptions, explicitly cited table numeric support only. Do not promote feature lists, experimental setup or pure statistical associations. General definitions and direct dimensions remain valid without a case/image; no label proves medical semantics. ` +
+       (strategy === 'independent_context_review' ? 'This is an independent semantic review pass in a fresh session: review every candidate version for source fidelity, disease, modality, negation, uncertainty, condition, attribution and original numbers/units; return an entry for every record with issue_codes (empty if none detected). ' :
+         'This baseline summarizes and proposes possible duplicate/conflict/context links; per-record independent semantic review is not required. ') +
+       'If semantic_audit_cases are present, they are neutral development questions, not gold or predetermined exclusions. Read every required source/context block using read_document_blocks, then report_context_issue for each audit_case_id with an unapproved conclusion and reasons. ' +
+       'Specifically distinguish acquisition/reconstruction conditions and standalone clinical associations from independently supported visual evidence; preserve ambiguity and do not apply a keyword-only rule. ' +
+       'Call submit_candidate_records to save a short Chinese summary, reviews, possible links, validated source-backed updates if needed (otherwise updates=[]), and summary_complete=true. ' +
++      'A submission is atomic: validation errors save no writes. A successful save may return complete=false with completion_blockers and current_versions; then refresh get_document_context or finish the listed reviews/audits before explicitly completing. Do not resubmit a saved update just to refresh visibility. ' +
+       'Never mark medical/human approval, never overwrite human revisions. Finish after successful saving.', budget, signal,
+       Math.max(1, documentTimeout - (performance.now() - started)));
++    if (summaryRecovery.stopped) summaryResult.error = safeError(new ContractError('model_tool_protocol_diagnostic_pause'));
+     finalSummaryReport = { strategy, attempt: summaryAttempt, audit: summarySession.audit,
+       result: summaryResult, request_accounting: summarySession.entries, summary: summaryTools.summary, issues: summaryTools.issues,
+       semantic_audit_reviews: [...summaryTools.auditCaseReviews.values()], semantic_audit_cases_required: (options.semanticAuditCases ?? []).map(c => c.case_id) };
+--- a/packages/agent/src/extraction-pi.ts
++++ b/packages/agent/src/extraction-pi.ts
+@@ -10,6 +10,7 @@
+ import type { ModelConfig } from './config.js';
+ import { safeError } from './config.js';
+ import { ExtractionBudget, S4_LIMITS, type RequestAccounting } from './extraction-budget.js';
++import { classifyToolError, toolArgumentDiagnostic } from './extraction-tool-recovery.js';
+ 
+ export interface ExtractionModelProfile { model_id: string; api: 'openai-responses' | 'openai-completions';
+   reasoning_effort: 'medium'; context_window: number; max_output_tokens: number; profile_version: string; }
+@@ -129,8 +130,13 @@
+   const usage: Usage[] = [];
+   const unsubscribe = session.subscribe(event => {
+     if (event.type === 'agent_settled') settled = !event.aborted;
+-    if (event.type === 'tool_execution_start' || event.type === 'tool_execution_end') events.push({ type: event.type,
+-      tool: event.toolName, call_id: event.toolCallId, ...(event.type === 'tool_execution_end' ? { error: event.isError } : {}) });
++    if (event.type === 'tool_execution_start' || event.type === 'tool_execution_end') {
++      const raw = event.type === 'tool_execution_end' ? JSON.stringify(event.result) ?? '' : '';
++      events.push({ type: event.type, tool: event.toolName, call_id: event.toolCallId,
++        ...(event.type === 'tool_execution_start' ? toolArgumentDiagnostic(event.args) : {
++          error: event.isError, result_characters: raw.length, result_sha256: createHash('sha256').update(raw).digest('hex'),
++          ...(event.isError ? { error_code: classifyToolError(raw) } : {}) }) });
++    }
+     if (event.type === 'message_end' && event.message.role === 'assistant') {
+       responses++; usage.push(event.message.usage);
+       const entry = entries.at(-1); if (entry && !entry.finished_at) {
+--- a/packages/agent/src/reconciliation.ts
++++ b/packages/agent/src/reconciliation.ts
+@@ -1,5 +1,6 @@
+ import { createHash } from 'node:crypto';
+ import type { EvidenceRecord, EvidenceVersion, ReconciliationChange, ReconciliationResult } from '../../contracts/src/extraction-evidence.js';
++import { ContractError } from '@t1/contracts';
+ import { literalFold } from './scope-matching.js';
+ 
+ const clone = <T>(value: T): T => structuredClone(value);
+@@ -29,7 +30,8 @@
+     sha: record.source_version.file_sha256, text_version: record.text_version, source: sourceAnchors(record), quote: record.original_quote,
+     joiner: record.quote_span.display_joiner, context: { before: record.context.before, after: record.context.after,
+       fragments: record.context.fragments, source_attribution: record.context.source_attribution,
+-      structure_references: record.context.structure_references, article_scope_status: record.context.article_scope_status },
++      structure_references: record.context.structure_references, article_scope_status: record.context.article_scope_status,
++      supporting_table_evidence: record.context.supporting_table_evidence ?? [] },
+     disease: record.disease_or_lesion, modality: record.modality,
+     sequence: record.sequence_or_phase, feature: record.feature_name_raw, category: record.feature_category, evidence_type: record.evidence_type,
+     assertion: record.assertion, applicability: record.applicability, numbers: record.numeric_expressions,
+@@ -53,6 +55,17 @@
+ }
+ 
+ export interface ReconciliationOptions { targetRecordId?: string; expectedVersion?: number }
++function safeFeatureRevision(before: EvidenceRecord, after: EvidenceRecord) {
++  const observations = [[before.disease_or_lesion, after.disease_or_lesion], [before.modality, after.modality],
++    [before.sequence_or_phase, after.sequence_or_phase]] as const;
++  return stable(sourceAnchors(before)) === stable(sourceAnchors(after)) && before.original_quote === after.original_quote &&
++    observations.every(([a, b]) => a?.status !== 'source_observed' || stable(observed(a)) === stable(observed(b))) &&
++    (before.applicability.status !== 'specified' || stable(before.applicability) === stable(after.applicability)) &&
++    (before.assertion.value === 'unknown' || before.assertion.value === after.assertion.value) &&
++    before.context.source_attribution.origin === after.context.source_attribution.origin &&
++    (!before.context.source_attribution.cited_references.length ||
++      stable(before.context.source_attribution.cited_references) === stable(after.context.source_attribution.cited_references));
++}
+ /** Advice only. The caller persists every change in one transaction and enforces each expected_version using CAS. */
+ export function reconcileEvidence(candidate: EvidenceRecord, existing: readonly EvidenceVersion[], options: ReconciliationOptions = {}): ReconciliationResult {
+   const next = clone(candidate);
+@@ -65,6 +78,11 @@
+   const versions = [...latest.values()].filter(v => sameRunSource(v.record, next)).sort((a, b) => a.record.record_id.localeCompare(b.record.record_id));
+   const result: ReconciliationResult = { action: 'insert', changes: [], record: next, expected_version: null,
+     target_record_id: null, related_record_ids: [], issues: [] };
++  const requestedTarget = options.targetRecordId ?? next.extraction_trace.updates_record_id;
++  let target = requestedTarget ? versions.find(v => v.record.record_id === requestedTarget) : undefined;
++  if (requestedTarget && !target) throw new ContractError('update_target_missing_or_outside_bound_run');
++  const featureRevision = !!target && featureKey(target.record) !== featureKey(next);
++  if (featureRevision && !safeFeatureRevision(target!.record, next)) throw new ContractError('update_target_feature_mismatch');
+   const fingerprint = evidenceSemanticFingerprint(next);
+   const replay = versions.find(v => evidenceSemanticFingerprint(v.record) === fingerprint);
+   if (replay) return { ...result, action: 'idempotent', record: clone(replay.record), expected_version: replay.version,
+@@ -73,12 +91,6 @@
+   const proposedReplay = existing.find(v => v.status === 'proposed' && sameRunSource(v.record, next) && evidenceSemanticFingerprint(v.record) === fingerprint);
+   if (proposedReplay) return { ...result, action: 'idempotent', record: clone(proposedReplay.record), expected_version: proposedReplay.version,
+     target_record_id: proposedReplay.record.record_id, related_record_ids: [proposedReplay.record.record_id] };
+-  const requestedTarget = options.targetRecordId ?? next.extraction_trace.updates_record_id;
+-  let target = requestedTarget ? versions.find(v => v.record.record_id === requestedTarget) : undefined;
+-  if (requestedTarget && !target) result.issues.push('update_target_missing_or_outside_bound_run');
+-  if (target && featureKey(target.record) !== featureKey(next)) {
+-    result.issues.push('update_target_feature_mismatch'); target = undefined;
+-  }
+   if (!target && !requestedTarget) target = versions.find(v => featureKey(v.record) === featureKey(next) &&
+     stable(sourceAnchors(v.record)) === stable(sourceAnchors(next)) && enrichment(v.record, next));
+   if (target) {
+@@ -90,7 +102,8 @@
+     ] as const;
+     const distinctContext = contextPairs.some(([before, after]) => before?.status === 'source_observed' && stable(observed(before)) !== stable(observed(after))) ||
+       target.record.context.source_attribution.origin !== next.context.source_attribution.origin;
+-    const proposal = stale || humanProtected || distinctContext;
++    const changedSource = stable(sourceAnchors(target.record)) !== stable(sourceAnchors(next));
++    const proposal = stale || humanProtected || distinctContext || featureRevision || changedSource;
+     const updated = clone(next); updated.record_id = target.record.record_id;
+     updated.review_status = next.review_status === 'needs_context' ? 'needs_context' : 'pending';
+     updated.review_events = []; updated.handoff_status = 'candidate_only';
+@@ -101,6 +114,8 @@
+     if (stale) result.issues.push('expected_version_mismatch_preserve_proposal');
+     if (humanProtected) result.issues.push('human_version_protected');
+     if (distinctContext) result.issues.push('distinct_source_context_requires_review_proposal');
++    if (featureRevision) result.issues.push('feature_revision_requires_review');
++    if (changedSource) result.issues.push('changed_source_anchors_requires_review_proposal');
+     result.changes = [{ kind: proposal ? 'append_proposal' : 'append_version', record_id: target.record.record_id,
+       expected_version: target.version, record: updated }];
+     return result;
+--- a/packages/agent/src/extraction-summary.ts
++++ b/packages/agent/src/extraction-summary.ts
+@@ -1,5 +1,6 @@
+ import { Type } from 'typebox';
+ import { defineTool, type ToolDefinition } from '@earendil-works/pi-coding-agent';
++import type { AgentMessage } from '@earendil-works/pi-agent-core';
+ import { assertSchema, EvidenceSubmissionSchema, ContractError, type EvidenceValidationContext, type LocatedEvidenceFragment } from '@t1/contracts';
+ import type { ExtractionStore } from './extraction-store.js';
+ import type { ArticleScopeManifest, ExtractionDocument } from './article-scope.js';
+@@ -56,8 +57,13 @@
+   readonly readBlocks = new Set<string>();
+   private readonly reviewedVersions = new Map<string, number>();
+   private readonly reviewedProposalVersions = new Map<string, number>();
++  private readonly reviewReceipts = new Map<string, { active_version: number }>();
+   private contextRead = false;
+   private readonly visibleRecordIds = new Set<string>();
++  private readonly visibleVersions = new Map<string, number>();
++  /** A transport working set, distinct from the immutable history of actually read blocks. */
++  private readonly sourceWindow = new Set<string>();
++  private sourceUnits: ReturnType<typeof buildSourceEvidenceUnits> = [];
+   readonly auditCaseReviews = new Map<string, Record<string, unknown>>();
+   constructor(readonly context: Omit<EvidenceValidationContext, 'allowedBlockIds' | 'readBlockIds' | 'toolCallId' | 'quarantinedBlockIds'>,
+     readonly articleScope: ArticleScopeManifest, readonly store: ExtractionStore, readonly strategy: 'baseline' | 'independent_context_review',
+@@ -73,7 +79,7 @@
+     if (this.store.snapshot(this.ids().run_id).state !== 'reconciling') throw new ContractError('summary_requires_reconciling');
+     const records = this.store.current(this.ids().run_id);
+     if (name === 'get_document_context') {
+-      this.contextRead = true; records.forEach(v => this.visibleRecordIds.add(v.record.record_id));
++      this.contextRead = true; records.forEach(v => { this.visibleRecordIds.add(v.record.record_id); this.visibleVersions.set(v.record.record_id, v.version); });
+       return { ...this.ids(), source_binding: { task_id: this.context.metadata.task_id,
+       ...this.ids(), file_sha256: this.document.file_sha256, source_version: this.context.metadata.source_version.version, text_version: this.document.text_version },
+       immutable_scope: this.context.input.scope, catalog_status: this.context.catalog.status,
+@@ -113,7 +119,8 @@
+     if (name === 'read_document_blocks') {
+       const ids = p.block_ids as string[];
+       if (ids.some(id => !this.articleScope.included_block_ids.includes(id))) throw new ContractError('summary_source_not_authorized');
+-      ids.forEach(id => this.readBlocks.add(id));
++      ids.forEach(id => { this.readBlocks.add(id); this.sourceWindow.delete(id); this.sourceWindow.add(id); });
++      while (this.sourceWindow.size > 128) this.sourceWindow.delete(this.sourceWindow.values().next().value!);
+       return { blocks: ids.map(id => { const lineIndex = this.document.blocks.findIndex(b => b.block_id === id), b = this.document.blocks[lineIndex]!;
+         return { line_index: lineIndex, block_id: id, text: b.text, physical_page: b.page }; }), native_semantic_associations_trusted: false };
+     }
+@@ -135,14 +142,38 @@
+       } else if (p.conclusion !== undefined || p.related_record_ids !== undefined) throw new ContractError('semantic_audit_case_id_required');
+       return { recorded: true, audit_case_id: p.audit_case_id, medical_approval: false };
+     }
++    const before = { reviewedIds: new Set(this.reviewedIds), versions: new Map(this.reviewedVersions),
++      proposals: new Map(this.reviewedProposalVersions), receipts: new Map(this.reviewReceipts), visible: new Map(this.visibleVersions),
++      completed: this.completed, summary: this.summary };
++    try { return this.store.atomic(() => this.submit(p, callId)); }
++    catch (error) {
++      this.reviewedIds = before.reviewedIds;
++      for (const [map, values] of [[this.reviewedVersions, before.versions], [this.reviewedProposalVersions, before.proposals],
++        [this.visibleVersions, before.visible]] as const) { map.clear(); values.forEach((v, k) => map.set(k, v)); }
++      this.reviewReceipts.clear(); before.receipts.forEach((v, k) => this.reviewReceipts.set(k, v));
++      this.completed = before.completed; this.summary = before.summary;
++      this.store.event(this.ids().run_id, 'summary_submission_rejected', { call_id: callId, atomic_evidence_rollback: true,
++        evidence_changes_saved: false, error_code: error instanceof ContractError ? error.code : 'summary_submission_failed',
++        validation_issues: error && typeof error === 'object' && 'validation_issues' in error ? error.validation_issues : [],
++        current_versions: this.store.current(this.ids().run_id).map(v => ({ record_id: v.record.record_id, version: v.version })) });
++      throw error;
++    }
++  }
++  private submit(p: Record<string, unknown>, callId: string) {
++    const savedUpdates: Array<Record<string, unknown>> = [];
+     const reviews = p.reviews as Array<{ record_id: string; expected_version: number; issue_codes: string[] }>;
+     for (const r of reviews) {
+       const old = this.store.current(this.ids().run_id).find(v => v.record.record_id === r.record_id);
++      const receiptKey = JSON.stringify([r.record_id, r.expected_version, r.issue_codes]);
++      if (old && this.reviewReceipts.get(receiptKey)?.active_version === old.version) continue;
+       if (!old || old.version !== r.expected_version) throw new ContractError('evidence_version_conflict');
+-      if (this.reviewedVersions.get(r.record_id) === old.version) throw new ContractError('duplicate_summary_review');
++      if (this.reviewedVersions.get(r.record_id) === old.version &&
++        JSON.stringify(old.record.evidence_validation.model_semantic_review.issue_codes) === JSON.stringify(r.issue_codes)) continue;
+       const reviewed = this.store.modelReview(this.ids().run_id, r.record_id, r.expected_version, this.context.input.runtime_profile.model_id, r.issue_codes);
+       this.reviewedIds.add(r.record_id);
+       this.reviewedVersions.set(r.record_id, reviewed.status === 'proposed' ? old.version : reviewed.version);
++      this.reviewReceipts.set(receiptKey, { active_version: reviewed.status === 'proposed' ? old.version : reviewed.version });
++      if (this.visibleVersions.get(r.record_id) === old.version) this.visibleVersions.set(r.record_id, reviewed.status === 'proposed' ? old.version : reviewed.version);
+       if (reviewed.status === 'proposed') this.reviewedProposalVersions.set(r.record_id, reviewed.version);
+     }
+     for (const link of p.links as Array<{ record_id: string; related_record_id: string; relationship: 'possible_duplicate' | 'possible_conflict' | 'context_update' }>) {
+@@ -156,30 +187,45 @@
+     const updates = p.updates as Array<unknown>;
+     for (const update of updates) {
+       const validation = validateEvidenceSubmission(update, { ...this.context, allowedBlockIds: this.articleScope.included_block_ids,
+-        readBlockIds: [...this.readBlocks], quarantinedBlockIds: this.articleScope.quarantined_block_ids, toolCallId: callId });
+-      if (!validation.accepted || !validation.record) throw new ContractError('summary_update_validation_failed');
+-      this.store.apply(this.ids().run_id, reconcileEvidence(validation.record, this.store.versions(this.ids().run_id)));
+-    }
++        readBlockIds: [...this.sourceWindow], quarantinedBlockIds: this.articleScope.quarantined_block_ids, toolCallId: callId });
++      if (!validation.accepted || !validation.record) throw Object.assign(new ContractError('summary_update_validation_failed'), {
++        validation_issues: validation.issues.map(({ code, path, severity }) => ({ code, path, severity })) });
++      const reconciliation = reconcileEvidence(validation.record, this.store.versions(this.ids().run_id));
++      const saved = this.store.apply(this.ids().run_id, reconciliation);
++      savedUpdates.push({ record_id: reconciliation.record.record_id, action: reconciliation.action, issues: reconciliation.issues,
++        versions: saved.map(v => ({ version: v.version, status: v.status })) });
++    }
++    const completionBlockers: Array<{ code: string; record_ids?: string[]; audit_case_ids?: string[] }> = [];
++    const current = this.store.current(this.ids().run_id);
+     if (p.summary_complete === true) {
+-      if (!this.contextRead || this.store.current(this.ids().run_id).some(v => !this.visibleRecordIds.has(v.record.record_id))) throw new ContractError('summary_requires_all_candidate_context_read');
+-      if (this.strategy === 'independent_context_review' && this.store.current(this.ids().run_id).some(v =>
++      const unseen = current.filter(v => this.visibleVersions.get(v.record.record_id) !== v.version).map(v => v.record.record_id);
++      if (!this.contextRead || unseen.length) completionBlockers.push({ code: 'summary_requires_all_candidate_context_read', record_ids: unseen });
++      const unreviewed = this.strategy === 'independent_context_review' ? current.filter(v =>
+         this.reviewedVersions.get(v.record.record_id) !== v.version || (v.actor === 'human' ?
+           !this.store.versions(this.ids().run_id).some(p => p.record.record_id === v.record.record_id &&
+             p.version === this.reviewedProposalVersions.get(v.record.record_id) && p.status === 'proposed' &&
+             p.record.evidence_validation.model_semantic_review.status === 'reviewed_unapproved') :
+-          v.record.evidence_validation.model_semantic_review.status !== 'reviewed_unapproved'))) throw new ContractError('independent_review_coverage_incomplete');
+-      if (this.strategy === 'independent_context_review' && this.auditCases.some(c => !this.auditCaseReviews.has(c.case_id)))
+-        throw new ContractError('semantic_audit_coverage_incomplete');
+-      this.completed = true;
+-    }
++          v.record.evidence_validation.model_semantic_review.status !== 'reviewed_unapproved')).map(v => v.record.record_id) : [];
++      if (unreviewed.length) completionBlockers.push({ code: 'independent_review_coverage_incomplete', record_ids: unreviewed });
++      const unaudited = this.strategy === 'independent_context_review' ? this.auditCases.filter(c => !this.auditCaseReviews.has(c.case_id)).map(c => c.case_id) : [];
++      if (unaudited.length) completionBlockers.push({ code: 'semantic_audit_coverage_incomplete', audit_case_ids: unaudited });
++    }
++    this.completed = p.summary_complete === true && !completionBlockers.length;
+     this.summary = String(p.summary); this.store.event(this.ids().run_id, 'document_summary', { summary: this.summary,
+       strategy: this.strategy, candidate_record_ids_read: [...this.visibleRecordIds], reviews: [...this.reviewedIds],
+-      semantic_audit_case_ids_reviewed: [...this.auditCaseReviews.keys()], complete: this.completed, medical_approval: false });
+-    return { summary_recorded: true, complete: this.completed, reviewed: this.reviewedIds.size, medical_approval: false };
++      semantic_audit_case_ids_reviewed: [...this.auditCaseReviews.keys()], complete: this.completed,
++      completion_blockers: completionBlockers, saved_updates: savedUpdates, atomic_submission: true, medical_approval: false });
++    return { summary_recorded: true, complete: this.completed, reviewed: this.reviewedIds.size,
++      saved_updates: savedUpdates, completion_blockers: completionBlockers,
++      current_versions: current.map(v => ({ record_id: v.record.record_id, version: v.version })),
++      next_step: completionBlockers.some(b => b.code === 'summary_requires_all_candidate_context_read') ? 'get_document_context_then_review_current_versions' :
++        completionBlockers.length ? 'resolve_listed_coverage_before_completing' : 'none',
++      atomic_submission: true, medical_approval: false };
+   }
+   definitions(): ToolDefinition[] {
+     const statementPolicy = this.context.evidencePolicyVersion === VISUAL_STATEMENT_POLICY_VERSION;
+     const sourceUnits = statementPolicy ? buildSourceEvidenceUnits(this.document) : [];
++    this.sourceUnits = sourceUnits;
+     const schemas = [Type.Object({}, closed), Type.Object({ block_ids: Type.Optional(readSchema.properties.block_ids),
+       line_indices: Type.Optional(Type.Array(Type.Integer({ minimum: 0 }), { minItems: 1, maxItems: 128, uniqueItems: true })) }, closed), Type.Object({}, closed),
+       Type.Object({}, closed),
+@@ -212,8 +258,10 @@
+           }) } : p;
+         let value = await this.invoke(name, { ...expanded, ...this.ids() }, id, signal);
+         if (statementPolicy && name === 'read_document_blocks') {
+-          const ids = new Set(this.readBlocks);
++          const ids = this.sourceWindow;
+           Object.assign(value as object, { evidence_policy_version: VISUAL_STATEMENT_POLICY_VERSION, source_unit_version: SOURCE_EVIDENCE_UNIT_VERSION,
++            source_window: this.sourceWindowInfo(),
++            source_units_needing_reread: this.unitsNeedingReread(),
+             source_units: sourceUnits.filter(u => u.segments.every(s => ids.has(s.block_id))).map(u => ({ unit_id: u.unit_id, kind: u.kind,
+               source_type: u.source_type, completeness: u.completeness, boundary_reasons: u.boundary_reasons,
+               line_spans: u.segments.map(s => ({ line_index: this.document.blocks.findIndex(b => b.block_id === s.block_id), start: s.start, end: s.end })) })) });
+@@ -230,4 +278,42 @@
+           details: { medical_approval: false, protocol: statementPolicy ? 's4-summary-literal-source-statements-5' : 's4-summary-document-lines-dictionary-4' } };
+       } }));
+   }
++  private sourceWindowInfo() { return { maximum_lines: 128,
++    line_indices: [...this.sourceWindow].map(id => this.document.blocks.findIndex(b => b.block_id === id)),
++    historical_unique_read_count: this.readBlocks.size, evicted_lines_require_explicit_reread_for_updates: true,
++    source_text_truncated: false, reading_is_not_extraction_or_summary_completion: true }; }
++  private unitsNeedingReread() {
++    return this.sourceUnits.filter(u => u.segments.some(s => this.sourceWindow.has(s.block_id)) && !u.segments.every(s => this.sourceWindow.has(s.block_id)))
++      .map(u => ({ unit_id: u.unit_id, complete_original_unit_not_truncated: true,
++        required_document_line_indices: [...new Set(u.segments.map(s => this.document.blocks.findIndex(b => b.block_id === s.block_id)))],
++        instruction: 'Explicitly read all required authorized lines together before selecting this complete source unit.' }));
++  }
++  /** Only superseded transport copies are replaced. All candidates/medical fields and every current source line stay exact. */
++  projectModelMessages(messages: AgentMessage[]): AgentMessage[] {
++    const reads = messages.flatMap((m, i) => m.role === 'toolResult' && m.toolName === 'read_document_blocks' && !m.isError ? [i] : []);
++    const contexts = messages.flatMap((m, i) => m.role === 'toolResult' && m.toolName === 'get_document_context' && !m.isError ? [i] : []);
++    const latestRead = reads.at(-1), latestContext = contexts.at(-1);
++    const ids = this.sourceWindow;
++    const sourceWindow = { blocks: [...ids].map(id => { const line_index = this.document.blocks.findIndex(b => b.block_id === id), b = this.document.blocks[line_index]!;
++      return { line_index, block_id: id, text: b.text, physical_page: b.page }; }), source_window: this.sourceWindowInfo(),
++      source_units: this.sourceUnits.filter(u => u.segments.every(s => ids.has(s.block_id))).map(u => ({ unit_id: u.unit_id, kind: u.kind,
++        source_type: u.source_type, completeness: u.completeness, boundary_reasons: u.boundary_reasons,
++        line_spans: u.segments.map(s => ({ line_index: this.document.blocks.findIndex(b => b.block_id === s.block_id), start: s.start, end: s.end })) })),
++      source_units_needing_reread: this.unitsNeedingReread(),
++      warning: 'Exact whole source lines in the current bounded working set. Candidate source/context is retained separately and untruncated. Any evicted line must be explicitly re-read before an update; no read implies completion.' };
++    const projected = messages.map((m, i): AgentMessage => {
++      if (m.role !== 'toolResult' || m.isError) return m;
++      if (i === latestRead) return { ...m, content: [{ type: 'text', text: JSON.stringify(sourceWindow) }] };
++      if ((m.toolName === 'read_document_blocks' && i !== latestRead) || (m.toolName === 'get_document_context' && i !== latestContext))
++        return { ...m, content: [{ type: 'text', text: JSON.stringify({ transport_copy_superseded: true, tool: m.toolName,
++          exact_current_source_window_in_latest_read_result: true, latest_candidate_packet_is_complete: true,
++          evicted_source_requires_explicit_reread_for_updates: true }) }] };
++      return m;
++    });
++    this.store.event(this.ids().run_id, 'summary_model_working_set', { original_message_bytes: Buffer.byteLength(JSON.stringify(messages)),
++      projected_message_bytes: Buffer.byteLength(JSON.stringify(projected)), source_window: this.sourceWindowInfo(),
++      superseded_source_result_copies: Math.max(0, reads.length - 1), superseded_candidate_packet_copies: Math.max(0, contexts.length - 1),
++      candidate_fields_truncated: false, source_lines_truncated: false });
++    return projected;
++  }
+ }
+--- a/packages/agent/src/extraction-store.ts
++++ b/packages/agent/src/extraction-store.ts
+@@ -8,6 +8,7 @@
+ export interface StoredEvidenceVersion extends EvidenceVersion { created_at: string; reason: string; }
+ export class ExtractionStore {
+   readonly db: DatabaseSync;
++  private transactionDepth = 0;
+   constructor(readonly path: string) {
+     if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true, mode: 0o700 });
+     this.db = new DatabaseSync(path);
+@@ -21,6 +22,23 @@
+     this.db.prepare('INSERT INTO s4_runs VALUES(?,?,?,?)').run(input.run_id, JSON.stringify(input), 'queued', JSON.stringify(metadata));
+     this.event(input.run_id, 'state', { state: 'queued', medical_quality_approved: false });
+   }
++  /** Synchronous nested savepoints let one tool submission commit all writes or none. No model wait holds a transaction. */
++  atomic<T>(body: () => T): T {
++    const depth = this.transactionDepth++, savepoint = `s4_atomic_${depth}`;
++    let started = false;
++    try {
++      this.db.exec(depth === 0 ? 'BEGIN IMMEDIATE' : `SAVEPOINT ${savepoint}`); started = true;
++      const result = body();
++      this.db.exec(depth === 0 ? 'COMMIT' : `RELEASE ${savepoint}`);
++      return result;
++    } catch (error) {
++      if (started) {
++        this.db.exec(depth === 0 ? 'ROLLBACK' : `ROLLBACK TO ${savepoint}`);
++        if (depth) this.db.exec(`RELEASE ${savepoint}`);
++      }
++      throw error;
++    } finally { this.transactionDepth--; }
++  }
+   snapshot(runId: string) {
+     const row = this.db.prepare('SELECT * FROM s4_runs WHERE id=?').get(runId);
+     if (!row) throw new ContractError('s4_run_not_found');
+@@ -33,9 +51,7 @@
+     this.db.prepare('INSERT INTO s4_events VALUES(?,?,?)').run(runId, seq, JSON.stringify(event)); return event;
+   }
+   event(runId: string, type: string, detail: unknown) {
+-    this.db.exec('BEGIN IMMEDIATE');
+-    try { const event = this.insertEvent(runId, type, detail); this.db.exec('COMMIT'); return event; }
+-    catch (error) { this.db.exec('ROLLBACK'); throw error; }
++    return this.atomic(() => this.insertEvent(runId, type, detail));
+   }
+   events(runId: string) { return this.db.prepare('SELECT payload_json FROM s4_events WHERE run_id=? ORDER BY seq').all(runId).map(r => JSON.parse(r.payload_json as string)); }
+   transition(runId: string, next: RunState) {
+@@ -44,9 +60,7 @@
+       parsing: ['extracting', 'partial', 'failed', 'cancelled', 'interrupted'], extracting: ['reconciling', 'partial', 'failed', 'cancelled', 'interrupted'],
+       reconciling: ['completed', 'partial', 'failed', 'cancelled', 'interrupted'], completed: [], partial: [], failed: [], cancelled: [], interrupted: [] };
+     if (!allowed[current].includes(next)) throw new ContractError('s4_illegal_transition');
+-    this.db.exec('BEGIN IMMEDIATE');
+-    try { this.db.prepare('UPDATE s4_runs SET state=? WHERE id=?').run(next, runId); this.insertEvent(runId, 'state', { state: next }); this.db.exec('COMMIT'); }
+-    catch (error) { this.db.exec('ROLLBACK'); throw error; }
++    this.atomic(() => { this.db.prepare('UPDATE s4_runs SET state=? WHERE id=?').run(next, runId); this.insertEvent(runId, 'state', { state: next }); });
+   }
+   versions(runId: string): StoredEvidenceVersion[] {
+     return this.db.prepare('SELECT envelope_json FROM s4_versions WHERE run_id=? ORDER BY record_id,version').all(runId).map(r => JSON.parse(r.envelope_json as string));
+@@ -58,10 +72,8 @@
+   }
+   batches(runId: string): Array<Record<string, unknown>> { return this.db.prepare('SELECT payload_json FROM s4_batches WHERE run_id=? ORDER BY batch_id').all(runId).map(r => JSON.parse(r.payload_json as string)); }
+   batch(runId: string, batchId: string, detail: Record<string, unknown>) {
+-    this.db.exec('BEGIN IMMEDIATE');
+-    try { this.db.prepare('INSERT INTO s4_batches VALUES(?,?,?) ON CONFLICT(run_id,batch_id) DO UPDATE SET payload_json=excluded.payload_json')
+-      .run(runId, batchId, JSON.stringify(detail)); this.insertEvent(runId, 'batch', { batch_id: batchId, ...detail }); this.db.exec('COMMIT'); }
+-    catch (error) { this.db.exec('ROLLBACK'); throw error; }
++    this.atomic(() => { this.db.prepare('INSERT INTO s4_batches VALUES(?,?,?) ON CONFLICT(run_id,batch_id) DO UPDATE SET payload_json=excluded.payload_json')
++      .run(runId, batchId, JSON.stringify(detail)); this.insertEvent(runId, 'batch', { batch_id: batchId, ...detail }); });
+   }
+   private validateBound(runId: string, record: EvidenceRecord) {
+     assertSchema(EvidenceRecordSchema, record);
+@@ -85,9 +97,8 @@
+   apply(runId: string, result: ReconciliationResult) {
+     if (!['extracting', 'reconciling'].includes(this.snapshot(runId).state)) throw new ContractError('candidate_write_requires_active_extraction');
+     if (result.action === 'idempotent') return [];
+-    this.db.exec('BEGIN IMMEDIATE');
+-    const saved: StoredEvidenceVersion[] = [];
+-    try {
++    return this.atomic(() => {
++      const saved: StoredEvidenceVersion[] = [];
+       for (const change of result.changes) {
+         if (change.kind === 'link') {
+           const old = this.current(runId).find(v => v.record.record_id === change.record_id);
+@@ -104,9 +115,9 @@
+           saved.push(this.append(runId, change.record, change.expected_version, change.kind === 'append_proposal' ? 'proposed' : 'active', result.action));
+         }
+       }
+-      this.insertEvent(runId, 'reconciliation', { action: result.action, issues: result.issues }); this.db.exec('COMMIT');
+-    } catch (error) { this.db.exec('ROLLBACK'); throw error; }
+-    return saved;
++      this.insertEvent(runId, 'reconciliation', { action: result.action, issues: result.issues });
++      return saved;
++    });
+   }
+   modelReview(runId: string, id: string, expected: number, modelId: string, issueCodes: string[]) {
+     const old = this.current(runId).find(v => v.record.record_id === id);
+@@ -115,9 +126,7 @@
+     if (old.actor === 'human') { record.review_status = 'pending'; record.review_events = []; record.handoff_status = 'candidate_only'; }
+     record.evidence_validation.model_semantic_review = { status: 'reviewed_unapproved', model_id: modelId, issue_codes: issueCodes };
+     if (issueCodes.length) { record.review_status = 'needs_context'; record.evidence_validation.warnings.push(...issueCodes); }
+-    this.db.exec('BEGIN IMMEDIATE');
+-    try { const result = this.append(runId, record, expected, old.actor === 'human' ? 'proposed' : 'active', 'model_semantic_review_not_human_approval'); this.db.exec('COMMIT'); return result; }
+-    catch (error) { this.db.exec('ROLLBACK'); throw error; }
++    return this.atomic(() => this.append(runId, record, expected, old.actor === 'human' ? 'proposed' : 'active', 'model_semantic_review_not_human_approval'));
+   }
+   close() { this.db.close(); }
+ }
+--- a/scripts/compare-extraction-methods.ts
++++ b/scripts/compare-extraction-methods.ts
+@@ -32,6 +32,8 @@
+   quality: { full_reference_answer_required: false; sampling_rules: string; actual_human_reviews: 0; sample_count: null; thresholds: null; winner: null };
+   price_estimate: unknown;
+   visual_scope_prompt?: typeof VISUAL_SCOPE_PROMPT_VERSION;
++  /** Optional cohort restriction for a new source-bound integration smoke; never changes an input strategy. */
++  execution_job_ids?: string[];
+ }
+ const hash = (bytes: string | Buffer) => createHash('sha256').update(bytes).digest('hex');
+ const json = async (path: string) => JSON.parse(await readFile(path, 'utf8'));
+@@ -68,6 +70,10 @@
+   if (v.proposed_limits.request_seconds !== 120 || v.proposed_limits.document_seconds > 1800 || v.proposed_limits.batch_responses > 16 ||
+     v.proposed_limits.response_output_tokens !== 8192 || v.proposed_limits.transient_retries !== 2) throw new ContractError('comparison_execution_limits_invalid');
+   if (v.visual_scope_prompt !== undefined && v.visual_scope_prompt !== VISUAL_SCOPE_PROMPT_VERSION) throw new ContractError('comparison_scope_prompt_version_mismatch');
++  if (v.execution_job_ids !== undefined && (!Array.isArray(v.execution_job_ids) || !v.execution_job_ids.length ||
++    new Set(v.execution_job_ids).size !== v.execution_job_ids.length || v.execution_job_ids.some(id =>
++      typeof id !== 'string' || !v.papers.some(p => ['B0', 'F', 'R'].some(condition => id === p.source_id + '-' + condition)))))
++    throw new ContractError('comparison_execution_jobs_invalid');
+ }
+ async function inside(path: string) {
+   const actual = await realpath(resolve(code, path)), rel = relative(code, actual);
+@@ -127,7 +133,8 @@
+ type Plan = Awaited<ReturnType<typeof makePlan>>;
+ const comparisonControls = (c: Config) => ({ papers: c.papers, model: c.model, scope: c.scope, parser: 'fixed-formal-current',
+   figure_pairing: c.figure_pairing, catalog: c.catalog, batch_options: c.batch_options, strategy: c.strategy,
+-  concurrency: c.concurrency, proposed_limits: c.proposed_limits, visual_scope_prompt: c.visual_scope_prompt ?? null });
++  concurrency: c.concurrency, proposed_limits: c.proposed_limits, visual_scope_prompt: c.visual_scope_prompt ?? null,
++  execution_job_ids: c.execution_job_ids ?? null });
+ async function makePlan(config: Config) {
+   assertConfig(config);
+   if (config.optimization.parent_plan) {
+@@ -141,10 +148,15 @@
+     evidence_policy_version: VISUAL_STATEMENT_POLICY_VERSION, source_evidence_unit_version: SOURCE_EVIDENCE_UNIT_VERSION,
+     visual_scope_prompt: VISUAL_SCOPE_PROMPT_VERSION,
+     runtime_source_sha256: comparisonDigest(hashes), exact_original_fragments_only: true };
++  const papers = sources.map(s => ({ ...s.source_binding, source_use: s.use, parser_status: s.document.parser.status,
++    methods: planPaperMethods(s.document, { ...common, source: s.source_binding }, config.batch_options) }));
++  const executionJobs = papers.flatMap(p => p.methods.jobs).filter(j => !config.execution_job_ids || config.execution_job_ids.includes(j.job_id));
++  if (config.execution_job_ids && executionJobs.some(j => j.representative_job_id)) throw new ContractError('reliability_smoke_requires_independent_jobs');
+   return { schema_version: 'three-method-prepared-comparison-1', batch_id: 'comparison-' + randomUUID(), prepared_at: new Date().toISOString(),
+     status: 'prepared_no_model_calls_pending_new_user_authorization', config, common, source_hashes: hashes,
+-    papers: sources.map(s => ({ ...s.source_binding, source_use: s.use, parser_status: s.document.parser.status,
+-      methods: planPaperMethods(s.document, { ...common, source: s.source_binding }, config.batch_options) })),
++    papers,
++    ...(config.execution_job_ids ? { execution_job_ids: executionJobs.map(j => j.job_id),
++      experiment_purpose: 'integrated_reliability_smoke_no_single_variable_gain_or_method_ranking' } : {}),
+     paid_calls: 0, actual_human_reviews: 0, medical_quality_approved: false, stage_passed: false, winner: null };
+ }
+ if (action === 'prepare') {
+@@ -156,13 +168,15 @@
+     authorization_id: null, user_confirmation_source: null, approved_at: null, prepared_plan_sha256: planSha, batch_id: plan.batch_id,
+     model_id: config.model.model_id, reasoning_effort: config.model.reasoning_effort, provider: config.model.provider, api: config.model.api,
+     limits: config.proposed_limits,
+-    scope_note: 'L01/L05 three-method initial comparison and necessary one-point fixes/retests with the same model and papers; all attempts share the same total caps.',
++    scope_note: config.execution_job_ids ? `Integrated reliability smoke only for ${config.execution_job_ids.join(',')}; no single-variable performance gain or method ranking. All attempts share the approved caps.` :
++      'L01/L05 three-method initial comparison and necessary one-point fixes/retests with the same model and papers; all attempts share the same total caps.',
+     budget_owner_policy: 'Keep the same authorization_id, confirmation source and time for authorized follow-ups. A single shared ledger and its original wall clock never reset per method, retry or revision.',
+     notice: 'Unsigned proposal only. Old budgets are closed; no model call authorized by this file.' }, true);
+   process.stdout.write(JSON.stringify({ status: plan.status, directory: relative(code, directory), plan_sha256: planSha,
+     papers: plan.papers.map(p => ({ id: p.document_id, methods: p.methods.logical_methods, unique_inputs: p.methods.unique_inputs,
+       masks: p.methods.jobs.map(j => ({ job: j.job_id, kept: j.selected_block_count, batches: j.batch_count, equivalent_to: j.representative_job_id })) })),
+-    proposed_limits: config.proposed_limits, paid_calls: 0, winner: null }) + '\n');
++    proposed_limits: config.proposed_limits, ...(config.execution_job_ids ? { execution_job_ids: plan.execution_job_ids,
++      experiment_purpose: plan.experiment_purpose } : {}), paid_calls: 0, winner: null }) + '\n');
+ } else {
+   if (!flags.has('--authorization') || flags.has('--config')) throw new ContractError('new_comparison_user_authorization_required');
+   const planBytes = await readFile(resolve(directory, 'plan.json')), plan = JSON.parse(planBytes.toString('utf8')) as Plan;
+@@ -206,8 +220,10 @@
+   const controller = new AbortController(), stop = () => controller.abort(); process.once('SIGINT', stop); process.once('SIGTERM', stop);
+   let store: ExtractionStore | undefined, budget: ExtractionBudget | undefined;
+   const report: { batch_id: string; status: string; jobs: Array<Record<string, unknown>>; totals?: unknown; error?: unknown;
++    execution_job_ids?: string[]; experiment_purpose?: string;
+     winner: null; medical_quality_approved: false; actual_human_reviews: 0; stage_passed: false } = {
+     batch_id: plan.batch_id, status: 'running', jobs: [], winner: null, medical_quality_approved: false, actual_human_reviews: 0, stage_passed: false };
++  if (plan.config.execution_job_ids) Object.assign(report, { execution_job_ids: plan.execution_job_ids, experiment_purpose: plan.experiment_purpose });
+   try {
+     for (const path of Object.keys(plan.source_hashes)) {
+       const target = resolve(execution, 'source-snapshot', path); await mkdir(dirname(target), { recursive: true }); await writeFile(target, await readFile(path), { flag: 'wx' });
+@@ -219,6 +235,7 @@
+       totals_before_this_plan: budget.totals(), per_method_retry_or_revision_reset: false }, true);
+     store = new ExtractionStore(resolve(execution, 'evidence.sqlite'));
+     for (const paper of plan.papers) for (const job of paper.methods.jobs) {
++      if (plan.config.execution_job_ids && !plan.config.execution_job_ids.includes(job.job_id)) continue;
+       if (controller.signal.aborted) throw new ContractError('comparison_cancelled');
+       if (job.representative_job_id) {
+         const representative = report.jobs.find(j => j.job_id === job.representative_job_id);
+--- a/scripts/verify-s4-summary-working-set.ts
++++ b/scripts/verify-s4-summary-working-set.ts
+@@ -0,0 +1,62 @@
++/** Offline reproduction against the frozen pre-fix summary module. No credentials, remote API or evidence store is opened. */
++import { readFile, writeFile, mkdtemp, rm } from 'node:fs/promises';
++import { resolve, join } from 'node:path';
++import { pathToFileURL } from 'node:url';
++import { createHash } from 'node:crypto';
++import { ExtractionSummaryTools } from '../packages/agent/src/extraction-summary.js';
++import { ExtractionStore } from '../packages/agent/src/extraction-store.js';
++import { buildArticleScope } from '../packages/agent/src/article-scope.js';
++import { VISUAL_STATEMENT_POLICY_VERSION } from '../packages/agent/src/visual-evidence-policy.js';
++import { makeEvidenceFixture } from '../tests/extraction/fixtures/evidence-fixtures.js';
++
++const directory = resolve('docs/acceptance/s4-reliability-2026-11-05');
++const outputName = process.argv[2] ?? '03-summary-window-direct-before-after.json';
++if (!/^[a-zA-Z0-9.-]+\.json$/.test(outputName)) throw new Error('offline_report_filename_invalid');
++const originalPath = join(directory, 'before-source/packages/agent/src/extraction-summary.ts');
++const original = await readFile(originalPath, 'utf8');
++const temporary = await mkdtemp(resolve('runtime-data/agent-notes/summary-window-offline-'));
++try {
++  // Only relative dependency specifiers are relocated. The pre-fix class body remains byte-identical.
++  const replayModule = original.replace(/from '(\.\/[^']+)'/g, (_all, specifier: string) =>
++    `from '${pathToFileURL(resolve('packages/agent/src', specifier)).href}'`);
++  const replayPath = join(temporary, 'summary-before.ts'); await writeFile(replayPath, replayModule, { flag: 'wx' });
++  const before = await import(pathToFileURL(replayPath).href) as { ExtractionSummaryTools: typeof ExtractionSummaryTools };
++  const raw = JSON.parse(await readFile(resolve('docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05/parser-result.json'), 'utf8'));
++  const document = raw.document ?? raw;
++  const observe = async (Tools: typeof ExtractionSummaryTools) => {
++    const fixture = makeEvidenceFixture(), store = new ExtractionStore(':memory:');
++    fixture.input.document_id = document.document_id; fixture.input.file_sha256 = document.file_sha256;
++    fixture.context.document = document; fixture.context.metadata.source_version.file_sha256 = document.file_sha256;
++    store.create(fixture.input, fixture.context.metadata); store.transition(fixture.input.run_id, 'extracting'); store.transition(fixture.input.run_id, 'reconciling');
++    const tools = new Tools({ ...fixture.context, evidencePolicyVersion: VISUAL_STATEMENT_POLICY_VERSION }, buildArticleScope(document), store, 'baseline');
++    const read = tools.definitions().find(t => t.name === 'read_document_blocks')!, observations: object[] = [];
++    try {
++      const priorIds = new Set<string>();
++      for (const start of [0, 128, 256, 384, 512]) {
++        const indices = Array.from({ length: Math.min(128, 615 - start) }, (_, i) => start + i);
++        const output = await read.execute(`offline-L05-${start}`, { line_indices: indices }, undefined, undefined, {} as Parameters<typeof read.execute>[4]);
++        const body = JSON.parse((output.content[0] as { text: string }).text), units = body.source_units as Array<{ unit_id: string; line_spans: Array<{ line_index: number }> }>;
++        const expectedStart = Math.max(0, Math.min(start + 128, 615) - 128);
++        const outside = units.filter(u => u.line_spans.some(s => s.line_index < expectedStart || s.line_index >= Math.min(start + 128, 615)));
++        observations.push({ requested_indices: indices, returned_blocks: body.blocks.length,
++          all_returned_source_lines_exact: body.blocks.every((b: { line_index: number; text: string }) => b.text === document.blocks[b.line_index].text),
++          source_units: units.length, units_already_returned_in_prior_calls: units.filter(u => priorIds.has(u.unit_id)).length,
++          units_outside_current_128_line_window: outside.length,
++          outside_unit_id_examples: outside.slice(0, 5).map(u => u.unit_id), result_bytes: Buffer.byteLength(JSON.stringify(body)) });
++        units.forEach(u => priorIds.add(u.unit_id));
++      }
++      return { observations, actually_read_unique_blocks: tools.readBlocks.size, summary_completed: tools.completed,
++        candidates: store.current(fixture.input.run_id).length };
++    } finally { store.close(); }
++  };
++  const report = { schema_version: 'offline-actual-L05-summary-window-1', paid_api_requests: 0,
++    source: 'Frozen public L05 IR,615 blocks; deterministic tool invocations only, not a new model result.',
++    before_module: originalPath, before_module_sha256: createHash('sha256').update(original).digest('hex'),
++    replay_body_unchanged_except_relative_import_relocation: true,
++    after_module_sha256: createHash('sha256').update(await readFile(resolve('packages/agent/src/extraction-summary.ts'))).digest('hex'),
++    before: await observe(before.ExtractionSummaryTools), after: await observe(ExtractionSummaryTools),
++    draft_before_test_note: '03-summary-reliability-before.log contains a draft assertion that failed on a not-yet-existing source_window property; this report directly measures old returned unit spans and establishes the cumulative-output cause without relying on that missing field.' };
++  await writeFile(join(directory, outputName), JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
++  process.stdout.write(JSON.stringify({ before_outside_units: report.before.observations.map((o: any) => o.units_outside_current_128_line_window),
++    after_outside_units: report.after.observations.map((o: any) => o.units_outside_current_128_line_window), paid_api_requests: 0 }) + '\n');
++} finally { await rm(temporary, { recursive: true, force: true }); }
+--- a/tests/extraction/runtime.test.ts
++++ b/tests/extraction/runtime.test.ts
+@@ -937,7 +937,8 @@
+     await summary.invoke('get_document_context', { run_id: c.ids.run_id, document_id: c.ids.document_id }, 'read-independent-candidate-context');
+     const params = { run_id: c.ids.run_id, document_id: c.ids.document_id, summary: 'Synthetic independent review.',
+       reviews: [], links: [], updates: [], summary_complete: true };
+-    await assert.rejects(summary.invoke('submit_candidate_records', params, 'incomplete-review'), /independent_review_coverage_incomplete/);
++    const incomplete = await summary.invoke('submit_candidate_records', params, 'incomplete-review') as { complete: boolean; completion_blockers: Array<{ code: string }> };
++    assert.equal(incomplete.complete, false); assert.ok(incomplete.completion_blockers.some(b => b.code === 'independent_review_coverage_incomplete'));
+     assert.equal(summary.completed, false);
+     await summary.invoke('submit_candidate_records', { ...params,
+       reviews: [{ record_id: record.record_id, expected_version: 1, issue_codes: [] }] }, 'complete-review');
+@@ -1227,7 +1228,7 @@
+       assert.equal(result.error, undefined); assert.equal(summary.completed, true); assert.equal(c.store.current(c.ids.run_id).length, 2);
+       assert.match(scripted.requests[1]!.tool_results.find(output => output.call_id === 'call-fixture-0-0')!.output, /summary_requires_all_candidate_context_read/);
+       assert.match(scripted.requests[3]!.tool_results.find(output => output.call_id === 'call-fixture-2-0')!.output, /summary_requires_all_candidate_context_read/);
+-      const saved = c.store.events(c.ids.run_id).filter(event => event.type === 'document_summary'); assert.equal(saved.length, 1);
++      const saved = c.store.events(c.ids.run_id).filter(event => event.type === 'document_summary' && event.detail.complete); assert.equal(saved.length, 1);
+       assert.deepEqual(saved[0]!.detail.candidate_record_ids_read.sort(), c.store.current(c.ids.run_id).map(version => version.record.record_id).sort());
+     } finally { c.store.close(); await scripted.close(); }
+   });
+@@ -1277,7 +1278,7 @@
+   });
+ });
+ 
+-test('protocol diagnostic pause keeps error hashes and stops before another batch, retry or summary', async () => {
++test('repeated protocol errors retain saved candidates and error hashes, then stop before another batch or summary', async () => {
+   await temporary(async directory => {
+     const fixture = makeEvidenceFixture(['We observed spiculation on CT in lung cancer.', 'This next source batch must not be started.']);
+     const invalidArguments = { records: [compactCandidate(fixture)], batch_complete: true };
+@@ -1285,8 +1286,9 @@
+       { name: 'read_document_blocks', arguments: {} },
+       { name: 'submit_candidate_records', arguments: { records: [wholeLineCandidate(fixture)], batch_complete: false } },
+       { name: 'submit_candidate_records', arguments: invalidArguments },
+-    ] }], { batchOptions: { maxBlocks: 1, contextBlocks: 0 } });
+-    assert.equal(result.state, 'partial'); assert.equal(result.candidate_count, 1); assert.equal(requests.length, 1);
++    ] }, { calls: [{ name: 'submit_candidate_records', arguments: invalidArguments }] }], { batchOptions: { maxBlocks: 1, contextBlocks: 0 } });
++    assert.equal(result.state, 'partial'); assert.equal(result.candidate_count, 1); assert.equal(requests.length, 2);
++    assert.equal(result.events.filter(event => event.type === 'protocol_correction').length, 1);
+     assert.equal(result.error?.code, 'model_tool_protocol_diagnostic_pause');
+     assert.equal(result.coverage.explicitly_completed_source_blocks, 0); assert.equal(result.coverage.whole_document_summary_complete, false);
+     assert.equal(result.coverage.failed_source_block_ids.length + result.coverage.unprocessed_source_block_ids.length, 2);
+@@ -1628,7 +1630,7 @@
+         { calls: [{ name: 'get_document_context', arguments: {} }, { name: 'read_document_blocks', arguments: { block_ids: fixture.document.blocks.map(block => block.block_id) } }] },
+         { calls: [{ name: 'submit_candidate_records', arguments: { ...params, reviews: [{ record_id: record.record_id, expected_version: 1, issue_codes: [] }], summary_complete: false } }] },
+         { calls: [{ name: 'submit_candidate_records', arguments: { ...params, updates: [update] } }] },
+-        { calls: [{ name: 'submit_candidate_records', arguments: { ...params, reviews: [{ record_id: record.record_id, expected_version: 3, issue_codes: [] }] } }] },
++        { calls: [{ name: 'get_document_context', arguments: {} }, { name: 'submit_candidate_records', arguments: { ...params, reviews: [{ record_id: record.record_id, expected_version: 3, issue_codes: [] }] } }] },
+         { text: 'The updated automatic version received a new unapproved review.' },
+       ] : [
+         { calls: [{ name: 'get_document_context', arguments: {} }] },
+--- a/tests/extraction/reconciliation.test.ts
++++ b/tests/extraction/reconciliation.test.ts
+@@ -149,9 +149,7 @@
+     if (dimension === 'text') other.text_version = 'another-text-version';
+     if (dimension === 'document') other.document_id = 'another-article';
+     other.extraction_trace.updates_record_id = record.record_id;
+-    const result = reconcileEvidence(other, [version(record)]);
+-    assert.equal(result.action, 'insert', dimension); assert.equal(result.related_record_ids.length, 0);
+-    assert.ok(result.issues.includes('update_target_missing_or_outside_bound_run'));
++    assert.throws(() => reconcileEvidence(other, [version(record)]), /update_target_missing_or_outside_bound_run/, dimension);
+   }
+ });
+ 
+--- a/tests/extraction/s4-tool-recovery.test.ts
++++ b/tests/extraction/s4-tool-recovery.test.ts
+@@ -0,0 +1,89 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { mkdtemp, rm } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import { join } from 'node:path';
++import { ExtractionStore } from '../../packages/agent/src/extraction-store.js';
++import { ExtractionBudget, S4_LIMITS } from '../../packages/agent/src/extraction-budget.js';
++import { runExtractionDocument } from '../../packages/agent/src/extraction-run.js';
++import { developmentProfile } from '../../packages/agent/src/extraction-pi.js';
++import { makeEvidenceFixture } from './fixtures/evidence-fixtures.js';
++import { createRuntimeResponsesFixture, type ResponsesStep } from './fixtures/runtime-responses.js';
++
++const read: ResponsesStep = { calls: [{ name: 'read_document_blocks', arguments: {} }] };
++const finish: ResponsesStep = { calls: [{ name: 'submit_candidate_records', arguments: { records: [], batch_complete: true } }] };
++const summary: ResponsesStep = { calls: [{ name: 'get_document_context', arguments: {} },
++  { name: 'submit_candidate_records', arguments: { summary: 'Loopback fixture only.', reviews: [], links: [], updates: [], summary_complete: true } }] };
++const statement = { source_unit_ids: ['su-000001'], feature_name_raw: 'spiculation', feature_category: 'margin',
++  evidence_type: 'imaging_observation', assertion: 'affirmed', origin: 'study_authors' };
++const submit = (record: unknown): ResponsesStep => ({ calls: [{ name: 'submit_candidate_records', arguments: { records: [record], batch_complete: true } }] });
++
++async function run(steps: ResponsesStep[], oneRequestBudget = false) {
++  const directory = await mkdtemp(join(tmpdir(), 's4-bounded-recovery-'));
++  const server = await createRuntimeResponsesFixture(steps), store = new ExtractionStore(':memory:'), fixture = makeEvidenceFixture();
++  const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint, Date.now, oneRequestBudget ? {
++    limits: { ...S4_LIMITS, requests: 1 }, authorization: { id: 'loopback-one-request', source: 'synthetic:no-paid-api', recorded_at: '2026-11-05T00:00:00Z' },
++  } : {});
++  fixture.input.runtime_profile = { ...fixture.input.runtime_profile, provider: server.config.provider, model_id: server.config.modelId, endpoint: server.endpoint };
++  try {
++    const result = await runExtractionDocument({ input: fixture.input, document: fixture.document, metadata: fixture.context.metadata,
++      catalog: fixture.catalog, config: server.config, profile: developmentProfile(server.config.modelId), budget, store,
++      directory: join(directory, 'run'), strategy: 'baseline' });
++    return { result, requests: server.requests, totals: budget.totals() };
++  } finally { store.close(); await server.close(); await rm(directory, { recursive: true, force: true }); }
++}
++
++test('the observed empty-property read error is rejected then corrected in the same batch without restarting the paper', async () => {
++  const { result, requests, totals } = await run([{ calls: [{ name: 'read_document_blocks', arguments: { '': '' } }] },
++    { calls: [...read.calls!, ...finish.calls!] }, summary]);
++  assert.equal(result.error, undefined); assert.equal(requests.length, 3); assert.equal(totals.requests, 3);
++  assert.equal(result.coverage.whole_document_summary_complete, true);
++  assert.equal(result.events.filter(e => e.type === 'protocol_correction').length, 1);
++  assert.equal(result.events.filter(e => e.type === 'retry').length, 0);
++  assert.equal(result.events.filter(e => e.type === 'protocol_diagnostic_pause').length, 0);
++  assert.match(JSON.stringify(requests[1]!.tool_results), /schema_validation|Validation failed/i);
++});
++
++test('unknown source ID and dual context selectors remain invalid; only explicit subsequent model arguments recover', async () => {
++  const { result, requests } = await run([read,
++    submit({ ...statement, source_unit_ids: ['su-00100'] }),
++    submit({ ...statement, context_unit_ids: ['su-000001'], context_line_indices: [0] }),
++    submit(statement), summary]);
++  assert.equal(result.error, undefined); assert.equal(requests.length, 5); assert.equal(result.candidate_count, 1);
++  assert.equal(result.events.filter(e => e.type === 'protocol_correction').length, 2);
++  const rejections = result.events.filter(e => e.type === 'tool_protocol_rejected').map(e => e.detail.error_code);
++  assert.ok(rejections.includes('source_unit_not_available'));
++  assert.ok(rejections.includes('choose_context_units_or_context_lines'));
++  assert.equal(result.versions.length, 1, 'failed arguments must not have created candidates');
++});
++
++test('the same invalid arguments stop after one correction opportunity and preserve diagnostics', async () => {
++  const invalid: ResponsesStep = { calls: [{ name: 'read_document_blocks', arguments: { '': '' } }] };
++  const { result, requests } = await run([invalid, invalid, read, finish, summary]);
++  assert.equal(requests.length, 2); assert.equal(result.error?.code, 'model_tool_protocol_diagnostic_pause');
++  assert.equal(result.coverage.whole_document_summary_complete, false);
++  assert.equal(result.events.filter(e => e.type === 'protocol_correction').length, 1);
++  assert.equal(result.events.filter(e => e.type === 'protocol_diagnostic_pause').length, 1);
++});
++
++test('unknown tool and host identity override attempts still stop before any correction call', async () => {
++  for (const call of [{ name: 'run_shell', arguments: {} }, { name: 'read_document_blocks', arguments: { run_id: 'another-run' } }]) {
++    const { result, requests } = await run([{ calls: [call] }, read, finish, summary]);
++    assert.equal(requests.length, 1); assert.equal(result.error?.code, 'model_tool_protocol_diagnostic_pause');
++    assert.equal(result.events.filter(e => e.type === 'protocol_correction').length, 0);
++    assert.equal(result.candidate_count, 0);
++  }
++});
++
++test('protocol correction uses the existing physical request cap without resetting its ledger', async () => {
++  const { result, requests, totals } = await run([{ calls: [{ name: 'read_document_blocks', arguments: { '': '' } }] }, read], true);
++  assert.equal(requests.length, 1); assert.equal(totals.requests, 1); assert.ok(result.error);
++  assert.equal(result.coverage.whole_document_summary_complete, false);
++});
++
++test('an unsafe call blocks other calls from the same assistant response before any candidate is written', async () => {
++  const { result, requests } = await run([{ calls: [{ name: 'run_shell', arguments: {} }, ...read.calls!,
++    { name: 'submit_candidate_records', arguments: { records: [statement], batch_complete: true } }] }, summary]);
++  assert.equal(requests.length, 1); assert.equal(result.error?.code, 'model_tool_protocol_diagnostic_pause');
++  assert.equal(result.candidate_count, 0); assert.equal(result.coverage.source_blocks_read, 0);
++});
+--- a/tests/extraction/s4-candidate-revision.test.ts
++++ b/tests/extraction/s4-candidate-revision.test.ts
+@@ -0,0 +1,54 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFile } from 'node:fs/promises';
++import type { EvidenceRecord, EvidenceVersion } from '../../packages/contracts/src/extraction-evidence.js';
++import { reconcileEvidence } from '../../packages/agent/src/reconciliation.js';
++
++const frozenPath = new URL('../../docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json', import.meta.url);
++async function actualAAH() {
++  const result = JSON.parse(await readFile(frozenPath, 'utf8')) as { records: EvidenceVersion[] };
++  const revision = result.records.find(v => !!v.record.extraction_trace.updates_record_id)!;
++  const target = result.records.find(v => v.record.record_id === revision.record.extraction_trace.updates_record_id)!;
++  assert.ok(target); assert.equal(target.record.original_quote, revision.record.original_quote);
++  return { target, revision };
++}
++
++test('the frozen actual AAH feature revision remains one active identity plus a preserved unapproved proposal', async () => {
++  const { target, revision } = await actualAAH();
++  const before = structuredClone(target);
++  const result = reconcileEvidence(revision.record, [target]);
++  assert.equal(result.action, 'proposed_update'); assert.equal(result.changes.length, 1);
++  assert.equal(result.changes[0]!.kind, 'append_proposal'); assert.equal(result.record.record_id, target.record.record_id);
++  assert.ok(result.issues.includes('feature_revision_requires_review'));
++  assert.equal(result.record.feature_name_raw, 'typically measures less than 5 mm');
++  assert.deepEqual(result.record.context.source_attribution.cited_references, ['7']);
++  assert.deepEqual(target, before); assert.equal(result.record.evidence_validation.medical_semantics_verified, false);
++  const retry = reconcileEvidence(revision.record, [target, { record: result.record, version: 2, actor: 'automatic', status: 'proposed' }]);
++  assert.equal(retry.action, 'idempotent'); assert.deepEqual(retry.changes, []);
++});
++
++test('a wrong feature update never falls through to insert or merges a distinct source, subject or attribution', async () => {
++  const { target, revision } = await actualAAH();
++  for (const dimension of ['anchor', 'subject', 'origin', 'citation', 'run', 'scope'] as const) {
++    const next = structuredClone(revision.record), prior = structuredClone(target);
++    if (dimension === 'anchor') next.quote_span.segments[0]!.start++;
++    if (dimension === 'subject') next.disease_or_lesion.value = 'IAC';
++    if (dimension === 'origin') next.context.source_attribution.origin = 'study_authors';
++    if (dimension === 'citation') prior.record.context.source_attribution.cited_references = ['8'];
++    if (dimension === 'run') next.extraction_trace.run_id += '-other';
++    if (dimension === 'scope') next.extraction_trace.scope.scope_version = 'different' as '1';
++    assert.throws(() => reconcileEvidence(next, [prior]), /update_target_/, dimension);
++  }
++});
++
++test('human active data is preserved and Figure/context changes survive in the feature revision proposal', async () => {
++  const { target, revision } = await actualAAH(); target.actor = 'human';
++  const before = structuredClone(target), next = structuredClone(revision.record);
++  next.context.before = 'Retained additional original source context.';
++  next.context.structure_references = [{ kind: 'picture', id: 'Figure 2', relationship_used: false }];
++  const result = reconcileEvidence(next, [target]);
++  assert.equal(result.action, 'proposed_update'); assert.deepEqual(result.record.context, next.context);
++  assert.deepEqual(target, before); assert.ok(result.issues.includes('human_version_protected'));
++  const changed = structuredClone(result.record); changed.context.after = 'A different retained context.';
++  assert.notEqual(reconcileEvidence(changed, [target, { record: result.record, version: 2, actor: 'automatic', status: 'proposed' }]).action, 'idempotent');
++});
+--- a/tests/extraction/s4-summary-reliability.test.ts
++++ b/tests/extraction/s4-summary-reliability.test.ts
+@@ -0,0 +1,177 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { readFile, mkdtemp, rm } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import { join } from 'node:path';
++import { ExtractionStore } from '../../packages/agent/src/extraction-store.js';
++import { ExtractionSummaryTools } from '../../packages/agent/src/extraction-summary.js';
++import { validateEvidenceSubmission } from '../../packages/agent/src/evidence-validation.js';
++import { reconcileEvidence } from '../../packages/agent/src/reconciliation.js';
++import { buildArticleScope } from '../../packages/agent/src/article-scope.js';
++import { VISUAL_STATEMENT_POLICY_VERSION } from '../../packages/agent/src/visual-evidence-policy.js';
++import { makeEvidenceFixture } from './fixtures/evidence-fixtures.js';
++import { createRuntimeResponsesFixture, type ResponsesStep } from './fixtures/runtime-responses.js';
++import { createExtractionSession, developmentProfile, promptExtractionSession } from '../../packages/agent/src/extraction-pi.js';
++import { ExtractionBudget } from '../../packages/agent/src/extraction-budget.js';
++
++const params = { summary: 'Synthetic transaction and coverage test only.', reviews: [], links: [], updates: [], summary_complete: true };
++function context(texts?: string[]) {
++  const f = makeEvidenceFixture(texts), store = new ExtractionStore(':memory:');
++  store.create(f.input, f.context.metadata); store.transition(f.input.run_id, 'extracting');
++  const record = validateEvidenceSubmission(f.submission, f.context).record!;
++  store.apply(f.input.run_id, reconcileEvidence(record, [])); store.transition(f.input.run_id, 'reconciling');
++  const tools = new ExtractionSummaryTools({ ...f.context, evidencePolicyVersion: VISUAL_STATEMENT_POLICY_VERSION }, buildArticleScope(f.document), store, 'independent_context_review');
++  const invoke = (name: string, value: unknown) => tools.invoke(name, { run_id: f.input.run_id, document_id: f.input.document_id, ...value as object }, 'summary-fixture');
++  const execute = (name: string, value: unknown) => {
++    const definition = tools.definitions().find(d => d.name === name)!;
++    return definition.execute('summary-model-fixture', value, undefined, undefined, {} as Parameters<typeof definition.execute>[4]);
++  };
++  return { f, store, tools, record, invoke, execute };
++}
++
++test('a failed summary submission rolls back prior reviews and every write in the same call', async () => {
++  const c = context();
++  try {
++    await c.invoke('get_document_context', {});
++    const before = c.store.versions(c.f.input.run_id), events = c.store.events(c.f.input.run_id);
++    await assert.rejects(c.invoke('submit_candidate_records', { ...params,
++      reviews: [{ record_id: c.record.record_id, expected_version: 1, issue_codes: [] }], updates: [c.f.submission] }), /summary_update_validation_failed/);
++    assert.deepEqual(c.store.versions(c.f.input.run_id), before);
++    const after = c.store.events(c.f.input.run_id);
++    assert.deepEqual(after.filter(e => e.type !== 'summary_submission_rejected'), events);
++    const diagnostic = after.find(e => e.type === 'summary_submission_rejected')!;
++    assert.equal(diagnostic.detail.evidence_changes_saved, false); assert.equal(diagnostic.detail.atomic_evidence_rollback, true);
++    assert.ok(diagnostic.detail.validation_issues.some((i: { code: string }) => i.code === 'source_block_not_read'));
++    assert.equal(c.tools.reviewedIds.size, 0); assert.equal(c.tools.completed, false);
++  } finally { c.store.close(); }
++});
++
++test('an exact submitted review is idempotent after a saved incomplete summary and completion blockers disclose current versions', async () => {
++  const c = context();
++  try {
++    await c.invoke('get_document_context', {});
++    const submission = { ...params, reviews: [{ record_id: c.record.record_id, expected_version: 1, issue_codes: [] }], summary_complete: false };
++    await c.invoke('submit_candidate_records', submission);
++    const count = c.store.versions(c.f.input.run_id).length;
++    await c.invoke('submit_candidate_records', submission);
++    assert.equal(c.store.versions(c.f.input.run_id).length, count);
++    assert.equal(c.tools.completed, false);
++  } finally { c.store.close(); }
++});
++
++test('new source updates are explicitly saved with complete=false until their current candidate context is read and reviewed', async () => {
++  const c = context(['We observed spiculation on CT in lung cancer.', 'We observed lobulation on CT in lung cancer.']);
++  try {
++    await c.invoke('get_document_context', {}); await c.execute('read_document_blocks', { line_indices: [1] });
++    const result = await c.execute('submit_candidate_records', { ...params, reviews: [{ record_id: c.record.record_id, expected_version: 1, issue_codes: [] }],
++      updates: [{ source_unit_ids: ['su-000002'], feature_name_raw: 'lobulation', feature_category: 'margin', evidence_type: 'imaging_observation', assertion: 'affirmed', origin: 'study_authors' }] });
++    const body = JSON.parse(result.content[0]!.type === 'text' ? result.content[0]!.text : '{}');
++    assert.equal(body.summary_recorded, true); assert.equal(body.complete, false); assert.equal(c.tools.completed, false);
++    assert.ok(body.completion_blockers.some((b: { code: string }) => b.code === 'summary_requires_all_candidate_context_read'));
++    assert.equal(body.current_versions.length, 2); assert.equal(body.saved_updates[0].action, 'insert');
++    assert.equal(c.store.current(c.f.input.run_id).length, 2);
++    await c.invoke('get_document_context', {});
++    const latest = c.store.current(c.f.input.run_id).find(v => v.record.feature_name_raw === 'lobulation')!;
++    await c.invoke('submit_candidate_records', { ...params, reviews: [{ record_id: latest.record.record_id, expected_version: latest.version, issue_codes: [] }] });
++    assert.equal(c.tools.completed, true);
++  } finally { c.store.close(); }
++});
++
++test('a missing independent review is an explicit completion blocker and never marks summary complete', async () => {
++  const c = context();
++  try {
++    await c.invoke('get_document_context', {});
++    const result = await c.invoke('submit_candidate_records', params) as { complete: boolean; completion_blockers: Array<{ code: string }> };
++    assert.equal(result.complete, false); assert.equal(c.tools.completed, false);
++    assert.ok(result.completion_blockers.some(b => b.code === 'independent_review_coverage_incomplete'));
++  } finally { c.store.close(); }
++});
++
++test('actual L05 source reads return complete exact units only within the current bounded window, never the historical read union', async () => {
++  const c = context();
++  try {
++    const raw = JSON.parse(await readFile(new URL('../../docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05/parser-result.json', import.meta.url), 'utf8'));
++    const document = raw.document ?? raw;
++    assert.equal(document.blocks.length, 615);
++    const tools = new ExtractionSummaryTools({ ...c.f.context, document, evidencePolicyVersion: VISUAL_STATEMENT_POLICY_VERSION }, buildArticleScope(document), c.store, 'baseline');
++    const read = tools.definitions().find(d => d.name === 'read_document_blocks')!;
++    const bodies: any[] = [];
++    for (const start of [0, 128, 256, 384, 512]) {
++      const result = await read.execute('actual-L05-local-read', { line_indices: Array.from({ length: Math.min(128, 615 - start) }, (_, i) => start + i) }, undefined, undefined, {} as Parameters<typeof read.execute>[4]);
++      assert.equal(result.content[0]!.type, 'text'); const body = JSON.parse((result.content[0] as { text: string }).text); bodies.push(body);
++      const expectedStart = Math.max(0, Math.min(start + 128, 615) - 128), expectedEnd = Math.min(start + 128, 615);
++      assert.ok(body.source_units.every((u: { line_spans: Array<{ line_index: number }> }) => u.line_spans.every(s =>
++        s.line_index >= expectedStart && s.line_index < expectedEnd)), 'source units must not repeat historical lines outside the current read working set');
++      const window = body.source_window as { line_indices: number[]; maximum_lines: number };
++      assert.ok(window.line_indices.length <= 128); assert.equal(window.maximum_lines, 128);
++      assert.ok(body.source_units.every((u: { line_spans: Array<{ line_index: number }> }) => u.line_spans.every(s => window.line_indices.includes(s.line_index))));
++      for (const b of body.blocks) assert.equal(b.text, document.blocks[b.line_index].text);
++    }
++    assert.equal(tools.readBlocks.size, 615);
++    assert.equal(tools.completed, false); assert.equal(c.store.snapshot(c.f.input.run_id).state, 'reconciling');
++    assert.ok(!bodies.at(-1).source_window.line_indices.includes(0));
++  } finally { c.store.close(); }
++});
++
++test('repeated large raw reads send one exact source working set through installed Pi and still finish under the unchanged limits', async () => {
++  const c = context(Array.from({ length: 64 }, (_, i) => `We observed spiculation on CT in lung cancer with synthetic marker ${i} ${'synthetic '.repeat(240)}.`));
++  const directory = await mkdtemp(join(tmpdir(), 'summary-bounded-wire-'));
++  const lines = Array.from({ length: 64 }, (_, i) => i);
++  const steps: ResponsesStep[] = [{ calls: [{ name: 'get_document_context', arguments: {} }] },
++    ...Array.from({ length: 8 }, () => ({ calls: [{ name: 'read_document_blocks', arguments: { line_indices: lines } }] })),
++    { calls: [{ name: 'submit_candidate_records', arguments: { ...params, reviews: [{ record_id: c.record.record_id, expected_version: 1, issue_codes: [] }] } }] }];
++  const server = await createRuntimeResponsesFixture(steps);
++  try {
++    const budget = new ExtractionBudget(join(directory, 'ledger.json'), server.endpoint);
++    const created = await createExtractionSession(server.config, developmentProfile(server.config.modelId), c.tools.definitions(), directory, budget, 'loopback-summary-working-set', 0, 16);
++    const transform = created.session.agent.transformContext;
++    created.session.agent.transformContext = async (messages, signal) => c.tools.projectModelMessages(transform ? await transform(messages, signal) : messages);
++    created.session.agent.finishTurn = () => c.tools.completed ? { action: 'end' } : undefined;
++    const result = await promptExtractionSession(created, 'Synthetic bounded raw-source reread test only.', budget);
++    assert.equal(result.error, undefined); assert.equal(c.tools.completed, true); assert.equal(server.requests.length, 10);
++    assert.equal(created.audit.application_context_estimate_limit, 128000);
++    for (const request of server.requests) {
++      const outputs = request.tool_results.map(r => { try { return JSON.parse(r.output); } catch { return null; } });
++      const windows = outputs.filter(o => o?.blocks);
++      assert.ok(windows.length <= 1, 'older raw-source payloads must be replaced with explicit transport receipts');
++      for (const w of windows) for (const b of w.blocks) assert.equal(b.text, c.f.document.blocks[b.line_index]!.text);
++    }
++    assert.equal(c.tools.readBlocks.size, 64); assert.equal(budget.totals().requests, 10);
++    const starts = result.events.filter(e => e.type === 'tool_execution_start' && e.tool === 'read_document_blocks');
++    assert.equal(starts.length, 8); assert.deepEqual((starts[0]!.selectors as { line_indices: number[] }).line_indices, lines);
++  } finally { c.store.close(); await server.close(); await rm(directory, { recursive: true, force: true }); }
++});
++
++test('an evicted source line remains in read history but cannot support an update until explicitly reread', async () => {
++  const c = context(Array.from({ length: 129 }, (_, i) => `We observed spiculation on CT in lung cancer with synthetic marker ${i}.`));
++  try {
++    await c.execute('read_document_blocks', { line_indices: [0] });
++    await c.execute('read_document_blocks', { line_indices: Array.from({ length: 128 }, (_, i) => i + 1) });
++    assert.ok(c.tools.readBlocks.has(c.f.document.blocks[0]!.block_id));
++    await assert.rejects(c.invoke('submit_candidate_records', { ...params, updates: [c.f.submission], summary_complete: false }), /summary_update_validation_failed/);
++    await c.execute('read_document_blocks', { line_indices: [0] });
++    await c.invoke('submit_candidate_records', { ...params, updates: [c.f.submission], summary_complete: false });
++    assert.equal(c.tools.completed, false); assert.equal(c.tools.readBlocks.size, 129);
++  } finally { c.store.close(); }
++});
++
++test('cross-line sentences expose missing context explicitly and remain exact when read together again', async () => {
++  const c = context(['We observed spiculation on CT in lung cancer with', 'an irregular margin and no calcification.']);
++  try {
++    c.f.document.structure.units.push({ unit_id: 'synthetic-complete-paragraph', native_ref: '#/test/paragraph', kind: 'text', native_label: 'text',
++      native_text: 'Untrusted processed native text.', native_original_text: null, native_text_role: 'processed_native_not_literal_quote', content_layer: 'body',
++      source_segments: c.f.document.blocks.map(b => ({ block_id: b.block_id, text_version: c.f.document.text_version, start: 0, end: Array.from(b.text).length })),
++      provenance: [], mapping: { status: 'exact', method: 'geometry_and_nfkd_whitespace_hyphen_alignment_3', matched_native_code_points: 1,
++        alignable_native_code_points: 1, transformations: [], warnings: [] } });
++    const first = await c.execute('read_document_blocks', { line_indices: [0] });
++    const firstBody = JSON.parse((first.content[0] as { text: string }).text);
++    assert.ok(firstBody.source_units_needing_reread.some((u: { required_document_line_indices: number[] }) =>
++      u.required_document_line_indices.includes(0) && u.required_document_line_indices.includes(1)));
++    const together = await c.execute('read_document_blocks', { line_indices: [0, 1] });
++    const body = JSON.parse((together.content[0] as { text: string }).text);
++    const unit = body.source_units.find((u: { line_spans: Array<{ line_index: number }> }) => u.line_spans.some(s => s.line_index === 0) && u.line_spans.some(s => s.line_index === 1));
++    assert.ok(unit); assert.equal(unit.completeness, 'complete');
++    assert.deepEqual(body.blocks.map((b: { text: string }) => b.text), c.f.document.blocks.map(b => b.text));
++    assert.equal(c.tools.completed, false);
++  } finally { c.store.close(); }
++});
+--- a/tests/extraction/s4-reliability-preparation.test.ts
++++ b/tests/extraction/s4-reliability-preparation.test.ts
+@@ -0,0 +1,75 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { execFileSync } from 'node:child_process';
++import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
++import { resolve, join, relative } from 'node:path';
++import { createHash } from 'node:crypto';
++import { validateComparisonAuthorization } from '../../packages/agent/src/experiment-authorization.js';
++
++const code = resolve('.');
++function cli(args: string[]) {
++  return execFileSync('bash', ['scripts/with-node.sh', 'node_modules/.bin/tsx', 'scripts/compare-extraction-methods.ts', ...args],
++    { cwd: code, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
++}
++async function fixture() {
++  const parent = JSON.parse(await readFile('docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json', 'utf8'));
++  const config = structuredClone(parent.config);
++  config.papers = config.papers.filter((p: { source_id: string }) => p.source_id === 'L05');
++  config.optimization.parent_plan = null; config.optimization.declared_change = null;
++  config.execution_job_ids = ['L05-B0', 'L05-F'];
++  config.proposed_limits = { ...config.proposed_limits, requests: 64, input_tokens: 1500000, output_tokens: 160000, seconds: 1800 };
++  return { config, parent };
++}
++
++test('existing runner prepares only two selected independent smoke jobs, preserves all method inputs and refuses unsigned execution', async () => {
++  const directory = await mkdtemp(resolve('runtime-data/reliability-prepare-fixture-'));
++  try {
++    const { config, parent } = await fixture(), configPath = join(directory, 'config.json'), prepared = join(directory, 'prepared');
++    await writeFile(configPath, JSON.stringify(config));
++    const result = JSON.parse(cli(['prepare', '--directory', relative(code, prepared), '--config', relative(code, configPath)]));
++    assert.equal(result.paid_calls, 0); assert.deepEqual(result.execution_job_ids, ['L05-B0', 'L05-F']);
++    const plan = JSON.parse(await readFile(join(prepared, 'plan.json'), 'utf8'));
++    assert.match(plan.experiment_purpose, /no_single_variable_gain_or_method_ranking/);
++    const before = parent.papers.find((p: { document_id: string }) => p.document_id === 'L05');
++    for (const j of plan.papers[0].methods.jobs) {
++      const old = before.methods.jobs.find((v: { job_id: string }) => v.job_id === j.job_id);
++      assert.deepEqual(j.selection, old.selection); assert.deepEqual(j.batches, old.batches);
++    }
++    const authorization = join(prepared, 'authorization-template.json');
++    const template = JSON.parse(await readFile(authorization, 'utf8'));
++    assert.equal(template.status, 'pending_user_confirmation'); assert.equal(template.authorization_id, null);
++    assert.match(template.scope_note, /Integrated reliability smoke only/);
++    const planBytes = await readFile(join(prepared, 'plan.json'));
++    assert.equal(template.prepared_plan_sha256, createHash('sha256').update(planBytes).digest('hex'));
++    const altered = structuredClone(plan); altered.config.execution_job_ids = ['L05-B0', 'L05-R'];
++    assert.throws(() => validateComparisonAuthorization({ ...template, status: 'authorized', authorization_id: 'synthetic-validation-only',
++      user_confirmation_source: 'synthetic-not-an-actual-approval', approved_at: '2026-11-05T00:00:00Z' }, {
++      plan_sha256: createHash('sha256').update(JSON.stringify(altered)).digest('hex'), batch_id: plan.batch_id,
++      ...plan.config.model, proposed_limits: plan.config.proposed_limits,
++    }), /new_comparison_user_authorization_required/);
++    assert.throws(() => cli(['execute', '--directory', relative(code, prepared), '--authorization', relative(code, authorization)]), /new_comparison_user_authorization_required/);
++  } finally { await rm(directory, { recursive: true, force: true }); }
++});
++
++test('a reused non-independent method cannot become a selected smoke job', async () => {
++  const directory = await mkdtemp(resolve('runtime-data/reliability-reuse-cohort-'));
++  try {
++    const { config, parent } = await fixture();
++    config.papers = parent.config.papers.filter((p: { source_id: string }) => p.source_id === 'L01');
++    config.execution_job_ids = ['L01-R'];
++    const configPath = join(directory, 'config.json'); await writeFile(configPath, JSON.stringify(config));
++    assert.throws(() => cli(['prepare', '--directory', relative(code, join(directory, 'prepared')), '--config', relative(code, configPath)]), /reliability_smoke_requires_independent_jobs/);
++  } finally { await rm(directory, { recursive: true, force: true }); }
++});
++
++test('an empty, duplicate or unknown smoke cohort is rejected before preparing or loading model credentials', async () => {
++  const directory = await mkdtemp(resolve('runtime-data/reliability-invalid-cohort-'));
++  try {
++    const { config } = await fixture();
++    for (const [i, jobs] of [[], ['L05-F', 'L05-F'], ['L01-B0'], ['L05-B9']].entries()) {
++      config.execution_job_ids = jobs;
++      const configPath = join(directory, `config-${i}.json`); await writeFile(configPath, JSON.stringify(config));
++      assert.throws(() => cli(['prepare', '--directory', relative(code, join(directory, `prepared-${i}`)), '--config', relative(code, configPath)]), /comparison_execution_jobs_invalid/);
++    }
++  } finally { await rm(directory, { recursive: true, force: true }); }
++});

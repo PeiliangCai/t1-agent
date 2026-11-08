@@ -1,0 +1,380 @@
+{
+  "schema_version": "b0-mainline-offline-grouping-replay-1",
+  "generated_at": "2026-11-08T09:11:06.484Z",
+  "evidence_kind": "offline_derived_view_of_frozen_model_outputs",
+  "additional_model_provider_requests": 0,
+  "new_code_real_model_revalidated": false,
+  "primary_scope_examples_use_scripted_roles_in_unit_tests": true,
+  "original_143_request_results_and_user_feedback_unchanged": true,
+  "new_prompt_versions_were_not_applied_to_frozen_runs": {
+    "primary_assessment_policy_version": "model-primary-assessment-1",
+    "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-2",
+    "normal_anatomic_scope_rule_version": "normal-anatomic-and-tissue-context-only-2"
+  },
+  "source_grouping_policy_version": "strict-source-groups-1",
+  "grouping_limit": "Exact source/context and clinical-evidence identity only; all raw members remain. No group is a medical accuracy result, human adjudication or automatically merged CSV/UI row.",
+  "totals": {
+    "original_records": 68,
+    "original_primary": 57,
+    "original_background": 11,
+    "offline_mechanical_source_groups": 63,
+    "duplicate_member_excess": 5
+  },
+  "runs": [
+    {
+      "job_id": "L01-B0",
+      "frozen_protocol": {
+        "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-1",
+        "normal_anatomic_scope_rule_version": "normal-anatomic-range-context-only-1"
+      },
+      "frozen_output_counts": {
+        "total": 2,
+        "primary": 2,
+        "background": 0
+      },
+      "offline_derived_counts": {
+        "total_output_count": 2,
+        "primary_candidate_count": 2,
+        "background_suggestion_count": 0,
+        "unique_source_group_count": 2,
+        "same_source_duplicate_member_count": 0,
+        "source_grouping_is_not_medical_deduplication": true,
+        "model_classification_is_not_quality_improvement": true
+      },
+      "all_original_member_fingerprints_preserved": true,
+      "input_files_checked_unchanged": {
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L01-B0/result.json": "fcb8d865cc1892a44e46083e269d2c6fb37915da4f13ac32f7a2a19617edc39a",
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L01-B0/delivery.json": "e1823a8c133d12fb714ca6e762980022e41538ad41c65748b86c5f454a8b2b5d",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/parser-result.json": "7c465f648693b331d57d3b1b8c908c66a7c39b9b6e0a83e7034281b9c317cd12",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json": "6463b1a6e4079ee7309926463d529fdd43f333f5045bfcfcad690874e5ba267b"
+      },
+      "duplicate_or_warning_groups": []
+    },
+    {
+      "job_id": "L05-B0",
+      "frozen_protocol": {
+        "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-1",
+        "normal_anatomic_scope_rule_version": "normal-anatomic-range-context-only-1"
+      },
+      "frozen_output_counts": {
+        "total": 1,
+        "primary": 0,
+        "background": 1
+      },
+      "offline_derived_counts": {
+        "total_output_count": 1,
+        "primary_candidate_count": 0,
+        "background_suggestion_count": 1,
+        "unique_source_group_count": 1,
+        "same_source_duplicate_member_count": 0,
+        "source_grouping_is_not_medical_deduplication": true,
+        "model_classification_is_not_quality_improvement": true
+      },
+      "all_original_member_fingerprints_preserved": true,
+      "input_files_checked_unchanged": {
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-B0/result.json": "376bb538d31d1e2d392ac43ac9c292cea2d4e6b405860ae4409790ff66f3f9c1",
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-B0/delivery.json": "7a75f0a4ad154a907121e9df80394777f66de936408fbdfc3c189b233c57f0bd",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/parser-result.json": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5"
+      },
+      "duplicate_or_warning_groups": []
+    },
+    {
+      "job_id": "L05-F",
+      "frozen_protocol": {
+        "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-1",
+        "normal_anatomic_scope_rule_version": "normal-anatomic-range-context-only-1"
+      },
+      "frozen_output_counts": {
+        "total": 2,
+        "primary": 1,
+        "background": 1
+      },
+      "offline_derived_counts": {
+        "total_output_count": 2,
+        "primary_candidate_count": 1,
+        "background_suggestion_count": 1,
+        "unique_source_group_count": 2,
+        "same_source_duplicate_member_count": 0,
+        "source_grouping_is_not_medical_deduplication": true,
+        "model_classification_is_not_quality_improvement": true
+      },
+      "all_original_member_fingerprints_preserved": true,
+      "input_files_checked_unchanged": {
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-F/result.json": "2d41cc6c79ef946049fa8c1a868c1bf8e198f4325a6143ad025c9b2cb25f344a",
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L05-F/delivery.json": "2e79b273a4fbfcef35ce370fe7353d48b196e31a25ba6ddad8610117a283e0b0",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/parser-result.json": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5"
+      },
+      "duplicate_or_warning_groups": []
+    },
+    {
+      "job_id": "L07-B0",
+      "frozen_protocol": {
+        "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-1",
+        "normal_anatomic_scope_rule_version": "normal-anatomic-range-context-only-1"
+      },
+      "frozen_output_counts": {
+        "total": 35,
+        "primary": 29,
+        "background": 6
+      },
+      "offline_derived_counts": {
+        "total_output_count": 35,
+        "primary_candidate_count": 29,
+        "background_suggestion_count": 6,
+        "unique_source_group_count": 34,
+        "same_source_duplicate_member_count": 1,
+        "source_grouping_is_not_medical_deduplication": true,
+        "model_classification_is_not_quality_improvement": true
+      },
+      "all_original_member_fingerprints_preserved": true,
+      "input_files_checked_unchanged": {
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-B0/result.json": "90e35c4f8137062bded42187bd4038f8295e1eb1c02a86173274acca004fd985",
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-B0/delivery.json": "8adea38b5ade8df84c4a17529d126043cc8041540183005e2cd0805e0f44b73a",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/parser-result.json": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900"
+      },
+      "duplicate_or_warning_groups": [
+        {
+          "group_id": "source-group-580c8fe66076cf483511530e58b81357f76b7a00d0fa17bddb7ff799e26710b3",
+          "member_count": 2,
+          "members": [
+            {
+              "record_id": "ev-95bad412ee4bf8ba86160321ddd49cbffa45392d",
+              "record_version": 5,
+              "source_record_sha256": "9588f00c34bd2c6aa2b8eb9148de397f9705da8982038921b7569c76cf069167",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            },
+            {
+              "record_id": "ev-95bad412ee4bf8ba86160321ddd49cbffa45392d-6e59670944b6",
+              "record_version": 2,
+              "source_record_sha256": "d70f702e8d7b8541cde182e8393fde31a7fa489a3987a209c627692bd2997517",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "same_source_members_need_review",
+          "needs_review": true,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ]
+    },
+    {
+      "job_id": "L07-F",
+      "frozen_protocol": {
+        "diagnostic_visual_scope_rule_version": "visual-appearance-with-diagnostic-context-1",
+        "normal_anatomic_scope_rule_version": "normal-anatomic-range-context-only-1"
+      },
+      "frozen_output_counts": {
+        "total": 28,
+        "primary": 25,
+        "background": 3
+      },
+      "offline_derived_counts": {
+        "total_output_count": 28,
+        "primary_candidate_count": 25,
+        "background_suggestion_count": 3,
+        "unique_source_group_count": 24,
+        "same_source_duplicate_member_count": 4,
+        "source_grouping_is_not_medical_deduplication": true,
+        "model_classification_is_not_quality_improvement": true
+      },
+      "all_original_member_fingerprints_preserved": true,
+      "input_files_checked_unchanged": {
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-F/result.json": "aea9cbae939b26aacb201d9d28ff62939d4378f20735a838535cbd063aa30d85",
+        "docs/acceptance/output-feedback-2026-11-08/comparison/execution/L07-F/delivery.json": "b7e31ab59c79e9c460d20c3729b8faf37a604775faac57d28507122885361905",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/parser-result.json": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+        "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900"
+      },
+      "duplicate_or_warning_groups": [
+        {
+          "group_id": "source-group-54c1b7c4568dae2d3bd6ff4b5aee229c2e337d22192d0de673a163b3b38fe708",
+          "member_count": 2,
+          "members": [
+            {
+              "record_id": "ev-a8bb249f2b80f0a8f2878610eb4dc0297767b4de",
+              "record_version": 4,
+              "source_record_sha256": "1eeb41338ba2c78d62010cc546d2b13c16e70d3755ea497d6faeca5df836f91f",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "cited_research",
+                "cited_references": [
+                  "Fig. 2"
+                ]
+              },
+              "effective_role": "primary_candidate"
+            },
+            {
+              "record_id": "ev-fc01b021580cdaac93c13a38b4f1256eba40bf92",
+              "record_version": 3,
+              "source_record_sha256": "312b34b5ac501bcb0a8a05a932f374eeaa281276dd166488151d8dccd3d51375",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": [
+                  "Fig. 2"
+                ]
+              },
+              "effective_role": "primary_candidate"
+            }
+          ],
+          "attribution_conflict": true,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": true,
+          "status": "conflicting_members_need_review",
+          "needs_review": true,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        },
+        {
+          "group_id": "source-group-5c1a56c552e0daa27073ae7ad29b6cfdf8eedb1dc894f7e0a6f6a379d5df25f3",
+          "member_count": 2,
+          "members": [
+            {
+              "record_id": "ev-5ba70d0bf14a1b9800a066898cc96e08d5933e58",
+              "record_version": 4,
+              "source_record_sha256": "35d63de4b48a593fa6c2228f40f0bf826ce0af3f721d7059f500230734dc3584",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": [
+                  "Fig. 2"
+                ]
+              },
+              "effective_role": "primary_candidate"
+            },
+            {
+              "record_id": "ev-80efd5ebe4f57382bb7902f669eefa860935d464",
+              "record_version": 3,
+              "source_record_sha256": "cc3fb09c98b3d6b763baa9da77eba7f7067e65d76232ae30856866da84e8fda4",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            }
+          ],
+          "attribution_conflict": true,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "conflicting_members_need_review",
+          "needs_review": true,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        },
+        {
+          "group_id": "source-group-868bd1277465ca09bad6c431b0e5995e020d652808ee9d56d4f540d2ac15961b",
+          "member_count": 2,
+          "members": [
+            {
+              "record_id": "ev-99eefcb3a3fbc5f5c315b63865cde02ab40cc88c",
+              "record_version": 5,
+              "source_record_sha256": "1f5c58c8fcf9b5966cd49500a5e974f2f3d02ddbb741e269f0463db0f53df0b7",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            },
+            {
+              "record_id": "ev-99eefcb3a3fbc5f5c315b63865cde02ab40cc88c-1ba2e56af8a9",
+              "record_version": 2,
+              "source_record_sha256": "214abbf222f381e66ed89e64fdad24d006273cfec6aa880cef07cd2df90d8480",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            }
+          ],
+          "attribution_conflict": false,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "same_source_members_need_review",
+          "needs_review": true,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        },
+        {
+          "group_id": "source-group-ec6fd03506f38b3e8a729ed0fba01eae678d62d848dda2801a033374ddc514eb",
+          "member_count": 2,
+          "members": [
+            {
+              "record_id": "ev-1e5d36b4e2a1dd4fb3734c93c23507f3b2ad0659",
+              "record_version": 4,
+              "source_record_sha256": "1fdfcd56bb55a91cadefbdf18419f0bf679b6f97a5d63e09b1a65443146eba8c",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "study_authors",
+                "cited_references": []
+              },
+              "effective_role": "primary_candidate"
+            },
+            {
+              "record_id": "ev-e96abf5dc99f24a0e532543199267d5497a7640a",
+              "record_version": 2,
+              "source_record_sha256": "d5f09239410a11f0cee4fedc3b9510486077f9a77fef4a232863948c995a7712",
+              "record_actor": "automatic",
+              "review_status": "needs_context",
+              "source_attribution": {
+                "origin": "unclear",
+                "cited_references": [
+                  "Fig. 1"
+                ]
+              },
+              "effective_role": "primary_candidate"
+            }
+          ],
+          "attribution_conflict": true,
+          "role_conflict": false,
+          "figure_association_conflict": false,
+          "human_review_disagreement": false,
+          "internal_reference_attribution_needs_review": false,
+          "status": "conflicting_members_need_review",
+          "needs_review": true,
+          "mechanical_only": true,
+          "medical_quality_approved": false,
+          "automatic_member_selection": false
+        }
+      ]
+    }
+  ]
+}

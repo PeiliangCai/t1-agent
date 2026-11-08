@@ -1,0 +1,2908 @@
+{
+  "version": "0.6",
+  "status": "actual_two_round_calls_closed_readonly_review_delivered_quality_and_selection_pending",
+  "date": "2026-11-05",
+  "plan_document": "T1智能体开发计划.docx",
+  "plan_data": "开发计划.json",
+  "current_T1_document": "T1智能体开发计划.docx",
+  "t1_scope_authority": "T1智能体开发计划.docx",
+  "planning_document_format": "docx_only",
+  "approval": {
+    "user_approved": true,
+    "date": "2026-11-04",
+    "approved_readable_plan_sha256": "c764821baa57bedb09143b16f4ed8229d7b009ab813dbd9499a3af06bed92d39",
+    "scope": "主计划已批准、文档同步/精简与S0—S4顺序审计已完成；11月5日新实验另获明确授权，未把工程检查当医学通过。",
+    "current_readable_plan_sha256": "babe7ee03741fcb5aea2d4e87c351a41fcfbedcc3c24eb4dc86166b206f2a1c1"
+  },
+  "revision": "approved-plan-three-strategy-2026-11-04",
+  "implementation_started": true,
+  "agent_base": "earendil-works/pi",
+  "agent_base_selected": true,
+  "architecture_frozen": true,
+  "architecture_scope": "技术组件已定，正式抽取模型、方案选优和正式数值未定。",
+  "quality_thresholds_frozen": false,
+  "delivery_mode": "B_per_document_review_and_export",
+  "delivery_mode_label": "逐篇管理与导出；业务模式字母不是前端或三方案实验编号",
+  "cross_document_query_in_v1": false,
+  "stage_acceptances": [
+    {
+      "stage": "S0",
+      "status": "passed",
+      "task_ids": [
+        "T1-R01",
+        "T1-R02"
+      ],
+      "record": "code/docs/acceptance/s0/acceptance.json",
+      "date": "2026-11-02T09:25:08.798229+00:00"
+    },
+    {
+      "stage": "S1",
+      "status": "passed",
+      "task_ids": [
+        "T1-R23",
+        "T1-R24",
+        "T1-R25",
+        "T1-R26"
+      ],
+      "record": "code/docs/acceptance/s1/acceptance.json",
+      "date": "2026-11-02T09:57:50.285317+00:00"
+    }
+  ],
+  "stages": {
+    "S0": {
+      "status": "passed",
+      "stage_passed": true,
+      "current_progress": "当前范围及环境核对完成，旧S0验收保留；Ubuntu24.04.5、8逻辑CPU约32GB、Node24.22.2/npm11.19.1/Python3.12.3，CPU解析；Docker未安装属S7待办。",
+      "current_ordered_audit": "completed",
+      "current_audit_result": "current_scope_verified_legacy_acceptance_retained"
+    },
+    "S1": {
+      "status": "passed",
+      "stage_passed": true,
+      "current_progress": "当前离线unit15/15＋核心integration8/8通过，旧真实Pi烟测仅按原范围复用；用户依据工程说明批准推进，非逐项独立技术核验。",
+      "current_ordered_audit": "completed",
+      "current_audit_result": "offline_current_engineering_verified_legacy_acceptance_retained"
+    },
+    "S2": {
+      "status": "engineering_preparation_completed_human_and_independent_corpus_pending",
+      "stage_passed": false,
+      "current_progress": "抽样/独立intake工程及付费前evaluation33/33保留；1名普通用户旧版本35条初筛（随机30＋风险5，11备注）已收，新两轮输出人核0。专业医学核验/逐条产品批准0；新独立注册/封存/曝光0，目录29词/4关系仍提案、批准关系0。",
+      "current_ordered_audit": "completed",
+      "current_audit_result": "preparation_engineering_completed_human_and_new_corpus_pending",
+      "current_progress_evidence": "code/docs/acceptance/user-feedback-2026-11-05/issue-report.json"
+    },
+    "S3": {
+      "status": "current_CPU_pipeline_verified_quality_pending",
+      "stage_passed": false,
+      "current_progress": "既有CPU解析与短表格定位工程保留partial。本轮修复明确关联的Figure Note目录侧关联：S09 Note早已在旧IR/输入及其他候选，缺口在本条与图目录；新目录仍needs_review，原PNG字节不变。原PDF忠实性、复杂整图及医学图型仍待核。",
+      "current_ordered_audit": "completed",
+      "current_audit_result": "current_cpu_pipeline_verified_quality_pending",
+      "current_progress_evidence": "code/docs/acceptance/user-feedback-2026-11-05/pdf/pdf-issues.json"
+    },
+    "S4": {
+      "status": "actual_rounds_finished_tool_summary_duplicates_and_human_quality_pending",
+      "stage_passed": false,
+      "current_progress": "两轮真实调用216已结清，父99/699345输入/29243输出，子117/1050719/30185；父13/子11为候选，11含同组重复，非去重有效描述，子F失败另1AAH单列。CTR业务已确认仅必要背景，主记录3→0但context0，未实证转存。子L05-B0汇总未完成、AAH重复与诊断关联待核；工程仍需工具参数可靠性/汇总完整性/重复处理。无额外API、无赢家或阶段通过，原189独立保留。",
+      "current_ordered_audit": "completed",
+      "current_audit_result": "initial_comparison_and_all_summary_pairs_complete_human_quality_selection_pending",
+      "current_progress_evidence": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json"
+    },
+    "S5": {
+      "status": "foundation_delivered_workflow_pending",
+      "stage_passed": false,
+      "current_progress": "Next/pi-web只读基础已交付；上传/新抽取/持久化真实审核/已审核导出网页未接通，完整阶段未过。"
+    },
+    "S6": {
+      "status": "not_started",
+      "stage_passed": false,
+      "current_progress": "独立质量与性能验收未完成；正式抽样数量和数值未冻结。"
+    },
+    "S7": {
+      "status": "not_started",
+      "stage_passed": false,
+      "current_progress": "Docker CLI未安装，部署/恢复及完整交付未完成。"
+    }
+  },
+  "immediate_execution_order": [
+    "文档同步精简与S0—S4顺序工程审计已完成，S0/S1复核通过",
+    "三方法首轮及5组单因素汇总配对已完成并停止新增付费；实测及字段差异见唯一本批合并报告",
+    "本次216调用与只读两轮入口已交付；优先完成工具参数可靠性、汇总完整性、重复和输出相关性/专业核验。CTR业务已确认，原35不继承，无额外API；完整S5及正式选优未过。"
+  ],
+  "complete_S5_accepted": false,
+  "medical_quality_approved": false,
+  "execution_guide": {
+    "document": "T1开发执行说明.docx",
+    "version": "0.4",
+    "status": "approved_plan_execution_rules_synced",
+    "confirmed_decisions": {
+      "E01": {
+        "status": "confirmed_implemented_core",
+        "rule": "受限Pi SDK1.4.0、Fastify、唯一Next/pi-web＋React/TypeScript/PDF.js、Python解析。"
+      },
+      "E02": {
+        "status": "confirmed_core_available_full_workflow_pending",
+        "rule": "SQLite/WAL短事务＋持久化PDF/资产文件卷＋SSE；保存后推送、按运行隔离，真实审核/导出网页待接通。"
+      },
+      "E03": {
+        "status": "confirmed",
+        "rule": "中文/英文文本型PDF；扫描及OCR混合后续，覆盖不足提示。"
+      },
+      "E04": {
+        "status": "confirmed_current_revision",
+        "rule": "开发采用逐段原文/出处自动检查及输出抽样人核；已审核导出仍逐条真实人工确认当前内容，文字批准不自动批准图片，图片待核不阻塞已确认文字。不要求预先阅读全文制作完整参考答案；记录实际样本n、错误、待核和核验范围，不由候选数量或模型自评推断准确率、全文召回或已抽大部分；数量与正式阈值实测后共同确定，S6前冻结。",
+        "full_reference_preannotation_required": false,
+        "medical_quality_approved": false
+      },
+      "E05": {
+        "status": "confirmed",
+        "rule": "短暂错误有限重试，中断新运行从头抽取，旧成果保留；刷新关闭不取消后台；断点续跑后续。"
+      },
+      "E06": {
+        "status": "formal_parser_selected_formal_model_pending",
+        "rule": "云端本地正式Docling CPU＋原文锚点，MinerU对照；API按文本/上下文，新实验模型与额度由用户明确。",
+        "formal_parser_selected": true,
+        "formal_model_selected": false
+      },
+      "E07": {
+        "status": "confirmed_sequence_values_pending",
+        "rule": "开发实测后共同确定样本量和质量性能数值，S6前冻结，以独立论文验收。",
+        "numeric_thresholds_frozen": false
+      },
+      "E08": {
+        "status": "confirmed_measured_limits_pending",
+        "rule": "单用户逐篇、多任务实际并行；批量后续；真实PDF负载分层，资源/容量/部署按实测。"
+      },
+      "E09": {
+        "status": "confirmed",
+        "rule": "初始三层不限，各层可限制多选；空选/失效提示保留有效项，不静默放宽，点击开始即保存范围执行。"
+      }
+    },
+    "proposed_decisions": [],
+    "current_development_target": "当前入口为code/apps/pi-web/public/output-review/revalidation.html，只读两轮真实复验对照，默认最新轮次。可按轮次、论文、方法和新候选查看原文/PDF，旧11条备注仅来源对照；展开运行情况查看失败/重试及失败partial原文，再返回代表路径。无新问卷或人审写入，不等于完整S5；原index.html仍可回看旧35条与原意见。",
+    "source_scope_sha256": "babe7ee03741fcb5aea2d4e87c351a41fcfbedcc3c24eb4dc86166b206f2a1c1",
+    "sha256": "1bcd8514a571ba72f60458aedb2398b1e832170ed087549c474ef4dfdc7a5cbf"
+  },
+  "workspace": {
+    "project_root": "/home/ecs-user/projects/t1-agent",
+    "code_root": "/home/ecs-user/projects/t1-agent/code",
+    "plans": "方案/子任务T1",
+    "research": "research",
+    "runtime_data": "code/runtime-data",
+    "commands_working_directory": "code/"
+  },
+  "strategy_comparison": {
+    "required": true,
+    "schemes": [
+      "单独智能体",
+      "基于规则预抽取＋智能体",
+      "基于规则删除无关内容＋智能体"
+    ],
+    "status": "two_actual_rounds_finished_relevance_summary_duplicates_and_formal_selection_pending",
+    "contract": "开发计划.json#/strategy_comparison",
+    "formal_selected_scheme": null,
+    "baseline_is_winner": false,
+    "initial_model_runs_completed": true,
+    "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "all_authorized_model_runs_completed": true,
+    "current_feedback_record": "方案/子任务T1/当前版本.json#/current_user_feedback",
+    "new_contract_model_effect_verified": false,
+    "current_experiment_authorization": {
+      "status": "authorized_scope_executed_and_closed_no_further_automatic_calls",
+      "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+      "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "user_confirmation_quote": "我同意你执行。",
+      "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+      "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+      "approved_at_utc": "2026-11-05T06:54:53.761Z",
+      "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+      "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+      "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+      "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+      "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+      "scope": {
+        "papers": [
+          "L01",
+          "L05"
+        ],
+        "methods": [
+          "B0",
+          "F",
+          "R"
+        ],
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "same_scope_necessary_single_point_repairs_and_retests": true
+      },
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+      "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+      "request_count_sample": {
+        "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+        "requests_created": 22,
+        "final": false,
+        "usage_not_finalized": true
+      },
+      "current_paid_requests_running": false,
+      "old_189_authorization_or_ledger_reused": false,
+      "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "same_approval_must_not_be_requested_again": true,
+      "current_revision": {
+        "status": "executed_closed_summary_failure_and_all_candidates_preserved",
+        "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+        "plan": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+          "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+        },
+        "authorization": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+          "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+          "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+          "same_approved_at": "2026-11-05T06:54:53.761Z",
+          "same_confirmation_source": true,
+          "same_limits": true,
+          "parent_linkage": {
+            "schema_version": "three-method-revision-binding-1",
+            "declared_change": "visual_scope_prompt",
+            "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+            "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+            "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+            "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+            "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+            "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+          }
+        },
+        "rule_confirmation": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+          "user_choice": "只作必要背景，不独立抽取（推荐）",
+          "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+          "message_timestamp": null,
+          "scope_rule_version": "metric-definitions-context-only-1",
+          "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+        },
+        "prompt_change": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+          "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+          "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+          "removing_added_rule_restores_parent_system_exactly": true,
+          "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+          "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+          "actual_old_online_full_body_replay_equality_claimed": false,
+          "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+        },
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "focused_local_tests_reported": 4,
+        "root_tsc_exit_reported": 0,
+        "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+        "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+        "budget_or_time_reset": false,
+        "original_prepared_parent_plan_and_authorization_unchanged": true,
+        "new_medical_human_review": 0,
+        "old_35_feedback_inherited": false,
+        "outcome_not_final": true
+      },
+      "authorization_granted": true,
+      "further_new_optimization_or_paid_calls_authorized": false,
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+      "execution_closure": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+        "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+        "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+        "unused_requests_not_new_authorization": 84,
+        "no_further_API_calls_scheduled_or_permitted_automatically": true
+      }
+    },
+    "new_contract_actual_model_runs_executed": true,
+    "model_effect_verification_boundary": "实际运行/机械审计已做；未验证医学语义改善、稳定性、准确率或最终方案。",
+    "all_whole_document_summaries_completed": false
+  },
+  "model_execution": {
+    "new_paid_calls_authorized": false,
+    "new_paid_call_budget": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "formal_model_selected": false,
+    "previous_development_model": "gpt-6-luna",
+    "previous_development_reasoning": "medium",
+    "previous_development_selection_is_not_new_run_authorization": true,
+    "current_experiment_authorization": {
+      "status": "authorized_scope_executed_and_closed_no_further_automatic_calls",
+      "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+      "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "user_confirmation_quote": "我同意你执行。",
+      "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+      "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+      "approved_at_utc": "2026-11-05T06:54:53.761Z",
+      "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+      "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+      "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+      "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+      "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+      "scope": {
+        "papers": [
+          "L01",
+          "L05"
+        ],
+        "methods": [
+          "B0",
+          "F",
+          "R"
+        ],
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "same_scope_necessary_single_point_repairs_and_retests": true
+      },
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+      "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+      "request_count_sample": {
+        "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+        "requests_created": 22,
+        "final": false,
+        "usage_not_finalized": true
+      },
+      "current_paid_requests_running": false,
+      "old_189_authorization_or_ledger_reused": false,
+      "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "same_approval_must_not_be_requested_again": true,
+      "current_revision": {
+        "status": "executed_closed_summary_failure_and_all_candidates_preserved",
+        "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+        "plan": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+          "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+        },
+        "authorization": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+          "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+          "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+          "same_approved_at": "2026-11-05T06:54:53.761Z",
+          "same_confirmation_source": true,
+          "same_limits": true,
+          "parent_linkage": {
+            "schema_version": "three-method-revision-binding-1",
+            "declared_change": "visual_scope_prompt",
+            "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+            "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+            "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+            "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+            "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+            "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+          }
+        },
+        "rule_confirmation": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+          "user_choice": "只作必要背景，不独立抽取（推荐）",
+          "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+          "message_timestamp": null,
+          "scope_rule_version": "metric-definitions-context-only-1",
+          "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+        },
+        "prompt_change": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+          "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+          "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+          "removing_added_rule_restores_parent_system_exactly": true,
+          "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+          "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+          "actual_old_online_full_body_replay_equality_claimed": false,
+          "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+        },
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "focused_local_tests_reported": 4,
+        "root_tsc_exit_reported": 0,
+        "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+        "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+        "budget_or_time_reset": false,
+        "original_prepared_parent_plan_and_authorization_unchanged": true,
+        "new_medical_human_review": 0,
+        "old_35_feedback_inherited": false,
+        "outcome_not_final": true
+      },
+      "authorization_granted": true,
+      "further_new_optimization_or_paid_calls_authorized": false,
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+      "execution_closure": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+        "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+        "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+        "unused_requests_not_new_authorization": 84,
+        "no_further_API_calls_scheduled_or_permitted_automatically": true
+      }
+    },
+    "next_run_model_reasoning_scope_and_limits": "本次216实际调用已结束，无额外新优化/付费；原新授权、父子链与216账本保留，不复用旧189或把剩余额度作新许可。正式模型/默认方案未选。"
+  },
+  "formal_reviews": {
+    "pi_web_frontend": {
+      "used": 3,
+      "limit": 3,
+      "final_current_round_pending": false,
+      "final_completed": true,
+      "remaining": 0
+    },
+    "original_text_figure": {
+      "used": 2,
+      "limit": 3,
+      "closed": true
+    },
+    "old_S4": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S0_S1": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S3": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S2": {
+      "used": 2,
+      "limit": 3
+    }
+  },
+  "current_evidence": {
+    "S0": "code/docs/acceptance/s0/acceptance.json",
+    "S1": "code/docs/acceptance/s1/acceptance.json",
+    "parser_selection": "code/docs/acceptance/s3/parser-selection-2026-11-03/decision.json",
+    "original_text_figures": "code/docs/acceptance/requirement-revision-2026-11-04/index.html",
+    "frontend": "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+    "old_model_experiments": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/report.html",
+    "reference_material_disposition": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/actual-deletions.json",
+    "ordered_S0_S4_audit": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json"
+  },
+  "historical_records": {
+    "archive": "code/docs/project-history-2026-11-04.zip",
+    "original_current_files_member_prefix": "current-plan-before-reconcile/",
+    "user_approved_plan_member_prefix": "authorized-plan-2026-11-04/",
+    "scope": "旧确认原话、长阶段历史和先前版本保留为历史，不再作为现行有效指令。",
+    "evidence_time_rule": "旧S0—S4/前端handoff中的当时金标、未开工或付费预算只记录历史；当前状态以当前版本.json为准，旧预算不续用。",
+    "shared_summary": "code/docs/project-simplify-2026-11-04.json"
+  },
+  "current_audit_stage": null,
+  "current_audit_status": "completed_S0_to_S4_not_all_stages_passed",
+  "engineering_progress_not_reset": true,
+  "human_stage_approval": {
+    "record": "code/docs/acceptance/s2/s0-s1-human-approval-and-s2-handoff.json#/user_approval",
+    "stages": [
+      "S0",
+      "S1"
+    ],
+    "status": "passed",
+    "quote": "当前不涉及医学能力的实现，主要是配置。直接进入下一阶段吧，人工审核通过，但是需要记录一下是因为这些底层的配置什么的我看不懂。",
+    "basis": "用户自述不理解底层配置，基于已提供的交付说明和工程检查同意推进。",
+    "technical_details_individually_verified_by_user": false,
+    "independent_technical_audit": false,
+    "medical_acceptance": false,
+    "permanent_review_exemption": false
+  },
+  "last_status_update_Asia_Shanghai": "2026-11-05",
+  "current_stage_audit": {
+    "index": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json",
+    "ordered_audit_completed": true,
+    "all_stages_passed": false,
+    "stage_passed": {
+      "S0": true,
+      "S1": true,
+      "S2": false,
+      "S3": false,
+      "S4": false
+    },
+    "facts_and_logs": "具体当前工程、测试、限制及人核/新独立资料0等事实见此单一index，不在各当前文件复制日志。"
+  },
+  "current_experiment_authorization": {
+    "status": "authorized_scope_executed_and_closed_no_further_automatic_calls",
+    "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+    "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+    "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+    "date_Asia_Shanghai": "2026-11-05",
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "user_confirmation_quote": "我同意你执行。",
+    "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+    "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+    "approved_at_utc": "2026-11-05T06:54:53.761Z",
+    "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+    "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+    "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+    "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+    "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+    "scope": {
+      "papers": [
+        "L01",
+        "L05"
+      ],
+      "methods": [
+        "B0",
+        "F",
+        "R"
+      ],
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "same_scope_necessary_single_point_repairs_and_retests": true
+    },
+    "shared_limits": {
+      "requests": 300,
+      "input_tokens_including_cache": 6000000,
+      "output_tokens_including_reasoning": 400000,
+      "seconds_from_first_request": 14400
+    },
+    "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+    "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+    "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+    "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+    "request_count_sample": {
+      "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+      "requests_created": 22,
+      "final": false,
+      "usage_not_finalized": true
+    },
+    "current_paid_requests_running": false,
+    "old_189_authorization_or_ledger_reused": false,
+    "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+    "formal_model_finally_selected": false,
+    "winner": null,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "same_approval_must_not_be_requested_again": true,
+    "current_revision": {
+      "status": "executed_closed_summary_failure_and_all_candidates_preserved",
+      "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+      "plan": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+        "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+      },
+      "authorization": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+        "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+        "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+        "same_approved_at": "2026-11-05T06:54:53.761Z",
+        "same_confirmation_source": true,
+        "same_limits": true,
+        "parent_linkage": {
+          "schema_version": "three-method-revision-binding-1",
+          "declared_change": "visual_scope_prompt",
+          "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+          "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+          "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+          "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+          "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+        }
+      },
+      "rule_confirmation": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+        "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+        "user_choice": "只作必要背景，不独立抽取（推荐）",
+        "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+        "message_timestamp": null,
+        "scope_rule_version": "metric-definitions-context-only-1",
+        "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+      },
+      "prompt_change": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+        "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+        "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+        "removing_added_rule_restores_parent_system_exactly": true,
+        "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+        "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+        "actual_old_online_full_body_replay_equality_claimed": false,
+        "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+      },
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "focused_local_tests_reported": 4,
+      "root_tsc_exit_reported": 0,
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+      "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "budget_or_time_reset": false,
+      "original_prepared_parent_plan_and_authorization_unchanged": true,
+      "new_medical_human_review": 0,
+      "old_35_feedback_inherited": false,
+      "outcome_not_final": true
+    },
+    "authorization_granted": true,
+    "further_new_optimization_or_paid_calls_authorized": false,
+    "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "execution_closure": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+      "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+      "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+      "unused_requests_not_new_authorization": 84,
+      "no_further_API_calls_scheduled_or_permitted_automatically": true
+    }
+  },
+  "current_execution_stage": "S4_actual_comparison_finished_quality_work_pending",
+  "current_comparison_results": {
+    "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+    "recorded_at_utc": "2026-11-05T02:34:57.986972+00:00",
+    "ordered_stage_index": "code/docs/acceptance/s0-s4-current-2026-11-04/index.json",
+    "initial_batch": {
+      "report": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/execution/report.json",
+      "readable_automatic_audit": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/automatic-audit-final/review.html",
+      "status": "finished_runs_human_quality_and_selection_pending",
+      "logical_conditions": 6,
+      "unique_model_inputs": 5,
+      "requests": 149,
+      "input_tokens_including_cache": 1560439,
+      "output_tokens_including_reasoning": 87410,
+      "unreviewed_unique_candidates": 148,
+      "all_selected_source_blocks_and_summary_complete": true,
+      "all_runs_state": "partial",
+      "partial_boundary": "Docling/图中文字覆盖与未选块等限制仍保留；完成所选块和汇总不等于原PDF完整或医学召回。",
+      "L01_R_reuses_F": "非独立测量；方法表引用F成本/耗时，真实唯一请求仅计一次，0新增请求不等于零成本优势。"
+    },
+    "completed_baseline_and_pilot_usage": {
+      "requests": 156,
+      "settled_requests": 156,
+      "inflight_or_unsettled": 0,
+      "input_tokens_including_cache": 1796743,
+      "output_tokens_including_reasoning": 93670,
+      "time_scope": "仅已完成首轮149请求和L01-F配对7请求的固定小计；续行运行中的新增请求见同一index/ledger。"
+    },
+    "time_continuation": {
+      "status": "completed_authorized_scope_no_more_paid_requests",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+      "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "original_window_expired": true,
+      "authorized_remaining_window_seconds": 11520,
+      "granted": true,
+      "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+      "approved_at_utc": "2026-11-05T02:16:15Z",
+      "resume_at_utc": "2026-11-05T02:16:52.744Z",
+      "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+      "new_paid_requests_allowed_now": false,
+      "scope": [
+        "L01-B0",
+        "L05-B0",
+        "L05-F",
+        "L05-R"
+      ],
+      "baseline_or_L01_F_rerun_allowed": false,
+      "request_or_token_caps_reset": false,
+      "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json",
+      "all_requested_pairs_completed": true
+    },
+    "actual_human_reviews": 0,
+    "new_independent_registered_or_sealed_or_exposed": 0,
+    "medical_quality_approved": false,
+    "effective_medical_description_count": null,
+    "formal_model_selected": false,
+    "winner": null,
+    "full_S5_accepted": false,
+    "paired_cohorts": [
+      "L01-B0",
+      "L01-F",
+      "L05-B0",
+      "L05-F",
+      "L05-R"
+    ],
+    "all_authorized_model_runs_completed": true,
+    "paid_execution_stopped": true,
+    "current_paid_requests_running": false,
+    "cumulative_usage": {
+      "requests": 189,
+      "input_tokens": 3198316,
+      "output_tokens": 122639,
+      "settled": 189,
+      "missing_usage": 0,
+      "halted": null
+    },
+    "current_ledger_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+    "new_requests_in_time_continuation": 33,
+    "formal_default_prompt_modified": false,
+    "formal_default_method_modified": false,
+    "execution_stopped_and_lock_released": true,
+    "inflight_or_unsettled": 0,
+    "context_and_field_risk_details": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json#/context_and_field_risks",
+    "first_pair_historical_snapshot": {
+      "report": "code/runtime-data/s0-s4-current-2026-11-04/summary-reread-paired/L01-F/pair-report.json",
+      "job_id": "L01-F",
+      "completed_pairs": 1,
+      "only_changed_factor": "summary_user_prompt_context_rereading_policy_only",
+      "before": {
+        "requests": 4,
+        "input_tokens": 142755,
+        "output_tokens": 3589,
+        "seconds": 77.432521438
+      },
+      "after": {
+        "requests": 3,
+        "input_tokens": 93549,
+        "output_tokens": 2671,
+        "seconds": 71.95143228799999
+      },
+      "reread_source_blocks_before_after": [
+        56,
+        34
+      ],
+      "payload_controls_and_candidate_packet_equal": true,
+      "original_context_and_figure_association_changes": false,
+      "scope": "controlled_summary_stage_experiment_not_product_checkpoint_resume_or_fresh_end_to_end_extraction",
+      "limitation": "仅一次随机局部配对；时间和供应商缓存可能波动，不能推断通用性能、医学质量或最终赢家。"
+    },
+    "summary_single_factor_comparison": {
+      "report_json": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.json",
+      "report_html": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-reread-comparison.html",
+      "report_sha256": "8f99e1fd455c213d1edb5f95d973fc5c0049eeec1b1a75b2f85f3f5966e452f2",
+      "pairs": 5,
+      "paired_totals": {
+        "before": {
+          "requests": 21,
+          "input_tokens": 901514,
+          "output_tokens": 18653,
+          "seconds": 404.67676366699993,
+          "reread_blocks": 1719,
+          "omitted_reread_blocks": 23
+        },
+        "after": {
+          "requests": 19,
+          "input_tokens": 736363,
+          "output_tokens": 16576,
+          "seconds": 369.68468890300005,
+          "reread_blocks": 423,
+          "omitted_reread_blocks": 0
+        }
+      },
+      "paired_requests": 40,
+      "source_fragments_context_and_Figure_associations_unchanged": true,
+      "all_output_fields_unchanged": false,
+      "annotation_and_delivery_differences": "L01-B0一条needs_context→pending；L05-R三条疾病/序列/数字元数据及一条pending→needs_context变化；所有组有模型候选链接差异，部分自动未审语义状态有变，详见唯一报告逐字段对照。",
+      "counterexample": "L05-B0补读460→177块，但输入193675→248713、请求4→5；不能泛化为每组更省或更快。",
+      "engineering_recommendation": "Assess per-group tradeoffs in input/output/time, recovered errors and candidate/context changes. Keep the targeted-reread prompt as an experimental option until human relevance/context/Figure review; do not change the production default or name a medical winner from token reductions.",
+      "limitations": [
+        "五组各仅一次随机配对、仅两篇开发论文；同文不同方法并非独立样本，不作显著性推断。",
+        "固定同一pre-summary候选包，只复验汇总阶段；不能换算整篇抽取性能，也不是产品断点续跑。",
+        "必要原文和遗漏块仍可补读；汇总补读不补齐未抽取覆盖，也不降低原完成门槛。",
+        "自动检查对照绑定IR和Figure资产；PDF逐字忠实性、语境和医学正确性未完成人工核验。",
+        "人核/医核0；准确率、全文召回、有效描述数和正式赢家均未确定，不能据此选出医学最佳。",
+        "重读减少不保证请求或总体token成本下降。真实账单未知；输入含缓存、输出含推理，耗时与缓存效果可能波动。"
+      ],
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing"
+    }
+  },
+  "current_task_final_formal_review": {
+    "used": 3,
+    "limit": 3,
+    "remaining": 0,
+    "final_completed": true,
+    "final_reserved": false,
+    "recorded_at_utc": "2026-11-05T02:36:19.775845+00:00",
+    "source": "主会话实际正式最终审查，第3/3轮；沿同一任务原2/3仅增加1轮",
+    "judgment": "判断：继续。风险：1.仅两篇开发论文且人工核验为零，尚不能确定医学质量或最优方案；2.汇总新策略存在子图编号、病例归属及数值元数据风险，暂不进入默认；3.解析仍有定位和整图待核项。工程成果可以交付，S2—S4不认定完整验收通过。",
+    "scope": "本轮工程与实测成果交接，不代替S2—S4完整验收、人工医学核验或选优",
+    "medical_quality_approved": false,
+    "winner": null,
+    "time_scope": "2026-11-05T02:35:37Z工程交接时的正式第3/3轮原话；当时人工核验0是历史事实，本轮35条普通初筛见current_user_feedback，不新增审查轮次。"
+  },
+  "current_development_output_review": {
+    "status": "original_frozen_materials_preserved_current_user_JSON_received",
+    "recorded_at_utc": "2026-11-05T03:11:47.207681+00:00",
+    "scope": "本轮开发输出筛查材料，不是完整参考答案准备、正式质量验收或产品已审核导出。",
+    "user_work_sample_choice": "30 条随机样本＋风险案例（推荐）",
+    "choice_record": [
+      "request_user_input_async",
+      "call_82ce13f59f5447159eafadb9efab3d0f",
+      0
+    ],
+    "zip": {
+      "path": "code/docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/真实输出人工核验包.zip",
+      "sha256": "4e52ce034979bbad2777e66a88f69879e9b43cf6ae7883e88da5cf43f192b5fd",
+      "bytes": 4414357
+    },
+    "manifest": {
+      "path": "code/docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/manifest.json",
+      "sha256": "9c88aede860464d5e32a53596e45e2e752ff8d290bc6244049aa6a7c9c76f80c"
+    },
+    "workbook_in_zip": "核验表.xlsx",
+    "worksheets": [
+      "说明",
+      "30条随机样本",
+      "原文与出处",
+      "5条实验风险"
+    ],
+    "random_sample": {
+      "count": 30,
+      "method": "按5个实际job分层，每个job内无放回随机6条；不称148条总体等概率简单随机。",
+      "jobs": [
+        {
+          "job_id": "L01-B0",
+          "count": 6
+        },
+        {
+          "job_id": "L01-F",
+          "count": 6
+        },
+        {
+          "job_id": "L05-B0",
+          "count": 6
+        },
+        {
+          "job_id": "L05-F",
+          "count": 6
+        },
+        {
+          "job_id": "L05-R",
+          "count": 6
+        }
+      ],
+      "seed": "t1-output-review-2026-11-05-random30-v1",
+      "selected_version_units_sha256": "958cff0d633ca126e6a3b375f933ada16157826e06db749128b04dc5f17ce750",
+      "L01_R_extra_samples": 0,
+      "independent_papers": 2
+    },
+    "directed_experiment_risks": {
+      "count": 5,
+      "version_arms": 10,
+      "version_scope": "summary before/after，另于baseline随机样本",
+      "statistics_separate_from_random": true,
+      "medical_error_labels_confirmed": false
+    },
+    "manual_fields": {
+      "total": 425,
+      "nonempty": 0,
+      "actual_human_reviews": 0
+    },
+    "formal_sample_count": null,
+    "quality_thresholds": null,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "winner": null,
+    "new_paid_requests_this_step": 0,
+    "S5_started_this_step": false,
+    "default_model_method_prompt_changed": false,
+    "verification_record": "code/docs/acceptance/s0-s4-current-2026-11-04/output-review-pack-2026-11-05/manifest.json#/post_generation_checks",
+    "verification_boundary": "源/片段/页码/链接结构及空人工栏校验已完成；未执行实际浏览器点击、浏览器视觉或Office视觉验收。",
+    "source_control_characters": {
+      "fragment_rows": 14,
+      "unique_source_blocks": 4,
+      "codepoint": "U+0007",
+      "preserved": true,
+      "PDF_error_count_claimed": false
+    },
+    "instructions": [
+      "完整解压ZIP",
+      "先打开核验表.xlsx的说明页",
+      "只填黄色栏；无法判断选待核，文本必核项不能选不适用",
+      "原文/出处不手改，另存核验表-已填写.xlsx"
+    ],
+    "formal_reviews_used": 3,
+    "formal_review_limit": 3,
+    "new_formal_review_added": false,
+    "current_primary_interface_record": "方案/子任务T1/当前版本.json#/current_non_medical_screening_interface",
+    "ZIP_Excel_remain_available_as_optional_format": true,
+    "time_scope": "材料生成于recorded_at_utc，425个Excel栏全空是原工作簿事实；当前已收到普通用户JSON35条初筛，见current_user_feedback。"
+  },
+  "current_execution_work": "actual_two_round_calls_closed_readonly_review_delivered_quality_and_selection_pending",
+  "current_non_medical_screening_interface": {
+    "status": "ordinary_feedback_received_local_repairs_verified_new_contract_model_validation_pending",
+    "recorded_at_utc": "2026-11-05T06:39:28.841827+00:00",
+    "entry": "code/apps/pi-web/public/output-review/index.html",
+    "static_directory": "code/apps/pi-web/public/output-review/",
+    "source": "code/apps/pi-web/output-review/",
+    "build_script": "code/apps/pi-web/output-review/build.mjs",
+    "main_current_operation_entry": false,
+    "identity": "non_medical_user",
+    "frozen_cohort": {
+      "random_records": 30,
+      "separate_experiment_risk_records": 5,
+      "random_count_per_actual_job": 6,
+      "source_fragment_rows": 286,
+      "reselected": false,
+      "original_zip_and_Excel_retained": true,
+      "original_material_record": "方案/子任务T1/当前版本.json#/current_development_output_review"
+    },
+    "delivery": {
+      "self_contained_relative_assets": true,
+      "same_pi_web_project": true,
+      "reused_component": "components/ImagePreview.tsx",
+      "pdf_files": 2,
+      "original_whole_Figure_assets": 1,
+      "tested_static_hashes": {
+        "index.html": "3aee26d1caa65e9428b3a4913ead6c1beb2e19d7f6f58c88886455a8e43b6d38",
+        "review.js": "8c03b02fe21823254dcca5fa62d79293dff14de8a6808e428a607c97fcd8dc06",
+        "review.css": "5b365150c4f95018d4d87e3a7f0c29b94f5e6df2852968e531b607d5fb179337",
+        "source-groups.json": "3bd4bdf8aaf55aadc28afc7be5c1ab057b1cece8ea34f0c1584dad9ff42f3fbb"
+      }
+    },
+    "user_steps": [
+      "刷新既有Live Server静态入口；无需重填原35条",
+      "点导入备份继续选择已交回原JSON；校验后点用此备份继续（替换当前进度）",
+      "点回看已载入进度中的备注（11条）或筛选有备注；按句段/断点提示及原PDF回看",
+      "新观察另行导出JSON；新输出版本另待复验，旧反馈不改绑"
+    ],
+    "persistence": {
+      "browser_localStorage_only": true,
+      "successful_save_required_for_next": true,
+      "draft_not_completed": true,
+      "failed_save_or_tab_conflict_keeps_current_draft": true,
+      "JSON_export_import": true,
+      "automatic_server_file_writes": false,
+      "product_review_database_writes": false
+    },
+    "review_boundary": {
+      "unanswered_or_uncertain_is_pass": false,
+      "professional_review": {
+        "context": "pending",
+        "terminology": "pending",
+        "attribution": "pending",
+        "medical_pairing": "pending"
+      },
+      "actual_lay_user_screenings": 35,
+      "actual_medical_reviews": 0,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "stage_passed": false,
+      "professional_review_replaced": false,
+      "actual_lay_users": 1,
+      "actual_product_record_approvals": 0
+    },
+    "evidence": {
+      "browser": "code/docs/acceptance/user-feedback-2026-11-05/frontend/results.json",
+      "current_feedback": "code/docs/acceptance/user-feedback-2026-11-05/issue-report.json",
+      "source_groups": "code/docs/acceptance/user-feedback-2026-11-05/source-groups.json",
+      "PDF": "code/docs/acceptance/user-feedback-2026-11-05/pdf/pdf-issues.json",
+      "build_info": "code/apps/pi-web/public/output-review/build-info.json"
+    },
+    "actual_verified_scope": {
+      "browser_checks": 22,
+      "unit_tests": 18,
+      "static_typecheck": "passed",
+      "source_views": 40,
+      "frozen_source_rows": 286,
+      "control_character_rows": 14,
+      "vscode_live_server_extension_exercised": false,
+      "actual_live_server_WebSocket_refresh_exercised": false,
+      "ordinary_user_or_medical_review_performed_by_tests": false
+    },
+    "formal_sample_count": null,
+    "quality_thresholds": null,
+    "winner": null,
+    "new_AGICTO_requests": 0,
+    "full_S5_completed": false,
+    "formal_reviews_used": 3,
+    "formal_review_limit": 3,
+    "new_formal_review_added": false,
+    "initial_delivery_validation": {
+      "recorded_at_utc": "2026-11-05T04:11:55.143524+00:00",
+      "evidence": {
+        "implementation": "code/docs/acceptance/output-review-frontend-2026-11-05/implementation-validation.json",
+        "browser": "code/docs/acceptance/output-review-frontend-2026-11-05/browser/results.json",
+        "build_info": "code/apps/pi-web/public/output-review/build-info.json",
+        "desktop_screenshot": "code/docs/acceptance/output-review-frontend-2026-11-05/browser/01-desktop-original-pdf-and-questions.png",
+        "narrow_screenshot": "code/docs/acceptance/output-review-frontend-2026-11-05/browser/02-narrow-risk-comparison.png"
+      },
+      "actual_verified_scope": {
+        "implementation_logic_tests": 13,
+        "browser_behavior_tests": 17,
+        "actual_automated_browser": true,
+        "Playwright": "1.64.1",
+        "Chromium": "156.0.8078.4",
+        "static_HTTP_root_and_nested_and_nonsecure": true,
+        "desktop_viewport": [
+          1512,
+          900
+        ],
+        "narrow_viewport_width": 390,
+        "literal_fragments_including_14_control_rows_checked": 286,
+        "browser_requests": 116,
+        "external_API_console_404_failures": 0,
+        "vscode_live_server_extension_exercised": false,
+        "actual_live_server_WebSocket_refresh_exercised": false,
+        "ordinary_user_or_medical_review_performed_by_tests": false
+      }
+    },
+    "current_user_feedback_record": "方案/子任务T1/当前版本.json#/current_user_feedback",
+    "default_model_or_method_changed": false,
+    "new_run_prompt_contract_changed": "visual-statements-2; model_effect_unverified",
+    "new_authorized_revalidation_record": "方案/子任务T1/当前版本.json#/current_live_feedback_revalidation",
+    "time_scope": "旧35条初筛及原11备注的原入口/版本；当前新增只读复验入口见current_revalidation_readonly_viewer，不继承新版本审核。"
+  },
+  "current_user_feedback_record": "方案/子任务T1/当前版本.json#/current_user_feedback",
+  "current_user_feedback": {
+    "status": "old_feedback_preserved_new_actual_two_rounds_available_new_human_review_pending",
+    "recorded_at_utc": "2026-11-05T06:39:28.841827+00:00",
+    "source": {
+      "path": "code/apps/pi-web/public/output-review/普通用户初筛-cc939653-2026-11-05T06-08-53.json",
+      "sha256": "e53f669c7086761f9d0ef209448979aae488068c7b1e2a80d1f5590e422b6a28",
+      "role": "non_medical_user",
+      "ordinary_users": 1,
+      "strict_pack_questionnaire_and_all_item_version_fingerprints": "passed",
+      "original_JSON_modified": false
+    },
+    "observations": {
+      "total": 35,
+      "random": 30,
+      "separate_experiment_risks": 5,
+      "notes": 11,
+      "disposition_recorded": 35,
+      "uncertain_risk_items": 3,
+      "UI_recorded": 32,
+      "UI_deferred": 3,
+      "independent_table_source_role_issues": 17,
+      "table_issue_count_is_medical_error_rate": false
+    },
+    "review_boundary": {
+      "actual_professional_medical_reviews": 0,
+      "record_level_product_approvals": 0,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "stage_passed": false,
+      "accuracy": null,
+      "winner": null,
+      "new_output_versions_require_revalidation": true,
+      "old_35_need_refill": false,
+      "old_feedback_rebound_to_new_versions": false
+    },
+    "business_rule_basis": "2026-11-05用户上传JSON中的明确备注；仅增量澄清目标描述、句段、表格支持与配图边界，不扩为医学/产品批准。",
+    "business_rules": {
+      "primary_source": "主证据选择完整原文句及必要段落，保留形状、边缘、密度/信号、强化、组织结构等实际视觉表现和直接影像测量；一般形态定义允许，无具体病例或配图也可。不得重新组织、改写或翻译原文；非连续、跨主体或跨病例的片段各有出处并显式分隔，不能拼成貌似完整连续原句。保留必要主体、否定、不确定性、条件、指代、数值及单位，患者信息可作必要语境。",
+      "table_support": "表格不得独立作为目标描述；仅当主视觉描述原句明确引用对应编号表格时，附该表原文数值及必要行列/表头语境，保留其独立支持角色，不据表值造句或重写主描述。",
+      "standalone_exclusions": "单纯特征名、算法流程、模型特征向量、测量/评估清单、人员设备或入组/实验设置、纯P值/组间统计及性能结论不得作为独立目标描述；不整章删除Methods/Conclusion或全部数字，含实际视觉描述的完整句仍保留必要主体条件。 测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。",
+      "figure": "文本优先；仅有明确关系时配整幅Figure原图、原图注及有明确关系的Figure Note，保留图号和子图标识，不裁病灶、猜子图或生成图片。图号对应不等于目标医学图像；明确纯统计图或流程图不作为目标配图交付，不确定图型/关联标待核，无图仍可交付文字。",
+      "review": "开发普通用户初筛、专业医学核验与逐条产品批准分别记录；未答、不确定和看不懂均不当通过。已审核导出仍须真实人工逐条确认当前版本及对应范围，文字批准不继承图片；新版本不继承旧35条反馈或批准。",
+      "measurement_metric_context_rule": "测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。"
+    },
+    "new_run_contract": {
+      "evidence_policy_version": "visual-statements-2",
+      "source_evidence_unit_version": "literal-source-sentences-1",
+      "source_selector": "exactly_one_of_source_unit_ids_or_source_line_indices",
+      "legacy_28_top_level_fields_preserved": true,
+      "table_support": "supporting_table_evidence_with_explicit_primary_numbered_reference_and_original_values",
+      "context_selector": "exactly_one_of_context_unit_ids_or_context_line_indices",
+      "table_row_column_context": "only_explicitly_selected_literal_fragments_not_automatically_restored_or_inferred",
+      "delivery_JSON": "separate_supporting_table_evidence_plus_evidence_policy_version_and_source_evidence_unit_version",
+      "CSV": "primary_original_fragment_spans_only_no_table_values_mixed_into_primary",
+      "semantic_relevance_and_relationship_proven_by_mechanical_checks": false,
+      "new_real_model_effect_verified": false,
+      "legacy_records_unchanged": true,
+      "legacy_readability_is_current_policy_compliance_or_approval": false,
+      "actual_supplier_model_runs_executed": true,
+      "model_effect_verification_boundary": "已有真实运行与机械输出检查；医学质量改善/总体相关性/稳定性仍未验证。",
+      "scope_prompt_rule_version": "metric-definitions-context-only-1"
+    },
+    "PDF_findings": {
+      "S09": "Note已在旧IR、输入及其他候选；本条与图目录关联缺口修复于新catalog，非全局漏抽；原PNG字节不变且仍needs_review。",
+      "L05_Fig2": "明确LASSO统计图；旧关联pending，并非已交付错误目标原图。"
+    },
+    "evidence": {
+      "code/docs/acceptance/user-feedback-2026-11-05/issue-report.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/issue-report.json",
+        "sha256": "adf18c1073641f887d97b47c8a855fb0539b6d617d0b1c7d4b4b809fd718174c"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/source-groups.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/source-groups.json",
+        "sha256": "3bd4bdf8aaf55aadc28afc7be5c1ab057b1cece8ea34f0c1584dad9ff42f3fbb"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/pdf/pdf-issues.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/pdf/pdf-issues.json",
+        "sha256": "cf53d9d9b0573cb76d24ab3ef8451524ea6de039214dcf37ca9e8e518a36108b"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/frontend/results.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/frontend/results.json",
+        "sha256": "fd1d0876fb25400c8f345ca0fefeca08838f9fab52b2103ff156f6e6bab3d58a"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+        "sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+        "sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/core-extraction.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/core-extraction.log",
+        "sha256": "c9957af2f9111e4583d30a0520b43c1361cccfd4a8a4301536906ceb72348d41"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/core-evaluation.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/core-evaluation.log",
+        "sha256": "3abcace6e276d1d862696029cff7c39f79f5a44b60efa7dc98b717ccbc0df1e6"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/core-tsc.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/core-tsc.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/core-focused.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/core-focused.log",
+        "sha256": "87d7fcf5ac229ec774674ee18955e5bdaf80f07196c35511b635ec740e7174ef"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/core-delivery-before.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/core-delivery-before.log",
+        "sha256": "15e21c07560a199b63acc183ac55f6214cfb4615c394dbedcc4e2f8731a5715c"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/pdf/figure-assets-tests.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/pdf/figure-assets-tests.log",
+        "sha256": "4c87f6827289d6b9534fd0a0610852cf62d71bfc0028716782af5e78b5499f0e"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepare.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepare.log",
+        "sha256": "326028087823adce387827971fb4fe9e5bf859c472cac499f7b8ec083eebff01"
+      },
+      "code/docs/acceptance/user-feedback-2026-11-05/revalidation/unsigned-execute-rejected.log": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/unsigned-execute-rejected.log",
+        "sha256": "2b45342264aa1782dae97ede8890c5bfffab2977492acddfa7cc3fd939a56c5e"
+      }
+    },
+    "validation": {
+      "core": {
+        "extraction_tests": 197,
+        "evaluation_tests": 37,
+        "root_tsc_exit_code": 0,
+        "actual_Pi_mock_run_default_policy_and_zero_candidates_quality_gate_checked": true,
+        "evidence": {
+          "extraction": "code/docs/acceptance/user-feedback-2026-11-05/core-extraction.log",
+          "evaluation": "code/docs/acceptance/user-feedback-2026-11-05/core-evaluation.log",
+          "tsc": "code/docs/acceptance/user-feedback-2026-11-05/core-tsc.log"
+        },
+        "focused_tests_included_in_extraction": 16,
+        "delivery_failure_actual_before": {
+          "tests": 2,
+          "passed": 0,
+          "log": "code/docs/acceptance/user-feedback-2026-11-05/core-delivery-before.log",
+          "fixed_then_16_focused_passed": true
+        },
+        "legacy_fingerprints_recomputed_unchanged": 40
+      },
+      "frontend": {
+        "unit_tests": 18,
+        "browser_checks": 22,
+        "static_typecheck": "passed",
+        "source_views": 40,
+        "frozen_source_rows": 286,
+        "control_character_rows": 14
+      },
+      "PDF": {
+        "CPU_tests": 6,
+        "ambiguity_negative_subcases": 10,
+        "Docling_reparse": false
+      },
+      "new_plan": {
+        "runtime_source_hashes_match": 52,
+        "unsigned_execute_rejected_before_ledger_or_network": true,
+        "fresh_ledger_created": false,
+        "model_calls": 0
+      }
+    },
+    "budget": {
+      "new_real_model_calls": 216,
+      "historical_settled_requests": 189,
+      "historical_ledger_unchanged": true,
+      "new_proposal": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+        "sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+        "status": "prepared_pending_new_explicit_user_authorization",
+        "provider": "agicto",
+        "model_id": "gpt-6-luna",
+        "reasoning_effort": "medium",
+        "papers": [
+          "L01",
+          "L05"
+        ],
+        "methods": [
+          "B0",
+          "F",
+          "R"
+        ],
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "L01_R_reuses_F_non_independently": true,
+        "shared_limits": {
+          "requests": 300,
+          "input_tokens": 6000000,
+          "output_tokens": 400000,
+          "seconds": 14400,
+          "request_seconds": 120,
+          "document_seconds": 1800,
+          "transient_retries": 2,
+          "response_output_tokens": 8192,
+          "batch_responses": 16
+        },
+        "authorization_id": null,
+        "approved_at": null,
+        "old_ledger_or_authorization_reuse": false,
+        "model_calls_executed": 0,
+        "prepared_plan": {
+          "path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+          "sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+          "batch_id": "comparison-dacebd55-bc30-44ed-8737-f09b33e90812",
+          "unsigned_template": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/authorization-template.json"
+        },
+        "attribution_limit": "This is one repaired pipeline shared across method arms. Multiple fixes changed together; differences from the old run cannot be attributed to a single correction. Display/role/span mechanical fixes and model benefit must be reported separately.",
+        "time_scope": "原未签方案快照保留；本次已明确授权并执行结束，不能再视为待批准或新调用许可。"
+      },
+      "new_calls_authorized": false,
+      "old_budget_reset_or_reuse": false,
+      "new_real_model_calls_time_scope": {
+        "finalized_at_utc": "2026-11-05T08:11:24.363Z",
+        "final": true,
+        "source": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json"
+      },
+      "new_authorization": {
+        "status": "authorized_scope_executed_and_closed_no_further_automatic_calls",
+        "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+        "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+        "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+        "date_Asia_Shanghai": "2026-11-05",
+        "provider": "agicto",
+        "model_id": "gpt-6-luna",
+        "reasoning_effort": "medium",
+        "user_confirmation_quote": "我同意你执行。",
+        "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+        "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+        "approved_at_utc": "2026-11-05T06:54:53.761Z",
+        "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+        "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+        "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+        "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+        "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+        "scope": {
+          "papers": [
+            "L01",
+            "L05"
+          ],
+          "methods": [
+            "B0",
+            "F",
+            "R"
+          ],
+          "logical_conditions": 6,
+          "unique_inputs": 5,
+          "same_scope_necessary_single_point_repairs_and_retests": true
+        },
+        "shared_limits": {
+          "requests": 300,
+          "input_tokens_including_cache": 6000000,
+          "output_tokens_including_reasoning": 400000,
+          "seconds_from_first_request": 14400
+        },
+        "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+        "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+        "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+        "request_count_sample": {
+          "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+          "requests_created": 22,
+          "final": false,
+          "usage_not_finalized": true
+        },
+        "current_paid_requests_running": false,
+        "old_189_authorization_or_ledger_reused": false,
+        "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+        "formal_model_finally_selected": false,
+        "winner": null,
+        "medical_quality_approved": false,
+        "product_export_approved": false,
+        "same_approval_must_not_be_requested_again": true,
+        "current_revision": {
+          "status": "executed_closed_summary_failure_and_all_candidates_preserved",
+          "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+          "plan": {
+            "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+            "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+          },
+          "authorization": {
+            "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+            "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+            "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+            "same_approved_at": "2026-11-05T06:54:53.761Z",
+            "same_confirmation_source": true,
+            "same_limits": true,
+            "parent_linkage": {
+              "schema_version": "three-method-revision-binding-1",
+              "declared_change": "visual_scope_prompt",
+              "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+              "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+              "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+              "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+              "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+              "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+            }
+          },
+          "rule_confirmation": {
+            "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+            "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+            "user_choice": "只作必要背景，不独立抽取（推荐）",
+            "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+            "message_timestamp": null,
+            "scope_rule_version": "metric-definitions-context-only-1",
+            "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+          },
+          "prompt_change": {
+            "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+            "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+            "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+            "removing_added_rule_restores_parent_system_exactly": true,
+            "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+            "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+            "actual_old_online_full_body_replay_equality_claimed": false,
+            "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+          },
+          "logical_conditions": 6,
+          "unique_inputs": 5,
+          "focused_local_tests_reported": 4,
+          "root_tsc_exit_reported": 0,
+          "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+          "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+          "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+          "budget_or_time_reset": false,
+          "original_prepared_parent_plan_and_authorization_unchanged": true,
+          "new_medical_human_review": 0,
+          "old_35_feedback_inherited": false,
+          "outcome_not_final": true
+        },
+        "authorization_granted": true,
+        "further_new_optimization_or_paid_calls_authorized": false,
+        "current_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+        "execution_closure": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+          "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+          "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+          "unused_requests_not_new_authorization": 84,
+          "no_further_API_calls_scheduled_or_permitted_automatically": true
+        }
+      },
+      "current_revision": {
+        "status": "model_calls_finished_summary_failure_preserved",
+        "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+        "plan": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+          "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+        },
+        "authorization": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+          "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+          "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+          "same_approved_at": "2026-11-05T06:54:53.761Z",
+          "same_confirmation_source": true,
+          "same_limits": true,
+          "parent_linkage": {
+            "schema_version": "three-method-revision-binding-1",
+            "declared_change": "visual_scope_prompt",
+            "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+            "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+            "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+            "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+            "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+            "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+          }
+        },
+        "rule_confirmation": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+          "user_choice": "只作必要背景，不独立抽取（推荐）",
+          "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+          "message_timestamp": null,
+          "scope_rule_version": "metric-definitions-context-only-1",
+          "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+        },
+        "prompt_change": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+          "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+          "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+          "removing_added_rule_restores_parent_system_exactly": true,
+          "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+          "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+          "actual_old_online_full_body_replay_equality_claimed": false,
+          "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+        },
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "focused_local_tests_reported": 4,
+        "root_tsc_exit_reported": 0,
+        "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+        "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+        "budget_or_time_reset": false,
+        "original_prepared_parent_plan_and_authorization_unchanged": true,
+        "new_medical_human_review": 0,
+        "old_35_feedback_inherited": false,
+        "outcome_not_final": true
+      },
+      "parent_round_final_usage": {
+        "status": "finalized_parent_round_historical",
+        "report": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json",
+        "sha256": "8a344f3dae21279268f094028972bec0e3a96e89f348e8e3c3865d741408056b",
+        "finalized_at": "2026-11-05T07:24:03.961Z",
+        "physical_requests": 99,
+        "input_tokens_including_cache": 699345,
+        "output_tokens_including_reasoning": 29243,
+        "actual_unique_run_candidates": 13,
+        "failed_initial_F_attempts_and_both_retries_retained": true,
+        "all_requests_settled": true,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "historical_189_included_in_this_99": false,
+        "source_roles_and_shapes_are_not_medical_approval": true,
+        "business_choice_pending_in_original_report_time_scope": "该报告7:24时CTR业务取舍尚未确认；7:31明确确认见metric-context-confirmation.json，原报告字节保留不反改。",
+        "all_parent_CTR_outputs_immutable": true
+      },
+      "new_authorization_fact_granted": true,
+      "actual_two_round_usage": {
+        "path": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "sha256": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+        "physical_requests": 216,
+        "settled": 216,
+        "provider_reported_usage": 216,
+        "input_tokens_including_cache": 1750064,
+        "output_tokens_including_reasoning": 59428,
+        "missing_usage": 0,
+        "halted": null,
+        "owner_lock_present": false,
+        "API_processes_present_reported_by_core": false,
+        "last_provider_request_finished_at": "2026-11-05T08:07:45.878Z"
+      },
+      "execution_closed_no_extra_paid_work": true
+    },
+    "formal_review": {
+      "used": 3,
+      "limit": 3,
+      "new_rounds": 0
+    },
+    "comparison_attribution_limit": "本轮多项修复共同变化，新旧差异不能归因于单一修改；后续三方案采用同一修复版本与公共规则。",
+    "next": "只读回看新两轮及保留的失败，继续处理S4质量遗留；无额外API或新优化，不把已有授权重新写成待批准，也不把余额当新调用许可。",
+    "current_revalidation_business_decision_record": "方案/子任务T1/当前版本.json#/current_live_feedback_revalidation/confirmed_business_decisions",
+    "current_measurement_metric_rule_basis": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+      "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+      "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+      "business_scope_confirmed": true,
+      "medical_or_product_approval": false
+    },
+    "latest_real_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "latest_readonly_viewer_record": "方案/子任务T1/当前版本.json#/current_revalidation_readonly_viewer",
+    "validation_time_scope": "原validation为真实付费前本地修复/旧简单页时点；本次真实216与新只读页见最新results/viewer记录，197/37没有在付费后重跑。"
+  },
+  "historical_experiment_authorization_before_feedback_revalidation": {
+    "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+    "authorization_date_Asia_Shanghai": "2026-11-05",
+    "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+    "authorization_record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+    "recorded_at_utc": "2026-11-04T16:29:09.234184+00:00",
+    "user_response": "批准 Luna medium 与上述范围、上限（推荐）",
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "scope": {
+      "papers": [
+        "L01",
+        "L05"
+      ],
+      "methods": [
+        "agent_only",
+        "positive_rules_agent",
+        "remove_irrelevant_agent"
+      ],
+      "initial_logical_conditions": 6,
+      "expected_initial_real_extractions": 5,
+      "L01_R_reuses_F": "complete current real Pi model-input equivalence checked; reuse is not an independent measurement or zero-cost gain",
+      "necessary_followup": "same model and two papers only, one-point fixes/retests under the same authorization_id and cumulative ledger",
+      "old_ledger_reuse": false,
+      "over_limit_action": "stop_preserve_results_no_cap_increase"
+    },
+    "approved_limits": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000,
+      "seconds": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "input_token_accounting": "含cache",
+    "output_token_accounting": "含reasoning",
+    "retry_and_retest_policy": "同一authorization_id累计全部189请求及tokens，原start/limits/账本不重置；本批授权范围实测已完成，当前停止新增付费。",
+    "prepared_plan": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/plan.json",
+    "prepared_plan_sha256": "08dc84724e941326acd3059b2b45b1097fe06195134568e67848e27f1739436c",
+    "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+    "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+    "batch_id": "comparison-e346c0dd-2969-479c-9e0b-2327707214d1",
+    "old_ledger_reused": false,
+    "formal_application_model_selected": false,
+    "medical_quality_approved": false,
+    "winner": null,
+    "current_paid_requests_running": false,
+    "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+    "time_continuation": {
+      "status": "completed_authorized_scope_no_more_paid_requests",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+      "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "original_window_expired": true,
+      "authorized_remaining_window_seconds": 11520,
+      "granted": true,
+      "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+      "approved_at_utc": "2026-11-05T02:16:15Z",
+      "resume_at_utc": "2026-11-05T02:16:52.744Z",
+      "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+      "new_paid_requests_allowed_now": false,
+      "scope": [
+        "L01-B0",
+        "L05-B0",
+        "L05-F",
+        "L05-R"
+      ],
+      "baseline_or_L01_F_rerun_allowed": false,
+      "request_or_token_caps_reset": false,
+      "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+    },
+    "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+  },
+  "current_comparison_results_time_scope": "该字段保存旧189已结束比较，不改历史；最新216真实两轮见current_feedback_revalidation_results。",
+  "current_live_feedback_revalidation": {
+    "status": "finalized_no_live_API_calls",
+    "recorded_at_utc": "2026-11-05T06:58:02.381434+00:00",
+    "authorization": {
+      "status": "authorized_actual_execution_running_results_unverified",
+      "record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+      "record_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+      "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "user_confirmation_quote": "我同意你执行。",
+      "user_confirmation_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/user-confirmation.json",
+      "user_confirmation_record_sha256": "aca326fce3bee61e02ea08faefed112c7c07fcbf3cdb69a42d980530372b3fd4",
+      "approved_at_utc": "2026-11-05T06:54:53.761Z",
+      "approval_time_basis": "实际本地记录时间；用户消息时间null，未臆造。",
+      "proposal_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/proposal.json",
+      "proposal_sha256": "9b3173bc0c013ddfe957fd306fadbc261386e11ba7663b4e972d602864bebd19",
+      "prepared_plan_record": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+      "prepared_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+      "scope": {
+        "papers": [
+          "L01",
+          "L05"
+        ],
+        "methods": [
+          "B0",
+          "F",
+          "R"
+        ],
+        "logical_conditions": 6,
+        "unique_inputs": 5,
+        "same_scope_necessary_single_point_repairs_and_retests": true
+      },
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-05T06:55:03.968Z",
+      "single_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "single_deadline_Asia_Shanghai": "2026-11-05T18:55:03.968+08:00",
+      "request_count_sample": {
+        "sampled_at_utc": "2026-11-05T06:58:02.381434+00:00",
+        "requests_created": 22,
+        "final": false,
+        "usage_not_finalized": true
+      },
+      "current_paid_requests_running": true,
+      "old_189_authorization_or_ledger_reused": false,
+      "all_attempts_retries_and_followups_share_caps_and_original_new_wallclock": true,
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "same_approval_must_not_be_requested_again": true
+    },
+    "actual_execution_owner": "/root/t1_feedback_fixes",
+    "process_reported_by_owner": {
+      "pid": 64708,
+      "session_id": 53574,
+      "status_at_handoff": "running"
+    },
+    "new_result_review": {
+      "new_human_reviews": 0,
+      "ordinary_old_35_inherited": false,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "stage_passed": false,
+      "winner": null,
+      "accuracy": null
+    },
+    "next": "只读回看新两轮及保留的失败，继续处理S4质量遗留；无额外API或新优化，不把已有授权重新写成待批准，也不把余额当新调用许可。",
+    "latest_reported_progress": {
+      "finalized_at_utc": "2026-11-05T08:11:24.363Z",
+      "requests": 216,
+      "input_tokens": 1750064,
+      "output_tokens": 59428,
+      "final": true,
+      "API_processes_remaining": []
+    },
+    "pending_business_decisions": [],
+    "confirmed_business_decisions": [
+      {
+        "id": "CTR_calculation_definition_as_independent_target",
+        "topic": "CTR实性直径/结节直径的测量定义与计算法是否独立收录",
+        "status": "user_confirmed_background_only_not_independent_target",
+        "user_choice": "只作必要背景，不独立抽取（推荐）",
+        "decision_record": [
+          "request_user_input_async",
+          "call_8d41a9905c0c460bac36009e623b0ed9",
+          0
+        ],
+        "received_at_utc": "2026-11-05T07:27:04.841802+00:00",
+        "user_message_timestamp": null,
+        "rule": "CTR实性直径/结节直径的测量定义和计算法仅保留为必要背景，不作为独立目标描述。",
+        "unchanged": "一般视觉定义和直接影像测量值仍允许；不扩大为全部数字/定义或Methods/Conclusion排除。",
+        "current_original_protocol_run": "先按原共同规则完成当前L05-F retry，不能只改单一方法混入比较。",
+        "intended_followup": "在同已批auth/ledger/首次调用4h和共同上限内，以合法父子revision只改这一项新明确范围规则，统一最新共同规则复验；具体子revision计划待core回传。",
+        "implementation_status": "single_system_prompt_rule_child_revision_actually_running",
+        "same_paid_execution_approval_reopened": false,
+        "new_budget_or_clock_reset": false,
+        "existing_CTR_outputs_preserved_and_explained": true,
+        "not_retroactively_claimed_never_extracted": true,
+        "separate_from_professional_medical_review": true,
+        "actual_scope_rule_version": "metric-definitions-context-only-1",
+        "actual_rule_scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。",
+        "actual_confirmation_evidence": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+        }
+      }
+    ],
+    "parent_round_final": {
+      "status": "finalized_parent_round_historical",
+      "report": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json",
+      "sha256": "8a344f3dae21279268f094028972bec0e3a96e89f348e8e3c3865d741408056b",
+      "finalized_at": "2026-11-05T07:24:03.961Z",
+      "physical_requests": 99,
+      "input_tokens_including_cache": 699345,
+      "output_tokens_including_reasoning": 29243,
+      "actual_unique_run_candidates": 13,
+      "failed_initial_F_attempts_and_both_retries_retained": true,
+      "all_requests_settled": true,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "historical_189_included_in_this_99": false,
+      "source_roles_and_shapes_are_not_medical_approval": true,
+      "business_choice_pending_in_original_report_time_scope": "该报告7:24时CTR业务取舍尚未确认；7:31明确确认见metric-context-confirmation.json，原报告字节保留不反改。",
+      "all_parent_CTR_outputs_immutable": true
+    },
+    "current_revision": {
+      "status": "finalized_summary_failure_preserved",
+      "reported_received_at_utc": "2026-11-05T07:41:03.454594+00:00",
+      "plan": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/plan.json",
+        "sha256": "c2369db87b88efb1f40e695a616449eac27fdb4b9b92550d512e5bf0fda6a96f"
+      },
+      "authorization": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/authorization.json",
+        "sha256": "0dff6c4976ad04e55688357e3fa48c5f05f3b08456086e838f82e69991a5338e",
+        "same_authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+        "same_approved_at": "2026-11-05T06:54:53.761Z",
+        "same_confirmation_source": true,
+        "same_limits": true,
+        "parent_linkage": {
+          "schema_version": "three-method-revision-binding-1",
+          "declared_change": "visual_scope_prompt",
+          "parent_authorization_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/authorization.json",
+          "parent_authorization_sha256": "78a536b66b7b957ae09b59636e0039947c4ceac43f2c6f5c3d45999e9827019b",
+          "parent_plan_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/plan.json",
+          "parent_plan_sha256": "7c995ed66a85bb9f2f5fbcdde84788394022ae5d43bdd1d64049e10abecbdbf4",
+          "rule_confirmation_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+          "rule_confirmation_sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8"
+        }
+      },
+      "rule_confirmation": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-confirmation.json",
+        "sha256": "81550cf1ab0a155d8e468dff9089bcc9a17444603460aead63731a833e6082c8",
+        "user_choice": "只作必要背景，不独立抽取（推荐）",
+        "source_call_id": "call_8d41a9905c0c460bac36009e623b0ed9",
+        "message_timestamp": null,
+        "scope_rule_version": "metric-definitions-context-only-1",
+        "scope": "测量指标定义/计算方式（如CTR实性成分直径/结节直径）仅作理解视觉描述所需的必要context；一般视觉形态定义与原文直接尺寸/CT值仍可独立收录。"
+      },
+      "prompt_change": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prompt-change.json",
+        "sha256": "e5d6dbb70fd92932b32cf3f1eb1f5192dc3253cdfd8124349d41fc51ce6a7d9c",
+        "only_added_rule": "Measurement-metric definitions and calculation formulas (for example CTR = solid-component diameter divided by nodule diameter) are necessary context only when needed to understand an actual visual description; never emit them as independent primary descriptions. General definitions of visual morphology and direct observed dimensions or CT values remain eligible: a spiculated-margin definition or an observed 9 mm nodule / 35 HU is not excluded by this rule.",
+        "removing_added_rule_restores_parent_system_exactly": true,
+        "parent_system_prompt_sha256": "15400dc6ee8edbfbdb4f5e7647108cf1572bfbce57f529177a7aafb64d563380",
+        "child_system_prompt_sha256": "36ff924dc17c9420679faf83e1f2259859c70c8e548db737021952803a123ea6",
+        "actual_old_online_full_body_replay_equality_claimed": false,
+        "unchanged": "evidence v2 schema/validator/tools/source units/source masks/model/papers/strategy and all other system text"
+      },
+      "logical_conditions": 6,
+      "unique_inputs": 5,
+      "focused_local_tests_reported": 4,
+      "root_tsc_exit_reported": 0,
+      "ledger": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+      "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+      "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "budget_or_time_reset": false,
+      "original_prepared_parent_plan_and_authorization_unchanged": true,
+      "new_medical_human_review": 0,
+      "old_35_feedback_inherited": false,
+      "outcome_not_final": true,
+      "known_negative_job": {
+        "received_at_utc": "2026-11-05T08:02:30.837987+00:00",
+        "status": "final_negative_evidence_for_one_child_job_other_methods_still_running",
+        "job": "child:L05-B0",
+        "diagnostic": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+          "sha256": "138578a6c5f99b726ac369fcc35e53b627896d5f2f3e69f0149df95a26ca5aeb"
+        },
+        "whole_job": {
+          "actual_requests_reported_by_main": 33,
+          "elapsed_seconds_reported_by_main": 505.98,
+          "selected_blocks_processed": 615,
+          "selected_blocks_complete_does_not_imply_original_PDF_or_summary_complete": true,
+          "candidates": 3
+        },
+        "summary_only": {
+          "actual_provider_responses": 15,
+          "whole_document_summary_complete": false,
+          "final_error_code": "whole_document_summary_incomplete",
+          "underlying_error_code": "application_context_estimate_limit",
+          "limit_is_application_estimate_guard_not_claimed_provider_context_exhaustion": true,
+          "submit_tool_calls": 5,
+          "submit_tool_errors": 5,
+          "read_tool_calls": 11,
+          "read_tool_errors": 2,
+          "candidate_packet_reads": 1,
+          "stopped_before_another_provider_call": true
+        },
+        "candidate_risks": {
+          "exactly_identical_AAH_primary_quotes": 2,
+          "effective_distinct_descriptions_claimed": false,
+          "diagnostic_underestimation_condition_sentence_requires_review": true,
+          "CTR_definition_not_independent_in_this_job": true
+        },
+        "evidence_limits": {
+          "per_call_parameters_saved": false,
+          "old_full_provider_body_saved": false,
+          "all_submit_error_codes_known": false,
+          "identical_read_arrays_proven": false,
+          "do_not_infer_one_error_code_for_all_failures": true
+        },
+        "new_model_comprehensive_improvement_proven": false,
+        "all_summaries_succeeded_claim_permitted": false,
+        "medical_quality_approved": false,
+        "product_export_approved": false,
+        "preserve_raw_candidates_and_failure": true,
+        "new_protocol_or_limit_optimization_applied": false
+      }
+    },
+    "important_negative_evidence": [
+      {
+        "received_at_utc": "2026-11-05T08:02:30.837987+00:00",
+        "status": "final_negative_evidence_for_one_child_job_other_methods_still_running",
+        "job": "child:L05-B0",
+        "diagnostic": {
+          "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+          "sha256": "138578a6c5f99b726ac369fcc35e53b627896d5f2f3e69f0149df95a26ca5aeb"
+        },
+        "whole_job": {
+          "actual_requests_reported_by_main": 33,
+          "elapsed_seconds_reported_by_main": 505.98,
+          "selected_blocks_processed": 615,
+          "selected_blocks_complete_does_not_imply_original_PDF_or_summary_complete": true,
+          "candidates": 3
+        },
+        "summary_only": {
+          "actual_provider_responses": 15,
+          "whole_document_summary_complete": false,
+          "final_error_code": "whole_document_summary_incomplete",
+          "underlying_error_code": "application_context_estimate_limit",
+          "limit_is_application_estimate_guard_not_claimed_provider_context_exhaustion": true,
+          "submit_tool_calls": 5,
+          "submit_tool_errors": 5,
+          "read_tool_calls": 11,
+          "read_tool_errors": 2,
+          "candidate_packet_reads": 1,
+          "stopped_before_another_provider_call": true
+        },
+        "candidate_risks": {
+          "exactly_identical_AAH_primary_quotes": 2,
+          "effective_distinct_descriptions_claimed": false,
+          "diagnostic_underestimation_condition_sentence_requires_review": true,
+          "CTR_definition_not_independent_in_this_job": true
+        },
+        "evidence_limits": {
+          "per_call_parameters_saved": false,
+          "old_full_provider_body_saved": false,
+          "all_submit_error_codes_known": false,
+          "identical_read_arrays_proven": false,
+          "do_not_infer_one_error_code_for_all_failures": true
+        },
+        "new_model_comprehensive_improvement_proven": false,
+        "all_summaries_succeeded_claim_permitted": false,
+        "medical_quality_approved": false,
+        "product_export_approved": false,
+        "preserve_raw_candidates_and_failure": true,
+        "new_protocol_or_limit_optimization_applied": false
+      }
+    ],
+    "final_actual_execution": {
+      "status": "two_rounds_model_calls_finished_recorded_partial_and_failure_cases_pending_new_output_review",
+      "finalized_at_utc": "2026-11-05T08:11:24.363Z",
+      "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+      "authorization_granted": true,
+      "current_paid_requests_running": false,
+      "further_new_optimization_or_paid_calls_authorized": false,
+      "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+      "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "limits": {
+        "requests": 300,
+        "input_tokens": 6000000,
+        "output_tokens": 400000,
+        "seconds": 14400,
+        "request_seconds": 120,
+        "document_seconds": 1800,
+        "transient_retries": 2,
+        "response_output_tokens": 8192,
+        "batch_responses": 16
+      },
+      "new_ledger": {
+        "path": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "sha256": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+        "physical_requests": 216,
+        "settled": 216,
+        "provider_reported_usage": 216,
+        "input_tokens_including_cache": 1750064,
+        "output_tokens_including_reasoning": 59428,
+        "missing_usage": 0,
+        "halted": null,
+        "owner_lock_present": false,
+        "API_processes_present_reported_by_core": false,
+        "last_provider_request_finished_at": "2026-11-05T08:07:45.878Z"
+      },
+      "old_189_ledger_unchanged": true,
+      "old_189_ledger_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+      "historical_plus_current_requests": 405,
+      "old_189_counted_against_new_300_cap": false,
+      "rounds": [
+        {
+          "round_id": "round1",
+          "label": "修复流程首次真实复验（保留当时CTR实际候选）",
+          "rule_note": "当时计算定义边界待确认；用户现已确认仅可作必要背景。13条真实候选和首次失败/重试完整保留，不转为当前独立交付批准。",
+          "finalized_at": "2026-11-05T07:24:03.961Z",
+          "usage_totals": {
+            "requests": 99,
+            "input_tokens": 699345,
+            "output_tokens": 29243,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing"
+          },
+          "actual_unique_inputs": 5,
+          "logical_conditions": 6,
+          "actual_record_count": 13,
+          "literal_CTR_definition_primary_records": 3,
+          "literal_CTR_definition_context_records": 0,
+          "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json",
+          "semantic_or_medical_success_inferred": false
+        },
+        {
+          "round_id": "round2",
+          "label": "最新：计算定义仅必要背景的单项prompt复验",
+          "rule_note": "公共system只新增测量指标/计算定义不得独立主描述的规则；一般形态定义及直接尺寸/CT值保留。证据schema、validator、工具、选块、其他语义策略未变。",
+          "finalized_at": "2026-11-05T08:11:23.936Z",
+          "usage_totals": {
+            "requests": 117,
+            "input_tokens": 1050719,
+            "output_tokens": 30185,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing"
+          },
+          "actual_unique_inputs": 5,
+          "logical_conditions": 6,
+          "actual_record_count": 11,
+          "literal_CTR_definition_primary_records": 0,
+          "literal_CTR_definition_context_records": 0,
+          "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/report.json",
+          "semantic_or_medical_success_inferred": false
+        }
+      ],
+      "CTR_observation": {
+        "parent_methods_with_one_primary_CTR_record_each": 3,
+        "parent_primary_records": 3,
+        "child_primary_records": 0,
+        "parent_context_records": 0,
+        "child_context_records": 0,
+        "three_independent_definitions_claimed": false,
+        "successful_conversion_into_context_claimed": false
+      },
+      "candidate_count_boundary": "每轮按5个实际代表run合计13/11条候选，L01-R复用不再计；未作医学有效性或内容去重计数。子轮F失败尝试另1条AAH单列，不加入11。",
+      "negative_case": {
+        "job": "round2:L05-B0",
+        "requests": 33,
+        "input_tokens": 415093,
+        "output_tokens": 9286,
+        "seconds": 505.97817499100006,
+        "selected_blocks_processed": 615,
+        "summary_responses": 15,
+        "summary_complete": false,
+        "final_error": "whole_document_summary_incomplete",
+        "underlying_error": "application_context_estimate_limit",
+        "AAH_primary_quote_duplicate_records": 2,
+        "diagnostic_underestimation_condition_sentence": "pending_professional_review",
+        "all_summaries_succeeded": false,
+        "all_error_codes_or_identical_read_arrays_known": false
+      },
+      "child_L05_F": {
+        "initial_failed_attempt_requests": 7,
+        "same_input_retry_requests": 18,
+        "method_requests_all_attempts": 25,
+        "seconds_all_attempts": 330.8106390859999,
+        "final_representative_candidates": 1,
+        "partial_AAH_candidate_in_failed_attempt": 1,
+        "failed_partial_candidate_included_in_11": false
+      },
+      "controls": {
+        "common_rule_version": "metric-definitions-context-only-1",
+        "only_new_system_prompt_rule_design": true,
+        "v2_schema_validator_tools_masks_unchanged": true,
+        "same_auth_record_time_source_limits_owner_and_original_start": true,
+        "old_online_full_provider_body_replay_equality_claimed": false,
+        "first_round_many_fixes_single_factor_attribution_claimed": false
+      },
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "new_output_human_reviews": 0,
+      "professional_medical_reviews": 0,
+      "record_level_product_approvals": 0,
+      "old_35_feedback_inherited": false,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "stage_passed": false,
+      "winner": null,
+      "accuracy": null,
+      "recall": null,
+      "formal_reviews_used": 3,
+      "new_formal_rounds": 0,
+      "execution_closure": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+        "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+        "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+        "unused_requests_not_new_authorization": 84,
+        "no_further_API_calls_scheduled_or_permitted_automatically": true
+      },
+      "remaining_engineering_work": [
+        "工具参数可靠性",
+        "汇总完整性",
+        "重复处理"
+      ],
+      "relevance_review": "专业及新输出人工核验仍待落实"
+    },
+    "final_core_report": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json",
+      "sha256": "492d87259cc62bb80b196f148017287c7aef31d0183e53be012935c15b1f4d82"
+    },
+    "final_reader_data_manifest": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/reader-manifest.json",
+      "sha256": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+      "source_artifact_checks": 159
+    },
+    "final_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+    "reader_record": "方案/子任务T1/当前版本.json#/current_revalidation_readonly_viewer"
+  },
+  "interim_documentation_sync": {
+    "recorded_at_utc": "2026-11-05T06:58:02.381434+00:00",
+    "current_version_only": true,
+    "other_10_current_files_last_synced_before_this_new_authorization": true,
+    "final_sync_after_actual_results": true,
+    "historical_document_validation_record": "code/docs/acceptance/user-feedback-2026-11-05/document-validation.json",
+    "prior_validation_is_time_scoped_not_current_11_manifest": true,
+    "running_progress_last_synced_at_utc": "2026-11-05T08:24:01.687377+00:00",
+    "status": "superseded_by_final_12_file_sync",
+    "final_document_validation": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/document-validation.json"
+  },
+  "current_feedback_revalidation_results_record": "方案/子任务T1/当前版本.json#/current_feedback_revalidation_results",
+  "current_revalidation_readonly_viewer_record": "方案/子任务T1/当前版本.json#/current_revalidation_readonly_viewer",
+  "current_feedback_revalidation_results": {
+    "status": "actual_two_round_calls_closed_readonly_review_delivered_quality_and_selection_pending",
+    "recorded_at_utc": "2026-11-05T08:41:32.905984+00:00",
+    "core_report": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/report.json",
+      "sha256": "492d87259cc62bb80b196f148017287c7aef31d0183e53be012935c15b1f4d82"
+    },
+    "reader_manifest": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/reader-manifest.json",
+      "sha256": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+      "source_artifact_checks": 159
+    },
+    "execution_closure": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+      "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+      "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+      "unused_requests_not_new_authorization": 84,
+      "no_further_API_calls_scheduled_or_permitted_automatically": true
+    },
+    "actual_execution": {
+      "status": "two_rounds_model_calls_finished_recorded_partial_and_failure_cases_pending_new_output_review",
+      "finalized_at_utc": "2026-11-05T08:11:24.363Z",
+      "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+      "authorization_granted": true,
+      "current_paid_requests_running": false,
+      "further_new_optimization_or_paid_calls_authorized": false,
+      "original_first_call_utc": "2026-11-05T06:55:03.968Z",
+      "original_deadline_utc": "2026-11-05T10:55:03.968Z",
+      "limits": {
+        "requests": 300,
+        "input_tokens": 6000000,
+        "output_tokens": 400000,
+        "seconds": 14400,
+        "request_seconds": 120,
+        "document_seconds": 1800,
+        "transient_retries": 2,
+        "response_output_tokens": 8192,
+        "batch_responses": 16
+      },
+      "new_ledger": {
+        "path": "code/runtime-data/s4-budget-owners/7886acc9d84716e668cd3512e19f8213896d76fab1901eed24317acfa95fffda/call-ledger.json",
+        "sha256": "57c31daac361add5ecc3b316e3004316ab09aa99724e949c3e6785087516b353",
+        "physical_requests": 216,
+        "settled": 216,
+        "provider_reported_usage": 216,
+        "input_tokens_including_cache": 1750064,
+        "output_tokens_including_reasoning": 59428,
+        "missing_usage": 0,
+        "halted": null,
+        "owner_lock_present": false,
+        "API_processes_present_reported_by_core": false,
+        "last_provider_request_finished_at": "2026-11-05T08:07:45.878Z"
+      },
+      "old_189_ledger_unchanged": true,
+      "old_189_ledger_sha256": "4db3d4ca830103f9e7b3c9eb0e6fac663a725c749f1ef1f30ea94cc883f99aed",
+      "historical_plus_current_requests": 405,
+      "old_189_counted_against_new_300_cap": false,
+      "rounds": [
+        {
+          "round_id": "round1",
+          "label": "修复流程首次真实复验（保留当时CTR实际候选）",
+          "rule_note": "当时计算定义边界待确认；用户现已确认仅可作必要背景。13条真实候选和首次失败/重试完整保留，不转为当前独立交付批准。",
+          "finalized_at": "2026-11-05T07:24:03.961Z",
+          "usage_totals": {
+            "requests": 99,
+            "input_tokens": 699345,
+            "output_tokens": 29243,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing"
+          },
+          "actual_unique_inputs": 5,
+          "logical_conditions": 6,
+          "actual_record_count": 13,
+          "literal_CTR_definition_primary_records": 3,
+          "literal_CTR_definition_context_records": 0,
+          "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json",
+          "semantic_or_medical_success_inferred": false
+        },
+        {
+          "round_id": "round2",
+          "label": "最新：计算定义仅必要背景的单项prompt复验",
+          "rule_note": "公共system只新增测量指标/计算定义不得独立主描述的规则；一般形态定义及直接尺寸/CT值保留。证据schema、validator、工具、选块、其他语义策略未变。",
+          "finalized_at": "2026-11-05T08:11:23.936Z",
+          "usage_totals": {
+            "requests": 117,
+            "input_tokens": 1050719,
+            "output_tokens": 30185,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing"
+          },
+          "actual_unique_inputs": 5,
+          "logical_conditions": 6,
+          "actual_record_count": 11,
+          "literal_CTR_definition_primary_records": 0,
+          "literal_CTR_definition_context_records": 0,
+          "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/report.json",
+          "semantic_or_medical_success_inferred": false
+        }
+      ],
+      "CTR_observation": {
+        "parent_methods_with_one_primary_CTR_record_each": 3,
+        "parent_primary_records": 3,
+        "child_primary_records": 0,
+        "parent_context_records": 0,
+        "child_context_records": 0,
+        "three_independent_definitions_claimed": false,
+        "successful_conversion_into_context_claimed": false
+      },
+      "candidate_count_boundary": "每轮按5个实际代表run合计13/11条候选，L01-R复用不再计；未作医学有效性或内容去重计数。子轮F失败尝试另1条AAH单列，不加入11。",
+      "negative_case": {
+        "job": "round2:L05-B0",
+        "requests": 33,
+        "input_tokens": 415093,
+        "output_tokens": 9286,
+        "seconds": 505.97817499100006,
+        "selected_blocks_processed": 615,
+        "summary_responses": 15,
+        "summary_complete": false,
+        "final_error": "whole_document_summary_incomplete",
+        "underlying_error": "application_context_estimate_limit",
+        "AAH_primary_quote_duplicate_records": 2,
+        "diagnostic_underestimation_condition_sentence": "pending_professional_review",
+        "all_summaries_succeeded": false,
+        "all_error_codes_or_identical_read_arrays_known": false
+      },
+      "child_L05_F": {
+        "initial_failed_attempt_requests": 7,
+        "same_input_retry_requests": 18,
+        "method_requests_all_attempts": 25,
+        "seconds_all_attempts": 330.8106390859999,
+        "final_representative_candidates": 1,
+        "partial_AAH_candidate_in_failed_attempt": 1,
+        "failed_partial_candidate_included_in_11": false
+      },
+      "controls": {
+        "common_rule_version": "metric-definitions-context-only-1",
+        "only_new_system_prompt_rule_design": true,
+        "v2_schema_validator_tools_masks_unchanged": true,
+        "same_auth_record_time_source_limits_owner_and_original_start": true,
+        "old_online_full_provider_body_replay_equality_claimed": false,
+        "first_round_many_fixes_single_factor_attribution_claimed": false
+      },
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "new_output_human_reviews": 0,
+      "professional_medical_reviews": 0,
+      "record_level_product_approvals": 0,
+      "old_35_feedback_inherited": false,
+      "medical_quality_approved": false,
+      "product_export_approved": false,
+      "stage_passed": false,
+      "winner": null,
+      "accuracy": null,
+      "recall": null,
+      "formal_reviews_used": 3,
+      "new_formal_rounds": 0,
+      "execution_closure": {
+        "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/execution-closure.json",
+        "sha256": "e17fa8b95d790242fb8fc6cbda1f069e232178808de7b1a59ee50909702a2584",
+        "actual_last_request_finished_at": "2026-11-05T08:07:45.878Z",
+        "unused_requests_not_new_authorization": 84,
+        "no_further_API_calls_scheduled_or_permitted_automatically": true
+      },
+      "remaining_engineering_work": [
+        "工具参数可靠性",
+        "汇总完整性",
+        "重复处理"
+      ],
+      "relevance_review": "专业及新输出人工核验仍待落实"
+    },
+    "jobs": [
+      {
+        "job_id": "round1:L01-B0",
+        "document_id": "L01",
+        "method": "B0",
+        "label": "单独智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 17,
+        "input_tokens": 100106,
+        "output_tokens": 4617,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/delivery.json",
+        "seconds": 148.104667884,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": true,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "8e1258da58bd7b2fc252160331dc6803025554bf074a2d74e67ff189e641ac8b",
+        "medical_quality_approved": false,
+        "round_id": "round1",
+        "actual_job_id": "L01-B0",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 148.104667884,
+            "requests": 17,
+            "input_tokens": 100106,
+            "output_tokens": 4617,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "e82196a8e968c4c71ab074e5e99938c57c72af69e99f2449b07efbf47a531b05"
+          }
+        ]
+      },
+      {
+        "job_id": "round1:L01-F",
+        "document_id": "L01",
+        "method": "F",
+        "label": "规则正向预抽取＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 17,
+        "input_tokens": 106219,
+        "output_tokens": 3571,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/delivery.json",
+        "seconds": 144.434509923,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+        "medical_quality_approved": false,
+        "round_id": "round1",
+        "actual_job_id": "L01-F",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-F/result.json",
+            "state": "failed",
+            "error": {
+              "type": "ContractError",
+              "code": "model_tool_protocol_diagnostic_pause"
+            },
+            "seconds": 7.038824857,
+            "requests": 2,
+            "input_tokens": 4772,
+            "output_tokens": 33,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+            "result_sha256": "2502d67a9001e012c98c21726dd659fd43aeac94339ba1d866876b9a524e61e1"
+          },
+          {
+            "attempt": 1,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 137.395685066,
+            "requests": 15,
+            "input_tokens": 101447,
+            "output_tokens": 3538,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/retry-report.json",
+            "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+            "result_sha256": "e3b46d9bae9615fdf433eab2b2233cb06a9e180eea67e578da9ffb8a2b79177e"
+          }
+        ]
+      },
+      {
+        "job_id": "round1:L01-R",
+        "document_id": "L01",
+        "method": "R",
+        "label": "仅删除明确无关＋智能体",
+        "state": "partial",
+        "independent_model_run": false,
+        "reused_from_job_id": "round1:L01-F",
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "representative_measurement": {
+          "requests": 17,
+          "input_tokens": 106219,
+          "output_tokens": 3571,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "seconds": 144.434509923
+        },
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "outcome_reason": "离线等价输入复用F最终实际产物；0新增调用不是零成本策略收益，非独立证据。",
+        "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+        "round_id": "round1",
+        "actual_job_id": "L01-R",
+        "attempts": []
+      },
+      {
+        "job_id": "round1:L05-B0",
+        "document_id": "L05",
+        "method": "B0",
+        "label": "单独智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 3,
+        "delivered_count": 3,
+        "requests": 22,
+        "input_tokens": 158438,
+        "output_tokens": 6242,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/delivery.json",
+        "seconds": 179.55651218600002,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": true,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "c3bd78bef7d282932550fad91368a6000dda57a563dc17349cbd274d5a45cf43",
+        "medical_quality_approved": false,
+        "round_id": "round1",
+        "actual_job_id": "L05-B0",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 179.55651218600002,
+            "requests": 22,
+            "input_tokens": 158438,
+            "output_tokens": 6242,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "b40f5c43b221e0a24f1b5f75a36c97104bf8157af70ced606e235c9289b07596"
+          }
+        ]
+      },
+      {
+        "job_id": "round1:L05-F",
+        "document_id": "L05",
+        "method": "F",
+        "label": "规则正向预抽取＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 3,
+        "delivered_count": 3,
+        "requests": 22,
+        "input_tokens": 142804,
+        "output_tokens": 6603,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/delivery.json",
+        "seconds": 310.606241402,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "b63745c9e2e910361ba0eaee5f8d0cf15b0747b151a6dafaa1703dceb5122648",
+        "medical_quality_approved": false,
+        "round_id": "round1",
+        "actual_job_id": "L05-F",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-F/result.json",
+            "state": "failed",
+            "error": {
+              "type": "ContractError",
+              "code": "model_tool_protocol_diagnostic_pause"
+            },
+            "seconds": 40.527560580999996,
+            "requests": 3,
+            "input_tokens": 17679,
+            "output_tokens": 1102,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+            "result_sha256": "d17772a6d1aa0083a42dcd791b6be07b1ee6c4228f92b5cf09b88e0d5354f454"
+          },
+          {
+            "attempt": 1,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 270.07868082100003,
+            "requests": 19,
+            "input_tokens": 125125,
+            "output_tokens": 5501,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/retry-report.json",
+            "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+            "result_sha256": "b20d5d7b2ebdedfc4e6eb31f7de42fc8be02881394db90757f021c30c8d79d47"
+          }
+        ]
+      },
+      {
+        "job_id": "round1:L05-R",
+        "document_id": "L05",
+        "method": "R",
+        "label": "仅删除明确无关＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 3,
+        "delivered_count": 3,
+        "requests": 21,
+        "input_tokens": 191778,
+        "output_tokens": 8210,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/delivery.json",
+        "seconds": 334.26049583599996,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "diagnostic_counts": {
+          "effective_diagnostics": 2,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "77b65ed9fe24ce9031a8f6a9e119690e05482074d1b616755da4387f177c826f",
+        "medical_quality_approved": false,
+        "round_id": "round1",
+        "actual_job_id": "L05-R",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 334.26049583599996,
+            "requests": 21,
+            "input_tokens": 191778,
+            "output_tokens": 8210,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "1c29db1390188a5c4c1a0c6539fb2978d8b1eee26d97d35029c3e2d8b7c21f3f"
+          }
+        ]
+      },
+      {
+        "job_id": "round2:L01-B0",
+        "document_id": "L01",
+        "method": "B0",
+        "label": "单独智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 15,
+        "input_tokens": 85164,
+        "output_tokens": 3782,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/delivery.json",
+        "seconds": 139.10289699700002,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": true,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "summary_diagnostic_path": null,
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "81c39b235e5a81272edac101b9dc989c39df8915139cbdf75998bda7fce49265",
+        "medical_quality_approved": false,
+        "round_id": "round2",
+        "actual_job_id": "L01-B0",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 139.10289699700002,
+            "candidate_count": 2,
+            "requests": 15,
+            "input_tokens": 85164,
+            "output_tokens": 3782,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "73ced794a6b1ab45733d457527e339a7e3406c1d0c12f18597852e3037872fd9"
+          }
+        ]
+      },
+      {
+        "job_id": "round2:L01-F",
+        "document_id": "L01",
+        "method": "F",
+        "label": "规则正向预抽取＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 17,
+        "input_tokens": 123536,
+        "output_tokens": 4507,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/delivery.json",
+        "seconds": 282.832082757,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "summary_diagnostic_path": null,
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927",
+        "medical_quality_approved": false,
+        "round_id": "round2",
+        "actual_job_id": "L01-F",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 282.832082757,
+            "candidate_count": 2,
+            "requests": 17,
+            "input_tokens": 123536,
+            "output_tokens": 4507,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "4585c0197402f00fea4ee367b02d95308c80c7c650192b254025bd3a73af7a35"
+          }
+        ]
+      },
+      {
+        "job_id": "round2:L01-R",
+        "document_id": "L01",
+        "method": "R",
+        "label": "仅删除明确无关＋智能体",
+        "state": "partial",
+        "independent_model_run": false,
+        "reused_from_job_id": "round2:L01-F",
+        "candidate_count": 2,
+        "delivered_count": 2,
+        "requests": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "representative_measurement": {
+          "requests": 17,
+          "input_tokens": 123536,
+          "output_tokens": 4507,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "seconds": 282.832082757
+        },
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "outcome_reason": "离线等价输入复用F最终实际产物；0新增调用不是零成本策略收益，非独立证据。",
+        "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927",
+        "round_id": "round2",
+        "actual_job_id": "L01-R",
+        "attempts": []
+      },
+      {
+        "job_id": "round2:L05-B0",
+        "document_id": "L05",
+        "method": "B0",
+        "label": "单独智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 3,
+        "delivered_count": 3,
+        "requests": 33,
+        "input_tokens": 415093,
+        "output_tokens": 9286,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/delivery.json",
+        "seconds": 505.97817499100006,
+        "summary_complete": false,
+        "source_processing_complete": true,
+        "full_source_processing_complete": true,
+        "outcome_reason": "whole_document_summary_incomplete；保留实际3条候选、失败链和全部耗费，不当汇总完成或质量通过。",
+        "summary_diagnostic_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "317b0bbfc026a250cf9c0182977e923b13ecdfa57aa5c35f8758a257674691d3",
+        "medical_quality_approved": false,
+        "round_id": "round2",
+        "actual_job_id": "L05-B0",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+            "state": "partial",
+            "error": {
+              "type": "ContractError",
+              "code": "whole_document_summary_incomplete"
+            },
+            "seconds": 505.97817499100006,
+            "candidate_count": 3,
+            "requests": 33,
+            "input_tokens": 415093,
+            "output_tokens": 9286,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+            "result_sha256": "a7064a1fb168312dda11f50cc70ecf04181ee497b23d501292f3bf09d338c8c2"
+          }
+        ]
+      },
+      {
+        "job_id": "round2:L05-F",
+        "document_id": "L05",
+        "method": "F",
+        "label": "规则正向预抽取＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 1,
+        "delivered_count": 1,
+        "requests": 25,
+        "input_tokens": 163434,
+        "output_tokens": 5900,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/delivery.json",
+        "seconds": 330.8106390859999,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "summary_diagnostic_path": null,
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "222bb49d95bd938563203f4082fb2eb02d16f85f8822177c7eb28ce3c897a8ed",
+        "medical_quality_approved": false,
+        "round_id": "round2",
+        "actual_job_id": "L05-F",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/result.json",
+            "state": "partial",
+            "error": {
+              "type": "ContractError",
+              "code": "model_tool_protocol_diagnostic_pause"
+            },
+            "seconds": 102.21972520799993,
+            "candidate_count": 1,
+            "requests": 7,
+            "input_tokens": 51652,
+            "output_tokens": 3437,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+            "result_sha256": "a0b165978a567d03d32d1f83bd749d6f3c11fae95d42ed624d59bdbf7d5abc64"
+          },
+          {
+            "attempt": 1,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+            "state": "partial",
+            "error": null,
+            "candidate_count": 1,
+            "seconds": 228.59091387799998,
+            "requests": 18,
+            "input_tokens": 111782,
+            "output_tokens": 2463,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/retry-report.json",
+            "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+            "result_sha256": "5ef42aeb924d44edef5484dec145cd022f42c637e84c3ae12be0696c21e7e66c"
+          }
+        ]
+      },
+      {
+        "job_id": "round2:L05-R",
+        "document_id": "L05",
+        "method": "R",
+        "label": "仅删除明确无关＋智能体",
+        "state": "partial",
+        "independent_model_run": true,
+        "candidate_count": 3,
+        "delivered_count": 3,
+        "requests": 27,
+        "input_tokens": 263492,
+        "output_tokens": 6710,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+        "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/delivery.json",
+        "seconds": 361.6846975770001,
+        "summary_complete": true,
+        "source_processing_complete": true,
+        "full_source_processing_complete": false,
+        "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+        "summary_diagnostic_path": null,
+        "diagnostic_counts": {
+          "effective_diagnostics": 0,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0
+        },
+        "model_source_input_sha256": "eb6ef4f13dfadd9c339a86b5268f2a432e2602a3bc8bf81a06400a38f79f9605",
+        "medical_quality_approved": false,
+        "round_id": "round2",
+        "actual_job_id": "L05-R",
+        "attempts": [
+          {
+            "attempt": 0,
+            "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+            "state": "partial",
+            "error": null,
+            "seconds": 361.6846975770001,
+            "candidate_count": 3,
+            "requests": 27,
+            "input_tokens": 263492,
+            "output_tokens": 6710,
+            "actual_cost": null,
+            "cost_status": "unknown_gateway_billing",
+            "outcome_reason": "首次实际运行，医学及产品批准未发生",
+            "result_sha256": "60e50232ef7a4c88c7a5f0bac22b23005e060fc82db9272e6b9d8c2009990db1"
+          }
+        ]
+      }
+    ],
+    "candidate_count_boundary": "父轮13条、子轮11条均为代表路径候选；11条含同组重复，不是11条去重有效描述。子轮F首次失败另有1条AAH原文单列，不并入11条。",
+    "old_feedback_boundary": "旧1名普通用户35条初筛（随机30＋风险5，11备注；UI32已记录＋3待核）仅绑定旧版本；新两轮候选人核0、专业医学核验0、逐条产品批准0，不继承旧反馈。相关性、医学语境和正式三方案选优仍待落实，赢家/准确率/召回均无，S2/S3/S4完整质量和完整S5未过。",
+    "CTR_rule": "测量指标定义和计算方式（如CTR实性成分直径/结节直径）仅在理解实际视觉描述所需时保留为必要背景，不独立抽取；一般视觉形态定义和原文直接尺寸、CT值仍可独立收录。",
+    "CTR_observation": "父轮3个方法各有1条把CTR计算定义列为主描述的记录，子轮为0，两轮context均为0；只是未再单独出现，未实证转存上下文，也不证明全部语义正确。",
+    "control_and_inference_limits": "首轮相对旧结果合并多项修复，不能单因素归因；父子轮设计仅新增一条公共system测量定义范围规则，v2 schema/validator/工具/选块及其他system文字未改。移除新规则后旧system逐字相同，但父轮线上完整HTTP body未留存，不声称所有实际payload仅此差异。两篇开发论文、每轮一次及失败重试不构成普遍性能或质量保证。",
+    "important_negative_case": "子轮L05-B0用33请求、415,093输入、9,286输出、505.98秒处理615个已选块，但汇总15次响应后触发application_context_estimate_limit，导致whole_document_summary_incomplete；这与parser partial分别记录，不是全部汇总完成。2条AAH主原文逐字相同，待核重复；诊断低估/小实性成分关联句仍待专业核验。",
+    "failed_attempts_and_costs": "父轮L01-F初次2请求＋重试15＝17，L05-F初次3＋重试19＝22；子轮L05-F初次7＋重试18＝25请求、330.81秒，最终代表路径仅1条候选，失败partial另1条AAH保留。所有耗费同账本计入，R复用有效F非独立测量，方法耗费引用代表F，0新增不等于零成本优势。",
+    "remaining_engineering_work": [
+      "工具参数可靠性",
+      "汇总完整性",
+      "重复处理"
+    ],
+    "relevance": "待新输出人工及专业核验",
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "stage_passed": false,
+    "winner": null,
+    "accuracy": null,
+    "recall": null,
+    "new_output_human_reviews": 0,
+    "old_feedback_inherited": false,
+    "formal_reviews_used": 3,
+    "new_formal_rounds": 0,
+    "next": "只读回看新两轮及保留的失败，继续处理S4质量遗留；无额外API或新优化，不把已有授权重新写成待批准，也不把余额当新调用许可。"
+  },
+  "current_revalidation_readonly_viewer": {
+    "status": "delivered_actual_browser_verified_read_only",
+    "recorded_at_utc": "2026-11-05T08:30:36.886Z",
+    "entry": "code/apps/pi-web/public/output-review/revalidation.html",
+    "same_pi_web_project": true,
+    "default_round": "round2",
+    "source_data": {
+      "path": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/final-two-rounds/reader-manifest.json",
+      "sha256": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e",
+      "source_artifact_checks": 159
+    },
+    "frozen_tested_delivery": {
+      "code/apps/pi-web/public/output-review/revalidation.html": "54c7448a53752c6e9a79fa55f8de9795f83d7aa700a62cde2faa225afce39b33",
+      "code/apps/pi-web/public/output-review/revalidation.js": "86198191a6469072daf593a9b193e20a7e36adf3b43b66281db896dd19451906",
+      "code/apps/pi-web/public/output-review/revalidation.css": "b4a9d1d7645b2c155268cbbf13766a122794e0d8fb41cc2b712307bdeef147d3",
+      "code/apps/pi-web/public/output-review/revalidation-data-a296a9e3ff6e.json": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e"
+    },
+    "validation": {
+      "status": "finalized_passed",
+      "entry": "code/apps/pi-web/public/output-review/revalidation.html",
+      "report": "code/docs/acceptance/user-feedback-2026-11-05/revalidation/frontend/results.json",
+      "report_sha256": "5d49c5a9d45cd14a3227f623f89f9e0f88a0f2c122307cdb3b58264bc4ed8159",
+      "passed": true,
+      "actual_browser_execution": true,
+      "browser_checks": 14,
+      "focused_new_unit_tests": 9,
+      "static_typecheck": "passed",
+      "read_only": true,
+      "new_questionnaire": false,
+      "new_review_or_approval_writes": false,
+      "new_human_reviews": 0,
+      "representative_candidate_records": 24,
+      "parent_candidate_records": 13,
+      "child_candidate_records": 11,
+      "failed_attempt_partial_records_separate": 1,
+      "literal_source_context_spans": 75,
+      "actual_source_locates": 48,
+      "source_artifacts_checked": 159,
+      "round_source_snapshot_checks": 104,
+      "protected_files_unchanged_reported": 172,
+      "vscode_live_server_extension_exercised": false,
+      "tested_file_sha256": {
+        "code/apps/pi-web/public/output-review/revalidation.html": "54c7448a53752c6e9a79fa55f8de9795f83d7aa700a62cde2faa225afce39b33",
+        "code/apps/pi-web/public/output-review/revalidation.js": "86198191a6469072daf593a9b193e20a7e36adf3b43b66281db896dd19451906",
+        "code/apps/pi-web/public/output-review/revalidation.css": "b4a9d1d7645b2c155268cbbf13766a122794e0d8fb41cc2b712307bdeef147d3",
+        "code/apps/pi-web/public/output-review/revalidation-data-a296a9e3ff6e.json": "a296a9e3ff6e8834073b7ed85ef72732b2a6fbf7d3d277f70e46502d6332685e"
+      }
+    },
+    "operations": [
+      "轮次默认最新；可选首轮或全部轮次（分别标记）",
+      "论文/方法/新候选筛选",
+      "旧11条备注·来源对照，仅溯源",
+      "运行情况查看全部失败/重试与失败partial原文，再返回代表路径候选",
+      "回看旧35条与原意见返回原index.html"
+    ],
+    "new_questionnaire": false,
+    "human_or_product_review_writes": false,
+    "new_human_reviews": 0,
+    "old_index_bundle_feedback_preserved": true,
+    "full_S5_completed": false,
+    "medical_quality_approved": false,
+    "product_export_approved": false
+  }
+}

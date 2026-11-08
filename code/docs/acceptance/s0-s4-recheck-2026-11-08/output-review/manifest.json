@@ -1,0 +1,1104 @@
+{
+  "schema_version": "current-output-review-manifest-1",
+  "pack_id": "current-output-2026-11-08-b634daf4d380",
+  "pack_sha256": "b06c3af0965b8ff7985ca4aaa1a4d0b68e2949629b738ff405e63b3a5061a5d9",
+  "plan_sha256": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+  "cases": 14,
+  "questions": 42,
+  "total_current_candidates": 56,
+  "logical_jobs": 6,
+  "planned_independent_inputs": 5,
+  "mechanically_exportable_unreviewed_candidates": 54,
+  "delivery_rejected_original_views": 2,
+  "actual_independent_runs_with_model_requests": 4,
+  "independent_result_files": 4,
+  "execution_status": "stopped_partial_or_failed",
+  "deduplicated_L01_reuse": true,
+  "sampling_algorithm": {
+    "mode": "versioned_fixed_seed_then_directed_risk",
+    "rank": "ascending SHA256 of UTF8 canonical sorted-key JSON(seed,job,record,record_version,version_fingerprint); version_fingerprint is delivery_fingerprint or explicit rejected raw_view_fingerprint, never a fabricated legal-delivery hash",
+    "seed": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+    "per_actual_run_limit_if_over_40": 6,
+    "additional_directed_risks_if_over_40": 2,
+    "directed_risk": "Priority: explicit delivery-rejected records (must be included), then interpretive_condition/association_conclusion or model only-background/not-independent flags, then needs_context, then pending/not_checked Figure. Already sampled risks are marked without duplication; no_explicit_reference alone is not an error.",
+    "formal_quality_threshold": null
+  },
+  "selection_by_actual_run": [
+    {
+      "job_id": "L01-B0",
+      "result_available": true,
+      "current_candidate_population": 2,
+      "sample_cases": 2,
+      "base_sample_cases": 2,
+      "directed_risk_cases": 0,
+      "risk_marked_cases_already_in_base": 2,
+      "record_versions": [
+        {
+          "record_id": "ev-73f6988fc2bb3fda2ca1e6d73f82994994bb54c7",
+          "record_version": 2,
+          "delivery_fingerprint": "a9168bb69d03ab6658c8bdff17c6bb8e7e2fd2f796fee38202fce73946dd390a",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对",
+            "图文对应尚待核验"
+          ]
+        },
+        {
+          "record_id": "ev-cf58c40ad552537ccadcbb9602b154e0872e8af9",
+          "record_version": 2,
+          "delivery_fingerprint": "10ac6c6c0892ad19b5780b282faf39fd2b49baaa3b1254bd53dbd29739b00741",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": "L05-B0",
+      "result_available": true,
+      "current_candidate_population": 2,
+      "sample_cases": 2,
+      "base_sample_cases": 2,
+      "directed_risk_cases": 0,
+      "risk_marked_cases_already_in_base": 2,
+      "record_versions": [
+        {
+          "record_id": "ev-8f7baf6f3ca8c78a03bab18f5c0ae6ce23d5dd72",
+          "record_version": 2,
+          "delivery_fingerprint": "97d0fff6cf36a90f5c9dbccc1a7e873f227ff0db34a8996eb06df002d5ec6f5a",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "条件解释候选；不等于已验收的独立图像特征",
+            "模型标记为背景或非独立视觉描述（模型意见未批准）",
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        },
+        {
+          "record_id": "ev-06cf24ace7f48f07fabae19c5d53dabd883fd9af",
+          "record_version": 4,
+          "delivery_fingerprint": "c2cb97c8fc35b8973fa2f4ef277dc1435f7c83ef2e76c624956b29d90f68c2a7",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": "L05-F",
+      "result_available": true,
+      "current_candidate_population": 2,
+      "sample_cases": 2,
+      "base_sample_cases": 2,
+      "directed_risk_cases": 0,
+      "risk_marked_cases_already_in_base": 2,
+      "record_versions": [
+        {
+          "record_id": "ev-1e69c73b22f36c78c0f18698251d35656f45cdd8",
+          "record_version": 1,
+          "delivery_fingerprint": "eef7957990404946b6f0aa67e91c9d03085ef61bf70a59071b0bf4b0f26ed121",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        },
+        {
+          "record_id": "ev-b4918e537f1aa6045a23abbd622364ff3a9f2edd",
+          "record_version": 2,
+          "delivery_fingerprint": "6be517f4174661e7120d727e9b0374701b25b219ecd95afa3515843c5549e6c1",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "条件解释候选；不等于已验收的独立图像特征",
+            "模型标记为背景或非独立视觉描述（模型意见未批准）",
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "result_available": true,
+      "current_candidate_population": 50,
+      "sample_cases": 8,
+      "base_sample_cases": 6,
+      "directed_risk_cases": 2,
+      "risk_marked_cases_already_in_base": 4,
+      "record_versions": [
+        {
+          "record_id": "ev-d38bc0044737d1238cc3bbd50731cb972c85637c",
+          "record_version": 1,
+          "delivery_fingerprint": "f5ddb580f76b61d069eb66aff820fa073169e00b3b1fa4ba88de6f98c36069e9",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "条件解释候选；不等于已验收的独立图像特征",
+            "记录状态为 needs_context，主体与条件仍待核对",
+            "图文对应尚待核验"
+          ]
+        },
+        {
+          "record_id": "ev-5e8df06fbbdb0eb5fd7756cd459fba63879cab5b",
+          "record_version": 1,
+          "delivery_fingerprint": "5cc0c8e69219a1b9887349d9d4eead8e36320a64a988bad5a5bbc46c96c6a51e",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": []
+        },
+        {
+          "record_id": "ev-323b865d2dec29564f941a232e505b454e49ba82",
+          "record_version": 3,
+          "delivery_fingerprint": "83fa56f85c9e62a536e635c89727aa3f920a2a58fe18b1606225609640dd92b8",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        },
+        {
+          "record_id": "ev-252c5b9d88a529e774a0ef82579be986d5bcc5e1",
+          "record_version": 1,
+          "delivery_fingerprint": "daa93774f56d21ddd6ab66a9015f3e57c369a5d09b1c3461288b2ac21b2dde10",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": []
+        },
+        {
+          "record_id": "ev-8a1fa14b02f21a9e504be48b6ecb36057108a10c",
+          "record_version": 1,
+          "delivery_fingerprint": "93f1e6e3f537a173a062d4e0d35521c0a2e2e0b0174836e459c4fd3d8963f91e",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "记录状态为 needs_context，主体与条件仍待核对"
+          ]
+        },
+        {
+          "record_id": "ev-dbeb43f693a8f29cd3cc3b5de2e2856da0f1f518",
+          "record_version": 1,
+          "delivery_fingerprint": "7648f2c300b8d76312cc0e750fc86906a2e3ac023bf5994be52b3e1a84693d52",
+          "selection": "fixed_seed_development_sample",
+          "directed_risk_reasons": [
+            "图文对应尚待核验"
+          ]
+        },
+        {
+          "record_id": "ev-76970ec1cb9d2a47aa412896e88086001744c8d5",
+          "record_version": 1,
+          "delivery_fingerprint": null,
+          "selection": "directed_risk_not_random_sample",
+          "directed_risk_reasons": [
+            "交付校验未通过：语境片段不完整；原始待核视图，不能由普通意见自动批准导出",
+            "记录状态为 needs_context，主体与条件仍待核对",
+            "图文对应尚待核验"
+          ]
+        },
+        {
+          "record_id": "ev-a3a491a7921d5c18180c5d6adafecf7d86dd0826",
+          "record_version": 2,
+          "delivery_fingerprint": null,
+          "selection": "directed_risk_not_random_sample",
+          "directed_risk_reasons": [
+            "交付校验未通过：语境片段不完整；原始待核视图，不能由普通意见自动批准导出",
+            "记录状态为 needs_context，主体与条件仍待核对",
+            "图文对应尚待核验"
+          ]
+        }
+      ]
+    },
+    {
+      "job_id": "L07-F",
+      "result_available": false,
+      "current_candidate_population": 0,
+      "sample_cases": 0,
+      "base_sample_cases": 0,
+      "directed_risk_cases": 0,
+      "risk_marked_cases_already_in_base": 0,
+      "record_versions": []
+    }
+  ],
+  "all_unreviewed_outputs": {
+    "href": "all-candidates.html",
+    "source_audit_href": "../comparison/automatic-audit/comparison.json",
+    "source_sha256": "db48cf87c107e6fd4aa741af2f389ec74988b0a7b5ea5ae58eb325dcf8cdb540",
+    "candidate_count": 56,
+    "included_in_simple_review": 14,
+    "not_in_simple_review": 42,
+    "scope": "all_current_unreviewed_outputs_not_a_sample_or_medical_approval"
+  },
+  "all_candidate_membership": [
+    {
+      "job_id": "L01-B0",
+      "record_id": "ev-73f6988fc2bb3fda2ca1e6d73f82994994bb54c7",
+      "record_version": 2,
+      "delivery_fingerprint": "a9168bb69d03ab6658c8bdff17c6bb8e7e2fd2f796fee38202fce73946dd390a",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L01-B0",
+      "record_id": "ev-cf58c40ad552537ccadcbb9602b154e0872e8af9",
+      "record_version": 2,
+      "delivery_fingerprint": "10ac6c6c0892ad19b5780b282faf39fd2b49baaa3b1254bd53dbd29739b00741",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L05-B0",
+      "record_id": "ev-06cf24ace7f48f07fabae19c5d53dabd883fd9af",
+      "record_version": 4,
+      "delivery_fingerprint": "c2cb97c8fc35b8973fa2f4ef277dc1435f7c83ef2e76c624956b29d90f68c2a7",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L05-B0",
+      "record_id": "ev-8f7baf6f3ca8c78a03bab18f5c0ae6ce23d5dd72",
+      "record_version": 2,
+      "delivery_fingerprint": "97d0fff6cf36a90f5c9dbccc1a7e873f227ff0db34a8996eb06df002d5ec6f5a",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "模型标记为背景或非独立视觉描述（模型意见未批准）",
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L05-F",
+      "record_id": "ev-1e69c73b22f36c78c0f18698251d35656f45cdd8",
+      "record_version": 1,
+      "delivery_fingerprint": "eef7957990404946b6f0aa67e91c9d03085ef61bf70a59071b0bf4b0f26ed121",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L05-F",
+      "record_id": "ev-b4918e537f1aa6045a23abbd622364ff3a9f2edd",
+      "record_version": 2,
+      "delivery_fingerprint": "6be517f4174661e7120d727e9b0374701b25b219ecd95afa3515843c5549e6c1",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "模型标记为背景或非独立视觉描述（模型意见未批准）",
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-046b3b1e9153601597abac351bae8e8446b3ff8b",
+      "record_version": 1,
+      "delivery_fingerprint": "02b03ea3142bd82f5ed00541ae9a73a16d076c0682843f89ae3dd12818861195",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-06fb762f6bf5f0a3706cdc5c3fd2a35c40d48231",
+      "record_version": 1,
+      "delivery_fingerprint": "267b764a81e6a47ecdf209015c9a8ae544b6cfacf724d29e4905375b117e0a7c",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-0e5414313702040fe652ca120545bb084f678bcb",
+      "record_version": 1,
+      "delivery_fingerprint": "229128e8f5c656fe92f3c0a9f5da4b99607823568d21a847efb5d25616e6a685",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-0f3d786043dacf336587d15eab5cd013e95fe52b",
+      "record_version": 2,
+      "delivery_fingerprint": "eabfdbb7fa9e9cd349bd93f8bf8233978130c44dd49a0003e59841122e830600",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-112d5c80a008c96f8be3d04cc8b1a0a4ea6c78c0",
+      "record_version": 2,
+      "delivery_fingerprint": "7a901500a3d61f9f27b35dfff6c61ed24c066dcc65b08d458a5bf4becf871e62",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-136a8c23720bd214fd70f514054cecc4f69a240f",
+      "record_version": 1,
+      "delivery_fingerprint": "3ca43f36030aef6a01c02df366d0c9a92ce7ef7c794fe7022415fa558bed1723",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-184cd0410ea78c1d4b7e9a1ffb6a8be2264dfa82",
+      "record_version": 3,
+      "delivery_fingerprint": "07d02b23b45f6541e8e86da584a02263755fbbf3f3f82b37ad434d24c6a93e34",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-190472f4f460dbe327421779dd72a2928d217f3c",
+      "record_version": 1,
+      "delivery_fingerprint": "135220eaaeb37e2cdb3c2127b1bd8330228bc178b789dbdb4c2b5a592bd4a1fc",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-21526972cb881eb83ba49d29fa37b99b2a166623",
+      "record_version": 1,
+      "delivery_fingerprint": "b755e60786ce0b0786fcb3c1ebef2eb6b4b8a685e40b2dc55f9a895c0d3bd63e",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-252c5b9d88a529e774a0ef82579be986d5bcc5e1",
+      "record_version": 1,
+      "delivery_fingerprint": "daa93774f56d21ddd6ab66a9015f3e57c369a5d09b1c3461288b2ac21b2dde10",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-2bb7575f6b3ddffb55bfb350e3842aac748aef4d",
+      "record_version": 1,
+      "delivery_fingerprint": "aafc1ec3671288babbb6104b758f7fb0e845f0502370aad5b48ce3c73508a6b9",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-2e8fcbda355e6f62cb16d1c0f394d8af94a31cc9",
+      "record_version": 1,
+      "delivery_fingerprint": "6661bab8eb88653eebd5f5916e244068f530e688ea01a9ff6f7db1eb330ea8d4",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-31d1cb12e0ed7a46f2edd2f9b1a0a976bef72846",
+      "record_version": 1,
+      "delivery_fingerprint": "0e9b06e1cb7523abf17fbc04968e2e914ef11a04c1e3f04bb79672d085082869",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-323b865d2dec29564f941a232e505b454e49ba82",
+      "record_version": 3,
+      "delivery_fingerprint": "83fa56f85c9e62a536e635c89727aa3f920a2a58fe18b1606225609640dd92b8",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-4c53853076a218f50588c2b9e5305f846dcbc9b5",
+      "record_version": 1,
+      "delivery_fingerprint": "e42b8b145f6f3e768aaf731a7b6648983868c2e97598c5181fd169c4bffa935c",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-539ea9472165b4bea69b7e94fb5d014bb3dec4f1",
+      "record_version": 1,
+      "delivery_fingerprint": "6f4ebb546a349501074b4434d7c03810b3f2de237341b9a6a1a9585714d34808",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-5407ce6f4e34f84bff0da345c98c65959993c368",
+      "record_version": 2,
+      "delivery_fingerprint": "4348c0dba56044650949efd34fa5011e3ec0f4234f0ffb730f8d5ed5f16064e7",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-5ccee1d552645ac10be19520ecaf125d2d286c6c",
+      "record_version": 1,
+      "delivery_fingerprint": "8437a45b4b92d432f08945a4ff33bfdb7c7832c88ef3852ff8b9160c0a4e7d9e",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-5e8df06fbbdb0eb5fd7756cd459fba63879cab5b",
+      "record_version": 1,
+      "delivery_fingerprint": "5cc0c8e69219a1b9887349d9d4eead8e36320a64a988bad5a5bbc46c96c6a51e",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-6191245d8d39f64e832986a019af234fff64ec49",
+      "record_version": 2,
+      "delivery_fingerprint": "08d9c1230e689846bd4b8470026d481db5e8fbd5cf462acf93d9d6ce62b90e4a",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-646d520652ffa08f5ba88561704b3c6582d7e0e9",
+      "record_version": 2,
+      "delivery_fingerprint": "de2c0bb1147c1626ad747c33c78546b0376028f662ce8eef28a9dec7d0e9ffd5",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-6c979b30f3ad7370a06631fad91a69b93842b36c",
+      "record_version": 1,
+      "delivery_fingerprint": "885d47375c545bbcb667fab3a0ff148375d0f36027499fbde1b7df6e73ec6f02",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-7069d67df7570736a8bd6514a11dde10b21e0ce6",
+      "record_version": 1,
+      "delivery_fingerprint": "c78bacee047667f88419e9adba84723c6d428cf1b199e23c6d35d29d03669c96",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-74f61fc8971172da07047c30e72e3f05689ab238",
+      "record_version": 1,
+      "delivery_fingerprint": "b8857916084a3620ce9bf745dcfe159d6ea4ff004ecb2eeac679d8d9abf07e80",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-7dfb6726c5e0e4112b249ee70aa2b4c2b70c836f",
+      "record_version": 1,
+      "delivery_fingerprint": "2883c86d5356901c293d35529c89f5efa8511ea1e57f380ec6ea72c61984805c",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-81755cea0ac030293b8b1e16ec929827c41022a0",
+      "record_version": 1,
+      "delivery_fingerprint": "e3ca5e79666096c4d97004e102bce05fab7c0dd9322f5385d58f33a4ac075e3c",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-85d6c519e2a67fb023b2a6185f01ad4b492f7add",
+      "record_version": 1,
+      "delivery_fingerprint": "b4ee9d06246bca8880a26cdaae247d451269f1af260c3614b7b30fd4a42a4517",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-88ac1e52eee9f150f68adb8739c2d40091d72318",
+      "record_version": 1,
+      "delivery_fingerprint": "798e02d7c4fd6a739227ddb8394a508515797ac7dd0d0e10af0301556765bc22",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-8a1fa14b02f21a9e504be48b6ecb36057108a10c",
+      "record_version": 1,
+      "delivery_fingerprint": "93f1e6e3f537a173a062d4e0d35521c0a2e2e0b0174836e459c4fd3d8963f91e",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-9863c6037beda3873d47e643c2f06c858ed0f8e1",
+      "record_version": 2,
+      "delivery_fingerprint": "5446641267c36bac1daf765fd169b25e1d821bb8d2811ad3b211820be6c88430",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-9cebd4de7757da4ae680a860a112f44020c2bf8f",
+      "record_version": 3,
+      "delivery_fingerprint": "3d0c67ec5c445e2a830ccf66581b6c388c71973bdbbd534d4b29d415be1ba3c7",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-9cebd4de7757da4ae680a860a112f44020c2bf8f-484ebfa8f3ce",
+      "record_version": 1,
+      "delivery_fingerprint": "125d991cf6949681052a17435335d2a2c3cea58e996dab2059303412ae1417a7",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-a1cc524f897676bacee195f728154ded3ece5808",
+      "record_version": 1,
+      "delivery_fingerprint": "3397b41cadb67ece8825de7217ce8fe835f697c51a8fd7d5dedd5334af3eccaf",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-a87a99c2c3394843b876c5b4d9e97dd024f4b3d9",
+      "record_version": 1,
+      "delivery_fingerprint": "c1b035e36ad7186848affa90b3a50486621c4162e71387e90e19fc817cb9eed3",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-aa9ba8853f06063164bbefefd415b45d80cc12e9",
+      "record_version": 1,
+      "delivery_fingerprint": "bf4a7aa5b627b7511fc0a9648b3e3be82f7c2e6811721584152af8034d7136e9",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-acd3a98f56b490eccb45f880ca40920f5762f261",
+      "record_version": 1,
+      "delivery_fingerprint": "cd65d33150a62f1ec6773be8557995afd426ea3fb02093ab9205f49dc6a260d9",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-ad02fb642a727f0ee7cda4e6bca9eb6141ea48d4",
+      "record_version": 1,
+      "delivery_fingerprint": "75c62f3e633cccbd54030ca9d434499728c1e4c9bb16f2e4b0486be1c5029b67",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-bff8cbee6015098a678c06e06553e69502472bc8",
+      "record_version": 1,
+      "delivery_fingerprint": "48fa1f3dab397f1438b5bd5f31b33f3b7130ceb39eaeeea9b55872fa54d484ca",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-ceab412761d1404f1d47662b270c2e4eb91aedac",
+      "record_version": 4,
+      "delivery_fingerprint": "61b0647b61f6581881b7331db91ca6dbeeeeecf125bfeea76f9e5d3be9ee6bce",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-d38bc0044737d1238cc3bbd50731cb972c85637c",
+      "record_version": 1,
+      "delivery_fingerprint": "f5ddb580f76b61d069eb66aff820fa073169e00b3b1fa4ba88de6f98c36069e9",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "条件解释候选；不等于已验收的独立图像特征",
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-d4aa55ca09864f8a6881b91863a2353f5f3682b7",
+      "record_version": 1,
+      "delivery_fingerprint": "786f1e56d70e698f03952ac8ec3b442a4902213f9b233db642de4ffc6703349a",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-db7b23d17c38763e4657df97d420f2ecb320f8dc",
+      "record_version": 1,
+      "delivery_fingerprint": "22aaf5067cf9b809c82ad7e383ba15f29f200817864d82d0bc0d712c7c35a8ed",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-dbeb43f693a8f29cd3cc3b5de2e2856da0f1f518",
+      "record_version": 1,
+      "delivery_fingerprint": "7648f2c300b8d76312cc0e750fc86906a2e3ac023bf5994be52b3e1a84693d52",
+      "included_in_simple_review": true,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "fixed_seed_development_sample",
+      "directed_risk_reasons": [
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-e0528d56d4011a686c9fed1193507fe1eb7b5410",
+      "record_version": 1,
+      "delivery_fingerprint": "18ed25ed8b86b03255a57d92e679aa33c87e45bd20ac98b3f0d0639b918739d0",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-efd72c23e5eec25600336432835f804683ede6bc",
+      "record_version": 2,
+      "delivery_fingerprint": "16f5c4a5ce2e634ce2f6db0385669ad4144c0eb5bf60737ba1a04109c697f58f",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-efd72c23e5eec25600336432835f804683ede6bc-ce151feb9a72",
+      "record_version": 1,
+      "delivery_fingerprint": "4b48a95546d8afa4ec1384165e7ecd3440802005745c940f344f11a43ecbdf91",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-f8e0e8e637272d7a832208351e7323c01f656261",
+      "record_version": 1,
+      "delivery_fingerprint": "869c778b095e56483d18e9ec2f7038818cc95a1b6638fa4c82ec861dd1a4bde3",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": []
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-fa8b8e8fbcfa373735e3cfc3245ab2cac1372d60",
+      "record_version": 1,
+      "delivery_fingerprint": "fa2e65052f4f731f52e9edc5aaf90cef805252c3641ca5f8b71ec2bc7181b4f2",
+      "included_in_simple_review": false,
+      "artifact_kind": "unreviewed_offline_delivery_candidate",
+      "raw_view_fingerprint": null,
+      "selection": "not_in_simple_review",
+      "directed_risk_reasons": [
+        "记录状态为 needs_context，主体与条件仍待核对"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-76970ec1cb9d2a47aa412896e88086001744c8d5",
+      "record_version": 1,
+      "delivery_fingerprint": null,
+      "included_in_simple_review": true,
+      "artifact_kind": "delivery_rejected_original_source_view",
+      "raw_view_fingerprint": "4db03f46086d0130d7653a158ff7b61aebfd2a18a16ef562fa2f6db17dfe5897",
+      "selection": "directed_risk_not_random_sample",
+      "directed_risk_reasons": [
+        "交付校验未通过：语境片段不完整；原始待核视图，不能由普通意见自动批准导出",
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    },
+    {
+      "job_id": "L07-B0",
+      "record_id": "ev-a3a491a7921d5c18180c5d6adafecf7d86dd0826",
+      "record_version": 2,
+      "delivery_fingerprint": null,
+      "included_in_simple_review": true,
+      "artifact_kind": "delivery_rejected_original_source_view",
+      "raw_view_fingerprint": "4b15e6731e9c4c16eeeef90c72cca8834e134e63978e07bb18d3bc3cfa623d60",
+      "selection": "directed_risk_not_random_sample",
+      "directed_risk_reasons": [
+        "交付校验未通过：语境片段不完整；原始待核视图，不能由普通意见自动批准导出",
+        "记录状态为 needs_context，主体与条件仍待核对",
+        "图文对应尚待核验"
+      ]
+    }
+  ],
+  "source_files": {
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/execution/report.json": "a8847576e03336ddf6af369014a82bf269a4216f547b392eb437e70c1fb1ac7b",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/plan.json": "b634daf4d3803f37224e6c4b6ac6d8c8c8410dba13f5b030c2b4166b0f975616",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/comparison.json": "db48cf87c107e6fd4aa741af2f389ec74988b0a7b5ea5ae58eb325dcf8cdb540",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/recovery-binding.json": "3802c5360d3d1ab8d0cb81c3efaaecef4d5d0df365f0af0bba512445284e8192",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/rejected-views.json": "92e30756a59947e1e369b2780ead90191aacdf4696d45bfae1bb68ad6d7b0617",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/parser-result.json": "7c465f648693b331d57d3b1b8c908c66a7c39b9b6e0a83e7034281b9c317cd12",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/catalog.json": "6463b1a6e4079ee7309926463d529fdd43f333f5045bfcfcad690874e5ba267b",
+    "evaluation/corpus/development-candidates/L01.pdf": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/execution/L01-B0/result.json": "d4f8f4586660f40787dac2e49904b7b2947559d5c36cb6f7c7336dbadc5cfcdd",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L01-B0-candidates/manifest.json": "f4ff76cf5c27acd33023107fcddc87e86eb34c896a1e276b99fc183bc385c04d",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L01-B0-candidates/delivery.json": "04c3e90dd2ac0f80d83dddf425b41800dcc4f1c09cfad62d11c662e9a23b7b56",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L01-B0-candidates/review-materials/ec3fc54caea6f9b198505d686d00e8b3.png": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/parser-result.json": "5ce774e085b9e82d4c678cf412919bdada2687fefc3671fc0921aebc91d3cf0d",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/catalog.json": "edea628b5a95a016e56911e83fdb479236ada2663e697e41e59900fd937fb8e5",
+    "evaluation/corpus/development-candidates/L05.pdf": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/execution/L05-B0/result.json": "c155f38e8dfdc9d20a6f9de2f156af0be1e58aea169c2d0d980bc3acb194ecb7",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L05-B0-candidates/manifest.json": "26de1df003ea67756e8db204df84b5e1dbd7963aee04d872657e6f2b0fd7479f",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L05-B0-candidates/delivery.json": "04ef456b07675d34b0cf27fdcffa9a632bb74c55c56537692ad56ebdc8730ff9",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/execution/L05-F/result.json": "8b7f2dc0cd5b2ba469a15c07707368659ac380fad34f47980f4390d41536169b",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L05-F-candidates/manifest.json": "26de1df003ea67756e8db204df84b5e1dbd7963aee04d872657e6f2b0fd7479f",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L05-F-candidates/delivery.json": "06b64edf49ac022279595ebd0bf298a460e80b51f8658f20a57ae2a4d667b14f",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/parser-result.json": "8354fa99a43cc71e0a5880a7791b9ef133d4202006025843c6c3664b410f6c76",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/catalog.json": "9c0d81121abea2a60e0590e81329dbf8eb9c30ad2e6b8c2ce8a30971ae229900",
+    "evaluation/corpus/development-candidates/L07.pdf": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/offline-delivery-recovery/recovered-L07-B0-result.json": "7a9c3ec40c00bec3eb85c27270669b67de8adbd3e73f514341a020f4970cd49b",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/manifest.json": "cb6508cef34a138afe378fe8c77d422cc9d0e2c732e2be68dd39052006bd37d7",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/delivery.json": "4f0eb70c3cf17c70a8f0d0ce1a4780022720202932640e27f70f10a420351247",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/figures/5be80ac0571a1bc6421713d9868de3d0.png": "aeda95cfe2fc125c540bb5919f70e100e089f3e13ca3e165bd5ee6762c01ab9c",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/review-materials/07369308a968f53d007273079bb2b82e.png": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/review-materials/49f4ec25120cb35d69720a5d87eea267.png": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/figures/856ad0519ad9ca4aa73fccc99bdf3a9e.png": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/comparison/automatic-audit/L07-B0-candidates/figures/6a0c366e630aa7a0e95ac0d6aae8b1ce.png": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L01/figure-assets/figure-b93d8c5215cb3cbef32cb573-p2-0.png": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/figure-b2140f310b6144f155708d04-p4-0.png": "4f622bd386562fc6a9cee49f281fcac4a8c2c85cfa817832f5f8c9a34efad4f4",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/figure-880dfc0b9224e9c952104630-p8-0.png": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L05/figure-assets/region-4c0408a21bde5b2c3e9b3bda-p5-0.png": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-feda211a5502ecb992848bb3-p3-0.png": "aeda95cfe2fc125c540bb5919f70e100e089f3e13ca3e165bd5ee6762c01ab9c",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-d27c34012b81ea974679bc66-p4-0.png": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-505a46fc6b413830ca0b8070-p6-0.png": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-129e93446c1153dde54d14ba-p7-0.png": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-c1475bb24da39c2836110ac4-p8-0.png": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-113d3c1be73afc371539955f-p9-0.png": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+    "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/region-17ac787151b791c2ddfc2a27-p2-0.png": "071efffc5ee53ce022d561b60e19dfda5fb4a14a62a097f49b4c49aa86a7b5d3",
+    "apps/pi-web/public/input-review/index.html": "7878db1624d642a5bcf7136d0f82044db580e1542cfce9745e58b23dabffea0c",
+    "apps/pi-web/public/input-review/review.css": "3801d808441749caa7046bb1fdc4911e42b4f50da4f445b7c94c0bf4e0343c52",
+    "apps/pi-web/public/input-review/review.js": "9e298becda6b0ae186298cc659618c5a42b6c071642d8efd0a562820ff4034f4"
+  },
+  "files": {
+    "all-candidates.html": "5e1b5f8ab81024dfcdbef57daef826e9d23dd874a69fca6c262ee01fd7b458bf",
+    "review.js": "f9e18fc8e3771a716a0cc144e0f5de185d57472ee9e5a0b6de5ea1887b6076b4",
+    "review.css": "2b8a1004859b8b9bd8f65d332aabace99a2f289f2923df7ed28b639a6194feba",
+    "index.html": "eab7f600706b76efd8b0d14cd8d48a1d6b7f1491e3e258940b4cba1f783eb222",
+    "data.json": "8556de2b8b997fca17e932681f1f79ad11ff33bf9e4449862831e758d8e9a190",
+    "assets/aeda95cfe2fc125c540bb591.png": "aeda95cfe2fc125c540bb5919f70e100e089f3e13ca3e165bd5ee6762c01ab9c",
+    "assets/3218360d2938159d6312be2f.png": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+    "assets/e1c0f533de6b1eae95de57af.png": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+    "assets/55a9a2241324174a720221c9.png": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+    "assets/1e412bd04bd576f1df8f463f.png": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+    "assets/071efffc5ee53ce022d561b6.png": "071efffc5ee53ce022d561b60e19dfda5fb4a14a62a097f49b4c49aa86a7b5d3",
+    "assets/fbee86e076e0a0d4dee3e8d6.png": "fbee86e076e0a0d4dee3e8d69409ef818eed9fb345dd9aac02d4a9ba2d94839a",
+    "assets/5d7d901bd62832793baa0ee6.png": "5d7d901bd62832793baa0ee628c18a99fce4fba2ca5f7a87876945ce8e075772",
+    "assets/2a6cce785b015dcf106c9fbe.png": "2a6cce785b015dcf106c9fbeebdb397f1a20a0961d1a324eaad0ade269f6b9bc",
+    "assets/8677a837131696001b7db9e7.png": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+    "assets/2bf270105a68120afa04bbfd.png": "2bf270105a68120afa04bbfdf5dbab7d64cfd6f08e68a78fcceae85a733d4c7a",
+    "assets/c829be401704022df231bcf6.png": "c829be401704022df231bcf6b833276da8cd39dbeb9ecc2b759139848085e47d",
+    "assets/dd4c8b654d23cc2f76434517.png": "dd4c8b654d23cc2f764345170bf2f7f8981f6d36cc0391ff1ce02b59ebf3caaf",
+    "assets/dae3c2ca8da3bbb32bf395db.png": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+    "assets/f8ef86a9ddfa46c790aeb10f.png": "f8ef86a9ddfa46c790aeb10fdd917c9974effce3a61b3bbfa311e96601368c23",
+    "assets/8f5e38ac6575cd776469506f.pdf": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+    "assets/14324f16cf559bf769ade1ec.png": "14324f16cf559bf769ade1ec7a6af4903068b4c012b15cb19a407c0afdd20b9d",
+    "assets/bd60db7e7fe5c7950ac85264.pdf": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "assets/f3041945f5c9b7bfdb3210ff.png": "f3041945f5c9b7bfdb3210ff7149c5492ba39caeff8353a7d95d3688791fab72",
+    "assets/ec397232d29c3fccc5ce754f.png": "ec397232d29c3fccc5ce754fd8edf3bd5b9887536c1be27e9bc8b79dd33e781c",
+    "assets/75ffd21d4760e41e395ed448.png": "75ffd21d4760e41e395ed448c8afd1435c696d5630e15f74191f62cd44dc1c47",
+    "assets/9551fe16c5f7a32130509abd.png": "9551fe16c5f7a32130509abd8a8c5f72353737e80228e02421e08c74379cc515",
+    "assets/86f9c08bfd6724f5f22ddebc.png": "86f9c08bfd6724f5f22ddebc53f7aa19d14d88997418cc3b601e34819a0f4fca",
+    "assets/19255533fed4079d2433e5a6.png": "19255533fed4079d2433e5a6956c33852398e9ca167185846e7905600439275e",
+    "assets/b7850a291694e3c7018f1acb.pdf": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+    "assets/3be8a233be39baee2e1be508.png": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+    "assets/c93911eb84a508edc7ecc80c.png": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+    "assets/96f6f237f831ecc5b476a6bf.png": "96f6f237f831ecc5b476a6bfb222779c35721d4623f4a22767b757fc20ec9520",
+    "assets/a1e382253a3e05e67fe62f30.png": "a1e382253a3e05e67fe62f30c9492702158e1408d89792585c23cbb9735c1259",
+    "assets/4f622bd386562fc6a9cee49f.png": "4f622bd386562fc6a9cee49f281fcac4a8c2c85cfa817832f5f8c9a34efad4f4",
+    "assets/1540db069dbd8d7f45b15d86.png": "1540db069dbd8d7f45b15d86764e0f73fccb3a43311eac0fb77cbe085f2ef050",
+    "assets/ca2df7108b935263c8b62f62.png": "ca2df7108b935263c8b62f6283d1c9ab2c20d8b06f0c869257ed9dcff6c93d1f",
+    "browser-proof.png": "72ea11e90b6eaca046d77310159f6967dd6db1d36ca45c36ae3ca8982ce667a4",
+    "browser-rejected-proof.png": "8b0c3968b6dd8b4c0b463c139913f0ea9907ffb3c4f197b9477a530ad32a374d"
+  },
+  "source_PDFs_and_existing_reviews_unchanged": true,
+  "protected_old_review_directories": {
+    "apps/pi-web/public/input-review": {
+      "file_count": 33,
+      "before_inventory_sha256": "2c76e06b39bc9795b79e45b123cc972dc8d1bfaf56397023e09fec8e4d771477",
+      "after_inventory_sha256": "2c76e06b39bc9795b79e45b123cc972dc8d1bfaf56397023e09fec8e4d771477",
+      "all_paths_and_bytes_unchanged": true
+    },
+    "apps/pi-web/public/output-review": {
+      "file_count": 258,
+      "before_inventory_sha256": "10c0617c5127033e71e4e12df0161d13e8223d782e851c956ca226cfea9e8bee",
+      "after_inventory_sha256": "10c0617c5127033e71e4e12df0161d13e8223d782e851c956ca226cfea9e8bee",
+      "all_paths_and_bytes_unchanged": true
+    }
+  },
+  "source_span_and_available_fingerprints_checked": true,
+  "rejected_views_have_no_legal_delivery_fingerprint": true,
+  "model_or_API_calls_by_builder": 0,
+  "actual_human_reviews": 0,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "entry": "index.html",
+  "review_scope": "current_model_output_ordinary_screening",
+  "created_by": "scripts/build-current-output-review.py",
+  "builder_sha256": "19bb4f87e5b58aff6a05f61badcfdd2acf844730203b70f235f533b805948216",
+  "browser_verification": {
+    "passed": true,
+    "checks": 15,
+    "method": "Actual Chromium; prior nested static HTTP checks plus true insecure HTTP browser origin receiving actual generated bytes from routed loopback whitelist-only HTTP.",
+    "direct_test_hostname_HTTP_transport": "environment_gateway_502_before_any_local_request",
+    "direct_same_machine_private_HTTP_transport": "environment_gateway_502_before_any_local_request",
+    "VSCode_LiveServer_extension_executed": false,
+    "actual_user_opinions_created": 0,
+    "synthetic_opinions_removed": true,
+    "temporary_service_and_browser_closed": true,
+    "public_ports_opened": false,
+    "external_requests": 0,
+    "log": "../verification.log",
+    "screenshots": {
+      "browser-proof.png": "72ea11e90b6eaca046d77310159f6967dd6db1d36ca45c36ae3ca8982ce667a4",
+      "browser-rejected-proof.png": "8b0c3968b6dd8b4c0b463c139913f0ea9907ffb3c4f197b9477a530ad32a374d"
+    },
+    "display_only_recheck": {
+      "passed": true,
+      "unknown_figure_label": "未确认图号的图像区域（原页参考，未配给本条）",
+      "needs_context_display": "语境待核",
+      "raw_fragments_and_data_unchanged": true,
+      "prior_14_checks_not_repeated": true
+    }
+  }
+}

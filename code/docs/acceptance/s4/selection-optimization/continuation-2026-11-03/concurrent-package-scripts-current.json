@@ -1,0 +1,48 @@
+{
+  "name": "t1-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.22.2 <25"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test:unit": "tsx --test tests/*.test.ts",
+    "test:integration": "tsx --test tests/integration/*.test.ts",
+    "smoke:pi": "tsx scripts/smoke-pi.ts",
+    "dev:server": "tsx apps/server/src/main.ts",
+    "predev:web": "tsx scripts/prepare-annotation-pdfs.ts",
+    "dev:web": "vite apps/web --host 127.0.0.1",
+    "prebuild:web": "tsx scripts/prepare-annotation-pdfs.ts",
+    "build:web": "vite build apps/web",
+    "prepare:annotation-pdfs": "tsx scripts/prepare-annotation-pdfs.ts",
+    "test:annotation": "tsx --test tests/annotation-ui/*.test.ts",
+    "verify:s1": "tsx scripts/accept-s1.ts",
+    "test:evaluation": "tsx --test tests/evaluation/*.test.ts",
+    "eval:quality": "tsx scripts/evaluate-quality.ts",
+    "eval:export-contracts": "tsx scripts/export-evaluation-contracts.ts",
+    "parser:contracts": "tsx scripts/export-parser-contracts.ts",
+    "parse:pdf": ".venv/bin/python services/pdf-parser/cli.py parse",
+    "parse:pdf:structured": ".venv/bin/python services/pdf-parser/structured-cli.py parse",
+    "verify:s3:pi": "tsx scripts/verify-s3-pi.ts",
+    "test:parser": "tsx --test tests/parser/*.test.ts",
+    "test:parser:python": ".venv/bin/python -m unittest discover -s services/pdf-parser/tests -v",
+    "test:extraction": "tsx --test tests/extraction/*.test.ts",
+    "s4:probe": "tsx scripts/probe-s4-api.ts",
+    "s4:development": "tsx scripts/run-s4-development.ts",
+    "s4:contracts": "tsx scripts/export-s4-contracts.ts"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "tsx": "4.23.15",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "vite": "8.3.5"
+  }
+}

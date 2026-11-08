@@ -1,0 +1,1271 @@
+{
+  "schema_version": "two-round-feedback-revalidation-audit-1",
+  "finalized_at": "2026-11-05T08:11:24.363Z",
+  "authorization_id": "S4-feedback-Luna-medium-L01-L05-20261105-920de3bb-17b",
+  "original_start": "2026-11-05T06:55:03.968Z",
+  "deadline_utc": "2026-11-05T10:55:03.968Z",
+  "limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "usage_totals": {
+    "requests": 216,
+    "input_tokens": 1750064,
+    "output_tokens": 59428,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "original_189_requests_unchanged": true,
+  "combined_historical_and_current_requests": 405,
+  "rounds": [
+    {
+      "round_id": "round1",
+      "label": "修复流程首次真实复验（保留当时CTR实际候选）",
+      "rule_note": "当时计算定义边界待确认；用户现已确认仅可作必要背景。13条真实候选和首次失败/重试完整保留，不转为当前独立交付批准。",
+      "finalized_at": "2026-11-05T07:24:03.961Z",
+      "usage_totals": {
+        "requests": 99,
+        "input_tokens": 699345,
+        "output_tokens": 29243,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing"
+      },
+      "actual_unique_inputs": 5,
+      "logical_conditions": 6,
+      "actual_record_count": 13,
+      "literal_CTR_definition_primary_records": 3,
+      "literal_CTR_definition_context_records": 0,
+      "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/final-audit/report.json",
+      "semantic_or_medical_success_inferred": false
+    },
+    {
+      "round_id": "round2",
+      "label": "最新：计算定义仅必要背景的单项prompt复验",
+      "rule_note": "公共system只新增测量指标/计算定义不得独立主描述的规则；一般形态定义及直接尺寸/CT值保留。证据schema、validator、工具、选块、其他语义策略未变。",
+      "finalized_at": "2026-11-05T08:11:23.936Z",
+      "usage_totals": {
+        "requests": 117,
+        "input_tokens": 1050719,
+        "output_tokens": 30185,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing"
+      },
+      "actual_unique_inputs": 5,
+      "logical_conditions": 6,
+      "actual_record_count": 11,
+      "literal_CTR_definition_primary_records": 0,
+      "literal_CTR_definition_context_records": 0,
+      "source_report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/final-audit/report.json",
+      "semantic_or_medical_success_inferred": false
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": "round1:L01-B0",
+      "document_id": "L01",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 148.104667884,
+          "requests": 17,
+          "input_tokens": 100106,
+          "output_tokens": 4617,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "e82196a8e968c4c71ab074e5e99938c57c72af69e99f2449b07efbf47a531b05"
+        }
+      ],
+      "requests": 17,
+      "input_tokens": 100106,
+      "output_tokens": 4617,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/delivery.json",
+      "seconds": 148.104667884,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "8e1258da58bd7b2fc252160331dc6803025554bf074a2d74e67ff189e641ac8b",
+      "medical_quality_approved": false,
+      "round_id": "round1",
+      "actual_job_id": "L01-B0"
+    },
+    {
+      "job_id": "round1:L01-F",
+      "document_id": "L01",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-F/result.json",
+          "state": "failed",
+          "error": {
+            "type": "ContractError",
+            "code": "model_tool_protocol_diagnostic_pause"
+          },
+          "seconds": 7.038824857,
+          "requests": 2,
+          "input_tokens": 4772,
+          "output_tokens": 33,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "2502d67a9001e012c98c21726dd659fd43aeac94339ba1d866876b9a524e61e1"
+        },
+        {
+          "attempt": 1,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 137.395685066,
+          "requests": 15,
+          "input_tokens": 101447,
+          "output_tokens": 3538,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/retry-report.json",
+          "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+          "result_sha256": "e3b46d9bae9615fdf433eab2b2233cb06a9e180eea67e578da9ffb8a2b79177e"
+        }
+      ],
+      "requests": 17,
+      "input_tokens": 106219,
+      "output_tokens": 3571,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/delivery.json",
+      "seconds": 144.434509923,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+      "medical_quality_approved": false,
+      "round_id": "round1",
+      "actual_job_id": "L01-F"
+    },
+    {
+      "job_id": "round1:L01-R",
+      "document_id": "L01",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": false,
+      "reused_from_job_id": "round1:L01-F",
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [],
+      "requests": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "representative_measurement": {
+        "requests": 17,
+        "input_tokens": 106219,
+        "output_tokens": 3571,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "seconds": 144.434509923
+      },
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "outcome_reason": "离线等价输入复用F最终实际产物；0新增调用不是零成本策略收益，非独立证据。",
+      "model_source_input_sha256": "4f35c4a5be1b038da0541373c9f0d30cd26001afc7e7dbe1a088ee051ee7bb21",
+      "round_id": "round1",
+      "actual_job_id": "L01-R"
+    },
+    {
+      "job_id": "round1:L05-B0",
+      "document_id": "L05",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 179.55651218600002,
+          "requests": 22,
+          "input_tokens": 158438,
+          "output_tokens": 6242,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "b40f5c43b221e0a24f1b5f75a36c97104bf8157af70ced606e235c9289b07596"
+        }
+      ],
+      "requests": 22,
+      "input_tokens": 158438,
+      "output_tokens": 6242,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/delivery.json",
+      "seconds": 179.55651218600002,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "c3bd78bef7d282932550fad91368a6000dda57a563dc17349cbd274d5a45cf43",
+      "medical_quality_approved": false,
+      "round_id": "round1",
+      "actual_job_id": "L05-B0"
+    },
+    {
+      "job_id": "round1:L05-F",
+      "document_id": "L05",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-F/result.json",
+          "state": "failed",
+          "error": {
+            "type": "ContractError",
+            "code": "model_tool_protocol_diagnostic_pause"
+          },
+          "seconds": 40.527560580999996,
+          "requests": 3,
+          "input_tokens": 17679,
+          "output_tokens": 1102,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "d17772a6d1aa0083a42dcd791b6be07b1ee6c4228f92b5cf09b88e0d5354f454"
+        },
+        {
+          "attempt": 1,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 270.07868082100003,
+          "requests": 19,
+          "input_tokens": 125125,
+          "output_tokens": 5501,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/retry-report.json",
+          "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+          "result_sha256": "b20d5d7b2ebdedfc4e6eb31f7de42fc8be02881394db90757f021c30c8d79d47"
+        }
+      ],
+      "requests": 22,
+      "input_tokens": 142804,
+      "output_tokens": 6603,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/delivery.json",
+      "seconds": 310.606241402,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "b63745c9e2e910361ba0eaee5f8d0cf15b0747b151a6dafaa1703dceb5122648",
+      "medical_quality_approved": false,
+      "round_id": "round1",
+      "actual_job_id": "L05-F"
+    },
+    {
+      "job_id": "round1:L05-R",
+      "document_id": "L05",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 334.26049583599996,
+          "requests": 21,
+          "input_tokens": 191778,
+          "output_tokens": 8210,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "1c29db1390188a5c4c1a0c6539fb2978d8b1eee26d97d35029c3e2d8b7c21f3f"
+        }
+      ],
+      "requests": 21,
+      "input_tokens": 191778,
+      "output_tokens": 8210,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/delivery.json",
+      "seconds": 334.26049583599996,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "diagnostic_counts": {
+        "effective_diagnostics": 2,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "77b65ed9fe24ce9031a8f6a9e119690e05482074d1b616755da4387f177c826f",
+      "medical_quality_approved": false,
+      "round_id": "round1",
+      "actual_job_id": "L05-R"
+    },
+    {
+      "job_id": "round2:L01-B0",
+      "document_id": "L01",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 139.10289699700002,
+          "candidate_count": 2,
+          "requests": 15,
+          "input_tokens": 85164,
+          "output_tokens": 3782,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "73ced794a6b1ab45733d457527e339a7e3406c1d0c12f18597852e3037872fd9"
+        }
+      ],
+      "requests": 15,
+      "input_tokens": 85164,
+      "output_tokens": 3782,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/delivery.json",
+      "seconds": 139.10289699700002,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "81c39b235e5a81272edac101b9dc989c39df8915139cbdf75998bda7fce49265",
+      "medical_quality_approved": false,
+      "round_id": "round2",
+      "actual_job_id": "L01-B0"
+    },
+    {
+      "job_id": "round2:L01-F",
+      "document_id": "L01",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 282.832082757,
+          "candidate_count": 2,
+          "requests": 17,
+          "input_tokens": 123536,
+          "output_tokens": 4507,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "4585c0197402f00fea4ee367b02d95308c80c7c650192b254025bd3a73af7a35"
+        }
+      ],
+      "requests": 17,
+      "input_tokens": 123536,
+      "output_tokens": 4507,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/delivery.json",
+      "seconds": 282.832082757,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927",
+      "medical_quality_approved": false,
+      "round_id": "round2",
+      "actual_job_id": "L01-F"
+    },
+    {
+      "job_id": "round2:L01-R",
+      "document_id": "L01",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": false,
+      "reused_from_job_id": "round2:L01-F",
+      "candidate_count": 2,
+      "delivered_count": 2,
+      "attempts": [],
+      "requests": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "representative_measurement": {
+        "requests": 17,
+        "input_tokens": 123536,
+        "output_tokens": 4507,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "seconds": 282.832082757
+      },
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "outcome_reason": "离线等价输入复用F最终实际产物；0新增调用不是零成本策略收益，非独立证据。",
+      "model_source_input_sha256": "e178208d88586a8f5ee4c5544e0d9397245f2b21d86daa47d83ea7b42b56a927",
+      "round_id": "round2",
+      "actual_job_id": "L01-R"
+    },
+    {
+      "job_id": "round2:L05-B0",
+      "document_id": "L05",
+      "method": "B0",
+      "label": "单独智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+          "state": "partial",
+          "error": {
+            "type": "ContractError",
+            "code": "whole_document_summary_incomplete"
+          },
+          "seconds": 505.97817499100006,
+          "candidate_count": 3,
+          "requests": 33,
+          "input_tokens": 415093,
+          "output_tokens": 9286,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "a7064a1fb168312dda11f50cc70ecf04181ee497b23d501292f3bf09d338c8c2"
+        }
+      ],
+      "requests": 33,
+      "input_tokens": 415093,
+      "output_tokens": 9286,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/delivery.json",
+      "seconds": 505.97817499100006,
+      "summary_complete": false,
+      "source_processing_complete": true,
+      "full_source_processing_complete": true,
+      "outcome_reason": "whole_document_summary_incomplete；保留实际3条候选、失败链和全部耗费，不当汇总完成或质量通过。",
+      "notes": [
+        "汇总15响应中1次候选上下文读取、5次提交失败、11次源补读（2次错误），读源union615块/10页；未保存逐次参数，不能证明完全相同请求重复。",
+        "达到既有application_context_estimate_limit，汇总未完成；不提高限制、不追加新优化。",
+        "AAH主原文出现2条完全相同记录，全部保留；不能算两条有效描述。"
+      ],
+      "summary_diagnostic_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/L05-B0-summary-diagnostic.json",
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "317b0bbfc026a250cf9c0182977e923b13ecdfa57aa5c35f8758a257674691d3",
+      "medical_quality_approved": false,
+      "round_id": "round2",
+      "actual_job_id": "L05-B0"
+    },
+    {
+      "job_id": "round2:L05-F",
+      "document_id": "L05",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 1,
+      "delivered_count": 1,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/result.json",
+          "state": "partial",
+          "error": {
+            "type": "ContractError",
+            "code": "model_tool_protocol_diagnostic_pause"
+          },
+          "seconds": 102.21972520799993,
+          "candidate_count": 1,
+          "requests": 7,
+          "input_tokens": 51652,
+          "output_tokens": 3437,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行失败，保留原记录和全部耗费",
+          "result_sha256": "a0b165978a567d03d32d1f83bd749d6f3c11fae95d42ed624d59bdbf7d5abc64",
+          "partial_records": [
+            {
+              "record_id": "ev-7db8040f75c69b00452ca5e93c46367fa6229c8f",
+              "record_version": 1,
+              "document_id": "L05",
+              "job_id": "round2:L05-F",
+              "source_record_sha256": "fd538dd1644952de0a418f1a47a9ea9eaf41241d222a4ae0265ff2b1392c7aee",
+              "text_fingerprint": "172e12e42d815c87355b9254b5cfa88b364e787511ef5a47652eb5924e6b7e73",
+              "delivery_fingerprint": "a4dc591a5a44f5b90c70c3270f5c967af193adc662ec97add4f5748f550b9f0c",
+              "actual_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-F/delivery.json",
+              "original_groups": [
+                {
+                  "group_id": "su-000041-g1",
+                  "kind": "sentence",
+                  "source_type": "body",
+                  "segments": [
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000006",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 96,
+                      "end": 119,
+                      "exact_quote": " According to the clas-",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098693000004,
+                        70.884178711,
+                        544.20611578064,
+                        79.39413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    },
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000007",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 0,
+                      "end": 115,
+                      "exact_quote": "sification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098692999975,
+                        83.384178711,
+                        544.07009866439,
+                        91.89413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    },
+                    {
+                      "block_id": "95dde964ad802d61602a-p0002-l000008",
+                      "text_version": "s3v3-853c53aaf9ae241a5b2dd0fa075ccfe8",
+                      "start": 0,
+                      "end": 81,
+                      "exact_quote": "IAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+                      "occurrence": 0,
+                      "physical_page": 2,
+                      "bbox": [
+                        51.022098692999975,
+                        95.884178711,
+                        544.1960986910894,
+                        104.39413669419332
+                      ],
+                      "location_precision": "whole_textline_not_exact_glyph"
+                    }
+                  ],
+                  "display_joiner": "\n",
+                  "completeness": "complete",
+                  "boundary_reasons": [],
+                  "missing_source_spans": []
+                }
+              ],
+              "context_groups": [],
+              "figure_ids": [],
+              "figure_association": {
+                "status": "no_explicit_reference",
+                "figure_ids": [],
+                "proposed_figure_ids": [],
+                "exact_markers": [],
+                "reasons": [
+                  "No explicit source Figure marker or original-caption overlap; this does not prove absence of images."
+                ],
+                "no_figure_claimed": false,
+                "human_approved": false
+              },
+              "review_status": "needs_context",
+              "automatic_checks": [
+                {
+                  "code": "partial_failed_attempt_retained",
+                  "status": "pending",
+                  "detail": "失败尝试已实际保存的候选，原样保留；不与最终路径合计为有效描述，不继承核验。"
+                }
+              ],
+              "human_approved": false,
+              "product_export_approved": false,
+              "round_id": "round2",
+              "actual_job_id": "L05-F"
+            }
+          ]
+        },
+        {
+          "attempt": 1,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+          "state": "partial",
+          "error": null,
+          "candidate_count": 1,
+          "seconds": 228.59091387799998,
+          "requests": 18,
+          "input_tokens": 111782,
+          "output_tokens": 2463,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "report_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/retry-report.json",
+          "outcome_reason": "同输入必要重试；未纠ID、未放宽schema，耗费与首次失败同计",
+          "result_sha256": "5ef42aeb924d44edef5484dec145cd022f42c637e84c3ae12be0696c21e7e66c"
+        }
+      ],
+      "requests": 25,
+      "input_tokens": 163434,
+      "output_tokens": 5900,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/delivery.json",
+      "seconds": 330.8106390859999,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "222bb49d95bd938563203f4082fb2eb02d16f85f8822177c7eb28ce3c897a8ed",
+      "medical_quality_approved": false,
+      "round_id": "round2",
+      "actual_job_id": "L05-F"
+    },
+    {
+      "job_id": "round2:L05-R",
+      "document_id": "L05",
+      "method": "R",
+      "label": "仅删除明确无关＋智能体",
+      "state": "partial",
+      "independent_model_run": true,
+      "candidate_count": 3,
+      "delivered_count": 3,
+      "attempts": [
+        {
+          "attempt": 0,
+          "result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+          "state": "partial",
+          "error": null,
+          "seconds": 361.6846975770001,
+          "candidate_count": 3,
+          "requests": 27,
+          "input_tokens": 263492,
+          "output_tokens": 6710,
+          "actual_cost": null,
+          "cost_status": "unknown_gateway_billing",
+          "outcome_reason": "首次实际运行，医学及产品批准未发生",
+          "result_sha256": "60e50232ef7a4c88c7a5f0bac22b23005e060fc82db9272e6b9d8c2009990db1"
+        }
+      ],
+      "requests": 27,
+      "input_tokens": 263492,
+      "output_tokens": 6710,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+      "effective_delivery_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/delivery.json",
+      "seconds": 361.6846975770001,
+      "summary_complete": true,
+      "source_processing_complete": true,
+      "full_source_processing_complete": false,
+      "outcome_reason": "已选源块及汇总处理结果如实保留；parser仍partial，医学与产品质量待核",
+      "notes": [],
+      "summary_diagnostic_path": null,
+      "diagnostic_counts": {
+        "effective_diagnostics": 0,
+        "primary_table_records": 0,
+        "incomplete_primary_statements": 0
+      },
+      "model_source_input_sha256": "eb6ef4f13dfadd9c339a86b5268f2a432e2602a3bc8bf81a06400a38f79f9605",
+      "medical_quality_approved": false,
+      "round_id": "round2",
+      "actual_job_id": "L05-R"
+    }
+  ],
+  "source_audits": [
+    {
+      "automatic_audits": [
+        {
+          "job_id": "L01-B0",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L01-B0/result.json",
+          "actual_delivery_sha256": "d11ab54ce5eeec37175bafedf27f9a4916d6d5a58d164b0ee7c91ea1f89f6a4d",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 2,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L01-F",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L01-F-attempt-1/extraction/result.json",
+          "actual_delivery_sha256": "1e3897bf50c19522052f7783c695921b8dc70bd1ca3323ab773be8a96e5db73f",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 2,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-B0",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-B0/result.json",
+          "actual_delivery_sha256": "fcc79d8b82c3a0007ba640db3424b6d5776c67a9d08124b75a12f0e579c70844",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 3,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [
+            "测量指标定义/计算方式是否可独立收录：业务取舍待定，不自动删改当前结果。",
+            "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+          ],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-F",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/retries/L05-F-attempt-1/extraction/result.json",
+          "actual_delivery_sha256": "f3a27ee33b2b2a1a3c67c32499404bdf8f01352f72e12deee8a8d6903fa3a1d2",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 3,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [
+            "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。",
+            "测量指标定义/计算方式是否可独立收录：业务取舍待定，不自动删改当前结果。"
+          ],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-R",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/prepared/execution/L05-R/result.json",
+          "actual_delivery_sha256": "d558e9d9de2a137d63664899110a2424205b0be8000f753bb353166f3d7737e6",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 3,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [
+            "测量指标定义/计算方式是否可独立收录：业务取舍待定，不自动删改当前结果。",
+            "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+          ],
+          "diagnostics": [
+            {
+              "run_id": "comparison-dacebd55-bc30-44ed-8737-f09b33e90812:source-L05:input-77b65ed9fe24",
+              "seq": 22,
+              "type": "candidate_validation_rejected",
+              "timestamp": "2026-11-05T07:02:31.901Z",
+              "detail": {
+                "batch_id": "batch-0002",
+                "call_id": "call_0PSaSo6QndzgIIpFomjxaR1V|fc_07a87cf01cd3590c016aec2a0180308195bc16ccf0aa440f01",
+                "issues": [
+                  {
+                    "code": "modality_not_grounded_in_source",
+                    "severity": "requires_review",
+                    "path": "modality",
+                    "detail": "Submitted value \"chest CT, frozen section, and paraffin section\" was not retained as a source fact."
+                  },
+                  {
+                    "code": "numeric_original_not_literal",
+                    "severity": "reject",
+                    "path": "numeric_expressions[1].original_text",
+                    "detail": ""
+                  },
+                  {
+                    "code": "visual_description_semantics_unverified",
+                    "severity": "info",
+                    "path": "source_fragments",
+                    "detail": "Mechanical checks do not establish visual-description meaning, terminology, case attribution or medical pairing."
+                  }
+                ],
+                "scope_match": {
+                  "status": "blocked",
+                  "matched_binding_id": null,
+                  "feature_match": "none",
+                  "development_catalog_used": false,
+                  "basis": [],
+                  "issues": []
+                }
+              }
+            },
+            {
+              "run_id": "comparison-dacebd55-bc30-44ed-8737-f09b33e90812:source-L05:input-77b65ed9fe24",
+              "seq": 23,
+              "type": "candidate_validation_rejected",
+              "timestamp": "2026-11-05T07:02:31.922Z",
+              "detail": {
+                "batch_id": "batch-0002",
+                "call_id": "call_0PSaSo6QndzgIIpFomjxaR1V|fc_07a87cf01cd3590c016aec2a0180308195bc16ccf0aa440f01",
+                "issues": [
+                  {
+                    "code": "modality_not_grounded_in_source",
+                    "severity": "requires_review",
+                    "path": "modality",
+                    "detail": "Submitted value \"chest CT, frozen section, and paraffin section\" was not retained as a source fact."
+                  },
+                  {
+                    "code": "numeric_original_not_literal",
+                    "severity": "reject",
+                    "path": "numeric_expressions[1].original_text",
+                    "detail": ""
+                  },
+                  {
+                    "code": "visual_description_semantics_unverified",
+                    "severity": "info",
+                    "path": "source_fragments",
+                    "detail": "Mechanical checks do not establish visual-description meaning, terminology, case attribution or medical pairing."
+                  }
+                ],
+                "scope_match": {
+                  "status": "blocked",
+                  "matched_binding_id": null,
+                  "feature_match": "none",
+                  "development_catalog_used": false,
+                  "basis": [],
+                  "issues": []
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "F_R_equivalence_checks": [
+        {
+          "document_id": "L01",
+          "F_R_input_digest_equal": true,
+          "all_batch_tool_schemas_context_and_read_views_equal_offline": true,
+          "batch_count": 3,
+          "compared_source": "Actual bound real-paper IR and unchanged 52 production sources; no extra provider call",
+          "F_actual_payload_evidence": [
+            {
+              "request_id": "06dec938-0163-4de7-a1c1-7f9550f66e7e",
+              "payload_sha256": "f68efb978cb3b216979d8f1c6754ceeae068a7d2fa1d4ba76b3d58d3e226d51b",
+              "payload_bytes": 12983
+            },
+            {
+              "request_id": "2f862fdd-21bf-42d4-a459-85f904d8708b",
+              "payload_sha256": "c981f65bdbd76c3ad6fb890c7b30804adc687fc2247259cd9e7d474870c075ef",
+              "payload_bytes": 13860
+            },
+            {
+              "request_id": "a895ddaa-f624-4ca6-87db-609b410defed",
+              "payload_sha256": "f68efb978cb3b216979d8f1c6754ceeae068a7d2fa1d4ba76b3d58d3e226d51b",
+              "payload_bytes": 12983
+            },
+            {
+              "request_id": "415e4954-f005-495c-a1f7-fe88abfd0c90",
+              "payload_sha256": "43eb111ea96c801377933b3030dc6873760888e2ad62b39b73bb93a9960a1688",
+              "payload_bytes": 13860
+            },
+            {
+              "request_id": "95446a07-13c3-4925-b99c-11dabe2bc6b1",
+              "payload_sha256": "bed994f23727d81747dab05a45dc1c5bdced0e75cd719a6b38807fe00217c9aa",
+              "payload_bytes": 54699
+            },
+            {
+              "request_id": "cb9efd8e-b11e-45db-96cb-3846ea066afe",
+              "payload_sha256": "f68efb978cb3b216979d8f1c6754ceeae068a7d2fa1d4ba76b3d58d3e226d51b",
+              "payload_bytes": 12983
+            },
+            {
+              "request_id": "95cf995d-dfc3-44d5-bff3-33ef47fbeb05",
+              "payload_sha256": "e78a3a8ad283643849c87ec7b17f9f85cca7c4247744080eb9cc8cd6ce0b87c2",
+              "payload_bytes": 13860
+            },
+            {
+              "request_id": "2ab2955d-fdaa-4506-8cfe-59542bdbe136",
+              "payload_sha256": "920965bf7d9638ce480ec2a1820ea022dd01b84711167d2a2890f0edc17cfa99",
+              "payload_bytes": 61439
+            },
+            {
+              "request_id": "94d97c64-3c12-4adc-b809-57e2405e860e",
+              "payload_sha256": "f68efb978cb3b216979d8f1c6754ceeae068a7d2fa1d4ba76b3d58d3e226d51b",
+              "payload_bytes": 12983
+            },
+            {
+              "request_id": "8513adee-96d8-48c2-b38b-f0fe65e11fda",
+              "payload_sha256": "e01ee527a1a7109f6dc32b230eccd87d373402eaff38d435a32f38d0dce8d8f7",
+              "payload_bytes": 13859
+            },
+            {
+              "request_id": "d6162d4a-0f99-48c0-9f38-fb2ba9794b7e",
+              "payload_sha256": "36d131205547c8a6d1addf3eedeb5bc700a83b528ec0d0d8d43c0637ebf860e7",
+              "payload_bytes": 50892
+            },
+            {
+              "request_id": "5d210529-5457-4aa0-bac9-c37218d3903d",
+              "payload_sha256": "87907eb8f8aa72eb94d94881c6ad0c87cf42f26c0557adff9c3f995f69094f0f",
+              "payload_bytes": 55484
+            },
+            {
+              "request_id": "9adbde85-72ae-4cf9-9eac-c8eea0b64aa9",
+              "payload_sha256": "17b39456858252bed647826b6a7d4978785735511ed0109eb2a791baee9c0244",
+              "payload_bytes": 13513
+            },
+            {
+              "request_id": "d9276e40-f886-410a-a422-2ebaae81769a",
+              "payload_sha256": "64d95c3039d10f31b04d9d55a96ef44803d991c86a00ea420983ddb5b240ac5b",
+              "payload_bytes": 28433
+            },
+            {
+              "request_id": "103e3ff2-7127-4f51-8d7b-522d91c1552a",
+              "payload_sha256": "58c04988d88ad7fb341bc1da410a7118ff8648da7206717893844bccb8ef55d8",
+              "payload_bytes": 35653
+            },
+            {
+              "request_id": "96e4d480-854a-4fe1-8cf5-f8b9e83114c0",
+              "payload_sha256": "b3786c4b0c340fe7bebbb3ded101ec5feded5d7c69d3d1d1aea0b3714f7aad18",
+              "payload_bytes": 41489
+            },
+            {
+              "request_id": "e877173f-e52c-49c5-bde5-d65288aa1fcc",
+              "payload_sha256": "bf115a3d6f440644c9075af3e57ca0ca780f7bb2e096d03687aa87ccb8a7c608",
+              "payload_bytes": 49647
+            }
+          ],
+          "second_independent_R_provider_payload_observed": false,
+          "full_body_replay_claimed": false
+        },
+        {
+          "document_id": "L05",
+          "F_R_input_digest_equal": false,
+          "independent_F_and_R_provider_runs_required": true
+        }
+      ]
+    },
+    {
+      "automatic_audits": [
+        {
+          "job_id": "L01-B0",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-B0/result.json",
+          "actual_delivery_sha256": "28a31f02efab9f573636dcca483999087f8e98585a676b858d39557a364ece55",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 2,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L01-F",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L01-F/result.json",
+          "actual_delivery_sha256": "26862acd58b615ec79007999b60252fff8492ca0a7f3b6ef5b116ff54febd912",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 2,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-B0",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+          "actual_delivery_sha256": "3173849dfdd90a6d710c97442348eeaf9e0f1622c83b1c86b0fdad876bcde5d7",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 3,
+          "error": {
+            "type": "ContractError",
+            "code": "whole_document_summary_incomplete"
+          },
+          "source_processing_complete": true,
+          "summary_complete": false,
+          "semantic_review_notes": [
+            "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+          ],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-F",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+          "actual_delivery_sha256": "48a379586fda8f27ef59c67ec4e7939fb69ab79ee203c261335c66c310b0ccfd",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 1,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [],
+          "diagnostics": []
+        },
+        {
+          "job_id": "L05-R",
+          "effective_result_path": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-R/result.json",
+          "actual_delivery_sha256": "a2e957646a8ac293ebd9f0eb74462f9c8c19da308bdc222881888517298be920",
+          "bound_source_and_actual_delivery_passed": true,
+          "primary_table_records": 0,
+          "incomplete_primary_statements": 0,
+          "supporting_table_records": 0,
+          "parser_status": "partial",
+          "candidate_count": 3,
+          "error": null,
+          "source_processing_complete": true,
+          "summary_complete": true,
+          "semantic_review_notes": [
+            "含诊断/疗效或关联解释；是否直接视觉描述仍待用户及专业核验，不能声称已排除全部结论。"
+          ],
+          "diagnostics": []
+        }
+      ],
+      "F_R_equivalence_checks": [
+        {
+          "document_id": "L01",
+          "F_R_input_digest_equal": true,
+          "all_batch_tool_schemas_context_and_read_views_equal_offline": true,
+          "batch_count": 3,
+          "compared_source": "Actual bound real-paper IR and unchanged 52 production sources; no extra provider call",
+          "F_actual_payload_evidence": [
+            {
+              "request_id": "df27e4af-0443-4dae-9849-20edffd68964",
+              "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+              "payload_bytes": 13446
+            },
+            {
+              "request_id": "d385bbef-55e0-440d-a47b-7f65eb778950",
+              "payload_sha256": "ddda65ad3a51ec739ac2e881100413f8473562ea0402d9e4a35934e0db732b59",
+              "payload_bytes": 14323
+            },
+            {
+              "request_id": "35616ffa-b61a-46ac-9674-bbbe6bd34723",
+              "payload_sha256": "233d02fa672906b3e18a01d7b7b3c9d82a94d579111f6df988a5a57995650e59",
+              "payload_bytes": 55181
+            },
+            {
+              "request_id": "ba61b7d0-e2a2-4bfc-96d4-1076d97885bd",
+              "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+              "payload_bytes": 13446
+            },
+            {
+              "request_id": "73501dcf-cd97-40a6-b63c-34ab3081111e",
+              "payload_sha256": "952e9c13500da7b989a6c8166b1f5a5fa6e1c5c82ad97da7054bfc2399801f6b",
+              "payload_bytes": 14323
+            },
+            {
+              "request_id": "c6d2019a-c6ba-4c6b-aedf-a7a2ef6d7b9a",
+              "payload_sha256": "f7d627aa4748023dfea024d9ccfd22dba412d42f09ece456a128588bf9ab8169",
+              "payload_bytes": 61921
+            },
+            {
+              "request_id": "2dac02e0-ec7b-4b4c-9f30-9c5f8bdbde17",
+              "payload_sha256": "8d7503f41a489831193d48e47d6c31a03130e0cef400f05e5b0f9deeda98e18a",
+              "payload_bytes": 13446
+            },
+            {
+              "request_id": "ce71e653-257e-42c7-aa5b-d3f3b2495adb",
+              "payload_sha256": "6d5cf14ec2bbe12e9cc7d6b668d8e3ef37645811a597d50626eaf9a5305c8de9",
+              "payload_bytes": 14322
+            },
+            {
+              "request_id": "17d1a749-9ec0-43f9-9f2f-d6c6e30b9ea7",
+              "payload_sha256": "997d5e2fe649c23e2aa6e53fe5f1545d47be3957d3435c2e71be69cb2125de27",
+              "payload_bytes": 51336
+            },
+            {
+              "request_id": "bd32ed84-cb5d-4183-a988-df144c2cd040",
+              "payload_sha256": "966acffe1a534c011881584b38874ce9d614f5df57b9b4c4f4c1190753785c64",
+              "payload_bytes": 13976
+            },
+            {
+              "request_id": "c5b4aa8d-1687-44c2-8b5d-8f1ab2f6d0b3",
+              "payload_sha256": "7883f1bd05aa77176335f0eccb1021876ab9a2e33339f4b99ba15de8afbcfcb2",
+              "payload_bytes": 28850
+            },
+            {
+              "request_id": "5a9d07dc-0546-44db-8899-56bb6f7f8dd1",
+              "payload_sha256": "6ea3f2447f90a0f66b653fd2d4dacae7b33dfed566fca5d214f94e7dc804ca5e",
+              "payload_bytes": 37681
+            },
+            {
+              "request_id": "2258b1a4-bdf0-4a57-a450-379de2b7eb07",
+              "payload_sha256": "e999b0037ce9a062edf91c425542904474ddabb47dcc798cee6408172185588c",
+              "payload_bytes": 41621
+            },
+            {
+              "request_id": "412599b8-9e60-4172-b759-3b25a024c01a",
+              "payload_sha256": "392f9d93ae3f1580fdbfa5ffc4bbb8d1fb9730e5dc547feabc0a9daefd5cb55f",
+              "payload_bytes": 47973
+            },
+            {
+              "request_id": "6803c6ca-c715-4055-a4df-bde0b2db50a4",
+              "payload_sha256": "c5e3c2c10c325d860efdb2d867a22e8fcc643e1343d3b7c5dd51805aae1f9270",
+              "payload_bytes": 54743
+            },
+            {
+              "request_id": "d6e54287-fe81-434a-a618-0b59d78be9b3",
+              "payload_sha256": "ff5b6faef323ed823b694efcc2802d25040ec4fc46655acd8cafe2fd144ebbc8",
+              "payload_bytes": 65945
+            },
+            {
+              "request_id": "0c125e3c-b77d-42f2-8c31-4b18481b6ada",
+              "payload_sha256": "ac70494c04558aec8d314ef4bd27643469f32d518585a1c22bc29a6b93659189",
+              "payload_bytes": 74460
+            }
+          ],
+          "second_independent_R_provider_payload_observed": false,
+          "full_body_replay_claimed": false
+        },
+        {
+          "document_id": "L05",
+          "F_R_input_digest_equal": false,
+          "independent_F_and_R_provider_runs_required": true
+        }
+      ]
+    }
+  ],
+  "business_rule_confirmation": "测量指标/计算方式仅作必要context，不独立交付；一般视觉形态定义和原文直接量值保留。",
+  "confirmed_CTR_primary_counts": [
+    {
+      "round_id": "round1",
+      "primary": 3,
+      "context": 0
+    },
+    {
+      "round_id": "round2",
+      "primary": 0,
+      "context": 0
+    }
+  ],
+  "interpretation": "以上是实际source-span/原文角色检查；不是医学准确率/召回率、单次输出的普遍保证或三方法赢家。诊断低估/小实性成分关联句仍待核。首轮多项修复不能单因素归因；父子轮设计仅一条system范围规则变化，未保存父轮全线上body，不能宣称所有实际payload仅此差异。",
+  "actual_human_or_medical_reviews_on_new_outputs": 0,
+  "old_feedback_inherited": false,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "winner": null,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "owner_lock_present": false,
+  "unsettled_requests": 0
+}

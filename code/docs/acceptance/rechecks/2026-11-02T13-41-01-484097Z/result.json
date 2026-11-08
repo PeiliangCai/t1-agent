@@ -1,0 +1,166 @@
+{
+  "purpose": "S0/S1 existing delivery recheck; no new formal architecture review",
+  "started_at": "2026-11-02T13:41:01.484097+00:00",
+  "finished_at": "2026-11-02T13:41:08.303679+00:00",
+  "code_root": "/home/ecs-user/projects/t1-agent/code",
+  "evidence_directory": "docs/acceptance/rechecks/2026-11-02T13-41-01-484097Z",
+  "commands": [
+    {
+      "name": "check",
+      "command": "bash scripts/with-node.sh npm run check",
+      "started_at": "2026-11-02T13:41:01.512183+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 1.07,
+      "log": "check.log"
+    },
+    {
+      "name": "test-unit",
+      "command": "bash scripts/with-node.sh npm run test:unit",
+      "started_at": "2026-11-02T13:41:02.582737+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 2.117,
+      "log": "test-unit.log",
+      "counts": {
+        "tests": 15,
+        "suites": 0,
+        "pass": 15,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "test-integration",
+      "command": "bash scripts/with-node.sh npm run test:integration",
+      "started_at": "2026-11-02T13:41:04.700178+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 3.018,
+      "log": "test-integration.log",
+      "counts": {
+        "tests": 8,
+        "suites": 0,
+        "pass": 8,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "build-web",
+      "command": "bash scripts/with-node.sh npm run build:web",
+      "started_at": "2026-11-02T13:41:07.718594+00:00",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.515,
+      "log": "build-web.log"
+    }
+  ],
+  "all_four_checks_passed": true,
+  "versions": {
+    "node": "v24.22.2",
+    "npm": "11.19.1",
+    "pi": "1.4.0"
+  },
+  "manifest": {
+    "path": "docs/acceptance/s1/version-manifest.json",
+    "log": "manifest-check.log",
+    "groups": {
+      "source_and_configuration_sha256": {
+        "checked": 48,
+        "matched": 48,
+        "mismatches": []
+      },
+      "planning_files_sha256": {
+        "checked": 10,
+        "matched": 10,
+        "mismatches": []
+      },
+      "evidence_files_sha256": {
+        "checked": 35,
+        "matched": 35,
+        "mismatches": []
+      }
+    },
+    "before_after_identical": true,
+    "manifest_file_unchanged": true,
+    "dependency_lock_matches": true
+  },
+  "preserved_stage_status": {
+    "S0": "passed",
+    "S1": "passed",
+    "S2": "not_started"
+  },
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds": 0
+  },
+  "boundaries": [
+    "No dependency install or upgrade",
+    "No npm run smoke:pi and no paid model calls",
+    "Integration suite includes a fake-config initialization-failure CLI regression in a disposable runtime directory, before model setup/network",
+    "No .env content or hash read or recorded",
+    "No existing source, planning file, stage status or stage evidence modified",
+    "Web build may overwrite normal reversible apps/web/dist output",
+    "No server startup, browser, SSH tunnel, real PDF or medical workflow revalidated"
+  ],
+  "test_totals": {
+    "tests": 23,
+    "passed": 23,
+    "failed": 0
+  },
+  "non_blocking_warnings": [
+    "Vite build: main JavaScript chunk 663.35 kB (gzip 201.87 kB) exceeds the default 500 kB warning threshold; build exited 0."
+  ],
+  "reproduction_from_existing_sources": {
+    "basis": [
+      "README.md",
+      "apps/server/src/app.ts",
+      "apps/server/src/main.ts",
+      "apps/web/src/main.tsx",
+      "package.json"
+    ],
+    "verified_by_reading_only": true,
+    "working_directory": "/home/ecs-user/projects/t1-agent/code",
+    "start_in_separate_terminals": [
+      "bash scripts/with-node.sh npm run dev:server",
+      "bash scripts/with-node.sh npm run dev:web -- --port 5173 --strictPort"
+    ],
+    "frontend_url": "http://127.0.0.1:5173",
+    "backend_url": "http://127.0.0.1:3210",
+    "backend_http_get": [
+      "/health",
+      "/api/catalog",
+      "/api/runs/b90f2164-54da-4319-bb3f-6dcd62acd03e",
+      "/api/runs/b90f2164-54da-4319-bb3f-6dcd62acd03e/records",
+      "/api/runs/b90f2164-54da-4319-bb3f-6dcd62acd03e/events"
+    ],
+    "historical_saved_fixture_run_id": "b90f2164-54da-4319-bb3f-6dcd62acd03e",
+    "run_lookup_condition": "Run endpoints require a retained run in runtime-data/t1.sqlite. Database file exists; its contents were not re-read and the server was not started in this recheck.",
+    "can_view": [
+      "Static S1 engineering-preview page and PDF.js version; no active PDF viewer",
+      "Health status and engineering feature catalog",
+      "Read-only stored engineering-run input/state, candidate records and SSE business events when the run is present"
+    ],
+    "not_implemented_or_not_validated": [
+      "Real paper upload or PDF parsing/location",
+      "Medical extraction or formal medical model",
+      "Scope-selection UI, human review UI or product export workflow",
+      "Production deployment, public access or SSH forwarding"
+    ],
+    "inspection_note": "Server binds 127.0.0.1:3210, Vite binds 127.0.0.1. Browser access from another machine requires port forwarding; not revalidated here."
+  },
+  "historical_paid_evidence_boundary": {
+    "path": "docs/acceptance/s1/smoke-pi-2026-11-02T09-40-50-350Z.json",
+    "status": "passed",
+    "assistant_requests_observed": 4,
+    "covers": "Pre-review-round-2-fix success path; later failure cleanup and cross-connection SSE changes have offline regression evidence only",
+    "new_paid_calls_in_this_recheck": 0
+  },
+  "finalized_at": "2026-11-02T13:42:09.083035+00:00"
+}

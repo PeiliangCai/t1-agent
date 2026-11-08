@@ -1,0 +1,159 @@
+{
+  "schema_version": "t1-pi-web-plan-final-review-input-1",
+  "recorded_at": "2026-11-04T13:00:42.270081+00:00",
+  "status": "root_formal_final_review2_completed_delivery_facts_synced",
+  "requested_review_node": "final_acceptance_before_delivery",
+  "review_count_so_far": 1,
+  "review_limit": 3,
+  "user_basis": {
+    "frontend": "采用方案C",
+    "latest_cleanup": "那将该“提前准备完整参考答案”的部分删除即可",
+    "cleanup_meaning": "补齐之前完整参考答案要求已取消后的遗留功能清理；旧活动UI退役，历史材料留档；不是让用户重新取消或准备答案"
+  },
+  "actual_live_diff_summary": [
+    "计划0.4→0.5／执行说明0.2→0.3：正式前端改为pi-web pinned Next.js，Fastify/受限PiSDK/SQLite/WAL/数据卷/SSE保留",
+    "S5/R13本轮前端基础开工；完整上传/启动抽取/持久化真实结果审核/已审核导出仍未完成，R14—R16仍待办",
+    "当前D05/D23、F12及requirement_revision取消条款统一为活动旧准备工具退役；旧文本有明确superseded/history副本；历史Excel/草稿仅留档，S2语料/抽样和真实结果人审保留",
+    "新增D24、F13/F14：pi-web源码/许可/必要改动表、旧准备UI退役与真实审核保留",
+    "更新pi-web固定提交f130910abf662b506b2ef2f475fc21a2fe57badc、0.15.0/MIT的资料来源/开源调研，保留旧11项目记录",
+    "DOCX有效正文已直接修正，非仅追加；12现行文件经live SHA256 CAS原子替换，28字段CSV不动"
+  ],
+  "current_status": {
+    "frontend_engineering": "engineering_delivered",
+    "complete_S5_passed": false,
+    "medical_quality_passed": false,
+    "new_paid_API_calls": 0,
+    "this_task_formal_review": 2,
+    "previous_original_text_figure_task": "closed2/3",
+    "previous_S4": "sealed3/3"
+  },
+  "document_validation": {
+    "status": "passed",
+    "checks_passed": 966,
+    "checks_total": 966,
+    "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/validation-live.json",
+    "application_test_claim": false
+  },
+  "preservation": [
+    {
+      "document": "T1智能体开发计划.docx",
+      "before_sha256": "875eff95f7661385fa6e24786071b2cc5a5361e835b725097e442c450c7e6752",
+      "after_sha256": "1c9a486a4a0885e8f0c4931a1ed9683870dfd7411b905ebab563c85e6f9a7bac",
+      "original_paragraphs": 192,
+      "result_paragraphs": 203,
+      "changed_original_paragraphs": 6,
+      "unchanged_original_paragraphs": 186,
+      "appended_paragraphs": 11,
+      "unchanged_paragraph_xml_exact": true,
+      "historical_appendices_xml_exact": true,
+      "E01_E09_original_table_xml_exact": true,
+      "all_existing_paragraph_and_run_properties_exact": true,
+      "all_other_zip_members_exact": true
+    },
+    {
+      "document": "T1开发执行说明.docx",
+      "before_sha256": "7b2e41ed74f5f91490411f0d15fee04154b8fd1e06aa94e5ebfcb9f0c2a2527d",
+      "after_sha256": "91ea1c618b832463e083b8048aab8e08b9c8897f036e0afe465ed0385264afff",
+      "original_paragraphs": 556,
+      "result_paragraphs": 567,
+      "changed_original_paragraphs": 27,
+      "unchanged_original_paragraphs": 529,
+      "appended_paragraphs": 11,
+      "unchanged_paragraph_xml_exact": true,
+      "historical_appendices_xml_exact": true,
+      "E01_E09_original_table_xml_exact": true,
+      "all_existing_paragraph_and_run_properties_exact": true,
+      "all_other_zip_members_exact": true
+    }
+  ],
+  "application_evidence": {
+    "status": "engineering_delivered_root_final_review2_completed_complete_S5_and_medical_quality_pending",
+    "report": "code/docs/acceptance/pi-web-frontend-2026-11-04/index.html",
+    "handoff": "code/docs/acceptance/pi-web-frontend-2026-11-04/current-handoff.json",
+    "source_modifications": "code/docs/acceptance/pi-web-frontend-2026-11-04/source-changes.json",
+    "implementation_source_manifest": "code/docs/acceptance/pi-web-frontend-2026-11-04/implementation-source-manifest.json",
+    "source_counts": {
+      "original": 1209,
+      "same_path_unchanged": 1098,
+      "relocated_unchanged": 104,
+      "modified": 7,
+      "new_T1_code": 6,
+      "new_static_resources": 204
+    },
+    "checks": {
+      "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/final-checks.json",
+      "root_and_Next_typecheck": "passed",
+      "Next_production_build": "passed",
+      "local_integration_passed": 10,
+      "local_integration_failed": 0,
+      "Chromium_passed": 10,
+      "Chromium_failed": 0,
+      "uncaught_errors": 0,
+      "failed_static_resources": 0,
+      "external_model_requests": 0
+    },
+    "browser": "code/docs/acceptance/pi-web-frontend-2026-11-04/browser/results.json",
+    "read_only_historical_corpus": {
+      "papers": 5,
+      "historical_original_text_records": 119,
+      "explicit_whole_figure_associations": 1,
+      "new_model_extraction": false,
+      "human_medical_approval": false
+    },
+    "PDF_source_viewer": {
+      "implementation": "controlled_PDFjs_single_page_getPage_render",
+      "version": "6.5.438",
+      "observed_physical_page": 8,
+      "rendered_canvas_physical_page": 8,
+      "original_page_Figure4_text_checked": true,
+      "all_page_fidelity_proven": false
+    },
+    "retirement": {
+      "manifest": "code/docs/acceptance/pi-web-frontend-2026-11-04/annotation/retirement-manifest.json",
+      "archived_active_files": 233,
+      "original_Vite_source_files_SHA_verified": 28,
+      "existing_offline_files_equal_original_ZIP": 25,
+      "legacy_migration_or_offline_rebuild_tests_run": false,
+      "active_preparation_UI": false
+    },
+    "protected_core": {
+      "record": "code/docs/acceptance/pi-web-frontend-2026-11-04/protected-core-checks.json",
+      "files": 31,
+      "all_SHA256_unchanged": true
+    },
+    "versions": {
+      "Next": "16.4.4",
+      "React": "19.2.4",
+      "PDFjs": "6.5.438",
+      "backend_restricted_Pi": "1.4.0",
+      "frontend_upstream_Pi_dependency": "1.5.0",
+      "generic_coding_session_started": false
+    },
+    "entry": {
+      "url": "http://127.0.0.1:5173",
+      "backend": "http://127.0.0.1:3210",
+      "application": "code/apps/pi-web",
+      "scripts": [
+        "dev:web",
+        "build:web",
+        "start:web",
+        "check"
+      ],
+      "wrapper": "code/scripts/pi-web.mjs",
+      "Vite_active_dependency": false
+    },
+    "new_paid_API_calls": 0,
+    "new_live_model_extraction_branch_executed": false,
+    "full_S5_complete": false,
+    "medical_quality_approved": false,
+    "deployment_beyond_local_loopback_verified": false,
+    "human_sampling": "pending"
+  },
+  "material_limits": [
+    "Word分页未作视觉核对",
+    "前端基础和旧工具清理不等于医学质量或完整S5验收",
+    "旧标注迁移/打印/PDF/离线兼容测试未执行且已取消安排"
+  ],
+  "actual_evidence_facts": "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/delivery-facts.json",
+  "final_handoff": "code/docs/acceptance/pi-web-frontend-2026-11-04/plans/final-handoff.json"
+}

@@ -1,0 +1,59 @@
+{
+  "task": "真实新需求变更，非旧S4续审",
+  "review_count": {
+    "current_task": {
+      "used": 1,
+      "limit": 3
+    },
+    "old_S4": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    }
+  },
+  "behavior": [
+    "主结果逐段原文，不译写/改写/重组；删减不能省略同源行否定条件或数值",
+    "普通新PDF正式Docling→原文锚点→通用Figure资产，显式编号/Caption证据及保守完整对象核验才配整幅图",
+    "图核验失败文本继续；PDF/IR/input/metadata来源错配则阻止新抽取/已审核导出",
+    "开发验收无需完整gold；输出抽样核验pending；已审核逐条text_only或text_and_figures确认，图片变化使图文批准失效"
+  ],
+  "actual_evidence": {
+    "real_pdfs": 5,
+    "numbered_figure_candidates": 12,
+    "png_assets": 12,
+    "mechanically_checked_figures": 5,
+    "old_distinct_outputs_replayed": 5,
+    "old_records_checked": 119,
+    "main_pairs": 1,
+    "pending_pairs": 7,
+    "without_explicit_link": 111,
+    "new_paid_calls": 0,
+    "new_api_model_quality_test": false,
+    "human_sample_completed": false
+  },
+  "checks": [
+    "checks-source-binding-final/results.json: typecheck,162抽取,1真实CPU桥接通过",
+    "checks-final/figure-python.log:3项通过，内含8旋转CropBox/UserUnit组合",
+    "general-cli/fresh-L05-final-command.json:新ID新PDF完整CPU路径及源码前后hash",
+    "general-cli/boundary-checks.json:缺PDF/已有目录拒绝且0请求"
+  ],
+  "source_review_targets": [
+    "code/packages/agent/src/evidence-validation.ts",
+    "code/packages/agent/src/extraction-run.ts",
+    "code/packages/agent/src/evidence-delivery.ts",
+    "code/services/pdf-parser/figure_assets.py",
+    "code/scripts/extract-paper.ts"
+  ],
+  "diff": "implementation.diff",
+  "diff_stat": "implementation-diff-stat.json",
+  "source_manifest": "implementation-source-manifest.json",
+  "preservation": "protected-artifacts-after.json",
+  "limits": [
+    "机械核验只支持严格单顶层完整位图；多对象/矢量/嵌套Form/图外标号或图号歧义待核",
+    "普通CLI默认CPU准备，不称模型抽取完成；真实新付费分支未执行，旧实验预算未继承",
+    "旧模型策略结果仅离线兼容回放，不能证明新策略优劣/召回或医学正确",
+    "S5真实上传/审核UI未在本轮扩建；医生自由补充不进入原文"
+  ],
+  "formal_review_requested": "final_engineering_delivery",
+  "stage_passed": false
+}

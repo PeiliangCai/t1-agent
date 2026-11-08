@@ -1,0 +1,26 @@
+✔ a failed summary submission rolls back prior reviews and every write in the same call (23.496017ms)
+✔ an exact submitted review is idempotent after a saved incomplete summary and completion blockers disclose current versions (6.850294ms)
+✔ new source updates are explicitly saved with complete=false until their current candidate context is read and reviewed (18.101141ms)
+✔ a missing independent review is an explicit completion blocker and never marks summary complete (4.609487ms)
+✔ actual L05 source reads return complete exact units only within the current bounded window, never the historical read union (121.897962ms)
+✔ repeated large raw reads send one exact source working set through installed Pi and still finish under the unchanged limits (349.753103ms)
+✔ an evicted source line remains in read history but cannot support an update until explicitly reread (30.116408ms)
+✔ cross-line sentences expose missing context explicitly and remain exact when read together again (11.555027ms)
+✔ frozen F attribution variants form one mechanical group with both versions, unresolved Figure and original fingerprints intact (251.444937ms)
+✔ frozen B0 category-only duplicate retains both records but has one source group (193.670633ms)
+✔ strict grouping never joins different source bindings, clinical evidence, conditions, literal anchors or actual contexts (13.212396ms)
+✔ role, Figure and human-decision disagreements remain visible without selecting or changing a member (4.216286ms)
+✔ new same-source attribution variants receive symmetric unresolved links and idempotent replay preserves every original version (10.438093ms)
+✔ conflict linking protects a human current version and preserves its original approval as an immutable version (11.55803ms)
+✔ one existing summary sees the group but must still assess both current member versions, without derived-group writes (16.887448ms)
+✔ approved export never borrows another member approval or includes a member outside the actual export set (14.642475ms)
+✔ only explicit internal structure markers trigger the narrow provenance warning; external citations are not rewritten (0.263793ms)
+✔ future offline preparation binds the standalone grouping module and its version without rewriting the frozen plan (1782.543447ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3175.808557

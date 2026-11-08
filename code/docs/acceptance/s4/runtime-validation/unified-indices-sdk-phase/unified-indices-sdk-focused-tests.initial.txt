@@ -1,0 +1,54 @@
+{"test_evidence":"installed_sdk_context_clamp_replay","observed_usage":{"input_tokens":25781,"output_tokens":72,"total_tokens":25853},"historical_context_window":32768,"new_context_window":1050000,"historical_wire_output_limits":[8192,16],"new_wire_output_limits":[8192,8192],"historical_input_reservations":[32768,32768],"new_input_reservations":[32768,32768],"reported_token_totals":[{"requests":2,"input_tokens":32485,"output_tokens":88,"conservative_missing_usage_requests":0,"elapsed_seconds":0.043},{"requests":2,"input_tokens":32485,"output_tokens":88,"conservative_missing_usage_requests":0,"elapsed_seconds":0.016}],"gateway_context_window_verified":false}
+✔ installed SDK replay of observed usage keeps the new output allowance while context metadata leaves budget reservations unchanged (213.738939ms)
+✖ nominal context metadata does not bypass the independent application estimate stop or enlarge experiment budgets (23.536676ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":11,"expected_blocks":11,"candidates":2,"requests":2}
+{"test_evidence":"unified_batch_lines_and_compact_receipt","first_source_lines":[5,7],"second_source_lines":[8,9],"all_medical_numeric_and_provenance_indices_share_batch_namespace":true,"saved_full_records":2,"top_level_fields_per_record":28,"receipt_characters":680,"persisted_records_characters":16980,"full_nonadjacent_diagnostic_retained":true,"compact_receipt_omits_diagnostic_detail_and_scope_basis":true}
+✔ unified batch line indices map across records and compact receipts preserve complete stored evidence (115.920787ms)
+{"test_evidence":"unified_batch_line_authorization","read_lines":[5,6],"unread_reference_line":9,"rejected_unread_field_variants":6,"out_of_range_medical_line":11,"legacy_source_indices_rejected_without_guessing":true,"saved_source_supported_candidates":1,"batch_completed":false}
+✔ unified batch medical and context indices reject unread, out-of-range and legacy local evidence selectors (43.727458ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":2,"candidates":1,"requests":1}
+{"test_evidence":"protocol_diagnostic_pause","requests":1,"state":"partial","saved_candidates":1,"error_code":"sdk_tool_argument_validation_failed_or_unclassified_tool_error","error_response_sha256":"71520054eb05f90b62af9b3977cb9f485f7a8f3707550af455812f00b89c3fed","invalid_argument_sha256":"f37d0fd352c28556fbe9280d05b3ac24b6d119b9fa7b9b574f22c549c1c4a0f7","retries":0,"summary_started":false,"persisted_pause_after_reopen":true}
+✔ protocol diagnostic pause keeps error hashes and stops before another batch, retry or summary (54.805834ms)
+{"run_id":"stopped-cancel","model_id":"synthetic-stopped-cancel","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"healthy-cancel","model_id":"synthetic-healthy-cancel","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"stopped-cancel","model_id":"synthetic-stopped-cancel","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":4}
+{"run_id":"healthy-cancel","model_id":"synthetic-healthy-cancel","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":4}
+{"test_evidence":"concurrent_document_cancellation_isolation","stop_mode":"cancel","streams_overlapped_before_stop":true,"stopped_state":"cancelled","healthy_state":"completed","stopped_candidates":1,"healthy_candidates":1,"stopped_completed_blocks":1,"healthy_completed_blocks":2,"stopped_missing_blocks":1,"healthy_transport_remained_open_until_released":true,"shared_requests":5,"stopped_requests":2,"healthy_requests":3,"shared_input_tokens":33168,"shared_output_tokens":8272,"conservative_missing_usage_requests":1}
+{"run_id":"healthy-deadline","model_id":"synthetic-healthy-deadline","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"stopped-deadline","model_id":"synthetic-stopped-deadline","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":2}
+{"run_id":"stopped-deadline","model_id":"synthetic-stopped-deadline","strategy":"baseline","batch_id":"batch-0002","status":"failed","completed_blocks":1,"expected_blocks":2,"candidates":1,"requests":4}
+{"run_id":"healthy-deadline","model_id":"synthetic-healthy-deadline","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":2,"candidates":1,"requests":4}
+{"test_evidence":"concurrent_document_cancellation_isolation","stop_mode":"deadline","streams_overlapped_before_stop":true,"stopped_state":"partial","healthy_state":"completed","stopped_candidates":1,"healthy_candidates":1,"stopped_completed_blocks":1,"healthy_completed_blocks":2,"stopped_missing_blocks":1,"healthy_transport_remained_open_until_released":true,"shared_requests":5,"stopped_requests":2,"healthy_requests":3,"shared_input_tokens":33168,"shared_output_tokens":8272,"conservative_missing_usage_requests":1}
+✔ overlapping Pi document jobs share budget while cancellation or deadline closes only their own active stream (915.372684ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2544.812822
+
+✖ failing tests:
+
+test at tests/extraction/runtime.test.ts:1:18158
+✖ nominal context metadata does not bypass the independent application estimate stop or enlarge experiment budgets (23.536676ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'model_response_failed'
+  - 'application_context_estimate_limit'
+  
+      at <anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:318:14)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async temporary (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:26:16)
+      at async TestContext.<anonymous> (/home/ecs-user/projects/t1-agent/code/tests/extraction/runtime.test.ts:310:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'model_response_failed',
+    expected: 'application_context_estimate_limit',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

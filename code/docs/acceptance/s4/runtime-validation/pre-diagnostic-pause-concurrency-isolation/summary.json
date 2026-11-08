@@ -1,0 +1,167 @@
+{
+  "schema_version": "s4-runtime-validation-summary-5",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T04:05:18.950635+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "closed_whole_line_model_interface_finishTurn_summary_visibility_nullable_unknowns_and_authorized_per_run_caps",
+  "runtime_test_count": 17,
+  "runtime_test_inventory_in_file": 40,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/closed-finish-focused-tests.txt",
+  "checks": [
+    {
+      "suite": "closed_finish_summary_caps_and_actual_probe_variant",
+      "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='closed whole-line|closed schema|summary completion requires|authorized operation caps|empty read selections' tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/closed-finish-focused-tests.txt",
+      "tests": 5,
+      "pass": 5,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "suite": "affected_existing_run_deadline_cancellation_coverage_and_summary_checks",
+      "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='full Pi run|assistant stopping|transient model failures|HTTP 200 followed|document deadline closes|cancellation after|budget exhaustion|approved cancer|line-index Pi saves|line-index nonadjacent|whole-document summary cannot|independent summary' tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/closed-finish-affected-regressions.txt",
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 17,
+  "test_name_sets_verified_disjoint": true,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/closed-finish-typecheck.txt"
+  },
+  "full_runtime_or_full_regression_repeated_after_closed_interface_change": false,
+  "operation_limit_contract": {
+    "default_batch_responses": 8,
+    "default_document_ms": 900000,
+    "authorized_max_batch_responses": 16,
+    "authorized_max_document_ms": 1800000,
+    "request_seconds": 120,
+    "global_requests": 400,
+    "global_input_tokens": 2000000,
+    "global_output_tokens": 400000,
+    "global_seconds": 7200
+  },
+  "current_runtime_coverage": [
+    "Production run exposes a closed whole-line model schema without source_fragments/context_fragments; complete 28-field records retain original words, numbers, conditions and pages.",
+    "Four candidates save in two submit groups. Three batch responses and one summary response settle successfully with no acknowledgement request after explicit completion.",
+    "Copied quote fields, out-of-range line indices, non-null observations missing source_indices and wrongly typed medical observations produce concrete model feedback.",
+    "Omitted observations, explicit null and {value:null,source_indices:[]} are all accepted unknown forms; no medical fact is filled from approved selected scope.",
+    "Summary cannot complete before get_document_context, or after adding a new candidate not yet visible through a fresh context read.",
+    "The actual real-probe input {block_ids:[synthetic-line-1],line_indices:[]} now reads only that explicit subset in hybrid mode. The reverse empty selector also preserves its subset; two nonempty selectors still reject.",
+    "Closed mode rejects legacy block_ids before read authorization; line_indices:[] intentionally reads all current permitted lines.",
+    "The 16th physical batch response can explicitly complete. A looping batch cannot make a 17th physical response; its separate summary still runs and coverage remains partial.",
+    "Default limits remain eight responses and 900000ms; explicit sixteen/1800000ms and batch minimum one are accepted, while zero/fractional/17/1800001 boundary inputs reject before model I/O.",
+    "Affected existing source coverage, partial/missing, candidate retention, SSE request deadline, hard document stop, cancellation, budget halt and summary-source-read regressions pass after necessary no-ack and whole-line script adaptations."
+  ],
+  "unknown_contract_observation": "docs/acceptance/s4/runtime-validation/closed-unknown-contract-observation.json",
+  "actual_probe_regression_observation": "docs/acceptance/s4/runtime-validation/real-probe-empty-selector-observation.json",
+  "prior_deadline_regression": {
+    "version_scope": "post_hard_document_deadline_active_stream_cancellation_affected_tests_only",
+    "generated_at": "2026-11-03T03:42:10.022633+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-closed-finish-turn/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-closed-finish-turn",
+    "total_distinct_tests": 6,
+    "typecheck_exit_code": 0,
+    "snapshot_note": "Original hashes and logs retained; owned test/fixture snapshots verified. No historical implementation source reconstructed."
+  },
+  "prior_line_index_regression": {
+    "version_scope": "post_host_bound_line_index_v3_affected_tests_and_compact_compatibility_only",
+    "generated_at": "2026-11-03T03:32:23.440219+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-document-deadline-hard-stop",
+    "total_distinct_tests": 8,
+    "pass": 8,
+    "typecheck_exit_code": 0,
+    "source_snapshot_note": "Original hashes/logs and hash-verified owned test/fixture snapshots are preserved; no historical implementation source was reconstructed."
+  },
+  "prior_compact_regression": {
+    "version_scope": "post_compact_v2_model_tool_protocol_and_nonadjacent_source_warning_affected_tests_only",
+    "generated_at": "2026-11-03T03:22:13.077008+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol",
+    "total_distinct_tests": 29,
+    "pass": 29,
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes are preserved unchanged in the archived summary.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/source-snapshots",
+    "implementation_source_snapshots": "Not captured before the line-index change; no historical implementation source was reconstructed."
+  },
+  "prior_full_regression": {
+    "version_scope": "before_compact_model_tool_protocol",
+    "generated_at": "2026-11-03T03:15:02.582198+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+    "total_distinct_tests": 144,
+    "checks": {
+      "extraction": {
+        "tests": 73,
+        "pass": 73,
+        "fail": 0
+      },
+      "unit": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0
+      },
+      "integration": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0
+      },
+      "parser": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0
+      },
+      "evaluation": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0
+      }
+    },
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+  },
+  "limitations": [
+    "Seventeen affected tests were executed; the complete 40-case runtime inventory and unrelated unit/integration/parser/evaluation/Python/web suites were not rerun.",
+    "The five focused and twelve affected tests are disjoint; older 6/8/29/144 results belong to separate archived source versions and must not be added as current tests.",
+    "The real-provider probe artifact establishes the actual failed argument variant. This agent only replayed it locally after the fix and did not reproduce a pre-fix failure locally.",
+    "Hand-scripted loopback tests do not establish real-model compatibility or output quality. Later real probe findings may require further targeted checks.",
+    "A 1800000ms input is accepted without waiting thirty minutes; short hard-deadline behavior is covered separately.",
+    "No paid API, medical accuracy, recall, gold-annotation correctness or gateway billing result is claimed."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "823e62c821c83f561616b006c2757369a372e0b617e43863133f7852f645ef12",
+    "tests/extraction/fixtures/runtime-responses.ts": "cdda6bc4c02ab99cc51fe46c56048fa0b6d35059d6497061b7339753dac55e2b",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "d6f52f9a2f7eeaedf8bc8c6a18a986f444328b34f7286fe5c0e0ac9054d0222c",
+    "packages/agent/src/extraction-pi.ts": "1e1a9cf1b106e7dd18caa70361b15db9ef4b5973a5c9c0a0452e194ae8725a4b",
+    "packages/agent/src/extraction-run.ts": "70187781133265a64086c1675681d70ee8270cc4c20669435400c9e6f7b1da07",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "1f790e2b9267f823280951ec141b287a66664ada3872e8934aad23ea3964271d",
+    "packages/agent/src/extraction-tools.ts": "e4b0d64ae6efa744bcb54f05e0c126f1a9a643088f47b378cfeb03f5f55cc447",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/extraction-protocol.ts": "713a1cdb79877754a6a9dc7e5205746afb150691cc770a042b9bd94e1f754f42"
+  }
+}

@@ -1,0 +1,1072 @@
+{
+  "schema_version": "bibliography-scope-documentation-validation-1",
+  "status": "passed",
+  "validation_complete": true,
+  "generated_at_utc": "2026-11-08T02:35:10.117112+00:00",
+  "document_owner": "/root/bibliography_docs_sync, GPT-6.1-Sol max",
+  "scope": "仅增量维护受本次普通PDF布局反馈与参考文献不抽取要求影响的现行方案/README/共享连续日志；未新增Markdown计划、未升计划/指南版本、未改旧Nov7报告、审核包或用户JSON。",
+  "implementation_report": {
+    "path": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json",
+    "sha256": "a7580f82ed8353c79f62ae82d4d72b3f49d37cae83b1df2149ff341c85d2146c",
+    "status": "actual_layout_feedback_bound_and_shared_task_scope_offline_verified"
+  },
+  "versions": {
+    "plan": "0.7",
+    "execution_guide": "0.5",
+    "source_selection_rule_version": "s4-explainable-source-selection-2",
+    "bibliography_scope_rule_version": "explicit-bibliography-task-scope-1",
+    "source_evidence_unit_version": "literal-source-sentences-4",
+    "visual_statement_policy_version": "visual-statements-2",
+    "scope_prompt_rule_version": "metric-definitions-context-only-1"
+  },
+  "user_feedback": {
+    "cases": 20,
+    "ordinary_layout_points": 43,
+    "looks_correct": 43,
+    "notes": 0,
+    "bibliography_layout_points": 4,
+    "full_binding_verified": true,
+    "feedback_sha256": "9c702535fd78084760cc2c9ab81298136502979ba802c93c7574cf0daae5bc84",
+    "pack_id": "pdf-structure-review-2026-11-07-v1",
+    "pack_sha256": "5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+    "scope": "ordinary PDF layout/location only",
+    "medical_accuracy_metric": false,
+    "medical_quality_approved": false,
+    "product_export_approved": false,
+    "full_S3_S4_accepted": false,
+    "Nov7_delivery_actual_feedback_still_historical_zero": true
+  },
+  "actual_implementation_validation_from_owner": {
+    "full_extraction_regression": {
+      "command": ".tools/node/bin/node --import tsx --test tests/extraction/*.test.ts",
+      "tests": 262,
+      "passed": 262,
+      "failed": 0,
+      "exit_code": 0,
+      "log": "docs/acceptance/bibliography-scope-2026-11-08/extraction-tests.log",
+      "log_sha256": "ef39ee818d79baaf7c1fd6608e468db493bcaac2c8c43711b297fac506a68ec3"
+    },
+    "readonly_correction_targeted": {
+      "tests": 28,
+      "passed": 28,
+      "failed": 0,
+      "real_model_requests": 0,
+      "paid_provider_requests": 0
+    },
+    "typescript": {
+      "command": ".tools/node/bin/node node_modules/typescript/bin/tsc --noEmit",
+      "exit_code": 0,
+      "log": "docs/acceptance/bibliography-scope-2026-11-08/tsc.log",
+      "log_sha256": "bde294368bfed77c2cddf8cec271d398aee9cdbab3b26e1059281bd33adb0120"
+    },
+    "real_model_requests": 0,
+    "paid_provider_requests": 0,
+    "PDF_parser_or_render_invocations": 0,
+    "readonly_correction_behavior_record": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json#/verification/bibliography_query_flow_correction",
+    "initial_257_and_failed_fixture_stages_retained_in_owner_report": true
+  },
+  "scope_measurement_record": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json#/input_scope_measurements",
+  "scope_measurements_are_original_text_blocks_not_citation_count_or_performance": true,
+  "source_and_rule_limits": {
+    "original_PDF_raw_IR_source_spans_unchanged": true,
+    "explicit_complete_entries_only": true,
+    "unknown_incomplete_cross_page_and_ambiguous_entries_retained": true,
+    "two_unmerged_reference_candidates_retained_nonblocking": true,
+    "article_membership_unchanged": true,
+    "B0_F_common_scope": true,
+    "R_FR_retired": true,
+    "legacy_masks_and_experiments_not_current_input_equivalence_or_performance_claims": true
+  },
+  "metadata_corrections": [
+    {
+      "path": "方案/子任务T1/当前版本.json",
+      "field": "/execution_guide/version",
+      "before": "0.4",
+      "after": "0.5",
+      "actual_DOCX": "方案/子任务T1/T1开发执行说明.docx",
+      "DOCX_was_already_version": "0.5",
+      "historical_versions_rewritten": false
+    },
+    {
+      "fields": [
+        "方案/子任务T1/开发计划.json#/approval/current_readable_plan_sha256",
+        "方案/子任务T1/当前版本.json#/approval/current_readable_plan_sha256",
+        "方案/子任务T1/材料检查结果.json#/approval/current_readable_plan_sha256",
+        "方案/子任务T1/质量与性能验收契约.json#/approval_record/current_readable_plan_sha256"
+      ],
+      "current_plan_sha256": "fe79cf002ce63866e977fa89c672cf7c4380e5f8eb7c71e39188ca96f92eb047",
+      "current_execution_guide_sha256": "6a987a37e84776b7cf098356053aa136611f84b9c8a1794eb4d0e735b5645f8f",
+      "original_v0_6_approved_sha256_preserved": "c764821baa57bedb09143b16f4ed8229d7b009ab813dbd9499a3af06bed92d39"
+    }
+  ],
+  "checks": [
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/任务分解.json"
+      }
+    },
+    {
+      "name": "docx_zip_and_document_XML",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/T1开发执行说明.docx"
+      }
+    },
+    {
+      "name": "docx_zip_and_document_XML",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/T1智能体开发计划.docx"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/开发任务清单.csv",
+        "data_rows": 27,
+        "columns": 11
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/开发计划.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/开发阶段与验收.csv",
+        "data_rows": 8,
+        "columns": 12
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/开源项目调研.csv",
+        "data_rows": 12,
+        "columns": 11
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/当前版本.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/待讨论实现决策.csv",
+        "data_rows": 24,
+        "columns": 8
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/抽取结果字段规范.csv",
+        "data_rows": 31,
+        "columns": 6
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/材料检查结果.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/质量与性能验收契约.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/资料来源.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/子任务T1/验收清单.csv",
+        "data_rows": 27,
+        "columns": 7
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/实施计划.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/工作流与模块职责.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/开发阶段与验收.csv",
+        "data_rows": 7,
+        "columns": 7
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/当前版本.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/材料检查结果.json"
+      }
+    },
+    {
+      "name": "docx_zip_and_document_XML",
+      "passed": true,
+      "details": {
+        "path": "方案/毕业设计实施方案_导师审核稿_v0.4.docx"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/资料与选型核验.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/需求确认示例.json"
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/需求结构.schema.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/首批医学影像特征清单.csv",
+        "data_rows": 35,
+        "columns": 13
+      }
+    },
+    {
+      "name": "json_syntax",
+      "passed": true,
+      "details": {
+        "path": "方案/首批医学影像特征清单.json"
+      }
+    },
+    {
+      "name": "csv_schema",
+      "passed": true,
+      "details": {
+        "path": "方案/验收清单.csv",
+        "data_rows": 30,
+        "columns": 7
+      }
+    },
+    {
+      "name": "final_owner_report_runtime_and_test_artifact_integrity",
+      "passed": true,
+      "details": {
+        "report_sha256": "a7580f82ed8353c79f62ae82d4d72b3f49d37cae83b1df2149ff341c85d2146c",
+        "runtime_test_policy_artifacts_checked": 25
+      }
+    },
+    {
+      "name": "current_plan_guide_versions_fingerprints_and_original_approval",
+      "passed": true,
+      "details": {
+        "plan_version": "0.7",
+        "guide_version": "0.5",
+        "index_before": "0.4",
+        "DOCX_already_0_5_before_task": true,
+        "historical_versions_rewritten": false
+      }
+    },
+    {
+      "name": "stage_task_inventory_and_current_CSV_JSON_agreement",
+      "passed": true,
+      "details": {
+        "stages": 8,
+        "tasks": 27,
+        "decisions": 24
+      }
+    },
+    {
+      "name": "quality_and_decision_CSV_JSON_agreement",
+      "passed": true
+    },
+    {
+      "name": "shared_B0_F_bibliography_scope_versions_and_unchanged_source_medical_policy",
+      "passed": true,
+      "details": {
+        "source_selection_rule_version": "s4-explainable-source-selection-2",
+        "bibliography_scope_rule_version": "explicit-bibliography-task-scope-1",
+        "source_evidence_unit_version": "literal-source-sentences-4",
+        "visual_statement_policy_version": "visual-statements-2",
+        "scope_prompt_rule_version": "metric-definitions-context-only-1"
+      }
+    },
+    {
+      "name": "actual_layout_feedback_binding_and_nonmedical_scope",
+      "passed": true,
+      "details": {
+        "cases": 20,
+        "ordinary_layout_points": 43,
+        "bibliography_layout_points": 4,
+        "medical_accuracy_metric": false,
+        "Nov7_delivery_feedback_still_historical_zero": true
+      }
+    },
+    {
+      "name": "reference_candidates_retained_without_current_task_blocker",
+      "passed": true,
+      "details": {
+        "unmerged_candidates": 2,
+        "candidate_IR_engineering_state_changed": false
+      }
+    },
+    {
+      "name": "bounded_readonly_scope_correction_matches_final_evidence",
+      "passed": true,
+      "details": {
+        "local_Pi_fixture_only": true,
+        "real_model_requests": 0,
+        "paid_provider_requests": 0,
+        "extraction_regression_passed": 262,
+        "targeted_correction_passed": 28
+      }
+    },
+    {
+      "name": "historical_PDF_review_evidence_and_user_feedback_same_bytes",
+      "passed": true,
+      "details": {
+        "files_directly_checked": 98,
+        "mismatches": [],
+        "owner_source_and_historical_files_checked": 101,
+        "owner_source_and_historical_files_unchanged": 101
+      }
+    },
+    {
+      "name": "DOCX_non_document_members_preserved",
+      "passed": true,
+      "details": [
+        {
+          "path": "方案/子任务T1/T1开发执行说明.docx",
+          "non_document_members_checked": 14,
+          "same_members_and_bytes": true,
+          "before_non_document_manifest_sha256": "b4ddf89c1211e01a4d12d516a1730eed53fd0ffe6b2444aa41c5722de5ef3c82",
+          "after_non_document_manifest_sha256": "b4ddf89c1211e01a4d12d516a1730eed53fd0ffe6b2444aa41c5722de5ef3c82"
+        },
+        {
+          "path": "方案/子任务T1/T1智能体开发计划.docx",
+          "non_document_members_checked": 14,
+          "same_members_and_bytes": true,
+          "before_non_document_manifest_sha256": "34dca12bdd8fe1a0ffeef4f132598b8d2a46bb52321a7d213aa88760b5a1276a",
+          "after_non_document_manifest_sha256": "34dca12bdd8fe1a0ffeef4f132598b8d2a46bb52321a7d213aa88760b5a1276a"
+        },
+        {
+          "path": "方案/毕业设计实施方案_导师审核稿_v0.4.docx",
+          "non_document_members_checked": 8,
+          "same_members_and_bytes": true,
+          "before_non_document_manifest_sha256": "086c5645d8c7a244cb9e70e8025081fd2b76371d25551e7b5f225c0ab41d7ee3",
+          "after_non_document_manifest_sha256": "086c5645d8c7a244cb9e70e8025081fd2b76371d25551e7b5f225c0ab41d7ee3"
+        }
+      ]
+    },
+    {
+      "name": "only_affected_current_documents_changed",
+      "passed": true,
+      "details": {
+        "changed_current_documents": 20,
+        "unrelated_current_documents_unchanged": 7
+      }
+    },
+    {
+      "name": "no_new_paid_model_comparison_or_stage_approval",
+      "passed": true,
+      "details": {
+        "real_model_requests": 0,
+        "paid_provider_requests": 0,
+        "formal_reviews": "3/3",
+        "new_formal_rounds": 0,
+        "S3_S4_medical_product_complete_S5_approved": false
+      }
+    },
+    {
+      "name": "current_feedback_scope_evidence_paths_resolve",
+      "passed": true,
+      "details": {
+        "implementation_report": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json"
+      }
+    },
+    {
+      "name": "interim_binding_and_recovery_statuses_removed_from_current_documents",
+      "passed": true
+    },
+    {
+      "name": "shared_log_current_summary_consistency",
+      "passed": true
+    },
+    {
+      "name": "shared_logs_preserve_current_budget_and_formal_review_limits",
+      "passed": true
+    }
+  ],
+  "checks_count": 42,
+  "passed_checks": 42,
+  "application_tests_run_by_documentation_owner": false,
+  "changed_current_documents": [
+    {
+      "path": "code/README.md",
+      "before_sha256": "fee46c29ce36314fc43410caca4aad3b51ad9a779cff05c52eedc71a1bb50367",
+      "after_sha256": "f4057d4114c7902f8c598209928fefc449242e79dd7d1be450cc256fab3c2091"
+    },
+    {
+      "path": "方案/任务分解.json",
+      "before_sha256": "e9f9e3698e5455cb3033090efa2fe31f615dc2897f4e0debbc95a999603adf25",
+      "after_sha256": "f9d165f8f74ba2afd01d8fa4dc37a3fbc1abefaf709c57f61d8d59e32ed6b197"
+    },
+    {
+      "path": "方案/子任务T1/T1开发执行说明.docx",
+      "before_sha256": "8a94478b07a7deeeaafbc8e7566c6070e068be9460a094653637f99a64404aa6",
+      "after_sha256": "6a987a37e84776b7cf098356053aa136611f84b9c8a1794eb4d0e735b5645f8f",
+      "changed_paragraph_indices": [
+        4,
+        20,
+        21,
+        42,
+        43,
+        59,
+        62,
+        67,
+        68,
+        82,
+        89
+      ],
+      "all_other_paragraphs_and_paragraph_external_XML_preserved_by_incremental_assertions": true
+    },
+    {
+      "path": "方案/子任务T1/T1智能体开发计划.docx",
+      "before_sha256": "18108908d9da5a2150252213624e70d91b32618bb62fcb01cb249d5c2653266d",
+      "after_sha256": "fe79cf002ce63866e977fa89c672cf7c4380e5f8eb7c71e39188ca96f92eb047",
+      "changed_paragraph_indices": [
+        21,
+        24,
+        25,
+        29,
+        43,
+        44,
+        47,
+        57
+      ],
+      "all_other_paragraphs_and_paragraph_external_XML_preserved_by_incremental_assertions": true
+    },
+    {
+      "path": "方案/子任务T1/开发任务清单.csv",
+      "before_sha256": "6cd750cae96b06d1090fd121f54870c454355032c763ced3e98ee13144eecd3f",
+      "after_sha256": "146e6a7b8ac09574196de7dd1109835404103772ef36d2e02374d1e19de44119"
+    },
+    {
+      "path": "方案/子任务T1/开发计划.json",
+      "before_sha256": "77630a670dea9a95d4e25a33c5fcd6c0f3695882e5fb823ca35be81891d213ec",
+      "after_sha256": "b9e69fbb8b3e29af7344d5df82b3f0c9cddc1b5deee23e7f34d071665e20060b"
+    },
+    {
+      "path": "方案/子任务T1/开发阶段与验收.csv",
+      "before_sha256": "0ee6b32ace860f7bd3a5a93cfe1e32512c2dd22a4f65e53429c17edb72b24128",
+      "after_sha256": "c1005690ff839da30d8417b917d2dd7c406cb1ba4e861e3688d1926f26ef9df1"
+    },
+    {
+      "path": "方案/子任务T1/当前版本.json",
+      "before_sha256": "6c6dec037949f792453b31e3a5472313eec8dd84b7fbbd7a75908788d6b73d4d",
+      "after_sha256": "8f52017c7700e234fbeae77435052d0cd0ccab56fe19007d03ffadec0111f847"
+    },
+    {
+      "path": "方案/子任务T1/待讨论实现决策.csv",
+      "before_sha256": "08900d88fa31b34e149c54dbc0bfefadc43a4f449d029091e4bdc55111ecd94d",
+      "after_sha256": "efc5183decf65c80ed99a46ab4205d2973754ed95aa0479515ced21cafcbcbc2"
+    },
+    {
+      "path": "方案/子任务T1/抽取结果字段规范.csv",
+      "before_sha256": "92cc02f2f0caffe233328e6d29cad915fc75599756707ee4c1a4eeab046e9d22",
+      "after_sha256": "f1d72079592e8480e2a3cd80d7a21f1e34683df56edf44c100cfd74d0a366277"
+    },
+    {
+      "path": "方案/子任务T1/材料检查结果.json",
+      "before_sha256": "e971e256b6303ade06e1b617b021f3023052f95758e56764c626eabd7efb5f4c",
+      "after_sha256": "14ffdf3b8cf3044bb8f2d0762e7b7302defb426bbc68854dd339fec07a8db72e"
+    },
+    {
+      "path": "方案/子任务T1/质量与性能验收契约.json",
+      "before_sha256": "33a45e9db3a7170bb638d47c95c3bbada5d98295a90cbe19d5904c84d71eddb6",
+      "after_sha256": "445493e9d6eeaa09271c224b7a1b9d89297713fe36adfa840b24a775c9097c3d"
+    },
+    {
+      "path": "方案/子任务T1/验收清单.csv",
+      "before_sha256": "29ef622ab00f03d085ab189ff67a91ac21a58ce724b8b77bb379fb9ddfadb5ef",
+      "after_sha256": "5df96b44052cd63f9e689fc159c0d122a669327620cca60c081f474662ada8c0"
+    },
+    {
+      "path": "方案/实施计划.json",
+      "before_sha256": "92e83e715dc7a16109f9ed3a46dd358bcf1d1278b0a3abddbb37367bb3bd6e3f",
+      "after_sha256": "24ff7cdd105a388304f7935f9182a8787e377359fa317e9355d4703da57ee85e"
+    },
+    {
+      "path": "方案/工作流与模块职责.json",
+      "before_sha256": "474c918a56374b085f8870528cd171174a5647ddf18c6871b13a0d4a94a1afae",
+      "after_sha256": "693cd6b475b9eca38501d96efac7b710d5254a24a9cde02b4d0850d520d37b09"
+    },
+    {
+      "path": "方案/开发阶段与验收.csv",
+      "before_sha256": "421d0977aba33af0e1ce2df84667ec53e3b893b588fee38288f84c847090b88a",
+      "after_sha256": "723cf1a58fb6ca5ab1dfc5ac1018a12f4e4b7cfb92a2cfc1d5762777dd0abb26"
+    },
+    {
+      "path": "方案/当前版本.json",
+      "before_sha256": "71648808debde84ba2ec1907aa429218b652c73dd562510bda134f0a9fe6fae6",
+      "after_sha256": "f044aa3fe81634d953c1c2a610b86dc2ddaea4aec084b0d28c3c4a0ad13306f6"
+    },
+    {
+      "path": "方案/材料检查结果.json",
+      "before_sha256": "404aa2844f7ed7ea9a51dda9fc42fb3669cdf5ab3b2b367e0a880f7cfca325c4",
+      "after_sha256": "3f67a59d8e93e0ff1850e2270f48904b9beabd8653ffa3b27360c70fc228dbfd"
+    },
+    {
+      "path": "方案/毕业设计实施方案_导师审核稿_v0.4.docx",
+      "before_sha256": "601bcc7924455c00140fa50243ed71ccbe2e58b77e871ef5ace1956e102576ed",
+      "after_sha256": "ec29812c758f9499fbd34b9f97aa1120bf7284808afd8b38f17f7a6f5db15d0f",
+      "changed_paragraph_indices": [
+        94,
+        342
+      ],
+      "all_other_paragraphs_and_paragraph_external_XML_preserved_by_incremental_assertions": true
+    },
+    {
+      "path": "方案/资料与选型核验.json",
+      "before_sha256": "5f91e4828b18ed0032d47dcd9d70ea888b1a453d80c717dde985696e6e59d214",
+      "after_sha256": "305923dd2f4ec5eec2fd76f45f67c1ff8e2ebd3ab4b430f2c9e692e9cee9b708"
+    }
+  ],
+  "unchanged_unrelated_current_documents": [
+    {
+      "path": "方案/子任务T1/开源项目调研.csv",
+      "before_sha256": "c6533263597d2ddab51d85f03d577a5de2fb05cf804f6f502c6fdaf00c44d277",
+      "after_sha256": "c6533263597d2ddab51d85f03d577a5de2fb05cf804f6f502c6fdaf00c44d277"
+    },
+    {
+      "path": "方案/子任务T1/资料来源.json",
+      "before_sha256": "2584ad99b06e32785f6946737c0756a2d13c06d02b69a90d5f442afacf065c14",
+      "after_sha256": "2584ad99b06e32785f6946737c0756a2d13c06d02b69a90d5f442afacf065c14"
+    },
+    {
+      "path": "方案/需求确认示例.json",
+      "before_sha256": "0d9227ae4066b05bbd5f83317dc0dbe4d4ff6821ebecfd9e2a9721d867a204be",
+      "after_sha256": "0d9227ae4066b05bbd5f83317dc0dbe4d4ff6821ebecfd9e2a9721d867a204be"
+    },
+    {
+      "path": "方案/需求结构.schema.json",
+      "before_sha256": "455206ff5ebcd097ddc965266af4b64d01ac67c14df21028fe913479cb44843a",
+      "after_sha256": "455206ff5ebcd097ddc965266af4b64d01ac67c14df21028fe913479cb44843a"
+    },
+    {
+      "path": "方案/首批医学影像特征清单.csv",
+      "before_sha256": "fb85c0058ba42c429bce79261c6e5563fc79d0e799a839a1c1c5605f43d10b04",
+      "after_sha256": "fb85c0058ba42c429bce79261c6e5563fc79d0e799a839a1c1c5605f43d10b04"
+    },
+    {
+      "path": "方案/首批医学影像特征清单.json",
+      "before_sha256": "3930b7ae0215ed4c738ff0b147562492a7bab43e8a95d64f55605efd1d25209f",
+      "after_sha256": "3930b7ae0215ed4c738ff0b147562492a7bab43e8a95d64f55605efd1d25209f"
+    },
+    {
+      "path": "方案/验收清单.csv",
+      "before_sha256": "6119da849f631994bcac99b12384499865f1c161b1675ab28edbb431a0de82d4",
+      "after_sha256": "6119da849f631994bcac99b12384499865f1c161b1675ab28edbb431a0de82d4"
+    }
+  ],
+  "current_documents_changed_count": 20,
+  "DOCX_preservation": [
+    {
+      "path": "方案/子任务T1/T1开发执行说明.docx",
+      "non_document_members_checked": 14,
+      "same_members_and_bytes": true,
+      "before_non_document_manifest_sha256": "b4ddf89c1211e01a4d12d516a1730eed53fd0ffe6b2444aa41c5722de5ef3c82",
+      "after_non_document_manifest_sha256": "b4ddf89c1211e01a4d12d516a1730eed53fd0ffe6b2444aa41c5722de5ef3c82"
+    },
+    {
+      "path": "方案/子任务T1/T1智能体开发计划.docx",
+      "non_document_members_checked": 14,
+      "same_members_and_bytes": true,
+      "before_non_document_manifest_sha256": "34dca12bdd8fe1a0ffeef4f132598b8d2a46bb52321a7d213aa88760b5a1276a",
+      "after_non_document_manifest_sha256": "34dca12bdd8fe1a0ffeef4f132598b8d2a46bb52321a7d213aa88760b5a1276a"
+    },
+    {
+      "path": "方案/毕业设计实施方案_导师审核稿_v0.4.docx",
+      "non_document_members_checked": 8,
+      "same_members_and_bytes": true,
+      "before_non_document_manifest_sha256": "086c5645d8c7a244cb9e70e8025081fd2b76371d25551e7b5f225c0ab41d7ee3",
+      "after_non_document_manifest_sha256": "086c5645d8c7a244cb9e70e8025081fd2b76371d25551e7b5f225c0ab41d7ee3"
+    }
+  ],
+  "protected_history_and_review_files": {
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/actual-tool-L05-Table3.json": {
+      "sha256": "ff8f359448354f65be81af9d0ce4d211c12aa12417eaa130b87b81bd11e3ca3e",
+      "bytes": 19748
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/actual-tool-L05-Table4-unit3.json": {
+      "sha256": "622338e3596786e43e32bc5bd5876c4c97c57d1a724a5cdc0df2d90a54232c5a",
+      "bytes": 19255
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/actual-tool-L05-Table4.json": {
+      "sha256": "21e3c5a548ebf3af84a8f902173dfc72c2fc5178f0681af833b415f0236fc968",
+      "bytes": 18860
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/00-default.png": {
+      "sha256": "e6be09d0c1fba2df302dd9a8f53adb9caa8b971b7188d63821da024001c806c5",
+      "bytes": 497156
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/01-figure6-after.png": {
+      "sha256": "3457e7b681627150330bc9ae41edb9e685ed7c9140b465f8ef82541724a9c0c1",
+      "bytes": 478000
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/02-figure6-before.png": {
+      "sha256": "c1fcff45b1eda767d9acb045e640ce6ddf27844f51a70354a7f8b3a3a8958fc5",
+      "bytes": 467457
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/03-readable-table4.png": {
+      "sha256": "4e1e883b724dc518c929060089b5d3e86e3f1e7307ea091d16a01883ff9877bb",
+      "bytes": 572146
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/04-mobile.png": {
+      "sha256": "aa03e273a24d2a3d5fad650b029fdfc9ff60d50e3b6b683666f9d250b1e6e98f",
+      "bytes": 316367
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/05-continuation.png": {
+      "sha256": "a529a56314b98df0c4bfc4963a2f13b4615d9a590e434774e4c628b4ced8961f",
+      "bytes": 679727
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/06-compact-caption.png": {
+      "sha256": "393fbc7290f5627e48bc01301497feb6d53c7c3c4168b743cf7f10baaf4106bb",
+      "bytes": 985762
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/07-table4-last-row.png": {
+      "sha256": "a00bbc9e124c26aef2176d18e3a54bbdbf3177e93014301306cd17e8cb72c1ea",
+      "bytes": 516463
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/browser/08-table3-before-after-repaired.png": {
+      "sha256": "636e2813e2d0eec62225207bb7c779b4cc9e4d3b4ca487a3f9ba7a4cefd005e8",
+      "bytes": 432752
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/derived/L01/parser-result.json": {
+      "sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "bytes": 1493104
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/derived/L05/parser-result.json": {
+      "sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "bytes": 2738646
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/derived/L07/parser-result.json": {
+      "sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "bytes": 3198162
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/documentation-validation.json": {
+      "sha256": "b2ebfd5b39c5bfb30361b62f61d52fa1ecd420c3adf9c6500f1c10935b355184",
+      "bytes": 48005
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/extraction-tests-final.log": {
+      "sha256": "a264e4b5da478176dc0921d3c10ef8f1cf12a2750f279f3e4871f2190f6b3186",
+      "bytes": 47279
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/extraction-tests-unit4.log": {
+      "sha256": "71b30c622827b9ddecf13626c668af2b68e9014d06a200a563a57e29baff0c3c",
+      "bytes": 47449
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/extraction-tests.log": {
+      "sha256": "462cdd20d945f2f9c3724421dadb8d0240f3faa3b75c54b847aae2468bfeb906",
+      "bytes": 50366
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figure-review-report.json": {
+      "sha256": "c6c68de28cfe613275554bd9b027fc136057a5f1a9f0b374de4063ef91b41bda",
+      "bytes": 58782
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L01/figure-assets/catalog.json": {
+      "sha256": "5d8e75d3d650f1b137cbba989c8628084f2b5985fc4280cc4daa122807d681a0",
+      "bytes": 3917
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L01/figure-assets/figure-65024a8b54e3eef8d50eecb1-p2-0.png": {
+      "sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+      "bytes": 207984
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/catalog.json": {
+      "sha256": "67a0541d7c7b079239a28ee349fd585baad6c54d3b5cf28ca5752b6760b1cbb5",
+      "bytes": 11959
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/figure-6d7f9bf10fc4bd2fbedba77e-p8-0.png": {
+      "sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+      "bytes": 1326708
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/figure-ce36c15b5b99c570b205118d-p4-0.png": {
+      "sha256": "4f622bd386562fc6a9cee49f281fcac4a8c2c85cfa817832f5f8c9a34efad4f4",
+      "bytes": 150947
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L05/figure-assets/region-3889329292757015852bd668-p5-0.png": {
+      "sha256": "1e412bd04bd576f1df8f463fef0325297c81cb243dab6ae1195f8bd0b427bcce",
+      "bytes": 49845
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/catalog.json": {
+      "sha256": "d7c062b3e8dfb15f1be548335b298faf63dbeeb14c216d069e1fbd255d136a05",
+      "bytes": 57841
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-1ab49282a12e3052ef055ede-p8-0.png": {
+      "sha256": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+      "bytes": 324891
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-4b4d9d13ea25dd16b7c9e866-p9-0.png": {
+      "sha256": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+      "bytes": 216058
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-5617c1c9bc71f439149d59fb-p6-0.png": {
+      "sha256": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+      "bytes": 178952
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-61f0d21cfe9b39b246b0413c-p4-0.png": {
+      "sha256": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+      "bytes": 470551
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-c406c6c555ede233374bf1f6-p3-0.png": {
+      "sha256": "aeda95cfe2fc125c540bb5919f70e100e089f3e13ca3e165bd5ee6762c01ab9c",
+      "bytes": 209765
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/figure-e18998e3bc8242aa9ec677d6-p7-0.png": {
+      "sha256": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+      "bytes": 574420
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/figures/L07/figure-assets/region-8502c4b2cb334fb7bc171d7c-p2-0.png": {
+      "sha256": "071efffc5ee53ce022d561b60e19dfda5fb4a14a62a097f49b4c49aa86a7b5d3",
+      "bytes": 163668
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/freeze-unit4.log": {
+      "sha256": "022d87cb9b681b2683417443f401ab26eb8375f48b7cc39bd8b2fbf95280eac1",
+      "bytes": 112
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/freeze.log": {
+      "sha256": "5b1596e92795ffdad4534366080040895492df0968966878d2cf1f8d4047dfaa",
+      "bytes": 112
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/parser-typescript-tests.log": {
+      "sha256": "12cd40d2342c11bfaa4564ad491aa35e2bc502439345a1386907b81b73a6680f",
+      "bytes": 2648
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/parser-typescript-unit4.log": {
+      "sha256": "c3a3958ee27bd15e6cf16c1bf93a09e5aa3707e624022728c31b6418baeb1207",
+      "bytes": 2652
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/python-tests-unit4.log": {
+      "sha256": "d1923b6836374defa8926387343e3783a74f1a98beba6d993f5cb4443b18de14",
+      "bytes": 8780
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/python-tests.log": {
+      "sha256": "e86ebd444f34015eaf035293e910bc4599ffd1899f37464c62fd07ab48358577",
+      "bytes": 8296
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/review-cases-tables-continuations.json": {
+      "sha256": "8be297028f49202cf8f0fbc13c99b63300c891d5cf40844790f9b73176948cb7",
+      "bytes": 635380
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/review-checklist.json": {
+      "sha256": "852361dbb532524983f63cd6828cf09f9cc08c5b7e9b4f9b460d48a24f75b797",
+      "bytes": 22610
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/source-checkpoint-unit3.json": {
+      "sha256": "15393f1ce71e2c6822c53960e1f75e79b2ad4b50c99356dd2708c89215755f51",
+      "bytes": 6408
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/source-checkpoint.json": {
+      "sha256": "88b312fda37e63f5fc2284564c351393a404afc6227d51b561b2db74ee80b6b2",
+      "bytes": 6721
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/source-recovery-tool-check-unit3.json": {
+      "sha256": "116bbc3dd74f499758ad7d9d5faf70fc8a096a58e6bfa7507901ee72b3328093",
+      "bytes": 17837
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/source-recovery-tool-check.json": {
+      "sha256": "83d6017b2cfc8595a0eea34e81ff4a5ad08e2af884c603c73ad0986284203a89",
+      "bytes": 29365
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/source-recovery-typescript.log": {
+      "sha256": "8f49e35ff80ce63d4454a78d4bf3ff1ab7ce0bc79c3489cbdd823ba6b9a760e5",
+      "bytes": 639
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/structure-manifest.json": {
+      "sha256": "e172b7869d5f3c628bb97b6c405cc158ef05ee032dc5f53574ed4592dee14dfc",
+      "bytes": 4461
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/table-continuation-report-unit3-checkpoint.json": {
+      "sha256": "4aa93531931a1311e4f7cc1ce0ed1016cd82effed9448793d227650bc1fc622d",
+      "bytes": 17081
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/table-continuation-report.json": {
+      "sha256": "621eea5bc369a63c6519d8c82af341fbd1ce9ae8da81614e68c16155c7c2d97c",
+      "bytes": 22347
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table2-final.html": {
+      "sha256": "f7a5d40c499114bcfa1f018284fb2f55ad06f8f16d4d9280807c69327f527ceb",
+      "bytes": 3530
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table2-grid.json": {
+      "sha256": "cbd9f6c64f0c7565573a71781ba7e4f86eae3454bad5ed9f7ba15ffcbf057752",
+      "bytes": 90106
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table3-before.html": {
+      "sha256": "82498670ad08f3abd3ab68552d22e7416a4fad5fb10c701155aafed3da65ef31",
+      "bytes": 3648
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table3-before.json": {
+      "sha256": "30356ce8012180e35a509e8aa1adf310503c9f9619dc201c5f822d32d34e14bb",
+      "bytes": 24268
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table3-final.html": {
+      "sha256": "595339c80be1e5b7da9f8dde88b501e2f1372f2fc8ae7b6f67a2f7a3e2eb2bbb",
+      "bytes": 4610
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table3-grid.json": {
+      "sha256": "610aaf7f745d4ddca8391c4dab942d6101adb3cc35d289469021f8ff27e91a8d",
+      "bytes": 110219
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table4-final.html": {
+      "sha256": "3d9607596072217f0ccc1dfe7d01cd9a96fd688b44e78b89a7d6b0f10229422b",
+      "bytes": 8036
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tables/L05-Table4-grid.json": {
+      "sha256": "eea359469223ad8c1d4f55b65a194d4c670ae4479d938948b04eafc6b69a8641",
+      "bytes": 178845
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tool-check-unit4.log": {
+      "sha256": "4a13f657b426d16768fc48a442477a9869f6850572ecb33420149188ca476ecc",
+      "bytes": 82
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/tool-check.log": {
+      "sha256": "4a13f657b426d16768fc48a442477a9869f6850572ecb33420149188ca476ecc",
+      "bytes": 82
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/typescript-cli-before-fix.log": {
+      "sha256": "6c64913e271a9d8cdea34a39fbf49b692a0595d058677463e977abf457349071",
+      "bytes": 771
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/typescript-final.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/typescript-unit4-final.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/typescript-unit4.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "code/docs/acceptance/pdf-structure-review-2026-11-07/typescript.log": {
+      "sha256": "2c12dd3b428f81f5ad26a3c32659a97066e99a7bf3d75e15d65ca7405f59f9aa",
+      "bytes": 142
+    },
+    "code/apps/pi-web/public/input-review/PDF解析核验意见-2026-11-08-02-06-10.json": {
+      "sha256": "9c702535fd78084760cc2c9ab81298136502979ba802c93c7574cf0daae5bc84",
+      "bytes": 21793
+    },
+    "code/apps/pi-web/public/input-review/assets/14324f16cf559bf769ad.png": {
+      "sha256": "14324f16cf559bf769ade1ec7a6af4903068b4c012b15cb19a407c0afdd20b9d",
+      "bytes": 609738
+    },
+    "code/apps/pi-web/public/input-review/assets/2bf270105a68120afa04.png": {
+      "sha256": "2bf270105a68120afa04bbfdf5dbab7d64cfd6f08e68a78fcceae85a733d4c7a",
+      "bytes": 951218
+    },
+    "code/apps/pi-web/public/input-review/assets/3218360d2938159d6312.png": {
+      "sha256": "3218360d2938159d6312be2fe6810a22c1c21615be82c5542524d94a70534bd6",
+      "bytes": 1326708
+    },
+    "code/apps/pi-web/public/input-review/assets/3be8a233be39baee2e1b.png": {
+      "sha256": "3be8a233be39baee2e1be508cc1df702e3b340ed90810bcd567798cd71a71add",
+      "bytes": 574420
+    },
+    "code/apps/pi-web/public/input-review/assets/5543845177853d08d510.png": {
+      "sha256": "5543845177853d08d5104eb895864d8e00391da10ccda1b0f514c867c92c63e0",
+      "bytes": 213011
+    },
+    "code/apps/pi-web/public/input-review/assets/55a9a2241324174a7202.png": {
+      "sha256": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145",
+      "bytes": 470551
+    },
+    "code/apps/pi-web/public/input-review/assets/574e8df1356e8c0cdc73.png": {
+      "sha256": "574e8df1356e8c0cdc7323232bef0638c7437b51374e45278fa1cf9b1b9a254e",
+      "bytes": 586762
+    },
+    "code/apps/pi-web/public/input-review/assets/5d7d901bd62832793baa.png": {
+      "sha256": "5d7d901bd62832793baa0ee628c18a99fce4fba2ca5f7a87876945ce8e075772",
+      "bytes": 908891
+    },
+    "code/apps/pi-web/public/input-review/assets/75ffd21d4760e41e395e.png": {
+      "sha256": "75ffd21d4760e41e395ed448c8afd1435c696d5630e15f74191f62cd44dc1c47",
+      "bytes": 510854
+    },
+    "code/apps/pi-web/public/input-review/assets/8677a837131696001b7d.png": {
+      "sha256": "8677a837131696001b7db9e7297a6d91b1788fc364123da0a709289df1e65250",
+      "bytes": 207984
+    },
+    "code/apps/pi-web/public/input-review/assets/86f9c08bfd6724f5f22d.png": {
+      "sha256": "86f9c08bfd6724f5f22ddebc53f7aa19d14d88997418cc3b601e34819a0f4fca",
+      "bytes": 554491
+    },
+    "code/apps/pi-web/public/input-review/assets/8f5e38ac6575cd776469.pdf": {
+      "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "bytes": 1487660
+    },
+    "code/apps/pi-web/public/input-review/assets/8faae7c517ecc6462bcd.png": {
+      "sha256": "8faae7c517ecc6462bcd5ec0f5d347135169c707d23d88c3537c264247eac138",
+      "bytes": 468126
+    },
+    "code/apps/pi-web/public/input-review/assets/9551fe16c5f7a3213050.png": {
+      "sha256": "9551fe16c5f7a32130509abd8a8c5f72353737e80228e02421e08c74379cc515",
+      "bytes": 440455
+    },
+    "code/apps/pi-web/public/input-review/assets/9705c2cee82ac3dbb0c6.png": {
+      "sha256": "9705c2cee82ac3dbb0c6420ab7e73dec86751ec0cb14069cfa258aabe2f80440",
+      "bytes": 799164
+    },
+    "code/apps/pi-web/public/input-review/assets/a1e382253a3e05e67fe6.png": {
+      "sha256": "a1e382253a3e05e67fe62f30c9492702158e1408d89792585c23cbb9735c1259",
+      "bytes": 415529
+    },
+    "code/apps/pi-web/public/input-review/assets/a8daca6dcadae7e143e3.png": {
+      "sha256": "a8daca6dcadae7e143e37816774052341d7bfdbbda6190885d1bac658976d284",
+      "bytes": 178928
+    },
+    "code/apps/pi-web/public/input-review/assets/b7850a291694e3c7018f.pdf": {
+      "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "bytes": 1820152
+    },
+    "code/apps/pi-web/public/input-review/assets/bd60db7e7fe5c7950ac8.pdf": {
+      "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "bytes": 1552277
+    },
+    "code/apps/pi-web/public/input-review/assets/c829be401704022df231.png": {
+      "sha256": "c829be401704022df231bcf6b833276da8cd39dbeb9ecc2b759139848085e47d",
+      "bytes": 274163
+    },
+    "code/apps/pi-web/public/input-review/assets/c93911eb84a508edc7ec.png": {
+      "sha256": "c93911eb84a508edc7ecc80cd47676d269b1837633b5a6e635bce79974c14932",
+      "bytes": 324891
+    },
+    "code/apps/pi-web/public/input-review/assets/ca2df7108b935263c8b6.png": {
+      "sha256": "ca2df7108b935263c8b62f6283d1c9ab2c20d8b06f0c869257ed9dcff6c93d1f",
+      "bytes": 681907
+    },
+    "code/apps/pi-web/public/input-review/assets/dae3c2ca8da3bbb32bf3.png": {
+      "sha256": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b",
+      "bytes": 178952
+    },
+    "code/apps/pi-web/public/input-review/assets/e1c0f533de6b1eae95de.png": {
+      "sha256": "e1c0f533de6b1eae95de57afe55911256d0d4072ae9c61559e326ba712c89dbd",
+      "bytes": 216058
+    },
+    "code/apps/pi-web/public/input-review/assets/ec397232d29c3fccc5ce.png": {
+      "sha256": "ec397232d29c3fccc5ce754fd8edf3bd5b9887536c1be27e9bc8b79dd33e781c",
+      "bytes": 1515886
+    },
+    "code/apps/pi-web/public/input-review/assets/f2113131a378cd703729.png": {
+      "sha256": "f2113131a378cd70372936c8927f6e83d5dfcc3f81c239607a08f4f97524f638",
+      "bytes": 1015131
+    },
+    "code/apps/pi-web/public/input-review/assets/f8ef86a9ddfa46c790ae.png": {
+      "sha256": "f8ef86a9ddfa46c790aeb10fdd917c9974effce3a61b3bbfa311e96601368c23",
+      "bytes": 305715
+    },
+    "code/apps/pi-web/public/input-review/assets/fbee86e076e0a0d4dee3.png": {
+      "sha256": "fbee86e076e0a0d4dee3e8d69409ef818eed9fb345dd9aac02d4a9ba2d94839a",
+      "bytes": 734890
+    },
+    "code/apps/pi-web/public/input-review/data.json": {
+      "sha256": "cd62468396767a5b26a753d8fa821490330581788a0351785dcd0aef5bd01834",
+      "bytes": 704717
+    },
+    "code/apps/pi-web/public/input-review/index.html": {
+      "sha256": "7878db1624d642a5bcf7136d0f82044db580e1542cfce9745e58b23dabffea0c",
+      "bytes": 4596
+    },
+    "code/apps/pi-web/public/input-review/review.css": {
+      "sha256": "3801d808441749caa7046bb1fdc4911e42b4f50da4f445b7c94c0bf4e0343c52",
+      "bytes": 7315
+    },
+    "code/apps/pi-web/public/input-review/review.js": {
+      "sha256": "9e298becda6b0ae186298cc659618c5a42b6c071642d8efd0a562820ff4034f4",
+      "bytes": 19104
+    }
+  },
+  "protected_files_directly_checked": 98,
+  "protected_mismatches": [],
+  "owner_original_source_and_historical_files_unchanged": 101,
+  "shared_logs_retained": [
+    {
+      "path": "code/runtime-data/agent-notes/s0-s4-execution-2026-11-04.json",
+      "sha256": "eeba5c1f68ef279670ee5aa9ef69493ea301f71b7a98ecfe9c419a42de472ccf"
+    },
+    {
+      "path": "code/runtime-data/agent-notes/current-docs-reconcile-2026-11-04.json",
+      "sha256": "31d8000172bc61ca6f31ff8c9d223a81716a0309d9a628a47e00f7221d1a9b95"
+    }
+  ],
+  "permanent_continuity_rule_retained": ".agent/execution-continuity.json",
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds": 0
+  },
+  "new_paid_request_limit": 0,
+  "limitations": [
+    "未做Word分页视觉预览；实际检查为DOCX ZIP/XML、必要段落增量及非document成员原字节保留。",
+    "文档执行者未重复应用测试；262/262、28/28及tsc0均来自代码owner实际日志并校验其SHA。",
+    "本次布局反馈和书目范围工程验证不构成全文结构保证、医学/产品批准或完整S3/S4/S5验收。"
+  ],
+  "cleanup": {
+    "own_interim_document_validation_staging_replaced": true,
+    "two_shared_logs_and_permanent_rule_retained": true,
+    "new_temporary_files_to_remove": []
+  }
+}

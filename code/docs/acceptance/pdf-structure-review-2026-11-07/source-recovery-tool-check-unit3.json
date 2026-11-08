@@ -1,0 +1,537 @@
+{
+  "schema_version": "source-recovery-tool-check-1",
+  "source_unit_version": "literal-source-sentences-3",
+  "LLM_calls": 0,
+  "provider_calls": 0,
+  "source_binding": {
+    "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "text_version": "s3v3-ff44958f101c958d8bea38d880119734"
+  },
+  "tool_packet_sha256": "2909e88d3052001440027f028abdffe68bc4855791656540065517a2fd2e8d67",
+  "model_active_grid": {
+    "grid_id": "sg-52cda4101bb1599f93a50db0",
+    "basis": "printed_rules_exact_raw_spans_and_independent_character_geometry",
+    "n_rows": 25,
+    "n_cols": 7,
+    "header_rows": 2,
+    "geometry_checked": true,
+    "human_approved": false
+  },
+  "exact_whole_line_numeric_support": "12.70 (± 4.69) 16.19 (± 5.79) < 0.001* < 0.001* 0.888",
+  "accepted": {
+    "saved": [
+      {
+        "input_record_index": 0,
+        "record_id": "ev-9231ba6271b402e5c5f442dcc3de8100e39fdefe",
+        "action": "insert",
+        "versions": [
+          1
+        ],
+        "review_status": "needs_context",
+        "issues": [
+          {
+            "code": "supporting_table_value_relationship_requires_review",
+            "path": "supporting_table_evidence[0]",
+            "severity": "requires_review"
+          },
+          {
+            "code": "visual_statement_purpose_requires_review",
+            "path": "evidence_type",
+            "severity": "requires_review"
+          },
+          {
+            "code": "visual_description_semantics_unverified",
+            "path": "source_fragments",
+            "severity": "info"
+          },
+          {
+            "code": "condition_requires_context",
+            "path": "applicability",
+            "severity": "requires_review"
+          },
+          {
+            "code": "coreference_requires_context",
+            "path": "context_fragments",
+            "severity": "requires_review"
+          },
+          {
+            "code": "numeric_expression_missing",
+            "path": "numeric_expressions",
+            "severity": "requires_review"
+          },
+          {
+            "code": "new_term_pending_human_review",
+            "path": "scope",
+            "severity": "info"
+          }
+        ]
+      }
+    ],
+    "rejected": [],
+    "batch_completed": false,
+    "medical_semantics_verified": false,
+    "human_approval": false
+  },
+  "negative_cases": [
+    {
+      "mode": "wrong_table",
+      "result": {
+        "saved": [],
+        "rejected": [
+          {
+            "input_record_index": 0,
+            "issues": [
+              {
+                "code": "supporting_table_explicit_reference_required",
+                "path": "supporting_table_evidence[0]",
+                "severity": "reject"
+              },
+              {
+                "code": "supporting_table_value_source_mismatch",
+                "path": "supporting_table_evidence[0]",
+                "severity": "reject"
+              },
+              {
+                "code": "supporting_table_value_relationship_requires_review",
+                "path": "supporting_table_evidence[0]",
+                "severity": "requires_review"
+              },
+              {
+                "code": "visual_statement_purpose_requires_review",
+                "path": "evidence_type",
+                "severity": "requires_review"
+              },
+              {
+                "code": "visual_description_semantics_unverified",
+                "path": "source_fragments",
+                "severity": "info"
+              },
+              {
+                "code": "condition_requires_context",
+                "path": "applicability",
+                "severity": "requires_review"
+              },
+              {
+                "code": "coreference_requires_context",
+                "path": "context_fragments",
+                "severity": "requires_review"
+              },
+              {
+                "code": "numeric_expression_missing",
+                "path": "numeric_expressions",
+                "severity": "requires_review"
+              }
+            ],
+            "scope_status": "blocked"
+          }
+        ],
+        "batch_completed": false,
+        "medical_semantics_verified": false,
+        "human_approval": false
+      }
+    },
+    {
+      "mode": "body_instead_of_table_row",
+      "result": {
+        "saved": [],
+        "rejected": [
+          {
+            "input_record_index": 0,
+            "issues": [
+              {
+                "code": "supporting_table_value_source_mismatch",
+                "path": "supporting_table_evidence[0]",
+                "severity": "reject"
+              },
+              {
+                "code": "supporting_table_value_relationship_requires_review",
+                "path": "supporting_table_evidence[0]",
+                "severity": "requires_review"
+              },
+              {
+                "code": "visual_statement_purpose_requires_review",
+                "path": "evidence_type",
+                "severity": "requires_review"
+              },
+              {
+                "code": "visual_description_semantics_unverified",
+                "path": "source_fragments",
+                "severity": "info"
+              },
+              {
+                "code": "condition_requires_context",
+                "path": "applicability",
+                "severity": "requires_review"
+              },
+              {
+                "code": "coreference_requires_context",
+                "path": "context_fragments",
+                "severity": "requires_review"
+              },
+              {
+                "code": "numeric_expression_missing",
+                "path": "numeric_expressions",
+                "severity": "requires_review"
+              }
+            ],
+            "scope_status": "blocked"
+          }
+        ],
+        "batch_completed": false,
+        "medical_semantics_verified": false,
+        "human_approval": false
+      }
+    }
+  ],
+  "saved_review_status": "needs_context",
+  "saved_medical_semantics_verified": false,
+  "saved_semantic_issues": [
+    {
+      "code": "supporting_table_value_relationship_requires_review",
+      "severity": "requires_review",
+      "path": "supporting_table_evidence[0]",
+      "detail": "The numbered reference and literal table values are located; the semantic value/feature relationship remains unverified."
+    },
+    {
+      "code": "visual_statement_purpose_requires_review",
+      "severity": "requires_review",
+      "path": "evidence_type",
+      "detail": "A feature-name list, statistical association or study conclusion alone is not a visual description. Source semantics require review; a declared evidence type does not prove them."
+    },
+    {
+      "code": "visual_description_semantics_unverified",
+      "severity": "info",
+      "path": "source_fragments",
+      "detail": "Mechanical checks do not establish visual-description meaning, terminology, case attribution or medical pairing."
+    },
+    {
+      "code": "condition_requires_context",
+      "severity": "requires_review",
+      "path": "applicability",
+      "detail": ""
+    },
+    {
+      "code": "coreference_requires_context",
+      "severity": "requires_review",
+      "path": "context_fragments",
+      "detail": ""
+    },
+    {
+      "code": "numeric_expression_missing",
+      "severity": "requires_review",
+      "path": "numeric_expressions",
+      "detail": ""
+    },
+    {
+      "code": "new_term_pending_human_review",
+      "severity": "info",
+      "path": "scope",
+      "detail": ""
+    }
+  ],
+  "source_continuations": [
+    {
+      "source_id": "L01",
+      "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+      "source_unit_id": "su-000041",
+      "completeness": "complete",
+      "source_type": "body",
+      "structure_unit_ids": [
+        "d609f7acb727b5bd-u-f8e6eac3175b0b5a",
+        "d609f7acb727b5bd-u-90e94497e7303f72"
+      ],
+      "original_segments": [
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000075",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 17,
+          "end": 26,
+          "exact_quote": "排除标准：（1）为",
+          "occurrence": 0,
+          "physical_page": 1,
+          "bbox": [
+            314.6456,
+            744.834,
+            561.2532000000001,
+            753.408173076923
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0001-l000076",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 24,
+          "exact_quote": "既往免疫治疗；（2）已知对单克隆抗体或化疗药物过",
+          "occurrence": 0,
+          "physical_page": 1,
+          "bbox": [
+            314.6456,
+            759.4971999999999,
+            561.2555999999996,
+            767.4599473806752
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000003",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "敏；（3）已知活动性自身免疫性疾病并有对症治疗史或",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            72.61999999999989,
+            297.6235999999999,
+            80.58274738067507
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000004",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "前两年病史；（4）已知原发性免疫缺陷史或活动性肺结",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            87.21999999999991,
+            297.62360000000007,
+            95.1827473806751
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000005",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "核；（5）严重和不受控制的感染；（6）Ⅲ～Ⅳ级充血",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            101.81999999999994,
+            297.58360000000005,
+            109.78274738067512
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000006",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 24,
+          "exact_quote": "性心力衰竭；（7）间质性肺病病史；（8）不受控制",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            116.41999999999996,
+            297.6686,
+            124.38274738067514
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000007",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 26,
+          "exact_quote": "的高血压；（9）6 个月内发生任何动脉血栓栓塞事件；",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            131.01999999999987,
+            297.6386,
+            138.98274738067505
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "9b90e6cc9c86705d08a4-p0002-l000008",
+          "text_version": "s3v3-f7d8c827699c0e92541c53fea7744e19",
+          "start": 0,
+          "end": 25,
+          "exact_quote": "（10）严重营养不良；（11）其他原发性恶性肿瘤。",
+          "occurrence": 0,
+          "physical_page": 2,
+          "bbox": [
+            51.0236,
+            145.6199999999999,
+            281.0236,
+            153.58274738067507
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "physical_pages": [
+        1,
+        2
+      ],
+      "original_characters_and_hyphens_preserved": true,
+      "medical_or_user_approved": false
+    },
+    {
+      "source_id": "L07",
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+      "source_unit_id": "su-000199",
+      "completeness": "complete",
+      "source_type": "figure_caption",
+      "structure_unit_ids": [
+        "74d55c9517ee7639-u-73201852ceb101b3",
+        "74d55c9517ee7639-u-4618eb9c693c1085"
+      ],
+      "original_segments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000050",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 15,
+          "end": 67,
+          "exact_quote": " B Tumor above the anterior peritoneal reflection on",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            51.023601531,
+            355.06478930699996,
+            289.1366505535,
+            363.8172272216919
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000051",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 0,
+          "end": 70,
+          "exact_quote": "the lateral wall extends anteriorly to involve the peritoneum and pos-",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            51.023601531,
+            365.1797893069999,
+            289.151101531,
+            373.4800268436568
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0006-l000052",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 0,
+          "end": 28,
+          "exact_quote": "teriorly to involve the MRF.",
+          "occurrence": 0,
+          "physical_page": 6,
+          "bbox": [
+            306.14260153099997,
+            335.06428930699997,
+            544.2106015310001,
+            343.8167272216919
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "physical_pages": [
+        6
+      ],
+      "original_characters_and_hyphens_preserved": true,
+      "medical_or_user_approved": false
+    },
+    {
+      "source_id": "L07",
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+      "source_unit_id": "su-000268",
+      "completeness": "complete",
+      "source_type": "body",
+      "structure_unit_ids": [
+        "74d55c9517ee7639-u-d7548dbd3b285112",
+        "74d55c9517ee7639-u-fb13e23b66b77a15"
+      ],
+      "original_segments": [
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000032",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 37,
+          "end": 59,
+          "exact_quote": " As it appears safe to",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            319.322814941,
+            695.162702271,
+            544.0728149524396,
+            704.9276876082433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0009-l000033",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "defer surgery for both CR and nCR cases if closely moni-",
+          "occurrence": 0,
+          "physical_page": 9,
+          "bbox": [
+            319.322814941,
+            707.662702271,
+            544.184814939109,
+            717.4276876082433
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000003",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 0,
+          "end": 56,
+          "exact_quote": "tored in hands of those with expertise, they are grouped",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            64.204696655,
+            57.755826661000015,
+            289.16269665500045,
+            67.5208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        },
+        {
+          "block_id": "e21bc46051b0ea3513d7-p0010-l000004",
+          "text_version": "s3v3-e8556be8a7d779f7576324c5b8065de0",
+          "start": 0,
+          "end": 32,
+          "exact_quote": "into a single category [17, 48].",
+          "occurrence": 0,
+          "physical_page": 10,
+          "bbox": [
+            64.204696655,
+            70.25582666100001,
+            187.77469489500007,
+            80.0208119982434
+          ],
+          "location_precision": "whole_textline_not_exact_glyph"
+        }
+      ],
+      "physical_pages": [
+        9,
+        10
+      ],
+      "original_characters_and_hyphens_preserved": true,
+      "medical_or_user_approved": false
+    }
+  ],
+  "limits": [
+    "The original statistical paragraph is a mechanical citation test and remains needs_context; it is not approved visual evidence.",
+    "Only an in-memory engineering store was used; no product record, human review, model output or API call was created."
+  ]
+}

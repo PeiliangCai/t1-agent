@@ -1,0 +1,57 @@
+{
+  "schema_version": "s4-concurrent-package-script-drift-1",
+  "observed_at": "2026-11-03T16:29:54.394920+00:00",
+  "package_file_mtime": "2026-11-03T16:11:42.804865+00:00",
+  "frozen_source_snapshot": "2006608eb0eab12aed7766fe794ad43e44c3443e9706344e0442f5be38056e7b",
+  "frozen_manifest_total_files": 36,
+  "matching_current_files": 35,
+  "mismatches": [
+    {
+      "file": "package.json",
+      "expected_sha256": "0aa80e474f3b00448f58f85290fdafc4e59aef8f06842d3eb4792f25584b3c6f",
+      "current_sha256": "540eaa2aae5ff617d5643e4ee9e8a57284a2452e9dcad44ca447b0d709d29d15"
+    }
+  ],
+  "changed_script_entries": {
+    "predev:web": {
+      "before": null,
+      "after": "tsx scripts/prepare-annotation-pdfs.ts"
+    },
+    "prebuild:web": {
+      "before": null,
+      "after": "tsx scripts/prepare-annotation-pdfs.ts"
+    },
+    "test:annotation": {
+      "before": null,
+      "after": "tsx --test tests/annotation-ui/*.test.ts"
+    },
+    "prepare:annotation-pdfs": {
+      "before": null,
+      "after": "tsx scripts/prepare-annotation-pdfs.ts"
+    }
+  },
+  "outside_scripts_objects_equal": true,
+  "package_lock_sha_still_matches": true,
+  "production_core_driver_medical_prompts_and_selection_files_match_frozen": true,
+  "actual_paid_invocation": "direct node --import tsx scripts/run-s4-selection-reliability.ts --run;not npm web/build/annotation scripts",
+  "new_annotation_script_entries_invoked_by_paid_driver": false,
+  "snapshot_rewritten": false,
+  "concurrent_changes_reverted": false,
+  "author_of_concurrent_edits": "not_yet_confirmed",
+  "assertion_failure_preserved": "all-frozen-current-hashes assertion failed at final local receipt;only package.json script entries differ",
+  "not_AN_AGICTO_request_or_medical_validation": true,
+  "source_loading_evidence": {
+    "owner_started_at": "2026-11-03T15:38:05.616Z",
+    "actual_invocation_uses_direct_node_not_npm_scripts": true,
+    "driver_static_imports_lines": "scripts/run-s4-selection-reliability.ts:2-14",
+    "config_loaded_once_before_owner_lock_lines": "scripts/run-s4-selection-reliability.ts:110-117",
+    "config_loader_reads_env_into_readonly_model_config": "packages/agent/src/config.ts:25-31",
+    "full_source_hash_check_scope": "one startup snapshot check at driver114-115;not a continuous filesystem monitor",
+    "shared_config_passed_to_all_jobs_lines": "scripts/run-s4-selection-reliability.ts:157-158",
+    "wrapper_only_sets_node_PATH_and_executes_arguments": "scripts/with-node.sh:1-9",
+    "only_driver_package_json_read": "snapshot hash/copy in driver49-54 before scheduling",
+    "new_scripts_not_referenced_by_core_driver": "literal search of packages/agent/src,packages/contracts/src anddriver found none",
+    "parser_spawn_is_python_only_not_called_for_reused_IR": "parser.ts78;driver uses assertParsedDocument,not PDF subprocess parser"
+  },
+  "impact_assessment": "All35 other frozen files match,package dependencies/type/exports andlock unchanged;the four new npm web/annotation script entries are not invoked by the recorded direct Node driver.Config andESM imports loaded before owner lock;no extraction-variable change identified.Full workspace/source equality is false andno claim is made about unrecorded environment changes."
+}

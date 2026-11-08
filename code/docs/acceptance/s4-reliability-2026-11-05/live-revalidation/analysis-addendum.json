@@ -1,0 +1,394 @@
+{
+  "schema_version": "s4-reliability-readonly-analysis-addendum-1",
+  "recorded_at": "2026-11-05T13:54:24.563981+00:00",
+  "purpose": "用户追问选优原因的只读补充：核对当前B0六条主句在本次F中是否被规则删除或未派发；不改任何已封存JSON/源码，不调用模型或新增测试。",
+  "source_artifacts": [
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/report.json",
+      "sha256": "390cea6385ae3fd35a26ce8672c95b903438cd6894eab6aac78de2312b3d1f96"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/reader-manifest.json",
+      "sha256": "413fa83644c519d8ca69056d34458dd6d7ed69ee19cd640a9fd4ea82af5afaa5"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json",
+      "sha256": "6697c91a31a8793ff99740534cad58f208016cdcc2b6a94999006013392cf65b"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/result.json",
+      "sha256": "48997c929edd256c54b0ded48bbf3190b5894f2f86635aa4d8cfaa0a25a90197"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/result.json",
+      "sha256": "f60ba148dd6fe48a252cc186ab5b8c3347b232d1273c24e9c672b401a9edca21"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/source-selection.json",
+      "sha256": "d462b8fae032a6541a963c058d1b0eb6dd84d18b7cd81cbe4ce3336c95a4f27b"
+    },
+    {
+      "path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-plan.json",
+      "sha256": "b5669bc262e81f4629ba5536fdbad78ddfda6ad5e8067a7f3d9b24dc0b3774d8"
+    }
+  ],
+  "conclusion": "核对通过：B0六条主原文涉及的所有source block均为本次F的kept，全部出现在F实际批次assigned/context并集，且实际batch read_block_ids清单包含这些块，missing均为空。因此这次B0/F候选差异不能简单解释为F规则把这些主句删掉，或解析没有读出这些主原文。",
+  "checks": [
+    {
+      "record_id": "ev-0badc9237f466efe0c3130c8d519bae8b877dba4",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": "In comparison nodules with a diameter of 3 cm or less should have their surgical approaches determined with CTR\n[16].",
+      "semantic_review_note_type": "clinical_treatment_threshold_risk",
+      "semantic_review_note": "主句以结节直径阈值决定surgical approaches或pulmonary lobectomy，存在把临床治疗结论误收为独立视觉描述的明确风险。保留原句等待业务/专业核验；本附录不判断该医学建议本身是否正确。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000018",
+          "document_line_index": 58,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000019",
+          "document_line_index": 59,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        2
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-0badc9237f466efe0c3130c8d519bae8b877dba4",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    },
+    {
+      "record_id": "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": "Fig. 4 CT and pathological sections for the three groups. A-C are the chest CT, × 100 frozen section, and × 100 paraffin section for a patient\nwith both FS and FP diagnosed as AIS. D-F represent the chest CT, × 100 frozen section, and × 100 paraffin section for a patient diagnosed\nwith MIA in FS and IAC in FP. G-I depict the chest CT, × 100 frozen section, and × 100 paraffin section for a patient with FS and FP diagnosed\nas IAC",
+      "semantic_review_note_type": "caption_panel_background_vs_visual_description_needs_review",
+      "semantic_review_note": "主句主要说明CT/冻切/石蜡切片面板与AIS/MIA/IAC病例诊断对应；需区分实际形态/外观描述与病例/面板背景，不能仅因是图注就判为目标视觉特征。也不自动删除或替它批准。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000018",
+          "document_line_index": 483,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000019",
+          "document_line_index": 484,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000020",
+          "document_line_index": 485,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000021",
+          "document_line_index": 486,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        8
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    },
+    {
+      "record_id": "ev-4459402383db68084beec0d6d0ccee07a3a631bf",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": " D-F represent the chest CT, × 100 frozen section, and × 100 paraffin section for a patient diagnosed\nwith MIA in FS and IAC in FP.",
+      "semantic_review_note_type": "caption_panel_background_vs_visual_description_needs_review",
+      "semantic_review_note": "主句主要说明CT/冻切/石蜡切片面板与AIS/MIA/IAC病例诊断对应；需区分实际形态/外观描述与病例/面板背景，不能仅因是图注就判为目标视觉特征。也不自动删除或替它批准。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000019",
+          "document_line_index": 484,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000020",
+          "document_line_index": 485,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        8
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-4459402383db68084beec0d6d0ccee07a3a631bf",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    },
+    {
+      "record_id": "ev-665e6d5c21c450a61d71ec4120147537ecf894ad",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+      "semantic_review_note_type": "general_definition_and_dimension_candidate_unapproved",
+      "semantic_review_note": "AAH完整分类句包含less than5mm尺度信息，符合一般定义/直接尺度可候选的既有边界；本附录不代替相关性、来源主体和医学核验。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000006",
+          "document_line_index": 46,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000007",
+          "document_line_index": 47,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000008",
+          "document_line_index": 48,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        2
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-665e6d5c21c450a61d71ec4120147537ecf894ad",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    },
+    {
+      "record_id": "ev-88f853e79ff75799e6b0000f854760a77db8fe00",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": " According to\nthe JCOG series studies results, nodules with a diameter greater than 3 cm should undergo pulmonary lobectomy.",
+      "semantic_review_note_type": "clinical_treatment_threshold_risk",
+      "semantic_review_note": "主句以结节直径阈值决定surgical approaches或pulmonary lobectomy，存在把临床治疗结论误收为独立视觉描述的明确风险。保留原句等待业务/专业核验；本附录不判断该医学建议本身是否正确。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000016",
+          "document_line_index": 56,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0002-l000017",
+          "document_line_index": 57,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0001",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        2
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-88f853e79ff75799e6b0000f854760a77db8fe00",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    },
+    {
+      "record_id": "ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1",
+      "source_version_in_reader": 1,
+      "original_quote_unchanged": " A-C are the chest CT, × 100 frozen section, and × 100 paraffin section for a patient\nwith both FS and FP diagnosed as AIS.",
+      "semantic_review_note_type": "caption_panel_background_vs_visual_description_needs_review",
+      "semantic_review_note": "主句主要说明CT/冻切/石蜡切片面板与AIS/MIA/IAC病例诊断对应；需区分实际形态/外观描述与病例/面板背景，不能仅因是图注就判为目标视觉特征。也不自动删除或替它批准。",
+      "F_kept_missing_block_ids": [],
+      "F_dispatch_missing_block_ids": [],
+      "F_actual_read_inventory_missing_block_ids": [],
+      "all_primary_source_blocks_kept": true,
+      "all_primary_source_blocks_dispatched": true,
+      "all_primary_source_blocks_marked_read": true,
+      "source_block_correspondence": [
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000018",
+          "document_line_index": 483,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        },
+        {
+          "block_id": "95dde964ad802d61602a-p0008-l000019",
+          "document_line_index": 484,
+          "F_selection_state": "kept",
+          "F_batch_membership": [
+            {
+              "batch_id": "batch-0002",
+              "assigned": true,
+              "context": false
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        8
+      ],
+      "primary_source_reference": {
+        "reader_entry_id": "L05-B0:ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1",
+        "version": 1,
+        "field": "current.record.quote_span.segments"
+      }
+    }
+  ],
+  "F_current_candidate_notes": [
+    {
+      "record_id": "ev-3e4719fd71a0c4fe7e7617d4e8b539bebb5f078e",
+      "current_version": 2,
+      "source_quote": " When studying IAC patients, those with\nnodules ≤ 12.6 mm and CTR ≤ 0.5 are prone to be underestimated during FS diagnosis, perhaps due to their small solid\ncomponents, which might be missed during pathological sectioning.",
+      "source_pages": [
+        7
+      ],
+      "note": "诊断低估与小实性成分的条件性解释，需核对是否仅必要语境；保留条件、数字和未审状态，不自动认定独立视觉描述。"
+    },
+    {
+      "record_id": "ev-a2b57836fef8fae12536a59193118708f5d55133",
+      "current_version": 2,
+      "source_quote": " According to the clas-\nsification criteria of IASLC/ATS/ERS from 2011, atypical adenomatous hyperplasia (AAH), distinct from AIS, MIA, and\nIAC, corresponds to squamous dysplasia and typically measures less than 5 mm [7].",
+      "source_pages": [
+        2
+      ],
+      "note": "AAH一般定义/尺度仍未获专业批准。"
+    }
+  ],
+  "limits": [
+    "这是源块可用、派发与已读清单的一致性证据，不是保留了每次完整wire body或证明逐字prompt在每次响应中全部可见。",
+    "不得把该核对当作F召回率、PDF整体忠实性或相关性通过；F整体仍只选524/615块。",
+    "周围语境、分块/顺序、模型采样随机性、提示理解或其他因素仍可能影响输出，未做消融，不能确定其各自因果作用。",
+    "两条临床阈值句与三条面板/诊断图注均保留原始记录，仅标出明确误收风险或语义待核；不自动删除、不继承人审、不做专业批准。",
+    "本附录不会改变先前报告中8候选/11版本、B0 summary失败、F summary完成但整体partial等事实。"
+  ],
+  "new_model_API_requests": 0,
+  "new_tests_run": 0,
+  "application_source_changes": 0,
+  "sealed_json_modified": false,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "new_formal_rounds": 0,
+  "own_temporary_log_removed_after_main_handoff": "runtime-data/agent-notes/s4-reliability-live-2026-11-05.json",
+  "permanent_or_shared_logs_removed": false,
+  "medical_quality_approved": false,
+  "method_winner": null
+}

@@ -1,0 +1,71 @@
+{
+  "catalog_version": "engineering-demo-1",
+  "fixture": true,
+  "cancers": [
+    {
+      "id": "demo_cancer_a",
+      "name": "Engineering example A"
+    },
+    {
+      "id": "demo_cancer_b",
+      "name": "Engineering example B"
+    }
+  ],
+  "image_types": [
+    {
+      "id": "demo_image_a",
+      "name": "Engineering image A",
+      "cancer_ids": [
+        "demo_cancer_a"
+      ]
+    },
+    {
+      "id": "demo_image_b",
+      "name": "Engineering image B",
+      "cancer_ids": [
+        "demo_cancer_b"
+      ]
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "demo_rim",
+      "name": "blue rim",
+      "synonyms": [
+        "blue rim",
+        "azure border"
+      ],
+      "category": "engineering_example",
+      "source": "human_prepared_fixture",
+      "version": "1"
+    }
+  ],
+  "bindings": [
+    {
+      "binding_id": "demo_rim_a",
+      "feature_id": "demo_rim",
+      "cancer_ids": [
+        "demo_cancer_a"
+      ],
+      "image_type_ids": [
+        "demo_image_a"
+      ],
+      "sequence_or_phase_conditions": [],
+      "source": "human_prepared_fixture",
+      "version": "1"
+    },
+    {
+      "binding_id": "demo_rim_b",
+      "feature_id": "demo_rim",
+      "cancer_ids": [
+        "demo_cancer_b"
+      ],
+      "image_type_ids": [
+        "demo_image_b"
+      ],
+      "sequence_or_phase_conditions": [],
+      "source": "human_prepared_fixture",
+      "version": "1"
+    }
+  ]
+}

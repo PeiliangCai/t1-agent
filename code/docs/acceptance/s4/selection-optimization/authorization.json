@@ -1,0 +1,47 @@
+{
+  "schema_version": "s4-source-selection-authorization-1",
+  "authorization_id": "user-2026-11-03-luna-medium-l01-l05-selection",
+  "recorded_at": "2026-11-03T12:38:29.586723+00:00",
+  "source": "explicit_user_async_confirmation_relayed_by_main_session",
+  "question_verbatim": "你此前要求测试型号由你选择。本轮是否确定用 AGICTO 的 gpt-6-luna（medium），先对 L01/L05 比较全量、正向筛选、反向删减及组合方案？建议硬上限为 300 次请求、600 万输入/40 万输出 tokens，按目前公开单价约 5.04 元（实际账单可能不同）。确认前，我先完成代码和离线检查。",
+  "answer_verbatim": "确认 Luna medium、上述范围和调用上限",
+  "provider": "agicto",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "api": "openai-responses",
+  "document_ids": [
+    "L01",
+    "L05"
+  ],
+  "logical_conditions": [
+    "B0",
+    "F",
+    "R",
+    "FR"
+  ],
+  "maximum_main_paper_conditions": 8,
+  "shared_hard_caps": {
+    "requests": 300,
+    "input_tokens_including_cache": 6000000,
+    "output_tokens_including_reasoning": 400000
+  },
+  "every_probe_failure_retry_and_optional_small_retest_counts": true,
+  "new_batch_ledger_permitted": true,
+  "old_s4_ledger_requests": 133,
+  "old_ledger_must_not_reset_or_overwrite": true,
+  "actual_bill": "unknown",
+  "public_price_scenario_rmb": {
+    "input_per_million": 0.63,
+    "output_per_million": 3.15,
+    "maximum_at_authorized_tokens": 5.04
+  },
+  "AI_reference": "other_AI_generated_reference_only_not_human_gold_never_in_prompt_or_rule_tuning",
+  "main_association_enhancement": false,
+  "formal_S4_review_count": {
+    "used": 2,
+    "limit": 3,
+    "final_reserved": true
+  },
+  "stage_passed": false,
+  "S5_started": false
+}

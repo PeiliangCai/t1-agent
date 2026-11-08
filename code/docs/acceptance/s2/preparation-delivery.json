@@ -1,0 +1,137 @@
+{
+  "schema_version": "s2-preparation-delivery-1",
+  "recorded_at": "2026-11-02T14:07:04.491407+00:00",
+  "delivery_status": "preparation_package_delivered",
+  "stage": "S2",
+  "status": "in_progress",
+  "stage_passed": false,
+  "S3_started": false,
+  "task_ids": [
+    "T1-R03",
+    "T1-R27",
+    "T1-R04",
+    "T1-R05"
+  ],
+  "user_staffing_quote": "暂未安排，先准备待标注和待复核材料",
+  "human_annotation_status": "pending",
+  "medical_review_status": "pending",
+  "artifacts": {
+    "user_approval": "code/docs/acceptance/s2/s0-s1-human-approval-and-s2-handoff.json",
+    "source_register_json": "code/evaluation/manifests/source-register.json",
+    "source_register_csv": "code/evaluation/manifests/source-register.csv",
+    "family_split_draft": "code/evaluation/manifests/family-split-draft.json",
+    "feature_screening_json": "code/evaluation/catalog/feature-screening-draft.json",
+    "feature_screening_csv": "code/evaluation/catalog/feature-screening-draft.csv",
+    "evaluation_vocabulary_draft": "code/evaluation/catalog/evaluation-feature-catalog-draft.json",
+    "annotation_guide_DOCX": "code/evaluation/annotations/T1-S2人工标注指南_待确认_v0.1.docx",
+    "full_text_annotation_template": "code/evaluation/annotations/templates/full-text-annotation-template.json",
+    "human_friendly_evidence_sheet": "code/evaluation/annotations/templates/evidence-units-template.csv",
+    "evidence_unit_template": "code/evaluation/annotations/templates/evidence-unit-template.json",
+    "page_review_checklist": "code/evaluation/annotations/templates/page-review-checklist.csv",
+    "dispute_template": "code/evaluation/annotations/templates/dispute-log.csv",
+    "match_adjudication_template": "code/evaluation/annotations/templates/match-adjudication-template.json",
+    "pending_decisions": "code/evaluation/rules/pending-confirmations.json",
+    "scoring_rules": "code/evaluation/rules/scoring-rules-draft.json",
+    "machine_contracts": "code/evaluation/contracts/",
+    "development_PDFs": "code/evaluation/corpus/development-candidates/",
+    "downloads": "code/docs/acceptance/s2/downloads.json",
+    "check_summary": "code/docs/acceptance/s2/check-summary.json",
+    "formal_review": "code/docs/acceptance/s2/final-review.json",
+    "final_integrity": "code/docs/acceptance/s2/final-integrity.json",
+    "version_manifest": "code/docs/acceptance/s2/version-manifest.json"
+  },
+  "counts": {
+    "historical_source_records": 14,
+    "known_identity_families": 13,
+    "downloaded_original_files": 5,
+    "complete_human_gold_documents": 0,
+    "sealed_independent_acceptance_sources": 0,
+    "original_features_screened": 35,
+    "screening_classes_draft": {
+      "engineering_metadata_or_validation": 6,
+      "imaging_measurement_candidate": 6,
+      "visual_appearance_or_location_candidate": 12,
+      "clinical_composite_label": 3,
+      "mixed_visual_description_or_clinical_conclusion": 8
+    }
+  },
+  "screening_boundary": "6工程项、6影像测量候选、12外观/位置候选、3临床复合标签、8须拆开视觉表现/复合结论的条目；全部医学归类/同义/上下位/限定待复核，原35项不改，不接入产品默认词表。",
+  "source_boundary": "历史页数/哈希独立保留；仅5份本次成功取得原件记当前文件校验。pypdf不可用，当前本地页数组成仍null；主会话web核验页数仅作出版信息，不是本地解析/医学验收。现有来源均已曝光，不充当独立验收。",
+  "evaluator_boundary": "human-adjudicated edges only; maximum one-to-one matching; duplicates/out-of-scope predictions FP; out-of-scope gold excluded; failed/partial/cancelled/interrupted document gold retained; null zero denominators; real missing human gates not_evaluable; no official acceptance result",
+  "checks": {
+    "typecheck": "passed",
+    "unique_tests": 51,
+    "passed": 51,
+    "failed": 0,
+    "evaluation_tests": 28,
+    "unit_tests": 15,
+    "integration_tests": 8,
+    "web_build": "passed_with_existing_chunk_warning",
+    "fixture_example": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "fixture": true,
+      "medical_evidence": false
+    },
+    "real_pending_example": {
+      "status": "not_evaluable",
+      "totals": null,
+      "exit_code": 2
+    },
+    "first_failure_preserved": true,
+    "paid_API_calls": 0
+  },
+  "review_progress": {
+    "S0_S1": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "S2": {
+      "stage": "S2",
+      "formal_astra_reviews_used": 2,
+      "limit": 3,
+      "history": [
+        {
+          "round": 1,
+          "node": "planning",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 现有35项清单混有工程元数据和临床结论，须筛选后使用；2. 已用于调研和规则制定的论文不能充当独立验收资料；3. 自动整理和工程测试不能替代人工阅读全文及医学复核。"
+        },
+        {
+          "round": 2,
+          "node": "final_preparation_delivery_review",
+          "decision": "continue",
+          "text": "判断：继续。风险：1. 尚无人工全文参考答案或医学复核；2. 独立验收资料尚未划分封存；3. 工程计分测试不代表真实论文解析或抽取质量。",
+          "record": "code/docs/acceptance/s2/final-review.json"
+        }
+      ],
+      "previous_S0_S1_review_history": "sealed_3_of_3_unchanged"
+    }
+  },
+  "unmet_stage_gates": [
+    "完整独立人工全文金标",
+    "医学术语/归类/适用条件及金标复核",
+    "用户/医学确认标注与计分规则",
+    "最终开发/回归划分及另行选择封存独立验收论文族"
+  ],
+  "numeric_thresholds": null,
+  "formal_sample_count": null,
+  "human_decisions_now_required": false,
+  "later_decision_register": "code/evaluation/rules/pending-confirmations.json",
+  "not_implemented_or_claimed": [
+    "S3正式PDF解析与定位",
+    "S4医学抽取与正式模型",
+    "实际医学质量/性能达标",
+    "完整标注平台",
+    "生产部署"
+  ],
+  "next_action": "保持S2进行中；用户安排人员后依据Word指南独立阅读全文标注、医学复核、确认分组和规则，再核对S2原门槛。",
+  "preservation": [
+    "S0/S1旧证据和版本清单不覆盖",
+    "现行DOCX两次仅追加，修改前备份及ZIP/XML保留证明齐备",
+    "E01—E09和质量数值阈值历史不改",
+    "S2审查2/3随交接保留，不重置"
+  ]
+}

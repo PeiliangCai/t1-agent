@@ -1,0 +1,27 @@
+{
+  "schema_version": "s4-nonadjacent-source-supplement-1",
+  "recorded_at": "2026-11-03T03:23:17.831145+00:00",
+  "basis": "AI engineering observation of real revision-3 candidates joining p1 abstract and nonadjacent p2 method fragments; not medical gold",
+  "change": "Nonadjacent block or intra-block-gap source segments require context; exact fragments remain accepted and separated. Existing snapshots are never rewritten.",
+  "dedicated_pure_tests": {
+    "tests": 50,
+    "passed": 50,
+    "failed": 0,
+    "log": "nonadjacent-source-warning-tests.log"
+  },
+  "typecheck": {
+    "exit_code": 0,
+    "log": "nonadjacent-source-warning-typecheck.log"
+  },
+  "prior_acceptance_preserved": "acceptance.json",
+  "prior_48_test_manifest_preserved": "version-manifest.json",
+  "current_source_sha256": {
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "tests/extraction/evidence-validation.test.ts": "d06422ac74e98afda954eefe795d00356ed847960f9a891cbb5aafe369f8e43b"
+  },
+  "formal_astra_reviews_used": 2,
+  "new_formal_review": false,
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "report_evidence_index": "docs/acceptance/s4/report-acceptance.json"
+}

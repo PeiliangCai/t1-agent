@@ -1,0 +1,272 @@
+{
+  "version": "0.4",
+  "status": "T1_authorized_comparison_running_other_workflows_planned",
+  "selected_agent_base": "earendil-works/pi",
+  "modules": [
+    {
+      "module": "生成需求草稿与参数确认（T2）",
+      "implementation": "独立前端和业务后端；可选LLM结构化前处理",
+      "responsibility": "逐项默认告知、增删改、合法性检查、最终确认和版本保存"
+    },
+    {
+      "module": "Pi智能体运行层",
+      "implementation": "Pi模型交互、工具调用、会话与事件接口",
+      "responsibility": "T1接收论文、本次抽取范围和开发侧运行配置；T2建模接收已确认生成需求；按工具结果组织处理。"
+    },
+    {
+      "module": "任务规则",
+      "implementation": "按需采用Skill、提示模板或普通代码",
+      "responsibility": "医学抽取规范、证据规则和输出要求；关键规则由程序核验"
+    },
+    {
+      "module": "T1论文处理",
+      "implementation": "唯一Next/pi-web＋受限Pi1.4/Fastify，正式Docling CPU和SQLite/SSE",
+      "responsibility": "按范围提供原文与明确整图证据；PDF质量先行，后续只比较B0/F并按权威子计划选优，逐篇真实人工审核导出；完整S5未接通。"
+    },
+    {
+      "module": "T2建模",
+      "implementation": "Pi加结构化需求编译与模型校验程序",
+      "responsibility": "已确认需求到目标、约束和函数接口的映射及可执行性检查"
+    },
+    {
+      "module": "T3/T4生成与筛选",
+      "implementation": "独立优化、GPU生成、检查和导出程序/服务",
+      "responsibility": "执行受约束生成、样本计数、分布校验与文件交付"
+    },
+    {
+      "module": "业务存储与权限",
+      "implementation": "项目业务程序及部署配置",
+      "responsibility": "配置和成果存储；运行恢复按需；文件、工具与服务访问控制"
+    }
+  ],
+  "t1_nodes": [
+    "上传PDF并检查来源",
+    "癌种/图像类型/特征不限或限制多选，保存范围",
+    "按实验选优流程选择独立原文并自动核验，明确整幅Figure＋原图注才配图",
+    "渐进展示与真实覆盖/待核状态",
+    "逐条人工审核当前文字或图文",
+    "逐篇候选或已审核导出；未核与部分状态保留"
+  ],
+  "t2_to_t4_nodes": [
+    "T1已审核证据或医生口述，加用户任务与数据要求",
+    "独立前处理生成结构化草稿；可按需调用LLM，草稿不触发执行",
+    "前端增删改指标、逐项确认默认建议，后端校验并保存确认版本",
+    "Pi动态建模节点接收确认快照，形成候选目标、约束和生成配置",
+    "业务程序校验函数、单位、后端能力、可行性及预算",
+    "T3生成程序执行；T4按已确认规则检查、筛选和交付"
+  ],
+  "agent_input_contract": {
+    "status": "planned",
+    "fields": [
+      "task_id",
+      "task_type",
+      "input_references",
+      "config_id",
+      "config_revision",
+      "confirmed_values",
+      "confirmation_event_refs",
+      "config_digest"
+    ],
+    "owner": "独立参数模块的后端保存确认事实，Pi消费确认快照",
+    "entry_checks": [
+      "核验配置版本、真实确认事件与配置内容相符；所有应处理默认项均已处理",
+      "草稿、示例、过期或被修改的配置不得进入正式执行节点",
+      "参数确认允许进入对应Pi处理节点；图像生成另外要求数学模型及能力校验通过"
+    ],
+    "change_path": "Pi发现缺项、冲突或需改值时返回待修改事项；前置模块生成新版本并重新确认，再派发新输入",
+    "running_version_rule": "运行任务绑定自己的确认快照；前端后续修改不得静默改变运行输入。停止或重启由业务流程明确处理。",
+    "approval_scope": "框架选型确认、任务参数确认、原文证据审核是不同记录；本次只确认框架和职责，不产生实际任务授权。",
+    "scope": "T2生成需求确认后的动态建模；不适用于T1论文输入"
+  },
+  "persistence": {
+    "owner": "application",
+    "pi_durable_required": false,
+    "must_keep_for_delivery": [
+      "T2生成需求参数与确认版本",
+      "T1已审核证据及来源/审核版本",
+      "运行记录与交付成果的必要关联",
+      "T1本次抽取范围及所用特征集合版本"
+    ],
+    "conditional": [
+      {
+        "object": "解析缓存/运行中页面进度",
+        "trigger": "恢复处理或性能复用确有需要时",
+        "decision": "T1 S5讨论实现"
+      },
+      {
+        "object": "异步GPU作业ID及已接受样本计数",
+        "trigger": "T3采用长任务或批量生成时",
+        "decision": "T3设计时按需实现"
+      },
+      {
+        "object": "队列、检查点与自动续跑",
+        "trigger": "重启续跑收益足以支持额外复杂度时",
+        "decision": "不作为当前Pi接入的必备组件"
+      }
+    ],
+    "interruption_options": [
+      "明确标记中断，按原运行记录重新处理",
+      "保存进度并恢复"
+    ],
+    "chosen_interruption_policy": null,
+    "invariants": [
+      "不得把部分结果标成完整结果",
+      "不得重复计入已交付记录",
+      "已确认配置和已交付成果可还原"
+    ],
+    "t1_delivery_mode": "B_per_document_review_and_export",
+    "t1_cross_document_query_in_v1": false,
+    "t1_delivery_label": "逐篇管理导出；业务模式与前端或方法实验编号分别记录"
+  },
+  "permissions": {
+    "owner": "application_and_deployment",
+    "implementation_stage": "T1 S1基本边界，S5/S7验证实际工具与部署",
+    "configuration": [
+      "业务工具白名单",
+      "上传与结果目录访问范围",
+      "凭证和外部服务范围",
+      "容器权限与挂载"
+    ],
+    "acceptance": "允许的解析/抽取工具能完成任务；未授权的工具、目录和服务访问被阻止；不依赖模型口头遵守。"
+  },
+  "t1_input_contract": {
+    "fields": [
+      "run_id",
+      "document_id",
+      "pdf_reference",
+      "runtime_profile_version",
+      "extraction_scope",
+      "feature_catalog_version"
+    ],
+    "runtime_profile_owner": "developer_or_operator",
+    "user_parameter_confirmation_required": false,
+    "checks": [
+      "文件可读取且属于约定支持范围",
+      "工具权限允许",
+      "结果绑定论文及实际处理版本",
+      "癌种、图像类型和特征的不限/限制状态与所选项一致，限制模式不得静默放宽。",
+      "范围快照和特征集合版本绑定本次运行；用户后续改选不静默改变已运行输入。",
+      "输出与范围匹配须有原文和上下文依据，必要的范围外上下文不作为独立特征记录。"
+    ],
+    "confirmation_semantics": "T1允许用户选择癌种、图像类型及特征范围后开始提取；这是抽取范围选择。数据集生成需求的默认参数逐项告知与确认仍属于T2至T3的前置流程，T1不照搬该确认机制。",
+    "scope_selection": {
+      "order": [
+        "cancer",
+        "image_type",
+        "applicable_feature_collection",
+        "feature_selection_or_unrestricted"
+      ],
+      "relationship": "dependent_filters_with_explicit_applicability_not_strict_tree",
+      "each_level_allows": [
+        "unrestricted",
+        "multiple_selected_values"
+      ],
+      "restricted_feature_behavior": "selected_features_and_corresponding_synonyms_only",
+      "unrestricted_feature_behavior": "open_extraction_within_selected_cancer_and_image_type_new_terms_pending_review",
+      "out_of_scope_behavior": "exclude_as_standalone_feature_preserve_only_necessary_context",
+      "scope_evidence": "癌种、模态和特征匹配依赖原文及必要上下文；不得把用户选择直接写成论文事实。",
+      "missing_catalog_behavior": "不限模式可继续；限制模式提示无可用项，不静默放宽。"
+    }
+  },
+  "t1_authoritative_review_document": "子任务T1/T1智能体开发计划.docx",
+  "t1_current_plan": {
+    "document": "子任务T1/T1智能体开发计划.docx",
+    "version": "0.7",
+    "execution_guide": "子任务T1/T1开发执行说明.docx",
+    "execution_guide_version": "0.5",
+    "approved": true,
+    "status": "targeted_PDF_repairs_engineering_checked_review_page_delivered_user_feedback_pending",
+    "current_data": "子任务T1/当前版本.json",
+    "mandatory_comparison": [
+      "单独智能体B0",
+      "正向规则预筛＋智能体F"
+    ],
+    "new_paid_call_budget": null,
+    "current_experiment_authorization": {
+      "status": "all_authorized_model_runs_complete_human_quality_and_formal_selection_pending",
+      "record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json",
+      "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+      "date_Asia_Shanghai": "2026-11-05",
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "shared_limits": {
+        "requests": 300,
+        "input_tokens_including_cache": 6000000,
+        "output_tokens_including_reasoning": 400000,
+        "seconds_from_first_request": 14400
+      },
+      "ledger": "code/runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+      "experiment_started_at_utc": "2026-11-04T16:29:32.037Z",
+      "formal_model_finally_selected": false,
+      "winner": null,
+      "medical_quality_approved": false,
+      "current_paid_requests_running": false,
+      "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+      "time_continuation": {
+        "status": "completed_authorized_scope_no_more_paid_requests",
+        "record": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json",
+        "record_sha256": "400398df3ddb8bec94f1a77bfb549470c442f1246850237aabb7c50e7a01f4f6",
+        "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+        "original_window_expired": true,
+        "authorized_remaining_window_seconds": 11520,
+        "granted": true,
+        "user_response_verbatim": "确认续行时间窗，沿用原剩余额度（推荐）",
+        "approved_at_utc": "2026-11-05T02:16:15Z",
+        "resume_at_utc": "2026-11-05T02:16:52.744Z",
+        "single_deadline_utc": "2026-11-05T05:28:52.744Z",
+        "single_deadline_Asia_Shanghai": "2026-11-05T13:28:52.744+08:00",
+        "new_paid_requests_allowed_now": false,
+        "scope": [
+          "L01-B0",
+          "L05-B0",
+          "L05-F",
+          "L05-R"
+        ],
+        "baseline_or_L01_F_rerun_allowed": false,
+        "request_or_token_caps_reset": false,
+        "pause_record": "code/docs/acceptance/s0-s4-current-2026-11-04/user-pause-2026-11-05.json"
+      },
+      "current_results_record": "方案/子任务T1/当前版本.json#/current_comparison_results"
+    },
+    "ordered_S0_S4_audit_completed": true,
+    "all_T1_stages_passed": false,
+    "current_authority": "子任务T1/T1智能体开发计划.docx",
+    "current_improvement_record": "code/docs/acceptance/pdf-structure-review-2026-11-07/",
+    "R_status": "retired_historical_only",
+    "original_approved_plan_version": "0.6",
+    "revision": "pdf-first-two-method-2026-11-07",
+    "approval_scope": "用户最新方向同步；旧v0.6计划批准记录保留，不认定质量通过。",
+    "historical_paid_budget_record": "code/docs/acceptance/s0-s4-current-2026-11-04/three-method-proposal/authorization.json"
+  },
+  "current_comparison_results_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+  "current_T1_improvement": {
+    "record": "code/docs/acceptance/pdf-input-quality-2026-11-07/improvement-register.json",
+    "authority": "子任务T1/T1智能体开发计划.docx",
+    "status": "authorized_round_stopped_delivery_failure_offline_fix_verified_human_review_pending",
+    "paid_calls_authorized": true,
+    "next": "S0–S4当前范围工程复核已完成；Table1完整统计值/colspan、F正向检索与任务覆盖分列已验证。用户批准的一轮三源B0/F真实比较正在执行，6逻辑5实际，当前用量以唯一新ledger为准；结束后输出抽查，不自动优化，医学/产品及正式赢家未批准。",
+    "current_evidence_directory": "code/docs/acceptance/s0-s4-recheck-2026-11-08/",
+    "review_record": "子任务T1/当前版本.json#/current_PDF_structure_review",
+    "feedback_and_bibliography_scope_record": "code/docs/acceptance/bibliography-scope-2026-11-08/feedback-and-scope-report.json",
+    "feedback_and_bibliography_scope_report_sha256": "a7580f82ed8353c79f62ae82d4d72b3f49d37cae83b1df2149ff341c85d2146c",
+    "readonly_scope_correction_status": "offline_verified",
+    "current_engineering_report": "code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json",
+    "bibliography_method_user_accepted": true,
+    "new_paid_request_limit": 128,
+    "authorization_record": "code/docs/acceptance/s0-s4-recheck-2026-11-08/comparison/authorization.json",
+    "can_execute_now": false,
+    "current_live_ledger": "code/runtime-data/s4-budget-owners/6b7c06e4a0436006dbba085bb498b32a3950e7a39d1b4b756837a642cd6311ad/call-ledger.json",
+    "execution_handoff_received": true,
+    "current_paid_requests_running": false,
+    "current_execution_preconditions": "原本轮源前置通过后真实执行，现已guard失败停止，局部修复仅离线验证；不得以旧前置或剩12发起续跑。",
+    "current_next_steps": [
+      "以新核验页对当前实际输出作普通抽查；医学/产品和正式方法未通过",
+      "保留原失败、SQL/phase/ledger/源snapshot及两拒绝原版本；不补字或重写结果",
+      "逐条/小批提交和工具元数据仅记观察，沿用既定输入→工程/提示→一致性顺序，本轮无新增优化或API"
+    ]
+  },
+  "historical_records": {
+    "comparison_results_record_before_current_recheck": "方案/子任务T1/当前版本.json#/current_comparison_results"
+  }
+}

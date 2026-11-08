@@ -1,0 +1,34 @@
+{
+  "round": 3,
+  "decision": "continue",
+  "stage_result": {
+    "S0": "passed",
+    "S1": "passed",
+    "S2": "not_started"
+  },
+  "risks": [
+    "Engineering fixtures do not prove real PDF parsing or medical extraction quality",
+    "Concurrency capacity, production access controls and deployment recovery remain later-stage work",
+    "Real API evidence corresponds to the pre-fix success path; subsequent fixes are verified offline"
+  ],
+  "review_history": [
+    {
+      "round": 1,
+      "decision": "continue",
+      "node": "planning"
+    },
+    {
+      "round": 2,
+      "decision": "modify",
+      "node": "final_review"
+    },
+    {
+      "round": 3,
+      "decision": "continue",
+      "node": "final_recheck"
+    }
+  ],
+  "formal_review_limit": 3,
+  "further_review_rounds_started": 0,
+  "core_runtime_code_frozen": true
+}

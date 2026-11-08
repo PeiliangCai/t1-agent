@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "formal_sample_count",
+    "assignments",
+    "acceptance_seal",
+    "coverage_directions"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "s2-splits-1"
+    },
+    "status": {
+      "type": "string",
+      "const": "draft_pending_human_confirmation"
+    },
+    "formal_sample_count": {
+      "type": "null"
+    },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "article_family_id",
+          "source_ids",
+          "split",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "article_family_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniqueItems": true
+          },
+          "split": {
+            "enum": [
+              "reference",
+              "development",
+              "regression",
+              "independent_acceptance",
+              "unassigned"
+            ]
+          },
+          "status": {
+            "enum": [
+              "candidate_only",
+              "sealed"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "acceptance_seal": {
+      "type": "object",
+      "required": [
+        "status",
+        "source_ids",
+        "sealed_by",
+        "sealed_at"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "const": "not_prepared"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "maxItems": 0
+        },
+        "sealed_by": {
+          "type": "null"
+        },
+        "sealed_at": {
+          "type": "null"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coverage_directions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    }
+  },
+  "additionalProperties": false
+}

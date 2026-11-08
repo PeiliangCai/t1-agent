@@ -1,0 +1,70 @@
+[
+  {
+    "name": "typecheck",
+    "command": [
+      ".tools/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit"
+    ],
+    "exit_code": 0,
+    "seconds": 3.7500850800006447,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks-final/typecheck.log",
+    "tail": ""
+  },
+  {
+    "name": "extraction",
+    "command": [
+      ".tools/node/bin/node",
+      "--import",
+      "tsx",
+      "--test",
+      "tests/extraction/budget-custom-limits.test.ts",
+      "tests/extraction/closed-issue-eof-recovery.test.ts",
+      "tests/extraction/evidence-validation.test.ts",
+      "tests/extraction/reconciliation.test.ts",
+      "tests/extraction/response-model-alias.test.ts",
+      "tests/extraction/response-model-identity.test.ts",
+      "tests/extraction/runtime.test.ts",
+      "tests/extraction/scope-matching.test.ts",
+      "tests/extraction/source-selection.test.ts",
+      "tests/extraction/summary-model-view.test.ts",
+      "tests/extraction/verbatim-delivery.test.ts"
+    ],
+    "exit_code": 0,
+    "seconds": 10.90431034499943,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks-final/extraction.log",
+    "tail": "d never mutates the dictionary or other occurrences (3.235485ms)\n✔ scalar JSON and shared object identities normalize without changing JSON values (1.899073ms)\n✔ cycles and values that cannot be represented as strict JSON reject with explicit errors (0.973415ms)\n✔ missing, duplicated or malformed dictionary references reject rather than producing partial evidence (0.515962ms)\n✔ wrong envelopes, missing tables, unused entries and malformed literal escapes reject clearly (0.360869ms)\n✔ stable packing gives deterministic bytes for equivalent JSON values (3.484843ms)\n✔ fresh candidates reject translation, inserted joining prose and qualifier/number deletion (21.253445ms)\n✔ text delivery keeps exact independent source fragments and never emits translation/category prose as its description (47.776883ms)\n✔ native/same-page candidates remain pending; an explicitly referenced verified whole Figure is paired (14.974551ms)\n✔ explicit original-caption description also pairs; paper labels remain untouched (10.96187ms)\n✔ source/caption case and modality conflicts, repeated Figure numbers, list references stay pending (22.336117ms)\n✔ catalog bindings, exact caption offsets, complete-region provenance and CAS cannot be spoofed by IDs (4.359639ms)\n✔ sampling requires no gold, binds the exact current output, and claims no full recall or zero errors (8.711343ms)\n✔ exclusive exports verify source/asset hashes and each output confirmation; a changed Figure invalidates approval (62.432952ms)\nℹ tests 162\nℹ suites 0\nℹ pass 162\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 10874.610172\n"
+  },
+  {
+    "name": "figure-bridge",
+    "command": [
+      ".tools/node/bin/node",
+      "--import",
+      "tsx",
+      "--test",
+      "tests/parser/figure-assets.test.ts"
+    ],
+    "exit_code": 0,
+    "seconds": 3.5222400250004284,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks-final/figure-bridge.log",
+    "tail": "✔ actual CPU Figure subprocess binds the retained real PDF/IR, returns whole Fig4 and honors abort before writing (2730.510537ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3483.271965\n"
+  },
+  {
+    "name": "figure-python",
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "services/pdf-parser/tests",
+      "-p",
+      "test_figure_assets.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 4.655855495000651,
+    "log": "docs/acceptance/requirement-revision-2026-11-04/checks-final/figure-python.log",
+    "tail": "test_caption_identity_and_uncontained_multiple_objects_are_not_mechanically_paired (test_figure_assets.FigureAssetTests.test_caption_identity_and_uncontained_multiple_objects_are_not_mechanically_paired) ... ok\ntest_hash_mismatch_and_existing_output_cannot_overwrite_artifacts (test_figure_assets.FigureAssetTests.test_hash_mismatch_and_existing_output_cannot_overwrite_artifacts) ... ok\ntest_rotated_cropped_userunit_object_coordinates_preserve_all_image_quadrants (test_figure_assets.FigureAssetTests.test_rotated_cropped_userunit_object_coordinates_preserve_all_image_quadrants) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 4.326s\n\nOK\n"
+  }
+]

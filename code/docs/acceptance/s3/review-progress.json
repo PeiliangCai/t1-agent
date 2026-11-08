@@ -1,0 +1,33 @@
+{
+  "stage": "S3",
+  "formal_astra_reviews_used": 3,
+  "limit": 3,
+  "history": [
+    {
+      "round": 1,
+      "node": "planning",
+      "decision": "continue",
+      "text": "判断：继续。风险：1. 提前开工不能替代 S2/S3 验收；2. 候选解析器的资源和效果需实测后才能定案；3. 文本、表格和坐标的忠实性须对照原始 PDF 核验。"
+    },
+    {
+      "round": 2,
+      "node": "actual_error_reproduction",
+      "decision": "continue",
+      "text": "判断：继续。风险：1. 后端分块可能导致测试误判；2. 实际字符缺失尚未排除；3. 修复须保留逐码点与跨块校验，不能仅放宽断言使测试通过。",
+      "actual_failure_log": "code/docs/acceptance/s3/python-first-tests.log",
+      "recorded_at": "2026-11-02T14:40:18.240403+00:00"
+    },
+    {
+      "round": 3,
+      "node": "final_engineering_prototype_review",
+      "decision": "continue",
+      "text": "判断：继续。风险：1. 当前定位精度为整行，跨块引用须保留片段边界；2. 表格、阅读顺序和原页忠实度尚未人工核验；3. MinerU未实测，正式解析器尚未确定。",
+      "recorded_at": "2026-11-02T14:56:14.610481+00:00",
+      "stage_passed": false,
+      "approval_scope": "engineering_prototype_delivery_only",
+      "formal_stage_or_medical_acceptance": false
+    }
+  ],
+  "same_stage_counter_must_not_reset": true,
+  "review_budget_exhausted_for_same_S3_task": true
+}

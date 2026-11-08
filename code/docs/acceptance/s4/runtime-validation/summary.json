@@ -1,0 +1,121 @@
+{
+  "schema_version": "s4-runtime-validation-summary-8",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T05:15:52.109490+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "current_extraction_suite_after_lossless_summary_dictionary_neutral_case_coverage_document_indices_and_current_version_review",
+  "runtime_test_count": 52,
+  "extraction_test_breakdown": {
+    "runtime": 52,
+    "existing_pure_modules": 50,
+    "summary_model_view_pure": 16,
+    "total": 118
+  },
+  "checks": [
+    {
+      "suite": "current_extraction",
+      "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/*.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/summary-current-extraction.txt",
+      "tests": 118,
+      "pass": 118,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 118,
+  "current_extraction_regression_completed": true,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/summary-view-cases-typecheck.txt"
+  },
+  "focused_checks_are_subset_not_extra": {
+    "tests": 7,
+    "pass": 7,
+    "typecheck_exit_code": 0,
+    "summary": "docs/acceptance/s4/runtime-validation/summary-view-cases-phase.json",
+    "log": "docs/acceptance/s4/runtime-validation/summary-view-cases-focused-tests.txt"
+  },
+  "source_stability": {
+    "start": "docs/acceptance/s4/runtime-validation/summary-current-extraction-start.json",
+    "end": "docs/acceptance/s4/runtime-validation/summary-current-extraction-end.json",
+    "tracked_files": 44,
+    "changed_files": [],
+    "focused_tracked_files": 16,
+    "focused_changed_files": [],
+    "owner_confirmed_packages_tests_frozen": true
+  },
+  "important_current_evidence": [
+    "The model-facing source-fragment dictionary restores the entire current trusted JSON context exactly, without truncating candidates or editing source/medical fields.",
+    "Runtime roundtrip observation is 3571 original context bytes to 2709 packet bytes for a repeated-fragment synthetic candidate. Candidate versions remain unchanged.",
+    "Two synthetic neutral audit cases require actual reads of every focus and context block. Focus-only reads do not satisfy context, and incomplete case coverage prevents independent summary completion.",
+    "Every recorded case judgment remains not_gold=true and medical_approval=false. Reported case judgments create no candidate version or approval.",
+    "Summary updates map source and medical fields to immutable whole-document lines 300/301, preserve read order without rebasing, and reject unread, old exact/source_indices or out-of-range references.",
+    "Updating an automatically reviewed record invalidates its review coverage until the new active version receives a new unapproved review.",
+    "Model review of a human active version preserves that human version and records only a proposed, unapproved version with cleared human approval metadata.",
+    "Trusted full-submission invoke compatibility, current candidate-set visibility, and renamed precise operation-limit metadata are also included in the seven focused checks."
+  ],
+  "observation_files": [
+    "docs/acceptance/s4/runtime-validation/summary-dictionary-wire-observation.json",
+    "docs/acceptance/s4/runtime-validation/summary-neutral-case-guard-observation.json",
+    "docs/acceptance/s4/runtime-validation/summary-document-indices-observation.json",
+    "docs/acceptance/s4/runtime-validation/summary-version-review-observation.json"
+  ],
+  "prior_full_engineering_regression": {
+    "summary": "docs/acceptance/s4/runtime-validation/pre-summary-model-view-and-neutral-case-review/summary.json",
+    "generated_at": "2026-11-03T04:41:07.900602+00:00",
+    "total_distinct_tests": 169,
+    "suite_counts": {
+      "extraction": 98,
+      "unit": 15,
+      "integration": 8,
+      "parser": 20,
+      "evaluation": 28
+    },
+    "typecheck_exit_code": 0,
+    "source_snapshot_note": "The 169-test baseline and its original start/end manifests are preserved. It is not a full-regression claim for the newer summary implementation."
+  },
+  "initial_attempts": {
+    "note": "docs/acceptance/s4/runtime-validation/summary-view-cases-initial-note.json",
+    "fixture_error_not_product_bug": "One initial high-index setup skipped extracting before reconciling; test setup was corrected and only its own leaked loopback test process was stopped.",
+    "intentional_contract_adaptation": "The stale global_limits_unchanged assertion was replaced with the three precise metadata fields explicitly specified by the implementation owner."
+  },
+  "not_run_after_this_summary_change": [
+    "unit/integration/Node parser/evaluation suites (71 checks retained only in the prior 169 baseline)",
+    "standalone Python unittest suite",
+    "web build/browser/UI checks",
+    "real paid model execution of the L01 semantic audit cases by this validation agent"
+  ],
+  "limitations": [
+    "Do not add the focused seven or prior 169 to the current 118-test total.",
+    "The neutral-case runtime tests use synthetic source-bound questions and scripted unapproved judgments, not a medical gold set or actual L01 semantic review result.",
+    "The dictionary roundtrip establishes JSON/source preservation, not clinical correctness, semantic recall or a real-model quality improvement.",
+    "No paid API, supplier large-context acceptance, model latency or gateway billing correctness is established by this validation work."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/extraction-budget.ts": "7f9c8ea4c4ce1c720c3cbbdf83e9d6b44c43a5c4e6a7a09d03c61a2168055e5f",
+    "packages/agent/src/extraction-pi.ts": "64b0d02a8d8474c0b47d62182c77f659f7b9ce1c832f527d449e9e57fb679924",
+    "packages/agent/src/extraction-protocol.ts": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+    "packages/agent/src/extraction-run.ts": "5684c9dafaf61ab0cd39ff802594578c29a2a3a732f3df20f280f228bde6f78a",
+    "packages/agent/src/extraction-store.ts": "9cd119186ea7c510e6a7ae5b9f8ac5013f58c8d1cbd890502d7a99e474a81e7f",
+    "packages/agent/src/extraction-summary.ts": "b06ddcf632241a3084ae51259241d1453fc20c21d92438a5f7f3dbcb620561b3",
+    "packages/agent/src/extraction-tools.ts": "754fe91e32553bfa33bfcd1e32d18f3abdbdd12613852a07d822f8a7f1e4a8f7",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/summary-model-view.ts": "a22a28c8c9e86dbb3e555f72c4cf3150473b7c74ed1167c455624a131255a632",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "tests/extraction/fixtures/runtime-responses.ts": "2a8ab15247b61febd0f31237be5f522745669ca5552ab269bf274711b77cee75",
+    "tests/extraction/runtime.test.ts": "357c0912cc5813416871575f80b75f62b60a5921ac6b80372cf28d8381afa148"
+  }
+}

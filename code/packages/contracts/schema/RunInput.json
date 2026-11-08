@@ -1,0 +1,200 @@
+{
+  "title": "RunInput",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "document_id",
+    "file_sha256",
+    "fixture",
+    "scope",
+    "rule_version",
+    "runtime_profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "document_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "scope_version",
+        "cancers",
+        "image_types",
+        "features",
+        "catalog_version",
+        "matching_policy_version"
+      ],
+      "properties": {
+        "scope_version": {
+          "type": "string",
+          "const": "1"
+        },
+        "cancers": {
+          "type": "object",
+          "required": [
+            "mode",
+            "ids"
+          ],
+          "properties": {
+            "mode": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "all"
+                },
+                {
+                  "type": "string",
+                  "const": "selected"
+                }
+              ]
+            },
+            "ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "image_types": {
+          "type": "object",
+          "required": [
+            "mode",
+            "ids"
+          ],
+          "properties": {
+            "mode": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "all"
+                },
+                {
+                  "type": "string",
+                  "const": "selected"
+                }
+              ]
+            },
+            "ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "features": {
+          "type": "object",
+          "required": [
+            "mode",
+            "binding_ids"
+          ],
+          "properties": {
+            "mode": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "const": "all"
+                },
+                {
+                  "type": "string",
+                  "const": "selected"
+                }
+              ]
+            },
+            "binding_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "catalog_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "matching_policy_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        }
+      },
+      "additionalProperties": false
+    },
+    "rule_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "runtime_profile": {
+      "type": "object",
+      "required": [
+        "provider",
+        "model_id",
+        "endpoint",
+        "pi_version",
+        "version"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "pi_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

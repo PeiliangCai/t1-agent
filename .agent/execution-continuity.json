@@ -1,0 +1,21 @@
+{
+  "schema_version": "execution-continuity-rule-1",
+  "permanent": true,
+  "purpose": "在长任务或有上下文压缩风险时，可维护自用执行日志，避免compact后偏离用户目标。",
+  "optional_for_simple_tasks": true,
+  "log_fields": [
+    "原始目标",
+    "最新用户确认",
+    "待决事项",
+    "授权范围与预算",
+    "已完成及未验证内容",
+    "正式审查计数与结论",
+    "文件owner与下一步"
+  ],
+  "resume_rule": "续接时先读本任务日志，并与现行用户指示及工作区文件核对；最新确认优先。",
+  "storage": "应用执行日志按现行项目目录规则放code/runtime-data/agent-notes/；本规则不另行放宽目录或权限。",
+  "cleanup": "完成正式交接后仅清理本任务临时日志；保留本永久规则和他人文件。",
+  "secrets": "日志不得包含密钥、令牌或凭证。",
+  "approval": "本规则不引入新审批或用户确认门槛。",
+  "user_confirmed_date": "2026-11-04"
+}

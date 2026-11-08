@@ -1,0 +1,364 @@
+{
+  "model_id": "gpt-6.1-sol",
+  "purpose": "explicit_synthetic_S4_protocol_probe",
+  "fixture": true,
+  "medical_evidence": false,
+  "success": false,
+  "record_count": 0,
+  "batch_completed": false,
+  "result": {
+    "settled": true,
+    "responses": 2,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "get_document_context",
+        "call_id": "call_17303e461ef9496c94c79d40a05d0547|fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "get_document_context",
+        "call_id": "call_17303e461ef9496c94c79d40a05d0547|fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call_b61da829b5de4daaa21935bcb4a59ead|fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call_b61da829b5de4daaa21935bcb4a59ead|fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71",
+        "error": true
+      }
+    ],
+    "usage": [
+      {
+        "input": 1271,
+        "output": 121,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 104,
+        "totalTokens": 1392,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 1707,
+        "output": 29,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1736,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "756bf45c-374f-4014-a9f7-cc04bcfc8293",
+      "046061e3-1eec-4394-b40e-637c3a2c7724"
+    ],
+    "transient_error": false
+  },
+  "argument_samples": [
+    {
+      "call_id": "call_17303e461ef9496c94c79d40a05d0547|fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58",
+      "tool": "get_document_context",
+      "argument_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "public_synthetic_argument_sample": "{}",
+      "truncated": false
+    },
+    {
+      "call_id": "call_b61da829b5de4daaa21935bcb4a59ead|fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71",
+      "tool": "read_document_blocks",
+      "argument_sha256": "3cdbf5135475f03d50d0d50071ae43347041b70e58112ca0b6aba554b0261f6c",
+      "public_synthetic_argument_sample": "{\"block_ids\":[\"synthetic-line-1\"],\"line_indices\":[]}",
+      "truncated": false
+    }
+  ],
+  "records": [],
+  "events": [
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 1,
+      "type": "state",
+      "timestamp": "2026-11-03T03:56:18.607Z",
+      "detail": {
+        "state": "queued",
+        "medical_quality_approved": false
+      }
+    },
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 2,
+      "type": "state",
+      "timestamp": "2026-11-03T03:56:18.609Z",
+      "detail": {
+        "state": "extracting"
+      }
+    },
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 3,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T03:56:42.182Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "get_document_context",
+        "call_id": "call_17303e461ef9496c94c79d40a05d0547|fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58",
+        "protocol": "whole_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 4,
+      "type": "tool",
+      "timestamp": "2026-11-03T03:56:42.185Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_17303e461ef9496c94c79d40a05d0547|fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58",
+        "name": "get_document_context",
+        "status": "ok"
+      }
+    },
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 5,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T03:56:56.353Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "read_document_blocks",
+        "call_id": "call_b61da829b5de4daaa21935bcb4a59ead|fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71",
+        "protocol": "whole_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-5477511f-b0eb-469c-9ffe-c552c5d5deb1",
+      "seq": 6,
+      "type": "tool_protocol_rejected",
+      "timestamp": "2026-11-03T03:56:56.355Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "read_document_blocks",
+        "call_id": "call_b61da829b5de4daaa21935bcb4a59ead|fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71",
+        "error_code": "choose_one_read_selection"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "756bf45c-374f-4014-a9f7-cc04bcfc8293",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T03:56:18.707Z",
+      "payload_sha256": "abbd4fb2a0500b4d1859d5b5c23ba58499be86150be61768133c509a9230b739",
+      "payload_bytes": 7806,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 8318,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 14,
+      "first_stream_event_at": "2026-11-03T03:56:40.208Z",
+      "last_stream_event_at": "2026-11-03T03:56:41.922Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_014cc48e94c02e71016ae95b6a0ab88196bf9689d70574b936",
+      "reasoning_visible_delta_characters": 56,
+      "tool_argument_delta_characters": 2,
+      "provider_usage": {
+        "input_tokens": 1271,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 121,
+        "output_tokens_details": {
+          "reasoning_tokens": 104
+        },
+        "total_tokens": 1392,
+        "attribution": {
+          "items": {
+            "fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 17
+            },
+            "msg_014cc48e94c02e71016ae95b6a0b6881968273ec1536a2487b": {
+              "input_tokens": 189,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_014cc48e94c02e71016ae95b6a0b688196a1b3afd96073d15b": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "rs_014cc48e94c02e71016ae95b731ad48196a9df34193479f93b": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 104
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 794,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "257dc8f7cc0a36931ef340a13a09bac6a6887ecddef33a6a9ec2610742ef3494",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1271,
+      "output_tokens": 121,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 104,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T03:56:42.180Z"
+    },
+    {
+      "id": "046061e3-1eec-4394-b40e-637c3a2c7724",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T03:56:42.191Z",
+      "payload_sha256": "47ea54a9771a7385a13de2e94f2527cb6d472ecda5e893f0e6337991d2849b60",
+      "payload_bytes": 12914,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 13426,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 22,
+      "first_stream_event_at": "2026-11-03T03:56:55.173Z",
+      "last_stream_event_at": "2026-11-03T03:56:56.100Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_014cc48e94c02e71016ae95b7fa9688196a3a06f5d2bbc3eee",
+      "tool_argument_delta_characters": 52,
+      "provider_usage": {
+        "input_tokens": 1707,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 29,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1736,
+        "attribution": {
+          "items": {
+            "fc_014cc48e94c02e71016ae95b77f1ac8196b06878d3e5c97c58": {
+              "input_tokens": 17,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_014cc48e94c02e71016ae95b7faa4881969212b103277d4476": {
+              "input_tokens": 419,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_014cc48e94c02e71016ae95b86f6508196934b97be9acdeb71": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 29
+            },
+            "msg_014cc48e94c02e71016ae95b7faa488196930ee9bf7d2852ba": {
+              "input_tokens": 189,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_014cc48e94c02e71016ae95b7faa488196bc409fce266f8048": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 794,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "960294b8d313c74f1b03577125e9b2b31787c31081b954b18de0b5fa441d5955",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1707,
+      "output_tokens": 29,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T03:56:56.350Z"
+    }
+  ],
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6.1-sol",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "type": "object",
+  "required": [
+    "catalog_version",
+    "status",
+    "fixture",
+    "cancers",
+    "image_types",
+    "features",
+    "bindings"
+  ],
+  "properties": {
+    "catalog_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "status": {
+      "enum": [
+        "approved",
+        "development_only",
+        "unavailable"
+      ]
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "cancers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "synonyms",
+          "source",
+          "approval_status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "source",
+                "approval_status"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approval_status": {
+                  "enum": [
+                    "approved",
+                    "development_only",
+                    "unavailable"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "source": {
+            "type": "string"
+          },
+          "approval_status": {
+            "enum": [
+              "approved",
+              "development_only",
+              "unavailable"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "image_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "synonyms",
+          "source",
+          "approval_status",
+          "cancer_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "source",
+                "approval_status"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approval_status": {
+                  "enum": [
+                    "approved",
+                    "development_only",
+                    "unavailable"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "source": {
+            "type": "string"
+          },
+          "approval_status": {
+            "enum": [
+              "approved",
+              "development_only",
+              "unavailable"
+            ]
+          },
+          "cancer_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "feature_id",
+          "name",
+          "synonyms",
+          "category",
+          "source",
+          "version",
+          "approval_status"
+        ],
+        "properties": {
+          "feature_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "source",
+                "approval_status"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approval_status": {
+                  "enum": [
+                    "approved",
+                    "development_only",
+                    "unavailable"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "source": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "approval_status": {
+            "enum": [
+              "approved",
+              "development_only",
+              "unavailable"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "binding_id",
+          "feature_id",
+          "cancer_ids",
+          "image_type_ids",
+          "sequence_or_phase_conditions",
+          "source",
+          "version",
+          "approval_status"
+        ],
+        "properties": {
+          "binding_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "feature_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "cancer_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniqueItems": true
+          },
+          "image_type_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "uniqueItems": true
+          },
+          "sequence_or_phase_conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "approval_status": {
+            "enum": [
+              "approved",
+              "development_only",
+              "unavailable"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

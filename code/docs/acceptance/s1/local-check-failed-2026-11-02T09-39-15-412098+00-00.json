@@ -1,0 +1,16 @@
+{
+  "command": [
+    "bash",
+    "scripts/with-node.sh",
+    "npm",
+    "run",
+    "check"
+  ],
+  "cwd": "/home/ecs-user/projects/t1-agent/code",
+  "started_at": "2026-11-02T09:39:15.412098+00:00",
+  "finished_at": "2026-11-02T09:39:16.391249+00:00",
+  "exit_code": 1,
+  "stdout": "\n> t1-agent@0.1.0 check\n> tsc --noEmit\n\napps/web/src/main.tsx(2,41): error TS7016: Could not find a declaration file for module 'pdfjs-dist/build/pdf.mjs'. '/home/ecs-user/projects/t1-agent/code/node_modules/pdfjs-dist/build/pdf.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/pdfjs-dist` if it exists or add a new declaration (.d.ts) file containing `declare module 'pdfjs-dist/build/pdf.mjs';`\napps/web/src/main.tsx(3,8): error TS2882: Cannot find module or type declarations for side-effect import of './style.css'.\npackages/agent/src/pi.ts(3,10): error TS2305: Module '\"@earendil-works/pi-coding-agent\"' has no exported member 'AuthStorage'.\npackages/agent/src/store.ts(38,62): error TS2322: Type 'RunState' is not assignable to type 'never'.\n  Type '\"cancelled\"' is not assignable to type 'never'.\npackages/contracts/src/index.ts(59,42): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type 'TSchema[]'.\n  Type 'unknown' is not assignable to type 'TSchema'.\npackages/contracts/src/index.ts(59,159): error TS2345: Argument of type '<Value extends TLiteralValue>(value: Value, options?: TSchemaOptions | undefined) => TLiteral<Value>' is not assignable to parameter of type '(value: string, index: number, array: string[]) => TLiteral<string>'.\n  Types of parameters 'options' and 'index' are incompatible.\n    Type 'number' is not assignable to type 'TSchemaOptions'.\n",
+  "stderr": "",
+  "real_api_calls": 0
+}

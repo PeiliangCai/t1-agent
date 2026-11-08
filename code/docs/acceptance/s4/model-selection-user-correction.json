@@ -1,0 +1,99 @@
+{
+  "schema_version": "s4-model-selection-user-correction-1",
+  "recorded_at": "2026-11-03T07:14:38.411235+00:00",
+  "user_quote": "测试用的模型这些你要让我选择啊，是否需要多模态模型？",
+  "historical_experiment": {
+    "selection_source": "execution_side_not_user_model_selection",
+    "model_ids": [
+      "gpt-6.1-sol",
+      "gpt-6-astra"
+    ],
+    "reasoning_effort": "medium",
+    "registered_conditions": 14,
+    "registered_matrix_is_user_requirement_or_approved_test_plan": false,
+    "current_config": "code/config/extraction-development.json",
+    "config_model_ids_meaning": "prior_experiment_configuration_not_user_choice",
+    "coding_agent_model_roles_are_T1_application_model_authorization": false
+  },
+  "pending_user_decision": {
+    "formal_model_selected": false,
+    "test_models_selected_by_user": false,
+    "multimodal_scheme_selected": false,
+    "new_paid_calls": "blocked_pending_explicit_user_model_and_test_plan_decision",
+    "new_API_probes_or_visual_extension_started": false,
+    "present_before_real_calls": [
+      "model_candidates",
+      "capability_and_interface_evidence",
+      "exact_model_IDs_and_reasoning_effort",
+      "test_scope",
+      "cost_estimate_and_call_or_token_allowance"
+    ],
+    "decision_owner": "user",
+    "legacy_A_B_C_scale_options": "suspended; selecting an old option does not skip new model selection",
+    "legacy_scale_reference": "code/docs/acceptance/s4/experiment-scale-options.json",
+    "no_new_default_configuration_or_approval_program_added": true
+  },
+  "current_scope": {
+    "S4_flow": "分批原文抽取→程序定位校验→范围与语境复核→全文汇总",
+    "multimodal_or_visual_reading_extension": "not_selected_or_started",
+    "text_flow_recommendation_is_new_user_decision": false
+  },
+  "preserved_historical_facts": {
+    "physical_model_requests": 133,
+    "complete_L01_engineering_paper_runs": 2,
+    "actual_results": [
+      {
+        "job_id": "job-01",
+        "execution_revision": 6,
+        "model_id": "gpt-6.1-sol",
+        "strategy": "baseline",
+        "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6",
+        "seconds": 779.0524818260001,
+        "candidate_count": 26,
+        "requests": 23,
+        "provider_input": 328384,
+        "provider_output": 13907,
+        "source_blocks_read": 409,
+        "source_blocks_explicitly_completed": 409,
+        "summary_complete": true,
+        "state": "partial",
+        "medical_quality_approved": false
+      },
+      {
+        "job_id": "job-06",
+        "execution_revision": 2,
+        "model_id": "gpt-6-astra",
+        "strategy": "baseline",
+        "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2",
+        "seconds": 377.305573479,
+        "candidate_count": 17,
+        "requests": 18,
+        "provider_input": 214816,
+        "provider_output": 7181,
+        "source_blocks_read": 409,
+        "source_blocks_explicitly_completed": 409,
+        "summary_complete": true,
+        "state": "partial",
+        "medical_quality_approved": false
+      }
+    ],
+    "medical_quality_approved": false,
+    "actual_bill": "unknown",
+    "budget_ledger_old_runs_and_old_evidence": "unchanged; occurred calls not revoked or erased"
+  },
+  "stage_status": {
+    "S4_formal_reviews_used": 2,
+    "S4_formal_review_limit": 3,
+    "formal_reviews_added": 0,
+    "S4_stage_passed": false,
+    "S5_started": false
+  },
+  "DOCX_append_paragraphs": [
+    "T1阶段增量记录｜S4测试模型由用户选择的纠正｜2026-11-03",
+    "用户原话：“测试用的模型这些你要让我选择啊，是否需要多模态模型？”此前gpt-6.1-sol/gpt-6-astra、medium及14条件测试矩阵由执行方选择，不是用户要求或已批准的测试方案；正式模型未定。编码协作的Sol/Astra分工不构成T1应用模型授权。",
+    "新增真实API调用继续停止。须先向用户提供测试候选、能力与接口依据、具体模型ID及推理档、测试范围和费用/调用额度，由用户确定模型与测试方案。旧A/B/C费用规模建议搁置，选择旧项不能跳过新的模型选择；当前配置model_ids仅为此前实验配置。",
+    "现行S4主流程仍是“分批原文抽取→程序定位校验→范围与语境复核→全文汇总”。是否采用多模态方案尚未选择，未新增视觉看图扩展，也未把文本主流程建议写成用户新决策。",
+    "已发生的133物理请求、两篇次L01完整工程链路结果、失败与旧账本原样保留，不伪称撤销或医学验收通过。本轮仅日常纠正，S4正式审查仍2/3、阶段未通过，S5未启动。详见code/docs/acceptance/s4/model-selection-user-correction.json。"
+  ],
+  "preservation_evidence": "code/docs/acceptance/s4/model-selection-docx-preservation.json"
+}

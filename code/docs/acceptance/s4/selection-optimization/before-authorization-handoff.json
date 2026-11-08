@@ -1,0 +1,242 @@
+{
+  "schema_version": "s4-progress-handoff-1",
+  "prepared_at": "2026-11-03T07:14:38.411235+00:00",
+  "handoff_kind": "current_progress_not_stage_completion",
+  "authority": "user_model_selection_correction; no_additional_API_until_explicit_user_model_and_test_plan_decision",
+  "formal_review_progress": {
+    "stage": "S4",
+    "formal_astra_reviews_used": 2,
+    "limit": 3,
+    "same_stage_counter_must_not_reset": true,
+    "history": [
+      {
+        "round": 1,
+        "node": "planning",
+        "decision": "continue",
+        "text": "判断：继续。风险：1. 待核词表和模型复核不能冒充医学批准；2. 表格错配、文章边界及跨段语境可能污染证据；3. 付费调用须受请求、token和时间上限约束，缺少金标时不得报告正式准确率。",
+        "recorded_at": "2026-11-03T10:48:52.501722+08:00"
+      },
+      {
+        "round": 2,
+        "node": "actual_error_reproduction",
+        "decision": "modify",
+        "text": "判断：修改。风险：1. 取消后仍产生重试事件；2. 无效的癌种选择进入了模型调用；3. 修复时若一律禁止空特征集合，会破坏开放抽取规则。",
+        "recorded_at": "2026-11-03T03:08:29.829333+00:00",
+        "evidence": "code/docs/acceptance/s4/runtime-validation/initial-failures.json"
+      }
+    ]
+  },
+  "sealed_other_stage_counts": {
+    "S0_S1": "3/3",
+    "S2": "2/3",
+    "S3": "3/3"
+  },
+  "stage_passed": false,
+  "quality_status": "pending",
+  "S5_started": false,
+  "implemented": [
+    "new actual Pi evidence saving/validation/progress/single-paper reconciliation chain",
+    "28-field source-bound candidates with Unicode code-point and whole-line geometry references",
+    "open empty catalog and explicit catalog trust; strict approved scope guard",
+    "immutable SQLite versions/CAS/manual protection and pending model proposals",
+    "full emitted-source inventory/explicit completion/quarantine/failed gaps",
+    "per-request and document hard deadlines/shared atomic budget/unknown usage reservations",
+    "lossless full-candidate source-fragment dictionary and read-gated neutral review cases"
+  ],
+  "files": {
+    "review_entry": "code/docs/acceptance/s4/index.html",
+    "current_core_interfaces": "code/docs/acceptance/s4/core-review-materials.json",
+    "small_public_API_diff": "code/docs/acceptance/s4/core-existing-API.diff",
+    "registered_matrix": "code/docs/acceptance/s4/matrix-progress.json",
+    "scale_choices": "code/docs/acceptance/s4/experiment-scale-options.json",
+    "actual_source_inventory": "code/docs/acceptance/s4/source-inventory/summary.json",
+    "medical_field_contract": "code/packages/contracts/src/extraction-evidence.ts",
+    "runtime_directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e",
+    "plan_status_sync": "code/docs/acceptance/s4/current-plan-progress-sync.json",
+    "DOCX_preservation": "code/docs/acceptance/s4/core-progress-docx-preservation.json",
+    "protected_history": "code/docs/acceptance/s4/protected-history-verification.json",
+    "current_engineering_source_manifest": "code/docs/acceptance/s4/current-source-manifest.json",
+    "model_selection_user_correction": "code/docs/acceptance/s4/model-selection-user-correction.json",
+    "model_selection_DOCX_preservation": "code/docs/acceptance/s4/model-selection-docx-preservation.json",
+    "model_candidate_comparison": "code/docs/acceptance/s4/model-candidate-comparison-2026-11-03.json",
+    "medical_capability_selection_DOCX_preservation": "code/docs/acceptance/s4/medical-capability-selection-docx-preservation.json"
+  },
+  "actual_real_model_conditions": [
+    {
+      "job_id": "job-01",
+      "execution_revision": 6,
+      "model_id": "gpt-6.1-sol",
+      "strategy": "baseline",
+      "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-6",
+      "seconds": 779.0524818260001,
+      "candidate_count": 26,
+      "requests": 23,
+      "provider_input": 328384,
+      "provider_output": 13907,
+      "source_blocks_read": 409,
+      "source_blocks_explicitly_completed": 409,
+      "summary_complete": true,
+      "state": "partial",
+      "medical_quality_approved": false
+    },
+    {
+      "job_id": "job-06",
+      "execution_revision": 2,
+      "model_id": "gpt-6-astra",
+      "strategy": "baseline",
+      "directory": "code/runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-06-revision-2",
+      "seconds": 377.305573479,
+      "candidate_count": 17,
+      "requests": 18,
+      "provider_input": 214816,
+      "provider_output": 7181,
+      "source_blocks_read": 409,
+      "source_blocks_explicitly_completed": 409,
+      "summary_complete": true,
+      "state": "partial",
+      "medical_quality_approved": false
+    }
+  ],
+  "tests_by_version": {
+    "prior_protocol5_profile_fix_full_regression": {
+      "count": 169,
+      "passed": true,
+      "scope": "unit15+integration8+Node_parser20+evaluation28+extraction98",
+      "evidence": "code/docs/acceptance/s4/runtime-validation/pre-summary-model-view-and-neutral-case-review/summary.json",
+      "not_relabelled_as_current_summary_revision": true
+    },
+    "current_summary_dictionary_audit_document_indices": {
+      "focused_passed": 7,
+      "focused_is_subset": true,
+      "extraction_passed": 118,
+      "breakdown": {
+        "runtime": 52,
+        "pure_evidence_scope_reconciliation": 50,
+        "dictionary": 16
+      },
+      "typecheck_passed": true,
+      "source_manifest_summary_pending_refresh": false,
+      "evidence": "code/docs/acceptance/s4/runtime-validation/summary-current-extraction.txt",
+      "typecheck": "code/docs/acceptance/s4/runtime-validation/summary-view-cases-typecheck.txt",
+      "other71_tests_Python_web_not_repeated": true,
+      "summary": "code/docs/acceptance/s4/runtime-validation/summary.json",
+      "source_start_end_tracked_files": 44,
+      "source_start_end_changed_files": []
+    },
+    "real_source_reversible_view": {
+      "Sol26_and_Astra17_all_candidate_context_values_restored": true,
+      "byte_reduction_percent_range": [
+        56.62683518613682,
+        56.876788881379305
+      ],
+      "not_a_measured_token_cost_or_latency_reduction": true,
+      "evidence": "code/docs/acceptance/s4/evidence-validation/summary-model-view-real/measurement.json"
+    }
+  },
+  "unverified": [
+    "new dictionary/neutral-case summary protocol not yet run through real supplier",
+    "12 original matrix conditions remain pending; no broad article/model/strategy or scope generalization conclusion",
+    "complete human medical gold and approved taxonomy/rules absent",
+    "S3 human source fidelity, table/figure associations and image text still pending",
+    "formal model choice and final numeric thresholds pending",
+    "actual supplier invoice unknown; public token-price scenarios only"
+  ],
+  "budget": {
+    "original_start": "2026-11-03T02:52:42.293Z",
+    "requests_used": 133,
+    "inflight": 0,
+    "current_caps": {
+      "requests": 400,
+      "input": 2000000,
+      "output": 400000,
+      "wall_seconds_from_original_start": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "batch_responses": 16
+    },
+    "accounting": {
+      "requests_used": 133,
+      "measured_input": 1186673,
+      "unknown_input_reservation": 422621,
+      "measured_output": 76813,
+      "unknown_output_reservation": 65536,
+      "unknown_attempts": 8,
+      "remaining_requests": 267,
+      "remaining_input": 390706,
+      "remaining_output": 257651,
+      "effective_deadline": "2026-11-03T06:52:42.293000+00:00",
+      "remaining_wall_clock_minutes_at_report": 107.92665085
+    },
+    "no_ledger_or_old_run_reset": true,
+    "no_further_paid_process_running": true,
+    "paid_node_processes": [],
+    "actual_bill": "unknown"
+  },
+  "pending_user_choice": {
+    "status": "awaiting_explicit_user_model_and_test_plan_selection; paid_calls_blocked",
+    "A": "within original remaining caps run job13 Astra/L01 complete independent-review condition and both neutral cases; if complete 3/14, other11 pending",
+    "B": "requires explicit call-scale authorization; proposal700 requests/10M input/600k output/300min from original start; other assumptions and single-document limit proposal are unapproved",
+    "C": "no more API this iteration; deliver current core and2/14 real complete conditions; other12 stay pending",
+    "pending_job_ids": [
+      "job-02",
+      "job-03",
+      "job-04",
+      "job-05",
+      "job-07",
+      "job-08",
+      "job-09",
+      "job-10",
+      "job-11",
+      "job-12",
+      "job-13",
+      "job-14"
+    ],
+    "formal_review_round_3": "reserved for later final engineering review after explicit model/test-plan choice; not consumed by this correction",
+    "first_required_choice": "user chooses test models and test plan before any additional real API call",
+    "present_before_user_decision": [
+      "model_candidates",
+      "capability_and_interface_evidence",
+      "exact_model_IDs_and_reasoning_effort",
+      "test_scope",
+      "cost_estimate_and_call_or_token_allowance"
+    ],
+    "legacy_A_B_C_status": "suspended_historical_scale_proposals; old option selection cannot skip new model selection",
+    "pending_job_ids_meaning": "historical_execution_side_matrix_only; not_user_required_or_approved_plan",
+    "paid_calls_blocked_pending_explicit_decision": true,
+    "model_selection_correction_record": "code/docs/acceptance/s4/model-selection-user-correction.json",
+    "model_selection_criteria": {
+      "model_role": "T1_application_runtime_LLM; distinct from coding_agent_model_roles",
+      "important_dimension": "medical_paper_understanding_and_evidence_extraction_ability",
+      "comparison_dimensions": [
+        "中英文肿瘤影像术语理解",
+        "正文、图注和表格的关联",
+        "否定、不确定性和适用条件的保留",
+        "研究人群、本研究与转引内容的区分",
+        "原文及数值、单位忠实",
+        "无依据时不补写"
+      ],
+      "weights": null,
+      "S2_full_human_gold_dependency": "unchanged_and_pending",
+      "public_medical_QA_and_biomedical_research_scores": "distinct_from_T1_paper_extraction_quality",
+      "comparative_medical_strength": "not_established",
+      "prior_Luna_Sol_cost_led_first_choice": "withdrawn_pending_medical_evidence_and_paper_testing",
+      "detail_record": "code/docs/acceptance/s4/model-candidate-comparison-2026-11-03.json"
+    }
+  },
+  "important_actual_limits": [
+    "existing exact source checks do not establish medical correctness",
+    "whole-line references and display composites retain their boundaries; no minimal-phrase or contiguous-quote claim",
+    "L02 p3 suspected continuation20 blocks quarantined by source identity/page geometry; not human-approved exclusion",
+    "old schema/context/deadline failures and actual wall overruns retained in attempt history; new successful runs do not erase them"
+  ],
+  "report_execution_counts": {
+    "planned_conditions": 14,
+    "actual_paper_runs": 8,
+    "historical_paper_runs": 6,
+    "current_actual_paper_runs": 2,
+    "pending_conditions": 12,
+    "model_requests_including_probes_and_failures": 133
+  },
+  "formal_model_selected": false,
+  "report_validation": "code/docs/acceptance/s4/report-validation.json"
+}

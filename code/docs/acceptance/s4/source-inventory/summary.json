@@ -1,0 +1,323 @@
+{
+  "created_at": "2026-11-03T04:45:36.840Z",
+  "purpose": "actual_cached_source_inventory_not_extraction_or_independent_acceptance",
+  "original_PDFs_modified": false,
+  "model_calls": 0,
+  "documents": [
+    {
+      "document_id": "L01",
+      "file_sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+      "text_version": "s3v3-125c6680b9f7e1ee28666d225bf07f04",
+      "cached_IR_path": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L01.json",
+      "cached_IR_sha256": "b1a11e6c8e925eb698cae5a8a8c5012849e08e1b2d2e50114a9b75097fb6a0af",
+      "parser": {
+        "id": "docling-standard-cpu",
+        "version": "2.145.0",
+        "status": "partial",
+        "config": {
+          "adapter_version": "s3-structured-1",
+          "adapter_sha256": "8e963232847b21b7ece55ea53c17c020dec32304e802ebcdee8be8cc0ba8645b",
+          "native_worker_sha256": "2a184e5f7daffccb0a0caf4490c8891bbe1f09fd63519838f17923d94369a267",
+          "candidate_id": "docling-standard-cpu",
+          "device": "cpu",
+          "cpu_threads": 4,
+          "ocr_mode": "pdf_text_layer",
+          "paid_llm_enabled": false,
+          "source_parser": {
+            "id": "docling-parse-text",
+            "version": "7.24.2",
+            "status": "partial",
+            "config": {
+              "adapter_version": "s3-text-adapter-1",
+              "adapter_sha256": "bd828240d9adf07856b0f23f133c48b93326f40315b3a3a78b54acea8377e12f",
+              "config_revision": "1",
+              "normalization_version": "line-endings-only-1",
+              "do_sanitization": false,
+              "keep_glyphs": false,
+              "ocr_enabled": false,
+              "table_reconstruction": false,
+              "reading_order": "backend_textline_order_unverified",
+              "metadata_backend": "pypdf-6.21.4"
+            },
+            "config_digest": "4748f15920788dee50ae91da482f255323664e05a4cbeb582129cac15c615d5e"
+          },
+          "source_alignment_method": "geometry_and_nfkd_whitespace_hyphen_alignment_2",
+          "native_processed_text_authoritative": false,
+          "native_config": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          }
+        },
+        "config_digest": "d616e693b564f2de8a26b36abc44772ead62c0d1e9446db4e9cbeec67732ba7f"
+      },
+      "physical_pages": 4,
+      "original_source_blocks": 409,
+      "original_source_code_points": 10522,
+      "assigned_blocks": 409,
+      "quarantined_blocks": 0,
+      "batches": 4,
+      "planned_context_exposures_including_overlap": 36,
+      "source_processing_completed_by_inventory": false,
+      "medical_quality_approved": false,
+      "human_source_fidelity_approved": false
+    },
+    {
+      "document_id": "MED03",
+      "file_sha256": "36038f5e0ad453343334326a3ba03e6c94e3687ca88574640d54be7056ffa760",
+      "text_version": "s3v3-6e1961cd5ca78500bff2c384428b425d",
+      "cached_IR_path": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/MED03.json",
+      "cached_IR_sha256": "4e6546c908351dc68b765dc93296586ee36881863a7e0177209d86aa1d351df3",
+      "parser": {
+        "id": "docling-standard-cpu",
+        "version": "2.145.0",
+        "status": "partial",
+        "config": {
+          "adapter_version": "s3-structured-1",
+          "adapter_sha256": "8e963232847b21b7ece55ea53c17c020dec32304e802ebcdee8be8cc0ba8645b",
+          "native_worker_sha256": "2a184e5f7daffccb0a0caf4490c8891bbe1f09fd63519838f17923d94369a267",
+          "candidate_id": "docling-standard-cpu",
+          "device": "cpu",
+          "cpu_threads": 4,
+          "ocr_mode": "pdf_text_layer",
+          "paid_llm_enabled": false,
+          "source_parser": {
+            "id": "docling-parse-text",
+            "version": "7.24.2",
+            "status": "parsed",
+            "config": {
+              "adapter_version": "s3-text-adapter-1",
+              "adapter_sha256": "bd828240d9adf07856b0f23f133c48b93326f40315b3a3a78b54acea8377e12f",
+              "config_revision": "1",
+              "normalization_version": "line-endings-only-1",
+              "do_sanitization": false,
+              "keep_glyphs": false,
+              "ocr_enabled": false,
+              "table_reconstruction": false,
+              "reading_order": "backend_textline_order_unverified",
+              "metadata_backend": "pypdf-6.21.4"
+            },
+            "config_digest": "4748f15920788dee50ae91da482f255323664e05a4cbeb582129cac15c615d5e"
+          },
+          "source_alignment_method": "geometry_and_nfkd_whitespace_hyphen_alignment_2",
+          "native_processed_text_authoritative": false,
+          "native_config": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          }
+        },
+        "config_digest": "d054922ec74f44dc974f97d131e88dc36368d786b39b786abe8f374682c6a729"
+      },
+      "physical_pages": 9,
+      "original_source_blocks": 1411,
+      "original_source_code_points": 39005,
+      "assigned_blocks": 1411,
+      "quarantined_blocks": 0,
+      "batches": 12,
+      "planned_context_exposures_including_overlap": 132,
+      "source_processing_completed_by_inventory": false,
+      "medical_quality_approved": false,
+      "human_source_fidelity_approved": false
+    },
+    {
+      "document_id": "L02",
+      "file_sha256": "14a37c26847110e3dce0fad50e95cec4459348b0c6da7ef793a1d333bd6e1c12",
+      "text_version": "s3v3-3c2f5f4eb78d645120ba00b8c162ff3c",
+      "cached_IR_path": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L02.json",
+      "cached_IR_sha256": "a40beb92c657527da88d0c0e55c4970ee91fcf44070785acc21b12e627a1ec56",
+      "parser": {
+        "id": "docling-standard-cpu",
+        "version": "2.145.0",
+        "status": "partial",
+        "config": {
+          "adapter_version": "s3-structured-1",
+          "adapter_sha256": "8e963232847b21b7ece55ea53c17c020dec32304e802ebcdee8be8cc0ba8645b",
+          "native_worker_sha256": "2a184e5f7daffccb0a0caf4490c8891bbe1f09fd63519838f17923d94369a267",
+          "candidate_id": "docling-standard-cpu",
+          "device": "cpu",
+          "cpu_threads": 4,
+          "ocr_mode": "pdf_text_layer",
+          "paid_llm_enabled": false,
+          "source_parser": {
+            "id": "docling-parse-text",
+            "version": "7.24.2",
+            "status": "partial",
+            "config": {
+              "adapter_version": "s3-text-adapter-1",
+              "adapter_sha256": "bd828240d9adf07856b0f23f133c48b93326f40315b3a3a78b54acea8377e12f",
+              "config_revision": "1",
+              "normalization_version": "line-endings-only-1",
+              "do_sanitization": false,
+              "keep_glyphs": false,
+              "ocr_enabled": false,
+              "table_reconstruction": false,
+              "reading_order": "backend_textline_order_unverified",
+              "metadata_backend": "pypdf-6.21.4"
+            },
+            "config_digest": "4748f15920788dee50ae91da482f255323664e05a4cbeb582129cac15c615d5e"
+          },
+          "source_alignment_method": "geometry_and_nfkd_whitespace_hyphen_alignment_2",
+          "native_processed_text_authoritative": false,
+          "native_config": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          }
+        },
+        "config_digest": "d616e693b564f2de8a26b36abc44772ead62c0d1e9446db4e9cbeec67732ba7f"
+      },
+      "physical_pages": 3,
+      "original_source_blocks": 263,
+      "original_source_code_points": 7229,
+      "assigned_blocks": 243,
+      "quarantined_blocks": 20,
+      "batches": 2,
+      "planned_context_exposures_including_overlap": 12,
+      "source_processing_completed_by_inventory": false,
+      "medical_quality_approved": false,
+      "human_source_fidelity_approved": false
+    },
+    {
+      "document_id": "L05",
+      "file_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "text_version": "s3v3-0b953cbb7626a244a3f99f09c265e9fb",
+      "cached_IR_path": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L05.json",
+      "cached_IR_sha256": "50bc3da18913f9df602fc780e1a5162dca006985d1b03115d974859b30a817df",
+      "parser": {
+        "id": "docling-standard-cpu",
+        "version": "2.145.0",
+        "status": "partial",
+        "config": {
+          "adapter_version": "s3-structured-1",
+          "adapter_sha256": "8e963232847b21b7ece55ea53c17c020dec32304e802ebcdee8be8cc0ba8645b",
+          "native_worker_sha256": "2a184e5f7daffccb0a0caf4490c8891bbe1f09fd63519838f17923d94369a267",
+          "candidate_id": "docling-standard-cpu",
+          "device": "cpu",
+          "cpu_threads": 4,
+          "ocr_mode": "pdf_text_layer",
+          "paid_llm_enabled": false,
+          "source_parser": {
+            "id": "docling-parse-text",
+            "version": "7.24.2",
+            "status": "partial",
+            "config": {
+              "adapter_version": "s3-text-adapter-1",
+              "adapter_sha256": "bd828240d9adf07856b0f23f133c48b93326f40315b3a3a78b54acea8377e12f",
+              "config_revision": "1",
+              "normalization_version": "line-endings-only-1",
+              "do_sanitization": false,
+              "keep_glyphs": false,
+              "ocr_enabled": false,
+              "table_reconstruction": false,
+              "reading_order": "backend_textline_order_unverified",
+              "metadata_backend": "pypdf-6.21.4"
+            },
+            "config_digest": "4748f15920788dee50ae91da482f255323664e05a4cbeb582129cac15c615d5e"
+          },
+          "source_alignment_method": "geometry_and_nfkd_whitespace_hyphen_alignment_2",
+          "native_processed_text_authoritative": false,
+          "native_config": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          }
+        },
+        "config_digest": "d616e693b564f2de8a26b36abc44772ead62c0d1e9446db4e9cbeec67732ba7f"
+      },
+      "physical_pages": 10,
+      "original_source_blocks": 615,
+      "original_source_code_points": 33459,
+      "assigned_blocks": 615,
+      "quarantined_blocks": 0,
+      "batches": 6,
+      "planned_context_exposures_including_overlap": 60,
+      "source_processing_completed_by_inventory": false,
+      "medical_quality_approved": false,
+      "human_source_fidelity_approved": false
+    },
+    {
+      "document_id": "L07",
+      "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+      "text_version": "s3v3-f4081e79143c52f91340088fb8cde7a4",
+      "cached_IR_path": "docs/acceptance/s3/comparison-2026-11-02/runs/guarded-v4/reuse/docling-standard-cpu/L07.json",
+      "cached_IR_sha256": "9ca39f335f233cdaed59d918f1928262e9eb3f96728e8ea914fd60b12f08627a",
+      "parser": {
+        "id": "docling-standard-cpu",
+        "version": "2.145.0",
+        "status": "partial",
+        "config": {
+          "adapter_version": "s3-structured-1",
+          "adapter_sha256": "8e963232847b21b7ece55ea53c17c020dec32304e802ebcdee8be8cc0ba8645b",
+          "native_worker_sha256": "2a184e5f7daffccb0a0caf4490c8891bbe1f09fd63519838f17923d94369a267",
+          "candidate_id": "docling-standard-cpu",
+          "device": "cpu",
+          "cpu_threads": 4,
+          "ocr_mode": "pdf_text_layer",
+          "paid_llm_enabled": false,
+          "source_parser": {
+            "id": "docling-parse-text",
+            "version": "7.24.2",
+            "status": "partial",
+            "config": {
+              "adapter_version": "s3-text-adapter-1",
+              "adapter_sha256": "bd828240d9adf07856b0f23f133c48b93326f40315b3a3a78b54acea8377e12f",
+              "config_revision": "1",
+              "normalization_version": "line-endings-only-1",
+              "do_sanitization": false,
+              "keep_glyphs": false,
+              "ocr_enabled": false,
+              "table_reconstruction": false,
+              "reading_order": "backend_textline_order_unverified",
+              "metadata_backend": "pypdf-6.21.4"
+            },
+            "config_digest": "4748f15920788dee50ae91da482f255323664e05a4cbeb582129cac15c615d5e"
+          },
+          "source_alignment_method": "geometry_and_nfkd_whitespace_hyphen_alignment_2",
+          "native_processed_text_authoritative": false,
+          "native_config": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          }
+        },
+        "config_digest": "d616e693b564f2de8a26b36abc44772ead62c0d1e9446db4e9cbeec67732ba7f"
+      },
+      "physical_pages": 15,
+      "original_source_blocks": 1189,
+      "original_source_code_points": 59830,
+      "assigned_blocks": 1189,
+      "quarantined_blocks": 0,
+      "batches": 10,
+      "planned_context_exposures_including_overlap": 108,
+      "source_processing_completed_by_inventory": false,
+      "medical_quality_approved": false,
+      "human_source_fidelity_approved": false
+    }
+  ]
+}

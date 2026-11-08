@@ -1,0 +1,22 @@
+{
+  "schema_version": "t1-output-sampling-rules-1",
+  "status": "engineering_ready_human_rules_and_thresholds_pending",
+  "full_reference_answer_required": false,
+  "legacy_gold_scoring": "optional_historical_method_not_a_current_stage_gate",
+  "automatic_checks": ["PDF and IR identity/hash", "every delivered quote and caption has exact source offsets", "non-contiguous fragments remain separate", "source order and preserved negation/conditions/units", "complete Figure/source asset hash and explicit pairing guard"],
+  "human_checks": ["return to original PDF and check source fidelity/read order", "relevance to chosen scope and visual evidence", "negation/uncertainty/condition/coreference/numeric units and original-vs-cited attribution", "explicit Figure association and whole Figure/panels/original caption", "record deduplication group, errors and uncertainty"],
+  "selection": {
+    "sample_count": null,
+    "decision": "user_and_medical_reviewer_to_determine_after_observed_output",
+    "record_selection_method_and_seed": true,
+    "directions": ["paper and language", "method", "body/caption/table", "negation/uncertainty/measurement", "paired/pending/unpaired Figure", "new term and repeated evidence"],
+    "random_sample_and_targeted_error_review_report_separately": true
+  },
+  "required_reporting": ["actual sampled/reviewed count", "unreviewed and uncertain counts", "each error category and regression example", "human-deduplicated effective descriptions within checked scope", "run completion/gaps", "requests/tokens/unknown actual billing and elapsed time", "human review workload"],
+  "formal_sample_count": null,
+  "quality_thresholds": null,
+  "medical_quality_approved": false,
+  "product_export_rule": "Each current record needs a real review; sampling never approves product exports. Text confirmation does not approve images.",
+  "forbidden_claims": ["full-document recall from output sampling", "accuracy from candidate count or model self-evaluation", "zero errors from a passing sample", "unreviewed means approved"],
+  "independent_corpus": "evaluation/manifests/independent-intake.json; only new unexposed families, separate sealed files; existing 14 records/13 families are ineligible"
+}

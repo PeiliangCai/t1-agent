@@ -1,0 +1,19 @@
+✔ closed issue omission binds assigned IDs but never reads, completes or fabricates zero candidates (6.73783ms)
+✔ closed issue indices must be returned/read and in this batch; host supplies the source ID (2.493871ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":1}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":2}
+✔ exact missing-terminal EOF retries a batch while retaining the failed unknown reservation (460.226528ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":1}
+✔ whole-paper summary stops after two fresh-session retries and preserves all three failures (830.060974ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":1,"requests":1}
+✔ fresh summary retry re-reads current versions and keeps a concurrent human revision active with model proposals (325.913179ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":1}
+✔ a shared hard budget prevents EOF retries after its last permitted physical request (16.33494ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2482.554623

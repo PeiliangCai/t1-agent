@@ -1,0 +1,154 @@
+code/packages/agent/src/evidence-validation.ts:87
+87:   const source = locate(submission.source_fragments, 'source_fragments');
+88:   if (submission.translation_zh !== null) add('translation_disabled_for_verbatim_output', 'reject', 'translation_zh');
+89:   if (!isSourceBoundaryDelimiter(submission.display_joiner)) add('display_joiner_cannot_add_words', 'reject', 'display_joiner');
+90:   if (source.length) for (const issue of verbatimOmissionIssues(document, source)) add(issue.code, issue.severity, issue.path, issue.detail);
+91:   let previousOrder = -1, previousEnd = -1;
+92:   for (const [index, segment] of source.entries()) {
+93:     const order = document.blocks.find(b => b.block_id === segment.block_id)!.reading_order;
+94:     if (order < previousOrder || order === previousOrder && segment.start < previousEnd) {
+
+code/packages/agent/src/extraction-run.ts:36
+36:   assertSchema(RunInputSchema, input); assertSchema(EvidenceCatalogSchema, catalog); assertParsedDocument(document);
+37:   if (options.figureCatalog) assertFigureCatalog(document, options.figureCatalog);
+38:   if (input.document_id !== document.document_id || input.file_sha256 !== document.file_sha256 || input.fixture !== document.fixture) throw new ContractError('extraction_document_identity_mismatch');
+39:   if (metadata.source_version.file_sha256 !== document.file_sha256) throw new ContractError('extraction_metadata_source_mismatch');
+40:   await assertLivePdfSource(document);
+41:   const article = buildArticleScope(document), selection = selectSourceBlocks(document, article, options.sourceSelectionCondition ?? 'B0');
+42:   const batches = planExtractionBatches(document, { ...article, included_block_ids: selection.kept_block_ids }, options.batchOptions);
+43:   const documentTimeout = options.documentTimeoutMs ?? S4_LIMITS.document_seconds * 1000;
+
+code/packages/agent/src/figure-assets.ts:13
+13: export async function assertLivePdfSource(document: ExtractionDocument): Promise<void> {
+14:   if (document.fixture) return;
+15:   const code = await realpath(CODE);
+16:   const path = await realpath(resolve(code, document.source.file_reference)).catch(() => { throw new ContractError('source_pdf_unavailable'); });
+17:   const rel = relative(code, path);
+18:   if (!rel || rel.startsWith('..')) throw new ContractError('source_pdf_outside_code');
+19:   const bytes = await readFile(path).catch(() => { throw new ContractError('source_pdf_unavailable'); });
+20:   if (createHash('sha256').update(bytes).digest('hex') !== document.file_sha256) throw new ContractError('source_pdf_changed_since_ir');
+21: }
+22: /** Local CPU source-asset step, outside the model's tool boundary. Failure must not suppress valid text. */
+23: export async function discoverPdfFigures(document: ExtractionDocument, directory: string, signal?: AbortSignal): Promise<FigureAssetCatalog> {
+
+code/packages/agent/src/extraction-run.ts:58
+58:       try { await assertLivePdfSource(document); }
+59:       catch (identityError) { clearInterval(sampler); clearTimeout(timeout); throw identityError; }
+60:       figureDiscovery = { status: 'failed_text_still_deliverable', error_code: safeError(cause).code };
+61:     }
+62:   }
+63:   store.create(input, { ...metadata, strategy, model_profile: profile, parser: document.parser,
+64:     source_ir_reused: true, original_pdf_modified: false, medical_quality_approved: false });
+65:   await writeFile(resolve(directory, 'article-scope.json'), JSON.stringify(article, null, 2) + '\n', { flag: 'wx' });
+66:   await writeFile(resolve(directory, 'source-selection.json'), JSON.stringify(selection, null, 2) + '\n', { flag: 'wx' });
+67:   await writeFile(resolve(directory, 'batch-plan.json'), JSON.stringify(batches, null, 2) + '\n', { flag: 'wx' });
+
+code/packages/agent/src/evidence-delivery.ts:90
+90:   const captionMatches = catalog.figures.filter(f => f.caption_segments.some(c => source.some(s =>
+91:     s.block_id === c.block_id && s.start < c.end && c.start < s.end)));
+92:   const requested = new Set([...mentions.map(m => m.number), ...captionMatches.flatMap(f => f.figure_number ? [f.figure_number] : [])]);
+93:   if (!requested.size) { result.reasons.push('No explicit source Figure marker or original-caption overlap; this does not prove absence of images.'); return result; }
+94:   result.status = 'pending';
+95:   if (mentions.some(m => m.complex)) { result.reasons.push('Figure list/range reference needs explicit resolution; no partial first-number pairing.'); return result; }
+96:   for (const number of requested) {
+97:     const matches = catalog.figures.filter(f => f.figure_number === number);
+98:     result.proposed_figure_ids.push(...matches.map(f => f.figure_id));
+99:     if (matches.length !== 1) { result.reasons.push(`Figure ${number}: no unique original-caption/asset identity.`); continue; }
+100:     const figure = matches[0]!, caption = figure.caption_segments.map(c => c.exact_quote).join('\n');
+101:     const captionMentions = explicitFigureMentions(caption);
+102:     if (!captionMentions.some(m => m.number === number) || captionMentions[0]?.number !== number) {
+103:       result.reasons.push(`Figure ${number}: original caption number not verified.`); continue;
+104:     }
+105:     const conflicts = incompatibleDimensions(text, caption);
+106:     if (conflicts.length) { result.reasons.push(`Figure ${number}: incompatible ${conflicts.join(', ')}; no automatic pairing.`); continue; }
+107:     const knownPanels = new Set(figure.panel_labels.flatMap(label => {
+108:       const range = /([A-Za-z])\s*[-–—]\s*([A-Za-z])/u.exec(label);
+109:       if (range) {
+110:         const start = range[1]!.toUpperCase().charCodeAt(0), end = range[2]!.toUpperCase().charCodeAt(0);
+111:         return end >= start && end-start < 26 ? Array.from({ length: end-start+1 }, (_, index) => String.fromCharCode(start+index)) : [];
+112:       }
+113:       const single = /^\(?([A-Za-z])\)?$/u.exec(label.trim()); return single ? [single[1]!.toUpperCase()] : [];
+114:     }));
+115:     for (const marker of captionMentions) if (marker.number === number && marker.panel) knownPanels.add(marker.panel.toUpperCase());
+116:     if (knownPanels.size && mentions.some(m => m.number === number && m.panel && !knownPanels.has(m.panel.toUpperCase()))) {
+117:       result.reasons.push(`Figure ${number}: explicitly referenced panel conflicts with original caption labels.`); continue;
+118:     }
+119:     if (figure.verification.status === 'needs_review' || !figure.regions.length) {
+120:       result.reasons.push(`Figure ${number}: complete Figure region/panels and caption identity need source-page verification.`); continue;
+121:     }
+122:     result.figure_ids.push(figure.figure_id);
+123:   }
+
+code/packages/agent/src/evidence-delivery.ts:225
+225:   const legacyTextApprovals = new Map<string, EvidenceRecord['review_events']>();
+226:   if (options.mode === 'approved') for (const record of delivery.records) {
+227:     const review = checked.get(record.record_id);
+228:     const sourceVersion = versions.find(v => v.record.record_id === record.record_id && v.version === record.record_version && v.status !== 'proposed');
+229:     const legacyApproved = sourceVersion?.actor === 'human' && sourceVersion.record.review_status === 'approved' && sourceVersion.record.handoff_status === 'approved_for_T2' &&
+230:       sourceVersion.record.review_events.some(e => e.version === record.record_version && /^(?:approve|approved)$/u.test(e.action) && e.actor.trim() && Number.isFinite(Date.parse(e.timestamp)));
+231:     if (review && (review.decision !== 'approved' || !review.source_text_checked || !review.relevance_checked || !review.context_checked ||
+232:       review.review_scope === 'text_and_figures' && !review.figure_pairing_checked) || !review && !legacyApproved) {
+233:       throw new ContractError('approved_export_requires_each_record_confirmation');
+234:     }
+235:     if (!review && legacyApproved) legacyTextApprovals.set(record.record_id, clone(sourceVersion!.record.review_events));
+236:     if (!review || review.review_scope === 'text_only') {
+237:       record.figure_association.status = record.figure_association.proposed_figure_ids.length ? 'pending' : record.figure_association.status;
+238:       record.figure_association.figure_ids = [];
+239:       record.figure_association.reasons.push('Text approval applies to source fragments only; Figure assets and pairing await separate confirmation.');
+240:       const { delivery_fingerprint: _old, ...value } = record;
+241:       record.delivery_fingerprint = evidenceDigest({ ...value, figure_content: delivery.figures.filter(f => record.figure_association.proposed_figure_ids.includes(f.figure_id)) });
+242:     }
+243:   }
+244:   const sample = auditOutputSample(delivery, options.sampleReview);
+245:   const codeRoot = await realpath(options.codeRoot), directory = resolve(options.directory);
+246:   const parent = await realpath(dirname(directory));
+247:   const inside = (path: string) => { const rel = relative(codeRoot, path); return rel !== '' && !rel.startsWith('..') && !isAbsolute(rel); };
+248:   if (!inside(parent) && parent !== codeRoot || !inside(directory)) throw new ContractError('delivery_output_outside_code');
+249:   const pdfPath = await realpath(resolve(codeRoot, document.source.file_reference));
+250:   if (!inside(pdfPath) || hashBytes(await readFile(pdfPath)) !== document.file_sha256) throw new ContractError('delivery_pdf_hash_mismatch');
+251:   const assets: Array<{ asset_id: string; source_path: string; package_path: string; sha256: string; bytes: Buffer }> = [];
+
+code/services/pdf-parser/figure_assets.py:161
+161: def mechanically_check(figure, candidate, all_candidates, image_objects, page_info, document=None, external_paths=()):
+162:     if not figure['figure_number'] or len(candidate['region_specs']) != 1:
+163:         return
+164:     if sum(c['figure_number'] == figure['figure_number'] for c in all_candidates) != 1:
+165:         return
+166:     box = candidate['region_specs'][0]['bbox']
+167:     intersecting = [o for o in image_objects if overlap(o['bbox'], box) > 0]
+168:     if len(intersecting) != 1 or not intersecting[0]['top_level']:
+169:         return
+170:     original = intersecting[0]['bbox']
+171:     if max(abs(a-b) for a, b in zip(original, box)) > 8:
+172:         return
+173:     if any(o is not intersecting[0] and distance(o['bbox'], box) <= 24 for o in image_objects):
+174:         return
+175:     # Extra drawn parts or printed panel labels outside the candidate would be lost by a bitmap-only crop.
+176:     for path_box in external_paths:
+177:         if distance(path_box, box) <= 16 and overlap(path_box, box) < max(1, (path_box[2]-path_box[0])*(path_box[3]-path_box[1]))*0.95:
+178:             return
+179:     if document:
+180:         for block in document['blocks']:
+181:             if block['page'] != candidate['region_specs'][0]['physical_page'] or not re.fullmatch(r'\s*\(?[A-Za-z]\)?\s*', block['text']):
+182:                 continue
+183:             if distance(block['bbox'], box) <= 24 and not (box[0] <= block['bbox'][0] and box[1] <= block['bbox'][1] and box[2] >= block['bbox'][2] and box[3] >= block['bbox'][3]):
+184:                 return
+185:     if any(c is not candidate and c['figure_number'] and any(s['physical_page'] == candidate['region_specs'][0]['physical_page'] and
+186:            distance(s['bbox'], box) <= 72 for s in c['caption_segments']) for c in all_candidates):
+187:         return
+188:     # Crop the union, so detector rounding can never trim the original PDF bitmap.
+189:     full = union([box, original])
+190:     if not (0 <= full[0] < full[2] <= page_info['width'] and 0 <= full[1] < full[3] <= page_info['height']):
+191:         return
+192:     figure['region_specs'][0]['bbox'] = full
+193:     figure['verification'] = {'status': 'mechanically_checked', 'method': 'single_pdf_bitmap_caption_guard_1',
+194:        'actor': 'local-deterministic-figure-guard-1', 'checked_at': datetime.now(timezone.utc).isoformat(),
+195:        'notes': 'Unique source-numbered caption, no paragraph barrier, one complete top-level original PDF bitmap matching the whole detector region; no nearby uncontained bitmap. Engineering structural check, not human/medical approval.',
+196:        'all_panels_included': True, 'caption_figure_identity_checked': True, 'human_approved': False,
+197:        'mechanical_evidence': {'pdf_image_object_count': 1, 'original_image_bbox': original,
+198:           'caption_number_unique': True, 'no_nearby_uncontained_visual_objects': True, 'no_intervening_paragraph': True,
+199:           'native_region_matches_complete_pdf_bitmap': True}}
+200: 
+201: 
+202: def extract_catalog(document, output_directory, *, scale=2):
+203:     import pypdfium2 as pdfium

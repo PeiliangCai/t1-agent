@@ -1,0 +1,176 @@
+import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { realpath } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
+import { assertSchema, ContractError, DocumentIRSchema, ParserRequestSchema, ParserResultSchema, DocumentIRV2Schema, documentIRV2Issues,
+  ParserCandidateSchema, StructuredParserRequestSchema, StructuredParserResultSchema, resolveDocumentSegments,
+  type DocumentIR, type DocumentIRV2, type ParserAdapter, type ParserRequest, type ParserResult,
+  type ParserCandidateId, type StructuredDocumentIR, type StructuredParserResult } from '@t1/contracts';
+
+const CODE = fileURLToPath(new URL('../../../', import.meta.url));
+
+export class LocalParserError extends ContractError {
+  constructor(code: string, public readonly retryable = false) { super(code); }
+}
+
+export function assertParsedDocument(document: Exclude<DocumentIR, { schema_version: '1' }>): void {
+  assertSchema(DocumentIRSchema, document);
+  if (!['2', '3'].includes(document.schema_version)) throw new LocalParserError('unsupported_document_ir_version');
+  if (document.schema_version === '2') {
+    if (documentIRV2Issues(document).length) throw new LocalParserError('invalid_document_ir');
+    return;
+  }
+  const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+  const blocks = document.blocks, ids = blocks.map(b => b.block_id), pages = document.pages.map(p => p.physical_page);
+  if (!same(pages, pages.map((_, i) => i + 1)) || !same(pages, document.coverage.physical_pages_expected) ||
+    new Set(ids).size !== ids.length || !same(ids, document.coverage.expected_block_ids) || !same(ids, document.coverage.processed_block_ids) ||
+    document.fixture !== (document.evidence_kind === 'engineering_fixture')) throw new LocalParserError('invalid_document_ir');
+  const validPages = new Set(document.pages.filter(p => p.status !== 'failed').map(p => p.physical_page));
+  for (const [index, block] of blocks.entries()) {
+    if (block.document_id !== document.document_id || block.text_version !== document.text_version || block.reading_order !== index ||
+      !validPages.has(block.page)) throw new LocalParserError('invalid_document_ir');
+    const raw = Array.from(block.raw_text), normalized = Array.from(block.text);
+    let rawEnd = 0, normalizedEnd = 0;
+    for (const run of block.normalization_map) {
+      const a = raw.slice(run.raw_start, run.raw_end).join(''), b = normalized.slice(run.normalized_start, run.normalized_end).join('');
+      if (run.raw_start !== rawEnd || run.normalized_start !== normalizedEnd || run.raw_end <= run.raw_start || run.normalized_end <= run.normalized_start ||
+        (run.kind === 'identity' ? a !== b || a.includes('\r') : !['\r', '\r\n'].includes(a) || b !== '\n')) throw new LocalParserError('invalid_document_ir');
+      rawEnd = run.raw_end; normalizedEnd = run.normalized_end;
+    }
+    if (rawEnd !== raw.length || normalizedEnd !== normalized.length || block.raw_text.replace(/\r\n?/g, '\n') !== block.text) throw new LocalParserError('invalid_document_ir');
+  }
+  const units = new Map(document.structure.units.map(u => [u.unit_id, u]));
+  if (units.size !== document.structure.units.length || document.structure.reading_order.some(id => !units.has(id)) ||
+    document.structure.furniture_unit_ids.some(id => !units.has(id))) throw new LocalParserError('invalid_structure_reference');
+  for (const unit of units.values()) {
+    // Validate each explicit source segment independently. Native order is not raw PDF content-stream order.
+    for (const segment of unit.source_segments) {
+      try { resolveDocumentSegments(document, { document_id: document.document_id, text_version: document.text_version, segments: [segment], joiner: '' }); }
+      catch { throw new LocalParserError('invalid_structure_source_segment'); }
+    }
+  }
+  for (const item of [...document.structure.tables, ...document.structure.pictures]) {
+    if ([...item.caption_unit_ids, ...item.footnote_unit_ids].some(id => !units.has(id))) throw new LocalParserError('invalid_structure_reference');
+  }
+  if (document.structure.tables.some(table => table.cells.some(cell => !units.has(cell.unit_id)))) throw new LocalParserError('invalid_structure_reference');
+  const textPages = document.pages.filter(p => p.text_layer_present).map(p => p.physical_page);
+  const noText = document.pages.filter(p => p.status !== 'failed' && !p.text_layer_present).map(p => p.physical_page);
+  const images = document.pages.filter(p => p.bitmap_count).map(p => p.physical_page);
+  const failed = document.pages.filter(p => p.status === 'failed').map(p => ({ physical_page: p.physical_page, code: p.error?.code }));
+  const unmapped = document.structure.units.filter(u => ['unmapped', 'partial'].includes(u.mapping.status)).map(u => u.unit_id);
+  const ambiguous = document.structure.units.filter(u => u.mapping.status === 'ambiguous').map(u => u.unit_id);
+  const expectedStatus = !ids.length ? 'unsupported' : failed.length || noText.length || images.length ||
+    document.coverage.native_errors.length || unmapped.length || ambiguous.length || !same(document.coverage.native_pages, pages) ? 'partial' : 'parsed';
+  if (!same(textPages, document.coverage.text_layer_pages) || !same(failed, document.coverage.failed_pages) ||
+    !same(noText, document.coverage.pages_without_text) || !same(images, document.coverage.image_text_unverified_pages) ||
+    !same([...validPages], document.coverage.decoded_pages) || !same(unmapped, document.coverage.unmapped_unit_ids) ||
+    !same(ambiguous, document.coverage.ambiguous_unit_ids) || document.parser.status !== expectedStatus ||
+    document.coverage.text_layer_decode_complete !== (textPages.length === pages.length)) throw new LocalParserError('invalid_document_coverage');
+}
+
+interface ProcessOptions { timeoutMs?: number; maxOutputBytes?: number; pythonExecutable?: string }
+async function runLocalParser<T extends ParserResult | StructuredParserResult>(input: ParserRequest, script: string, args: string[],
+  options: ProcessOptions, validate: (payload: unknown) => T, signal?: AbortSignal): Promise<T> {
+  if (signal?.aborted) throw new LocalParserError('parser_aborted');
+  const expectedPath = await realpath(resolve(CODE, input.file_reference)).catch(() => undefined);
+  if (signal?.aborted) throw new LocalParserError('parser_aborted');
+  return new Promise((accept, reject) => {
+    const child = spawn(options.pythonExecutable ?? join(CODE, '.venv/bin/python'), [script, ...args], {
+      cwd: CODE, stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32',
+      env: { ...process.env, OMP_NUM_THREADS: '4', OPENBLAS_NUM_THREADS: '4', MKL_NUM_THREADS: '4', PYTHONUNBUFFERED: '1' },
+    });
+    let ended = false, bytes = 0;
+    const chunks: Buffer[] = [];
+    const finish = (error?: Error, value?: T) => {
+      if (ended) return;
+      ended = true; clearTimeout(timer); signal?.removeEventListener('abort', abort);
+      if (error) {
+        try {
+          if (process.platform !== 'win32' && child.pid) process.kill(-child.pid, 'SIGKILL');
+          else child.kill('SIGKILL');
+        } catch { /* Child may have exited before the timeout/abort callback. */ }
+        reject(error);
+      } else accept(value!);
+    };
+    const abort = () => finish(new LocalParserError('parser_aborted'));
+    const timer = setTimeout(() => finish(new LocalParserError('parser_timeout', true)), options.timeoutMs ?? 180_000);
+    signal?.addEventListener('abort', abort, { once: true });
+    if (signal?.aborted) abort();
+    child.stdout.on('data', (chunk: Buffer) => {
+      bytes += chunk.length;
+      if (bytes > (options.maxOutputBytes ?? 64 * 1024 * 1024)) finish(new LocalParserError('parser_output_limit'));
+      else chunks.push(chunk);
+    });
+    child.stderr.on('data', () => {}); // Drain diagnostics without exposing PDF strings or host paths as API errors.
+    child.on('error', () => finish(new LocalParserError('parser_process_unavailable')));
+    child.on('close', (code) => {
+      if (ended) return;
+      try {
+        const payload = validate(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+        if (payload.run_id !== input.run_id) throw new LocalParserError('parser_run_mismatch');
+        if (payload.document) {
+          assertParsedDocument(payload.document);
+          if (payload.document.document_id !== input.document_id || payload.document.file_sha256 !== input.file_sha256 ||
+            payload.document.fixture !== Boolean(input.fixture)) throw new LocalParserError('parser_identity_mismatch');
+          if (!expectedPath || resolve(CODE, payload.document.source.file_reference) !== expectedPath) throw new LocalParserError('parser_source_reference_mismatch');
+          const expectedStatus = payload.document.parser.status === 'parsed' ? 'ok' : payload.document.parser.status;
+          if (payload.status !== expectedStatus || payload.error) throw new LocalParserError('parser_status_mismatch');
+        } else if (payload.status !== 'error' || !payload.error) throw new LocalParserError('parser_status_mismatch');
+        const expectedCode = payload.status === 'ok' ? 0 : payload.status === 'error' ? 1 : 2;
+        if (code !== expectedCode) throw new LocalParserError('parser_exit_status_mismatch');
+        finish(undefined, payload);
+      } catch (error) { finish(error instanceof LocalParserError ? error : new LocalParserError('invalid_parser_result')); }
+    });
+  });
+}
+
+/** Explicit local text-line baseline. No model-controlled CLI or filesystem tool is exposed. */
+export class LocalPythonParserAdapter implements ParserAdapter {
+  constructor(readonly options: ProcessOptions & { configRevision?: string } = {}) {}
+
+  async parse(input: ParserRequest, signal?: AbortSignal): Promise<DocumentIRV2> {
+    const result = await this.parseResult(input, signal);
+    if (result.error || !result.document) throw new LocalParserError(result.error?.code ?? 'missing_parser_document', result.error?.retryable);
+    return result.document;
+  }
+
+  async parseResult(input: ParserRequest, signal?: AbortSignal): Promise<ParserResult> {
+    assertSchema(ParserRequestSchema, input);
+    input = structuredClone(input);
+    const args = ['parse', '--run-id', input.run_id, '--document-id', input.document_id,
+      '--file-reference', input.file_reference, '--file-sha256', input.file_sha256,
+      '--config-revision', this.options.configRevision ?? '1'];
+    if (input.fixture) args.push('--fixture');
+    return runLocalParser(input, 'services/pdf-parser/cli.py', args, this.options, payload => {
+      assertSchema(ParserResultSchema, payload);
+      if (payload.document) assertSchema(DocumentIRV2Schema, payload.document);
+      return payload;
+    }, signal);
+  }
+}
+
+/** Explicit backend primitive; createConfiguredPdfParserAdapter applies the trusted formal selection. */
+export class LocalStructuredPythonParserAdapter implements ParserAdapter {
+  constructor(readonly options: ProcessOptions & { candidateId: ParserCandidateId; logDirectory?: string }) {
+    assertSchema(ParserCandidateSchema, options.candidateId);
+  }
+  async parse(input: ParserRequest, signal?: AbortSignal): Promise<StructuredDocumentIR> {
+    const result = await this.parseResult(input, signal);
+    if (result.error || !result.document) throw new LocalParserError(result.error?.code ?? 'missing_parser_document', result.error?.retryable);
+    return result.document;
+  }
+  async parseResult(input: ParserRequest, signal?: AbortSignal): Promise<StructuredParserResult> {
+    assertSchema(ParserRequestSchema, input); input = structuredClone(input);
+    const request = { ...input, candidate_id: this.options.candidateId };
+    assertSchema(StructuredParserRequestSchema, request);
+    const args = ['parse', '--candidate-id', request.candidate_id, '--run-id', request.run_id, '--document-id', request.document_id,
+      '--file-reference', request.file_reference, '--file-sha256', request.file_sha256];
+    if (request.fixture) args.push('--fixture');
+    if (this.options.logDirectory) args.push('--log-directory', this.options.logDirectory);
+    return runLocalParser(input, 'services/pdf-parser/structured-cli.py', args, { timeoutMs: 600_000, ...this.options }, payload => {
+      assertSchema(StructuredParserResultSchema, payload);
+      if (payload.document?.parser.id !== undefined && payload.document.parser.id !== request.candidate_id) throw new LocalParserError('parser_candidate_mismatch');
+      return payload;
+    }, signal);
+  }
+}

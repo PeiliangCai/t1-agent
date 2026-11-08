@@ -1,0 +1,38 @@
+{
+  "backend_pi": "1.4.0",
+  "frontend_upstream_pi_dependency": "1.5.0",
+  "next": "16.4.4",
+  "react": "19.2.4",
+  "pdfjs": "6.5.438",
+  "root_lock_sha256": "a290ac9a7d644776c30d892ea54417820dea120d6d78417cc335b46818a8f08e",
+  "frontend_lock_sha256": "8401c68b6131c931779cf7ac62ace07133c452324b5ef65e4456740ae33bd79e",
+  "frontend_upstream_lock_unchanged": false,
+  "frontend_lock_change_reason": "Add independently controlled T1 PDF reader dependency pdfjs-dist 6.5.438; retain every upstream Pi SDK dependency version.",
+  "root_workspaces": [
+    "apps/server",
+    "packages/*"
+  ],
+  "Vite_active_dependency": false,
+  "retired_tool_active_paths_exist": [
+    [
+      "apps/web",
+      false
+    ],
+    [
+      "apps/pi-web/app/annotation",
+      false
+    ],
+    [
+      "apps/pi-web/t1/annotation",
+      false
+    ],
+    [
+      "scripts/package-annotation-offline.mjs",
+      false
+    ],
+    [
+      "tests/annotation-ui",
+      false
+    ]
+  ]
+}

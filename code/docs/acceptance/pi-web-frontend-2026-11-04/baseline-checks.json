@@ -1,0 +1,19 @@
+{
+  "schema_version": "pi-web-frontend-baseline-checks-1",
+  "completed_at": "2026-11-04T12:19:00.050970+00:00",
+  "checks": [
+    {
+      "name": "TypeScript baseline",
+      "command": "env PATH=\"code/.tools/node/bin:$PATH\" npm run check",
+      "cwd": "code",
+      "exit": 0,
+      "output": "> t1-agent@0.1.0 check\n> tsc --noEmit\n"
+    }
+  ],
+  "new_ui_tested": false,
+  "external_model_requests": 0,
+  "notes": [
+    "System PATH has no npm; reused existing code/.tools/node v24.22.2 without installation.",
+    "No application code modified before user A/B decision."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-11-02T14:27:09.653139+00:00",
+  "scope": "S3 minimal local parsing and source localization only",
+  "formal_parser_selected": false,
+  "environment_record": "docs/acceptance/s3/environment-before-install.json",
+  "official_verification": "docs/acceptance/s3/candidate-source-verification.json",
+  "candidate_summary": {
+    "docling": {
+      "version": "2.145.0",
+      "type": "local multi-format document pipeline; neural layout/table models plus text backend",
+      "code_license": "MIT; individual model licenses separately verified before enabling",
+      "cpu_supported": true,
+      "plan": "Start with pinned docling-parse text backend; attempt CPU-only full Docling standard locally, OCR disabled. Every output identifies exact adapter/configuration; baseline never claims full pipeline capability."
+    },
+    "docling_parse": {
+      "version": "7.24.2",
+      "type": "Docling project native PDF text/geometry backend, not full Docling layout/table pipeline",
+      "code_license": "MIT",
+      "neural_model_download_required": false
+    },
+    "mineru": {
+      "version": "4.1.4",
+      "type": "local document parsing tiers / optional remote service; base ONNX+llama.cpp runtime",
+      "code_license": "MinerU Open Source License (Apache-2.0 plus commercial-threshold and online-attribution terms), model licenses separate",
+      "official_ram_basic_gb": 2,
+      "official_models_basic_gb_approx": 0.8,
+      "official_ram_standard_cpu_gb": 8,
+      "official_models_standard_cpu_gb_approx": 2,
+      "cpu_supported": true,
+      "iteration_policy": "Verify install feasibility/dependencies; no false GPU-only claim. No remote parsing or default third-party PDF upload. If not executed, mark not_run and explain actual reason, never fabricate comparative quality."
+    }
+  },
+  "implementation_steps": [
+    "Versioned Python ParserAdapter and DocumentIR v2 with v1 fixture compatibility, SHA and immutable text/geometry/normalization mappings",
+    "Local adapters, JSON CLI, per-page coverage/error reporting and exact segment validation",
+    "Parse five exposed PDFs unchanged; actual timings and resources; localization evidence only, human fidelity pending",
+    "Constructed-PDF coordinate/Unicode/cross-block/error/version tests plus existing type/unit/integration/evaluation regressions; logs exclusively under s3",
+    "Append engineering delivery evidence to current plans without changing stage acceptance or thresholds"
+  ],
+  "engineering_resource_budget": {
+    "parallel_pdf_jobs": 1,
+    "cpu_threads": 4,
+    "soft_rss_budget_gib": 8,
+    "dependency_and_model_disk_budget_gib": 6,
+    "installation_location": "code/.venv plus code/.tools/pdf-parser cache/models",
+    "package_cache_location": "code/.tools/pdf-parser/pip-cache",
+    "standard_pipeline_timeout_seconds_per_pdf": 180,
+    "network": "Official package/source/model downloads only; original PDFs stay local; zero paid LLM calls",
+    "gpu_required": false,
+    "server_specification_changes": false,
+    "docker_installation": false
+  },
+  "quality_limits": [
+    "Reading order / table/header/caption linkage not accepted until manual PDF comparison",
+    "Visible image text and mixed pages needing OCR never count as fully covered",
+    "Engineering coverage and quality fidelity reported separately",
+    "Five files are exposed development candidates, not independent acceptance"
+  ]
+}

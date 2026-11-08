@@ -1,0 +1,628 @@
+{
+  "schema_version": "ai-reference-summary-1",
+  "provenance": {
+    "origin": "external_ai_user_supplied",
+    "human_verified": false,
+    "not_gold": true,
+    "quality_evaluation_eligible": false,
+    "medical_review_status": "pending",
+    "human_annotator": null,
+    "human_reviewer": null,
+    "human_review_date": null,
+    "user_declared_source": "用户明确说明：是我让其它AI所抽取的，你可以用作参考。",
+    "medical_semantic_approval_performed": false,
+    "allowed_use": "冻结模型输出后的字面来源保留与待复核分歧审阅",
+    "forbidden_use": [
+      "不得作为已批准gold或完整人工标注",
+      "不得注入抽取prompt或据此定制筛选规则",
+      "不得生成医学precision/recall/F1或把未列项作为负例、漏提真值",
+      "表内完成、审核、阅读状态均为原始声明，不能升级人工或医学批准"
+    ]
+  },
+  "record_count": 56,
+  "records_by_document": {
+    "L01": 25,
+    "L05": 31
+  },
+  "record_literal_alignment_status": {
+    "partial": 35,
+    "normalized": 10,
+    "unmatched": 10,
+    "exact": 1
+  },
+  "record_independent_unit_coverage": {
+    "only_some_independent_units_uniquely_anchored": 6,
+    "all_independent_units_uniquely_anchored": 19,
+    "contains_repeated_source_ambiguity": 21,
+    "no_independent_units_anchored": 10
+  },
+  "partial_record_breakdown": {
+    "only_some_independent_units_uniquely_anchored": 6,
+    "all_independent_units_uniquely_anchored": 8,
+    "contains_repeated_source_ambiguity": 21
+  },
+  "partial_records_with_some_unanchored_units": 6,
+  "partial_records_with_repeated_source_ambiguity": 21,
+  "fully_located_literal_comparison_rows": 19,
+  "unresolved_rows_separate_not_scored_as_zero": 37,
+  "fragment_count": 78,
+  "fragment_literal_alignment_status": {
+    "partial": 31,
+    "unmatched": 19,
+    "normalized": 23,
+    "exact": 5
+  },
+  "worksheet_inventory": [
+    {
+      "sheet": "填写说明",
+      "rows_read": 19,
+      "nonempty_rows": 19,
+      "header_row": 1,
+      "headers": [
+        {
+          "cell": "A1",
+          "column": 1,
+          "value": "事项",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B1",
+          "column": 2,
+          "value": "说明",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 18,
+      "formula_count": 0
+    },
+    {
+      "sheet": "论文清单",
+      "rows_read": 6,
+      "nonempty_rows": 6,
+      "header_row": 1,
+      "headers": [
+        {
+          "cell": "A1",
+          "column": 1,
+          "value": "论文ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B1",
+          "column": 2,
+          "value": "完整标题（已对照PDF首页）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "C1",
+          "column": 3,
+          "value": "主题（仅资料说明）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "D1",
+          "column": 4,
+          "value": "语言",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "E1",
+          "column": 5,
+          "value": "文体",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "F1",
+          "column": 6,
+          "value": "物理页数",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "G1",
+          "column": 7,
+          "value": "原始文件名",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "H1",
+          "column": 8,
+          "value": "文章边界/使用提醒",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "I1",
+          "column": 9,
+          "value": "标注状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "J1",
+          "column": 10,
+          "value": "医学复核状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 5,
+      "formula_count": 0
+    },
+    {
+      "sheet": "逐条标注",
+      "rows_read": 57,
+      "nonempty_rows": 57,
+      "header_row": 1,
+      "headers": [
+        {
+          "cell": "A1",
+          "column": 1,
+          "value": "序号",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B1",
+          "column": 2,
+          "value": "论文ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "C1",
+          "column": 3,
+          "value": "物理页码（从1起；多片段逐一标页）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "D1",
+          "column": 4,
+          "value": "印刷页码（可空）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "E1",
+          "column": 5,
+          "value": "段落/图表位置（逐片段对应）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "F1",
+          "column": 6,
+          "value": "原文各片段（分行；保留原文）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "G1",
+          "column": 7,
+          "value": "必要上下文",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "H1",
+          "column": 8,
+          "value": "特征原文名称",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "I1",
+          "column": 9,
+          "value": "内容类型建议（定义/观察/条件/待定）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "J1",
+          "column": 10,
+          "value": "出处归属与引文编号（本研究/转引/共识/待定）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "K1",
+          "column": 11,
+          "value": "病灶主体/人群",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "L1",
+          "column": 12,
+          "value": "模态与序列/期相",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "M1",
+          "column": 13,
+          "value": "否定/不确定性（保留原词）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "N1",
+          "column": 14,
+          "value": "适用条件",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "O1",
+          "column": 15,
+          "value": "数值及单位（原样）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "P1",
+          "column": 16,
+          "value": "收录/待裁定及理由",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "Q1",
+          "column": 17,
+          "value": "重复/冲突/片段关联",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "R1",
+          "column": 18,
+          "value": "标注者",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "S1",
+          "column": 19,
+          "value": "复核者",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "T1",
+          "column": 20,
+          "value": "状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "U1",
+          "column": 21,
+          "value": "备注",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 56,
+      "formula_count": 0
+    },
+    {
+      "sheet": "逐页核对",
+      "rows_read": 42,
+      "nonempty_rows": 42,
+      "header_row": 1,
+      "headers": [
+        {
+          "cell": "A1",
+          "column": 1,
+          "value": "论文ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B1",
+          "column": 2,
+          "value": "物理页码（从1起）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "C1",
+          "column": 3,
+          "value": "印刷页码（可空）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "D1",
+          "column": 4,
+          "value": "状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "E1",
+          "column": 5,
+          "value": "已核对区域（正文/图注/表格表头脚注等）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "F1",
+          "column": 6,
+          "value": "关联标注序号",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "G1",
+          "column": 7,
+          "value": "未核对/无法读清/边界问题及位置",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "H1",
+          "column": 8,
+          "value": "阅读者",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "I1",
+          "column": 9,
+          "value": "日期",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "J1",
+          "column": 10,
+          "value": "备注",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 41,
+      "formula_count": 0
+    },
+    {
+      "sheet": "争议与术语",
+      "rows_read": 21,
+      "nonempty_rows": 19,
+      "header_row": 1,
+      "headers": [
+        {
+          "cell": "A1",
+          "column": 1,
+          "value": "争议/建议序号",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B1",
+          "column": 2,
+          "value": "论文ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "C1",
+          "column": 3,
+          "value": "物理页码与原文位置",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "D1",
+          "column": 4,
+          "value": "类型（边界/收录/拆并/同义翻译/上下位/适用性等）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "E1",
+          "column": 5,
+          "value": "问题/术语原文",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "F1",
+          "column": 6,
+          "value": "建议/备选解释",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "G1",
+          "column": 7,
+          "value": "依据原文与出处",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "H1",
+          "column": 8,
+          "value": "涉及癌种病灶/模态/序列/期相",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "I1",
+          "column": 9,
+          "value": "复核意见",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "J1",
+          "column": 10,
+          "value": "复核者",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "K1",
+          "column": 11,
+          "value": "状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "L1",
+          "column": 12,
+          "value": "备注",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 18,
+      "formula_count": 0
+    },
+    {
+      "sheet": "阅读索引",
+      "rows_read": 61,
+      "nonempty_rows": 60,
+      "header_row": 5,
+      "headers": [
+        {
+          "cell": "A5",
+          "column": 1,
+          "value": "记录ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "B5",
+          "column": 2,
+          "value": "论文ID",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "C5",
+          "column": 3,
+          "value": "特征或条目",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "D5",
+          "column": 4,
+          "value": "中文摘要（AI释义）",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "E5",
+          "column": 5,
+          "value": "物理页码",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "F5",
+          "column": 6,
+          "value": "状态",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        },
+        {
+          "cell": "G5",
+          "column": 7,
+          "value": "原文位置",
+          "data_type": "s",
+          "formula_evaluated": false,
+          "number_format": "General"
+        }
+      ],
+      "body_nonempty_rows": 56,
+      "formula_count": 56
+    }
+  ],
+  "formula_cells_preserved_not_evaluated": 56,
+  "nonempty_human_annotator_fields": 0,
+  "nonempty_human_reviewer_fields": 0,
+  "workbook_dispute_rows": 18,
+  "repeated_workbook_quote_groups": 4,
+  "counts_mean": "导入及字面来源映射统计，不能解释为医学质量或漏提真值。",
+  "limitations": [
+    "仅核对字面及来源；不批准医学语义、收录边界、术语翻译、拆分归并或表格行列关系。",
+    "只搜索S3 source blocks；结构层native_text不是原文引文，不用于生成字符锚点。",
+    "S3顺序、PDF文本层、图中文字及表格结构未经人工保真核验；字面未匹配不等于原PDF没有该内容。",
+    "空白匹配仅删除Unicode isspace字符（含断行）；不做大小写、标点、NFKC/NFKD、连字、连字符或翻译改写转换。",
+    "源行间连接仅作检索视图；输出每个真实block内独立[start,end)片段，不为合成连接符生成offset。",
+    "重复候选全部保留，页码声明不用于自动挑选重复位置。多片段、表格转录及省略号整体保持partial/ambiguous/unmatched。",
+    "pypdf页文本是另一抽取视图，只作补充来源校验；其页内offset不冒充S3 block offset。"
+  ]
+}

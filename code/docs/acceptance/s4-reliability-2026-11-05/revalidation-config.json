@@ -1,0 +1,120 @@
+{
+  "schema_version": "three-method-comparison-config-1",
+  "status": "prepared_pending_new_user_authorization",
+  "execute_model_calls": false,
+  "formal_model_selected": false,
+  "papers": [
+    {
+      "source_id": "L05",
+      "prepared_directory": "docs/acceptance/user-feedback-2026-11-05/revalidation/sources/L05"
+    }
+  ],
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "catalog": {
+    "catalog_version": "medical-unavailable-1",
+    "status": "unavailable",
+    "fixture": false,
+    "cancers": [],
+    "image_types": [],
+    "features": [],
+    "bindings": []
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "batch_options": {
+    "maxCodePoints": 8500,
+    "maxBlocks": 128,
+    "contextBlocks": 6
+  },
+  "strategy": "baseline",
+  "concurrency": 1,
+  "figure_pairing": "shared_bound_original_catalog_exact_caption_and_whole_Figure_guard",
+  "proposed_limits": {
+    "requests": 64,
+    "input_tokens": 1500000,
+    "output_tokens": 160000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "response_model_alias_policy": {
+    "policy_id": "user-relayed-agicto-deployment-region-luna-20261103",
+    "source": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+    "exact_pairs": [
+      {
+        "requested_model": "gpt-6-luna",
+        "response_model": "igpt-6-luna"
+      },
+      {
+        "requested_model": "igpt-6-luna",
+        "response_model": "gpt-6-luna"
+      }
+    ]
+  },
+  "optimization": {
+    "kind": "integrated_reliability_smoke",
+    "only_comparison_variable": "source_input_preprocessing",
+    "parent_plan": null,
+    "declared_change": null
+  },
+  "quality": {
+    "full_reference_answer_required": false,
+    "sampling_rules": "Only integrated engineering reliability; all new candidates remain unreviewed, no method ranking or single-variable performance claim.",
+    "actual_human_reviews": 0,
+    "sample_count": null,
+    "thresholds": null,
+    "winner": null
+  },
+  "price_estimate": {
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing",
+    "request_estimate": [
+      40,
+      55
+    ],
+    "time_minutes_estimate": [
+      10,
+      25
+    ],
+    "estimate_basis": "Historical child L05-B0 33 requests plus final successful L05-F 18 =51 requests; conservative planning range, not proof that the fixes reduce API cost. Hard cap64 may end partial."
+  },
+  "experiment_scope": {
+    "logical_conditions": 6,
+    "unique_initial_extractions": "derive_from_prepared_plan_never_assume_F_R_equivalence",
+    "all_corrections_common_to_all_arms": true,
+    "retrospective_old_vs_new_difference_is_not_single_factor_model_effect": true,
+    "new_independent_budget_required": true,
+    "old_189_requests_unchanged": true,
+    "new_user_authorization_granted": false
+  },
+  "visual_scope_prompt": "metric-definitions-context-only-1",
+  "execution_job_ids": [
+    "L05-B0",
+    "L05-F"
+  ]
+}

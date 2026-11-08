@@ -1,0 +1,29 @@
+AGICTO 模型返回名核对材料（用户可自行转发，系统未主动发送）
+请求端点：POST https://api.agicto.cn/v1/responses
+请求 model：gpt-6-luna；reasoning.effort：medium
+现象：28次推理请求中记录到26次返回gpt-6-luna、2次返回igpt-6-luna；未将两者视为已确认别名。
+数据来自SDK解析的provider SSE response.model，原字段不归一化；历史HTTP正文只保存哈希，未保存全文。
+
+异常1：
+  请求开始UTC：2026-11-03T12:43:48.504000+00:00；北京时间：2026-11-03T20:43:48.504000+08:00
+  请求结束UTC：2026-11-03T12:43:58.715000+00:00；北京时间：2026-11-03T20:43:58.715000+08:00
+  response ID：resp_0a6b2699bbab1933016ae9d70ae0f08196b534c8b2b673a9d4
+  请求model/effort：gpt-6-luna / medium
+  返回response.model原值：igpt-6-luna；HTTP状态：200
+  HTTP完整正文SHA256：c22e83977dcff2bc3647fb76fd7486613c2c4418336f3332b908d538c71192fd
+
+异常2：
+  请求开始UTC：2026-11-03T12:47:54.707000+00:00；北京时间：2026-11-03T20:47:54.707000+08:00
+  请求结束UTC：2026-11-03T12:48:26.151000+00:00；北京时间：2026-11-03T20:48:26.151000+08:00
+  response ID：resp_048d304846fa6b1a016ae9d80a31588196bacf504d8a592d22
+  请求model/effort：gpt-6-luna / medium
+  返回response.model原值：igpt-6-luna；HTTP状态：200
+  HTTP完整正文SHA256：40b21be2bf768104e37c0041ec840a76065d02b5be1c6524e64f9abb8577f1ce
+
+只读模型目录：2026-11-03T13:07:10Z GET /v1/models 返回200，227项中仅列gpt-6-luna，未列igpt-6-luna。该目录不能证明别名映射。
+请厂商明确：
+1. igpt-6-luna 的 i 前缀具体含义，是否与公开 gpt-6-luna 为同一型号/部署？
+2. 出现该返回名是否代表代理内部路由、回退或换用其它模型？如有回退，如何禁止并核验？
+3. 两种返回名的计费型号、缓存tokens与reasoning effort=medium口径是否一致？
+4. 可提供哪些可核验的模型映射或请求追踪说明？
+材料不含密钥、Authorization、论文原文或隐藏推理。实际底层模型身份与账单仍待核验。

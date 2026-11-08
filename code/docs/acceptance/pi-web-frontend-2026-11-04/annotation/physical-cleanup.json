@@ -1,0 +1,53 @@
+{
+  "schema_version": "reference-preparation-physical-cleanup-1",
+  "status": "actual_deleted",
+  "started_at": "2026-11-04T13:30:28.525663+00:00",
+  "completed_at": "2026-11-04T13:30:28.744630+00:00",
+  "authorization": "用户已授权定向清理；主会话逐文件核定201项/149092036字节后执行。",
+  "deleted_file_count": 201,
+  "deleted_total_bytes": 149092036,
+  "all_target_file_sha256_and_size_verified_before_delete": true,
+  "all_approved_targets_absent": true,
+  "no_backup_zip_or_trash_copy_created": true,
+  "moved_inputs": [
+    {
+      "path": "code/evaluation/annotations/templates/unevaluable-real-input.json",
+      "size_bytes": 653,
+      "sha256": "c6210984e6ffcdc5de91cfd119ebcf011152afc5f1fad71adae94b3044184b0f",
+      "mtime_ns": 1793627871898744120,
+      "destination": "code/evaluation/fixtures/scoring/unevaluable-real-input.json",
+      "reason": "保留可选计分器的无参考不产出指标负向输入，迁入工程fixture目录；fixture:false及输入语义不变。"
+    }
+  ],
+  "removed_empty_directories": [
+    "code/docs/acceptance/s2/annotation-ui/before-20261103T235637/apps/web/src",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-20-36.287Z",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-13-50.471Z",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-16-01.761Z",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-18-48.508Z",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-24-40.275Z",
+    "code/docs/acceptance/s2/annotation-ui/before-20261103T235637/apps/web",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-11-19.779Z",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs/2026-11-03T16-10-54.877Z",
+    "code/evaluation/annotations/expert-handoff/20261103T170116+0800/材料/参考指南",
+    "code/docs/acceptance/s2/annotation-ui/before-20261103T235637/apps",
+    "code/docs/acceptance/s2/annotation-ui/qa/runs",
+    "code/evaluation/annotations/expert-handoff/20261103T170116+0800/材料/metadata",
+    "code/evaluation/annotations/expert-handoff/20261103T170116+0800/材料/论文PDF",
+    "code/docs/acceptance/s2/annotation-ui/before-20261103T235637",
+    "code/docs/acceptance/s2/annotation-ui/qa",
+    "code/docs/acceptance/s2/annotation-ui/checks",
+    "code/docs/acceptance/s2/annotation-ui/before-final-review-record-20261104T002624",
+    "code/docs/acceptance/s2/annotation-ui",
+    "code/dist/annotation-offline/论文PDF",
+    "code/dist/annotation-offline/metadata",
+    "code/evaluation/annotations/templates",
+    "code/dist/annotation-offline/licenses",
+    "code/dist/annotation-offline"
+  ],
+  "delete_manifest": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/delete-manifest.csv",
+  "disposition": "code/docs/acceptance/reference-preparation-cleanup-2026-11-04/disposition.csv",
+  "historical_retirement_manifest_unchanged": true,
+  "historical_interpretation": "2026-11-04先前retirement-manifest只记录当时活动退役与归档，不代表当时已物理删除。本记录新增随后物理清理事实，ZIP/TAR路径现已删除。旧阶段证据/快照中相关路径仅作历史引用。",
+  "validation": "pending_necessary_code_and_policy_repairs_and_local_checks"
+}

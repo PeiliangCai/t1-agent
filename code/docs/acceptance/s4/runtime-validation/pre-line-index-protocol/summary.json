@@ -1,0 +1,149 @@
+{
+  "schema_version": "s4-runtime-validation-summary-2",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T03:22:13.077008+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "post_compact_v2_model_tool_protocol_and_nonadjacent_source_warning_affected_tests_only",
+  "runtime_test_count": 29,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/runtime-tests.txt",
+  "checks": [
+    {
+      "suite": "runtime_after_compact_protocol",
+      "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/runtime-tests.txt",
+      "tests": 29,
+      "pass": 29,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 29,
+  "focused_compact_check": {
+    "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='compact' tests/extraction/runtime.test.ts",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/compact-focused-tests.txt",
+    "subset_of_runtime_tests": true,
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/typecheck.txt"
+  },
+  "full_regression_repeated_after_protocol_change": false,
+  "prior_full_regression": {
+    "version_scope": "before_compact_model_tool_protocol",
+    "generated_at": "2026-11-03T03:15:02.582198+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+    "total_distinct_tests": 144,
+    "checks": {
+      "extraction": {
+        "tests": 73,
+        "pass": 73,
+        "fail": 0
+      },
+      "unit": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0
+      },
+      "integration": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0
+      },
+      "parser": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0
+      },
+      "evaluation": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0
+      }
+    },
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+  },
+  "new_compact_runtime_coverage": [
+    "Installed Pi SDK calls host-bound compact tool schemas; model-visible schemas contain no run/document/batch identity or nested source binding.",
+    "Four candidates save in two submissions of three and one, then explicit completion; each saved record still has exactly 28 top-level evidence fields.",
+    "Original 7 mm numeric expression, mm unit, full condition wording, separate source fragments and physical pages remain unchanged.",
+    "Unread evidence, source-fragment index out of range, source read in another batch, extra model identity and a legacy full submission through the real model interface are rejected.",
+    "The legacy bound/full invoke method is exercised only by trusted test code; registered real Pi definitions always expose the compact adapter.",
+    "Omitted disease and modality observations stay null/unknown/needs_context despite approved selected cancer and modality scope."
+  ],
+  "retained_runtime_regressions": [
+    "Installed Pi SDK and synthetic loopback Responses SSE, no paid API calls",
+    "Explicit batch completion, zero candidates, overlapping context and missing coverage",
+    "Whitelisted tools, untrusted source instructions, forged run/task/source identity and read authorization",
+    "SQLite version/event transaction, rollback, competing stale CAS writers and reopen",
+    "Automatic proposal replay, human active-version protection and unapproved model review",
+    "Cache/reasoning usage accounting, missing-usage reservation and fixed experiment ceilings",
+    "HTTP 200 then SSE body stall with 80ms request deadline, exactly two retries, persisted candidate retention",
+    "Approved cancer/modality taxonomy with empty features allows open feature extraction"
+  ],
+  "regressions_reproduced_and_fixed": [
+    {
+      "case": "External cancellation incorrectly emitted a retry event",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Unavailable catalog did not preflight an invalid selected cancer",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Repeated human-protected automatic update created another proposal",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/proposal-idempotency-failure.json",
+      "regression_passed": true
+    }
+  ],
+  "additional_fix_regressions": [
+    "Summary source evidence must be explicitly read before updates; first runtime execution occurred after the fix",
+    "Approved human records remain active while proposed links reset approval metadata",
+    "Body-stall deadline was reported by a separate real-provider execution, then verified locally after the fix; this agent did not perform that paid call"
+  ],
+  "limitations": [
+    "Only 29 affected runtime tests and TypeScript checks were repeated after compact-v2. The prior 144-test full regression is separate historical evidence.",
+    "The four focused compact tests are included in the 29 runtime tests and must not be added again.",
+    "No paid model API, medical gold annotation, clinical accuracy, recall or billing validation is included in this runtime work.",
+    "The stalled-SSE test uses the supported shorter 80ms deadline, not a 120-second real-provider latency experiment.",
+    "Reopen persistence is verified; process-kill/crash injection and UI task resumption remain outside this scope.",
+    "Unchanged Python unittest and web/browser flows were not repeated."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "4638c262c9a5e829df3c33538049a1acf8031e7a6923b5c2450e6bc95d558796",
+    "tests/extraction/fixtures/runtime-responses.ts": "fdc6b9650eec83ea2ce1460cad63d417a8ac5ef9991b19e8931129adf3b6fcb7",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "33943c3995c00ede34d1ce6311477b9b54f8fdd81a82ad2ac0f52b50319db000",
+    "packages/agent/src/extraction-pi.ts": "e3a9bf1d28cd0b3ca0c6ddaa7f56599aad3d3222190a7bcafd659bf610a6bd27",
+    "packages/agent/src/extraction-run.ts": "ae14341dec0fedd441e42b431f0bebef53cbfa77785da3a29e540e539989603f",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "5485d9ee8da3ffeac5c0e398bb0600ed97d3481c372a10244176f51721ede6fa",
+    "packages/agent/src/extraction-tools.ts": "cdb0cf081fb185ea09b8050674982a58214246e2ea4fa8d06dea29487e4488eb",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/extraction-protocol.ts": "1f7b56046e06382c4e8376200a007a7e329cb58dd3bb464b069c611d72ccf26e"
+  }
+}

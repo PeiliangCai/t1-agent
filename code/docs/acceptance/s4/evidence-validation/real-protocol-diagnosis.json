@@ -1,0 +1,409 @@
+{
+  "schema_version": "s4-real-protocol-diagnosis-1",
+  "created_at": "2026-11-03T03:53:51.170085+00:00",
+  "task": "Read-only diagnosis of actual job01 revision4 first batch; revision3 comparison is separate",
+  "new_paid_api_calls": 0,
+  "candidate_or_runtime_mutations": false,
+  "medical_judgment": false,
+  "precision": "not_evaluable",
+  "recall": "not_evaluable",
+  "formal_astra_reviews_used": 2,
+  "additional_formal_review": false,
+  "input_ledger_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/call-ledger.json",
+  "input_ledger_snapshot_sha256": "83e41a8686efa32d37f83d020cb730ef732f6dae08ff9f7781b02815297e8c31",
+  "bottom_line": "rev4首批已标failed并推进第二批；首128块不是仍在无限loop。8次真实HTTP、9条SDK assistant记录，6次submit中5次在业务invoke之前报错；唯一业务提交3条，2拒绝1保存，explicit completion=false。",
+  "revision4": {
+    "execution_revision": 4,
+    "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:e099f020",
+    "protocol_version": "s4-host-bound-lines-3",
+    "run_state_at_readonly_snapshot": "partial",
+    "source_provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-4/source-provenance.json",
+    "source_provenance_sha256": "ae9f4505b9f7ae5361b1e7a212041eb9d8cf15371326647f494a239ed410e2b2",
+    "runtime_source_snapshot": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/source-snapshots/2168753ce2c03175531451e8525f683858e5a72b289a4a499a39c0d643f7bd16",
+    "model_tool_argument_shape_events": 0,
+    "tool_protocol_rejected_events_with_safe_code": 0,
+    "first_batch_attempts": [
+      {
+        "batch_file": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-4/batch-0001-attempt-0.json",
+        "batch_file_sha256": "7ac476e6d767286087006dc3be37ed4e7ec7a5e264200a46d3852659ad6a8632",
+        "attempt": 0,
+        "assigned_source_blocks": 128,
+        "read_assigned_blocks": 128,
+        "read_context_blocks": 6,
+        "explicit_batch_completion_received": false,
+        "batch_attempt_status": "failed",
+        "session_error": {
+          "type": "ContractError",
+          "code": "model_response_failed"
+        },
+        "assistant_messages_recorded": 9,
+        "physical_http_requests": 8,
+        "assistant_error_messages_without_new_http": 1,
+        "submit_tool_calls": 6,
+        "submit_calls_business_ok": 1,
+        "submit_calls_error_before_business_invoke": 5,
+        "candidate_validation_rejection_count": 2,
+        "hard_rejection_codes": {
+          "feature_name_not_in_evidence": 2
+        },
+        "accepted_distinct_record_count": 1,
+        "reconciliation_actions": {
+          "insert": 1
+        },
+        "duplicate_or_idempotent_actions_recorded": 0,
+        "successful_context_version_updates_recorded": 0,
+        "unmatched_update_target_notices": 0,
+        "same_rejected_candidate_correction_or_duplicate_count": "unknown_raw_records_and_candidate_ids_not_logged_for_failed_calls",
+        "persisted_source_segments": 2,
+        "persisted_quote_unicode_code_points": 135,
+        "persisted_segments_that_cover_entire_source_blocks": 2,
+        "model_used_exact_quote_vs_line_indices": "unknown_host_expansion_erases_selection_format_and_raw_args_not_logged",
+        "provider_reported_output_tokens_including_reasoning": 11297,
+        "reasoning_tokens_included_in_reported_output": 2152,
+        "unknown_usage_requests": 0,
+        "unknown_usage_reserved_input_tokens": 0,
+        "unknown_usage_reserved_output_tokens": 0,
+        "failed_submit_responses_reported_output_tokens": 10418,
+        "business_success_submit_responses_reported_output_tokens": 485,
+        "exact_tokens_for_accepted_candidates_only": "unknown_not_separately_attributable",
+        "observed_request_span_seconds": 436.908,
+        "responses": [
+          {
+            "index": 1,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 0,
+            "reported_output_tokens": 43,
+            "included_reasoning_tokens": 0,
+            "tool_argument_characters": 2,
+            "tools": [
+              {
+                "name": "read_document_blocks",
+                "error": false,
+                "business_invoke_seen": true,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 2958,
+            "included_reasoning_tokens": 989,
+            "tool_argument_characters": 4825,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": true,
+                "business_invoke_seen": false,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 1959,
+            "included_reasoning_tokens": 191,
+            "tool_argument_characters": 4089,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": true,
+                "business_invoke_seen": false,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 4,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 0,
+            "reported_output_tokens": 351,
+            "included_reasoning_tokens": 334,
+            "tool_argument_characters": 2,
+            "tools": [
+              {
+                "name": "get_document_context",
+                "error": false,
+                "business_invoke_seen": true,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 5,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 485,
+            "included_reasoning_tokens": 11,
+            "tool_argument_characters": 1212,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": false,
+                "business_invoke_seen": true,
+                "submitted_records": 3,
+                "saved_distinct_records": 1,
+                "candidate_rejections": 2
+              }
+            ]
+          },
+          {
+            "index": 6,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 2848,
+            "included_reasoning_tokens": 262,
+            "tool_argument_characters": 5328,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": true,
+                "business_invoke_seen": false,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 7,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 1392,
+            "included_reasoning_tokens": 248,
+            "tool_argument_characters": 2983,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": true,
+                "business_invoke_seen": false,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 8,
+            "stop_reason": "toolUse",
+            "has_real_http": true,
+            "submit_tool_calls": 1,
+            "reported_output_tokens": 1261,
+            "included_reasoning_tokens": 117,
+            "tool_argument_characters": 2983,
+            "tools": [
+              {
+                "name": "submit_candidate_records",
+                "error": true,
+                "business_invoke_seen": false,
+                "submitted_records": "unknown",
+                "saved_distinct_records": 0,
+                "candidate_rejections": 0
+              }
+            ]
+          },
+          {
+            "index": 9,
+            "stop_reason": "error",
+            "has_real_http": false,
+            "submit_tool_calls": 0,
+            "reported_output_tokens": null,
+            "included_reasoning_tokens": null,
+            "tool_argument_characters": null,
+            "tools": []
+          }
+        ]
+      }
+    ],
+    "observed_next_batch_request_count": 8
+  },
+  "revision3_separate_comparison": {
+    "execution_revision": 3,
+    "run_id": "development-2026-11-03T02-52-42-064Z-445a483e:job-01:80438570",
+    "protocol_version": "not_recorded_in_provenance",
+    "run_state_at_readonly_snapshot": "partial",
+    "source_provenance_path": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-3/source-provenance.json",
+    "source_provenance_sha256": "10e6e47d8f295aaf13b0f5d1a1c76980e11a33f2c6efecc98480c693d47de1ec",
+    "runtime_source_snapshot": null,
+    "model_tool_argument_shape_events": 0,
+    "tool_protocol_rejected_events_with_safe_code": 0,
+    "first_batch_attempts": [
+      {
+        "batch_file": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-3/batch-0001-attempt-0.json",
+        "batch_file_sha256": "a8c053a9dd4c290f83efe04269658686fbed453d855a24d59b937472659dfe79",
+        "attempt": 0,
+        "assigned_source_blocks": 128,
+        "read_assigned_blocks": 128,
+        "read_context_blocks": 6,
+        "explicit_batch_completion_received": true,
+        "batch_attempt_status": "failed",
+        "session_error": {
+          "type": "ContractError",
+          "code": "model_response_failed"
+        },
+        "assistant_messages_recorded": 6,
+        "physical_http_requests": 6,
+        "assistant_error_messages_without_new_http": 0,
+        "submit_tool_calls": 4,
+        "submit_calls_business_ok": 4,
+        "submit_calls_error_before_business_invoke": 0,
+        "candidate_validation_rejection_count": 0,
+        "hard_rejection_codes": {},
+        "accepted_distinct_record_count": 4,
+        "reconciliation_actions": {
+          "insert": 4
+        },
+        "duplicate_or_idempotent_actions_recorded": 0,
+        "successful_context_version_updates_recorded": 0,
+        "unmatched_update_target_notices": 2,
+        "same_rejected_candidate_correction_or_duplicate_count": "unknown_raw_records_and_candidate_ids_not_logged_for_failed_calls",
+        "persisted_source_segments": 10,
+        "persisted_quote_unicode_code_points": 558,
+        "persisted_segments_that_cover_entire_source_blocks": 9,
+        "model_used_exact_quote_vs_line_indices": "unknown_host_expansion_erases_selection_format_and_raw_args_not_logged",
+        "provider_reported_output_tokens_including_reasoning": 5670,
+        "reasoning_tokens_included_in_reported_output": 1060,
+        "unknown_usage_requests": 1,
+        "unknown_usage_reserved_input_tokens": 80923,
+        "unknown_usage_reserved_output_tokens": 8192,
+        "failed_submit_responses_reported_output_tokens": 0,
+        "business_success_submit_responses_reported_output_tokens": 5651,
+        "exact_tokens_for_accepted_candidates_only": "unknown_not_separately_attributable",
+        "observed_request_span_seconds": 239.923,
+        "submit_tool_calls_per_assistant_response": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "batch_file": "runtime-data/s4/development-2026-11-03T02-52-42-064Z-445a483e/job-01-revision-3/batch-0001-attempt-1.json",
+        "batch_file_sha256": "d0b064446e57ecff1b0bc00a0152ceb8ed4c899e5adc65d9eb22e7ae34f40f68",
+        "attempt": 1,
+        "assigned_source_blocks": 128,
+        "read_assigned_blocks": 128,
+        "read_context_blocks": 6,
+        "explicit_batch_completion_received": true,
+        "batch_attempt_status": "completed",
+        "session_error": null,
+        "assistant_messages_recorded": 5,
+        "physical_http_requests": 5,
+        "assistant_error_messages_without_new_http": 0,
+        "submit_tool_calls": 3,
+        "submit_calls_business_ok": 3,
+        "submit_calls_error_before_business_invoke": 0,
+        "candidate_validation_rejection_count": 0,
+        "hard_rejection_codes": {},
+        "accepted_distinct_record_count": 2,
+        "reconciliation_actions": {
+          "insert": 2
+        },
+        "duplicate_or_idempotent_actions_recorded": 0,
+        "successful_context_version_updates_recorded": 0,
+        "unmatched_update_target_notices": 0,
+        "same_rejected_candidate_correction_or_duplicate_count": "unknown_raw_records_and_candidate_ids_not_logged_for_failed_calls",
+        "persisted_source_segments": 5,
+        "persisted_quote_unicode_code_points": 181,
+        "persisted_segments_that_cover_entire_source_blocks": 0,
+        "model_used_exact_quote_vs_line_indices": "unknown_host_expansion_erases_selection_format_and_raw_args_not_logged",
+        "provider_reported_output_tokens_including_reasoning": 4004,
+        "reasoning_tokens_included_in_reported_output": 207,
+        "unknown_usage_requests": 0,
+        "unknown_usage_reserved_input_tokens": 0,
+        "unknown_usage_reserved_output_tokens": 0,
+        "failed_submit_responses_reported_output_tokens": 0,
+        "business_success_submit_responses_reported_output_tokens": 3966,
+        "exact_tokens_for_accepted_candidates_only": "unknown_not_separately_attributable",
+        "observed_request_span_seconds": 163.49,
+        "submit_tool_calls_per_assistant_response": [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      }
+    ],
+    "observed_next_batch_request_count": 6
+  },
+  "completion_diagnosis": {
+    "facts": [
+      "首批128个分派块全部读过，另读6个边界上下文块。",
+      "1条候选已经以active version 1保存；失败批次不会回滚此已保存成果。",
+      "6次submit各出现在不同的assistant响应，每响应仅1次submit；其中5次Pi tool_end error=true而业务calls及SQLite业务拒绝事件无对应call。",
+      "唯一进入业务且tool-level ok的submit含3条：2次feature_name_not_in_evidence硬拒绝、1次insert。",
+      "首批explicit_completion_received=false；当前在第二批至少已有请求，首批结果文件存在。",
+      "8次HTTP均有供应商usage，另第9条SDK assistant error的usage为0且没有第9个首批HTTP。"
+    ],
+    "raw_batch_complete_boolean": "unknown_not_persisted_for_any_rev4_call",
+    "why_completion_not_proven": "加载版本的完成门槛是batch_complete=true、全分派块已读、该提交无候选拒绝。唯一业务submit存在2条拒绝，所以即使曾填true也不会完成；5个包装层失败也没有建立完成。模型是否填过true未记录，不能断言。",
+    "response_limit_observation": "该已归档版本每批物理请求上限8已达到；随后SDK出现无新HTTP的error，与该保护路线一致。记录的会话层code只有model_response_failed，最终底层错误code仍unknown，不能冒称已记录batch_response_limit。",
+    "read_vs_complete_vs_missing": "读过全部128块与已保存1条均有证据，明确完成仍false。没有完整gold，也没有逐块候选标注，不能据此判定其他127块确实漏抽或没有可抽特征。",
+    "revision3_contrast": "rev3首批attempt0已经explicit_completion=true且保存4条，仍因后续transport错误/session未成功结束被标failed；attempt1重试后保存另2条并completed。这与rev4未收到有效完成不是同一种状态，不混计。"
+  },
+  "output_efficiency_interpretation": {
+    "revision4_reported_output_tokens": 11297,
+    "included_reasoning_tokens": 2152,
+    "output_on_five_failed_submit_responses": 10418,
+    "output_on_single_business_success_submit_response": 485,
+    "accepted_candidate_only_tokens": "unknown; the business-success response also contained two rejected candidates",
+    "large_tool_arguments_observed": "失败submit响应的工具参数delta为4825、4089、5328、2983、2983字符；只证明参数较大，不证明其中有exact_quote或抄了哪些原文。",
+    "raw_quote_protocol_branch": "unknown;唯一保存记录的2段共135 Unicode码点均覆盖整行，host可由line indices或exact fragments产生相同落库结果。"
+  },
+  "two_small_observed_error_examples": [
+    {
+      "response_index": 5,
+      "tool": "submit_candidate_records",
+      "business_submitted_records": 3,
+      "saved": 1,
+      "rejected": 2,
+      "recorded_error_excerpt": {
+        "code": "feature_name_not_in_evidence",
+        "severity": "reject",
+        "path": "feature_name_raw"
+      },
+      "original_model_parameters": "not_logged"
+    },
+    {
+      "response_index": 9,
+      "stop_reason": "error",
+      "physical_http_request": false,
+      "recorded_session_error": {
+        "type": "ContractError",
+        "code": "model_response_failed"
+      },
+      "underlying_error_code": "unknown"
+    }
+  ],
+  "next_diagnostic_information_needed": [
+    "安全结构计数：line引用数、exact引用数、复制quote字符数，不能从落库原文逆推模型输入形状。",
+    "包装层失败的安全error_code，以及每次submit的record_count、batch_complete布尔和accepted/rejected/idempotent计数；不需要记录大片论文或凭证。",
+    "后续协议改变的效果需新run比较，不能把未记录的rev4错误原因补写成已知。"
+  ],
+  "engineering_suggestions_not_code_changes": [
+    "优先处理5/6 submit发生的包装层兼容错误；在获得安全错误码前，不以医学规则或付费模型优劣解释该瓶颈。",
+    "区分批次明确完成与整个Pi回合结束，保留已存候选和未完成覆盖；避免将已有数据未结束误报成零产出。"
+  ],
+  "tests_run_in_this_diagnosis": []
+}

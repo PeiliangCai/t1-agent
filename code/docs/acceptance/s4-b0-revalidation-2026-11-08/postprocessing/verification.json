@@ -1,0 +1,93 @@
+{
+  "schema_version": "same-source-review-postprocessing-verification-1",
+  "completed_at": "2026-11-08T15:45:14.118Z",
+  "policy_version": "same-source-review-index-1",
+  "parent_output_binding_sha256": "77571cdec58805e18ddfc7ec79e735310c1da50c34b3dfdb08fe0bfb21b43826",
+  "paid_runtime_source_files": 66,
+  "frozen_model_source_snapshots_all_match_plan": true,
+  "unchanged_other_current_runtime_files": 65,
+  "only_current_runtime_source_path_changed": "packages/agent/src/strict-source-groups.ts",
+  "previous_source_bytes_are_exact_prefix": true,
+  "original_results_exports_reviews_and_ledger_bytes_unchanged": true,
+  "original_strict_groups_and_all_delivery_fingerprints_unchanged": true,
+  "tests": {
+    "command": "bash scripts/with-node.sh node --import tsx --test tests/extraction/same-source-review-index.test.ts tests/extraction/strict-source-groups.test.ts",
+    "tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "log_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/offline-tests.log",
+    "log_sha256": "9348619ef7c379ed3f5faee483ef4939a208cb1ab82716ca00de0f560ad24fdf"
+  },
+  "typescript": {
+    "command": "bash scripts/with-node.sh npm exec tsc -- --noEmit",
+    "exit_code": 0,
+    "log_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/typecheck.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "real_L07_replay": {
+    "raw_current_records": 26,
+    "original_strict_source_groups": 25,
+    "literal_source_context_review_groups": 23,
+    "multi_member_groups_seen": 3,
+    "no_medical_effective_description_count_claimed": true
+  },
+  "internal_structure_reference_policy": "Inspect each cited_references item irrespective of origin. Fig.2/Table markers require reference-role review; [26] is not an internal Figure marker. Attribution itself is retained, not corrected.",
+  "intermediate_paid_run_diagnostics": [
+    {
+      "job_id": "L07-B0",
+      "candidate_validation_rejected_events": 7,
+      "candidate_hard_issue_occurrences": {
+        "numeric_original_not_literal": 2,
+        "feature_name_not_in_evidence": 5,
+        "incomplete_context_statement": 1
+      },
+      "tool_protocol_rejected_events": 3,
+      "tool_protocol_error_occurrences": {
+        "choose_source_units_or_source_lines": 1,
+        "source_unit_not_available": 2
+      },
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    },
+    {
+      "job_id": "L01-B0",
+      "candidate_validation_rejected_events": 0,
+      "candidate_hard_issue_occurrences": {},
+      "tool_protocol_rejected_events": 0,
+      "tool_protocol_error_occurrences": {},
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    },
+    {
+      "job_id": "L05-B0",
+      "candidate_validation_rejected_events": 0,
+      "candidate_hard_issue_occurrences": {},
+      "tool_protocol_rejected_events": 0,
+      "tool_protocol_error_occurrences": {},
+      "hard_issue_occurrences_are_not_unique_records": true,
+      "final_delivery_validation": {
+        "status": "passed",
+        "rejected_delivery_written": false
+      },
+      "no_new_prompt_or_tool_protocol_change": true
+    }
+  ],
+  "diagnostics_note": "Intermediate submission/protocol rejections remain in original events and count toward the 72 paid requests. They are separate from final delivery rejection=0. No new paid correction, prompt change or protocol expansion is included here.",
+  "additional_real_model_provider_requests": 0,
+  "paid_authorization_remains_closed": true,
+  "formal_architecture_reviews_used": 3,
+  "medical_quality_approved": false,
+  "source_review_index_path": "docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/same-source-review-index.json",
+  "source_review_index_sha256": "f79bb67d500ebf330bb0fd71ab0adb0e216d9a71c303841419bc6dec1630f9ea",
+  "helper_source_sha256": "189d64a26c0ceaaf8ea0d7dee9246b13e45a1ef4ea3605d369022771a4e04333"
+}

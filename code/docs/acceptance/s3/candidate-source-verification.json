@@ -1,0 +1,1543 @@
+{
+  "checked_at": "2026-11-02T14:26:24.062796+00:00",
+  "packages": {
+    "docling": {
+      "name": "docling",
+      "version": "2.145.0",
+      "requires_python": "<4.0,>=3.10",
+      "license": null,
+      "license_expression": "MIT",
+      "requires_dist": [
+        "docling-slim[standard]==2.145.0",
+        "docling-slim[format-audio]==2.145.0; extra == \"asr\"",
+        "docling-slim[feat-ocr-easyocr]==2.145.0; extra == \"easyocr\"",
+        "docling-slim[format-html-render]==2.145.0; extra == \"htmlrender\"",
+        "docling-slim[feat-ocr-mac]==2.145.0; extra == \"ocrmac\"",
+        "docling-slim[models-onnxruntime]==2.145.0; extra == \"onnxruntime\"",
+        "docling-slim[feat-ocr-rapidocr-onnx]==2.145.0; extra == \"rapidocr\"",
+        "docling-slim[models-remote]==2.145.0; extra == \"remote-serving\"",
+        "docling-slim[feat-ocr-tesserocr]==2.145.0; extra == \"tesserocr\"",
+        "docling-slim[models-vlm-inline]==2.145.0; extra == \"vlm\"",
+        "docling-slim[format-xml-xbrl]==2.145.0; extra == \"xbrl\""
+      ],
+      "project_urls": {
+        "changelog": "https://github.com/docling-project/docling/blob/main/CHANGELOG.md",
+        "homepage": "https://github.com/docling-project/docling",
+        "issues": "https://github.com/docling-project/docling/issues",
+        "repository": "https://github.com/docling-project/docling"
+      },
+      "distributions": [
+        {
+          "filename": "docling-2.145.0-py3-none-any.whl",
+          "size": 5240,
+          "digests": {
+            "blake2b_256": "e8a15e6b3fe053e59725bded55a54320b75b2afcfdb8f03a38c024105727424b",
+            "md5": "4ad4301d67c1aa286cf51dc34126e944",
+            "sha256": "167e7a4736498585040d1680fa93fe582d8c033ee0fdc7e0a39d3b47fcfa545e"
+          },
+          "upload_time_iso_8601": "2026-10-29T14:43:51.388189Z",
+          "url": "https://files.pythonhosted.org/packages/e8/a1/5e6b3fe053e59725bded55a54320b75b2afcfdb8f03a38c024105727424b/docling-2.145.0-py3-none-any.whl"
+        },
+        {
+          "filename": "docling-2.145.0.tar.gz",
+          "size": 9176,
+          "digests": {
+            "blake2b_256": "6fe251643d91b1b13bae530c87616970e60d4b1083999275bd3b9ee401b481a3",
+            "md5": "a99966b0ad304ba3522a4fdf8429db3c",
+            "sha256": "f4c40dfb54e69024fbf95916f5b2e5c817573ffc9e3c9c03ee49f60f6094eb7a"
+          },
+          "upload_time_iso_8601": "2026-10-29T14:43:52.790544Z",
+          "url": "https://files.pythonhosted.org/packages/6f/e2/51643d91b1b13bae530c87616970e60d4b1083999275bd3b9ee401b481a3/docling-2.145.0.tar.gz"
+        }
+      ]
+    },
+    "docling-slim": {
+      "name": "docling-slim",
+      "version": "2.145.0",
+      "requires_python": "<4.0,>=3.10",
+      "license": null,
+      "license_expression": "MIT",
+      "requires_dist": [
+        "certifi>=2024.7.4",
+        "docling-core<3.0.0,>=2.103.1",
+        "filetype<2.0.0,>=1.2.0",
+        "langcodes<4.0.0,>=3.5.0",
+        "pluggy<2.0.0,>=1.0.0",
+        "pydantic-settings<3.0.0,>=2.3.0",
+        "pydantic<3.0.0,>=2.0.0",
+        "requests<3.0.0,>=2.32.2",
+        "tqdm<5.0.0,>=4.65.0",
+        "accelerate<2,>=1.0.0; extra == \"all\"",
+        "accelerate<2.0.0,>=1.2.1; extra == \"all\"",
+        "arelle-release<3.0.0,>=2.38.17; extra == \"all\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"all\"",
+        "defusedxml<0.8.0,>=0.7.1; extra == \"all\"",
+        "docling-core[chunking]<3.0.0,>=2.103.1; extra == \"all\"",
+        "docling-ibm-models<5,>=4.0.2; extra == \"all\"",
+        "docling-parse<8.0.0,>=7.22.2; extra == \"all\"",
+        "easyocr<2.0,>=1.7; extra == \"all\"",
+        "einops<1.0.0,>=0.8.1; extra == \"all\"",
+        "httpx<1.0.0,>=0.28; extra == \"all\"",
+        "huggingface-hub<3,>=0.23; extra == \"all\"",
+        "lxml<7.0.0,>=4.0.0; extra == \"all\"",
+        "mail-parser<5.0.0,>=4.1.4; extra == \"all\"",
+        "marko<3.0.0,>=2.1.2; extra == \"all\"",
+        "mlx-vlm<1.0.0,>=0.7.0; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"all\"",
+        "mlx-whisper>=0.4.3; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"all\"",
+        "numba>=0.63.0; extra == \"all\"",
+        "numpy<3.0.0,>=1.24.0; extra == \"all\"",
+        "ocrmac<2.0.0,>=1.0.0; sys_platform == \"darwin\" and extra == \"all\"",
+        "onnxruntime-gpu<1.24; (python_version < \"3.11\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"all\"",
+        "onnxruntime-gpu<2.0.0,>=1.24.1; (python_version >= \"3.14\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"all\"",
+        "onnxruntime-gpu<2.0.0; (python_version >= \"3.11\" and python_version < \"3.14\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"all\"",
+        "onnxruntime<1.24; (python_version < \"3.11\" and sys_platform == \"darwin\") and extra == \"all\"",
+        "onnxruntime<2.0.0,>=1.24.1; (python_version >= \"3.14\" and sys_platform == \"darwin\") and extra == \"all\"",
+        "onnxruntime<2.0.0; (python_version >= \"3.11\" and python_version < \"3.14\" and sys_platform == \"darwin\") and extra == \"all\"",
+        "open-clip-torch<4.0.0,>=3.2.0; extra == \"all\"",
+        "openai-whisper>=20250625; extra == \"all\"",
+        "openpyxl<4.0.0,>=3.1.5; extra == \"all\"",
+        "pandas<4.0.0,>=2.1.4; extra == \"all\"",
+        "peft>=0.18.1; extra == \"all\"",
+        "pillow<14.0.0,>=10.0.0; extra == \"all\"",
+        "playwright>=1.58.0; extra == \"all\"",
+        "polyfactory>=2.22.2; extra == \"all\"",
+        "pylatexenc<3.0,>=2.10; extra == \"all\"",
+        "pypdfium2!=4.30.1,<6.0.0,>=4.30.0; extra == \"all\"",
+        "python-docx<2.0.0,>=1.2.0; extra == \"all\"",
+        "python-dotenv~=1.0; extra == \"all\"",
+        "python-oxmsg<0.1.0,>=0.0.2; extra == \"all\"",
+        "python-pptx<2.0.0,>=1.0.2; extra == \"all\"",
+        "qwen-vl-utils>=0.0.11; extra == \"all\"",
+        "rapidocr<4.0.0,>=3.9.1; extra == \"all\"",
+        "rich>=13.0.0; extra == \"all\"",
+        "rtree<2.0.0,>=1.3.0; extra == \"all\"",
+        "scikit-image>=0.19; extra == \"all\"",
+        "scipy<2.0.0,>=1.9.0; extra == \"all\"",
+        "tesserocr<3.0.0,>=2.7.1; extra == \"all\"",
+        "timm<2.0.0,>=1.0.22; extra == \"all\"",
+        "torch<3.0.0,>=2.2.2; extra == \"all\"",
+        "torchvision<1,>=0; extra == \"all\"",
+        "transformers!=5.0.*,!=5.1.*,!=5.10.*,!=5.11.*,!=5.12.*,!=5.13.*,!=5.14.*,!=5.15.*,!=5.2.*,!=5.3.*,!=5.9.*,<6.0.0,>=4.42.0; sys_platform == \"darwin\" and extra == \"all\"",
+        "transformers!=5.0.*,!=5.1.*,!=5.13.0,!=5.2.*,!=5.3.*,<6.0.0,>=4.42.0; sys_platform != \"darwin\" and extra == \"all\"",
+        "tritonclient[grpc]<3.0.0,>=2.65.0; extra == \"all\"",
+        "typer<0.28.0,>=0.19.0; extra == \"all\"",
+        "websockets<18.0,>=14.0; extra == \"all\"",
+        "whisper-s2t-reborn<2.0.0,>=1.8.0; (sys_platform != \"darwin\" or platform_machine != \"arm64\") and extra == \"all\"",
+        "python-dotenv~=1.0; extra == \"cli\"",
+        "rich>=13.0.0; extra == \"cli\"",
+        "typer<0.28.0,>=0.19.0; extra == \"cli\"",
+        "numpy<3.0.0,>=1.24.0; extra == \"convert-core\"",
+        "pillow<14.0.0,>=10.0.0; extra == \"convert-core\"",
+        "rtree<2.0.0,>=1.3.0; extra == \"convert-core\"",
+        "scipy<2.0.0,>=1.9.0; extra == \"convert-core\"",
+        "numpy<3.0.0,>=1.24.0; extra == \"extract-core\"",
+        "pillow<14.0.0,>=10.0.0; extra == \"extract-core\"",
+        "polyfactory>=2.22.2; extra == \"extract-core\"",
+        "rtree<2.0.0,>=1.3.0; extra == \"extract-core\"",
+        "scipy<2.0.0,>=1.9.0; extra == \"extract-core\"",
+        "mlx-whisper>=0.4.3; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"feat-asr-transformers\"",
+        "numba>=0.63.0; extra == \"feat-asr-transformers\"",
+        "openai-whisper>=20250625; extra == \"feat-asr-transformers\"",
+        "torchaudio<3.0.0,>=2.2.2; extra == \"feat-asr-transformers\"",
+        "transformers<6.0.0,>=5.16.0; extra == \"feat-asr-transformers\"",
+        "whisper-s2t-reborn<2.0.0,>=1.8.0; (sys_platform != \"darwin\" or platform_machine != \"arm64\") and extra == \"feat-asr-transformers\"",
+        "docling-core[chunking]<3.0.0,>=2.103.1; extra == \"feat-chunking\"",
+        "easyocr<2.0,>=1.7; extra == \"feat-ocr-easyocr\"",
+        "scikit-image>=0.19; extra == \"feat-ocr-easyocr\"",
+        "ocrmac<2.0.0,>=1.0.0; sys_platform == \"darwin\" and extra == \"feat-ocr-mac\"",
+        "nemotron-ocr>=2.0.0; (python_version == \"3.12\" and sys_platform == \"linux\" and platform_machine == \"x86_64\") and extra == \"feat-ocr-nemotron\"",
+        "rapidocr<4.0.0,>=3.9.1; extra == \"feat-ocr-rapidocr\"",
+        "onnxruntime<1.24,>=1.7.0; python_version < \"3.11\" and extra == \"feat-ocr-rapidocr-onnx\"",
+        "onnxruntime<2.0.0,>=1.24.1; python_version >= \"3.14\" and extra == \"feat-ocr-rapidocr-onnx\"",
+        "onnxruntime<2.0.0,>=1.7.0; (python_version >= \"3.11\" and python_version < \"3.14\") and extra == \"feat-ocr-rapidocr-onnx\"",
+        "rapidocr<4.0.0,>=3.9.1; extra == \"feat-ocr-rapidocr-onnx\"",
+        "pandas<4.0.0,>=2.1.4; extra == \"feat-ocr-tesserocr\"",
+        "tesserocr<3.0.0,>=2.7.1; extra == \"feat-ocr-tesserocr\"",
+        "mlx-whisper>=0.4.3; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"format-audio\"",
+        "numba>=0.63.0; extra == \"format-audio\"",
+        "openai-whisper>=20250625; extra == \"format-audio\"",
+        "python-dotenv~=1.0; extra == \"service-client\"",
+        "whisper-s2t-reborn<2.0.0,>=1.8.0; (sys_platform != \"darwin\" or platform_machine != \"arm64\") and extra == \"format-audio\"",
+        "python-docx<2.0.0,>=1.2.0; extra == \"format-docx\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"format-email\"",
+        "mail-parser<5.0.0,>=4.1.4; extra == \"format-email\"",
+        "python-oxmsg<0.1.0,>=0.0.2; extra == \"format-email\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"format-html\"",
+        "playwright>=1.58.0; extra == \"format-html-render\"",
+        "defusedxml<0.8.0,>=0.7.1; extra == \"format-iwork\"",
+        "pylatexenc<3.0,>=2.10; extra == \"format-latex\"",
+        "marko<3.0.0,>=2.1.2; extra == \"format-markdown\"",
+        "openpyxl<4.0.0,>=3.1.5; extra == \"format-office\"",
+        "pylatexenc<3.0,>=2.10; extra == \"format-office\"",
+        "python-docx<2.0.0,>=1.2.0; extra == \"format-office\"",
+        "python-pptx<2.0.0,>=1.0.2; extra == \"format-office\"",
+        "odfdo<4.0.0,>=3.22.0; extra == \"format-opendocument\"",
+        "docling-parse<8.0.0,>=7.22.2; extra == \"format-pdf\"",
+        "pypdfium2!=4.30.1,<6.0.0,>=4.30.0; extra == \"format-pdf\"",
+        "docling-parse<8.0.0,>=7.22.2; extra == \"format-pdf-docling\"",
+        "pypdfium2!=4.30.1,<6.0.0,>=4.30.0; extra == \"format-pdf-pypdfium2\"",
+        "pylatexenc<3.0,>=2.10; extra == \"format-pptx\"",
+        "python-pptx<2.0.0,>=1.0.2; extra == \"format-pptx\"",
+        "librosa<2.0.0,>=0.10.0; extra == \"format-video\"",
+        "mlx-whisper>=0.4.3; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"format-video\"",
+        "numba>=0.63.0; extra == \"format-video\"",
+        "openai-whisper>=20250625; extra == \"format-video\"",
+        "resemblyzer<0.2.0,>=0.1.4; extra == \"format-video\"",
+        "scikit-learn<2.0.0,>=1.3.0; extra == \"format-video\"",
+        "soundfile<1.0.0,>=0.12.1; extra == \"format-video\"",
+        "whisper-s2t-reborn<2.0.0,>=1.8.0; (sys_platform != \"darwin\" or platform_machine != \"arm64\") and extra == \"format-video\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"format-web\"",
+        "marko<3.0.0,>=2.1.2; extra == \"format-web\"",
+        "openpyxl<4.0.0,>=3.1.5; extra == \"format-xlsx\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"format-xml-jats\"",
+        "lxml<7.0.0,>=4.0.0; extra == \"format-xml-jats\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"format-xml-uspto\"",
+        "defusedxml<0.8.0,>=0.7.1; extra == \"format-xml-uspto\"",
+        "arelle-release<3.0.0,>=2.38.17; extra == \"format-xml-xbrl\"",
+        "accelerate<2,>=1.0.0; extra == \"models-local\"",
+        "defusedxml<0.8.0,>=0.7.1; extra == \"models-local\"",
+        "docling-ibm-models<5,>=4.0.2; extra == \"models-local\"",
+        "huggingface-hub<3,>=0.23; extra == \"models-local\"",
+        "torch<3.0.0,>=2.2.2; extra == \"models-local\"",
+        "torchvision<1,>=0; extra == \"models-local\"",
+        "onnxruntime-gpu<1.24; (python_version < \"3.11\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"models-onnxruntime\"",
+        "onnxruntime-gpu<2.0.0,>=1.24.1; (python_version >= \"3.14\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"models-onnxruntime\"",
+        "onnxruntime-gpu<2.0.0; (python_version >= \"3.11\" and python_version < \"3.14\" and (sys_platform == \"linux\" or sys_platform == \"win32\")) and extra == \"models-onnxruntime\"",
+        "onnxruntime<1.24; (python_version < \"3.11\" and sys_platform == \"darwin\") and extra == \"models-onnxruntime\"",
+        "onnxruntime<2.0.0,>=1.24.1; (python_version >= \"3.14\" and sys_platform == \"darwin\") and extra == \"models-onnxruntime\"",
+        "onnxruntime<2.0.0; (python_version >= \"3.11\" and python_version < \"3.14\" and sys_platform == \"darwin\") and extra == \"models-onnxruntime\"",
+        "tritonclient[grpc]<3.0.0,>=2.65.0; extra == \"models-remote\"",
+        "accelerate<2.0.0,>=1.2.1; extra == \"models-vlm-inline\"",
+        "einops<1.0.0,>=0.8.1; extra == \"models-vlm-inline\"",
+        "mlx-vlm<1.0.0,>=0.7.0; (python_version >= \"3.10\" and sys_platform == \"darwin\" and platform_machine == \"arm64\") and extra == \"models-vlm-inline\"",
+        "open-clip-torch<4.0.0,>=3.2.0; extra == \"models-vlm-inline\"",
+        "peft>=0.18.1; extra == \"models-vlm-inline\"",
+        "qwen-vl-utils>=0.0.11; extra == \"models-vlm-inline\"",
+        "timm<2.0.0,>=1.0.22; extra == \"models-vlm-inline\"",
+        "transformers!=5.0.*,!=5.1.*,!=5.10.*,!=5.11.*,!=5.12.*,!=5.13.*,!=5.14.*,!=5.15.*,!=5.2.*,!=5.3.*,!=5.9.*,<6.0.0,>=4.42.0; sys_platform == \"darwin\" and extra == \"models-vlm-inline\"",
+        "transformers!=5.0.*,!=5.1.*,!=5.13.0,!=5.2.*,!=5.3.*,<6.0.0,>=4.42.0; sys_platform != \"darwin\" and extra == \"models-vlm-inline\"",
+        "httpx<1.0.0,>=0.28; extra == \"service-client\"",
+        "rich>=13.0.0; extra == \"service-client\"",
+        "typer<0.28.0,>=0.19.0; extra == \"service-client\"",
+        "websockets<18.0,>=14.0; extra == \"service-client\"",
+        "accelerate<2,>=1.0.0; extra == \"standard\"",
+        "beautifulsoup4<5.0.0,>=4.12.3; extra == \"standard\"",
+        "defusedxml<0.8.0,>=0.7.1; extra == \"standard\"",
+        "docling-core[chunking]<3.0.0,>=2.103.1; extra == \"standard\"",
+        "docling-ibm-models<5,>=4.0.2; extra == \"standard\"",
+        "docling-parse<8.0.0,>=7.22.2; extra == \"standard\"",
+        "httpx<1.0.0,>=0.28; extra == \"standard\"",
+        "huggingface-hub<3,>=0.23; extra == \"standard\"",
+        "mail-parser<5.0.0,>=4.1.4; extra == \"standard\"",
+        "marko<3.0.0,>=2.1.2; extra == \"standard\"",
+        "numpy<3.0.0,>=1.24.0; extra == \"standard\"",
+        "openpyxl<4.0.0,>=3.1.5; extra == \"standard\"",
+        "pillow<14.0.0,>=10.0.0; extra == \"standard\"",
+        "polyfactory>=2.22.2; extra == \"standard\"",
+        "pylatexenc<3.0,>=2.10; extra == \"standard\"",
+        "pypdfium2!=4.30.1,<6.0.0,>=4.30.0; extra == \"standard\"",
+        "python-docx<2.0.0,>=1.2.0; extra == \"standard\"",
+        "python-dotenv~=1.0; extra == \"standard\"",
+        "python-oxmsg<0.1.0,>=0.0.2; extra == \"standard\"",
+        "python-pptx<2.0.0,>=1.0.2; extra == \"standard\"",
+        "rapidocr<4.0.0,>=3.9.1; extra == \"standard\"",
+        "rich>=13.0.0; extra == \"standard\"",
+        "rtree<2.0.0,>=1.3.0; extra == \"standard\"",
+        "scipy<2.0.0,>=1.9.0; extra == \"standard\"",
+        "torch<3.0.0,>=2.2.2; extra == \"standard\"",
+        "torchvision<1,>=0; extra == \"standard\"",
+        "typer<0.28.0,>=0.19.0; extra == \"standard\"",
+        "websockets<18.0,>=14.0; extra == \"standard\""
+      ],
+      "project_urls": {
+        "changelog": "https://github.com/docling-project/docling/blob/main/CHANGELOG.md",
+        "homepage": "https://github.com/docling-project/docling",
+        "issues": "https://github.com/docling-project/docling/issues",
+        "repository": "https://github.com/docling-project/docling"
+      },
+      "distributions": [
+        {
+          "filename": "docling_slim-2.145.0-py3-none-any.whl",
+          "size": 1145206,
+          "digests": {
+            "blake2b_256": "4e9f6a56e93da350beb78781689c6ea407c55253d131365c017e13416da26fd4",
+            "md5": "e394e0e6b5dfb37f49991b72c3c90358",
+            "sha256": "789d93be17066ddfc9b451681bdb87ab206593a597ad93aa7bd4d5dca27092d8"
+          },
+          "upload_time_iso_8601": "2026-10-29T14:42:25.327645Z",
+          "url": "https://files.pythonhosted.org/packages/4e/9f/6a56e93da350beb78781689c6ea407c55253d131365c017e13416da26fd4/docling_slim-2.145.0-py3-none-any.whl"
+        },
+        {
+          "filename": "docling_slim-2.145.0.tar.gz",
+          "size": 948880,
+          "digests": {
+            "blake2b_256": "565cc5d2acb0a447ddd92df072425a37d8f2ed96ae0e947092f70ca0a4ad9511",
+            "md5": "1a33a2897aeafdb9a1d02a05454c37e3",
+            "sha256": "252e09be828cc3ed246ce831af26b0a64a481db16c582d5f520141274c6c5a14"
+          },
+          "upload_time_iso_8601": "2026-10-29T14:42:27.299365Z",
+          "url": "https://files.pythonhosted.org/packages/56/5c/c5d2acb0a447ddd92df072425a37d8f2ed96ae0e947092f70ca0a4ad9511/docling_slim-2.145.0.tar.gz"
+        }
+      ]
+    },
+    "docling-parse": {
+      "name": "docling-parse",
+      "version": "7.24.2",
+      "requires_python": ">=3.10",
+      "license": null,
+      "license_expression": "MIT",
+      "requires_dist": [
+        "pillow<14.0.0,>=10.0.0",
+        "pydantic>=2.0.0",
+        "docling-core<3.0.0,>=2.99.0",
+        "pywin32>=305; sys_platform == \"win32\""
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/docling-project/docling-parse",
+        "Repository": "https://github.com/docling-project/docling-parse"
+      },
+      "distributions": [
+        {
+          "filename": "docling_parse-7.24.2-cp310-cp310-macosx_14_0_arm64.whl",
+          "size": 9766747,
+          "digests": {
+            "blake2b_256": "d07e9c3035590837c6af12683c5eddae61dd69cd6191dbbe06878de98a82c6c2",
+            "md5": "c8b6a7f77d82a3cdc3f57edec63b1c85",
+            "sha256": "7f3ad42684d7c66def099ed485e0b4c8465d822c83af6bdc83443659c2197743"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:46:58.608729Z",
+          "url": "https://files.pythonhosted.org/packages/d0/7e/9c3035590837c6af12683c5eddae61dd69cd6191dbbe06878de98a82c6c2/docling_parse-7.24.2-cp310-cp310-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "size": 10498517,
+          "digests": {
+            "blake2b_256": "bc7fe6ff7b3fd11531f1833688eacfaccfd3e6d3e041eacfdda00f7e7c3492bd",
+            "md5": "2cd6d3d3a554ead524d5a2e5afab0b55",
+            "sha256": "a335aef1dfc3478e9515d213b2cd1ff3fd32227021bc92d515489be37a8d3c05"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:01.889125Z",
+          "url": "https://files.pythonhosted.org/packages/bc/7f/e6ff7b3fd11531f1833688eacfaccfd3e6d3e041eacfdda00f7e7c3492bd/docling_parse-7.24.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "size": 10770807,
+          "digests": {
+            "blake2b_256": "96fc1b82ae2206feeee816024dd68a2ddb63dcb502e5be9d3b68c6547af8cd8b",
+            "md5": "835432512e7bd2b53a244765f84e256b",
+            "sha256": "419301604b626112eace62fb52ac5ad27763912f9f767f8288a0d5f1e33b6c94"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:03.922328Z",
+          "url": "https://files.pythonhosted.org/packages/96/fc/1b82ae2206feeee816024dd68a2ddb63dcb502e5be9d3b68c6547af8cd8b/docling_parse-7.24.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp310-cp310-win_amd64.whl",
+          "size": 11917898,
+          "digests": {
+            "blake2b_256": "7b1f529f06bf9d4cd4f98b9c4fb07aeb78437c6aab1a8bda4bf7352742bce180",
+            "md5": "57ba3be187b933d51d01f6a59eb9630b",
+            "sha256": "81d216b866fd0f6d26c85d898124f5014f8918406052f911e55e715832b647ba"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:06.022535Z",
+          "url": "https://files.pythonhosted.org/packages/7b/1f/529f06bf9d4cd4f98b9c4fb07aeb78437c6aab1a8bda4bf7352742bce180/docling_parse-7.24.2-cp310-cp310-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp310-cp310-win_arm64.whl",
+          "size": 9306568,
+          "digests": {
+            "blake2b_256": "f3179fd0e7ceffe79fe1918bc4dd3f23237a9c68cd1ed0cd93e11dc25b2f37d7",
+            "md5": "05b2fb1b1fabdb3b1c2479cdda0cc181",
+            "sha256": "f2f5cd3988bdb530e512c9519caba6cf1871ef12a17a32d54324f3f3952a62e8"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:07.993709Z",
+          "url": "https://files.pythonhosted.org/packages/f3/17/9fd0e7ceffe79fe1918bc4dd3f23237a9c68cd1ed0cd93e11dc25b2f37d7/docling_parse-7.24.2-cp310-cp310-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp311-cp311-macosx_14_0_arm64.whl",
+          "size": 9768113,
+          "digests": {
+            "blake2b_256": "e17584074b94a696aeb9925989049f979efa407ea45e93f6125421449d40a620",
+            "md5": "ae5d70791197017d521d134ed53e7880",
+            "sha256": "6e7c84d9373842885166db3354ca578d99aa3ae9722cdeca2d3c817ef316b691"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:10.050366Z",
+          "url": "https://files.pythonhosted.org/packages/e1/75/84074b94a696aeb9925989049f979efa407ea45e93f6125421449d40a620/docling_parse-7.24.2-cp311-cp311-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 10471210,
+          "digests": {
+            "blake2b_256": "e56049ce47127e7915cca3ea7951d846207c692968d19df470f6348d6b965d9c",
+            "md5": "a4956a06644bd5eb3d81295d0eda3bb9",
+            "sha256": "103d6a9170b9a83c504ee6dddda56d73766dd45366c810fd42aa09fb9f4d62b3"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:12.207243Z",
+          "url": "https://files.pythonhosted.org/packages/e5/60/49ce47127e7915cca3ea7951d846207c692968d19df470f6348d6b965d9c/docling_parse-7.24.2-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 10875438,
+          "digests": {
+            "blake2b_256": "09890365e502130ca31b6ff1101715285365938cd075552181825911e944426d",
+            "md5": "de9796aaaaf657489e6fea933c47d07b",
+            "sha256": "0fbb3ef3ef3f6085b521f348abbaec74633a7f818d40e44069ab37801599d29f"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:14.787760Z",
+          "url": "https://files.pythonhosted.org/packages/09/89/0365e502130ca31b6ff1101715285365938cd075552181825911e944426d/docling_parse-7.24.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp311-cp311-win_amd64.whl",
+          "size": 11919332,
+          "digests": {
+            "blake2b_256": "21eeeae4644ef37d9bbd2cf2c094713f6c9645e2b0e815e64fbed17b671eb242",
+            "md5": "7aec66f996db61f1d7ec86a5165d3aa4",
+            "sha256": "82750613985e2f7ba1480f6752a817ce6cfe698f39c3ab9f4a4d8c30214f2fa1"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:17.389112Z",
+          "url": "https://files.pythonhosted.org/packages/21/ee/eae4644ef37d9bbd2cf2c094713f6c9645e2b0e815e64fbed17b671eb242/docling_parse-7.24.2-cp311-cp311-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp311-cp311-win_arm64.whl",
+          "size": 9307939,
+          "digests": {
+            "blake2b_256": "e38c2917ceefc09f13d553be77f8bd3d62efd966e69a7225205c487340f3e5fe",
+            "md5": "f2a551d2aa5796c30ae2f808857df132",
+            "sha256": "ab22a51ef98959996fa9635b89f62d1ab953a5f0bd0c6ee57a039553f329e04a"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:19.700466Z",
+          "url": "https://files.pythonhosted.org/packages/e3/8c/2917ceefc09f13d553be77f8bd3d62efd966e69a7225205c487340f3e5fe/docling_parse-7.24.2-cp311-cp311-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp312-cp312-macosx_14_0_arm64.whl",
+          "size": 9768342,
+          "digests": {
+            "blake2b_256": "57dc4b0d74e60cb54cb7b8441ca434ade88727784281b16b6a82d0bab479bb7a",
+            "md5": "21b6830599814fd915f58685a5ba17dd",
+            "sha256": "92af96014529364acdb17099c33fd1652ac0adf96abc4c8b067d8cdaa6f7ca1f"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:21.704677Z",
+          "url": "https://files.pythonhosted.org/packages/57/dc/4b0d74e60cb54cb7b8441ca434ade88727784281b16b6a82d0bab479bb7a/docling_parse-7.24.2-cp312-cp312-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 10474395,
+          "digests": {
+            "blake2b_256": "26a4ca0f8c5df682752e8e2f22809ee228b877c16e8f9283b6a091de284dece7",
+            "md5": "1f30fc2c00a69c132915f0d5696e33d4",
+            "sha256": "6f6d0df1552ed1af65b0e952f66ce862252bc4e21818091ba9566aff2589524a"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:23.619522Z",
+          "url": "https://files.pythonhosted.org/packages/26/a4/ca0f8c5df682752e8e2f22809ee228b877c16e8f9283b6a091de284dece7/docling_parse-7.24.2-cp312-cp312-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 10880896,
+          "digests": {
+            "blake2b_256": "53df2731e039a7d523f531aa274abc1638be30403f729975a7797cc75c892359",
+            "md5": "572444dc2a4ec8796943d3bee774009c",
+            "sha256": "6e0172b2d58fe565b77727e102e7a12d39a86235b1c6092f9564c9ea8f079ccd"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:25.613363Z",
+          "url": "https://files.pythonhosted.org/packages/53/df/2731e039a7d523f531aa274abc1638be30403f729975a7797cc75c892359/docling_parse-7.24.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp312-cp312-win_amd64.whl",
+          "size": 11924861,
+          "digests": {
+            "blake2b_256": "68db3ab2a33a7c90ec057f625b83207e57b23b7ae4430007f7689650704ea606",
+            "md5": "1d29caec6c56bf824350be27c40163c2",
+            "sha256": "c5f1bf37a39843cf1c9f9f53eb3c8a0a16d8db8d56c03be282435701068050ef"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:28.035241Z",
+          "url": "https://files.pythonhosted.org/packages/68/db/3ab2a33a7c90ec057f625b83207e57b23b7ae4430007f7689650704ea606/docling_parse-7.24.2-cp312-cp312-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp312-cp312-win_arm64.whl",
+          "size": 9308021,
+          "digests": {
+            "blake2b_256": "10c391acfe9d24eadf7c43b79a2468ae09c43943288d65ee191543a8483a4cf0",
+            "md5": "3f3121dcabf3ef95d88a69326096176f",
+            "sha256": "c2954ce727be4e32d6fe246400257129c0c3db41c9f13c28e19697b71348a9c9"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:29.926583Z",
+          "url": "https://files.pythonhosted.org/packages/10/c3/91acfe9d24eadf7c43b79a2468ae09c43943288d65ee191543a8483a4cf0/docling_parse-7.24.2-cp312-cp312-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp313-cp313-macosx_14_0_arm64.whl",
+          "size": 9768290,
+          "digests": {
+            "blake2b_256": "f8c8498dc4645cce62e3675628c2058a9896667e7f7a4eb58d13d9cc6bde4b82",
+            "md5": "abf2bfe143e470aa03d0bae91f47923b",
+            "sha256": "1c1ab801c753691d560778c9e6ff3a772e8d2bfd913574d9be17d160344713d8"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:32.125817Z",
+          "url": "https://files.pythonhosted.org/packages/f8/c8/498dc4645cce62e3675628c2058a9896667e7f7a4eb58d13d9cc6bde4b82/docling_parse-7.24.2-cp313-cp313-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp313-cp313-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 10474492,
+          "digests": {
+            "blake2b_256": "ea7d47fbe18f5c85441405be45000132663c9b9d1cd4fe2049df7b8e5a12f071",
+            "md5": "9f2d2ded4ab2a7e377a9d78a03923a92",
+            "sha256": "bcbe0a10150322ceeaf62cf4d16885eb3f3a2fd595424d58f2fefa8479b15efd"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:34.111724Z",
+          "url": "https://files.pythonhosted.org/packages/ea/7d/47fbe18f5c85441405be45000132663c9b9d1cd4fe2049df7b8e5a12f071/docling_parse-7.24.2-cp313-cp313-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 10881078,
+          "digests": {
+            "blake2b_256": "6d11b6985cc565cf7d0562c564cb1158394edd1433bf3edee3ade9159a878f9f",
+            "md5": "3abf16b904db669046f32615867a8de2",
+            "sha256": "2c9cf2a3315da349a759b409f40de6a35910b01028f75b4ad4d8ecdd0e841e6a"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:35.910822Z",
+          "url": "https://files.pythonhosted.org/packages/6d/11/b6985cc565cf7d0562c564cb1158394edd1433bf3edee3ade9159a878f9f/docling_parse-7.24.2-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp313-cp313-win_amd64.whl",
+          "size": 11924918,
+          "digests": {
+            "blake2b_256": "db0f0c3491b991380d1620cd5a710667c38552179af088002ea5c8de04400db7",
+            "md5": "678cf33d3815084a513e2243a33a2c10",
+            "sha256": "430d794cc2c01ecf7752398341d6821899bd88a1dfa6efaa363bd42afd0155cf"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:38.119100Z",
+          "url": "https://files.pythonhosted.org/packages/db/0f/0c3491b991380d1620cd5a710667c38552179af088002ea5c8de04400db7/docling_parse-7.24.2-cp313-cp313-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp313-cp313-win_arm64.whl",
+          "size": 9308047,
+          "digests": {
+            "blake2b_256": "fe1519ae6f6ee0adc652f59abb7a4bd06a6c0fb5d8d0d6522952ce2d7441a5fd",
+            "md5": "1b228f1624a3246141f72372c1237bc6",
+            "sha256": "5f88f7eab532f401b7344d07b5b62fc40b4074d26ff830e27bd249acb1e695b9"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:40.634726Z",
+          "url": "https://files.pythonhosted.org/packages/fe/15/19ae6f6ee0adc652f59abb7a4bd06a6c0fb5d8d0d6522952ce2d7441a5fd/docling_parse-7.24.2-cp313-cp313-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp314-cp314-macosx_14_0_arm64.whl",
+          "size": 9769193,
+          "digests": {
+            "blake2b_256": "a8594688f3feaf7b0048f01f2e62fb0a7d327a849780f0de78c0399894195ccf",
+            "md5": "9e804f5a7f15659c08cc963096ec5b94",
+            "sha256": "039a3336cd7117442ded29d73b0e8af54f5fe12555a96d894daa7ff3dd6c94e5"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:42.738261Z",
+          "url": "https://files.pythonhosted.org/packages/a8/59/4688f3feaf7b0048f01f2e62fb0a7d327a849780f0de78c0399894195ccf/docling_parse-7.24.2-cp314-cp314-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp314-cp314-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 10475612,
+          "digests": {
+            "blake2b_256": "301d7e3f7d0a9ff0a8fdaa5d13e640848cf662d61831f41956181cc11ae130a0",
+            "md5": "11841c2bce4a47c37672eebb037a0317",
+            "sha256": "58d0c98500180ed2385ea72d7e025ba1cceeab838770d328ffe1ef2ca57dc116"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:44.967502Z",
+          "url": "https://files.pythonhosted.org/packages/30/1d/7e3f7d0a9ff0a8fdaa5d13e640848cf662d61831f41956181cc11ae130a0/docling_parse-7.24.2-cp314-cp314-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 10881766,
+          "digests": {
+            "blake2b_256": "491bc464124ee4a4ebcdc6e27d6b6d4d4e5af85d949ffa22016836188e0e4be6",
+            "md5": "b3c8fdd6ce76384aa9f70ae13be42d3d",
+            "sha256": "b008ea796796c6cba53f035ebe925df3006e8b521c4b616a7370e2fe1a217f69"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:47.068996Z",
+          "url": "https://files.pythonhosted.org/packages/49/1b/c464124ee4a4ebcdc6e27d6b6d4d4e5af85d949ffa22016836188e0e4be6/docling_parse-7.24.2-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp314-cp314-win_amd64.whl",
+          "size": 12363520,
+          "digests": {
+            "blake2b_256": "de96f9cbd2cce4ed4a68991f9de9265e48d24375210721761b3a4b45c886afb6",
+            "md5": "f4820cb67428ffe27deec07d1ef1ac99",
+            "sha256": "37c891f769177bae2ded2fa4df244ec74119c765cb457b41fe139bac865106bf"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:48.995279Z",
+          "url": "https://files.pythonhosted.org/packages/de/96/f9cbd2cce4ed4a68991f9de9265e48d24375210721761b3a4b45c886afb6/docling_parse-7.24.2-cp314-cp314-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp314-cp314-win_arm64.whl",
+          "size": 9686508,
+          "digests": {
+            "blake2b_256": "f3cf89213f7e6b4794a0212215160236054036e3acfa79465c3a404e5d93c22f",
+            "md5": "83c23db9bc8d1b3035cc6f2aeb488b41",
+            "sha256": "9ebbb597ff901f5f16f9f877a2a8397857e03ec422810bbcbe49818634057220"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:51.256716Z",
+          "url": "https://files.pythonhosted.org/packages/f3/cf/89213f7e6b4794a0212215160236054036e3acfa79465c3a404e5d93c22f/docling_parse-7.24.2-cp314-cp314-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp315-cp315-macosx_14_0_arm64.whl",
+          "size": 9769205,
+          "digests": {
+            "blake2b_256": "a19b05ca51fb777e2f7983c3c511b63c10141c9ca4f95f63f3a88ebb8c52ca7d",
+            "md5": "6696c21fa53d526ef5200056bb0d912d",
+            "sha256": "ffa9590295286f45d2b9d093ac02cc184ea846b3d8ddb5fe3f0387092f4b3de8"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:53.627147Z",
+          "url": "https://files.pythonhosted.org/packages/a1/9b/05ca51fb777e2f7983c3c511b63c10141c9ca4f95f63f3a88ebb8c52ca7d/docling_parse-7.24.2-cp315-cp315-macosx_14_0_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp315-cp315-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 10475617,
+          "digests": {
+            "blake2b_256": "bb9d1bee2130f1c90385a15365fdc0446c1ad0f4973f8b8972642dbede942812",
+            "md5": "01854167eb7551faa9c445ac7d09f08c",
+            "sha256": "3ed9ea0feac790aa41553ce54d4f7b7d32b000cf96f603425d204eeac1b80ea9"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:55.729467Z",
+          "url": "https://files.pythonhosted.org/packages/bb/9d/1bee2130f1c90385a15365fdc0446c1ad0f4973f8b8972642dbede942812/docling_parse-7.24.2-cp315-cp315-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 10881761,
+          "digests": {
+            "blake2b_256": "f3ae81ecb8517e5803f09f170ea8ff5ee11f5b3378b98473764c59b373900fe1",
+            "md5": "21347a1a50d4bbc4149425f988147323",
+            "sha256": "a880ef0dd6b30381a60cd78b42dd7614da4b2aacfb0cffa1462b9a94a8bdf8a4"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:47:58.025303Z",
+          "url": "https://files.pythonhosted.org/packages/f3/ae/81ecb8517e5803f09f170ea8ff5ee11f5b3378b98473764c59b373900fe1/docling_parse-7.24.2-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp315-cp315-win_amd64.whl",
+          "size": 12363546,
+          "digests": {
+            "blake2b_256": "d080c8bcd083c645bc2fe0f37d5568187c32788357e0058c824a547a6122cca0",
+            "md5": "641a44e05a04f4c8e055b92fb8d87204",
+            "sha256": "eeae84b8b9bcb5e705695af1991271fffc88cee4c9cc0d2fd39b28ffb2fb3906"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:48:00.260454Z",
+          "url": "https://files.pythonhosted.org/packages/d0/80/c8bcd083c645bc2fe0f37d5568187c32788357e0058c824a547a6122cca0/docling_parse-7.24.2-cp315-cp315-win_amd64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2-cp315-cp315-win_arm64.whl",
+          "size": 9686508,
+          "digests": {
+            "blake2b_256": "1ca57a42a684b874fa1b3bc30289c7d38ee838baf6dc31ad764fa770faf3d476",
+            "md5": "124f34904a7258a58dbadbfbe9ff8224",
+            "sha256": "53e9399f993155454fbeada513286098fbbe325f6690eb1591277da5e9e32b67"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:48:02.367183Z",
+          "url": "https://files.pythonhosted.org/packages/1c/a5/7a42a684b874fa1b3bc30289c7d38ee838baf6dc31ad764fa770faf3d476/docling_parse-7.24.2-cp315-cp315-win_arm64.whl"
+        },
+        {
+          "filename": "docling_parse-7.24.2.tar.gz",
+          "size": 7159741,
+          "digests": {
+            "blake2b_256": "4b9ae4386991b1f2c19bc0da294c5e5bc58ad373c69ec44f29c99208ff9d1c49",
+            "md5": "a22f12b8f48ad95450db4dcb7497368e",
+            "sha256": "8b4e98e0a836dbe7e48e3f041a552ac252bd437ed0a52a62cf4a5f6f8fe73cb0"
+          },
+          "upload_time_iso_8601": "2026-10-29T16:48:04.270714Z",
+          "url": "https://files.pythonhosted.org/packages/4b/9a/e4386991b1f2c19bc0da294c5e5bc58ad373c69ec44f29c99208ff9d1c49/docling_parse-7.24.2.tar.gz"
+        }
+      ]
+    },
+    "mineru": {
+      "name": "mineru",
+      "version": "4.1.4",
+      "requires_python": "<3.15,>=3.11",
+      "license": null,
+      "license_expression": "LicenseRef-MinerU-Open-Source-License",
+      "requires_dist": [
+        "docvortex<0.7,>=0.6.11",
+        "gradio<7,>=6.21",
+        "mineru[torch]; sys_platform == \"darwin\" and platform_machine == \"arm64\"",
+        "mineru-vl-utils<3,>=2.0.8",
+        "mineru-llama-cpp<1,>=0.2.0",
+        "click>=8.1.7",
+        "loguru>=0.7.2",
+        "numpy>=1.21.6",
+        "tqdm>=4.67.1",
+        "requests",
+        "httpx",
+        "pillow>=11.0.0",
+        "pypdfium2<6,>=5.13.0",
+        "PyYAML<7,>=6.0.1",
+        "packaging",
+        "modelscope>=1.26.0",
+        "huggingface-hub[hf_xet]>=0.32.4",
+        "filelock>=3.0.0",
+        "json-repair>=0.46.2",
+        "openai<3,>=1.70.0",
+        "beautifulsoup4<5,>=4.13.5",
+        "tinycss2<2,>=1.5.1",
+        "aiosqlite<1,>=0.20.0",
+        "watchfiles<2,>=1.0.0",
+        "fastapi",
+        "fastapi-offline<2,>=1.7.7",
+        "python-multipart",
+        "uvicorn",
+        "pydantic<3,>=2.12.5",
+        "typing_extensions>=4.0.0",
+        "typer>=0.9.0",
+        "rich>=13.0.0",
+        "jieba>=0.42.1",
+        "onnx<2,>=1.19",
+        "onnxruntime-directml<2,>=1.23; sys_platform == \"win32\" and (platform_machine == \"AMD64\" or platform_machine == \"amd64\" or platform_machine == \"x86_64\")",
+        "onnxruntime<2,>=1.24.4; sys_platform != \"win32\" or (platform_machine != \"AMD64\" and platform_machine != \"amd64\" and platform_machine != \"x86_64\")",
+        "onnxruntime-ep-webgpu<1,>=0.4.0; sys_platform == \"linux\" and platform_machine == \"x86_64\"",
+        "ftfy<7,>=6.3.1",
+        "shapely<3,>=2.0.7",
+        "pyclipper<2,>=1.3.0",
+        "tokenizers<0.24,>=0.22.0",
+        "lxml-stubs; extra == \"dev\"",
+        "pypdf>=5.6.0; extra == \"test\"",
+        "reportlab; extra == \"test\"",
+        "lxml<7.0.0,>=4.0.0; extra == \"test\"",
+        "pytest; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "coverage; extra == \"test\"",
+        "fuzzywuzzy; extra == \"test\"",
+        "torch<3,>=2.7.0; extra == \"torch\"",
+        "torchvision; extra == \"torch\"",
+        "transformers<6,>=5.10.1; extra == \"torch\"",
+        "accelerate>=1.5.1; extra == \"torch\"",
+        "safetensors<1,>=0.4.0; extra == \"torch\"",
+        "mineru[torch]; extra == \"full\"",
+        "vllm<0.31.0,>=0.19.1; sys_platform == \"linux\" and extra == \"full\"",
+        "lmdeploy<0.19,>=0.17.0; sys_platform == \"win32\" and extra == \"full\"",
+        "qwen-vl-utils<1,>=0.0.14; sys_platform == \"win32\" and extra == \"full\"",
+        "mineru[full]; extra == \"all\""
+      ],
+      "project_urls": {
+        "License": "https://github.com/opendatalab/MinerU/blob/master/LICENSE.md",
+        "documentation": "https://opendatalab.github.io/MinerU/",
+        "homepage": "https://mineru.net/",
+        "issues": "https://github.com/opendatalab/MinerU/issues",
+        "repository": "https://github.com/opendatalab/MinerU"
+      },
+      "distributions": [
+        {
+          "filename": "mineru-4.1.4-py3-none-any.whl",
+          "size": 3841079,
+          "digests": {
+            "blake2b_256": "68f082eda6336a796d226e1792246e74b84bdb9ac603339137b0dc82c8cebe48",
+            "md5": "04eb270a461c5a6dbadecece6eb242ee",
+            "sha256": "15b5c70ce8f48f1532eca5ebf7f610ad7cab677c16f571190667f69aadeb4a8c"
+          },
+          "upload_time_iso_8601": "2026-11-02T13:35:13.007726Z",
+          "url": "https://files.pythonhosted.org/packages/68/f0/82eda6336a796d226e1792246e74b84bdb9ac603339137b0dc82c8cebe48/mineru-4.1.4-py3-none-any.whl"
+        }
+      ]
+    },
+    "pypdfium2": {
+      "name": "pypdfium2",
+      "version": "5.14.0",
+      "requires_python": ">=3.6",
+      "license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+      "license_expression": null,
+      "requires_dist": null,
+      "project_urls": {
+        "Changelog": "https://pypdfium2.readthedocs.io/en/stable/changelog.html",
+        "Documentation": "https://pypdfium2.readthedocs.io",
+        "Homepage": "https://github.com/pypdfium2-team/pypdfium2",
+        "Source": "https://github.com/pypdfium2-team/pypdfium2",
+        "Tracker": "https://github.com/pypdfium2-team/pypdfium2/issues"
+      },
+      "distributions": [
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-android_23_arm64_v8a.whl",
+          "size": 3453370,
+          "digests": {
+            "blake2b_256": "910379e89eac9d811e83d606342e129f5f39e168442ddf23b024fea4a7ee4762",
+            "md5": "19b3c993903fca4038d96ced8b36b347",
+            "sha256": "bed597b2cea3990164e43f9003f71db18959d0abd5d73adc9c176e7be2d84b98"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:40.790754Z",
+          "url": "https://files.pythonhosted.org/packages/91/03/79e89eac9d811e83d606342e129f5f39e168442ddf23b024fea4a7ee4762/pypdfium2-5.14.0-py3-none-android_23_arm64_v8a.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-android_23_armeabi_v7a.whl",
+          "size": 2889924,
+          "digests": {
+            "blake2b_256": "cc68369b80e408017b18eaecaa3c730bded07d90bfb65562215df200b56fb8e2",
+            "md5": "978e6ca815796ef253f35f941e849de5",
+            "sha256": "1951f0aed469150b13c62eabd501a9839e608ab9983ca8579be9eb73213b72b6"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:42.825217Z",
+          "url": "https://files.pythonhosted.org/packages/cc/68/369b80e408017b18eaecaa3c730bded07d90bfb65562215df200b56fb8e2/pypdfium2-5.14.0-py3-none-android_23_armeabi_v7a.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-macosx_13_0_arm64.whl",
+          "size": 3542294,
+          "digests": {
+            "blake2b_256": "d1ea14673bc9d8b7beeaa1eb46e9951b22543edaf2a4676c586e3b1e032ff6ee",
+            "md5": "7891cd0bb8f0f13f35ee5caccd2a57db",
+            "sha256": "2de384df66ba55fcaab0775f30f28ec1090af3dfa60276a07821efc96d993118"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:44.345790Z",
+          "url": "https://files.pythonhosted.org/packages/d1/ea/14673bc9d8b7beeaa1eb46e9951b22543edaf2a4676c586e3b1e032ff6ee/pypdfium2-5.14.0-py3-none-macosx_13_0_arm64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-macosx_13_0_x86_64.whl",
+          "size": 3735845,
+          "digests": {
+            "blake2b_256": "a611b720097b01fa0874854f2f6669cbea4e4ea4e075769687714fac64d68964",
+            "md5": "af8f51aefdd5cc950d7e7e6f9d3463f6",
+            "sha256": "e4e203ea9710fd00e5448edb6f1615dc8587035357f75f40b432dde0c33e8da1"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:45.975132Z",
+          "url": "https://files.pythonhosted.org/packages/a6/11/b720097b01fa0874854f2f6669cbea4e4ea4e075769687714fac64d68964/pypdfium2-5.14.0-py3-none-macosx_13_0_x86_64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "size": 3719672,
+          "digests": {
+            "blake2b_256": "92b40c31aa51887cd6cd032191dfe010a6d01ed43cf03204cfbd2184ebe4b715",
+            "md5": "ce17b69185f308a3c9c2a2957f132da3",
+            "sha256": "f1b696e6901e16f114a2ec6332e5e3f8f5033a901614ead28499ab18ca6024f5"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:47.455770Z",
+          "url": "https://files.pythonhosted.org/packages/92/b4/0c31aa51887cd6cd032191dfe010a6d01ed43cf03204cfbd2184ebe4b715/pypdfium2-5.14.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl",
+          "size": 3435593,
+          "digests": {
+            "blake2b_256": "93a8ae6ef96bf66559328d07b9e402ea704352ea00c49b6a73573da57e1fb378",
+            "md5": "772396e87e0b89ade191625726cb266c",
+            "sha256": "593f2c952ae3ffdca0efcbb3d9464fbccb876254386114ff900cabef21157c3f"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:49.131347Z",
+          "url": "https://files.pythonhosted.org/packages/93/a8/ae6ef96bf66559328d07b9e402ea704352ea00c49b6a73573da57e1fb378/pypdfium2-5.14.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl",
+          "size": 3868604,
+          "digests": {
+            "blake2b_256": "59ffa78405fab4c8bad0ec25b49c5efba2c85ed14609ec73645f95220560bd81",
+            "md5": "319d57a6db0132715ff0ce77c3f993e9",
+            "sha256": "d436ee9e024f981e68f5775f5a9d115f93ea14ee6c2c6efd35dd17d83edf4942"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:51.304141Z",
+          "url": "https://files.pythonhosted.org/packages/59/ff/a78405fab4c8bad0ec25b49c5efba2c85ed14609ec73645f95220560bd81/pypdfium2-5.14.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl",
+          "size": 4279333,
+          "digests": {
+            "blake2b_256": "5d6e09e9b62ab66c9acef5ad14f8a8c0d7b4d8d6ea6492e4e65b612ef146d373",
+            "md5": "00b7d66bcf46f59281f01873af6562ed",
+            "sha256": "f6f13bbcc5f4adabc2676e52f662c6cb375de86b314790b0ae08f3ab62eb116a"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:52.948126Z",
+          "url": "https://files.pythonhosted.org/packages/5d/6e/09e9b62ab66c9acef5ad14f8a8c0d7b4d8d6ea6492e4e65b612ef146d373/pypdfium2-5.14.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "size": 3799581,
+          "digests": {
+            "blake2b_256": "4fa3c9cc797fc8bdfb8f37b9b0f8b9d02a5fc196b2015f408d53624cab5b0519",
+            "md5": "f575217fec58038121020593ecb6a737",
+            "sha256": "11f281613fa22313d9c7ab89947665e84eccf8ebe40e1198a84a88352305648d"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:54.913306Z",
+          "url": "https://files.pythonhosted.org/packages/4f/a3/c9cc797fc8bdfb8f37b9b0f8b9d02a5fc196b2015f408d53624cab5b0519/pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_27_s390x.manylinux_2_28_s390x.whl",
+          "size": 4113022,
+          "digests": {
+            "blake2b_256": "b97654355a4bbd88bdd5ed3f4405bdc345eb593df9995daf90d285cbdf5c1410",
+            "md5": "4ea6259dcc139efe66fbf4f51b5fac6a",
+            "sha256": "51d9e9b64ebc34effaf57f9b6d4511b3f66ad3744bd1690d2cc6700853173dcf"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:56.774548Z",
+          "url": "https://files.pythonhosted.org/packages/b9/76/54355a4bbd88bdd5ed3f4405bdc345eb593df9995daf90d285cbdf5c1410/pypdfium2-5.14.0-py3-none-manylinux_2_27_s390x.manylinux_2_28_s390x.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-manylinux_2_34_riscv64.manylinux_2_39_riscv64.whl",
+          "size": 4062832,
+          "digests": {
+            "blake2b_256": "7dbcea461961ed0e0c4866df7a5610e76f769ef468bff28cd007e2aeecc8b882",
+            "md5": "0edf113767800e2e1cc1e4a420e88b1d",
+            "sha256": "605ab9d0d4c5e223599c9065b88d16b2c1f131c807c80dea8adbb16f1433e95b"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:58.471081Z",
+          "url": "https://files.pythonhosted.org/packages/7d/bc/ea461961ed0e0c4866df7a5610e76f769ef468bff28cd007e2aeecc8b882/pypdfium2-5.14.0-py3-none-manylinux_2_34_riscv64.manylinux_2_39_riscv64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_aarch64.whl",
+          "size": 5058436,
+          "digests": {
+            "blake2b_256": "3230dde99bc8cb3f8ace1d856095c2b4a29c80eecf9089b186a3b0845d0abc69",
+            "md5": "a65dcca2c26ad2b78c1113ca019cc954",
+            "sha256": "382de7fe20d32c42993a274d7b6c555a5623a97570dfc1d2f5e0a16fe0d5d482"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:18:59.993674Z",
+          "url": "https://files.pythonhosted.org/packages/32/30/dde99bc8cb3f8ace1d856095c2b4a29c80eecf9089b186a3b0845d0abc69/pypdfium2-5.14.0-py3-none-musllinux_1_2_aarch64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_armv7l.whl",
+          "size": 4595505,
+          "digests": {
+            "blake2b_256": "ec165314182dda2695fdf5bd414a450ee866087068cca4725703932770d4be04",
+            "md5": "fe8376de4215e6d8a30be87a874f20f0",
+            "sha256": "dbfd6deff68cc46b134acd6be380d98d694a9f018fbb622c07229225c85db389"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:01.835971Z",
+          "url": "https://files.pythonhosted.org/packages/ec/16/5314182dda2695fdf5bd414a450ee866087068cca4725703932770d4be04/pypdfium2-5.14.0-py3-none-musllinux_1_2_armv7l.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_i686.whl",
+          "size": 5309775,
+          "digests": {
+            "blake2b_256": "633f474c42e726f0020095c7d5f3fb88cfd4e5d39c1361105a72899ada0ecd1b",
+            "md5": "28706515dfd6a920a5f285cebedc1fe7",
+            "sha256": "9f4d77db5232826dd03a63481f32164331b96c21fd68f0667b2e43dbae141a93"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:03.564989Z",
+          "url": "https://files.pythonhosted.org/packages/63/3f/474c42e726f0020095c7d5f3fb88cfd4e5d39c1361105a72899ada0ecd1b/pypdfium2-5.14.0-py3-none-musllinux_1_2_i686.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_ppc64le.whl",
+          "size": 5224565,
+          "digests": {
+            "blake2b_256": "6b0c723a6cf11cff00f125310d8c2c08362dc6c100d05fff8f92285a4df1bd41",
+            "md5": "20bcf2be2c457e2c959698e6d92f40e6",
+            "sha256": "b40a0913196a1483f0fdc22a53f8719c3aef87f1c4d8d9c38d2ad4e207500fdf"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:05.264413Z",
+          "url": "https://files.pythonhosted.org/packages/6b/0c/723a6cf11cff00f125310d8c2c08362dc6c100d05fff8f92285a4df1bd41/pypdfium2-5.14.0-py3-none-musllinux_1_2_ppc64le.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_riscv64.whl",
+          "size": 4704416,
+          "digests": {
+            "blake2b_256": "5cc586ab02a41e77a7aa962af6545a406815aeb9abaecd9f25dec34dbc336b72",
+            "md5": "83c92372bfe0e8ef85c91b6b25fa98f5",
+            "sha256": "790e2cac1641a65912b73bd7243f45195d36f1663c85a3e1a126a8f5867c82a3"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:07.050946Z",
+          "url": "https://files.pythonhosted.org/packages/5c/c5/86ab02a41e77a7aa962af6545a406815aeb9abaecd9f25dec34dbc336b72/pypdfium2-5.14.0-py3-none-musllinux_1_2_riscv64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_s390x.whl",
+          "size": 5163621,
+          "digests": {
+            "blake2b_256": "acdefb75013f924c5a4dde4a4a41ec13e7495f9b80022bf35dd51baa54e05910",
+            "md5": "9fbf252417bacaf5a8a44128fea80e33",
+            "sha256": "09b99c8f0cb427eb17fec13c0862ed598bba34b4843df153f70fff806a2820bc"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:09.021802Z",
+          "url": "https://files.pythonhosted.org/packages/ac/de/fb75013f924c5a4dde4a4a41ec13e7495f9b80022bf35dd51baa54e05910/pypdfium2-5.14.0-py3-none-musllinux_1_2_s390x.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-musllinux_1_2_x86_64.whl",
+          "size": 5121606,
+          "digests": {
+            "blake2b_256": "cd77e59c814f10b533bc4565abe90ccef888ba29be45ada4627ebbf710961f0d",
+            "md5": "9ae3d4bc11585680cc37a61798ecf05a",
+            "sha256": "e70d87cb0577eab38f2106f9c9606b458930beef612a1b5f298772ed259f5ec0"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:10.609124Z",
+          "url": "https://files.pythonhosted.org/packages/cd/77/e59c814f10b533bc4565abe90ccef888ba29be45ada4627ebbf710961f0d/pypdfium2-5.14.0-py3-none-musllinux_1_2_x86_64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-pyemscripten_2026_0_wasm32.whl",
+          "size": 2675501,
+          "digests": {
+            "blake2b_256": "2125e067396b4bdd26c19f0997bfa3422d3975a49ceec2c59668e7599f2adcba",
+            "md5": "66d6f5f9f63a42b51393fa50ca6171ec",
+            "sha256": "c73be14076bedebd9bcaf9b062579c95c668580043bccd29eb0db502101d5716"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:12.588564Z",
+          "url": "https://files.pythonhosted.org/packages/21/25/e067396b4bdd26c19f0997bfa3422d3975a49ceec2c59668e7599f2adcba/pypdfium2-5.14.0-py3-none-pyemscripten_2026_0_wasm32.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-win32.whl",
+          "size": 3805374,
+          "digests": {
+            "blake2b_256": "7f0c6c21f68a57d0c4c506b9e5f72506ba91d8dde47eef699f3fd9561f7bff0e",
+            "md5": "3c791371df925ed7ed2f51f163a60cf6",
+            "sha256": "9fd5cc94a389d50298e4d8cb79af6b9b8e0d785606e2a937725dc6e271c9c6e6"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:14.357370Z",
+          "url": "https://files.pythonhosted.org/packages/7f/0c/6c21f68a57d0c4c506b9e5f72506ba91d8dde47eef699f3fd9561f7bff0e/pypdfium2-5.14.0-py3-none-win32.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-win_amd64.whl",
+          "size": 3947280,
+          "digests": {
+            "blake2b_256": "00dcca7874924c9cfd701ad53f89529968523790e70473e0b71e834668316148",
+            "md5": "9854c79d0189e9c1fd8269f463a57bac",
+            "sha256": "149fd5c6397b8df8bf7911a93506eff0be874f877afe7ac936cf5d37d21a6a06"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:16.302350Z",
+          "url": "https://files.pythonhosted.org/packages/00/dc/ca7874924c9cfd701ad53f89529968523790e70473e0b71e834668316148/pypdfium2-5.14.0-py3-none-win_amd64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0-py3-none-win_arm64.whl",
+          "size": 3745021,
+          "digests": {
+            "blake2b_256": "46ab35f2276deeeebb781925e2647dd88a39f8ea1a910104a0dbb28218473502",
+            "md5": "da3a99bf160f7261f57cb62327f0924f",
+            "sha256": "eb8aeca157808f323e39ea298cc6d6c8e080c192ea2efb1ca81daa0f0ff4d095"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:18.276025Z",
+          "url": "https://files.pythonhosted.org/packages/46/ab/35f2276deeeebb781925e2647dd88a39f8ea1a910104a0dbb28218473502/pypdfium2-5.14.0-py3-none-win_arm64.whl"
+        },
+        {
+          "filename": "pypdfium2-5.14.0.tar.gz",
+          "size": 376498,
+          "digests": {
+            "blake2b_256": "95d0c81d3a7c2a9af37b817ace1de0acd40cf44d15f12407c5e86b3668364a5c",
+            "md5": "1209bcd56222b4e00de317e6a04d4d79",
+            "sha256": "c5f009b3157f10e97dceb55963f5910eff92feb00587ba10a76f12b87ce1a4b6"
+          },
+          "upload_time_iso_8601": "2026-10-04T15:19:19.835898Z",
+          "url": "https://files.pythonhosted.org/packages/95/d0/c81d3a7c2a9af37b817ace1de0acd40cf44d15f12407c5e86b3668364a5c/pypdfium2-5.14.0.tar.gz"
+        }
+      ]
+    },
+    "psutil": {
+      "name": "psutil",
+      "version": "7.2.2",
+      "requires_python": ">=3.6",
+      "license": "BSD-3-Clause",
+      "license_expression": null,
+      "requires_dist": [
+        "psleak; extra == \"dev\"",
+        "pytest; extra == \"dev\"",
+        "pytest-instafail; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "pywin32; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "wheel; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "wmi; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "abi3audit; extra == \"dev\"",
+        "black; extra == \"dev\"",
+        "check-manifest; extra == \"dev\"",
+        "coverage; extra == \"dev\"",
+        "packaging; extra == \"dev\"",
+        "pylint; extra == \"dev\"",
+        "pyperf; extra == \"dev\"",
+        "pypinfo; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "rstcheck; extra == \"dev\"",
+        "ruff; extra == \"dev\"",
+        "sphinx; extra == \"dev\"",
+        "sphinx_rtd_theme; extra == \"dev\"",
+        "toml-sort; extra == \"dev\"",
+        "twine; extra == \"dev\"",
+        "validate-pyproject[all]; extra == \"dev\"",
+        "virtualenv; extra == \"dev\"",
+        "vulture; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "colorama; os_name == \"nt\" and extra == \"dev\"",
+        "pyreadline3; os_name == \"nt\" and extra == \"dev\"",
+        "psleak; extra == \"test\"",
+        "pytest; extra == \"test\"",
+        "pytest-instafail; extra == \"test\"",
+        "pytest-xdist; extra == \"test\"",
+        "setuptools; extra == \"test\"",
+        "pywin32; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\"",
+        "wheel; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\"",
+        "wmi; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\""
+      ],
+      "project_urls": {
+        "Homepage": "https://github.com/giampaolo/psutil"
+      },
+      "distributions": [
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-macosx_10_13_x86_64.whl",
+          "size": 130595,
+          "digests": {
+            "blake2b_256": "5108510cbdb69c25a96f4ae523f733cdc963ae654904e8db864c07585ef99875",
+            "md5": "6d6c68458477db71083d3655ec3f18a9",
+            "sha256": "2edccc433cbfa046b980b0df0171cd25bcaeb3a68fe9022db0979e7aa74a826b"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:14:57.293384Z",
+          "url": "https://files.pythonhosted.org/packages/51/08/510cbdb69c25a96f4ae523f733cdc963ae654904e8db864c07585ef99875/psutil-7.2.2-cp313-cp313t-macosx_10_13_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-macosx_11_0_arm64.whl",
+          "size": 131082,
+          "digests": {
+            "blake2b_256": "d6f597baea3fe7a5a9af7436301f85490905379b1c6f2dd51fe3ecf24b4c5fbf",
+            "md5": "380d9ace49206f778b6bce3eaca14474",
+            "sha256": "e78c8603dcd9a04c7364f1a3e670cea95d51ee865e4efb3556a3a63adef958ea"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:14:59.732473Z",
+          "url": "https://files.pythonhosted.org/packages/d6/f5/97baea3fe7a5a9af7436301f85490905379b1c6f2dd51fe3ecf24b4c5fbf/psutil-7.2.2-cp313-cp313t-macosx_11_0_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 181476,
+          "digests": {
+            "blake2b_256": "37d6246513fbf9fa174af531f28412297dd05241d97a75911ac8febefa1a53c6",
+            "md5": "a65aff021780d111143fd7354a36b504",
+            "sha256": "1a571f2330c966c62aeda00dd24620425d4b0cc86881c89861fbc04549e5dc63"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:01.884385Z",
+          "url": "https://files.pythonhosted.org/packages/37/d6/246513fbf9fa174af531f28412297dd05241d97a75911ac8febefa1a53c6/psutil-7.2.2-cp313-cp313t-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 184062,
+          "digests": {
+            "blake2b_256": "b8b59182c9af3836cca61696dabe4fd1304e17bc56cb62f17439e1154f225dd3",
+            "md5": "cf8ee1368435bf0b42ce032f3234b45b",
+            "sha256": "917e891983ca3c1887b4ef36447b1e0873e70c933afc831c6b6da078ba474312"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:04.436652Z",
+          "url": "https://files.pythonhosted.org/packages/b8/b5/9182c9af3836cca61696dabe4fd1304e17bc56cb62f17439e1154f225dd3/psutil-7.2.2-cp313-cp313t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-win_amd64.whl",
+          "size": 139893,
+          "digests": {
+            "blake2b_256": "16ba0756dca669f5a9300d0cbcbfae9a4c30e446dfc7440ffe43ded5724bfd93",
+            "md5": "4bd9479ffaa617c1192bb54876c41189",
+            "sha256": "ab486563df44c17f5173621c7b198955bd6b613fb87c71c161f827d3fb149a9b"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:06.378402Z",
+          "url": "https://files.pythonhosted.org/packages/16/ba/0756dca669f5a9300d0cbcbfae9a4c30e446dfc7440ffe43ded5724bfd93/psutil-7.2.2-cp313-cp313t-win_amd64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp313-cp313t-win_arm64.whl",
+          "size": 135589,
+          "digests": {
+            "blake2b_256": "1c618fa0e26f33623b49949346de05ec1ddaad02ed8ba64af45f40a147dbfa97",
+            "md5": "751bf4743c88653d925cbcc5d5c23ebe",
+            "sha256": "ae0aefdd8796a7737eccea863f80f81e468a1e4cf14d926bd9b6f5f2d5f90ca9"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:08.030483Z",
+          "url": "https://files.pythonhosted.org/packages/1c/61/8fa0e26f33623b49949346de05ec1ddaad02ed8ba64af45f40a147dbfa97/psutil-7.2.2-cp313-cp313t-win_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-macosx_10_15_x86_64.whl",
+          "size": 130664,
+          "digests": {
+            "blake2b_256": "8169ef179ab5ca24f32acc1dac0c247fd6a13b501fd5534dbae0e05a1c48b66d",
+            "md5": "4bf84e3887dfd38dc959715accba3190",
+            "sha256": "eed63d3b4d62449571547b60578c5b2c4bcccc5387148db46e0c2313dad0ee00"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:09.469111Z",
+          "url": "https://files.pythonhosted.org/packages/81/69/ef179ab5ca24f32acc1dac0c247fd6a13b501fd5534dbae0e05a1c48b66d/psutil-7.2.2-cp314-cp314t-macosx_10_15_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-macosx_11_0_arm64.whl",
+          "size": 131087,
+          "digests": {
+            "blake2b_256": "7b64665248b557a236d3fa9efc378d60d95ef56dd0a490c2cd37dafc7660d4a9",
+            "md5": "4a63f53de0e8952be8e2c7667024cd16",
+            "sha256": "7b6d09433a10592ce39b13d7be5a54fbac1d1228ed29abc880fb23df7cb694c9"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:11.724542Z",
+          "url": "https://files.pythonhosted.org/packages/7b/64/665248b557a236d3fa9efc378d60d95ef56dd0a490c2cd37dafc7660d4a9/psutil-7.2.2-cp314-cp314t-macosx_11_0_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 182383,
+          "digests": {
+            "blake2b_256": "d52ee6782744700d6759ebce3043dcfa661fb61e2fb752b91cdeae9af12c2178",
+            "md5": "7d8abddc896d1c0a5402c33db577a0bd",
+            "sha256": "1fa4ecf83bcdf6e6c8f4449aff98eefb5d0604bf88cb883d7da3d8d2d909546a"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:13.445010Z",
+          "url": "https://files.pythonhosted.org/packages/d5/2e/e6782744700d6759ebce3043dcfa661fb61e2fb752b91cdeae9af12c2178/psutil-7.2.2-cp314-cp314t-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 185210,
+          "digests": {
+            "blake2b_256": "57490a41cefd10cb7505cdc04dab3eacf24c0c2cb158a998b8c7b1d27ee2c1f5",
+            "md5": "c49f0ec609408cf245b16d35557657c0",
+            "sha256": "e452c464a02e7dc7822a05d25db4cde564444a67e58539a00f929c51eddda0cf"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:16.002782Z",
+          "url": "https://files.pythonhosted.org/packages/57/49/0a41cefd10cb7505cdc04dab3eacf24c0c2cb158a998b8c7b1d27ee2c1f5/psutil-7.2.2-cp314-cp314t-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-win_amd64.whl",
+          "size": 141228,
+          "digests": {
+            "blake2b_256": "dd2cff9bfb544f283ba5f83ba725a3c5fec6d6b10b8f27ac1dc641c473dc390d",
+            "md5": "9b36745aefa2ce3a948c713d5cc2034a",
+            "sha256": "c7663d4e37f13e884d13994247449e9f8f574bc4655d509c3b95e9ec9e2b9dc1"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:18.385158Z",
+          "url": "https://files.pythonhosted.org/packages/dd/2c/ff9bfb544f283ba5f83ba725a3c5fec6d6b10b8f27ac1dc641c473dc390d/psutil-7.2.2-cp314-cp314t-win_amd64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp314-cp314t-win_arm64.whl",
+          "size": 136284,
+          "digests": {
+            "blake2b_256": "f2fcf8d9c31db14fcec13748d373e668bc3bed94d9077dbc17fb0eebc073233c",
+            "md5": "7c92710cb62c39686a58f4b9daae836d",
+            "sha256": "11fe5a4f613759764e79c65cf11ebdf26e33d6dd34336f8a337aa2996d71c841"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:19.912153Z",
+          "url": "https://files.pythonhosted.org/packages/f2/fc/f8d9c31db14fcec13748d373e668bc3bed94d9077dbc17fb0eebc073233c/psutil-7.2.2-cp314-cp314t-win_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-macosx_10_9_x86_64.whl",
+          "size": 129090,
+          "digests": {
+            "blake2b_256": "e7365ee6e05c9bd427237b11b3937ad82bb8ad2752d72c6969314590dd0c2f6e",
+            "md5": "934cb1e9f3104d357f022df9501e18dd",
+            "sha256": "ed0cace939114f62738d808fdcecd4c869222507e266e574799e9c0faa17d486"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:22.168660Z",
+          "url": "https://files.pythonhosted.org/packages/e7/36/5ee6e05c9bd427237b11b3937ad82bb8ad2752d72c6969314590dd0c2f6e/psutil-7.2.2-cp36-abi3-macosx_10_9_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl",
+          "size": 129859,
+          "digests": {
+            "blake2b_256": "80c4f5af4c1ca8c1eeb2e92ccca14ce8effdeec651d5ab6053c589b074eda6e1",
+            "md5": "a17b3cbf9718fea225435c88973243c9",
+            "sha256": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:23.795403Z",
+          "url": "https://files.pythonhosted.org/packages/80/c4/f5af4c1ca8c1eeb2e92ccca14ce8effdeec651d5ab6053c589b074eda6e1/psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl",
+          "size": 155560,
+          "digests": {
+            "blake2b_256": "b5705d8df3b09e25bce090399cf48e452d25c935ab72dad19406c77f4e828045",
+            "md5": "440ab2614aa8abfc2e274c27da288929",
+            "sha256": "076a2d2f923fd4821644f5ba89f059523da90dc9014e85f8e45a5774ca5bc6f9"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:25.976610Z",
+          "url": "https://files.pythonhosted.org/packages/b5/70/5d8df3b09e25bce090399cf48e452d25c935ab72dad19406c77f4e828045/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl",
+          "size": 156997,
+          "digests": {
+            "blake2b_256": "636537648c0c158dc222aba51c089eb3bdfa238e621674dc42d48706e639204f",
+            "md5": "af782b2c9c2e569b22664e340fbc0526",
+            "sha256": "b0726cecd84f9474419d67252add4ac0cd9811b04d61123054b9fb6f57df6e9e"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:27.794675Z",
+          "url": "https://files.pythonhosted.org/packages/63/65/37648c0c158dc222aba51c089eb3bdfa238e621674dc42d48706e639204f/psutil-7.2.2-cp36-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-musllinux_1_2_aarch64.whl",
+          "size": 148972,
+          "digests": {
+            "blake2b_256": "8e13125093eadae863ce03c6ffdbae9929430d116a246ef69866dad94da3bfbc",
+            "md5": "69d4a0bfd9e9611ba829b270203c675b",
+            "sha256": "fd04ef36b4a6d599bbdb225dd1d3f51e00105f6d48a28f006da7f9822f2606d8"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:29.342891Z",
+          "url": "https://files.pythonhosted.org/packages/8e/13/125093eadae863ce03c6ffdbae9929430d116a246ef69866dad94da3bfbc/psutil-7.2.2-cp36-abi3-musllinux_1_2_aarch64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp36-abi3-musllinux_1_2_x86_64.whl",
+          "size": 148266,
+          "digests": {
+            "blake2b_256": "04780acd37ca84ce3ddffaa92ef0f571e073faa6d8ff1f0559ab1272188ea2be",
+            "md5": "1c1ea237fadf0b93182dbbc12683e991",
+            "sha256": "b58fabe35e80b264a4e3bb23e6b96f9e45a3df7fb7eed419ac0e5947c61e47cc"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:31.597126Z",
+          "url": "https://files.pythonhosted.org/packages/04/78/0acd37ca84ce3ddffaa92ef0f571e073faa6d8ff1f0559ab1272188ea2be/psutil-7.2.2-cp36-abi3-musllinux_1_2_x86_64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp37-abi3-win_amd64.whl",
+          "size": 137737,
+          "digests": {
+            "blake2b_256": "b490e2159492b5426be0c1fef7acba807a03511f97c5f86b3caeda6ad92351a7",
+            "md5": "a8df6ec640e62acc69dd49f6fe543ca5",
+            "sha256": "eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:33.849193Z",
+          "url": "https://files.pythonhosted.org/packages/b4/90/e2159492b5426be0c1fef7acba807a03511f97c5f86b3caeda6ad92351a7/psutil-7.2.2-cp37-abi3-win_amd64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2-cp37-abi3-win_arm64.whl",
+          "size": 134617,
+          "digests": {
+            "blake2b_256": "8cc77bb2e321574b10df20cbde462a94e2b71d05f9bbda251ef27d104668306a",
+            "md5": "a4709c9c8bc7ebfd346382e8ac5d8267",
+            "sha256": "8c233660f575a5a89e6d4cb65d9f938126312bca76d8fe087b947b3a1aaac9ee"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:15:36.514806Z",
+          "url": "https://files.pythonhosted.org/packages/8c/c7/7bb2e321574b10df20cbde462a94e2b71d05f9bbda251ef27d104668306a/psutil-7.2.2-cp37-abi3-win_arm64.whl"
+        },
+        {
+          "filename": "psutil-7.2.2.tar.gz",
+          "size": 493740,
+          "digests": {
+            "blake2b_256": "aac6d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe",
+            "md5": "a1c5c30f68a927053be09592d1a4be53",
+            "sha256": "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
+          },
+          "upload_time_iso_8601": "2026-01-28T18:14:54.428400Z",
+          "url": "https://files.pythonhosted.org/packages/aa/c6/d1ddf4abb55e93cebc4f2ed8b5d6dbad109ecb8d63748dd2b20ab5e57ebe/psutil-7.2.2.tar.gz"
+        }
+      ]
+    },
+    "pypdf": {
+      "name": "pypdf",
+      "version": "6.21.4",
+      "requires_python": ">=3.9",
+      "license": null,
+      "license_expression": "BSD-3-Clause",
+      "requires_dist": [
+        "typing_extensions>=4.0; python_version < \"3.11\"",
+        "brotli>=1.2.0; extra == \"brotli\"",
+        "cryptography>3.0; extra == \"crypto\"",
+        "PyCryptodome; extra == \"cryptodome\"",
+        "flit; extra == \"dev\"",
+        "pip-tools; extra == \"dev\"",
+        "pre-commit; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "pytest-socket; extra == \"dev\"",
+        "pytest-timeout; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "myst_parser; extra == \"docs\"",
+        "sphinx; extra == \"docs\"",
+        "sphinx_rtd_theme; extra == \"docs\"",
+        "fonttools; extra == \"fonts\"",
+        "arabic-reshaper; extra == \"full\"",
+        "brotli>=1.2.0; extra == \"full\"",
+        "cryptography>3.0; extra == \"full\"",
+        "fonttools; extra == \"full\"",
+        "Pillow>=8.0.0; extra == \"full\"",
+        "python-bidi; extra == \"full\"",
+        "Pillow>=8.0.0; extra == \"image\"",
+        "arabic-reshaper; extra == \"rtl-text\"",
+        "python-bidi; extra == \"rtl-text\""
+      ],
+      "project_urls": {
+        "Bug Reports": "https://github.com/py-pdf/pypdf/issues",
+        "Changelog": "https://pypdf.readthedocs.io/en/latest/meta/CHANGELOG.html",
+        "Documentation": "https://pypdf.readthedocs.io/en/latest/",
+        "Source": "https://github.com/py-pdf/pypdf"
+      },
+      "distributions": [
+        {
+          "filename": "pypdf-6.21.4-py3-none-any.whl",
+          "size": 410430,
+          "digests": {
+            "blake2b_256": "3f4b77e8ad4ac42c9d93600f40541a50e9feb3a61d2bbee2d76f659346072051",
+            "md5": "f5e0dae7400c5599b4050ea14fbe6db3",
+            "sha256": "33e4fb41ca352810eb4e9838aa0d82d6888a5f8bf682f43e99cce5faa666255c"
+          },
+          "upload_time_iso_8601": "2026-10-28T17:00:53.146109Z",
+          "url": "https://files.pythonhosted.org/packages/3f/4b/77e8ad4ac42c9d93600f40541a50e9feb3a61d2bbee2d76f659346072051/pypdf-6.21.4-py3-none-any.whl"
+        },
+        {
+          "filename": "pypdf-6.21.4.tar.gz",
+          "size": 7109255,
+          "digests": {
+            "blake2b_256": "1ee1ec8f4d155c997c45917153a5521e60d6ee6389d68abdcbc8e44e564caffc",
+            "md5": "e969e3c56062296cacf478010f6c8953",
+            "sha256": "c8817e3f888d47a087872ded69812c1ef30cacb871d6e053e0c00bbaf0bc2163"
+          },
+          "upload_time_iso_8601": "2026-10-28T17:00:54.810531Z",
+          "url": "https://files.pythonhosted.org/packages/1e/e1/ec8f4d155c997c45917153a5521e60d6ee6389d68abdcbc8e44e564caffc/pypdf-6.21.4.tar.gz"
+        }
+      ]
+    },
+    "reportlab": {
+      "name": "reportlab",
+      "version": "5.1.0",
+      "requires_python": "<4,>=3.9",
+      "license": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.",
+      "license_expression": null,
+      "requires_dist": [
+        "pillow>=9.0.0",
+        "charset-normalizer",
+        "rl_accel<1.1,>=0.9.0; extra == \"accel\"",
+        "rlPyCairo<1,>=0.2.0; extra == \"pycairo\"",
+        "freetype-py<2.4,>=2.3.0; extra == \"pycairo\"",
+        "rlbidi; extra == \"bidi\"",
+        "uharfbuzz; extra == \"shaping\""
+      ],
+      "project_urls": {
+        "Homepage": "https://www.reportlab.com/"
+      },
+      "distributions": [
+        {
+          "filename": "reportlab-5.1.0-py3-none-any.whl",
+          "size": 2018647,
+          "digests": {
+            "blake2b_256": "4a3cbf68d44f160b44685fc714f746a954c71d0091b3dc4fd3c8670154b44841",
+            "md5": "334fa5430fd0ed68be290a7d88d70de0",
+            "sha256": "59fdbaec5efe437095ad1d7292ec9a271c8ca2d3ec75e889c6e61400929b90df"
+          },
+          "upload_time_iso_8601": "2026-10-22T07:26:40.754265Z",
+          "url": "https://files.pythonhosted.org/packages/4a/3c/bf68d44f160b44685fc714f746a954c71d0091b3dc4fd3c8670154b44841/reportlab-5.1.0-py3-none-any.whl"
+        },
+        {
+          "filename": "reportlab-5.1.0.tar.gz",
+          "size": 4109612,
+          "digests": {
+            "blake2b_256": "8922c18474be40b9bbb52fdb7051177d4d25f1ea59fada17eb181026411e93b1",
+            "md5": "11526938de207af77523fb1bb91c1117",
+            "sha256": "6878200464527e87672d19e9f7cfc6bb890e3a6931e74ac6a1a8d1754aa55671"
+          },
+          "upload_time_iso_8601": "2026-10-22T07:26:43.307669Z",
+          "url": "https://files.pythonhosted.org/packages/89/22/c18474be40b9bbb52fdb7051177d4d25f1ea59fada17eb181026411e93b1/reportlab-5.1.0.tar.gz"
+        }
+      ]
+    }
+  },
+  "repositories": {
+    "docling": {
+      "repository": "docling-project/docling",
+      "latest_release": {
+        "tag_name": "v2.145.0",
+        "published_at": "2026-10-29T14:40:25Z",
+        "html_url": "https://github.com/docling-project/docling/releases/tag/v2.145.0",
+        "prerelease": false
+      },
+      "source_commit": "45d334e33f7aca345fc26880777288b8cd14262d"
+    },
+    "mineru": {
+      "repository": "opendatalab/MinerU",
+      "latest_release": {
+        "tag_name": "mineru-4.1.4-released",
+        "published_at": "2026-11-02T13:35:00Z",
+        "html_url": "https://github.com/opendatalab/MinerU/releases/tag/mineru-4.1.4-released",
+        "prerelease": false
+      },
+      "source_commit": "6d6fc6008869f82f353fd169d903c02998140cbe"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://pypi.org/pypi/docling/json",
+      "checked_at": "2026-11-02T14:25:43.822287+00:00",
+      "path": "docs/acceptance/s3/sources/docling-pypi.json",
+      "bytes": 377523,
+      "sha256": "159dede465114b7b6196f4b4785591b6c08942a7e9c8462913e6443ae7d48639"
+    },
+    {
+      "url": "https://pypi.org/pypi/docling-slim/json",
+      "checked_at": "2026-11-02T14:25:44.580287+00:00",
+      "path": "docs/acceptance/s3/sources/docling-slim-pypi.json",
+      "bytes": 120444,
+      "sha256": "039f75a0056ea4876902e320baf9756f485a900a722bf745dccc46a50253827f"
+    },
+    {
+      "url": "https://pypi.org/pypi/docling-parse/json",
+      "checked_at": "2026-11-02T14:25:45.864287+00:00",
+      "path": "docs/acceptance/s3/sources/docling-parse-pypi.json",
+      "bytes": 2447543,
+      "sha256": "718e9838a49656c798af226c51b54dc82182d9f792c10e26f3b2a4d16c0b5658"
+    },
+    {
+      "url": "https://pypi.org/pypi/mineru/json",
+      "checked_at": "2026-11-02T14:25:46.567287+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-pypi.json",
+      "bytes": 153780,
+      "sha256": "3549dd74bc283d8ba5a7722a5b6ee328b78bbe33a98de0ecf2ca559c8648d2f6"
+    },
+    {
+      "url": "https://pypi.org/pypi/pypdfium2/json",
+      "checked_at": "2026-11-02T14:25:47.482288+00:00",
+      "path": "docs/acceptance/s3/sources/pypdfium2-pypi.json",
+      "bytes": 1520075,
+      "sha256": "e761a338dfa137de8017585ce72085e36d271b5a6c7a5c4159909d63c79dbaca"
+    },
+    {
+      "url": "https://pypi.org/pypi/psutil/json",
+      "checked_at": "2026-11-02T14:25:48.407288+00:00",
+      "path": "docs/acceptance/s3/sources/psutil-pypi.json",
+      "bytes": 1211023,
+      "sha256": "3afe72fc20f2a965118da21efa973e1ff79fedcb46c6709557d2ee858b7aa015"
+    },
+    {
+      "url": "https://pypi.org/pypi/pypdf/json",
+      "checked_at": "2026-11-02T14:25:49.125288+00:00",
+      "path": "docs/acceptance/s3/sources/pypdf-pypi.json",
+      "bytes": 189638,
+      "sha256": "a6c305a4a3849cd33d56e421f2a93616a43e134cc22f77999a39ad1a9c281aba"
+    },
+    {
+      "url": "https://pypi.org/pypi/reportlab/json",
+      "checked_at": "2026-11-02T14:25:54.339289+00:00",
+      "path": "docs/acceptance/s3/sources/reportlab-pypi.json",
+      "bytes": 1830114,
+      "sha256": "241fecc718d0259b4d082c73b075d63c029ca9bbb4190f5ec2e8a1691e9704cc"
+    },
+    {
+      "url": "https://api.github.com/repos/docling-project/docling/releases/latest",
+      "checked_at": "2026-11-02T14:25:55.025289+00:00",
+      "path": "docs/acceptance/s3/sources/docling-latest-release.json",
+      "bytes": 6320,
+      "sha256": "fb2097bba6f726513e7e522b777abc1928fd5ce9caf38c8bc362e9c20d72619d"
+    },
+    {
+      "url": "https://api.github.com/repos/docling-project/docling/commits/v2.145.0",
+      "checked_at": "2026-11-02T14:25:55.767289+00:00",
+      "path": "docs/acceptance/s3/sources/docling-release-commit.json",
+      "bytes": 15300,
+      "sha256": "66bfec3f74a84aade2312aa9b2a970e63015c151a6047209c5cb46ec3a00f734"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/docling-project/docling/45d334e33f7aca345fc26880777288b8cd14262d/README.md",
+      "checked_at": "2026-11-02T14:25:56.586289+00:00",
+      "path": "docs/acceptance/s3/sources/docling-README.md",
+      "bytes": 8589,
+      "sha256": "ce605634509dc87d79182131ad001e5fddf6053963b9045b971c6e87e6b9bfa1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/docling-project/docling/45d334e33f7aca345fc26880777288b8cd14262d/LICENSE",
+      "checked_at": "2026-11-02T14:25:57.429290+00:00",
+      "path": "docs/acceptance/s3/sources/docling-LICENSE",
+      "bytes": 1072,
+      "sha256": "edb765d1e3e60d0c7a7d5fba5f2bb2c3c29f7465cecb5c22cf1185c884954e4c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/docling-project/docling/45d334e33f7aca345fc26880777288b8cd14262d/pyproject.toml",
+      "checked_at": "2026-11-02T14:25:58.275290+00:00",
+      "path": "docs/acceptance/s3/sources/docling-pyproject.toml",
+      "bytes": 16345,
+      "sha256": "9fe763af7cfb37475674979f94f796b009d5a26101083523ce25f61c383564ce"
+    },
+    {
+      "url": "https://api.github.com/repos/opendatalab/MinerU/releases/latest",
+      "checked_at": "2026-11-02T14:25:59.002290+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-latest-release.json",
+      "bytes": 5747,
+      "sha256": "6f5a395dd7e0c24ef1c1ef656ec48dcd0ae2dfb1e4b30a8acb5086c97cadb789"
+    },
+    {
+      "url": "https://api.github.com/repos/opendatalab/MinerU/commits/mineru-4.1.4-released",
+      "checked_at": "2026-11-02T14:25:59.891290+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-release-commit.json",
+      "bytes": 3864,
+      "sha256": "207f754696078a3350d49a5c3cdcc2d7371e03b5ecaa4f124e733b7d5a5b5f56"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opendatalab/MinerU/6d6fc6008869f82f353fd169d903c02998140cbe/README.md",
+      "checked_at": "2026-11-02T14:26:00.700290+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-README.md",
+      "bytes": 62629,
+      "sha256": "242042bef133b1b79709dbb4206c3057bbe12d77c916973f2d204c81829c6d8d"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opendatalab/MinerU/6d6fc6008869f82f353fd169d903c02998140cbe/LICENSE.md",
+      "checked_at": "2026-11-02T14:26:24.062796+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-LICENSE.md",
+      "bytes": 3301,
+      "sha256": "2d9aeb5d15159329a20dd804f251c64860ba954fbd26ec02f802220e6d71cf5c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/opendatalab/MinerU/6d6fc6008869f82f353fd169d903c02998140cbe/pyproject.toml",
+      "checked_at": "2026-11-02T14:26:24.062796+00:00",
+      "path": "docs/acceptance/s3/sources/mineru-pyproject.toml",
+      "bytes": 5416,
+      "sha256": "7ca464bb9a9c3c8006120e0fa6990b38939838fa074b4842f2ef7cee08fb0403"
+    }
+  ],
+  "formal_parser_selected": false
+}

@@ -1,0 +1,15 @@
+--- paid-frozen/package.json
++++ concurrent-current/package.json
+@@ -16,8 +16,12 @@
+     "test:integration": "tsx --test tests/integration/*.test.ts",
+     "smoke:pi": "tsx scripts/smoke-pi.ts",
+     "dev:server": "tsx apps/server/src/main.ts",
++    "predev:web": "tsx scripts/prepare-annotation-pdfs.ts",
+     "dev:web": "vite apps/web --host 127.0.0.1",
++    "prebuild:web": "tsx scripts/prepare-annotation-pdfs.ts",
+     "build:web": "vite build apps/web",
++    "prepare:annotation-pdfs": "tsx scripts/prepare-annotation-pdfs.ts",
++    "test:annotation": "tsx --test tests/annotation-ui/*.test.ts",
+     "verify:s1": "tsx scripts/accept-s1.ts",
+     "test:evaluation": "tsx --test tests/evaluation/*.test.ts",
+     "eval:quality": "tsx scripts/evaluate-quality.ts",

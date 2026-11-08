@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "unit_id",
+    "fixture",
+    "claim",
+    "segments",
+    "necessary_context_segments",
+    "scope_review"
+  ],
+  "properties": {
+    "unit_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "feature_name_raw",
+        "assertion",
+        "evidence_type",
+        "cancer_label",
+        "modality_label",
+        "sequence_or_phase",
+        "conditions",
+        "numeric_expressions"
+      ],
+      "properties": {
+        "feature_name_raw": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "assertion": {
+          "enum": [
+            "affirmed",
+            "negated",
+            "uncertain",
+            "conditional",
+            "comparison",
+            "unknown"
+          ]
+        },
+        "evidence_type": {
+          "enum": [
+            "definition",
+            "observation",
+            "quoted_prior_work",
+            "unknown"
+          ]
+        },
+        "cancer_label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modality_label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sequence_or_phase": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "numeric_expressions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "original_text",
+              "unit_original"
+            ],
+            "properties": {
+              "original_text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "unit_original": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "physical_page",
+          "printed_page_label",
+          "quote",
+          "block_id",
+          "text_version",
+          "start",
+          "end",
+          "offset_unit"
+        ],
+        "properties": {
+          "physical_page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "printed_page_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "block_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "text_version": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "offset_unit": {
+            "type": "string",
+            "const": "unicode_code_point"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "necessary_context_segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "physical_page",
+          "printed_page_label",
+          "quote",
+          "block_id",
+          "text_version",
+          "start",
+          "end",
+          "offset_unit"
+        ],
+        "properties": {
+          "physical_page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "printed_page_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "block_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "text_version": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "offset_unit": {
+            "type": "string",
+            "const": "unicode_code_point"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scope_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "reviewer",
+        "reviewed_at",
+        "rationale",
+        "in_scope"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "approved",
+            "fixture"
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "in_scope": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

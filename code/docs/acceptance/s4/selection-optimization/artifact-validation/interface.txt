@@ -1,0 +1,50 @@
+S4交付一致性检查器（无API、只读lead产物）
+
+项目根目录执行：
+code/.venv/bin/python -B code/scripts/check-s4-selection-artifacts.py
+
+默认in-progress阶段：记录当前可验证不变量；进行中的job/请求、尚未冻结输出、未渲染终版与未做AI对照记pending。
+本阶段即使所有静态检查通过也不生成终版通过声明。退出码0可以包含pending，请读取JSON的status。
+
+全部实际运行结束并由lead冻结、渲染后：
+code/.venv/bin/python -B code/scripts/check-s4-selection-artifacts.py --phase final
+
+lead完成DOCX/计划增量同步后再执行：
+code/.venv/bin/python -B code/scripts/check-s4-selection-artifacts.py --phase final --require-plan-sync
+
+本轮改为“已停止付费的进度交接”时：
+code/.venv/bin/python -B code/scripts/check-s4-selection-artifacts.py --phase final --delivery-mode stopped-handoff --require-plan-sync
+此模式严格区分delivery_consistency_status与experiment_completion_status：交接数字/原件/真实版本/中断状态可无矛盾，
+但5条件尚未完成和供应商模型身份未核验继续blocked_pending。仅stopped_handoff_artifact_checks_passed=true
+表示这份进度交接产物的校验通过，绝不表示优化实验、身份核验或医学质量通过。
+
+每次只写本目录下新时间戳子目录的result.json与report.html，以及本目录latest.json指针；既有检查证据不覆盖。
+退出码：0=无硬失败（默认阶段可能仍pending，stopped-handoff可仅交接一致）；1=确定的产物矛盾/检查执行错误；
+2=final所要求的交付检查仍有pending。默认completed-experiment模式须status=passed且final_artifact_checks_passed=true；
+stopped-handoff模式查看delivery_consistency_status与stopped_handoff_artifact_checks_passed，整体status仍可pending。
+医学质量与S4验收始终保持false。
+
+当前明确阻断：请求配置是gpt-6-luna/medium，但账本存在provider_response_model=igpt-6-luna。
+原值与物理请求ID/purpose/时间/响应hash保留于检查JSON。不得自行归一化i前缀；真实模型身份未核验、比较受阻，
+该项是blocking pending，不是可忽略warning。即使其他产物齐全也不能整体通过；本脚本不发API探测或追加实验。
+
+复用口径：8逻辑条件、5真实运行、3别名；源mask与中性任务契约指纹不证明完整模型请求逐字相同。
+run_id存在条件后缀，R/FR别名只引用F同一次真实产物，不算独立请求、延迟或随机复测，不证明严格盲化。
+
+主要跨文件检查：
+- 用户授权、请求model/medium、300请求/600万输入（含缓存）/40万输出（含推理）cap；探测/失败/重试均计入。
+- 逐请求已知用量加unknown保守预留；账本、登记、独立运行结算和报告交叉核对；不重复加缓存或推理。
+  GET /models只读元数据请求另计physical HTTP，和推理账本合并受300总限；不为GET伪造推理token用量。
+- 旧133请求账本与原PDF/IR/AI Excel hash保全；源snapshot归档与实际运行provenance、mask、batch绑定。
+- 8逻辑/5唯一与3别名关系；表述限定为输入mask/契约等价，别名无独立统计。
+- 所选源块完成、全源完成、汇总完成分别检查；state=partial本身不决定流程成败，不代表医学召回或PDF保真。
+- 候选真实Unicode codepoint区间与物理页回读；原始多片段不能伪称连续来源。
+- AI参考not_gold/human_verified=false；19行可靠定位与37未决分开，未决比较保持null，不强行计0分。
+- 先冻结实际输出再AI来源对照；独立复算来源保留和原文区间覆盖，不做医学precision/recall/F1。
+- 测试原始日志、各次源hash版本映射及本地报告引用可访问。早期无代码指纹的测试记录只作有限历史证据。
+- 停机交接保全终止前DB/WAL/账本快照；只允许指定未结算请求补终止记账，原始unknown预留保持。
+  恢复候选与汇总中断分别记录。后续新guard源码版本与旧付费运行snapshot分开，不能追认新guard已用于旧运行。
+- 可选DOCX：独立读before快照与当前ZIP，核对除document.xml外成员内容不变、原XML只追加一次且原字节保全；
+  计划JSON的S2/S3/gates保持不变。本检查器从不修改DOCX或计划。
+
+正式审查计数不因本检查改变；本脚本不是正式Astra审查，也不批准医学语义或策略优胜。

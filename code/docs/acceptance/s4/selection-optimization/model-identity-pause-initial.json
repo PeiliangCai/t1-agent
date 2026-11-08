@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-03T13:01:09.653472+00:00",
+  "action": "SIGSTOP_freeze_before_further_paid_IO",
+  "pids": [
+    13222
+  ],
+  "requests": 28,
+  "inflight": [
+    {
+      "id": "05afe9d2-daa7-4894-bf86-ffd15f14d66e",
+      "purpose": "selection-2026-11-03T12-41-27-983Z-ca96493b:L01-B0:whole-document-summary",
+      "started_at": "2026-11-03T13:00:10.063Z",
+      "usage_status": "reserved",
+      "input_ceiling": 121594,
+      "output_ceiling": 8192
+    }
+  ],
+  "note": "Process is frozen; no subsequent JS/network request can be initiated. Existing response may arrive in socket buffers; settlement pending safe resume with outbound gate."
+}

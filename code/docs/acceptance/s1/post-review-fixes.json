@@ -1,0 +1,56 @@
+{
+  "review_round_2_decision": "modify",
+  "formal_reviews_completed": 2,
+  "next_final_review_round": 3,
+  "fixes": [
+    {
+      "issue": "session setup fails after persisted run creation",
+      "reproduction": "review-round-2/reproduction.json",
+      "fix": "CLI tracks created run; terminateIfRunning atomically records a failure transition unless already terminal; active session cleanup on exceptional paths"
+    },
+    {
+      "issue": "SSE misses writes through independent SQLite connections/processes",
+      "reproduction": "review-round-2/reproduction.json",
+      "fix": "read committed SQLite events on local notification and a 200ms poll, monotonically deduplicate, flush headers, clean polls/subscription on disconnect/shutdown"
+    }
+  ],
+  "changed_previously_tested_source_files": [
+    "packages/agent/src/store.ts",
+    "packages/agent/src/pi.ts",
+    "scripts/smoke-pi.ts",
+    "apps/server/src/app.ts",
+    "tests/integration/runtime.test.ts"
+  ],
+  "added_regression_test": "tests/integration/review-regressions.test.ts",
+  "offline_regressions_passed": true,
+  "offline_check_logs": {
+    "local-check.json": true,
+    "local-test-unit.json": true,
+    "local-test-integration.json": true
+  },
+  "unit_tests_passed": 15,
+  "integration_tests_passed": 8,
+  "real_api_calls_added_after_review": 0,
+  "real_smoke_report": "smoke-pi-2026-11-02T09-40-50-350Z.json",
+  "real_smoke_sha256": "1e5040102e171aa3649a373eb9e3ba3f0527547285889ac11f08ae874308274f",
+  "real_smoke_unchanged": true,
+  "real_smoke_code_version": "pre_review_round_2_fix_snapshot",
+  "real_smoke_source_hashes": {
+    "packages/contracts/src/index.ts": "bc9667eba8ec0bb03e69874424d2accecf8762403c7b298d83a6660dd72043a3",
+    "packages/agent/src/config.ts": "76bde3adb4cfc5874fc14a742216b41198c8f8ad66ae01aa3fd109511eb6e2c4",
+    "packages/agent/src/fixtures.ts": "c32e48ccc2d386ddca144b74482227adff0661e12ea5be4b5a48773ee69b6d1d",
+    "packages/agent/src/store.ts": "ecf1ec144377f58d78a4ec098bf8962b40715d37f746c6d7338615bf4d749977",
+    "packages/agent/src/tools.ts": "6fa68ba63148e48e3a6af477d470b1c5906b32626404586e2bd3840b34a01f50",
+    "packages/agent/src/pi.ts": "e1ef9e2d1d39d7fbbb2221aaa75c7afc28a419f8bf4f97560f2a6ec00bdce8c7",
+    "scripts/smoke-pi.ts": "30397d1793633619bc0c8c279a8a6c0a4ddf612eab10cbbf48b77a809622c99b",
+    "apps/server/src/app.ts": "263617befea9e960cc7d36185fbbe8bc6ce5c7d8129c0ed57f25b43f1dae5133",
+    "tests/contracts.test.ts": "8c0bbe1a7f6b5533e57d304dec5f6c32df094d2350be5d22d8028c454d746f41",
+    "tests/tools.test.ts": "dadeceffd9879c7898864d3c18353653448bae95e8d6b1e3c68e11402c67bb14",
+    "tests/integration/runtime.test.ts": "d4163f31d948eb7ea1b11d9c3dd3dada26ab80859fec21b1112262100bac02e9"
+  },
+  "model_provider_session_options_prefix_unchanged": true,
+  "executeFixture_success_path_before_catch_unchanged": true,
+  "evidence_note": "The real API fixture proves the pre-fix success path. Current failure cleanup and SSE changes are supported by subsequent offline regression only; no claim of a new paid run.",
+  "frontend_bundle_warning": "optimization deferred to S5; web code unchanged since successful build",
+  "recorded_at": "2026-11-02T09:54:02.247633+00:00"
+}

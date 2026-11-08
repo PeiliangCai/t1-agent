@@ -1,0 +1,279 @@
+{
+  "schema_version": "actual-summary-read-result-sha-audit-1",
+  "recorded_at": "2026-11-05T13:27:45.242Z",
+  "audit_kind": "Deterministic offline reconstruction of each retained successful original read call against the same frozen IR and code, compared to the actual SDK tool-result SHA; not a new model result.",
+  "new_model_API_requests": 0,
+  "successful_actual_reads": 3,
+  "all_successful_result_SHA_match": true,
+  "all_windows_bounded_and_all_source_text_units_exact": true,
+  "observations": [
+    {
+      "job": "L05-B0",
+      "summary_attempt_file": "whole-document-summary-attempt-0.json",
+      "call_id": "call_Titlg3bIb1t2Z4vuAhj2oCfx|fc_05a9abb3ced375f4016aec834021b48193983636503fa42104",
+      "successful_actual_read": true,
+      "original_argument_sha256": "cbfe46c0c5c2b77bbe3bf81742719d11e521fbeeda450f97a69efc9ee14ed5d0",
+      "original_safe_selector_arrays": {
+        "line_indices": [
+          45,
+          46,
+          47,
+          55,
+          56,
+          57,
+          58,
+          482,
+          483,
+          484,
+          485
+        ]
+      },
+      "actual_tool_result_sha256": "1ad031f1ce3153688b14304d11d8c941a2bf17164bbc90d9cd002cb66abb4bbe",
+      "reconstructed_tool_result_sha256": "1ad031f1ce3153688b14304d11d8c941a2bf17164bbc90d9cd002cb66abb4bbe",
+      "exact_actual_result_sha_match": true,
+      "actual_result_characters": 5640,
+      "reconstructed_result_characters": 5640,
+      "source_window": {
+        "maximum_lines": 128,
+        "line_indices": [
+          45,
+          46,
+          47,
+          55,
+          56,
+          57,
+          58,
+          482,
+          483,
+          484,
+          485
+        ],
+        "historical_unique_read_count": 11,
+        "evicted_lines_require_explicit_reread_for_updates": true,
+        "source_text_truncated": false,
+        "reading_is_not_extraction_or_summary_completion": true
+      },
+      "complete_source_units": 6,
+      "original_line_text_and_boundaries_preserved": true,
+      "every_source_unit_span_in_current_window": true,
+      "window_at_most128": true,
+      "necessary_cross_line_units_needing_explicit_reread": [
+        {
+          "unit_id": "su-000041",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            46,
+            47,
+            48
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000047",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            53,
+            54,
+            55
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000050",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            58,
+            59
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000531",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            481,
+            482
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000535",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            485,
+            486
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        }
+      ],
+      "no_new_model_call": true
+    },
+    {
+      "job": "L05-B0",
+      "summary_attempt_file": "whole-document-summary-attempt-0.json",
+      "call_id": "call_lSs7JOhwqI9E6PmXzVhJGVKP|fc_05a9abb3ced375f4016aec834df29c8193a39eb73be1224ea0",
+      "successful_actual_read": true,
+      "original_argument_sha256": "609d354e51ed57396bf96425b0197c66b58d0d1b1e2465ae7c826f061c15f3bc",
+      "original_safe_selector_arrays": {
+        "line_indices": [
+          48,
+          59,
+          486
+        ]
+      },
+      "actual_tool_result_sha256": "31884f07fa21c5f478077d1c3117eb62480e93749e46aceb932948aadbd2bf42",
+      "reconstructed_tool_result_sha256": "31884f07fa21c5f478077d1c3117eb62480e93749e46aceb932948aadbd2bf42",
+      "exact_actual_result_sha_match": true,
+      "actual_result_characters": 4329,
+      "reconstructed_result_characters": 4329,
+      "source_window": {
+        "maximum_lines": 128,
+        "line_indices": [
+          45,
+          46,
+          47,
+          55,
+          56,
+          57,
+          58,
+          482,
+          483,
+          484,
+          485,
+          48,
+          59,
+          486
+        ],
+        "historical_unique_read_count": 14,
+        "evicted_lines_require_explicit_reread_for_updates": true,
+        "source_text_truncated": false,
+        "reading_is_not_extraction_or_summary_completion": true
+      },
+      "complete_source_units": 9,
+      "original_line_text_and_boundaries_preserved": true,
+      "every_source_unit_span_in_current_window": true,
+      "window_at_most128": true,
+      "necessary_cross_line_units_needing_explicit_reread": [
+        {
+          "unit_id": "su-000042",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            48,
+            49
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000047",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            53,
+            54,
+            55
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000051",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            59,
+            60
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000531",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            481,
+            482
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        }
+      ],
+      "no_new_model_call": true
+    },
+    {
+      "job": "L05-F",
+      "summary_attempt_file": "whole-document-summary-attempt-0.json",
+      "call_id": "call_Cw6u6M8SYHsdUYH0pqVvBLP1|fc_0b3f5c83b3ffbac7016aec8402ded48197b221cb6d0e901e90",
+      "successful_actual_read": true,
+      "original_argument_sha256": "62e21a52687951f7231d7a831bd25ba1f5668384466a896d2db73df395178d4f",
+      "original_safe_selector_arrays": {
+        "block_ids": [
+          "95dde964ad802d61602a-p0007-l000022",
+          "95dde964ad802d61602a-p0007-l000023",
+          "95dde964ad802d61602a-p0007-l000024",
+          "95dde964ad802d61602a-p0007-l000025",
+          "95dde964ad802d61602a-p0007-l000026",
+          "95dde964ad802d61602a-p0002-l000005",
+          "95dde964ad802d61602a-p0002-l000006",
+          "95dde964ad802d61602a-p0002-l000007",
+          "95dde964ad802d61602a-p0002-l000008",
+          "95dde964ad802d61602a-p0002-l000009"
+        ]
+      },
+      "actual_tool_result_sha256": "fc54c495b032543b842a0671c8b8da6256c4c484086ed0475f2aa121c5996c8c",
+      "reconstructed_tool_result_sha256": "fc54c495b032543b842a0671c8b8da6256c4c484086ed0475f2aa121c5996c8c",
+      "exact_actual_result_sha_match": true,
+      "actual_result_characters": 5024,
+      "reconstructed_result_characters": 5024,
+      "source_window": {
+        "maximum_lines": 128,
+        "line_indices": [
+          350,
+          351,
+          352,
+          353,
+          354,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "historical_unique_read_count": 10,
+        "evicted_lines_require_explicit_reread_for_updates": true,
+        "source_text_truncated": false,
+        "reading_is_not_extraction_or_summary_completion": true
+      },
+      "complete_source_units": 6,
+      "original_line_text_and_boundaries_preserved": true,
+      "every_source_unit_span_in_current_window": true,
+      "window_at_most128": true,
+      "necessary_cross_line_units_needing_explicit_reread": [
+        {
+          "unit_id": "su-000043",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            49,
+            50
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000377",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            349,
+            350,
+            351
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        },
+        {
+          "unit_id": "su-000381",
+          "complete_original_unit_not_truncated": true,
+          "required_document_line_indices": [
+            354,
+            355,
+            356
+          ],
+          "instruction": "Explicitly read all required authorized lines together before selecting this complete source unit."
+        }
+      ],
+      "no_new_model_call": true
+    }
+  ]
+}

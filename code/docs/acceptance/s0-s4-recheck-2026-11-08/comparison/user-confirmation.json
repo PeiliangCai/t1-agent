@@ -1,0 +1,64 @@
+{
+  "schema_version": "confirmed-one-round-source-comparison-1",
+  "confirmation_call_id": "call_e48854f7c2104007a354793fa32f5ed3",
+  "user_answer": "批准上述模型、范围与上限（推荐）",
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "scope": {
+    "scope_version": "1",
+    "cancers": {
+      "mode": "all",
+      "ids": []
+    },
+    "image_types": {
+      "mode": "all",
+      "ids": []
+    },
+    "features": {
+      "mode": "all",
+      "binding_ids": []
+    },
+    "catalog_version": "medical-unavailable-1",
+    "matching_policy_version": "exact-explicit-synonyms-1"
+  },
+  "source_ids": [
+    "L01",
+    "L05",
+    "L07"
+  ],
+  "logical_conditions": [
+    "B0",
+    "F"
+  ],
+  "logical_groups": 6,
+  "actual_inputs": 5,
+  "limits": {
+    "requests": 128,
+    "input_tokens": 3000000,
+    "output_tokens": 240000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "one_round_then_human_output_sampling_and_stop": true,
+  "no_automatic_optimization_extra_papers_or_API_reruns": true,
+  "approved_at": "2026-11-08T03:25:40.274777Z",
+  "approved_at_basis": "first_persisted_confirmation_record",
+  "original_user_event_timestamp": null,
+  "confirmation_verified_at": "2026-11-08T03:30:54Z",
+  "first_persisted_confirmation_source": "code/runtime-data/agent-notes/s0-s4-execution-2026-11-04.json#/current_authorized_budget",
+  "approved_before_final_ordinary_source_repair": true,
+  "original_rejected_draft_plan_sha256": "28c2c952933ae4a92aa00615f0bca73b94236f83d0ce5d8eab716ec8fea5566d",
+  "final_source_repair_and_currentness_checks_required_before_execution": true,
+  "root_visual_check_of_four_complete_values_and_parent_headers": "passed; ordinary QA, formal reviews remain3/3",
+  "root_execution_handoff": "After final affected checks and source currentness, bind this actual approval to final plan and directly execute the one approved round; no second approval required",
+  "clock_rule": "Shared 3600 seconds starts at first actual execution/request, not approved_at or offline preparation"
+}

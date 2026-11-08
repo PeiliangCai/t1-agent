@@ -1,0 +1,41 @@
+{
+  "title": "StructuredParserRequest",
+  "type": "object",
+  "required": [
+    "run_id",
+    "document_id",
+    "file_reference",
+    "file_sha256",
+    "candidate_id"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "document_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "file_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "candidate_id": {
+      "enum": [
+        "docling-standard-cpu",
+        "mineru-basic-onnx-cpu"
+      ]
+    },
+    "fixture": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "s4-existing-sdk-error-hash-diagnosis-1",
+  "recorded_sdk_error_sha256": "eeea6204fa1abd9f02dd697d3b5db001c6e81100014b44d87837fc995901b79a",
+  "exact_static_SDK_error_message": "OpenAI Responses stream ended before a terminal response event",
+  "exact_sha256_match": true,
+  "source": "node_modules/@earendil-works/pi-ai/dist/api/openai-responses-shared.js",
+  "mechanism": "SDK exhausted the provider SSE iterator without response.completed/incomplete/failed terminal event",
+  "what_is_not_established": [
+    "not proven to be 120-second deadline",
+    "not a schema or source-index argument rejection",
+    "cause may lie in provider/transport/stream handling;historical raw body not saved so not independently replayed"
+  ],
+  "no_new_API_requests": true,
+  "same_error_across_distinct_conditions": true
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "b0-mainline-source-change-binding-1",
+  "historical_plan_path": "docs/acceptance/output-feedback-2026-11-08/comparison/plan.json",
+  "historical_plan_sha256": "7b948130b139fe283284fe8e83dc19a0e32c69ece93cc1f47bc80802214f2b59",
+  "historical_source_snapshot_checked": 59,
+  "all_historical_snapshot_hashes_match_frozen_plan": true,
+  "changed_runtime_sources": [
+    {
+      "path": "packages/agent/src/primary-evidence-assessment.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "bc8930135be5ec8b3f28151572451b40f2d9d61e53fa785ef26c29e99bc47c71",
+      "current_sha256": "b1d8f4b91919967abc5b783fb2812199fcee3dbaf4186a6a364427a3394a1c19"
+    },
+    {
+      "path": "packages/agent/src/strict-source-groups.ts",
+      "kind": "added",
+      "historical_snapshot_sha256": null,
+      "current_sha256": "54e5e4c499fd61c78b1301ebb2105039b6e58a9d67ebc5f2c0122f19fea43704"
+    },
+    {
+      "path": "packages/agent/src/evidence-validation.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "2d24e6295d9236910d523073fa96e5ae1908f1923d419224db39ba9b6c7052a5",
+      "current_sha256": "da0354dc172139b25b3bbd225b68f79c068711b5e04107e6a072d1024481fb8d"
+    },
+    {
+      "path": "packages/agent/src/reconciliation.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "6ee0e24f3e7ca77f2ec1840352ff847bf96a7cbdf85a8629152bea5b77688872",
+      "current_sha256": "faa3e38862c503142dc7fc6d1ba053dad9826fcf7b1bbc833e4602bc7a0b31dd"
+    },
+    {
+      "path": "packages/agent/src/extraction-store.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "c0eb810ce32931ad104f43c06238e5d0ea08e1341dda39ba3a4475e3c02f5668",
+      "current_sha256": "235d0cc1976fa594c72da6bbc5b58ef706c09f7297c0bf0722f7e8a1d6a8f2a3"
+    },
+    {
+      "path": "packages/agent/src/evidence-delivery.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "593a2a4cdb33014916fb09f1681c88e9189021625f9066e2afcf941041a69980",
+      "current_sha256": "def3c7d9be7bca910b39ccbb7e4cb806417ca33c3b2a310a8d3f1c68b1ab3ee3"
+    },
+    {
+      "path": "packages/agent/src/extraction-summary.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "82f20e5e33a1a2875fe3f5379972d1c10aa7a6117984c9517810d18adf877370",
+      "current_sha256": "10ad13dd89a3a942e7c632d37e42ca01b52af51d68e686fc0d3ff3f51650dce2"
+    },
+    {
+      "path": "packages/agent/src/extraction-run.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "21b2b4c1fb9d9dbc4f1b7757c9f859120e05270e3eebf1eda970cc9287f78d90",
+      "current_sha256": "7a688c5e48d4e6bf85ea06b90ff4da4173c1dbfca994349eb090c469ddf21f2f"
+    },
+    {
+      "path": "packages/agent/src/index.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "0eef15dd486b7e0717dd87b3dca250fde0737a4edaa05824a32a31a2fc08e816",
+      "current_sha256": "5c7c7fbab801dc102560bc0b416b58bac00a1d0de1b56b85c7ebc4ad44260d73"
+    },
+    {
+      "path": "scripts/compare-extraction-methods.ts",
+      "kind": "modified",
+      "historical_snapshot_sha256": "51730b5e267b742b64c8bc0ee8f5a72a55ea01ff9e300ec61768ef6ba2f10dc3",
+      "current_sha256": "f4cac81c67d0829a7aca6ba0454d3fdf950896c10b8a7335e43b12a09e8e975b"
+    }
+  ],
+  "test_sources": [
+    {
+      "path": "tests/extraction/strict-source-groups.test.ts",
+      "current_sha256": "d85e5b03b41fe21e3750fb635e0e3ca8ad46852251a317585a79ac0db79b824c"
+    },
+    {
+      "path": "tests/extraction/primary-assessment.test.ts",
+      "current_sha256": "e154d146fc87f5581ca930aad50ee84a01785f86cfe45de0aa431463f8d5a4c9"
+    }
+  ],
+  "existing_evidence_record_schema_changed": false,
+  "existing_member_fingerprint_algorithms_changed": false,
+  "new_group_key_is_independent": true,
+  "new_code_real_model_revalidated": false,
+  "additional_model_provider_requests": 0,
+  "formal_architecture_reviews_used": 3,
+  "formal_architecture_review_limit": 3
+}

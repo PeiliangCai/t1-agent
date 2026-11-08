@@ -1,0 +1,572 @@
+{
+  "schema_version": "s4-reliability-actual-live-report-1",
+  "finalized_at": "2026-11-05T13:34:48.340947+00:00",
+  "execution_finished": true,
+  "overall_reliability_passed": false,
+  "summary_outcomes": {
+    "L05-B0": "incomplete_strict_validation_stop",
+    "L05-F": "complete_unapproved_partial_source"
+  },
+  "authorization": {
+    "record": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/authorization.json",
+    "sha256": "d3b9b9c135f5c2443fbc17f1da203fedd6fcf0dabbb183e21c23dad98de8b480",
+    "id": "S4-reliability-L05-B0-F-Luna-medium-20261105-b5ed841b-7e18-41b7-8aed-a8c978e0ac6f",
+    "approved_at": "2026-11-05T13:19:35.148Z",
+    "time_basis": "Actual local UTC recording/signature time; the user message timestamp was not supplied and is not inferred.",
+    "confirmation_record": "docs/acceptance/s4-reliability-2026-11-05/live-user-confirmation.json",
+    "confirmation_sha256": "35fd83b59de03c7798a3879e79d8b94fe145c4588c2cc2eb80d47069ee0bb6a8",
+    "user_quote": "批准"
+  },
+  "approved_plan": {
+    "path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/plan.json",
+    "sha256": "75977832a6b09df7df1a5fbbc71b7e28e29e93ec7a5d75637464188109006625",
+    "runtime_source_digest": "8658b5e538b22a04e6ac0db8d43b2dbc3ca880bd6283910ca5082db5f25d0c4a",
+    "source_files": 53,
+    "selected_jobs": [
+      "L05-B0",
+      "L05-F"
+    ],
+    "limits": {
+      "requests": 64,
+      "input_tokens": 1500000,
+      "output_tokens": 160000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    }
+  },
+  "new_independent_budget": {
+    "owner": "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb",
+    "canonical_ledger": "runtime-data/s4-budget-owners/d78d6770a7783c6e5cfcf46c615f23ff403fdbd3278bfa18b19b19c9e07cdccb/call-ledger.json",
+    "canonical_ledger_sha256": "7ba30592e6e4313e677bf5d04d74a8b2e2ef6786f54ead99e9ce3fde84f4518f",
+    "immutable_snapshot": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/call-ledger-snapshot.json",
+    "snapshot_sha256": "7ba30592e6e4313e677bf5d04d74a8b2e2ef6786f54ead99e9ce3fde84f4518f",
+    "first_call_at": "2026-11-05T13:19:36.665Z",
+    "deadline_utc": "2026-11-05T13:49:36.665Z",
+    "last_request_finished_at": "2026-11-05T13:27:01.685Z",
+    "spent": {
+      "requests": 41,
+      "input_tokens": 309201,
+      "output_tokens": 13827,
+      "conservative_missing_usage_requests": 0,
+      "elapsed_seconds": 445.12,
+      "provider_reported_requests": 41,
+      "missing_usage_requests": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "first_request_at": "2026-11-05T13:19:36.665Z",
+      "last_request_finished_at": "2026-11-05T13:27:01.685Z",
+      "deadline_utc": "2026-11-05T13:49:36.665Z",
+      "provider_request_span_seconds": 445.02
+    },
+    "unused_not_permission_to_append": {
+      "requests": 23,
+      "input_tokens": 1190799,
+      "output_tokens": 146173
+    },
+    "settled_requests": 41,
+    "provider_reported_requests": 41,
+    "missing_usage_requests": 0,
+    "unsettled_requests": 0,
+    "halted": null,
+    "active_owner_lock_present": false,
+    "new_API_process_remaining": false,
+    "extra_methods_or_models_or_manual_reruns": 0
+  },
+  "jobs": [
+    {
+      "job_id": "L05-B0",
+      "method": "B0",
+      "label": "单独智能体",
+      "run_id": "comparison-8d7eead5-8a20-4d53-8124-cf6ff7d466f5:source-L05:input-92897207a4ef",
+      "state": "partial",
+      "error": {
+        "type": "ContractError",
+        "code": "whole_document_summary_incomplete"
+      },
+      "summary": {
+        "complete": false,
+        "text": "",
+        "underlying_error": {
+          "type": "ContractError",
+          "code": "model_tool_protocol_diagnostic_pause"
+        },
+        "is_unapproved_diagnostic_not_delivered_primary_description": true,
+        "summary_attempts": [
+          {
+            "attempt": 0,
+            "status": "failed",
+            "path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/whole-document-summary-attempt-0.json",
+            "error": {
+              "type": "ContractError",
+              "code": "model_tool_protocol_diagnostic_pause"
+            },
+            "request_ids": [
+              "09899685-98ff-4832-bad9-f4964ad94977",
+              "2345e08d-d895-4c71-a5cb-2e997fd2e24e",
+              "a53e3b31-b7b4-48fe-80ea-bfc60ac27d8c",
+              "76bb1e15-7660-4fc4-8d54-057f9d8a0676",
+              "9540735e-c355-4dc9-baf9-bdc4cac30562"
+            ],
+            "candidate_versions_after_attempt": 6
+          }
+        ]
+      },
+      "usage": {
+        "requests": 23,
+        "input_tokens": 186612,
+        "output_tokens": 9187,
+        "summary_requests": 5,
+        "summary_input_tokens": 55740,
+        "summary_output_tokens": 4374,
+        "total_seconds": 271.14971539000004,
+        "summary_seconds": 70.677,
+        "first_candidate_seconds": 43.183,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing"
+      },
+      "current_candidate_count": 6,
+      "all_version_count": 6,
+      "proposal_count": 0,
+      "batch_count": 6,
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 108,
+          "read_blocks": 115,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0001-attempt-0.json",
+          "result_sha256": "e7b9b2cc4af5cbfbc0189a2c01c4b5bb8d859a6ce427d2b16b5ffb9e39bd7a0e"
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 113,
+          "read_blocks": 126,
+          "explicit_completion_received": true,
+          "request_count": 4,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0002-attempt-0.json",
+          "result_sha256": "3379eb4807fc76846e604a1ec14523caa882d1ab58e02c16e812158d6124a84c"
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 84,
+          "read_blocks": 98,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0003-attempt-0.json",
+          "result_sha256": "ed850cfbbb555d00319aba5bcf96dcc8c45b6cc46d2dfc22b066dcbe2b7706a0"
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 128,
+          "read_blocks": 134,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0004-attempt-0.json",
+          "result_sha256": "f8bd3d5bb94b5e0046a542805580c55d891cbd83350ad68894076703fa72cc68"
+        },
+        {
+          "batch_id": "batch-0005",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 128,
+          "read_blocks": 140,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0005-attempt-0.json",
+          "result_sha256": "b2d2ca480e9167a80a96b25f83de6219267c65abd69fe51df1a013a62ac0c50e"
+        },
+        {
+          "batch_id": "batch-0006",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 54,
+          "read_blocks": 67,
+          "explicit_completion_received": true,
+          "request_count": 2,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/batch-0006-attempt-0.json",
+          "result_sha256": "bca5c8b123cf75fd3ff561e8e087e2a53869eb0960222be0445d754128e0290a"
+        }
+      ],
+      "active_record_ids": [
+        "ev-0badc9237f466efe0c3130c8d519bae8b877dba4",
+        "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+        "ev-4459402383db68084beec0d6d0ccee07a3a631bf",
+        "ev-665e6d5c21c450a61d71ec4120147537ecf894ad",
+        "ev-88f853e79ff75799e6b0000f854760a77db8fe00",
+        "ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1"
+      ],
+      "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/result.json",
+      "result_sha256": "48997c929edd256c54b0ded48bbf3190b5894f2f86635aa4d8cfaa0a25a90197",
+      "delivery_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/delivery.json",
+      "delivery_sha256": "4a2fc93650c14601bf7aff5ee8c7cb021f3cbf47621d50c01791253cc94bc6b1",
+      "summary_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-B0/whole-document-summary.json",
+      "summary_sha256": "b0564174262abb83883a7479088380521596ec31b60d335d64324ba5dce1af4e",
+      "coverage": {
+        "physical_pages": 10,
+        "parser_status": "partial",
+        "all_source_blocks": 615,
+        "dispatched_source_blocks": 615,
+        "source_blocks_read": 615,
+        "explicitly_completed_source_blocks": 615,
+        "selected_source_block_processing_complete": true,
+        "source_block_processing_complete": true,
+        "whole_document_summary_complete": false,
+        "full_document_extraction_completed": false
+      },
+      "actual_correction_codes": [
+        "choose_source_units_or_source_lines"
+      ],
+      "rejection_codes": [
+        [
+          {
+            "code": "modality_not_grounded_in_source",
+            "path": "modality",
+            "severity": "requires_review"
+          },
+          {
+            "code": "visual_statement_purpose_requires_review",
+            "path": "evidence_type",
+            "severity": "requires_review"
+          },
+          {
+            "code": "visual_description_semantics_unverified",
+            "path": "source_fragments",
+            "severity": "info"
+          },
+          {
+            "code": "feature_name_not_in_evidence",
+            "path": "feature_name_raw",
+            "severity": "reject"
+          },
+          {
+            "code": "numeric_expression_missing",
+            "path": "numeric_expressions",
+            "severity": "requires_review"
+          }
+        ]
+      ]
+    },
+    {
+      "job_id": "L05-F",
+      "method": "F",
+      "label": "规则正向预抽取＋智能体",
+      "run_id": "comparison-8d7eead5-8a20-4d53-8124-cf6ff7d466f5:source-L05:input-222b91540efc",
+      "state": "partial",
+      "error": null,
+      "summary": {
+        "complete": true,
+        "text": "已完成本文候选核对。保留AAH的一般定义及其尺寸陈述，归属为作者引用的既有研究；不将小实性成分可能在病理切片中漏检及其导致低估的条件性解释作为独立视觉描述。两者不是同义重复，也无直接冲突；未推断影像模态或病例配对。",
+        "underlying_error": null,
+        "is_unapproved_diagnostic_not_delivered_primary_description": true,
+        "summary_attempts": [
+          {
+            "attempt": 0,
+            "status": "completed",
+            "path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/whole-document-summary-attempt-0.json",
+            "request_ids": [
+              "e7ce9b0b-d521-4850-a11e-cec1bd03635a",
+              "81842b7c-c159-49b2-8724-6285dde717b8",
+              "60eed6ad-6314-4587-954d-a03129f53eb1",
+              "9454f314-2ba5-4b28-b9eb-9f4dbe45de19"
+            ],
+            "candidate_versions_after_attempt": 5
+          }
+        ]
+      },
+      "usage": {
+        "requests": 18,
+        "input_tokens": 122589,
+        "output_tokens": 4640,
+        "summary_requests": 4,
+        "summary_input_tokens": 30150,
+        "summary_output_tokens": 2254,
+        "total_seconds": 173.74135628399998,
+        "summary_seconds": 48.937,
+        "first_candidate_seconds": 28.498,
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing"
+      },
+      "current_candidate_count": 2,
+      "all_version_count": 5,
+      "proposal_count": 1,
+      "batch_count": 5,
+      "batch_attempts": [
+        {
+          "batch_id": "batch-0001",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 107,
+          "read_blocks": 114,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-0001-attempt-0.json",
+          "result_sha256": "584ed4c26032dd928be9c03de9ce0d5bec68f6009b9648cdb119952f3a049451"
+        },
+        {
+          "batch_id": "batch-0002",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 111,
+          "read_blocks": 125,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-0002-attempt-0.json",
+          "result_sha256": "6261d6604ba3baf1b050d0ef5f353b2df3392aa28a98a1ea85b088677881a7ce"
+        },
+        {
+          "batch_id": "batch-0003",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 128,
+          "read_blocks": 145,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-0003-attempt-0.json",
+          "result_sha256": "85f00ed348f7299ce0e7e57fff815871544b67b87f187f5fab814bb404e8d660"
+        },
+        {
+          "batch_id": "batch-0004",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 128,
+          "read_blocks": 140,
+          "explicit_completion_received": true,
+          "request_count": 2,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-0004-attempt-0.json",
+          "result_sha256": "6c4da1a638161807e9c91903c7392bc58956bafcbf64364dee21a826d2802911"
+        },
+        {
+          "batch_id": "batch-0005",
+          "attempt": 0,
+          "status": "completed",
+          "assigned_blocks": 50,
+          "read_blocks": 61,
+          "explicit_completion_received": true,
+          "request_count": 3,
+          "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/batch-0005-attempt-0.json",
+          "result_sha256": "10641df73d0db3756aacaa7f40175f6be54b8888d4813a9820f0d6574665505f"
+        }
+      ],
+      "active_record_ids": [
+        "ev-3e4719fd71a0c4fe7e7617d4e8b539bebb5f078e",
+        "ev-a2b57836fef8fae12536a59193118708f5d55133"
+      ],
+      "result_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/result.json",
+      "result_sha256": "f60ba148dd6fe48a252cc186ab5b8c3347b232d1273c24e9c672b401a9edca21",
+      "delivery_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/delivery.json",
+      "delivery_sha256": "3215a2e502410a525587636bf92c3f01ae9d4cd20ae89cf6c5647f2285292734",
+      "summary_path": "docs/acceptance/s4-reliability-2026-11-05/revalidation-prepared/execution/L05-F/whole-document-summary.json",
+      "summary_sha256": "1cd320430f1fe6f70df57149d556aa96e509a3fa5dfb739d11cbf2da953f3be8",
+      "coverage": {
+        "physical_pages": 10,
+        "parser_status": "partial",
+        "all_source_blocks": 615,
+        "dispatched_source_blocks": 524,
+        "source_blocks_read": 534,
+        "explicitly_completed_source_blocks": 524,
+        "selected_source_block_processing_complete": true,
+        "source_block_processing_complete": false,
+        "whole_document_summary_complete": true,
+        "full_document_extraction_completed": false
+      },
+      "actual_correction_codes": [
+        "choose_source_units_or_source_lines"
+      ],
+      "rejection_codes": []
+    }
+  ],
+  "separate_engineering_findings": {
+    "finite_parameter_recovery": {
+      "observed": true,
+      "real_correction_count": 2,
+      "per_job": {
+        "L05-B0": [
+          "choose_source_units_or_source_lines"
+        ],
+        "L05-F": [
+          "choose_source_units_or_source_lines"
+        ]
+      },
+      "correction_kind": "Both real summaries supplied nonempty source_unit_ids and source_line_indices; original calls were rejected, the model then made new explicit calls in the same session. No host rewriting, new batch/paper rerun or extra white-list extension occurred.",
+      "B0_followup": "A subsequent non-whitelisted summary_update_validation_failed stopped the pass; no extra attempt."
+    },
+    "atomic_submission": {
+      "B0_observed_rejection": "summary_submission_rejected / feature_name_not_in_evidence (reject); modality_not_grounded_in_source and numeric_expression_missing also remain visible review diagnostics.",
+      "B0_all6_current_and_historical_versions_still_v1": true,
+      "B0_no_candidate_or_proposal_event_survived_from_failed_summary_call": true,
+      "B0_evidence_changes_saved": false,
+      "proof_scope": "Actual rejection record plus all version snapshots establish no retained partial update. Full rejected arguments/order of prior operations were not saved, so the failed feature literal and exact failing update cannot be named. Earlier local rollback tests establish writes-before-failure behavior separately.",
+      "F_successful_submission": "Two unapproved model reviews produced activev2; one same-identity feature revision produced proposedv3, with original v1/v2 preserved.",
+      "F_complete_with_unresolved_human_review": true
+    },
+    "bounded_original_source_working_set": {
+      "successful_actual_read_results": 3,
+      "all_actual_result_SHA_match_offline_reconstruction": true,
+      "all_original_lines_units_exact_and_windows_at_most128": true,
+      "all_summary_projection_events": 9,
+      "historical_raw_source_copies_superseded_max": 1,
+      "max_application_context_estimate": 20114,
+      "application_limit_unchanged": 128000,
+      "context_limit_error_seen": false,
+      "proof_scope": "3 actual successful read returns match their recorded SHA; the offline audit uses no model calls. Reads were small; this is not a live stress test of128-line eviction or proof of all future summaries. No full wire body was retained."
+    },
+    "remaining_summary_failure": {
+      "B0_complete": false,
+      "F_complete": true,
+      "B0_end_error": "whole_document_summary_incomplete",
+      "B0_underlying": "model_tool_protocol_diagnostic_pause / summary_update_validation_failed",
+      "fewer_requests_or_no128k_is_not_overall_improvement": true
+    }
+  },
+  "version_source_review": {
+    "current_candidates": 8,
+    "all_versions": 11,
+    "proposals": 1,
+    "historical_active_versions": 2,
+    "all_source_fragments_exact": true,
+    "source_fragments_checked": 32,
+    "explicit_update_new_active_identity_count": 0,
+    "silent_feature_mismatch_insert_events": [],
+    "source_overlap_pairs": [
+      {
+        "job_id": "L05-B0",
+        "record_ids": [
+          "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+          "ev-4459402383db68084beec0d6d0ccee07a3a631bf"
+        ],
+        "overlap_spans": [
+          {
+            "block_id": "95dde964ad802d61602a-p0008-l000019",
+            "start": 37,
+            "end": 138
+          },
+          {
+            "block_id": "95dde964ad802d61602a-p0008-l000020",
+            "start": 0,
+            "end": 29
+          }
+        ],
+        "exact_primary_quote_equal": false,
+        "interpretation": "Mechanical overlapping source spans only; not an adjudicated duplicate and never automatically merged."
+      },
+      {
+        "job_id": "L05-B0",
+        "record_ids": [
+          "ev-2467c4ebf55f8af9397c8853f8799948a1979615",
+          "ev-ed0989544e63fd50d5fd3cd61936bb1a52283db1"
+        ],
+        "overlap_spans": [
+          {
+            "block_id": "95dde964ad802d61602a-p0008-l000018",
+            "start": 57,
+            "end": 142
+          },
+          {
+            "block_id": "95dde964ad802d61602a-p0008-l000019",
+            "start": 0,
+            "end": 37
+          }
+        ],
+        "exact_primary_quote_equal": false,
+        "interpretation": "Mechanical overlapping source spans only; not an adjudicated duplicate and never automatically merged."
+      }
+    ],
+    "human_version_protection_not_exercised_in_live_no_human_versions": true,
+    "effective_verified_descriptions": null,
+    "medical_quality_or_relevance_approved": false,
+    "complete_data": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/reader-manifest.json",
+    "source_version_audit": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/source-version-audit.json",
+    "per_version_figure_associations": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/version-figure-associations.json"
+  },
+  "historical_comparison": [
+    {
+      "job_id": "L05-B0",
+      "old_effective_result": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/prepared/execution/L05-B0/result.json",
+      "old_all_attempts_requests": 33,
+      "old_effective_summary_complete": false,
+      "old_candidate_count": 3,
+      "old_total_seconds": 505.97817499100006,
+      "new_all_attempts_requests": 23,
+      "new_candidate_count": 6,
+      "new_summary_complete": false,
+      "new_seconds": 271.14971539000004,
+      "interpretation": "Historical same model/condition on one development paper, with multiple engineering changes and once per new group; outcomes and candidates differ. Descriptive comparison only, no causal cost gain or method ranking."
+    },
+    {
+      "job_id": "L05-F",
+      "old_effective_result": "docs/acceptance/user-feedback-2026-11-05/revalidation/metric-context-revision/retries/L05-F-attempt-1/extraction/result.json",
+      "old_all_attempts_requests": 25,
+      "old_effective_summary_complete": true,
+      "old_candidate_count": 1,
+      "old_total_seconds": 330.8106390859999,
+      "new_all_attempts_requests": 18,
+      "new_candidate_count": 2,
+      "new_summary_complete": true,
+      "new_seconds": 173.74135628399998,
+      "interpretation": "Historical same model/condition on one development paper, with multiple engineering changes and once per new group; outcomes and candidates differ. Descriptive comparison only, no causal cost gain or method ranking."
+    }
+  ],
+  "preservation": {
+    "old641_files_SHA_unchanged": true,
+    "old189_and216_canonical_ledgers_unchanged": true,
+    "old35_reviews_11_notes_original_PDF_IR_assets_preserved": true,
+    "old_reader_changed": false,
+    "pre_call_report_proposal_template_plan_preserved": true,
+    "all53_runtime_sources_and_executed_source_snapshot_match": true,
+    "default_three_methods_scope_parser_model_policies_unchanged": true,
+    "new_app_source_changes_during_live_run": 0
+  },
+  "new_tests_run_during_live_batch": 0,
+  "no_new_provider_replay_for_audits": true,
+  "actual_cost": null,
+  "cost_status": "unknown_gateway_billing",
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "new_formal_rounds": 0,
+  "medical_quality_approved": false,
+  "product_export_approved": false,
+  "stage_passed": false,
+  "winner": null,
+  "limitations": [
+    "8 current candidates are not 8 verified effective descriptions. All11 versions, including1 proposal and2 historical active versions, are preserved.",
+    "B0 summary failed after one real parameter correction and strict rejection/atomic rollback; six already saved candidates remain.",
+    "F summary completed, but parser remains partial and only524 of615 source blocks were selected.",
+    "No relevance/medical quality approval, automatic adjudication of overlapping captions, full recall, single-variable causal gain or method winner is established.",
+    "Full wire bodies and failed raw feature_name value were not retained. Actual safe selectors, result SHA, error codes and current-version snapshots are available."
+  ],
+  "user_question_evidence_interpretation": {
+    "path": "docs/acceptance/s4-reliability-2026-11-05/live-revalidation/evidence-interpretation.json",
+    "sha256": "6697c91a31a8793ff99740534cad58f208016cdcc2b6a94999006013392cf65b",
+    "can_choose_formal_best_method": false,
+    "temporary_engineering_baseline_only": true,
+    "parser_as_main_cause_proven": false,
+    "exact_failed_feature_literal_known": false,
+    "cross_group_exact_shared_primary_quotes": 1,
+    "B0_unique_other_quotes": 5,
+    "F_unique_other_quotes": 1,
+    "new_B0_exact_primary_duplicate_pairs": 0,
+    "new_B0_source_overlap_pairs": 2,
+    "specific_prompt_validator_disclosure_gap_confirmed": true,
+    "L05_F_R_input_difference": {
+      "blocks": 1,
+      "code_points": 140,
+      "F_blocks": 524,
+      "R_blocks": 525,
+      "F_code_points": 22364,
+      "R_code_points": 22504
+    }
+  }
+}

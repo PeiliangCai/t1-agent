@@ -1,0 +1,274 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import type { Usage } from '@earendil-works/pi-ai';
+import { ExtractionBudget, S4_LIMITS, type ExtractionBudgetAuthorization, type ExtractionBudgetLimits,
+  type ExtractionBudgetOptions, type RequestAccounting, type WallClockAdjustment } from '../../packages/agent/src/extraction-budget.js';
+
+const endpoint = 'http://synthetic-budget.invalid/v1';
+const start = Date.parse('2026-11-03T00:00:00Z');
+const limits: ExtractionBudgetLimits = { ...S4_LIMITS, requests: 300, input_tokens: 6_000_000, output_tokens: 400_000 };
+// These fixtures authorize only synthetic accounting tests; no provider request is made.
+const authorization: ExtractionBudgetAuthorization = { id: 'synthetic-budget-authorization',
+  source: 'SYNTHETIC TEST ONLY: not a paid API authorization', recorded_at: '2026-11-03T00:00:00Z' };
+const options: ExtractionBudgetOptions = { limits, authorization };
+const usage = (input: number, output: number, cacheRead = 0, cacheWrite = 0, reasoning = 0): Usage => ({
+  input, output, cacheRead, cacheWrite, reasoning, totalTokens: input + output + cacheRead + cacheWrite,
+  cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0, total: 0 },
+});
+async function temporary(body: (directory: string) => Promise<void>) {
+  const prefix = fileURLToPath(new URL('../../runtime-data/synthetic-budget-', import.meta.url));
+  await mkdir(dirname(prefix), { recursive: true, mode: 0o700 });
+  const directory = await mkdtemp(prefix);
+  try { await body(directory); }
+  finally { await rm(directory, { recursive: true, force: true }); }
+}
+
+test('nondefault limits require a complete authorization before a new ledger can be created', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'ledger.json');
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => start, { limits }), /experiment_authorization_required/);
+    for (const invalid of [null, { ...authorization, id: '' }, { ...authorization, source: '  ' },
+      { ...authorization, recorded_at: 'invalid-date' }, { ...authorization, extra: true }]) {
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start,
+        { limits, authorization: invalid as unknown as ExtractionBudgetAuthorization }), /invalid_experiment_authorization/);
+    }
+    for (const invalid of [{ ...limits, requests: 0 }, { ...limits, input_tokens: -1 }, { ...limits, output_tokens: 0.5 },
+      { ...limits, seconds: Infinity }, { ...limits, transient_retries: -1 }, { ...limits, batch_responses: NaN },
+      { ...limits, document_seconds: undefined }, { ...limits, extra: 1 }]) {
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start,
+        { limits: invalid as unknown as ExtractionBudgetLimits, authorization }), /invalid_experiment_limits/);
+    }
+    assert.equal(existsSync(path), false);
+  });
+});
+
+test('authorized 300/6M/400K accounting includes cache and reasoning once and preserves unknown usage on reopen', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'ledger.json');
+    const suppliedLimits = { ...limits }, suppliedAuthorization = { ...authorization };
+    const budget = new ExtractionBudget(path, endpoint, () => start, { limits: suppliedLimits, authorization: suppliedAuthorization });
+    suppliedLimits.requests = 900; suppliedAuthorization.id = 'changed-after-construction';
+    const reported = budget.begin('synthetic', 'reported-accounting', 0, '{}', 80);
+    budget.settle(reported, usage(2_000_001, 70, 200, 100, 50));
+    const unknown = budget.begin('synthetic', 'unknown-accounting', 1, '{}', 80);
+    budget.settle(unknown);
+    const before = await readFile(path, 'utf8');
+    const reopened = new ExtractionBudget(path, endpoint, () => start, options);
+    assert.equal(await readFile(path, 'utf8'), before);
+    assert.deepEqual(reopened.ledger.limits, limits);
+    assert.deepEqual(reopened.ledger.authorization, authorization);
+    assert.equal(reopened.totals().requests, 2);
+    assert.equal(reopened.totals().input_tokens, 2_000_301 + 32768);
+    assert.equal(reopened.totals().output_tokens, 70 + 80);
+    assert.equal(reopened.totals().conservative_missing_usage_requests, 1);
+    assert.equal(reopened.ledger.requests[0]!.reasoning_tokens, 50);
+    assert.equal(reopened.ledger.requests[1]!.usage_status, 'missing_usage_conservative_reservation');
+    assert.equal(reopened.ledger.requests[1]!.input_ceiling, 32768);
+    assert.equal(reopened.ledger.requests[1]!.output_ceiling, 80);
+    assert.equal(reopened.ledger.experiment_started_at, new Date(start).toISOString());
+    assert.equal(reopened.ledger.actual_cost, null);
+    assert.equal(reopened.ledger.cost_status, 'unknown_gateway_billing');
+  });
+});
+
+test('the authorized request limit stops at 300 and a reopen never clears the halt or request history', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'requests.json');
+    const budget = new ExtractionBudget(path, endpoint, () => start, options);
+    for (let i = 0; i < limits.requests - 1; i++) {
+      const entry = budget.begin('synthetic', 'request-boundary', 0, '{}', 1);
+      budget.settle(entry, usage(1, 1));
+    }
+    const final = budget.begin('synthetic', 'final-authorized-request', 0, '{}', 1);
+    assert.equal(budget.totals().requests, 300);
+    assert.throws(() => budget.settle(final, usage(1, 1)), /experiment_request_limit/);
+    assert.throws(() => budget.begin('synthetic', 'request-301', 0, '{}', 1), /experiment_request_limit/);
+    const reopened = new ExtractionBudget(path, endpoint, () => start, options);
+    assert.deepEqual(reopened.totals(), budget.totals());
+    assert.equal(reopened.ledger.halted, 'experiment_request_limit');
+    assert.throws(() => reopened.begin('synthetic', 'request-after-reopen', 0, '{}', 1), /experiment_request_limit/);
+    assert.equal(reopened.totals().requests, 300);
+  });
+});
+
+test('six million input tokens include both cache classes and reserve the next request before it starts', async () => {
+  await temporary(async directory => {
+    const budget = new ExtractionBudget(join(directory, 'input.json'), endpoint, () => start, options);
+    const first = budget.begin('synthetic', 'cached-input-boundary', 0, '{}', 1);
+    budget.settle(first, usage(5_000_000, 1, 900_000, 67_232));
+    assert.equal(budget.totals().input_tokens, limits.input_tokens - 32768);
+    const final = budget.begin('synthetic', 'last-input-reservation', 0, '{}', 1);
+    assert.equal(budget.totals().input_tokens, 6_000_000);
+    budget.settle(final, usage(20_000, 1, 10_000, 2768));
+    budget.check();
+    assert.throws(() => budget.begin('synthetic', 'beyond-input-limit', 0, '{}', 1), /experiment_input_token_limit/);
+    assert.equal(budget.totals().requests, 2);
+    assert.equal(budget.totals().input_tokens, 6_000_000);
+  });
+});
+
+test('reported input beyond the six million cap remains recorded and prevents another request', async () => {
+  await temporary(async directory => {
+    const budget = new ExtractionBudget(join(directory, 'input-overrun.json'), endpoint, () => start, options);
+    const entry = budget.begin('synthetic', 'provider-input-overrun', 0, '{}', 1);
+    assert.throws(() => budget.settle(entry, usage(5_000_000, 1, 1_000_000, 1)), /experiment_input_token_limit/);
+    assert.equal(entry.input_reservation_exceeded, true);
+    assert.equal(entry.usage_status, 'provider_reported');
+    assert.equal(budget.totals().input_tokens, 6_000_001);
+    assert.throws(() => budget.begin('synthetic', 'after-input-overrun', 0, '{}', 1), /experiment_input_token_limit/);
+    assert.equal(budget.totals().requests, 1);
+  });
+});
+
+test('400K output includes reasoning once and rejects the next output reservation', async () => {
+  await temporary(async directory => {
+    const budget = new ExtractionBudget(join(directory, 'output.json'), endpoint, () => start, options);
+    const first = budget.begin('synthetic', 'reasoning-output-boundary', 0, '{}', 1);
+    budget.settle(first, usage(1, 399_999, 0, 0, 300_000));
+    const final = budget.begin('synthetic', 'last-output-reservation', 0, '{}', 1);
+    assert.equal(budget.totals().output_tokens, 400_000);
+    budget.settle(final, usage(1, 1, 0, 0, 1));
+    budget.check();
+    assert.throws(() => budget.begin('synthetic', 'beyond-output-limit', 0, '{}', 1), /experiment_output_token_limit/);
+    assert.equal(budget.totals().requests, 2);
+    assert.equal(budget.totals().output_tokens, 400_000);
+  });
+});
+
+test('unreported usage keeps both reservation caps after reopening an authorized ledger', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'missing.json');
+    const customOptions = { limits: { ...limits, input_tokens: 65_536, output_tokens: 160 }, authorization };
+    const budget = new ExtractionBudget(path, endpoint, () => start, customOptions);
+    budget.settle(budget.begin('synthetic', 'unknown-one', 0, '{}', 80));
+    budget.settle(budget.begin('synthetic', 'unknown-two', 0, '{}', 80), usage(0, 0));
+    const reopened = new ExtractionBudget(path, endpoint, () => start, customOptions);
+    assert.equal(reopened.totals().input_tokens, 65_536);
+    assert.equal(reopened.totals().output_tokens, 160);
+    assert.equal(reopened.totals().conservative_missing_usage_requests, 2);
+    assert.throws(() => reopened.begin('synthetic', 'unreserved-three', 0, '{}', 1), /experiment_input_token_limit/);
+    assert.equal(reopened.totals().requests, 2);
+  });
+});
+
+test('reopening rejects changed configured limits or authorization without rewriting the existing ledger', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'reopen.json');
+    const budget = new ExtractionBudget(path, endpoint, () => start, options);
+    budget.settle(budget.begin('synthetic', 'preserved-history', 0, '{}', 1), usage(10, 1));
+    const original = await readFile(path, 'utf8');
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => start), /experiment_limits_changed/);
+    for (const key of Object.keys(limits) as Array<keyof ExtractionBudgetLimits>) {
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start,
+        { limits: { ...limits, [key]: limits[key] + 1 }, authorization }), /experiment_limits_changed/);
+    }
+    for (const changed of [{ ...authorization, id: 'another-authorization' }, { ...authorization, source: 'another-source' },
+      { ...authorization, recorded_at: '2026-11-03T00:00:01Z' }]) {
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start, { limits, authorization: changed }), /experiment_authorization_changed/);
+    }
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => start, { limits }), /experiment_authorization_required/);
+    assert.equal(await readFile(path, 'utf8'), original);
+  });
+});
+
+test('ledger-file limit and authorization tampering are rejected instead of silently adopting new authority', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'tampered.json');
+    const budget = new ExtractionBudget(path, endpoint, () => start, options);
+    budget.settle(budget.begin('synthetic', 'preserved-history', 0, '{}', 1), usage(10, 1));
+    const original = await readFile(path, 'utf8');
+    for (const key of Object.keys(limits) as Array<keyof ExtractionBudgetLimits>) {
+      const ledger = JSON.parse(original) as typeof budget.ledger;
+      ledger.limits[key] += 1;
+      const tampered = JSON.stringify(ledger, null, 2) + '\n'; await writeFile(path, tampered);
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start, options), /experiment_limits_changed/);
+      assert.equal(await readFile(path, 'utf8'), tampered);
+    }
+    for (const field of ['id', 'source', 'recorded_at', 'missing'] as const) {
+      const ledger = JSON.parse(original) as typeof budget.ledger;
+      if (field === 'missing') delete ledger.authorization;
+      else ledger.authorization![field] = field === 'recorded_at' ? '2026-11-03T00:00:01Z' : 'tampered';
+      const tampered = JSON.stringify(ledger, null, 2) + '\n'; await writeFile(path, tampered);
+      assert.throws(() => new ExtractionBudget(path, endpoint, () => start, options), /experiment_authorization_changed/);
+      assert.equal(await readFile(path, 'utf8'), tampered);
+    }
+    await writeFile(path, original);
+    const reopened = new ExtractionBudget(path, endpoint, () => start, options);
+    assert.equal(reopened.totals().requests, 1);
+    assert.equal(reopened.totals().input_tokens, 10);
+  });
+});
+
+test('legacy default ledgers retain their original schema, accounting, and strict default limits', async () => {
+  await temporary(async directory => {
+    const path = join(directory, 'legacy.json');
+    const budget = new ExtractionBudget(path, endpoint, () => start);
+    budget.settle(budget.begin('synthetic', 'legacy-accounting', 0, '{}', 80), usage(700, 70, 200, 100, 50));
+    const original = await readFile(path, 'utf8');
+    assert.equal('authorization' in JSON.parse(original), false);
+    assert.deepEqual(budget.ledger.limits, S4_LIMITS);
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => start, options), /experiment_limits_changed/);
+    assert.equal(await readFile(path, 'utf8'), original);
+    const reopened = new ExtractionBudget(path, endpoint, () => start);
+    assert.equal(await readFile(path, 'utf8'), original);
+    assert.equal(reopened.totals().requests, 1);
+    assert.equal(reopened.totals().input_tokens, 1000);
+    assert.equal(reopened.totals().output_tokens, 70);
+    assert.equal(reopened.wallClockSeconds, 7200);
+    const tampered = JSON.parse(original) as typeof budget.ledger;
+    tampered.limits.input_tokens += 1; await writeFile(path, JSON.stringify(tampered));
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => start), /experiment_limits_changed/);
+  });
+});
+
+test('legacy wall-clock adjustments cannot extend or be imported into a nondefault authorized batch', async () => {
+  await temporary(async directory => {
+    let now = start;
+    const path = join(directory, 'wall-clock.json');
+    const budget = new ExtractionBudget(path, endpoint, () => now, options);
+    budget.settle(budget.begin('synthetic', 'wall-clock-boundary', 0, '{}', 1), usage(1, 1));
+    const adjustment: WallClockAdjustment = { from_seconds: 7200, to_seconds: 14400, authorized_by: 'main_session_astra',
+      recorded_at: '2026-11-03T00:00:01Z', evidence_sha256: 'a'.repeat(64) };
+    assert.throws(() => budget.extendExperimentWallClock(adjustment), /invalid_wall_clock_adjustment/);
+    assert.equal(budget.wallClockSeconds, 7200);
+    const original = await readFile(path, 'utf8');
+    const tampered = JSON.parse(original) as typeof budget.ledger;
+    tampered.wall_clock_adjustments = [adjustment]; await writeFile(path, JSON.stringify(tampered));
+    assert.throws(() => new ExtractionBudget(path, endpoint, () => now, options), /invalid_wall_clock_adjustment/);
+    await writeFile(path, original);
+    const reopened = new ExtractionBudget(path, endpoint, () => now, options);
+    now += 7200 * 1000 - 1; reopened.check(); now += 1;
+    assert.throws(() => reopened.check(), /experiment_time_limit/);
+    assert.equal(reopened.ledger.experiment_started_at, new Date(start).toISOString());
+    assert.equal(reopened.totals().requests, 1);
+    const legacy = new ExtractionBudget(join(directory, 'legacy-wall-clock.json'), endpoint, () => start);
+    legacy.extendExperimentWallClock(adjustment);
+    assert.equal(new ExtractionBudget(legacy.path, endpoint, () => start).wallClockSeconds, 14400);
+  });
+});
+
+test('guarded fetch uses instance batch, output reservation, request deadline, and total wall-clock limits', async t => {
+  await temporary(async directory => {
+    const customOptions = { limits: { ...limits, seconds: 2, request_seconds: 1, batch_responses: 1, response_output_tokens: 7 }, authorization };
+    const budget = new ExtractionBudget(join(directory, 'fetch.json'), endpoint, () => start, customOptions);
+    let fetchCount = 0;
+    t.mock.method(globalThis, 'fetch', async () => { fetchCount++; return new Response('synthetic response'); });
+    const entries: RequestAccounting[] = [];
+    assert.throws(() => budget.guardedFetch('synthetic', 'fetch-caps', 0, entries, undefined, undefined, 1001), /request_deadline_exceeds_authorized_limit/);
+    const guarded = budget.guardedFetch('synthetic', 'fetch-caps', 0, entries);
+    const payload = { method: 'POST', body: JSON.stringify({ model: 'synthetic', stream: true, store: false }) };
+    const response = await guarded(endpoint + '/responses', payload); await response.text();
+    budget.settle(entries[0]!);
+    assert.equal(fetchCount, 1);
+    assert.equal(entries[0]!.output_ceiling, 7);
+    assert.equal(entries[0]!.configured_deadline_ms, 1000);
+    assert.equal(budget.wallClockSeconds, 2);
+    await assert.rejects(guarded(endpoint + '/responses', payload), /batch_response_limit/);
+    assert.equal(fetchCount, 1);
+    assert.equal(budget.totals().requests, 1);
+  });
+});

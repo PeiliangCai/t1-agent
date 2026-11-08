@@ -1,0 +1,40 @@
+
+> t1-agent@0.1.0 test:evaluation
+> tsx --test tests/evaluation/*.test.ts
+
+✔ CLI keeps synthetic scoring in fixture reports and preserves previous output (2551.533548ms)
+✔ CLI refuses to put a fixture report in the real-report directory (812.951114ms)
+✔ CLI returns a distinct unevaluable exit code for an unpopulated real input (477.557812ms)
+✔ maximum matching repairs the greedy trap instead of losing a valid TP (10.366137ms)
+✔ maximum cardinality agrees with exhaustive search on every 3 by 3 graph (53.842589ms)
+✔ duplicate predictions add FP and never add a second TP for one gold unit (10.460058ms)
+✔ out-of-scope independent predictions count FP; out-of-scope gold never counts FN (2.766545ms)
+✔ failed/partial/cancelled/interrupted papers retain all their missed gold (5.439147ms)
+✔ multiple cross-page/block segments remain a single evidence unit (3.585826ms)
+✔ duplicated canonical gold IDs or prediction record IDs are invalid inputs (7.314835ms)
+✔ unknown, duplicated or contradictory matching edges cannot silently affect scores (12.034602ms)
+✔ a positive edge cannot override a failed context or scope check (21.292144ms)
+✔ identical text is not automatically a medical semantic match (1.882464ms)
+✔ zero denominators yield null/not applicable, never fabricated full marks (1.622971ms)
+✔ fixture/real or purpose mixing is rejected even for otherwise complete sample inputs (1.887021ms)
+✔ empty real preparation template is not evaluable and has no metrics or acceptance result (0.476413ms)
+✔ missing full human annotation, medical review and matching adjudication cannot yield real scores (6.90685ms)
+✔ one unadjudicated document prevents partial corpus scoring that could hide omissions (1.022173ms)
+✔ selected-empty scope is rejected without widening it (1.435887ms)
+✔ segment offsets and original physical-page requirements reject invalid mappings (4.622052ms)
+✔ overall and stratum counts include failed documents and preserve matches/basis (5.594459ms)
+✔ malformed or extra fields cannot become valid scores (0.434554ms)
+✔ the complete source register and family draft meet the contracts without sealing exposed papers (95.74192ms)
+✔ MED04 and L07 share a family and cannot be split across development and regression (27.644ms)
+✔ historically exposed sources cannot be re-labelled independent acceptance (15.00629ms)
+✔ current file bytes match this round and old hashes/pages do not stand in for absent files (37.114707ms)
+✔ 35 historical IDs and source records are retained; no draft becomes the product catalog (3.694126ms)
+✔ blank human templates contain no manufactured reviewer, gold, or full-text completion (0.354193ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4010.902923

@@ -1,0 +1,571 @@
+{
+  "schema_version": "PDF-structure-user-review-checklist-1",
+  "updated_at_utc": "2026-11-07T16:10:47.358692+00:00",
+  "status": "actual_review_pack_bound_user_feedback_pending",
+  "entry": "code/apps/pi-web/public/input-review/index.html",
+  "pack_id": "pdf-structure-review-2026-11-07-v1",
+  "pack_sha256": "5e63abbf7bc477d7beefa3fecca518ea5ea9ea20dff758b7b0b17b38f3de85c4",
+  "data_record": "code/apps/pi-web/public/input-review/data.json",
+  "source_unit_version": "literal-source-sentences-4",
+  "sources": 3,
+  "cases_count": 20,
+  "review_points": 43,
+  "case_types": {
+    "figure": 7,
+    "table": 3,
+    "continuation": 10
+  },
+  "restored_continuations": 8,
+  "reference_candidates_needing_user_judgment": 2,
+  "actual_user_feedback_received": 0,
+  "counts_are_not_medical_samples_or_accuracy": true,
+  "scope": "原PDF解析、文字/原页定位和图文对应的普通用户意见；不是新模型抽取、医学或产品逐条批准，不恢复全文医学标准答案。",
+  "cases": [
+    {
+      "case_id": "L07-P09-F6",
+      "paper": "L07",
+      "physical_pages": [
+        9
+      ],
+      "kind": "figure",
+      "title": "图6：底部脚注与上下示意图",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "底部带星号的MRI脚注是否完整可见，没有被裁断？"
+        },
+        {
+          "question_id": "q2",
+          "text": "上下STAGING、RESTAGING两块及左侧图6图注是否都保留、没有串图？"
+        }
+      ],
+      "before_note": "修前：同一PDF的此前裁图，供查看裁边变化。",
+      "after_note": "修后：补齐原PDF完整位图边界；点击图像可放大。",
+      "case_version": "PDF结构核验版1 · d7c062b3e8df",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "3f39f0aa3b8427798d621a37cf5fea92cf0582c56bfb59a57bb43b235ee49b39",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-P04-F2",
+      "paper": "L07",
+      "physical_pages": [
+        4
+      ],
+      "kind": "figure",
+      "title": "图2：四面板与双栏图注",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "上排A/B和下排C/D四个面板与字母是否齐全，右侧和底部有没有裁掉内容？"
+        },
+        {
+          "question_id": "q2",
+          "text": "图2左右两栏图注是否都保留，且按先左栏、后右栏的来源顺序对照正确？"
+        }
+      ],
+      "before_note": "修前：同一PDF的此前裁图，供查看裁边变化。",
+      "after_note": "修后：补齐原PDF完整位图边界；点击图像可放大。",
+      "case_version": "PDF结构核验版1 · d7c062b3e8df",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "3b9f8a4d36d3144b9260d67b456d130fa591a43c57d17b0c2b25576d3b871d0a",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-P06-F3",
+      "paper": "L07",
+      "physical_pages": [
+        6
+      ],
+      "kind": "figure",
+      "title": "图3：图例、A-D与跨栏图注",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "左侧图例、中间定位示意和右侧A-D四幅是否都在，底部是否完整？"
+        },
+        {
+          "question_id": "q2",
+          "text": "左栏末尾pos-与右栏开头teriorly及后续图注是否顺序正确、连字符原样保留？"
+        }
+      ],
+      "before_note": "修前：同一PDF的此前裁图，供查看裁边变化。",
+      "after_note": "修后：补齐原PDF完整位图边界；点击图像可放大。",
+      "case_version": "PDF结构核验版1 · d7c062b3e8df",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "3de4ba862bcd7278880b5247186ce7f1fc39f3e2d8338a0205477c42b41b056a",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-P07-F4-CONTROL",
+      "paper": "L07",
+      "physical_pages": [
+        7
+      ],
+      "kind": "figure",
+      "title": "图4：四幅图与出版社标志",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "图4左侧图注是否对应右侧四幅大图，而不是页脚Springer小标志？"
+        },
+        {
+          "question_id": "q2",
+          "text": "四幅图是否都保留，且没有把页脚或相邻正文混进整图？"
+        }
+      ],
+      "before_note": "此前裁图与当前PNG相同；不将回归保留算作新增修复。",
+      "after_note": "核对后无需裁图修改：本轮保留既有整图，PNG指纹相同。",
+      "case_version": "PDF结构核验版1 · d7c062b3e8df",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "fc4ca350de5a6eeaad26af61c3e764feb854a262e3a70093e53b77ddd9476ec3",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-P08-F5-CONTROL",
+      "paper": "L07",
+      "physical_pages": [
+        8
+      ],
+      "kind": "figure",
+      "title": "图5：上下A/B示意图",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "上下A/B、图内文字与右上小图是否都完整保留？"
+        },
+        {
+          "question_id": "q2",
+          "text": "左侧图5图注是否对应此幅上下示意图，没有串到图4或图6？"
+        }
+      ],
+      "before_note": "此前裁图与当前PNG相同；不将回归保留算作新增修复。",
+      "after_note": "核对后无需裁图修改：本轮保留既有整图，PNG指纹相同。",
+      "case_version": "PDF结构核验版1 · d7c062b3e8df",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "39666064998546ea10b4206581ccd14dbe66484faaf3ed866ceddf97895ba9d4",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L05-P08-F4",
+      "paper": "L05",
+      "physical_pages": [
+        8
+      ],
+      "kind": "figure",
+      "title": "图4：A-I九联图及三组图注",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "3×3九个面板A-I及各标号是否齐全，没有裁掉右边或底部？"
+        },
+        {
+          "question_id": "q2",
+          "text": "图注A-C、D-F、G-I三组原文是否完整，并与原页各组字母对应？"
+        }
+      ],
+      "before_note": "此前裁图与当前PNG相同；不将回归保留算作新增修复。",
+      "after_note": "核对后无需裁图修改：本轮保留既有整图，PNG指纹相同。",
+      "case_version": "PDF结构核验版1 · 67a0541d7c7b",
+      "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "artifact_sha256": "970233ed750bb073c1868be0076b2ab45857943aa138cdefe85b35a4436959dc",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L01-P02-F1",
+      "paper": "L01",
+      "physical_pages": [
+        2
+      ],
+      "kind": "figure",
+      "title": "图1：三CT面板、Note与图名",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "（a）（b）（c）三个面板、箭头与字母是否都在整图中？"
+        },
+        {
+          "question_id": "q2",
+          "text": "图下两行“注”与图1标题是否无遗漏、顺序与原页一致？"
+        }
+      ],
+      "before_note": "此前裁图与当前PNG相同；不将回归保留算作新增修复。",
+      "after_note": "核对后无需裁图修改：本轮保留既有整图，PNG指纹相同。",
+      "case_version": "PDF结构核验版1 · 5d8e75d3d650",
+      "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "artifact_sha256": "b79e945669682a5024c1f76df19c7a95af59677f9aacff88a3ae83d9449b4f4e",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L01-continuation-e044f321ee",
+      "paper": "L01",
+      "physical_pages": [
+        1
+      ],
+      "kind": "continuation",
+      "title": "L01 · p1 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · f4a0e64cbf17",
+      "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "artifact_sha256": "e4e5c41902a666c9772c70c59efee5448a7a168eb5b493e7e91dc01542170936",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L01-continuation-44c944031c",
+      "paper": "L01",
+      "physical_pages": [
+        1,
+        2
+      ],
+      "kind": "continuation",
+      "title": "L01 · p1→2 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · e8129513b2db",
+      "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "artifact_sha256": "97dd79fc7f36edbf518bdb01096c35364b70d3c946ef74b1a805368838336cb1",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L01-continuation-6bd96a14b1",
+      "paper": "L01",
+      "physical_pages": [
+        4
+      ],
+      "kind": "continuation",
+      "title": "L01 · p4 参考文献续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "该候选续接仍待你判断；不自动认定成立。",
+      "case_version": "PDF结构核验版1 · 14215e83e8ca",
+      "source_ir_sha256": "258fa7323d187f1f3c5cdfe3f12d71ff0fd6c550356612c4d0c384264cfa3bf8",
+      "artifact_sha256": "dad58c071cd7670745928ad84205226df5ae4b346649a0755cfd9c1fdd21614d",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L05-p7-Table4",
+      "paper": "L05",
+      "physical_pages": [
+        7
+      ],
+      "kind": "table",
+      "title": "L05 · p7 表4：行列和多级表头",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "每一行/列的文字、数值、单位、斜线与空白是否对应原页？"
+        },
+        {
+          "question_id": "q2",
+          "text": "多级表头和左侧分组的合并范围是否正确？"
+        },
+        {
+          "question_id": "q3",
+          "text": "脚注是否完整且属于此表？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 0ab2d620a8a6",
+      "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "artifact_sha256": "d9ffeec194a15ffc207487da04ad6ae15eed6518d43435be8a2d9d907d655d8b",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L05-p5-Table2",
+      "paper": "L05",
+      "physical_pages": [
+        5
+      ],
+      "kind": "table",
+      "title": "L05 · p5 表2：行列和多级表头",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "每一行/列的文字、数值、单位、斜线与空白是否对应原页？"
+        },
+        {
+          "question_id": "q2",
+          "text": "多级表头和左侧分组的合并范围是否正确？"
+        },
+        {
+          "question_id": "q3",
+          "text": "脚注是否完整且属于此表？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · fedd57b0a927",
+      "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "artifact_sha256": "1028b05508f0e9fdc99fc5d79a03e66885e665983ddb7db1fbb46fe4b9bcb642",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L05-p6-Table3",
+      "paper": "L05",
+      "physical_pages": [
+        6
+      ],
+      "kind": "table",
+      "title": "L05 · p6 表3：行列和表头",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "LASSO与Coefficient是否为同一表头的换行，而非两列子表头？"
+        },
+        {
+          "question_id": "q2",
+          "text": "Group2末行12.78(±4.71)是否完整保留在同一格？"
+        },
+        {
+          "question_id": "q3",
+          "text": "Table3表题、表底脚注与下方Fig3是否清楚分开？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 73fee6479f6e",
+      "source_ir_sha256": "c0e660754649fcd1b4d1b46decd3a80ac8840bed5a8893839fe8b977a1c45b2b",
+      "artifact_sha256": "70b6586018346d897daf51f91f3f2ce04c6a704c00052a0071199e9710ec5373",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-0c24dc4dd1",
+      "paper": "L07",
+      "physical_pages": [
+        4
+      ],
+      "kind": "continuation",
+      "title": "L07 · p4 Fig2图注续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · d456a1afd9d6",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "66156d0476bc8ba265e357c7b8f33ae0c65d946e700ca0ba8f63840b927f72dd",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-6cdbf91641",
+      "paper": "L07",
+      "physical_pages": [
+        6
+      ],
+      "kind": "continuation",
+      "title": "L07 · p6 Fig3图注续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 0461cf51d6c4",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "1188bc8d4531c8df2ed1cf40937894f93da21c09d7d0901ceb2bcdeee8dac54c",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-d2ae8157db",
+      "paper": "L07",
+      "physical_pages": [
+        7
+      ],
+      "kind": "continuation",
+      "title": "L07 · p7 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 8af0ba331b6b",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "728c0af68d2b7413aeea0dc39664270e08c0249a1ea569d8f9df3e7c18044ff0",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-b05928da2b",
+      "paper": "L07",
+      "physical_pages": [
+        9,
+        10
+      ],
+      "kind": "continuation",
+      "title": "L07 · p9→10 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 231ff646467b",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "d34e2c71bb9706145f8c2464b2baeddcc9b744d6c5d89764e578a45b6d8388f5",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-9d2555b748",
+      "paper": "L07",
+      "physical_pages": [
+        10
+      ],
+      "kind": "continuation",
+      "title": "L07 · p10 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · c56b6722169e",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "e06a179112a04d89ba1c1cb72cd5b933d8905de0b4366b7c90b57fc9a6cf2bc1",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-0a2b4909f8",
+      "paper": "L07",
+      "physical_pages": [
+        11
+      ],
+      "kind": "continuation",
+      "title": "L07 · p11 正文续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "当前解析结果；请按原页逐项核对，未作医学或产品批准。",
+      "case_version": "PDF结构核验版1 · 2417975b1e3e",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "064fe1ad181125f46973d4ad789091fde88eb3409ce293c5b37028ab93d00cd2",
+      "user_feedback_received": false
+    },
+    {
+      "case_id": "L07-continuation-2846906f1d",
+      "paper": "L07",
+      "physical_pages": [
+        13
+      ],
+      "kind": "continuation",
+      "title": "L07 · p13 参考文献续接",
+      "objective_criteria": [
+        {
+          "question_id": "q1",
+          "text": "两段是否是原文同一段落/同一条目或图注的连续部分？"
+        },
+        {
+          "question_id": "q2",
+          "text": "显示顺序、页码/栏与原文字符（含连字符）是否正确？"
+        }
+      ],
+      "before_note": "此前排版/顺序结果，仅供查看变化，不作原文依据。",
+      "after_note": "该候选续接仍待你判断；不自动认定成立。",
+      "case_version": "PDF结构核验版1 · 1c8f22690365",
+      "source_ir_sha256": "a1e386adb67af98f278a43b0daba714e5ca695cc84a2f0fc4aa554b654fc0ac5",
+      "artifact_sha256": "0ebfd671c2d2525beea8efef1d4abaac8e90474bc4b8f1ea6ec909515df10db2",
+      "user_feedback_received": false
+    }
+  ],
+  "remaining": [
+    "L01物理第4页与L07物理第13页两处参考文献续接仍需用户判断，未自动合并",
+    "用户对20案例/43核验点的真实意见尚未收到；先读取意见再做具体修正",
+    "本页未纳入L02他文守护案例及L05统计图2/3缺region案例，不将其记为已修或已核",
+    "几例修复及页面交付不保证全文结构、医学/目标配图适用性或最终S3/S4质量；无新模型比较或调用许可"
+  ],
+  "baseline_cases_not_in_this_page": [
+    {
+      "id": "L05-P05-F2",
+      "paper": "L05",
+      "physical_pages": [
+        5
+      ],
+      "status": "not_in_current_pack_not_claimed_repaired_or_reviewed"
+    },
+    {
+      "id": "L05-P06-F3",
+      "paper": "L05",
+      "physical_pages": [
+        6
+      ],
+      "status": "not_in_current_pack_not_claimed_repaired_or_reviewed"
+    },
+    {
+      "id": "L02-P03-OTHER-ARTICLE-CONTROL",
+      "paper": "L02",
+      "physical_pages": [
+        3
+      ],
+      "status": "not_in_current_pack_not_claimed_repaired_or_reviewed"
+    }
+  ]
+}

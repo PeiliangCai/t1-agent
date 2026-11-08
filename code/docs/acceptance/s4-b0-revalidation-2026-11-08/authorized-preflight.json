@@ -1,0 +1,40 @@
+{
+  "schema_version": "b0-offline-preflight-1",
+  "plan_sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026",
+  "method": "B0",
+  "purpose": "s4_b0_revalidation_no_method_comparison",
+  "status": "offline_bindings_valid_no_execution",
+  "execution_order": [
+    "L07-B0",
+    "L01-B0",
+    "L05-B0"
+  ],
+  "source_snapshot_files": 66,
+  "papers": 3,
+  "observations": 10,
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "proposed_limits": {
+    "requests": 128,
+    "input_tokens": 2500000,
+    "output_tokens": 160000,
+    "seconds": 3600,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "raw_parser_partial_is_not_task_failure": true,
+  "authorization_binding_checked": true,
+  "this_report_is_not_user_authorization": true,
+  "execution_started": false,
+  "model_provider_requests": 0,
+  "stage_passed": false,
+  "medical_quality_approved": false
+}

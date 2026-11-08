@@ -1,0 +1,23 @@
+{
+  "schema_version": "s4-artifact-checker-invocation-1",
+  "command": [
+    "code/.venv/bin/python",
+    "-B",
+    "code/scripts/check-s4-selection-artifacts.py",
+    "--base",
+    "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03",
+    "--phase",
+    "final",
+    "--require-plan-sync"
+  ],
+  "observed_process_exit_code": 0,
+  "result_path": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/artifact-validation/20261103T163751.177014Z-final/result.json",
+  "result_sha256": "a48633a4c4f1d3bb3192968b246e49c5fd56eb89b8ade1f472a2a194919e2631",
+  "checker": {
+    "path": "/home/ecs-user/projects/t1-agent/code/scripts/check-s4-selection-artifacts.py",
+    "sha256": "ee6a6134c21756620f0da21c4f37f02ff57d5a5b835cfb774d9cd3f19f857b3c",
+    "python": "3.12.3"
+  },
+  "external_requests": 0,
+  "application_tests_rerun": false
+}

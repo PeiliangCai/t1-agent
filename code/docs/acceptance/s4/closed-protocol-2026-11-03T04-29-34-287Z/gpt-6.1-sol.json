@@ -1,0 +1,1059 @@
+{
+  "model_id": "gpt-6.1-sol",
+  "purpose": "explicit_synthetic_S4_protocol_probe",
+  "fixture": true,
+  "medical_evidence": false,
+  "protocol_version": "s4-unified-batch-lines-5",
+  "profile_version": "s4-development-medium-official-context-3",
+  "success": true,
+  "record_count": 2,
+  "batch_completed": true,
+  "result": {
+    "settled": true,
+    "responses": 2,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call_a18df9f2185944d9bb72102343f67f59|fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call_a18df9f2185944d9bb72102343f67f59|fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497",
+        "error": false
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e"
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e",
+        "error": false
+      }
+    ],
+    "usage": [
+      {
+        "input": 1346,
+        "output": 99,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 78,
+        "totalTokens": 1445,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 5914,
+        "output": 220,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 8,
+        "totalTokens": 6134,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "8257ca4c-a5db-44fc-a1f3-a76250614022",
+      "168c299c-b9b3-401f-81a8-2289bee1cd58"
+    ],
+    "transient_error": false
+  },
+  "argument_samples": [
+    {
+      "call_id": "call_a18df9f2185944d9bb72102343f67f59|fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497",
+      "tool": "read_document_blocks",
+      "argument_sha256": "56771035bb4e1c4505583f9a28da27f3df8fff03ae284f2a35eb7a76a7db8c18",
+      "public_synthetic_argument_sample": "{\"line_indices\":[]}",
+      "truncated": false
+    },
+    {
+      "call_id": "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e",
+      "tool": "submit_candidate_records",
+      "argument_sha256": "f1048a903754f97d8fd3ecab74e6c834d40815638ba3888845292c806906d3b3",
+      "public_synthetic_argument_sample": "{\"records\":[{\"source_line_indices\":[0],\"feature_name_raw\":\"blue rim\",\"feature_category\":\"margin\",\"evidence_type\":\"imaging_observation\",\"assertion\":\"affirmed\",\"origin\":\"study_authors\",\"modality\":{\"value\":\"CT\",\"line_indices\":[0]},\"disease_or_lesion\":null,\"sequence_or_phase\":null,\"numeric_expressions\":[{\"original_text\":\"7 mm\",\"unit_original\":\"mm\",\"line_indices\":[0]}]},{\"source_line_indices\":[5],\"feature_name_raw\":\"red rim\",\"feature_category\":\"margin\",\"evidence_type\":\"imaging_observation\",\"assertion\":\"affirmed\",\"assertion_line_indices\":[5],\"origin\":\"study_authors\",\"modality\":{\"value\":\"CT\",\"line_indices\":[5]},\"disease_or_lesion\":null,\"sequence_or_phase\":null,\"numeric_expressions\":[{\"original_text\":\"9 mm\",\"unit_original\":\"mm\",\"line_indices\":[5]}]}],\"batch_complete\":true}",
+      "truncated": false
+    }
+  ],
+  "records": [
+    {
+      "record": {
+        "record_id": "ev-39eb30c7c4c628c6f422fd433e139bade66f898d",
+        "document_id": "closed-probe-synthetic-document",
+        "article_family_id": "synthetic-family",
+        "bibliographic_identity": {
+          "title": "Synthetic S4 engineering fixture; not a medical paper",
+          "authors": [],
+          "venue": null,
+          "year": null,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "unverified"
+        },
+        "source_version": {
+          "file_sha256": "831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+          "source_kind": "synthetic_engineering_fixture",
+          "version": "sha256:831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+          "obtained_at": "2026-11-03T00:00:00Z"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "synthetic-line-6",
+          "bbox": [
+            10,
+            110,
+            500,
+            125
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "synthetic-line-6",
+              "physical_page": 1,
+              "bbox": [
+                10,
+                110,
+                500,
+                125
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "synthetic-code-point-text-8312599851208871",
+        "original_quote": "We observed a red rim measuring 9 mm on CT.",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "synthetic-line-6",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 43,
+              "exact_quote": "We observed a red rim measuring 9 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                110,
+                500,
+                125
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "single_source_segment",
+          "contiguous_source_quote": true
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "provided",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "synthetic-line-6",
+                "text_version": "synthetic-code-point-text-8312599851208871",
+                "start": 0,
+                "end": 43,
+                "exact_quote": "We observed a red rim measuring 9 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  110,
+                  500,
+                  125
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-6",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 43,
+              "exact_quote": "We observed a red rim measuring 9 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                110,
+                500,
+                125
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "red rim",
+        "feature_category": "margin",
+        "evidence_type": "imaging_observation",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "We observed a red rim measuring 9 mm on CT.",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-6",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 43,
+              "exact_quote": "We observed a red rim measuring 9 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                110,
+                500,
+                125
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "unknown",
+          "original_wording": "",
+          "evidence": []
+        },
+        "numeric_expressions": [
+          {
+            "original_text": "9 mm",
+            "unit_original": "mm",
+            "evidence": [
+              {
+                "block_id": "synthetic-line-6",
+                "text_version": "synthetic-code-point-text-8312599851208871",
+                "start": 0,
+                "end": 43,
+                "exact_quote": "We observed a red rim measuring 9 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  110,
+                  500,
+                  125
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          }
+        ],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "passed",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "new_term_pending_human_review",
+            "includes_whole_source_line_quotes_not_minimal_feature_spans"
+          ],
+          "issues": [
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "synthetic-task",
+          "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+          "fixture": true,
+          "evidence_kind": "engineering_fixture",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "synthetic-unavailable-catalog-1",
+            "matching_policy_version": "exact-explicit-synonyms-1"
+          },
+          "catalog_version": "synthetic-unavailable-catalog-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "exact-explicit-synonyms-1",
+          "rule_version": "synthetic-s4-rules-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "synthetic-no-parser-call",
+          "read_block_ids": [
+            "synthetic-line-1",
+            "synthetic-line-2",
+            "synthetic-line-3",
+            "synthetic-line-4",
+            "synthetic-line-5",
+            "synthetic-line-6"
+          ],
+          "provided_block_ids": [
+            "synthetic-line-1",
+            "synthetic-line-2",
+            "synthetic-line-3",
+            "synthetic-line-4",
+            "synthetic-line-5",
+            "synthetic-line-6"
+          ],
+          "tool_call_ids": [
+            "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e"
+          ],
+          "source_binding": {
+            "task_id": "synthetic-task",
+            "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+            "document_id": "closed-probe-synthetic-document",
+            "file_sha256": "831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+            "source_version": "sha256:831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+            "text_version": "synthetic-code-point-text-8312599851208871"
+          },
+          "updates_record_id": null
+        },
+        "review_status": "pending",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "version": 1,
+      "actor": "automatic",
+      "status": "active",
+      "created_at": "2026-11-03T04:29:58.669Z",
+      "reason": "insert"
+    },
+    {
+      "record": {
+        "record_id": "ev-5201884b7564d2d1512d494fa40c45812249b69a",
+        "document_id": "closed-probe-synthetic-document",
+        "article_family_id": "synthetic-family",
+        "bibliographic_identity": {
+          "title": "Synthetic S4 engineering fixture; not a medical paper",
+          "authors": [],
+          "venue": null,
+          "year": null,
+          "doi": null,
+          "pmid": null,
+          "identity_status": "unverified"
+        },
+        "source_version": {
+          "file_sha256": "831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+          "source_kind": "synthetic_engineering_fixture",
+          "version": "sha256:831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+          "obtained_at": "2026-11-03T00:00:00Z"
+        },
+        "document_access": "full_text",
+        "source_location": {
+          "kind": "pdf_textline",
+          "physical_page": 1,
+          "block_id": "synthetic-line-1",
+          "bbox": [
+            10,
+            10,
+            500,
+            25
+          ],
+          "location_precision": "whole_textline_not_exact_glyph",
+          "locations": [
+            {
+              "block_id": "synthetic-line-1",
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "text_version": "synthetic-code-point-text-8312599851208871",
+        "original_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+        "quote_span": {
+          "unit": "unicode_code_point",
+          "interval": "[start,end)",
+          "segments": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ],
+          "display_joiner": "\n",
+          "quote_kind": "single_source_segment",
+          "contiguous_source_quote": true
+        },
+        "context": {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-8312599851208871",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        "disease_or_lesion": {
+          "value": null,
+          "status": "unknown",
+          "evidence": []
+        },
+        "modality": {
+          "value": "CT",
+          "status": "source_observed",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "sequence_or_phase": null,
+        "feature_name_raw": "blue rim",
+        "feature_category": "margin",
+        "evidence_type": "imaging_observation",
+        "assertion": {
+          "value": "affirmed",
+          "original_wording": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+          "evidence": [
+            {
+              "block_id": "synthetic-line-1",
+              "text_version": "synthetic-code-point-text-8312599851208871",
+              "start": 0,
+              "end": 72,
+              "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+              "occurrence": 0,
+              "physical_page": 1,
+              "bbox": [
+                10,
+                10,
+                500,
+                25
+              ],
+              "location_precision": "whole_textline_not_exact_glyph"
+            }
+          ]
+        },
+        "applicability": {
+          "status": "unknown",
+          "original_wording": "",
+          "evidence": []
+        },
+        "numeric_expressions": [
+          {
+            "original_text": "7 mm",
+            "unit_original": "mm",
+            "evidence": [
+              {
+                "block_id": "synthetic-line-1",
+                "text_version": "synthetic-code-point-text-8312599851208871",
+                "start": 0,
+                "end": 72,
+                "exact_quote": "SYNTHETIC ENGINEERING ONLY. We observed a blue rim measuring 7 mm on CT.",
+                "occurrence": 0,
+                "physical_page": 1,
+                "bbox": [
+                  10,
+                  10,
+                  500,
+                  25
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          }
+        ],
+        "normalized_terms": [],
+        "translation_zh": null,
+        "evidence_validation": {
+          "quote_located": true,
+          "method": "exact_source_blocks_code_points_v1",
+          "automatic_checks": {
+            "status": "requires_review",
+            "checks": [
+              "bound_source_identity",
+              "provided_and_read_source_blocks",
+              "exact_code_point_spans",
+              "explicit_scope_and_synonym_match",
+              "limited_lexical_consistency"
+            ]
+          },
+          "medical_semantics_verified": false,
+          "model_semantic_review": {
+            "status": "not_performed",
+            "model_id": null,
+            "issue_codes": []
+          },
+          "human_approval": "not_performed",
+          "warnings": [
+            "condition_requires_context",
+            "new_term_pending_human_review",
+            "includes_whole_source_line_quotes_not_minimal_feature_spans"
+          ],
+          "issues": [
+            {
+              "code": "condition_requires_context",
+              "severity": "requires_review",
+              "path": "applicability",
+              "detail": ""
+            },
+            {
+              "code": "new_term_pending_human_review",
+              "severity": "info",
+              "path": "scope",
+              "detail": ""
+            }
+          ],
+          "scope_match": {
+            "status": "in_scope",
+            "matched_binding_id": null,
+            "feature_match": "new_term",
+            "development_catalog_used": false,
+            "basis": [],
+            "issues": [
+              "new_term_pending_human_review"
+            ]
+          }
+        },
+        "duplicate_and_conflict_links": [],
+        "extraction_trace": {
+          "task_id": "synthetic-task",
+          "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+          "fixture": true,
+          "evidence_kind": "engineering_fixture",
+          "scope": {
+            "scope_version": "1",
+            "cancers": {
+              "mode": "all",
+              "ids": []
+            },
+            "image_types": {
+              "mode": "all",
+              "ids": []
+            },
+            "features": {
+              "mode": "all",
+              "binding_ids": []
+            },
+            "catalog_version": "synthetic-unavailable-catalog-1",
+            "matching_policy_version": "exact-explicit-synonyms-1"
+          },
+          "catalog_version": "synthetic-unavailable-catalog-1",
+          "catalog_status": "unavailable",
+          "development_catalog_used": false,
+          "matching_policy_version": "exact-explicit-synonyms-1",
+          "rule_version": "synthetic-s4-rules-1",
+          "pi_version": "1.4.0",
+          "provider": "agicto",
+          "model_id": "gpt-6.1-sol",
+          "parser_id": "docling-standard-cpu",
+          "parser_version": "synthetic-no-parser-call",
+          "read_block_ids": [
+            "synthetic-line-1",
+            "synthetic-line-2",
+            "synthetic-line-3",
+            "synthetic-line-4",
+            "synthetic-line-5",
+            "synthetic-line-6"
+          ],
+          "provided_block_ids": [
+            "synthetic-line-1",
+            "synthetic-line-2",
+            "synthetic-line-3",
+            "synthetic-line-4",
+            "synthetic-line-5",
+            "synthetic-line-6"
+          ],
+          "tool_call_ids": [
+            "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e"
+          ],
+          "source_binding": {
+            "task_id": "synthetic-task",
+            "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+            "document_id": "closed-probe-synthetic-document",
+            "file_sha256": "831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+            "source_version": "sha256:831259985120887158a15f1d0095fe3a3b5891ce6d5185f1371cc5c3549e44b7",
+            "text_version": "synthetic-code-point-text-8312599851208871"
+          },
+          "updates_record_id": null
+        },
+        "review_status": "needs_context",
+        "review_events": [],
+        "handoff_status": "candidate_only"
+      },
+      "version": 1,
+      "actor": "automatic",
+      "status": "active",
+      "created_at": "2026-11-03T04:29:58.662Z",
+      "reason": "insert"
+    }
+  ],
+  "events": [
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 1,
+      "type": "state",
+      "timestamp": "2026-11-03T04:29:34.302Z",
+      "detail": {
+        "state": "queued",
+        "medical_quality_approved": false
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 2,
+      "type": "state",
+      "timestamp": "2026-11-03T04:29:34.303Z",
+      "detail": {
+        "state": "extracting"
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 3,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:29:46.223Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "read_document_blocks",
+        "call_id": "call_a18df9f2185944d9bb72102343f67f59|fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497",
+        "protocol": "batch_lines",
+        "record_shapes": []
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 4,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:29:46.225Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_a18df9f2185944d9bb72102343f67f59|fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497",
+        "name": "read_document_blocks",
+        "status": "ok"
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 5,
+      "type": "model_tool_argument_shape",
+      "timestamp": "2026-11-03T04:29:58.647Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "tool": "submit_candidate_records",
+        "call_id": "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e",
+        "protocol": "batch_lines",
+        "record_shapes": [
+          {
+            "source_line_count": 1,
+            "exact_fragment_count": 0,
+            "copied_source_quote_characters": 0,
+            "copied_context_quote_characters": 0
+          },
+          {
+            "source_line_count": 1,
+            "exact_fragment_count": 0,
+            "copied_source_quote_characters": 0,
+            "copied_context_quote_characters": 0
+          }
+        ]
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 6,
+      "type": "candidate",
+      "timestamp": "2026-11-03T04:29:58.662Z",
+      "detail": {
+        "record_id": "ev-5201884b7564d2d1512d494fa40c45812249b69a",
+        "record_version": 1,
+        "review_status": "needs_context",
+        "reason": "insert"
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 7,
+      "type": "reconciliation",
+      "timestamp": "2026-11-03T04:29:58.662Z",
+      "detail": {
+        "action": "insert",
+        "issues": []
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 8,
+      "type": "candidate",
+      "timestamp": "2026-11-03T04:29:58.669Z",
+      "detail": {
+        "record_id": "ev-39eb30c7c4c628c6f422fd433e139bade66f898d",
+        "record_version": 1,
+        "review_status": "pending",
+        "reason": "insert"
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 9,
+      "type": "reconciliation",
+      "timestamp": "2026-11-03T04:29:58.669Z",
+      "detail": {
+        "action": "insert",
+        "issues": []
+      }
+    },
+    {
+      "run_id": "closed-probe-8c2c2026-bcce-4e23-bf9d-686361e35fc4",
+      "seq": 10,
+      "type": "tool",
+      "timestamp": "2026-11-03T04:29:58.670Z",
+      "detail": {
+        "batch_id": "batch-0001",
+        "call_id": "call_bc3f74041af24df6844eb442b53c8fa3|fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e",
+        "name": "submit_candidate_records",
+        "status": "ok"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "id": "8257ca4c-a5db-44fc-a1f3-a76250614022",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:29:34.399Z",
+      "payload_sha256": "d92cf62d17c5522866905bd4e638a618b7980a719329ba8f00ba080d9c0364e4",
+      "payload_bytes": 8059,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 8571,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 2167,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 18,
+      "first_stream_event_at": "2026-11-03T04:29:44.393Z",
+      "last_stream_event_at": "2026-11-03T04:29:45.929Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_0b9a2cfbc06ff06a016ae9632f9bfc8190a59c1d1dd790cfb1",
+      "reasoning_visible_delta_characters": 38,
+      "tool_argument_delta_characters": 19,
+      "provider_usage": {
+        "input_tokens": 1346,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 99,
+        "output_tokens_details": {
+          "reasoning_tokens": 78
+        },
+        "total_tokens": 1445,
+        "attribution": {
+          "items": {
+            "fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 21
+            },
+            "msg_0b9a2cfbc06ff06a016ae9632f9c9881909fc6f25c6ed87e2e": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_0b9a2cfbc06ff06a016ae9632f9c988190a1fa0a72c73accd9": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "rs_0b9a2cfbc06ff06a016ae96334eeb0819080d5aad5fb384bba": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 78
+            }
+          },
+          "request_fields": {
+            "tools": {
+              "input_tokens": 772,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "106cfef0d9945b07c1301db7a1eec756626a0b0227827cfadf286082f4b49be0",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 1346,
+      "output_tokens": 99,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 78,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:29:46.219Z"
+    },
+    {
+      "id": "168c299c-b9b3-401f-81a8-2289bee1cd58",
+      "model_id": "gpt-6.1-sol",
+      "purpose": "synthetic_closed_S4_protocol:gpt-6.1-sol",
+      "attempt": 0,
+      "started_at": "2026-11-03T04:29:46.231Z",
+      "payload_sha256": "e842a9aae2333a58efe468020744af498466ab118d72e967249d2ee0b6e7513c",
+      "payload_bytes": 12228,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 12740,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 1701,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "stream_event_count": 205,
+      "first_stream_event_at": "2026-11-03T04:29:52.213Z",
+      "last_stream_event_at": "2026-11-03T04:29:58.344Z",
+      "provider_response_model": "gpt-6.1-sol",
+      "provider_response_id": "resp_0b9a2cfbc06ff06a016ae9633b70108190ac042bc9abfe60b2",
+      "tool_argument_delta_characters": 775,
+      "provider_usage": {
+        "input_tokens": 5914,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens": 220,
+        "output_tokens_details": {
+          "reasoning_tokens": 8
+        },
+        "total_tokens": 6134,
+        "attribution": {
+          "items": {
+            "fc_0b9a2cfbc06ff06a016ae963385d788190b62fdccb4a39b497": {
+              "input_tokens": 21,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_0b9a2cfbc06ff06a016ae9633b70a08190a93ad7f07f9ca2a0": {
+              "input_tokens": 219,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "fc_0b9a2cfbc06ff06a016ae9633dc97c8190b551be85d1e4519e": {
+              "input_tokens": 0,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 212
+            },
+            "msg_0b9a2cfbc06ff06a016ae9633b70a08190a420012f1e5a0a36": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "msg_0b9a2cfbc06ff06a016ae9633b70a08190bf96e8d7bf5e74c8": {
+              "input_tokens": 286,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "rs_0b9a2cfbc06ff06a016ae9633c7168819086d5fbf276a5a5fa": {
+              "input_tokens": 2,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 8
+            }
+          },
+          "request_fields": {
+            "instructions": {
+              "input_tokens": 4216,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            },
+            "tools": {
+              "input_tokens": 884,
+              "cached_tokens": 0,
+              "cache_write_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      "response_stream_sha256": "a25f85d69440a67257164deeb96e603b54bdc5c78286689b975795598db4b133",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 5914,
+      "output_tokens": 220,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 8,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-03T04:29:58.639Z"
+    }
+  ],
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "gpt-6.1-sol",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "model_context_window_metadata": 1050000,
+    "model_capacity_source": "official_OpenAI_model_specification_not_supplier_stress_test",
+    "application_context_estimate_limit": 128000,
+    "configured_max_output_tokens": 8192,
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  }
+}

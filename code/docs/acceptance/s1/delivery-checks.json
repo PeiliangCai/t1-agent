@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-11-02T10:02:01.524398+00:00",
+  "status": "passed",
+  "checks": {
+    "source_and_config_hashes_match": true,
+    "planning_file_hashes_match": true,
+    "evidence_file_hashes_match": true,
+    "reviewed_runtime_code_unchanged_after_round_3": true,
+    "stage_json_csv_states_match": true,
+    "task_json_csv_states_match": true,
+    "S0_S1_passed_S2_not_started": true,
+    "E01_E09_history_unchanged": true,
+    "quality_thresholds_remain_unfrozen": true,
+    "workspace_layout_consistent": true,
+    "latest_scope_doc_hash_matches": true,
+    "both_docx_original_contents_preserved": true,
+    "private_dotenv_not_exposed": true,
+    "no_remaining_task_install_or_service_processes": true,
+    "formal_reviews_fixed_at_3": true
+  },
+  "docx_preservation": {
+    "T1智能体开发计划.docx": {
+      "current_file_matches_proof": true,
+      "current_xml_matches_proof": true,
+      "original_xml_preserved": true,
+      "original_paragraphs_preserved": true,
+      "other_zip_members_unchanged": true
+    },
+    "T1开发执行说明.docx": {
+      "current_file_matches_proof": true,
+      "current_xml_matches_proof": true,
+      "original_xml_preserved": true,
+      "original_paragraphs_preserved": true,
+      "other_zip_members_unchanged": true
+    }
+  },
+  "sensitive_file_audit": {
+    "api_key_present": true,
+    "files_scanned": 88,
+    "secret_value_found_outside_private_dotenv": false,
+    "private_dotenv_mode": "600",
+    "dotenv_contents_printed": false
+  },
+  "remaining_task_processes": [],
+  "root_entries": [
+    "AGENTS.md",
+    "code",
+    "research",
+    "方案"
+  ],
+  "no_new_tests_or_real_API_calls": true,
+  "version_manifest_sha256": "514a164f841b59a8463003748bc80786c3287cdde0db7a6a70829ee6139a4d73",
+  "process_filter_note": "Only actual Node/Python program arguments are matched; the verification shell text itself is excluded."
+}

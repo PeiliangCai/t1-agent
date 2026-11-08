@@ -1,0 +1,81 @@
+{
+  "schema_version": "summary-replay-time-resume-1",
+  "status": "awaiting_user_confirmation",
+  "extension_id": "S4-Luna-medium-summary-time-resume-20261105-11520s",
+  "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+  "prepared_at": "2026-11-05T02:03:47.608108+00:00",
+  "user_confirmation_source": "code/docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-authorization.json#user_response",
+  "approved_at": null,
+  "user_response": {
+    "verbatim": null,
+    "recorded_at": null,
+    "received_from": null
+  },
+  "paused_at": "2026-11-04T17:16:48.980193+00:00",
+  "original_deadline_utc": "2026-11-04T20:29:32.037000+00:00",
+  "resume_at": null,
+  "deadline_utc": null,
+  "resume_seconds": 11520,
+  "ledger_anchor": {
+    "sha256": "ff0e21ec646ed3b5899674ef3589b059ffa79dfeca57b93bd882233b05fe8326",
+    "request_count": 156,
+    "requests_sha256": "b18c5a1e580d37bf362ff8fe2851f0a8258a68eb21d28938065e172f6d12c654",
+    "experiment_started_at": "2026-11-04T16:29:32.037Z",
+    "limits": {
+      "requests": 300,
+      "input_tokens": 6000000,
+      "output_tokens": 400000,
+      "seconds": 14400,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    }
+  },
+  "experiment_scope": {
+    "replay_id": "summary-reread-38287b3a-09b8-432c-a4fe-ded683f88b03",
+    "replay_manifest_sha256": "a9e5c2877f8c98314656a4b4c8f6028e22d9282e6ec75e51789469892389451c",
+    "original_driver_sha256": "9f8dec53c9a2c2b3e2cb94949c42e00bfb2d3d86dd1ea09280599c1ac74eb585",
+    "resumed_driver_sha256": "43e34a5519c77a85dc82ee1b670d1f81a53c21281e21595a7d7a50d512897e51",
+    "time_module_sha256": "7fbe5964098a5e84205a2f74cb9e353ec9e0c774fb17b7ae3a7f03e3871eb7e8",
+    "pause_record_sha256": "9fa95a422db0cbe54b1596c09c9a3287d1c951f09d982bff6b0a974fb052f6ee",
+    "jobs": [
+      "L01-B0",
+      "L05-B0",
+      "L05-F",
+      "L05-R"
+    ]
+  },
+  "policy": {
+    "time_only": true,
+    "absolute_deadline_once_for_all_arms_and_restarts": true,
+    "resume_deadline_rule": "deadline_utc = resume_at + 11520 seconds; resume_at is the real recorded execution-resume time after actual user approval",
+    "original_authorization_id_start_limits_usage_preserved": true,
+    "no_baseline_or_L01_F_rerun": true,
+    "no_new_papers_models_or_other_changes": true,
+    "provider_requests_before_user_confirmation": 0
+  },
+  "remaining_at_prepare": {
+    "requests": 144,
+    "input_tokens": 4203257,
+    "output_tokens": 306330
+  },
+  "review_evidence": {
+    "driver_patch": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume.patch",
+    "offline_actual_payload_check": "docs/acceptance/s0-s4-current-2026-11-04/summary-time-resume-offline.json",
+    "synthetic_tests": {
+      "new_time_authorization_tests": 6,
+      "existing_replay_payload_and_cohort_tests": 2,
+      "existing_cumulative_budget_tests": 12,
+      "passed": 20,
+      "failed": 0,
+      "root_tsc_exit": 0
+    },
+    "original49_runtime_sources_unchanged": true,
+    "old_manifest_unchanged": true,
+    "L01_F_pair_unchanged": true,
+    "unsigned_execute_rejected_before_ledger_or_network": true,
+    "root_types_after_offline_check_exit": 0
+  }
+}

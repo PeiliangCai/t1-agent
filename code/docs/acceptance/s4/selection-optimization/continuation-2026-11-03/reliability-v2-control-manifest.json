@@ -1,0 +1,38 @@
+{
+  "schema_version": "s4-reliability-v2-controls-1",
+  "cohort_id": "reliability-v2-main",
+  "medical_instruction_literal_sha256": {
+    "system": "128674850892197cd774a8015f40b1729a362ad6403da188117bf38ad5e7376d",
+    "batch": "d71c8bd2a76959d90f49595ec7a8055b7a6477b4fcfb86c64c2c0464391afd25",
+    "summary": "34f3e7a880118dfc3587cf4b2b7b5928e7fd206b78aafad13abecab87c626125"
+  },
+  "pilot1_medical_instruction_literal_sha256": {
+    "system": "128674850892197cd774a8015f40b1729a362ad6403da188117bf38ad5e7376d",
+    "batch": "d71c8bd2a76959d90f49595ec7a8055b7a6477b4fcfb86c64c2c0464391afd25",
+    "summary": "34f3e7a880118dfc3587cf4b2b7b5928e7fd206b78aafad13abecab87c626125"
+  },
+  "medical_instruction_text_unchanged": true,
+  "unchanged_source_selection_scope_batch_medical_evidence_contract_files": {
+    "packages/agent/src/source-selection.ts": "8704e391503547df7de5a1afb47d566e331df45600d33a60c7a61d69367f7e0d",
+    "packages/agent/src/extraction-protocol.ts": "2d1a8481241a951e7c65787c7295c59dd5e3dd5f3671b2b5ddcaf9e987873553",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/contracts/src/extraction-evidence.ts": "243115b1949d98d7616c969643dc407ac5482f435c627977089e264872a657d0",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c"
+  },
+  "scope_sha256": "c901bca3bb8aa6621022639ce52cda06332643fb57b9d4eaca8f244ecdcdb85c",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "batch_options": {
+    "maxCodePoints": 8500,
+    "maxBlocks": 128,
+    "contextBlocks": 6
+  },
+  "document_seconds": 1800,
+  "request_seconds": 120,
+  "batch_max_responses": 16,
+  "max_output_tokens": 8192,
+  "max_transient_retries": 2,
+  "host_batch_protocol": "s4-unified-batch-lines-6",
+  "host_recovery_policy": "exact_EOF_transient_and_fresh_summary_max2_retries",
+  "reliability_changes_not_medical_rule_or_filter_improvement": true
+}

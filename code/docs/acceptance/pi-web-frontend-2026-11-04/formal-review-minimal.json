@@ -1,0 +1,70 @@
+{
+  "schema_version": "pi-web-final-review-minimal-1",
+  "task": "same pi-web frontend task; no review reset",
+  "formal_reviews_used_before_final": 1,
+  "formal_limit": 3,
+  "request": "root final architecture/engineering acceptance review",
+  "user_decisions": [
+    "use pi-web as frontend basis",
+    "C: one native Next frontend",
+    "latest: remove early complete reference answer preparation feature; preserve historical artifacts and real result review requirements"
+  ],
+  "implementation_summary": [
+    "New Next T1 workbench directly imports original interactive Pi Web components",
+    "Only T1 readonly business routes in active API tree; original coding routes moved unchanged to upstream-disabled",
+    "Pinned source artifacts and source-only delivery rebuilt and compared before serving historical candidates",
+    "Controlled single-page PDF.js replaces ambiguous native viewer; tested/rendered physical page8",
+    "Retired active Vite/reference-answer preparation feature; history archived, medical review/export core unchanged"
+  ],
+  "source_delta": {
+    "original_files": 1209,
+    "unchanged": 1098,
+    "relocated_without_content_change": 104,
+    "modified_original_files": 7,
+    "new_T1_code_files": 6,
+    "static_resource_files": 204,
+    "modified_paths": [
+      "app/layout.tsx",
+      "app/page.tsx",
+      "instrumentation.ts",
+      "next.config.ts",
+      "package-lock.json",
+      "package.json",
+      "proxy.ts"
+    ]
+  },
+  "read_minimum": [
+    "upstream-diff.patch",
+    "../../../../code/apps/pi-web/t1/gateway-policy.ts",
+    "../../../../code/apps/server/src/workbench.ts",
+    "../../../../code/apps/pi-web/t1/PdfSource.tsx",
+    "final-checks.json",
+    "checks/failures-and-fixes.json",
+    "browser/02-explicit-original-figure.png",
+    "browser/08-mobile-empty-paper.png"
+  ],
+  "evidence": {
+    "source": "source-changes.json",
+    "dependency_isolation": "dependency-and-retirement-checks.json",
+    "test_results": "final-checks.json",
+    "retirement": "annotation/retirement-manifest.json",
+    "protected_core": "protected-core-checks.json",
+    "report": "index.html"
+  },
+  "not_verified": [
+    "new paid model extraction or strategy effectiveness",
+    "human medical relevance/context/completeness judgment",
+    "all-paper PDF fidelity or full recall",
+    "complete S5 upload/run/review/approved export workflow",
+    "deployment/auth/multiuser beyond local loopback"
+  ],
+  "zero_paid_calls": true,
+  "requested_review_not_yet_recorded": false,
+  "final_review": {
+    "round": 2,
+    "limit": 3,
+    "decision": "continue",
+    "record": "formal-review-round2.json"
+  },
+  "status": "engineering_delivered"
+}

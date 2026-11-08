@@ -1,0 +1,94 @@
+✔ valid synthetic evidence preserves the exact 28 fields and never becomes model, human or medical approval (21.841063ms)
+✔ non-BMP and combining characters use unnormalized Unicode code-point offsets and whole-line boxes (5.16164ms)
+✔ duplicate and overlapping occurrences require explicit zero-based disambiguation (4.424728ms)
+✔ cross-block, cross-page quotes preserve boundaries, exact strings, pages and the explicit display joiner (3.566158ms)
+✔ overlapping segments and forged or processed native text are rejected (1.509175ms)
+✔ every task/run/document/SHA/source/text version is bound and rejects drift (5.8454ms)
+✔ source and all field evidence must both be provided and read (1.102649ms)
+✔ ungrounded user-selected disease is downgraded to unknown, never stored as a paper fact (3.339064ms)
+✔ omitted negation and conditions produce review findings and retain the omitted source line (1.898747ms)
+✔ uncertainty and unresolved pronouns cannot silently become definite medical statements (1.391378ms)
+✔ numbers and units are literal source evidence; rewrites reject and omissions require review (4.963731ms)
+✔ attached units and superscript areas remain exact and are never silently reduced to linear units (2.741291ms)
+✔ negation and conditions in explicitly supplied later context are also flagged, without semantic approval (1.215663ms)
+✔ a located observation in another paragraph remains an unverified semantic association (1.123691ms)
+✔ unknown is distinct from negation; unsupported assertion wording and raw feature names reject (1.962023ms)
+✔ unverified native table/figure relationships become needs_context even when native association is explicit (1.711477ms)
+✔ article-boundary quarantine retains evidence as uncertain, never as a user-approved exclusion (1.376755ms)
+✔ definitions and cited research retain distinct attribution and missing reference findings (2.496246ms)
+✔ paper instructions remain quoted data; validation does not mutate submissions, context or catalog (1.914263ms)
+✔ an exact resubmission is idempotent across tool call IDs and never writes another version (34.924885ms)
+✔ the first candidate generates a reversible insert proposal with no expected parent version (6.395186ms)
+✔ the same literal observation at different anchors is linked while retaining both locations (5.025456ms)
+✔ identical quote text with different known lesions, modalities, phases or conditions remains separate (9.451626ms)
+✔ later context constraining an unknown applicability generates a new immutable version with CAS (3.610581ms)
+✔ unknown-to-sourced sequence enrichment creates a version; it is never interpreted as negation (2.463938ms)
+✔ human edited or approved active versions are preserved and automatic changes only become proposals (5.679887ms)
+✔ a retry of an already persisted human-protected proposal remains idempotent (1.670197ms)
+✔ stale expected versions and explicitly changed known source contexts preserve proposals (2.072532ms)
+✔ explicit same-condition affirmative/negative observations link conflicts without resolving either source (2.222788ms)
+✔ unknown assertions and differently attributed source studies are not treated as contradictory negatives (2.14806ms)
+✔ different numeric measurements are possible conflicts requiring review, not inferred medical contradictions (1.736066ms)
+✔ another run, document version or article cannot become a duplicate or update target (6.257478ms)
+✔ same record ID with distinct data never authorizes silent overwrite (1.393412ms)
+✔ budget counts cache once, includes reasoning in output once, and retains unknown usage across reopen (10.047541ms)
+✔ provider input above a local payload estimate is explicit, and above reservation halts at the real limit (2.667919ms)
+✔ request, input, output and experiment-time boundaries reject before another network attempt (506.888052ms)
+✔ network guard rejects changed destination and model payload without counting a physical request (32.378613ms)
+✔ installed Pi Responses adapter reports cached input and reasoning without double counting (107.90937ms)
+✔ assigned source inventory is unique while overlapping context requires its own batch acknowledgement (4.283042ms)
+✔ tool boundary refuses a partial invalid read, foreign run, unknown tool, and forged source identity (9.261126ms)
+✔ continuation region is version-bound quarantine and remains an explicit uncovered source region (1.291264ms)
+✔ Pi has only business tools and forged calls cannot turn PDF instructions into trusted authority (46.593893ms)
+✔ candidate versions commit before their events, survive reopen, and repeated submission is idempotent (36.388379ms)
+✔ SQLite competing stale writers fail CAS atomically and cannot cross run boundaries (34.17522ms)
+✔ whole-document summary cannot submit new source evidence before explicitly reading it (4.90381ms)
+✔ a human version stays active while repeated automatic updates preserve one idempotent proposal (9.138282ms)
+✔ a possible link to approved human evidence is stored only as an unapproved proposal (7.398377ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":3,"candidates":0,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0002","status":"completed","completed_blocks":2,"expected_blocks":3,"candidates":0,"requests":4}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0003","status":"completed","completed_blocks":3,"expected_blocks":3,"candidates":0,"requests":6}
+✔ full Pi run processes every assigned block once and explicitly completes zero-candidate batches (124.399918ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":0,"requests":2}
+✔ assistant stopping after delivered reads leaves a failed batch and a partial run (68.800847ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ transient model failures retry at most twice and retain already saved candidates with missing coverage (856.122936ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":3}
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":4}
+✔ HTTP 200 followed by stalled SSE hits the independent request deadline, retries twice and retains saved candidates (1094.583809ms)
+✔ an independent summary must review every candidate and its stored review never grants human approval (4.811336ms)
+✔ a looping local model cannot exceed the configured per-batch physical response limit (40.989192ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ cancellation after a candidate commit preserves it and cannot claim batch or document completion (52.510227ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"failed","completed_blocks":0,"expected_blocks":1,"candidates":1,"requests":2}
+✔ budget exhaustion after candidate persistence stops new requests and saves a partial result (64.991949ms)
+✔ selected cancer, modality or feature scope with an unavailable catalog blocks before model network (62.17843ms)
+{"run_id":"synthetic-s4-run","model_id":"s4-synthetic-responses","strategy":"baseline","batch_id":"batch-0001","status":"completed","completed_blocks":1,"expected_blocks":1,"candidates":0,"requests":2}
+✔ approved cancer and modality selections allow open extraction when the feature catalog is empty (85.100439ms)
+✔ Pi timeout aborts a held local response and preserves conservative request usage (86.455704ms)
+✔ the initial all/all/all scope accepts new terms with an empty unavailable formal catalog (4.405498ms)
+✔ restricted mode without an approved catalog or bindings is blocked and never widened (2.327439ms)
+✔ approved taxonomy selections do not require any feature catalog when features are unrestricted (1.097923ms)
+✔ open extraction retains a feature in a different sourced cancer without forcing an existing inapplicable binding (1.689726ms)
+✔ selected-empty, invalid selections, version drift and inapplicable upstream changes block the run (2.470048ms)
+✔ canonical names and explicitly approved sourced synonyms match exact selected bindings (3.462287ms)
+✔ draft aliases, feature categories and parent/child terms are not implicit synonyms (1.809968ms)
+✔ development catalog usage requires explicit enablement and remains labelled development_only (1.110117ms)
+✔ the S1 fixture catalog cannot become a real approved medical vocabulary (0.566895ms)
+✔ source cancer and modality mismatches are out of scope despite valid user selections (1.852892ms)
+✔ unknown source facts need context instead of borrowing the selected cancer or modality (0.614158ms)
+✔ a selected binding ID cannot force a different raw source feature into scope (0.567107ms)
+✔ sequence conditions are checked explicitly and unspecified sequences require context (1.058411ms)
+✔ multiple equally matching bindings need explicit disambiguation and do not take the first (0.707316ms)
+✔ a source-less approval entry is unusable and literal matching respects word boundaries (0.94717ms)
+ℹ tests 73
+ℹ suites 0
+ℹ pass 73
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4199.033926

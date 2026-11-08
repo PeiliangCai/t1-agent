@@ -1,0 +1,350 @@
+{
+  "strategy": "baseline",
+  "attempt": 0,
+  "audit": {
+    "pi_version": "1.4.0",
+    "model_id": "s4-synthetic-responses",
+    "api": "openai-responses",
+    "reasoning_effort": "medium",
+    "model_context_window_metadata": 1050000,
+    "model_capacity_source": "official_OpenAI_model_specification_not_supplier_stress_test",
+    "application_context_estimate_limit": 128000,
+    "configured_max_output_tokens": 8192,
+    "active_tools": [
+      "get_document_context",
+      "lookup_feature_bindings",
+      "read_document_blocks",
+      "report_context_issue",
+      "submit_candidate_records"
+    ],
+    "context_file_count": 0,
+    "skill_count": 0,
+    "extension_count": 0,
+    "prompt_count": 0,
+    "theme_count": 0,
+    "in_memory_credentials": true,
+    "in_memory_session": true,
+    "default_discovery_disabled": true
+  },
+  "result": {
+    "settled": true,
+    "responses": 2,
+    "events": [
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "get_document_context",
+        "call_id": "call-fixture-14-0|fc-fixture-14-0",
+        "argument_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "argument_characters": 2,
+        "property_names": [],
+        "selectors": {}
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "get_document_context",
+        "call_id": "call-fixture-14-0|fc-fixture-14-0",
+        "error": false,
+        "result_characters": 13847,
+        "result_sha256": "1ac482d8d2fcbdc0a6b17ccb445849ef541ad2e223b853507ca4e0c8cf498bdc"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "read_document_blocks",
+        "call_id": "call-fixture-14-1|fc-fixture-14-1",
+        "argument_sha256": "c7a9e157da8e98e1e258e15920eeaa10c9eaedc9d411dcff21db047d52c975ad",
+        "argument_characters": 308,
+        "property_names": [
+          "line_indices"
+        ],
+        "selectors": {
+          "line_indices": [
+            238,
+            239,
+            240,
+            241,
+            242,
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            429,
+            430,
+            431,
+            432,
+            433,
+            434,
+            435,
+            436,
+            437,
+            438,
+            439,
+            440,
+            573,
+            574,
+            575,
+            576,
+            577,
+            578,
+            579,
+            580,
+            581,
+            582,
+            583,
+            591,
+            592,
+            632,
+            633,
+            634,
+            635,
+            636,
+            637,
+            638,
+            639,
+            731,
+            732,
+            733,
+            734,
+            735,
+            736,
+            737,
+            738,
+            739,
+            740,
+            741,
+            742,
+            743,
+            0
+          ]
+        }
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "read_document_blocks",
+        "call_id": "call-fixture-14-1|fc-fixture-14-1",
+        "error": false,
+        "result_characters": 36348,
+        "result_sha256": "c2bb7fc99337861a14f81baa04837a26f8f96d24517aedb8da40c3e2263b1f56"
+      },
+      {
+        "type": "assistant_response",
+        "stop_reason": "toolUse"
+      },
+      {
+        "type": "tool_execution_start",
+        "tool": "submit_candidate_records",
+        "call_id": "call-fixture-15-0|fc-fixture-15-0",
+        "argument_sha256": "c93479aec60848e23650eb248efd91ad96681c3d3b5b78a8d1eee8a41e31b397",
+        "argument_characters": 149,
+        "property_names": [
+          "summary",
+          "reviews",
+          "links",
+          "updates",
+          "summary_complete"
+        ],
+        "selectors": {
+          "updates": [],
+          "summary_complete": true
+        }
+      },
+      {
+        "type": "tool_execution_end",
+        "tool": "submit_candidate_records",
+        "call_id": "call-fixture-15-0|fc-fixture-15-0",
+        "error": false,
+        "result_characters": 337,
+        "result_sha256": "e9635bd5339e56b5a38f368558a2bbb144322c2309adf625de0e7d82f37e62dd"
+      }
+    ],
+    "usage": [
+      {
+        "input": 100,
+        "output": 20,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 120,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      {
+        "input": 100,
+        "output": 20,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 120,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    ],
+    "request_ids": [
+      "4338f9d2-ab10-4a72-a580-c67342127c76",
+      "195aac09-5b04-45d1-8c5f-4a07a750d9a6"
+    ],
+    "transient_error": false
+  },
+  "request_accounting": [
+    {
+      "id": "4338f9d2-ab10-4a72-a580-c67342127c76",
+      "model_id": "s4-synthetic-responses",
+      "purpose": "fresh-L07-F:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-08T03:31:49.382Z",
+      "payload_sha256": "4824346ee35ddf08d617d2e0f43df9df1ce529d544a7b57fc2ef16372d07cd9c",
+      "payload_bytes": 21638,
+      "input_ceiling": 32768,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 22150,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 6068,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "request_id": "fixture-request-14",
+      "stream_event_count": 10,
+      "first_stream_event_at": "2026-11-08T03:31:49.385Z",
+      "last_stream_event_at": "2026-11-08T03:31:49.386Z",
+      "provider_response_id": "resp-fixture-14",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-08T03:31:49.385Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "unknown"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-08T03:31:49.386Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "matched",
+          "actual_model": "s4-synthetic-responses"
+        }
+      ],
+      "tool_argument_delta_characters": 310,
+      "provider_usage": {
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "total_tokens": 120
+      },
+      "provider_response_model": "s4-synthetic-responses",
+      "response_stream_sha256": "a4cf39f9dd9337a9c088fc394be8636ed594a1eb45701ae3c42f299c37805b5f",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 100,
+      "output_tokens": 20,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-08T03:31:49.386Z"
+    },
+    {
+      "id": "195aac09-5b04-45d1-8c5f-4a07a750d9a6",
+      "model_id": "s4-synthetic-responses",
+      "purpose": "fresh-L07-F:whole-document-summary",
+      "attempt": 0,
+      "started_at": "2026-11-08T03:31:49.399Z",
+      "payload_sha256": "14fc6ac04d9909f17b210da2ade422823032248386a5d8ed25df2391c8c6e684",
+      "payload_bytes": 72323,
+      "input_ceiling": 72835,
+      "output_ceiling": 8192,
+      "usage_status": "provider_reported",
+      "local_payload_estimate": 72835,
+      "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+      "response_model_identity_status": "matched",
+      "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "requested_max_output_tokens": 8192,
+      "requested_reasoning_effort": "medium",
+      "application_context_estimate": 13322,
+      "model_context_window_metadata": 1050000,
+      "configured_deadline_ms": 120000,
+      "status": 200,
+      "request_id": "fixture-request-15",
+      "stream_event_count": 6,
+      "first_stream_event_at": "2026-11-08T03:31:49.404Z",
+      "last_stream_event_at": "2026-11-08T03:31:49.404Z",
+      "provider_response_id": "resp-fixture-15",
+      "response_model_observations": [
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.created",
+          "observed_at": "2026-11-08T03:31:49.404Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "unknown"
+        },
+        {
+          "source": "provider_stream_event.response.model",
+          "event_type": "response.completed",
+          "observed_at": "2026-11-08T03:31:49.404Z",
+          "expected_model": "s4-synthetic-responses",
+          "status": "matched",
+          "actual_model": "s4-synthetic-responses"
+        }
+      ],
+      "tool_argument_delta_characters": 149,
+      "provider_usage": {
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "total_tokens": 120
+      },
+      "provider_response_model": "s4-synthetic-responses",
+      "response_stream_sha256": "8bac43c42059527053e8b19a0165a320ab6040d255fb92c20cdf522a526288fa",
+      "response_hash_scope": "complete_decoded_HTTP_body",
+      "input_tokens": 100,
+      "output_tokens": 20,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "reasoning_tokens": 0,
+      "provider_input_exceeds_local_estimate": false,
+      "input_reservation_exceeded": false,
+      "finished_at": "2026-11-08T03:31:49.405Z"
+    }
+  ],
+  "summary": "Loopback protocol transport only; no model extraction or medical judgment.",
+  "issues": [],
+  "semantic_audit_reviews": [],
+  "semantic_audit_cases_required": []
+}

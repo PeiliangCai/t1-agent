@@ -1,0 +1,115 @@
+{
+  "schema_version": "pi-web-engineering-handoff-1",
+  "updated_at": "2026-11-04T13:16:54.221383+00:00",
+  "status": "engineering_delivered",
+  "formal_reviews": {
+    "used": 2,
+    "limit": 3,
+    "final_decision": "continue",
+    "record": "formal-review-round2.json",
+    "text": "判断：继续。风险：1. 当前接通的是已有成果查看，完整 S5 上传、抽取、审核流程仍未完成；2. 原文和图片的工程校验不能替代医学审核；3. 后续更新 pi-web 时需复核适配差异。本轮前端改造与旧工具退役满足工程交付条件。"
+  },
+  "source_delta": {
+    "original": 1209,
+    "same_path_unchanged": 1098,
+    "relocated_unchanged": 104,
+    "modified": 7,
+    "new_T1_code": 6,
+    "new_static_resources": 204
+  },
+  "checks": {
+    "typecheck_root_and_Next": "passed",
+    "Next_production_build": "passed",
+    "integration": {
+      "passed": 10,
+      "failed": 0
+    },
+    "browser": {
+      "passed": 10,
+      "failed": 0,
+      "uncaught_errors": 0,
+      "failed_static_resources": 0,
+      "external_requests": 0
+    }
+  },
+  "paid_model_calls": 0,
+  "full_S5_complete": false,
+  "medical_quality_approved": false,
+  "report": "index.html",
+  "review_packet": "formal-review-minimal.json",
+  "source_changes": "source-changes.json",
+  "logs": "checks/",
+  "screenshots": "browser/",
+  "retirement": "annotation/retirement-manifest.json",
+  "core_protection": "protected-core-checks.json",
+  "source_manifest": "implementation-source-manifest.json",
+  "run_commands": [
+    "bash scripts/with-node.sh npm run dev:server",
+    "bash scripts/with-node.sh npm run dev:web"
+  ],
+  "production_commands": [
+    "bash scripts/with-node.sh npm run build:web",
+    "bash scripts/with-node.sh npm run start:web"
+  ],
+  "live_url": "http://127.0.0.1:5173",
+  "upstream_pin": "f130910abf662b506b2ef2f475fc21a2fe57badc",
+  "backend_pi": "1.4.0",
+  "frontend_upstream_pi_dependency": "1.5.0; no generic session host started",
+  "latest_user_scope": "single Next site; early full-reference preparation UI removed; historical artifacts retained",
+  "previous_reviews": {
+    "previous_original_text_figure": {
+      "used": 2,
+      "limit": 3,
+      "ended": true
+    },
+    "old_S4": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    }
+  },
+  "full_S5_status": "pending",
+  "medical_quality_status": "pending",
+  "live_url_scope": "server_loopback_only",
+  "remote_access": "Use SSH local port forwarding or the existing remote-development port forwarding; server 127.0.0.1 is not the user computer loopback. Forwarding not exercised this task.",
+  "plan_sync": {
+    "status": "complete",
+    "plan_version": "0.5",
+    "execution_guide_version": "0.3",
+    "files_updated": 12,
+    "live_files_hash_verified": 13,
+    "document_checks_passed": 966,
+    "document_checks_total": 966,
+    "handoff": "plans/final-handoff.json",
+    "manifest": "plans/live-file-manifest.json",
+    "preservation": "plans/final-preservation-summary.json"
+  },
+  "final_consistency": "final-consistency.json",
+  "temporary_notes_cleanup": "temporary-notes-cleanup.json",
+  "running_services": {
+    "captured_at": "2026-11-04T13:16:54.221383+00:00",
+    "frontend": {
+      "host": "127.0.0.1",
+      "port": 5173,
+      "pid": 57495,
+      "command": "npm run start:web"
+    },
+    "backend": {
+      "host": "127.0.0.1",
+      "port": 3210,
+      "pid": 58844,
+      "command": "npm run dev:server"
+    },
+    "in_memory_test_fixture_server": "stopped; no persistent fixture written"
+  },
+  "continuity_notes_cleaned": true,
+  "temporary_notes_removed": 3,
+  "formal_handoff_saved": true,
+  "not_verified": [
+    "new paid model extraction or strategy effectiveness",
+    "human medical relevance/context/completeness judgment",
+    "all-paper PDF fidelity or full recall",
+    "complete S5 upload/run/review/approved export workflow",
+    "deployment/auth/multiuser beyond local loopback"
+  ]
+}

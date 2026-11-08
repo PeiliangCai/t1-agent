@@ -1,0 +1,738 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "医学读片数据生成任务需求确认契约草案",
+  "description": "规划阶段结构契约：外置参数确认后可交给Pi建模；生成执行另需编译及能力校验。真实事件、版本与摘要一致性由后端校验，JSON字段本身不构成授权。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "is_example",
+    "workflow_status",
+    "execution_authorized",
+    "request_id",
+    "revision",
+    "raw_request",
+    "requirements",
+    "distribution_constraints",
+    "compiler_preview",
+    "approval_snapshot",
+    "blockers",
+    "agent_input_ready"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.2"
+    },
+    "is_example": {
+      "type": "boolean"
+    },
+    "workflow_status": {
+      "enum": [
+        "draft",
+        "review_pending",
+        "confirmed_for_agent",
+        "approved_for_pilot"
+      ]
+    },
+    "execution_authorized": {
+      "type": "boolean"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "raw_request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "key",
+          "kind",
+          "feature_id",
+          "value",
+          "unit",
+          "provenance",
+          "review",
+          "capability"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^REQ[0-9]{2,}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "parameter",
+              "hard_constraint",
+              "soft_objective",
+              "dataset_constraint"
+            ]
+          },
+          "feature_id": {
+            "enum": [
+              null,
+              "META01",
+              "META02",
+              "META03",
+              "GEO01",
+              "GEO02",
+              "GEO03",
+              "GEO04",
+              "GEO05",
+              "LUNG01",
+              "LUNG02",
+              "LUNG03",
+              "LUNG04",
+              "LUNG05",
+              "LUNG06",
+              "LUNG07",
+              "LUNG08",
+              "LUNG09",
+              "COLON01",
+              "COLON02",
+              "COLON03",
+              "COLON04",
+              "COLON05",
+              "COLON06",
+              "COLON07",
+              "COLON08",
+              "RECT01",
+              "RECT02",
+              "RECT03",
+              "RECT04",
+              "RECT05",
+              "RECT06",
+              "RECT07",
+              "RECT08",
+              "RECT09",
+              "RECT10"
+            ]
+          },
+          "value": {},
+          "unit": {
+            "type": "string"
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "quote",
+              "note"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "example_user_text",
+                  "user_text",
+                  "default_proposal",
+                  "derived",
+                  "medical_source"
+                ]
+              },
+              "quote": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "action",
+              "event_id",
+              "confirmed_at",
+              "revision"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "pending",
+                  "confirmed",
+                  "needs_revision"
+                ]
+              },
+              "action": {
+                "enum": [
+                  null,
+                  "confirm",
+                  "modify_and_confirm",
+                  "acknowledge",
+                  "request_change"
+                ]
+              },
+              "event_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confirmed_at": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  },
+                  "required": [
+                    "state"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "action": {
+                      "enum": [
+                        "confirm",
+                        "modify_and_confirm",
+                        "acknowledge"
+                      ]
+                    },
+                    "event_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "confirmed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "capability": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "note"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "planned_unvalidated",
+                  "supported_validated",
+                  "unsupported"
+                ]
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "distribution_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "group_id",
+          "feature_id",
+          "selector",
+          "group_kind",
+          "sample_unit",
+          "target_fraction",
+          "absolute_tolerance",
+          "provenance",
+          "review",
+          "capability"
+        ],
+        "properties": {
+          "group_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feature_id": {
+            "enum": [
+              "META01",
+              "META02",
+              "META03",
+              "GEO01",
+              "GEO02",
+              "GEO03",
+              "GEO04",
+              "GEO05",
+              "LUNG01",
+              "LUNG02",
+              "LUNG03",
+              "LUNG04",
+              "LUNG05",
+              "LUNG06",
+              "LUNG07",
+              "LUNG08",
+              "LUNG09",
+              "COLON01",
+              "COLON02",
+              "COLON03",
+              "COLON04",
+              "COLON05",
+              "COLON06",
+              "COLON07",
+              "COLON08",
+              "RECT01",
+              "RECT02",
+              "RECT03",
+              "RECT04",
+              "RECT05",
+              "RECT06",
+              "RECT07",
+              "RECT08",
+              "RECT09",
+              "RECT10"
+            ]
+          },
+          "selector": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operator",
+              "value"
+            ],
+            "properties": {
+              "operator": {
+                "enum": [
+                  "equals",
+                  "interval",
+                  "present",
+                  "exists"
+                ]
+              },
+              "value": {}
+            },
+            "description": "区间端点的开闭及单位须在value内明确，并由后端语义校验。"
+          },
+          "group_kind": {
+            "enum": [
+              "mutually_exclusive",
+              "cooccurring"
+            ]
+          },
+          "sample_unit": {
+            "enum": [
+              "volume",
+              "lesion",
+              "slice"
+            ]
+          },
+          "target_fraction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "absolute_tolerance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "quote",
+              "note"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "example_user_text",
+                  "user_text",
+                  "default_proposal",
+                  "derived",
+                  "medical_source"
+                ]
+              },
+              "quote": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "review": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "action",
+              "event_id",
+              "confirmed_at",
+              "revision"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "pending",
+                  "confirmed",
+                  "needs_revision"
+                ]
+              },
+              "action": {
+                "enum": [
+                  null,
+                  "confirm",
+                  "modify_and_confirm",
+                  "acknowledge",
+                  "request_change"
+                ]
+              },
+              "event_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "confirmed_at": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  },
+                  "required": [
+                    "state"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "action": {
+                      "enum": [
+                        "confirm",
+                        "modify_and_confirm",
+                        "acknowledge"
+                      ]
+                    },
+                    "event_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "confirmed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "capability": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state",
+              "note"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "planned_unvalidated",
+                  "supported_validated",
+                  "unsupported"
+                ]
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "compiler_preview": {
+      "type": "object",
+      "required": [
+        "state",
+        "generator",
+        "decision_variables",
+        "objectives",
+        "constraints",
+        "notes"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "proposal_not_executable",
+            "validated_compilation"
+          ]
+        },
+        "generator": {
+          "type": "string"
+        },
+        "decision_variables": {
+          "type": "array"
+        },
+        "objectives": {
+          "type": "array"
+        },
+        "constraints": {
+          "type": "array"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "approval_snapshot": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "requirement_revision",
+            "canonical_sha256",
+            "event_id"
+          ],
+          "properties": {
+            "requirement_revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "canonical_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "event_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "agent_input_ready": {
+      "type": "boolean",
+      "description": "仅表达结构状态；后端必须验证真实确认记录才能派发Pi任务。"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "workflow_status": {
+            "const": "approved_for_pilot"
+          }
+        },
+        "required": [
+          "workflow_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "is_example": {
+            "const": false
+          },
+          "execution_authorized": {
+            "const": true
+          },
+          "requirements": {
+            "items": {
+              "properties": {
+                "review": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  }
+                },
+                "capability": {
+                  "properties": {
+                    "state": {
+                      "const": "supported_validated"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "distribution_constraints": {
+            "items": {
+              "properties": {
+                "review": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  }
+                },
+                "capability": {
+                  "properties": {
+                    "state": {
+                      "const": "supported_validated"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "compiler_preview": {
+            "properties": {
+              "state": {
+                "const": "validated_compilation"
+              }
+            }
+          },
+          "approval_snapshot": {
+            "type": "object"
+          },
+          "blockers": {
+            "maxItems": 0
+          },
+          "agent_input_ready": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "workflow_status": {
+            "enum": [
+              "draft",
+              "review_pending"
+            ]
+          }
+        },
+        "required": [
+          "workflow_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "execution_authorized": {
+            "const": false
+          },
+          "agent_input_ready": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "workflow_status": {
+            "const": "confirmed_for_agent"
+          }
+        },
+        "required": [
+          "workflow_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "is_example": {
+            "const": false
+          },
+          "agent_input_ready": {
+            "const": true
+          },
+          "execution_authorized": {
+            "const": false
+          },
+          "approval_snapshot": {
+            "type": "object"
+          },
+          "requirements": {
+            "items": {
+              "properties": {
+                "review": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "distribution_constraints": {
+            "items": {
+              "properties": {
+                "review": {
+                  "properties": {
+                    "state": {
+                      "const": "confirmed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

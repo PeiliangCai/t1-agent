@@ -1,0 +1,59 @@
+{
+  "status": "user_paused",
+  "recorded_at": "2026-11-04T17:16:48.980193+00:00",
+  "user_instruction": "现在停下，明天再继续",
+  "sigint_targets": [],
+  "remaining_target_pids": [],
+  "active_owner_lock_exists": false,
+  "execution_sessions": {
+    "baseline_10768": "exited0",
+    "paired_L01_F_31006": "exited0"
+  },
+  "fixed_baseline": "all5 unique inputs completed / 6 logical conditions",
+  "paired_completed": [
+    "L01-F before",
+    "L01-F after"
+  ],
+  "paired_incomplete_or_not_started": [
+    "L01-B0",
+    "L05-B0",
+    "L05-F",
+    "L05-R"
+  ],
+  "authorization_id": "S4-Luna-medium-L01-L05-three-methods-20261105-bf50e6d968e1",
+  "ledger": "runtime-data/s4-budget-owners/5f3071e1f8b9a5cd65f4b7be8c55ed8de5d1fa3841dc7a1d3460a7a80d35d0a1/call-ledger.json",
+  "requests": 156,
+  "settled_requests": 156,
+  "inflight_or_unsettled": 0,
+  "input_tokens_counted": 1796743,
+  "output_tokens_counted": 93670,
+  "missing_usage_requests": 0,
+  "limits": {
+    "requests": 300,
+    "input_tokens": 6000000,
+    "output_tokens": 400000,
+    "seconds": 14400,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "halted": null,
+  "experiment_started_at": "2026-11-04T16:29:32.037Z",
+  "original_deadline_UTC": "2026-11-04T20:29:32.037000+00:00",
+  "original_deadline_Asia_Shanghai": "2026-11-05T04:29:32.037000+08:00",
+  "automatic_paid_resume_allowed": false,
+  "pause_resets_budget_or_clock": false,
+  "tomorrow_first_steps": [
+    "Read this task continuity note and latest user directions",
+    "Verify all task model/paired processes remain stopped",
+    "Recheck original authorization/ledger and original four-hour deadline; do not start paid requests automatically if the window is expired",
+    "Review completed baseline and L01-F pair evidence; remaining groups not run",
+    "Report elapsed-window/remaining limits and obtain any genuinely necessary new time/budget authorization before paid continuation"
+  ],
+  "formal_reviews_used": 2,
+  "formal_review_limit": 3,
+  "medical_quality_approved": false,
+  "winner": null
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "pi-web-t1-readonly-adapter-draft-1",
+  "status": "superseded_historical_draft",
+  "purpose": "T1 dedicated view-model; no compatibility facade for generic pi-web coding backend",
+  "existing_routes_retained": [
+    "GET /health",
+    "GET /api/catalog",
+    "GET /api/runs/:runId",
+    "GET /api/runs/:runId/records",
+    "GET /api/runs/:runId/events"
+  ],
+  "proposed_routes": [
+    {
+      "method": "GET",
+      "path": "/api/workbench/capabilities",
+      "response": {
+        "source": "t1-workbench",
+        "read_only": true,
+        "paper_upload": false,
+        "model_extraction_start": false,
+        "persisted_medical_approval": false,
+        "approved_export": false,
+        "annotation_url": "/annotation.html",
+        "upstream_commit": "f130910abf662b506b2ef2f475fc21a2fe57badc"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/workbench/papers",
+      "response": "fixed registered papers with source SHA256, title, counts, actual output origins and capabilities"
+    },
+    {
+      "method": "GET",
+      "path": "/api/workbench/papers/:paperId",
+      "response": "source-bound PDF metadata, registered historical outputs with strategy/origin labels, verbatim fragment records and association status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/workbench/papers/:paperId/pdf",
+      "response": "original authorized PDF bytes after allowlist and SHA256 checks"
+    },
+    {
+      "method": "GET",
+      "path": "/api/workbench/papers/:paperId/figures/:assetId",
+      "response": "image bytes only for registered asset; preserve source/caption/hash metadata; no client-supplied path"
+    }
+  ],
+  "binding_checks": [
+    "Registered immutable paper ID resolves fixed server-only paths",
+    "Canonical realpath remains under code root and expected registered file",
+    "PDF file bytes match known source SHA256",
+    "IR document/file/text version matches sidecar delivery source",
+    "Every original fragment block/start/end/text and protected qualifiers is validated using existing delivery guard",
+    "Figure catalog source, asset SHA256, region page/bbox and complete-figure status checked",
+    "Explicit linked and complete status required to show as associated Figure; uncertain remains text-only with pending reason"
+  ],
+  "client_rules": [
+    "All paper fragments and captions rendered as exact strings, preserving separate segments and page/block labels",
+    "No Markdown/HTML rendering for source strings",
+    "Historical replay clearly labeled; candidate != approved",
+    "S1 fixtures remain separate engineering fixtures",
+    "Display actual API/data failures; retry supported; no fake upload/start/approve success",
+    "No filesystem paths/credentials/general session discovery exposed"
+  ],
+  "sse": {
+    "existing_run_stream": "S1 fixture only; keep SQLite seq + Last-Event-ID semantics",
+    "new_workbench_history": "Historical read-only outputs need no synthetic SSE; unknown live extraction status stays unknown",
+    "reconnect_acceptance": "If streaming current existing run inspector, test disconnect/retry/cursor dedupe with loopback fixture only"
+  },
+  "local_only_budget": {
+    "paid_calls": 0,
+    "allowed_model_requests": 0
+  },
+  "draft_paths_provisional": true,
+  "current_implementation": "implemented-contract.json"
+}

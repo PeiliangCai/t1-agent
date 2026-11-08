@@ -1,0 +1,150 @@
+{
+  "schema_version": "s4-runtime-validation-summary-3",
+  "working_directory": "/home/ecs-user/projects/t1-agent/code",
+  "generated_at": "2026-11-03T03:32:23.440219+00:00",
+  "execution_agent": "GPT-6.1-Sol(max)",
+  "version_scope": "post_host_bound_line_index_v3_affected_tests_and_compact_compatibility_only",
+  "runtime_test_count": 8,
+  "runtime_test_inventory_in_file": 33,
+  "runtime_log": "docs/acceptance/s4/runtime-validation/line-index-focused-tests.txt",
+  "checks": [
+    {
+      "suite": "line_index_affected_runtime_and_compact_compatibility",
+      "command": "bash scripts/with-node.sh node --import tsx --test --test-name-pattern='line-index|compact' tests/extraction/runtime.test.ts",
+      "exit_code": 0,
+      "log": "docs/acceptance/s4/runtime-validation/line-index-focused-tests.txt",
+      "line_index_cases": 4,
+      "existing_compact_compatibility_cases": 4,
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "total_distinct_tests": 8,
+  "typecheck": {
+    "command": "bash scripts/with-node.sh npm run check",
+    "exit_code": 0,
+    "log": "docs/acceptance/s4/runtime-validation/line-index-typecheck.txt"
+  },
+  "full_runtime_or_full_regression_repeated_after_line_index_change": false,
+  "prior_compact_regression": {
+    "version_scope": "post_compact_v2_model_tool_protocol_and_nonadjacent_source_warning_affected_tests_only",
+    "generated_at": "2026-11-03T03:22:13.077008+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol",
+    "total_distinct_tests": 29,
+    "pass": 29,
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes are preserved unchanged in the archived summary.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-line-index-protocol/source-snapshots",
+    "implementation_source_snapshots": "Not captured before the line-index change; no historical implementation source was reconstructed."
+  },
+  "prior_full_regression": {
+    "version_scope": "before_compact_model_tool_protocol",
+    "generated_at": "2026-11-03T03:15:02.582198+00:00",
+    "summary": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/summary.json",
+    "archive": "docs/acceptance/s4/runtime-validation/pre-compact-protocol",
+    "total_distinct_tests": 144,
+    "checks": {
+      "extraction": {
+        "tests": 73,
+        "pass": 73,
+        "fail": 0
+      },
+      "unit": {
+        "tests": 15,
+        "pass": 15,
+        "fail": 0
+      },
+      "integration": {
+        "tests": 8,
+        "pass": 8,
+        "fail": 0
+      },
+      "parser": {
+        "tests": 20,
+        "pass": 20,
+        "fail": 0
+      },
+      "evaluation": {
+        "tests": 28,
+        "pass": 28,
+        "fail": 0
+      }
+    },
+    "typecheck_exit_code": 0,
+    "source_hashes": "Original hashes preserved unchanged in the archived summary; no old implementation source snapshot was reconstructed.",
+    "owned_source_snapshots": "docs/acceptance/s4/runtime-validation/pre-compact-protocol/source-snapshots"
+  },
+  "new_line_index_runtime_coverage": [
+    "Installed Pi SDK reads separate subsets with stable per-batch source_lines indices and submits only line indices; host stores all 28 evidence fields.",
+    "Host copies unchanged whole decoded source lines, Unicode-code-point spans, physical pages, original 7 mm/mm numbers and condition wording.",
+    "Whole-line evidence retains whole_textline_not_exact_glyph precision and an explicit not-minimal-feature-spans warning.",
+    "Unread selected/context lines, out-of-range read/submission indices, mixed read selectors, both-or-neither source selectors and out-of-range medical fragment indices are rejected.",
+    "An invalid mixed read does not grant authorization to its otherwise valid line.",
+    "The same local index zero maps to different current-batch source text in fresh sessions; unavailable indices and previous-batch exact fragments are rejected.",
+    "A disease value absent from selected source lines is downgraded to unknown, and omitted modality remains unknown despite approved selected scope.",
+    "Nonadjacent selected lines remain individual display-composite source segments; intervening context can be preserved separately and requires_review remains explicit.",
+    "Existing compact exact-fragment selection, multi-submit behavior, host identity closure and medical unknown handling remain compatible in four rerun compact tests."
+  ],
+  "historical_runtime_regressions": [
+    "Installed Pi SDK and synthetic loopback Responses SSE, no paid API calls",
+    "Explicit batch completion, zero candidates, overlapping context and missing coverage",
+    "Whitelisted tools, untrusted source instructions, forged run/task/source identity and read authorization",
+    "SQLite version/event transaction, rollback, competing stale CAS writers and reopen",
+    "Automatic proposal replay, human active-version protection and unapproved model review",
+    "Cache/reasoning usage accounting, missing-usage reservation and fixed experiment ceilings",
+    "HTTP 200 then SSE body stall with 80ms request deadline, exactly two retries, persisted candidate retention",
+    "Approved cancer/modality taxonomy with empty features allows open feature extraction"
+  ],
+  "historical_implementation_failures": [
+    {
+      "case": "External cancellation incorrectly emitted a retry event",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Unavailable catalog did not preflight an invalid selected cancer",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/initial-failures.json",
+      "regression_passed": true
+    },
+    {
+      "case": "Repeated human-protected automatic update created another proposal",
+      "initial_evidence": "docs/acceptance/s4/runtime-validation/proposal-idempotency-failure.json",
+      "regression_passed": true
+    }
+  ],
+  "limitations": [
+    "Only eight affected/compatibility tests and TypeScript checks were run for line-index-v3; the runtime test file contains 33 cases but all 33 were not rerun.",
+    "Four new line-index cases and four existing compact cases are already included in the eight-test total and must not be added again.",
+    "Compact-v2 29/29 and earlier full-regression 144/144 are separate historical evidence with original times/hashes and archived logs.",
+    "No paid API, real-model correctness, medical accuracy, recall, gold annotation or billing assessment is established by these synthetic engineering tests.",
+    "No model latency or transport performance benefit is inferred from loopback Responses SSE.",
+    "Unchanged unit/integration/parser/evaluation/Python/web suites were not repeated in this line-index round."
+  ],
+  "formal_review_handoff": {
+    "used": 2,
+    "maximum": 3,
+    "owner": "parent GPT-6-Astra(max) session",
+    "last_round_reserved_for": "final acceptance"
+  },
+  "source_sha256_captured_after_tests": {
+    "tests/extraction/runtime.test.ts": "6a60686e8745bc6dceb1a99ccc067f0efd8600ec3fe676c2a8705003cca3a17d",
+    "tests/extraction/fixtures/runtime-responses.ts": "fdc6b9650eec83ea2ce1460cad63d417a8ac5ef9991b19e8931129adf3b6fcb7",
+    "tests/extraction/fixtures/evidence-fixtures.ts": "51de393396ddbab4c7ced0b0fa4be2815abf93657626e405315abf8afd168609",
+    "packages/agent/src/extraction-budget.ts": "33943c3995c00ede34d1ce6311477b9b54f8fdd81a82ad2ac0f52b50319db000",
+    "packages/agent/src/extraction-pi.ts": "e3a9bf1d28cd0b3ca0c6ddaa7f56599aad3d3222190a7bcafd659bf610a6bd27",
+    "packages/agent/src/extraction-run.ts": "aa5f9bdee4776b0d1afa29ee4bb59b6c6e97c365af054788f05a770156c67afc",
+    "packages/agent/src/extraction-store.ts": "bd93ac58f207c07e7c99dda1d64ad28dc9128e18b5240a4c822d22c7869d6bbc",
+    "packages/agent/src/extraction-summary.ts": "5485d9ee8da3ffeac5c0e398bb0600ed97d3481c372a10244176f51721ede6fa",
+    "packages/agent/src/extraction-tools.ts": "8f035cd73512bb552c221e4b77cc2de3334f56b8226a40ca3b37dcd68eb611b1",
+    "packages/agent/src/article-scope.ts": "8e76ae5e30a3021466d244321e1657155d470ddf7e551720c002a94835fc0631",
+    "packages/agent/src/evidence-validation.ts": "008475cef40a093379782ad40d0d2aa078b7cccd99a20733d7ee7cadf1e3195c",
+    "packages/agent/src/reconciliation.ts": "ce9d7140f3857cb1b95edd611a9b34b20f21401cdd3136083d8c5b05a04e1e68",
+    "packages/agent/src/scope-matching.ts": "ffa962e26a88c3ed4f75e2b0fd5417420f5e2202ad3be5cb83f63c5e4d877b04",
+    "packages/agent/src/extraction-protocol.ts": "f02821759dee31d03674309ef3575f2300d943e9edb86ece78bf78a3af2df8df"
+  }
+}

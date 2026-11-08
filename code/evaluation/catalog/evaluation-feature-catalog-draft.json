@@ -1,0 +1,770 @@
+{
+  "version": "s2-evaluation-vocabulary-draft-1",
+  "purpose": "evaluation_preparation_only",
+  "status": "pending_medical_review_not_product_catalog",
+  "product_default_catalog_enabled": false,
+  "features": [
+    {
+      "feature_id": "GEO01",
+      "name_raw": "病灶体积",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "ENG01",
+        "MOD01"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "工程几何"
+      },
+      "condition_notes": "在确认的病灶掩膜中，前景体素数乘仿射三维线性部分行列式的绝对值。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "GEO02",
+      "name_raw": "最大轴位长径",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "ENG01",
+        "MED01"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "工程几何"
+      },
+      "condition_notes": "按确认的轴位重建，在每个轴位轮廓上计算最长面内距离，取最大值。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG01",
+      "name_raw": "病灶解剖部位",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01",
+        "MED02"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "按左右肺、肺叶或其他明确粒度记录位置，未知时保留未知。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG02",
+      "name_raw": "实性程度与密度类型",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01",
+        "MED02"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "保留来源体系中的 solidity/texture 定义；映射到实性、部分实性等类别需单独审定。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG03",
+      "name_raw": "边缘清晰程度",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "按原始标注或经审定定义记录边缘表现。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG04",
+      "name_raw": "毛刺程度",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "spiculation",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "记录 spiculation 的来源定义和原始评分。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG05",
+      "name_raw": "分叶程度",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "lobulation",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "记录 lobulation 的来源定义和原始评分。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG06",
+      "name_raw": "球形程度评分",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "sphericity",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "保留来源中的主观 sphericity 评分，与数学球形度另设字段。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG07",
+      "name_raw": "内部结构",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "按来源标注记录 internal structure；枚举值需随数据版本核对。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG08",
+      "name_raw": "显著性评分",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "subtlety",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "记录医师对病灶显著性的主观评分。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "LUNG09",
+      "name_raw": "影像学恶性可能性评分",
+      "screening_class_draft": "clinical_composite_label",
+      "source_ids": [
+        "MED01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "likelihood of malignancy",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "肺部CT"
+      },
+      "condition_notes": "保留医师影像学怀疑程度及其来源，不作为病理确诊标签。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON01",
+      "name_raw": "原发病灶部位",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [
+        {
+          "text": "lesion site",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED03"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "按结肠解剖分段描述，分类粒度由报告模板和用户共同明确。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON02",
+      "name_raw": "病灶形态类型",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [
+        {
+          "text": "lesion type",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED03"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "按来源报告模板描述病灶类型，具体枚举待全文和医学审核。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON03",
+      "name_raw": "病灶大小",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "MED03",
+        "ENG01"
+      ],
+      "proposed_terms": [
+        {
+          "text": "size",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED03",
+            "ENG01"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "采用明确的测量定义；初版可选择 GEO01 或 GEO02，不能混用。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON04",
+      "name_raw": "局部侵犯表现",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "描述局部侵犯对象、影像证据和不确定性。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON05",
+      "name_raw": "区域淋巴结评估",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "记录来源定义下的区域淋巴结表现及评估状态。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON06",
+      "name_raw": "远处转移评估",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "保留检查范围、可见证据和未评估状态。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON07",
+      "name_raw": "临床T分期字段",
+      "screening_class_draft": "clinical_composite_label",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "作为复合报告字段，绑定规则版本与所需证据。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "COLON08",
+      "name_raw": "临床N分期字段",
+      "screening_class_draft": "clinical_composite_label",
+      "source_ids": [
+        "MED03"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "结肠癌CT"
+      },
+      "condition_notes": "作为复合报告字段，绑定淋巴结评价证据与规则版本。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT01",
+      "name_raw": "与乙状结肠起始部的关系",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [
+        {
+          "text": "sigmoid take-off (STO)",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED04",
+            "MED05"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "记录病灶与 sigmoid take-off（STO）的关系及定位依据。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT02",
+      "name_raw": "肿瘤高度",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "说明测量起点、终点和所采用的解剖参照；不同参照不混用。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT03",
+      "name_raw": "壁外侵犯深度",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "MED04"
+      ],
+      "proposed_terms": [
+        {
+          "text": "extramural invasion",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED04"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "在明确肠壁层次和测量规则下记录壁外侵犯程度。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT04",
+      "name_raw": "与直肠系膜筋膜的最短距离",
+      "screening_class_draft": "imaging_measurement_candidate",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "记录距离及其对应对象，区分原发灶、EMVI、结节等来源。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT05",
+      "name_raw": "MRF受累状态",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED05"
+      ],
+      "proposed_terms": [
+        {
+          "text": "MRF",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED05"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "依据明确版本的规则结合相关结构判读，保存不确定性。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT06",
+      "name_raw": "壁外血管侵犯",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [
+        {
+          "text": "EMVI",
+          "relation_type": "translation_or_correspondence_candidate",
+          "source_ids": [
+            "MED04",
+            "MED05"
+          ],
+          "status": "pending_medical_review",
+          "approved_for_matching": false
+        }
+      ],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "记录 EMVI 的影像表现、等级或状态及其依据。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT07",
+      "name_raw": "区域淋巴结风险评估",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "按当前共识记录 cN 相关影像评估及可信程度。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT08",
+      "name_raw": "腹膜反折相关关系",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "描述原发灶与腹膜反折及腹膜侵犯相关表现。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT09",
+      "name_raw": "括约肌及邻近结构关系",
+      "screening_class_draft": "mixed_visual_description_or_clinical_conclusion",
+      "source_ids": [
+        "MED04"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "区分相关肌层或邻近结构，按来源定义描述受累证据。",
+      "status": "pending"
+    },
+    {
+      "feature_id": "RECT10",
+      "name_raw": "DWI与ADC相关表现",
+      "screening_class_draft": "visual_appearance_or_location_candidate",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "proposed_terms": [],
+      "applicability": {
+        "cancer_ids": [],
+        "modality_ids": [],
+        "status": "pending_medical_review",
+        "historical_category_hint": "直肠癌MRI"
+      },
+      "condition_notes": "在配准的序列及已知采集参数下描述信号表现和适用任务。",
+      "status": "pending"
+    }
+  ],
+  "approved_bindings": [],
+  "approved_synonyms": [],
+  "approved_hierarchy_edges": [],
+  "relationship_proposals": [
+    {
+      "from": "COLON03",
+      "to": [
+        "GEO01",
+        "GEO02"
+      ],
+      "relationship": "measurement_options_not_synonyms",
+      "status": "pending",
+      "basis": "原35项记录已有大小与几何量关联，体积与直径不可混并。"
+    },
+    {
+      "from": "LUNG02",
+      "to": [
+        "solidity",
+        "texture"
+      ],
+      "relationship": "historical_related_terms_not_approved_synonyms",
+      "status": "pending",
+      "basis": "保留原体系定义；未经复核不互换。"
+    },
+    {
+      "from": "肠癌",
+      "to": [
+        "结肠癌",
+        "直肠癌"
+      ],
+      "relationship": "proposed_broader_narrower_categories_not_synonyms",
+      "status": "pending",
+      "basis": "历史计划使用这些类别，具体适用与包含关系待医学来源及用户确认。"
+    },
+    {
+      "from": "肺结节",
+      "to": [
+        "肺癌"
+      ],
+      "relationship": "not_automatic_subtype_or_synonym",
+      "status": "pending",
+      "basis": "LIDC肺结节研究不证明所有结节均为癌。"
+    }
+  ],
+  "sequence_phase_conditions": [
+    {
+      "feature_id": "RECT01",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "记录病灶与 sigmoid take-off（STO）的关系及定位依据。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT02",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "说明测量起点、终点和所采用的解剖参照；不同参照不混用。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT03",
+      "source_ids": [
+        "MED04"
+      ],
+      "raw_historical_hint": "在明确肠壁层次和测量规则下记录壁外侵犯程度。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT04",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "记录距离及其对应对象，区分原发灶、EMVI、结节等来源。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT05",
+      "source_ids": [
+        "MED05"
+      ],
+      "raw_historical_hint": "依据明确版本的规则结合相关结构判读，保存不确定性。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT06",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "记录 EMVI 的影像表现、等级或状态及其依据。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT07",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "按当前共识记录 cN 相关影像评估及可信程度。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT08",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "描述原发灶与腹膜反折及腹膜侵犯相关表现。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT09",
+      "source_ids": [
+        "MED04"
+      ],
+      "raw_historical_hint": "区分相关肌层或邻近结构，按来源定义描述受累证据。",
+      "status": "pending_full_text_and_medical_review"
+    },
+    {
+      "feature_id": "RECT10",
+      "source_ids": [
+        "MED04",
+        "MED05"
+      ],
+      "raw_historical_hint": "在配准的序列及已知采集参数下描述信号表现和适用任务。",
+      "status": "pending_full_text_and_medical_review"
+    }
+  ],
+  "scope_warning": "本稿不能作为已核验医学白名单、同义表或产品默认配置。不限模式仍开放；受限模式不自动扩大到上下位项。"
+}

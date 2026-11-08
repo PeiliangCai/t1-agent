@@ -1,0 +1,129 @@
+{
+  "schema_version": "requirement-revision-handoff-1",
+  "status": "engineering_complete_quality_pending",
+  "stage_passed": false,
+  "medical_quality_approved": false,
+  "new_paid_calls": 0,
+  "external_model_requests_this_task": 0,
+  "loopback_fixture_tests_are_not_external_model_validation": true,
+  "requirements_confirmed": [
+    "仅论文原文片段，不改写翻译重组",
+    "整幅Figure+原图注，明确关联才配，文字优先",
+    "完整gold不再前置；开发验收抽样；已审核导出逐条真实确认"
+  ],
+  "implementation": [
+    "verbatim-policy.ts/evidence-validation.ts exact source and protected qualifiers",
+    "figure_assets.py generic CPU Figure catalogs + conservative complete original bitmap rules",
+    "runExtractionDocument automatically prepares real-PDF images and writes source-only delivery",
+    "extract-paper.ts generic PDF entry: CPU-only by default; no old budget/model authorization inherited",
+    "evidence-delivery.ts candidate export + independent text-only/full-pair approval fingerprints and source invalidation checks"
+  ],
+  "contract": {
+    "legacy_record_fields": 28,
+    "legacy_record_schema_changed": false,
+    "translation_zh_for_new_submissions": null,
+    "new_sidecars": [
+      "FigureAssetCatalog",
+      "verbatim-figure-delivery-1"
+    ],
+    "approved_review_scopes": [
+      "text_only",
+      "text_and_figures"
+    ],
+    "supplements_are_source_fragments": false
+  },
+  "actual_checks": {
+    "typecheck": 0,
+    "extraction": {
+      "passed": 162,
+      "exit": 0
+    },
+    "figure_bridge": {
+      "passed": 1,
+      "exit": 0
+    },
+    "python": {
+      "passed": 3,
+      "exit": 0,
+      "geometry_subcases": 8
+    }
+  },
+  "real_evidence": {
+    "pdf_count": 5,
+    "numbered_figure_candidates": 12,
+    "unnumbered_candidates": 5,
+    "png_assets": 12,
+    "mechanically_checked_figures": 5,
+    "old_unique_outputs": 5,
+    "old_records": 119,
+    "main_pairs": 1,
+    "pending_pairs": 7,
+    "no_explicit_links": 111,
+    "source_only_incompatible_old_records": 0,
+    "generic_cli_seconds": 31.96299722599997,
+    "generic_cli_api_calls": 0
+  },
+  "reviews": {
+    "new_requirement": {
+      "used": 2,
+      "limit": 3,
+      "final_review_pending": false,
+      "final_decision": "continue",
+      "record": "formal-review-round2.json"
+    },
+    "S0_S1": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "S2": {
+      "used": 2,
+      "limit": 3,
+      "historical": true
+    },
+    "S3": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    },
+    "old_S4": {
+      "used": 3,
+      "limit": 3,
+      "sealed": true
+    }
+  },
+  "evidence": {
+    "readable": "index.html",
+    "checks": "checks-source-binding-final/results.json",
+    "python": "checks-final/figure-python.log",
+    "replay": "offline-replay-report.json",
+    "generic_cli": "general-cli/fresh-L05-final-command.json",
+    "source_manifest": "implementation-source-manifest.json",
+    "frozen_integrity": "protected-artifacts-after.json",
+    "formal_review_packet": "final-review-minimal.json",
+    "live_plan_consistency": "plans/validation.json",
+    "live_plan_sync_summary": "plans/delivery-sync/engineering-sync-summary.json",
+    "review_history": "formal-review-history.json"
+  },
+  "annotation_ui": "Optional S2 tool retained; not called as a gold prerequisite by new parse/extract/export flow; concurrent owner files untouched.",
+  "next": "本轮工程交付已结束；后续输出人工抽样、另行明确授权的新模型/策略实测和完整S5按现行计划推进。未验证项保持待办，阶段未判通过。",
+  "engineering_delivery_allowed": true,
+  "formal_review_record": "formal-review-round2.json",
+  "final_review_text": "判断：继续。风险：1. 原文定位校验不能替代相关性与语境的人工抽查；2. 多对象、矢量及复杂组图仍需核对，不能强行配对；3. 新协议尚未做付费模型实测，旧候选回放不能证明新策略最优。允许本轮工程交付，人工抽样验收仍待进行。",
+  "not_verified": [
+    "new-contract real paid model extraction/strategy comparison",
+    "human output sample and medical quality",
+    "all-PDF fidelity/complete recall",
+    "complete S5 product workflow"
+  ],
+  "live_plan_versions": {
+    "plan": "0.4",
+    "execution_guide": "0.2",
+    "owner": "/root/t1_requirement_plan",
+    "reported_consistency_checks": 258,
+    "engineering_sync_complete": true
+  },
+  "temporary_notes_cleanup_record": "temporary-notes-cleanup.json",
+  "final_consistency_record": "final-consistency.json",
+  "formal_handoff_saved": true
+}
