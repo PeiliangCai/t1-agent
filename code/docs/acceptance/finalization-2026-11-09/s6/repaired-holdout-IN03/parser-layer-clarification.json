@@ -1,0 +1,71 @@
+{
+  "schema_version": "parser-layer-limits-clarification-1",
+  "at": "2026-11-09T09:49:26.824981+00:00",
+  "source_id": "IN03",
+  "original_IR_or_limit_strings_rewritten": false,
+  "additional_model_calls": 0,
+  "raw_anchor_layer": {
+    "id": "docling-parse-text",
+    "version": "7.24.2",
+    "role": "Decode original PDF text/line geometry for verbatim source anchoring; this layer alone does not establish table/header/footnote/caption semantic relationships.",
+    "meaning_of_recorded_no_table_association": "A limitation inherited from the raw anchor, not a statement that the complete pipeline does no structural work.",
+    "line_order": "Original backend textline order retained, not a human-certified multi-column reading order."
+  },
+  "native_structure_layer": {
+    "id": "docling-standard-cpu",
+    "version": "2.145.0",
+    "role": "Docling native layout/table/reading-order candidates independently mapped to raw source spans. Processed native text never replaces literal quotations.",
+    "unit_kinds": {
+      "other": 9,
+      "section_header": 11,
+      "text": 26,
+      "caption": 2,
+      "list_item": 10,
+      "table": 2,
+      "table_cell": 81
+    },
+    "caption_unit_meaning": "IN03 has two table-title caption units; no Figure caption or picture is claimed.",
+    "native_table_count": 2,
+    "picture_count": 0,
+    "unmapped_units": 0,
+    "ambiguous_units": 4,
+    "native_errors": []
+  },
+  "source_geometry_layer": {
+    "table_source_grids": [
+      {
+        "table_id": "e4e60543c9be6441-u-ba1f81f6a3843482",
+        "status": "geometry_checked",
+        "issue_codes": [],
+        "human_approved": false
+      },
+      {
+        "table_id": "e4e60543c9be6441-u-8b521deddb963a08",
+        "status": "geometry_checked",
+        "issue_codes": [],
+        "human_approved": false
+      }
+    ],
+    "paragraph_continuation_relations": 6,
+    "meaning": "These are restricted source-bound geometry checks, not universal table/page continuation inference or medical semantic approval."
+  },
+  "whole_pipeline_limits": {
+    "raw_parser_state": "partial",
+    "specific_IN03_partial_reason": "Four ambiguous native-to-source mapping units; all3 pages and all270 task-scope blocks enumerated/processed. Summary failure is a separate task blocker.",
+    "source_glyph_check": "checked_no_detected_gaps; narrow heuristic, not all Unicode verified",
+    "human_order_and_semantics_verified": false,
+    "OCR_enabled": false,
+    "image_text_fidelity_verified": false,
+    "table_header_meaning_approved": false,
+    "Figure_pairing_approved": false
+  },
+  "candidate_classification_interpretation": {
+    "saved_candidates": 3,
+    "delivery_default_primary_bucket": 3,
+    "background_bucket": 0,
+    "summary_primary_assessment": "not_performed",
+    "do_not_count_as_summary_classified_or_medically_valid_primary_descriptions": true,
+    "independent_engineering_result": "failed_summary_incomplete",
+    "root_ordinary_source_review": "Separate delegated AI literal/source/context review; no human/clinical approval."
+  }
+}

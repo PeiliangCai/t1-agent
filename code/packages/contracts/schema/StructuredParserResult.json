@@ -558,6 +558,55 @@
                   "backend_cell_index": {
                     "type": "integer",
                     "minimum": 0
+                  },
+                  "source_glyph_issues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "code",
+                        "start",
+                        "end",
+                        "font_name",
+                        "font_program_sha256",
+                        "pdf_character_code",
+                        "precision"
+                      ],
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "const": "sparse_embedded_font_without_unicode_mapping"
+                        },
+                        "start": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "end": {
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "font_name": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 160
+                        },
+                        "font_program_sha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        "pdf_character_code": {
+                          "type": "integer",
+                          "minimum": 0
+                        },
+                        "precision": {
+                          "enum": [
+                            "glyph_offset",
+                            "whole_textline_fallback"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
                   }
                 },
                 "additionalProperties": false

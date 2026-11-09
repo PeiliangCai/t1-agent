@@ -1,3 +1,4 @@
+import { freshPreparedSource } from './fixtures/current-parser.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -227,8 +228,12 @@ test('future offline preparation binds the standalone grouping module and its ve
   const frozenPath = resolve(CODE, root, 'plan.json'), before = await readFile(frozenPath);
   try {
     const output = resolve(directory, 'prepared');
+    const config = await json('config/two-method-comparison.json');
+    config.papers = [freshPreparedSource('L05', directory)]; config.execution_job_ids = ['L05-B0', 'L05-F'];
+    config.optimization.parent_plan = null; config.optimization.declared_change = null;
+    const configPath = resolve(directory, 'current-parser-config.json'); await writeFile(configPath, JSON.stringify(config));
     const prepared = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/compare-extraction-methods.ts', 'prepare',
-      '--directory', output, '--config', 'config/two-method-comparison.json'], { cwd: CODE, encoding: 'utf8', timeout: 20_000 });
+      '--directory', output, '--config', configPath], { cwd: CODE, encoding: 'utf8', timeout: 20_000 });
     assert.equal(prepared.status, 0, prepared.stderr);
     const plan = await json(resolve(output, 'plan.json')), modulePath = 'packages/agent/src/strict-source-groups.ts';
     assert.equal(plan.source_hashes[modulePath], createHash('sha256').update(await readFile(resolve(CODE, modulePath))).digest('hex'));

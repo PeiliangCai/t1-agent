@@ -1,0 +1,451 @@
+{
+  "model_calls": 0,
+  "original_run_or_records_modified": false,
+  "original_atomic_rejection": {
+    "run_id": "run-1c9a5b8e-f671-4a70-be9e-fc4ea2d33ebc",
+    "seq": 43,
+    "type": "summary_submission_rejected",
+    "timestamp": "2026-11-09T09:35:52.343Z",
+    "detail": {
+      "call_id": "call_gEXkGyb6FakfWMaQydVZRdeV|fc_023c998e985b220b016af193eec1d48196912be365b6f08481",
+      "atomic_evidence_rollback": true,
+      "evidence_changes_saved": false,
+      "error_code": "summary_update_validation_failed",
+      "validation_issues": [
+        {
+          "code": "visual_description_semantics_unverified",
+          "path": "source_fragments",
+          "severity": "info"
+        },
+        {
+          "code": "feature_name_not_in_evidence",
+          "path": "feature_name_raw",
+          "severity": "reject"
+        },
+        {
+          "code": "coreference_requires_context",
+          "path": "context_fragments",
+          "severity": "requires_review"
+        },
+        {
+          "code": "numeric_expression_missing",
+          "path": "numeric_expressions",
+          "severity": "requires_review"
+        }
+      ],
+      "validation_diagnostic": {
+        "schema_version": "bounded-validation-failure-1",
+        "input_path": "updates[2]",
+        "local_only": true,
+        "field_samples": [
+          {
+            "path": "updates[2].feature_name_raw",
+            "value_type": "string",
+            "code_points": 3,
+            "utf8_bytes": 9,
+            "sha256": "4cbc753240e5f27d07d82e7527dbe5c2954183c5dd19eeb77d37a94ad150f321",
+            "preview": "对比度",
+            "preview_truncated": false,
+            "preview_redacted": false
+          }
+        ],
+        "source_reference_coordinates": "host_bound_document_line_index_and_unicode_code_point_span",
+        "source_references": [
+          {
+            "role": "primary",
+            "document_line_index": 200,
+            "block_id": "9abe65662706e474db58-p0003-l000004",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "368c834752357d87f771a20fd59b895ebd477533922b70287b09ac28aec3b56d",
+            "quote_utf8_bytes": 10,
+            "occurrence": 0,
+            "span": {
+              "start": 24,
+              "end": 30
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "primary",
+            "document_line_index": 201,
+            "block_id": "9abe65662706e474db58-p0003-l000005",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "84c45d2f7aa81e11b498ced48eb57b62fdcd29f03d0d78dd4c6e9e0cd37aaad7",
+            "quote_utf8_bytes": 72,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 24
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "primary",
+            "document_line_index": 202,
+            "block_id": "9abe65662706e474db58-p0003-l000006",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "8a9e9035fed393537bcca1bd6f7edfff827c3aeb052d0efd6c9ea67681520666",
+            "quote_utf8_bytes": 70,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 26
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "primary",
+            "document_line_index": 203,
+            "block_id": "9abe65662706e474db58-p0003-l000007",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "be2b7d13fa9c7e252cc9653bb873cd0fb9d0f18a9fc2605522a60f707f54a4b6",
+            "quote_utf8_bytes": 74,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 28
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "disease_or_lesion",
+            "document_line_index": 202,
+            "block_id": "9abe65662706e474db58-p0003-l000006",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "8a9e9035fed393537bcca1bd6f7edfff827c3aeb052d0efd6c9ea67681520666",
+            "quote_utf8_bytes": 70,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 26
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "disease_or_lesion",
+            "document_line_index": 203,
+            "block_id": "9abe65662706e474db58-p0003-l000007",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "be2b7d13fa9c7e252cc9653bb873cd0fb9d0f18a9fc2605522a60f707f54a4b6",
+            "quote_utf8_bytes": 74,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 28
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "modality",
+            "document_line_index": 200,
+            "block_id": "9abe65662706e474db58-p0003-l000004",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "368c834752357d87f771a20fd59b895ebd477533922b70287b09ac28aec3b56d",
+            "quote_utf8_bytes": 10,
+            "occurrence": 0,
+            "span": {
+              "start": 24,
+              "end": 30
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "modality",
+            "document_line_index": 202,
+            "block_id": "9abe65662706e474db58-p0003-l000006",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "8a9e9035fed393537bcca1bd6f7edfff827c3aeb052d0efd6c9ea67681520666",
+            "quote_utf8_bytes": 70,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 26
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "modality",
+            "document_line_index": 203,
+            "block_id": "9abe65662706e474db58-p0003-l000007",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "be2b7d13fa9c7e252cc9653bb873cd0fb9d0f18a9fc2605522a60f707f54a4b6",
+            "quote_utf8_bytes": 74,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 28
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "assertion",
+            "document_line_index": 200,
+            "block_id": "9abe65662706e474db58-p0003-l000004",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "368c834752357d87f771a20fd59b895ebd477533922b70287b09ac28aec3b56d",
+            "quote_utf8_bytes": 10,
+            "occurrence": 0,
+            "span": {
+              "start": 24,
+              "end": 30
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "assertion",
+            "document_line_index": 201,
+            "block_id": "9abe65662706e474db58-p0003-l000005",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "84c45d2f7aa81e11b498ced48eb57b62fdcd29f03d0d78dd4c6e9e0cd37aaad7",
+            "quote_utf8_bytes": 72,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 24
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "assertion",
+            "document_line_index": 202,
+            "block_id": "9abe65662706e474db58-p0003-l000006",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "8a9e9035fed393537bcca1bd6f7edfff827c3aeb052d0efd6c9ea67681520666",
+            "quote_utf8_bytes": 70,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 26
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "assertion",
+            "document_line_index": 203,
+            "block_id": "9abe65662706e474db58-p0003-l000007",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "be2b7d13fa9c7e252cc9653bb873cd0fb9d0f18a9fc2605522a60f707f54a4b6",
+            "quote_utf8_bytes": 74,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 28
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "provenance",
+            "document_line_index": 200,
+            "block_id": "9abe65662706e474db58-p0003-l000004",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "368c834752357d87f771a20fd59b895ebd477533922b70287b09ac28aec3b56d",
+            "quote_utf8_bytes": 10,
+            "occurrence": 0,
+            "span": {
+              "start": 24,
+              "end": 30
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "provenance",
+            "document_line_index": 201,
+            "block_id": "9abe65662706e474db58-p0003-l000005",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "84c45d2f7aa81e11b498ced48eb57b62fdcd29f03d0d78dd4c6e9e0cd37aaad7",
+            "quote_utf8_bytes": 72,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 24
+            },
+            "read_in_current_window": true
+          },
+          {
+            "role": "provenance",
+            "document_line_index": 202,
+            "block_id": "9abe65662706e474db58-p0003-l000006",
+            "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+            "physical_page": 3,
+            "quote_sha256": "8a9e9035fed393537bcca1bd6f7edfff827c3aeb052d0efd6c9ea67681520666",
+            "quote_utf8_bytes": 70,
+            "occurrence": 0,
+            "span": {
+              "start": 0,
+              "end": 26
+            },
+            "read_in_current_window": true
+          }
+        ],
+        "source_references_truncated": true,
+        "limits": {
+          "field_preview_code_points": 80,
+          "source_references": 16,
+          "sampled_array_items": 8
+        },
+        "original_arguments_or_source_quotes_saved": false
+      },
+      "current_versions": [
+        {
+          "record_id": "ev-20f9c9316cf7ebbe1f613738fbc963a1ca0d5168",
+          "version": 1
+        },
+        {
+          "record_id": "ev-37030ceafe65d761b657c080545e05d09cf2a7fc",
+          "version": 1
+        },
+        {
+          "record_id": "ev-58499ee404f45eb7134e5852cc0f69c926d7449e",
+          "version": 1
+        }
+      ]
+    }
+  },
+  "probe": {
+    "source_unit_id": "su-000130",
+    "source_fragments": [
+      {
+        "block_id": "9abe65662706e474db58-p0003-l000004",
+        "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+        "start": 24,
+        "end": 30,
+        "exact_quote": "MRI 是一",
+        "occurrence": 0,
+        "physical_page": 3,
+        "bbox": [
+          51.0236,
+          86.04368,
+          297.6378,
+          96.53097307692303
+        ],
+        "location_precision": "whole_textline_not_exact_glyph"
+      },
+      {
+        "block_id": "9abe65662706e474db58-p0003-l000005",
+        "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+        "start": 0,
+        "end": 24,
+        "exact_quote": "种分辨率较高的影像学诊断技术，其对于软组织的分辨",
+        "occurrence": 0,
+        "physical_page": 3,
+        "bbox": [
+          51.0236,
+          103.41999999999996,
+          297.6236000000001,
+          111.38274738067514
+        ],
+        "location_precision": "whole_textline_not_exact_glyph"
+      },
+      {
+        "block_id": "9abe65662706e474db58-p0003-l000006",
+        "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+        "start": 0,
+        "end": 26,
+        "exact_quote": "率能力较强，MRI 探查下病变软组织及正常软组织对比",
+        "occurrence": 0,
+        "physical_page": 3,
+        "bbox": [
+          51.0236,
+          118.60679999999991,
+          297.69230000000005,
+          127.18097307692301
+        ],
+        "location_precision": "whole_textline_not_exact_glyph"
+      },
+      {
+        "block_id": "9abe65662706e474db58-p0003-l000007",
+        "text_version": "s3v3-e5d7fc83822964b7d4ea86e6b6594182",
+        "start": 0,
+        "end": 28,
+        "exact_quote": "度较高，因此可有效反应病变及周围解剖结构变化 [7] 。",
+        "occurrence": 0,
+        "physical_page": 3,
+        "bbox": [
+          51.0236,
+          131.94367999999997,
+          297.6378,
+          141.88274738067514
+        ],
+        "location_precision": "whole_textline_not_exact_glyph"
+      }
+    ],
+    "joined_name": "对比度",
+    "literal_source_has_joined_name": false,
+    "rejected": true,
+    "issues": [
+      {
+        "code": "source_qualifier_or_number_omitted",
+        "severity": "reject",
+        "path": "source_fragments",
+        "detail": "A qualifier/numerical token was omitted from source block 9abe65662706e474db58-p0003-l000004; select the complete source statement."
+      },
+      {
+        "code": "assertion_wording_not_literal",
+        "severity": "reject",
+        "path": "assertion.original_wording",
+        "detail": ""
+      },
+      {
+        "code": "feature_name_not_in_evidence",
+        "severity": "reject",
+        "path": "feature_name_raw",
+        "detail": ""
+      },
+      {
+        "code": "coreference_requires_context",
+        "severity": "requires_review",
+        "path": "context_fragments",
+        "detail": ""
+      },
+      {
+        "code": "numeric_expression_missing",
+        "severity": "requires_review",
+        "path": "numeric_expressions",
+        "detail": ""
+      }
+    ],
+    "null_name_probe_accepted": false,
+    "null_name_probe_issues": [
+      {
+        "code": "source_qualifier_or_number_omitted",
+        "severity": "reject",
+        "path": "source_fragments",
+        "detail": "A qualifier/numerical token was omitted from source block 9abe65662706e474db58-p0003-l000004; select the complete source statement."
+      },
+      {
+        "code": "assertion_wording_not_literal",
+        "severity": "reject",
+        "path": "assertion.original_wording",
+        "detail": ""
+      },
+      {
+        "code": "coreference_requires_context",
+        "severity": "requires_review",
+        "path": "context_fragments",
+        "detail": ""
+      },
+      {
+        "code": "numeric_expression_missing",
+        "severity": "requires_review",
+        "path": "numeric_expressions",
+        "detail": ""
+      }
+    ]
+  },
+  "interpretation": "Name crosses a preserved source line boundary (对比 + newline + 度). Existing raw-name rule rejects a concatenated name. Offline argument probe is not a repair, retry or medical judgment; the original failed independent run is retained."
+}

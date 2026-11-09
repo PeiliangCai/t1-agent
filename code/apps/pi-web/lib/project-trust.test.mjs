@@ -251,12 +251,10 @@ test("a trust store still locked by another process counts as untrusted, with on
   assert.equal(mayReadProjectConfigNow(cwd, agentDir), true, "trusted again once the lock is gone");
 });
 
-test("all project resource loaders and reloads enforce project trust", async () => {
+test("retained resource loaders enforce project trust while their coding APIs remain retired", async () => {
   const rpcSource = await readFile(new URL("./rpc-manager.ts", import.meta.url), "utf8");
-  const modelsSource = await readFile(new URL("../app/api/models/route.ts", import.meta.url), "utf8");
   const skillsSource = await readFile(new URL("./skills-service.ts", import.meta.url), "utf8");
-  const skillsInstallSource = await readFile(new URL("../app/api/skills/install/route.ts", import.meta.url), "utf8");
-  const pluginsSource = await readFile(new URL("../app/api/plugins/route.ts", import.meta.url), "utf8");
+  const { isT1ApiPath } = await jiti.import("../t1/gateway-policy.ts");
 
   assert.match(rpcSource, /const sessionCwd = sessionManager\.getCwd\(\)/);
   assert.match(rpcSource, /projectTrustReloadOptions\(sessionCwd, agentDir\)/);
@@ -266,19 +264,8 @@ test("all project resource loaders and reloads enforce project trust", async () 
     2,
   );
 
-  assert.match(modelsSource, /projectTrustReloadOptions\(cwd, agentDir\)/);
-  assert.match(modelsSource, /resourceLoaderReloadOptions: trustReloadOptions/);
   assert.match(skillsSource, /loader\.reload\(projectTrustReloadOptions\(cwd, agentDir\)\)/);
-  assert.match(pluginsSource, /projectTrusted: projectTrust\.trusted/);
-  assert.match(
-    skillsInstallSource,
-    /getProjectTrustStatus\(cwd, getAgentDir\(\)\)\.trusted/,
-  );
-  assert.equal(
-    Array.from(pluginsSource.matchAll(/projectTrusted: projectTrust\.trusted/g)).length,
-    2,
-  );
-  assert.match(pluginsSource, /scope === "project" && !projectTrust\.trusted/);
+  for (const path of ["/api/models", "/api/skills/install", "/api/plugins", "/api/project-trust"]) assert.equal(isT1ApiPath(path), false, path);
 });
 
 // ---------------------------------------------------------------------------

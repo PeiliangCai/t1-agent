@@ -1,0 +1,148 @@
+{
+  "schema_version": "retired-bootstrap-deletion-audit-1",
+  "completed_at": "2026-11-09T10:52:31.797489+00:00",
+  "authorization": "Root final limited cleanup under user deletion of obsolete complete-answer preparation; no frozen runtime changes",
+  "files": [
+    {
+      "path": "scripts/prepare-s2-materials.py",
+      "bytes": 24421,
+      "sha256_before_delete": "4840f6e3ce4613d2dd3016b64338662ea5742366c3a3bc8ac676a87c67fe7960"
+    },
+    {
+      "path": "evaluation/rules/scoring-rules-draft.json",
+      "bytes": 3125,
+      "sha256_before_delete": "2691de54c8c0a2d9fde7fe5126a49914fcebabd6819eebff809074722c6032cd"
+    }
+  ],
+  "deleted_current_files": [
+    "scripts/prepare-s2-materials.py",
+    "evaluation/rules/scoring-rules-draft.json"
+  ],
+  "deleted_count": 2,
+  "predelete_archive": {
+    "path": "docs/acceptance/finalization-2026-11-09/retired-s2-bootstrap.tar.gz",
+    "sha256": "e32f60a146a6b129f48739d5bf9fca0181ad32047801042dc4c1470664bce198",
+    "member_bytes_verified": true
+  },
+  "existing_history_preserved": [
+    {
+      "path": "docs/acceptance/s3/before-u02-clarification/code/evaluation/rules/scoring-rules-draft.json",
+      "bytes": 2708,
+      "sha256": "fd506d2f944df4e7818f327ccc1ebfce5b8126cbb6e841a8f458e8388902ceee",
+      "modified": false
+    },
+    {
+      "path": "docs/acceptance/s3/comparison-2026-11-02/before-continuation/code/evaluation/rules/scoring-rules-draft.json",
+      "bytes": 3125,
+      "sha256": "2691de54c8c0a2d9fde7fe5126a49914fcebabd6819eebff809074722c6032cd",
+      "modified": false
+    },
+    {
+      "path": "docs/acceptance/s3/comparison-2026-11-02/before-continuation/code/scripts/prepare-s2-materials.py",
+      "bytes": 42059,
+      "sha256": "7e36883dbc819540b7cfa2c94b5178bdb5eebd8c4a6d7903f7294413505e04f3",
+      "modified": false
+    }
+  ],
+  "reference_check": {
+    "command_arguments": [
+      "rg",
+      "--no-ignore",
+      "--hidden",
+      "-n",
+      "-g",
+      "!node_modules",
+      "-g",
+      "!__pycache__",
+      "-g",
+      "!*.pyc",
+      "-g",
+      "!.next*",
+      "prepare-s2-materials(?:\\.py)?|scoring-rules-draft(?:\\.json)?|s2-scoring-draft-1(?:-scope-clarification)?",
+      "apps/server/src",
+      "apps/pi-web/t1",
+      "apps/pi-web/app",
+      "apps/pi-web/components",
+      "apps/pi-web/hooks",
+      "apps/pi-web/lib",
+      "packages",
+      "services/pdf-parser",
+      "scripts",
+      "evaluation/src",
+      "evaluation/contracts",
+      "evaluation/fixtures",
+      "tests",
+      "config",
+      "resources",
+      "README.md",
+      "package.json",
+      "tsconfig.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "matches_before_delete": [
+      "evaluation/src/contracts.ts:75:  rule_version: Type.Literal('s2-scoring-draft-1'), rules_status: Type.Enum(['pending_confirmation', 'approved']),",
+      "scripts/prepare-s2-materials.py:222:    rule = {'version': 's2-scoring-draft-1', 'status': 'pending_user_and_medical_confirmation', 'scope': 'S2 preparation only',",
+      "scripts/prepare-s2-materials.py:241:            'history': [{'version': 's2-scoring-draft-1', 'created_at': NOW, 'status': 'draft_not_human_approved'}]}",
+      "scripts/prepare-s2-materials.py:242:    write_json(OUT / 'rules/scoring-rules-draft.json', rule)",
+      "evaluation/contracts/EvaluationInput.schema.json:37:      \"const\": \"s2-scoring-draft-1\"",
+      "evaluation/fixtures/scoring/synthetic-example.json:6:  \"rule_version\": \"s2-scoring-draft-1\",",
+      "evaluation/fixtures/scoring/synthetic-example.json:24:    \"matching_policy_version\": \"s2-scoring-draft-1\"",
+      "evaluation/fixtures/scoring/unevaluable-real-input.json:6:  \"rule_version\": \"s2-scoring-draft-1\",",
+      "evaluation/fixtures/scoring/unevaluable-real-input.json:24:    \"matching_policy_version\": \"s2-scoring-draft-1\""
+    ],
+    "current_file_reader_or_callers": [],
+    "version_id_indirect_references": "Optional generic evaluator/schema/fixture/report literal s2-scoring-draft-1 remains. Generic evaluator implements rules in code; CLI reads an explicit input only, not scoring-rules-draft.json. These retained compatibility labels are not runtime dependencies on either deleted file.",
+    "historical_docs": "S2/S3 manifests and reference-preparation inventories keep their original path/hash citations, unchanged. Initial broad rg also reported permission denied for two S7 final-controlled tar archive paths; current-source scoped scan completed without errors.",
+    "matches_after_delete": [
+      "evaluation/src/contracts.ts:75:  rule_version: Type.Literal('s2-scoring-draft-1'), rules_status: Type.Enum(['pending_confirmation', 'approved']),",
+      "evaluation/contracts/EvaluationInput.schema.json:37:      \"const\": \"s2-scoring-draft-1\"",
+      "evaluation/fixtures/scoring/unevaluable-real-input.json:6:  \"rule_version\": \"s2-scoring-draft-1\",",
+      "evaluation/fixtures/scoring/unevaluable-real-input.json:24:    \"matching_policy_version\": \"s2-scoring-draft-1\"",
+      "evaluation/fixtures/scoring/synthetic-example.json:6:  \"rule_version\": \"s2-scoring-draft-1\",",
+      "evaluation/fixtures/scoring/synthetic-example.json:24:    \"matching_policy_version\": \"s2-scoring-draft-1\""
+    ],
+    "after_exit_code": 0
+  },
+  "replacement_entries": {
+    "independent_corpus_registration": "package.json eval:independent-corpus -> scripts/independent-corpus.ts register/seal/expose; current source-register and independent-intake retained",
+    "production_catalog": "apps/server/src/catalog-config.ts configuredEvidenceCatalog validates explicit operator EvidenceCatalog file; main.ts passes it through workflow/runner. Unconfigured stays unavailable; no medical entries approved.",
+    "generic_optional_research_evaluation": "package.json eval:quality -> scripts/evaluate-quality.ts -> evaluation/src/evaluator.ts/contracts.ts and fixtures/tests retained"
+  },
+  "frozen_runtime_mutations": 0,
+  "model_calls": 0,
+  "production_mutations": 0,
+  "preserved": "All original PDFs, source/catalog manifests, generic evaluator/schema/tests, original149 sealed files, S6 reports/freezes, human opinions and AI reference spreadsheets.",
+  "validation": {
+    "tests": {
+      "passed": 31,
+      "failed": 0,
+      "scope": "Optional evaluator, CLI, historical material contracts and corpus isolation tests",
+      "log": "docs/acceptance/finalization-2026-11-09/retired-s2-bootstrap-check.log",
+      "log_sha256": "d41cfffdfbefcd1b5722a8529333b07e445f3556097d1b9d9156baa1177e219c"
+    },
+    "independent_corpus_inspect": {
+      "exit_code": 0,
+      "registered": 4,
+      "exposed": 4,
+      "paid_calls": 0
+    },
+    "runtime_freezes": [
+      {
+        "pin_file": "docs/acceptance/finalization-2026-11-09/s6/post-holdout-raw-name-repair/source-freeze.json",
+        "checked": 112,
+        "mismatches": []
+      },
+      {
+        "pin_file": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/plan.json",
+        "checked": 119,
+        "mismatches": []
+      }
+    ],
+    "original149_seal_mismatches": [],
+    "S6_report_unchanged": true,
+    "existing_historical_snapshots_unchanged": true,
+    "current_files_absent": true
+  },
+  "verified_at": "2026-11-09T10:53:09.904478+00:00"
+}

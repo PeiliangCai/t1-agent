@@ -5,7 +5,7 @@ import { TOOL_NAMES } from './tools.js';
 const correctable = [ 'schema_validation_failed', 'choose_one_read_selection', 'choose_source_units_or_source_lines',
   'choose_context_units_or_context_lines', 'choose_exact_fragments_or_whole_source_lines', 'source_line_index_out_of_range',
   'source_evidence_index_out_of_range', 'source_unit_not_available', 'batch_completion_requires_all_assigned_blocks_read',
-  'bibliography_read_outside_task_scope' ];
+  'bibliography_read_outside_task_scope', 'summary_raw_name_requires_literal_source', 'summary_target_feature_requires_explicit_choice' ];
 const fatal = ['host_identity_override_or_unregistered_tool', 'summary_update_validation_failed', 'summary_source_not_authorized',
   'cross_task_or_batch_access_denied', 'cross_task_access_denied', 'source_binding_mismatch', 'update_target_missing_or_outside_bound_run',
   'update_target_feature_mismatch', 'block_not_authorized', 'source_block_not_read', 'evidence_version_conflict'];
@@ -79,6 +79,10 @@ export class BoundedToolRecovery {
       'Correct only your tool arguments within this same immutable task and source binding, using the registered schema and IDs actually returned by tools. ' +
       'Do not guess, pad or normalize an opaque ID. Choose exactly one source selector and at most one context selector. ' +
       'For a batch read use {} or line_indices; a summary read requires exactly one nonempty line_indices or block_ids array. ' +
+      (samples.some(s => s.error_code === 'summary_raw_name_requires_literal_source') ?
+        'The raw feature name must occur exactly in the supplied original evidence, including printed line breaks, or be null. Do not normalize or rewrite the original quotation. ' : '') +
+      (samples.some(s => s.error_code === 'summary_target_feature_requires_explicit_choice') ?
+        'The proposed replacement of an existing feature was rejected. Keep that record with its existing feature/source, or submit a separate source-validated candidate without updates_record_id. Re-read current candidate context if needed. Do not change evidence or identity to bypass the guard. ' : '') +
       (samples.some(s => s.error_code === 'bibliography_read_outside_task_scope') ?
         'This read hit confirmed bibliography outside the extraction task. No requested source text was returned or marked read. Choose only authorized task-scope lines from get_document_context; do not retry the same excluded selector. ' : '') +
       `No arguments were rewritten by the host. ${2 - this.corrections} further distinct correction opportunities remain; all calls use the existing budget.` });

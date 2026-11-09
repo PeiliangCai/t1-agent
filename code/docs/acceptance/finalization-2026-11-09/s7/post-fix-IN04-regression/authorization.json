@@ -1,0 +1,42 @@
+{
+  "schema_version": "s7-single-postfix-regression-authorization-1",
+  "observed_at": "2026-11-09T10:36:02.763040+00:00",
+  "authority": "parent architect new allocation under four-hour user delegation",
+  "authorized_runs": 1,
+  "purpose": "Post-fix deployment regression only; not a new independent sample or model selection",
+  "source_id": "IN04",
+  "input_path": "evaluation/corpus/independent-sealed/IN04.pdf",
+  "input_sha256": "50427f2871550116a3ef9530b09fe5a8591299f6352ab58af1aaa46273437a3b",
+  "preexposed": true,
+  "new_independent_sample_count": 0,
+  "model": {
+    "provider": "agicto",
+    "endpoint": "https://api.agicto.cn/v1",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses"
+  },
+  "method": "B0",
+  "scope": "all3 unrestricted",
+  "limits": {
+    "requests": 24,
+    "input_tokens": 600000,
+    "output_tokens": 32000,
+    "HTTP_seconds": 900,
+    "request_seconds": 120,
+    "transient_retries": 2,
+    "response_output_tokens": 8192
+  },
+  "latest_admission_utc": "2026-11-09T11:05:00Z",
+  "hard_stop_utc": "2026-11-09T11:20:00Z",
+  "prerequisites": [
+    "Two limited safe parameter corrections and coverage consistency fix actually pass offline tests",
+    "Final source and image plus0API core/model-warning checks passed",
+    "New plan/source+image pins and preflight frozen"
+  ],
+  "no_old_allowance_inheritance": true,
+  "no_automatic_whole_run_retry": true,
+  "on_failure": "No further model retry; preserve remaining gap; ordinary model remains off unless parent conditions satisfied",
+  "actual_provider_requests": 0,
+  "status": "conditionally_authorized_not_started"
+}

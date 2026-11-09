@@ -1,0 +1,22 @@
+# Operator-only one-run verification. Root supplies a NEW fixed plan/budget before use.
+# Neither mounted file is baked into the image. Never mount the ordinary production data volume.
+services:
+  app:
+    restart: "no"
+    environment:
+      T1_SERVER_ENTRY: deploy/one-run-server.ts
+      T1_WORKBENCH_MODEL_ENABLED: "false"
+      T1_MODEL_API_KEY: ""
+    volumes:
+      - type: bind
+        source: ${T1_VERIFY_PLAN:?new approved container plan is required}
+        target: /run/t1-verification/plan.json
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${T1_VERIFY_SECRET:?private model dotenv is required}
+        target: /run/secrets/t1-model.env
+        read_only: true
+        bind:
+          create_host_path: false

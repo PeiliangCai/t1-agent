@@ -14,7 +14,7 @@ import { evidenceScopeIssues } from './scope-matching.js';
 import { selectSourceBlocks, taskSourceBlockIds, BIBLIOGRAPHY_SCOPE_RULE_VERSION, type SourceSelectionCondition } from './source-selection.js';
 import { assertLivePdfSource, discoverPdfFigures } from './figure-assets.js';
 import { assertFigureCatalog, buildEvidenceDelivery } from './evidence-delivery.js';
-import { addSourceStatementContext, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
+import { addSourceStatementContext, sourceGlyphCheckStatus, sourceGlyphQuarantine, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
 import { VISUAL_STATEMENT_POLICY_VERSION } from './visual-evidence-policy.js';
 import { BoundedToolRecovery } from './extraction-tool-recovery.js';
 import { FEATURE_NAME_RAW_RULE, STATEMENT_SELECTOR_RULE, STRUCTURE_HINT_RULE, TABLE_SUPPORT_RULE, SOURCE_UNIT_BOUNDARY_RULE, statementIndexRule } from './extraction-protocol.js';
@@ -34,16 +34,22 @@ export interface ExtractionRunOptions {
   figureCatalog?: FigureAssetCatalog;
   /** Real-PDF runs discover local assets; explicit omission is recorded, never called no-image. */
   figureDiscovery?: 'discover' | 'not_requested';
+  /** The HTTP coordinator may create a fresh queued run before parsing. Never used to resume an interrupted run. */
+  precreatedRun?: boolean;
+  /** Optional host verification policy: retain partials, but do not dispatch later batches after an unrecovered batch failure. */
+  stopOnBatchFailure?: boolean;
 }
 export async function runExtractionDocument(options: ExtractionRunOptions) {
   const { input, document, catalog, metadata, profile, config, budget, store, directory, strategy } = options;
   assertSchema(RunInputSchema, input); assertSchema(EvidenceCatalogSchema, catalog); assertParsedDocument(document);
+  if (sourceGlyphCheckStatus(document) === 'legacy_not_checked') throw new ContractError('source_glyph_check_missing_reparse_required');
   if (options.figureCatalog) assertFigureCatalog(document, options.figureCatalog);
   if (input.document_id !== document.document_id || input.file_sha256 !== document.file_sha256 || input.fixture !== document.fixture) throw new ContractError('extraction_document_identity_mismatch');
   if (metadata.source_version.file_sha256 !== document.file_sha256) throw new ContractError('extraction_metadata_source_mismatch');
   await assertLivePdfSource(document);
   const article = buildArticleScope(document), selection = selectSourceBlocks(document, article, options.sourceSelectionCondition ?? 'B0');
-  const taskAllowed = taskSourceBlockIds(document, article);
+  const glyphQuarantine = sourceGlyphQuarantine(document), taskAllowed = taskSourceBlockIds(document, article);
+  const taskScopeIds = article.included_block_ids.filter(id => !selection.excluded_block_ids.includes(id));
   const batches = addSourceStatementContext(document,
     planExtractionBatches(document, { ...article, included_block_ids: selection.kept_block_ids }, options.batchOptions), taskAllowed);
   const documentTimeout = options.documentTimeoutMs ?? S4_LIMITS.document_seconds * 1000;
@@ -66,11 +72,16 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
       figureDiscovery = { status: 'failed_text_still_deliverable', error_code: safeError(cause).code };
     }
   }
-  store.create(input, { ...metadata, strategy, model_profile: profile, parser: document.parser,
+  const runMetadata = { ...metadata, strategy, model_profile: profile, parser: document.parser,
     source_ir_reused: true, original_pdf_modified: false, medical_quality_approved: false,
     bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION,
     evidence_policy_version: VISUAL_STATEMENT_POLICY_VERSION, source_evidence_unit_version: SOURCE_EVIDENCE_UNIT_VERSION,
-    primary_assessment_policy_version: PRIMARY_ASSESSMENT_POLICY_VERSION });
+    primary_assessment_policy_version: PRIMARY_ASSESSMENT_POLICY_VERSION };
+  if (options.precreatedRun) {
+    const previous = store.snapshot(input.run_id);
+    if (!['queued', 'parsing'].includes(previous.state) || previous.candidates.length || JSON.stringify(previous.input) !== JSON.stringify(input)) throw new ContractError('precreated_run_is_not_fresh');
+    store.db.prepare('UPDATE s4_runs SET metadata_json=? WHERE id=?').run(JSON.stringify(runMetadata), input.run_id);
+  } else store.create(input, runMetadata);
   await writeFile(resolve(directory, 'article-scope.json'), JSON.stringify(article, null, 2) + '\n', { flag: 'wx' });
   await writeFile(resolve(directory, 'source-selection.json'), JSON.stringify(selection, null, 2) + '\n', { flag: 'wx' });
   await writeFile(resolve(directory, 'batch-plan.json'), JSON.stringify(batches, null, 2) + '\n', { flag: 'wx' });
@@ -93,7 +104,8 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
       assigned_blocks: article.included_block_ids.length, quarantined_blocks: article.quarantined_block_ids.length,
       dispatched_blocks: selection.kept_block_ids.length, deferred_blocks: selection.deferred_block_ids.length,
       excluded_input_copy_blocks: selection.excluded_block_ids.length, source_selection_digest: selection.digest,
-      bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION, task_scope_blocks: taskAllowed.length,
+      bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION, task_scope_blocks: taskScopeIds.length,
+      source_glyph_check_status: sourceGlyphCheckStatus(document), source_glyph_quarantined_block_ids: glyphQuarantine,
       unselected_is_not_processed: true,
       parser_status: document.parser.status, native_structure_human_verified: false });
     for (const batch of batches) {
@@ -150,7 +162,7 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
         store.event(input.run_id, 'retry', { batch_id: batch.batch_id, next_attempt: attempt + 1, reason: 'transient_provider_or_transport_error' });
         await new Promise(resolve => setTimeout(resolve, 250 * (attempt + 1)));
       }
-      if (!succeeded) batch.assigned_block_ids.forEach(id => failed.add(id));
+      if (!succeeded) { batch.assigned_block_ids.forEach(id => failed.add(id)); if (options.stopOnBatchFailure) throw new ContractError('unrecovered_batch_failure_stopped'); }
     }
     store.transition(input.run_id, 'reconciling');
     let finalSummaryReport: Record<string, unknown> | undefined;
@@ -238,9 +250,10 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
   }
   const snapshot = store.snapshot(input.run_id), usage = process.cpuUsage(cpuStart);
   const selectedComplete = selection.kept_block_ids.every(id => completed.has(id));
-  const taskUnprocessed = taskAllowed.filter(id => !completed.has(id) && !failed.has(id));
-  const taskFailed = taskAllowed.filter(id => failed.has(id));
+  const taskUnprocessed = taskScopeIds.filter(id => !completed.has(id) && !failed.has(id));
+  const taskFailed = taskScopeIds.filter(id => failed.has(id));
   const taskBlockers = [...(!selectedComplete ? ['selected_input_processing_incomplete'] : []),
+    ...(glyphQuarantine.length ? ['source_glyph_quarantine_unresolved'] : []),
     ...(!summaryCompleted ? ['summary_incomplete'] : []), ...(document.parser.status === 'unsupported' ? ['source_unsupported'] : []),
     ...(error ? [error.code] : [])];
   const taskProcessingComplete = taskBlockers.length === 0;
@@ -272,7 +285,8 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
     timing_scope: 'cached_real_DocumentIR_to_Pi_candidates_and_summary_not_fresh_PDF_end_to_end',
     coverage: { physical_pages: document.pages.length, parser_status: document.parser.status,
       all_source_blocks: document.blocks.length, assigned_source_blocks: article.included_block_ids.length,
-      bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION, task_scope_source_blocks: taskAllowed.length,
+      bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION, task_scope_source_blocks: taskScopeIds.length,
+      model_authorized_source_blocks: taskAllowed.length,
       task_scope_source_block_processing_complete: taskUnprocessed.length === 0 && taskFailed.length === 0,
       task_processing_complete: taskProcessingComplete, task_processing_blockers: taskBlockers,
       task_scope_unprocessed_source_block_ids: taskUnprocessed, task_scope_failed_source_block_ids: taskFailed,
@@ -289,6 +303,8 @@ export async function runExtractionDocument(options: ExtractionRunOptions) {
       unprocessed_source_block_ids: taskUnprocessed,
       original_article_unprocessed_source_block_ids: article.included_block_ids.filter(id => !completed.has(id) && !failed.has(id)),
       quarantined_source_block_ids: article.quarantined_block_ids,
+      source_glyph_check_status: sourceGlyphCheckStatus(document), source_glyph_quarantined_block_ids: glyphQuarantine,
+      source_glyph_gaps_are_not_completed_or_task_exclusions: true,
       context_block_exposures_including_overlap: contextExposures, context_unique_block_ids: [...new Set(batches.flatMap(b => b.context_block_ids))],
       source_block_processing_complete: completed.size === article.included_block_ids.length,
       whole_document_summary_complete: summaryCompleted, full_document_extraction_completed: snapshot.state === 'completed',

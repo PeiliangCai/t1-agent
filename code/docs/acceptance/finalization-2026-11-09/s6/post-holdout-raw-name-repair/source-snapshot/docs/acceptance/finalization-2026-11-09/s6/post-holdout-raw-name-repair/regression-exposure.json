@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-11-09T10:43:30.078242+00:00",
+  "new_paid_model_calls": 0,
+  "manifest_path": "evaluation/manifests/independent-intake.json",
+  "manifest_sha256": "333bdd4466a33e82f97737a50f8563daae29760dadd60cc3fc90948c53c2b9a1",
+  "reason": "After completed independent failures, use fixed exposed IN03/IN04 only for mechanical offline fixtures and separately authorized post-fix IN04 regression. Never qualify as new independent papers again.",
+  "papers": [
+    {
+      "source_id": "IN03",
+      "article_family_id": "yxyjyy:2024:8:19:152-154:hongyafei",
+      "state": "exposed",
+      "exposures": [
+        {
+          "purpose": "independent_acceptance",
+          "actor": "S6 delegated independent execution / GPT-6.1-Sol max",
+          "recorded_at": "2026-11-09T08:28:54.044Z",
+          "evidence": "docs/acceptance/finalization-2026-11-09/s6/plan.json"
+        },
+        {
+          "purpose": "independent_acceptance",
+          "actor": "S6 delegated independent execution / GPT-6.1-Sol max",
+          "recorded_at": "2026-11-09T09:32:23.457Z",
+          "evidence": "docs/acceptance/finalization-2026-11-09/s6/repaired-holdout-IN03/plan.json"
+        },
+        {
+          "purpose": "regression",
+          "actor": "GPT-6.1-Sol-execution",
+          "recorded_at": "2026-11-09T10:43:19.293Z",
+          "evidence": "docs/acceptance/finalization-2026-11-09/s6/post-holdout-raw-name-repair/report.json#sha256=d68d3bb449de527992f3314120e2062667e7fa02dc25a9dd0b1463d90a686986"
+        }
+      ]
+    },
+    {
+      "source_id": "IN04",
+      "article_family_id": "doi:10.3389/fonc.2025.1603084",
+      "state": "exposed",
+      "exposures": [
+        {
+          "purpose": "independent_acceptance",
+          "actor": "S7 single repaired-version independent provider execution delegated by root; no tuning or medical approval",
+          "recorded_at": "2026-11-09T10:03:07.591Z",
+          "evidence": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/plan.json"
+        },
+        {
+          "purpose": "regression",
+          "actor": "GPT-6.1-Sol-execution",
+          "recorded_at": "2026-11-09T10:43:30.027Z",
+          "evidence": "docs/acceptance/finalization-2026-11-09/s6/post-holdout-raw-name-repair/report.json#sha256=d68d3bb449de527992f3314120e2062667e7fa02dc25a9dd0b1463d90a686986"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schema_version": "s5-frontend-handoff-1",
+  "created_at": "2026-11-09T02:35:06.700185+00:00",
+  "status": "frontend_workflow_engineering_verified; formal_S5_user_acceptance_not_claimed",
+  "owner": "GPT-6.1-Sol max s5_frontend",
+  "main_review_count": "S4 3/3 retained, no additional formal review claimed",
+  "application_root": "code/apps/pi-web; existing Next 16.4.4 / Pi Web 0.15.0 retained",
+  "implemented": [
+    "逐篇原始PDF上传与同SHA恢复；明确删除范围、共享PDF引用保留",
+    "真实catalog癌种/模态/特征三层默认不限；受限多选、空选/失效阻止提交、不自动放宽",
+    "B0新运行入口、独立多任务列表/切换/取消、SSE持久事件与单飞回读、刷新和历史恢复",
+    "PDF.js物理原页、整幅Figure/原图注及Figure Note对照",
+    "逐图来源完整性核验与catalog SHA冲突保护；不会自动批准任何记录",
+    "逐条来源/相关性/上下文核验并批准文字；另行图片批准，图片待核不阻止文字导出",
+    "来源单元重选、分类/角色/标签/备注、原文补录/删除，expected_version竞争保护",
+    "run+record+version隔离草稿；切换/刷新保留；409保留草稿且主动读取新版本后才能重试",
+    "使用已有same-source-review-index共享源句区域，保留每成员版本、归因差异、各自审核",
+    "候选与已审核分别JSONL/CSV/tar.gz下载，错误反馈可理解；source缺失/错SHA阻止新抽取与已审核导出",
+    "三语言、现有Pi Web主题/Tab/布局；移动侧栏初始收起，未加入新运行时依赖或第二前端",
+    "统一npm run dev:web/start:web包装脚本默认端口30141，与当前唯一健康Next服务及pi-web AGENTS保持一致，未重启或新增进程",
+    "最终正常状态文案：默认提示仅隐藏medical_catalog_not_approved/server_model_not_enabled两个已知内部代码，保留准确中文限制；其他异常理由继续展示"
+  ],
+  "security": [
+    "固定127.0.0.1:3210业务gateway；显式方法与路径白名单；不接收任意host/filesystem路径",
+    "保留existing request-security Host/Origin边界；50MiB PDF字节上限",
+    "正式provider只服务端；浏览器无API Key/真实模型选项；未付费调用"
+  ],
+  "production": {
+    "checked_at": "2026-11-09T02:34:02.216Z",
+    "frontend": "http://127.0.0.1:30141",
+    "backend": "http://127.0.0.1:3210",
+    "capabilities": {
+      "schema_version": "t1-workbench-capabilities-1",
+      "read_only": false,
+      "paper_upload": true,
+      "extraction_start": false,
+      "persisted_review": true,
+      "approved_export": true,
+      "backend_pi_sdk": "1.4.0",
+      "full_S5_complete": false,
+      "controlled_fixture": false,
+      "max_pdf_bytes": 52428800,
+      "extraction_unavailable_reason": "server_model_not_enabled"
+    },
+    "registered_papers": 5,
+    "retained_runs": 8,
+    "controlled_runs": 0,
+    "test_uploads_in_production": 0,
+    "start_button_disabled": true,
+    "fixture_banner_absent": true,
+    "browser_errors": [],
+    "paid_calls": 0
+  },
+  "test_isolation": {
+    "production_database": "code/runtime-data/t1.sqlite",
+    "controlled_database": "code/runtime-data/s5-controlled-browser/workflow.sqlite",
+    "controlled_database_served_now": false,
+    "production_test_uploads": 0,
+    "production_controlled_runs": 0,
+    "production_review_annotation_rows": "backend owner independently reported0/0; browser confirms no test runs or uploads"
+  },
+  "checks": {
+    "frontend_typecheck": {
+      "command": "node_modules/.bin/tsc --noEmit",
+      "exit_code": 0,
+      "log": "frontend-typecheck.log"
+    },
+    "changed_source_eslint": {
+      "exit_code": 0,
+      "errors": 0,
+      "warnings": 0,
+      "log": "frontend-changed-source-lint.log"
+    },
+    "focused_request_security_scope_gateway_i18n": {
+      "passed": 21,
+      "failed": 0,
+      "log": "frontend-focused-tests.log"
+    },
+    "legacy_readonly_workbench_integration": {
+      "passed": 4,
+      "failed": 0,
+      "log": "frontend-legacy-workbench-integration.log"
+    },
+    "http_browser": {
+      "passed": 14,
+      "failed": 0,
+      "report": "browser/results.json",
+      "sha256": "214a2d88344b727fc37afb1e17401e55302a4c47408b263c544db61bdcfc0520",
+      "continued_from": "11 checks in attempt-4, final3 on same run/database after correcting test file-input locator; executed_in fields preserve provenance",
+      "errors": [],
+      "external_requests": [],
+      "server_5xx": []
+    },
+    "packages": {
+      "report": "package-audit.json",
+      "sha256": "712b3f4653bcf91b0ae74f337d81449c0adafd7f30d0c220784d585e4574c73e",
+      "observed": [
+        "text-only approved package has no figure PNG",
+        "separately figure-approved package includes original Figure PNG",
+        "manifest/coverage/delivery/reviews/source versions/human annotations retained"
+      ]
+    },
+    "full_suite_first_attempt": {
+      "passed": 2789,
+      "failed": 65,
+      "total": 2854,
+      "exit_code": 1,
+      "log": "frontend-npm-test.log",
+      "cause": "introduced locale @alias import regression included, subsequently fixed via relative mjs imports"
+    },
+    "affected_failed_file_subset_after_fix": {
+      "files": 29,
+      "passed": 243,
+      "failed": 14,
+      "total": 257,
+      "exit_code": 1,
+      "log": "frontend-affected-tests-after-import-fix.log",
+      "remaining": "8 auth tests also fail with exact initial clean HEAD proxy/gateway baseline;6 tests reference retired missing general coding routes",
+      "baseline_evidence": "frontend-check-context.json;auth-head-baseline-replay.log",
+      "entire_suite_after_fix_rerun": false
+    },
+    "full_eslint": {
+      "exit_code": 1,
+      "errors": 10,
+      "warnings": 15746,
+      "log": "frontend-lint.log",
+      "all_error_paths": [
+        "public/output-review/pdfjs/pdf.worker.min.mjs",
+        "public/t1-assets/pdfjs/pdf.worker.min.mjs"
+      ],
+      "vendor_files_edited": false
+    },
+    "launcher_syntax": {
+      "command": "node --check scripts/pi-web.mjs",
+      "exit_code": 0,
+      "log": "frontend-launcher-syntax.log"
+    },
+    "normal_status_copy": {
+      "report": "normal-status-copy-check.json",
+      "production_http_browser_passed": true,
+      "scoped_eslint_exit": 0,
+      "scoped_eslint_log": "frontend-status-copy-lint.log",
+      "full_14_check_suite_rerun": false
+    }
+  },
+  "visual_evidence": [
+    "browser/06-final-desktop-original.png",
+    "browser/07-final-mobile-original.png",
+    "browser/08-production-default-no-model.png",
+    "final-visual-check.json",
+    "browser/09-production-readable-status.png",
+    "normal-status-copy-check.json"
+  ],
+  "boundaries": [
+    "Production model remains unconfigured/disabled, extraction_start=false; no new paid API permission or model choice was introduced",
+    "Browser task execution used explicit local retained-source replay; it does not verify new real-model medical effectiveness",
+    "Approved medical vocabulary is unavailable; browser verifies honest unavailable/empty rejection; synthetic nonmedical unit tests verify valid multiselect and downstream invalidation",
+    "Scope differences under a real approved medical catalog, formal independent S6 quality/performance and S7 deployment remain separate",
+    "VS Code Live Server extension was not used or claimed; actual HTTP Next/browser workflow was tested"
+  ],
+  "paid_api_calls_by_frontend": 0,
+  "new_model_effectiveness_claimed": false,
+  "files": [
+    "apps/pi-web/t1/T1Workbench.tsx",
+    "apps/pi-web/t1/ScopeEditor.tsx",
+    "apps/pi-web/t1/scope.ts",
+    "apps/pi-web/t1/EvidenceSource.tsx",
+    "apps/pi-web/t1/SameSourceMembers.tsx",
+    "apps/pi-web/t1/FigureVerification.tsx",
+    "apps/pi-web/t1/RecordReview.tsx",
+    "apps/pi-web/t1/SourceEditor.tsx",
+    "apps/pi-web/t1/PdfSource.tsx",
+    "apps/pi-web/t1/useRunEvents.ts",
+    "apps/pi-web/t1/api.ts",
+    "apps/pi-web/t1/gateway-policy.ts",
+    "apps/pi-web/t1/messages.mjs",
+    "apps/pi-web/t1/workbench.css",
+    "apps/pi-web/app/api/t1/[...path]/route.ts",
+    "apps/pi-web/proxy.ts",
+    "apps/pi-web/lib/i18n/messages/en.ts",
+    "apps/pi-web/lib/i18n/messages/zh-CN.ts",
+    "apps/pi-web/lib/i18n/messages/zh-TW.ts",
+    "apps/pi-web/lib/t1-workflow.test.mjs",
+    "apps/pi-web/e2e/t1-workflow.mjs",
+    "scripts/pi-web.mjs"
+  ],
+  "temporary_cleanup": [
+    "Removed t1-explore.mjs scratch",
+    "Reverted only generated AGENTS heading delta",
+    "Removed unused task-downloaded browser cache; verification reused existing code/.tools/annotation-browser assets"
+  ]
+}

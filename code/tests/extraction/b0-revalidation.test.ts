@@ -40,41 +40,13 @@ test('B0 preparation refuses another method/purpose and a larger proposal before
     await assert.rejects(makeB0RevalidationPlan({ ...config, ...patch } as B0RevalidationConfig, 'config/b0-s4-revalidation.json'));
 });
 
-test('actual three-source prepare/preflight freeze B0 only with zero fetch, no execution, unsigned template and exact observation spans', async () => {
+test('B0 preparation refuses frozen older parser outputs before model calls or relabeling their source version', async () => {
   const directory = await mkdtemp(resolve('runtime-data/b0-preflight-test-')), prepared = resolve(directory, 'prepared');
   const originalFetch = globalThis.fetch; let fetches = 0;
   globalThis.fetch = async () => { fetches++; throw new Error('No provider request is allowed in an offline test.'); };
   try {
-    const { plan, plan_sha256 } = await prepareB0Revalidation('config/b0-s4-revalidation.json', prepared);
-    assert.deepEqual(plan.execution_order, ['L07-B0', 'L01-B0', 'L05-B0']); assert.ok(plan.papers.every(p => p.method === 'B0'));
-    assert.equal(plan.papers.find(p => p.document_id === 'L01')!.language, 'zh');
-    assert.ok(plan.source_hashes['packages/agent/src/b0-revalidation.ts']);
-    assert.ok(plan.source_hashes['packages/agent/src/prepared-extraction-sources.ts']);
-    assert.ok(plan.observations.every(c => c.source_fragments.length > 0 && c.sent_to_model_as_answers === false));
-    const templatePath = resolve(prepared, 'authorization-template.json'), template = await json(templatePath);
-    assert.equal(template.prepared_plan_sha256, plan_sha256); assert.equal(template.status, 'pending_user_confirmation');
-    assert.equal(template.authorization_id, null); assert.equal(template.purpose, B0_REVALIDATION_PURPOSE);
-    const { report } = await preflightB0Revalidation(prepared);
-    assert.equal(report.status, 'offline_inputs_ready_pending_new_user_authorization'); assert.equal(report.execution_started, false);
-    assert.equal(report.authorization_binding_checked, false); assert.equal(report.model_provider_requests, 0);
-    await assert.rejects(executeB0Revalidation(prepared, templatePath), /new_b0_revalidation_user_authorization_required/);
-    await assert.rejects(access(resolve(prepared, 'execution'))); assert.equal(fetches, 0);
-    const originalPlan = await readFile(resolve(prepared, 'plan.json'));
-    const changed = structuredClone(plan); changed.papers[0]!.pdf_sha256 = 'c'.repeat(64);
-    await writeFile(resolve(prepared, 'plan.json'), JSON.stringify(changed));
-    await assert.rejects(preflightB0Revalidation(prepared), /b0_prepared_input_or_observation_changed/);
-    await writeFile(resolve(prepared, 'plan.json'), originalPlan);
-    const snapshot = resolve(prepared, 'source-snapshot/packages/agent/src/strict-source-groups.ts'), originalModule = await readFile(snapshot);
-    await writeFile(snapshot, Buffer.concat([originalModule, Buffer.from('\n// tampered offline snapshot\n')]));
-    await assert.rejects(preflightB0Revalidation(prepared), /prepared_runtime_source_snapshot_changed/);
-    await writeFile(snapshot, originalModule);
-    const inputSnapshot = resolve(prepared, 'input-snapshot', plan.papers[0]!.ir_path), originalIR = await readFile(inputSnapshot);
-    await writeFile(inputSnapshot, Buffer.concat([originalIR, Buffer.from('\n')]));
-    await assert.rejects(preflightB0Revalidation(prepared), /b0_frozen_input_snapshot_changed/);
-    await writeFile(inputSnapshot, originalIR); assert.equal(fetches, 0);
-    const result = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/revalidate-b0.ts', 'execute', '--directory', prepared], { encoding: 'utf8' });
-    assert.equal(result.status, 1); assert.match(result.stdout, /new_b0_revalidation_user_authorization_required/);
-    await assert.rejects(access(resolve(prepared, 'execution')));
+    await assert.rejects(prepareB0Revalidation('config/b0-s4-revalidation.json', prepared), /comparison_requires_same_current_formal_parser/);
+    assert.equal(fetches, 0); await assert.rejects(access(resolve(prepared, 'execution')));
   } finally { globalThis.fetch = originalFetch; await rm(directory, { recursive: true, force: true }); }
 });
 

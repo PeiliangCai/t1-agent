@@ -1,0 +1,112 @@
+id: 1
+event: state
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":1,"type":"state","timestamp":"2026-11-09T08:40:51.108Z","detail":{"state":"queued","medical_quality_approved":false}}
+
+id: 2
+event: state
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":2,"type":"state","timestamp":"2026-11-09T08:40:51.110Z","detail":{"state":"parsing"}}
+
+id: 3
+event: source_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":3,"type":"source_saved","timestamp":"2026-11-09T08:40:57.892Z","detail":{"text_version":"s3v3-40a63aa472b659a3dac82ccf94ecde04","physical_pages":1,"parser_id":"docling-standard-cpu","controlled_fixture":true}}
+
+id: 4
+event: state
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":4,"type":"state","timestamp":"2026-11-09T08:40:57.905Z","detail":{"state":"extracting"}}
+
+id: 5
+event: coverage_inventory
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":5,"type":"coverage_inventory","timestamp":"2026-11-09T08:40:57.907Z","detail":{"all_source_blocks":3,"assigned_blocks":3,"quarantined_blocks":0,"dispatched_blocks":3,"deferred_blocks":0,"excluded_input_copy_blocks":0,"source_selection_digest":"878a3db50bb3b62db3da5bd204586359800f8d63705bdf90260e51655ff6a8fe","bibliography_scope_rule_version":"explicit-bibliography-task-scope-1","task_scope_blocks":3,"unselected_is_not_processed":true,"parser_status":"parsed","native_structure_human_verified":false}}
+
+id: 6
+event: model_tool_argument_shape
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":6,"type":"model_tool_argument_shape","timestamp":"2026-11-09T08:40:58.044Z","detail":{"batch_id":"batch-0001","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","protocol":"batch_lines","record_shapes":[]}}
+
+id: 7
+event: tool
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":7,"type":"tool","timestamp":"2026-11-09T08:40:58.047Z","detail":{"batch_id":"batch-0001","call_id":"call-fixture-0-0|fc-fixture-0-0","name":"read_document_blocks","status":"ok"}}
+
+id: 8
+event: model_tool_argument_shape
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":8,"type":"model_tool_argument_shape","timestamp":"2026-11-09T08:40:58.052Z","detail":{"batch_id":"batch-0001","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","protocol":"batch_lines","record_shapes":[{"source_line_count":0,"exact_fragment_count":0,"copied_source_quote_characters":0,"copied_context_quote_characters":0}]}}
+
+id: 9
+event: candidate
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":9,"type":"candidate","timestamp":"2026-11-09T08:40:58.063Z","detail":{"record_id":"ev-84425fe71c88c70f63e82668c19245491978eb67","record_version":1,"review_status":"pending","reason":"insert"}}
+
+id: 10
+event: reconciliation
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":10,"type":"reconciliation","timestamp":"2026-11-09T08:40:58.063Z","detail":{"action":"insert","issues":[]}}
+
+id: 11
+event: tool
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":11,"type":"tool","timestamp":"2026-11-09T08:40:58.065Z","detail":{"batch_id":"batch-0001","call_id":"call-fixture-0-1|fc-fixture-0-1","name":"submit_candidate_records","status":"ok"}}
+
+id: 12
+event: batch
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":12,"type":"batch","timestamp":"2026-11-09T08:40:58.068Z","detail":{"batch_id":"batch-0001","assigned_block_ids":["d6f25b74484f58ec20a0-p0001-l000000","d6f25b74484f58ec20a0-p0001-l000001","d6f25b74484f58ec20a0-p0001-l000002"],"context_block_ids":[],"physical_pages":[1],"source_code_points":83,"order_basis":"native_mapped_then_source_fallback","warnings":["reading_order_not_human_verified"],"attempt":0,"status":"completed","read_block_ids":["d6f25b74484f58ec20a0-p0001-l000000","d6f25b74484f58ec20a0-p0001-l000001","d6f25b74484f58ec20a0-p0001-l000002"],"explicit_completion_received":true,"result":{"settled":true,"responses":1,"events":[{"type":"assistant_response","stop_reason":"toolUse"},{"type":"tool_execution_start","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","argument_sha256":"44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a","argument_characters":2,"property_names":[],"selectors":{}},{"type":"tool_execution_end","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","error":false,"result_characters":2660,"result_sha256":"a69706025e0c06a40fb55bd96b44f08747a907b786c67718c8397464a9c6b0fe"},{"type":"tool_execution_start","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","argument_sha256":"f991678255988b2f3588caf322003399172ae074993d070db883f64da5f2d790","argument_characters":227,"property_names":["records","batch_complete"],"selectors":{"records":[{"argument_sha256":"06458e3d43cafc11fef31563d37a9b3f031aa32e891223b050f81f4c0bf14668","argument_characters":191,"property_names":["source_unit_ids","feature_name_raw","feature_category","evidence_type","assertion","origin"],"selectors":{"source_unit_ids":["su-000002"]}}],"batch_complete":true}},{"type":"tool_execution_end","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","error":false,"result_characters":616,"result_sha256":"59e4c3ff116689551ea48075060a68221f335b9a8ff0e805b5eb89be796bddb7"}],"usage":[{"input":100,"output":20,"cacheRead":0,"cacheWrite":0,"reasoning":0,"totalTokens":120,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}}],"request_ids":["6326b1cc-5cd4-4807-9064-82f3ecf336c9"],"transient_error":false},"tool_calls":[{"call_id":"call-fixture-0-0|fc-fixture-0-0","name":"read_document_blocks","status":"ok"},{"call_id":"call-fixture-0-1|fc-fixture-0-1","name":"submit_candidate_records","status":"ok"}],"issues":[],"candidate_count_so_far":1}}
+
+id: 13
+event: state
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":13,"type":"state","timestamp":"2026-11-09T08:40:58.071Z","detail":{"state":"reconciling"}}
+
+id: 14
+event: summary_model_working_set
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":14,"type":"summary_model_working_set","timestamp":"2026-11-09T08:40:58.081Z","detail":{"original_message_bytes":32965,"projected_message_bytes":32965,"source_window":{"maximum_lines":128,"line_indices":[],"historical_unique_read_count":0,"evicted_lines_require_explicit_reread_for_updates":true,"source_text_truncated":false,"reading_is_not_extraction_or_summary_completion":true},"superseded_source_result_copies":0,"superseded_candidate_packet_copies":0,"candidate_fields_truncated":false,"source_lines_truncated":false}}
+
+id: 15
+event: summary_context_model_view
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":15,"type":"summary_context_model_view","timestamp":"2026-11-09T08:40:58.092Z","detail":{"encoding":"s4-source-fragment-dictionary-1","original_JSON_bytes":4524,"packet_JSON_bytes":4106,"all_candidate_count":1,"source_fragment_count":1,"candidates_truncated":false,"source_or_medical_fields_changed":false}}
+
+id: 16
+event: candidate
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":16,"type":"candidate","timestamp":"2026-11-09T08:40:58.099Z","detail":{"record_id":"ev-84425fe71c88c70f63e82668c19245491978eb67","record_version":2,"review_status":"pending","reason":"model_semantic_review_not_human_approval"}}
+
+id: 17
+event: document_summary
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":17,"type":"document_summary","timestamp":"2026-11-09T08:40:58.099Z","detail":{"summary":"S7 container engineering fixture. No medical approval.","strategy":"baseline","candidate_record_ids_read":["ev-84425fe71c88c70f63e82668c19245491978eb67"],"reviews":["ev-84425fe71c88c70f63e82668c19245491978eb67"],"semantic_audit_case_ids_reviewed":[],"complete":true,"completion_blockers":[],"saved_updates":[],"atomic_submission":true,"medical_approval":false}}
+
+id: 18
+event: state
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":18,"type":"state","timestamp":"2026-11-09T08:40:58.104Z","detail":{"state":"completed"}}
+
+id: 19
+event: deployment_fixture_completed
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":19,"type":"deployment_fixture_completed","timestamp":"2026-11-09T08:40:58.107Z","detail":{"loopback_requests":2,"paid_requests":0,"actual_Docling_CPU":true,"medical_quality_approved":false}}
+
+id: 20
+event: run_result_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":20,"type":"run_result_saved","timestamp":"2026-11-09T08:40:58.110Z","detail":{"coverage_saved":true,"controlled_fixture":true}}
+
+id: 21
+event: human_version
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":21,"type":"human_version","timestamp":"2026-11-09T08:40:58.183Z","detail":{"record_id":"ev-84425fe71c88c70f63e82668c19245491978eb67","record_version":3,"reason":"Synthetic deployment persistence test only; no medical approval"}}
+
+id: 22
+event: human_review
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":22,"type":"human_review","timestamp":"2026-11-09T08:40:58.185Z","detail":{"record_id":"ev-84425fe71c88c70f63e82668c19245491978eb67","record_version":3,"action":"approve_text","reviewer":"S7 engineering fixture operator","text_approved":true,"figures_approved":false}}
+
+id: 23
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":23,"type":"export_saved","timestamp":"2026-11-09T08:40:58.199Z","detail":{"export_id":"export-4d8062cc-fcc7-4a83-9c2b-fd0e7c27fea3","kind":"candidate_jsonl","record_count":1,"controlled_fixture":true}}
+
+id: 24
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":24,"type":"export_saved","timestamp":"2026-11-09T08:40:58.209Z","detail":{"export_id":"export-6ec281b6-890f-46ba-8180-03f0393801cc","kind":"candidate_csv","record_count":1,"controlled_fixture":true}}
+
+id: 25
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":25,"type":"export_saved","timestamp":"2026-11-09T08:40:58.219Z","detail":{"export_id":"export-2f0d68da-daef-4010-8a9f-ae8f097dc389","kind":"candidate_package","record_count":1,"controlled_fixture":true}}
+
+id: 26
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":26,"type":"export_saved","timestamp":"2026-11-09T08:40:58.235Z","detail":{"export_id":"export-f96b1c39-9a87-4230-abe4-bbf4e891eb10","kind":"approved_jsonl","record_count":1,"controlled_fixture":true}}
+
+id: 27
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":27,"type":"export_saved","timestamp":"2026-11-09T08:40:58.245Z","detail":{"export_id":"export-c6298517-016e-43ff-8d1a-adb2d20a57a9","kind":"approved_csv","record_count":1,"controlled_fixture":true}}
+
+id: 28
+event: export_saved
+data: {"run_id":"run-1a9c2fd9-feed-47cd-a8be-6d6059166816","seq":28,"type":"export_saved","timestamp":"2026-11-09T08:40:58.256Z","detail":{"export_id":"export-5e94b1ad-041a-4a29-8954-a23bfa15cee8","kind":"approved_package","record_count":1,"controlled_fixture":true}}
+

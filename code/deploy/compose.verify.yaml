@@ -1,0 +1,9 @@
+# Test-only entrypoint, local scripted Responses, independent volume. Never use production data.
+services:
+  app:
+    restart: "no"
+    environment:
+      T1_SERVER_ENTRY: deploy/controlled-server.ts
+      T1_WORKBENCH_MODEL_ENABLED: "false"
+      T1_MODEL_API_KEY: ""
+      T1_S7_FIXTURE_SUMMARY_DELAY_MS: ${T1_S7_FIXTURE_SUMMARY_DELAY_MS:-0}

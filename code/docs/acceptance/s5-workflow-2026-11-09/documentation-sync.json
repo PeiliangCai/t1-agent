@@ -1,0 +1,1064 @@
+{
+  "schema_version": "S5-workflow-documentation-sync-1",
+  "status": "S5_UI_polish_and_delegated_functional_review_in_progress",
+  "recorded_at_utc": "2026-11-09T02:46:43.831364+00:00",
+  "summary": "S5核心工作流已实现，受控流程与单L05真实端到端试跑已验证，待用户试用与阶段验收。逐篇上传、B0运行、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐版本审核/来源重选/补删、独立图片确认和JSONL/CSV/证据包导出已接通，同源展示保留各成员批准。本次从30141浏览器经Next代理、新Docling CPU和Pi/B0/provider完成任务范围处理及汇总，返回0候选，空结果和三种下载已实测；这不证明没有漏抽，也不构成非空候选人核或医学验证。普通3210服务已恢复模型关闭，单次额度已关闭；正式应用模型及已批准医学目录未定。受控审批仅在隔离库，不代表生产业务批准或S6质量验收。证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。",
+  "production_entry": "http://127.0.0.1:30141",
+  "backend_health": "http://127.0.0.1:3210/health",
+  "S4_development_acceptance": {
+    "path": "code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json",
+    "sha256": "cb62798c2b8039b83032d5410b88bd5e3d4e4292f91f48fc5a70b1640d497c74"
+  },
+  "S5_stage_passed": false,
+  "user_trial_and_stage_acceptance_pending": false,
+  "owner_reports": {
+    "backend-implementation.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/backend-implementation.json",
+      "sha256": "5422c94845b9666a46ff484c2e7e104787aea80e9622246cf2cf40c54ec01bd0"
+    },
+    "frontend-report.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/frontend-report.json",
+      "sha256": "8b7b3fbf731279088201af1637919095a35b38f5a1f1ec78eafae6a53ab629e8"
+    },
+    "backend-workflow-report.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/backend-workflow-report.json",
+      "sha256": "537ec7b3757cecc66601526b29ed99f7455cddbbb36df85caa8a138e754726b2"
+    },
+    "cpu-pi-loopback-report.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/cpu-pi-loopback-report.json",
+      "sha256": "43b32af36ad96677b5891f3c36cd76f1933f86011efd0ae508e56cd531d807b7"
+    },
+    "browser/results.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/browser/results.json",
+      "sha256": "214a2d88344b727fc37afb1e17401e55302a4c47408b263c544db61bdcfc0520"
+    },
+    "package-audit.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/package-audit.json",
+      "sha256": "712b3f4653bcf91b0ae74f337d81449c0adafd7f30d0c220784d585e4574c73e"
+    },
+    "frontend-check-context.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/frontend-check-context.json",
+      "sha256": "777df5b3d954ac6c0683b378ffa5e621d3eeffd384bcb7f1092bda981b034618"
+    },
+    "production-preview-health.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/production-preview-health.json",
+      "sha256": "c5f1e453964657b13de804fb22107d31e4e122458d9b00059409dea7f55178ca"
+    },
+    "normal-status-copy-check.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/normal-status-copy-check.json",
+      "sha256": "77ce508bed3cb080d87d4e65c759f6c0bd78a6d00ed97d1a9f2752c68a6e5911"
+    },
+    "engineering-closeout/report.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/report.json",
+      "sha256": "ff9890efc282993b62c5c0f4d2ee5fab235e4ed2f8f7b21d09dcb9b3eba0cb04"
+    },
+    "engineering-closeout/production-browser-smoke.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/production-browser-smoke.json",
+      "sha256": "0c3d6e4a66874d7fd8cfc572ac75e088984e6f64a3176e335ac41fef9a28f788"
+    },
+    "real-model/plan.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json",
+      "sha256": "6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770"
+    },
+    "real-model/checks.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/checks.json",
+      "sha256": "26c7596c4077715452ea283a7c58dd2ea2286cef38940487a9aa2aefe9d973aa"
+    },
+    "task-completion-display/report.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/report.json",
+      "sha256": "f7b715b97a470a9d1a9f91503c536b4c158e8d9386d9593ce4038ade9f401ffd"
+    },
+    "task-completion-display/production-smoke.json": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/production-smoke.json",
+      "sha256": "4bea81647f737472b41570852cb41a7d3c68096d0149dba174f7518aec91c38f"
+    },
+    "single_L05_real_workbench": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/execution-verification.json",
+      "sha256": "8f5d39359d5a1012cd5960a68edc28e1000f88f88bfc530d099a756cf7ce67c4"
+    },
+    "single_L05_seal": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/seal.json",
+      "sha256": "ab7bdcad7e0aebcecae0a895e010c74d89b12c1d8a619fd13d03834c45dfd7b3"
+    },
+    "single_L05_retained_view": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retained-view-check.json",
+      "sha256": "d172fbe87c27b763235d6f1ada7671fe950b816b88375438fc1979f1a564683c"
+    },
+    "single_L05_final_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/final-report.json",
+      "sha256": "45ecfa24004633dea9e8d81cf51040d8a09eeffe6a55ecea8c84449e04e0aef8"
+    }
+  },
+  "task_evidence": {
+    "T1-R13": {
+      "status": "implemented_live_single_L05_empty_result_chain_verified_user_trial_pending",
+      "summary": "唯一Next工作台30141已生产build/start；前端旧测试迁移后3047/3047检查点、后续30/30及显示专项8/8通过，lint0错误/7243既有警告。单L05经真实浏览器代理、新CPU、Pi/B0/provider执行，任务范围523/523及summary完成，返回0候选；普通服务恢复模型关闭，单次额度已闭，不代表医学或非空候选审核通过。"
+    },
+    "T1-R14": {
+      "status": "implemented_SQLite_SSE_restart_lifecycle_controlled_verified_user_trial_pending",
+      "summary": "SQLite保存运行/版本/审核/事件/导出，SSE补读、刷新恢复、重启中断且不自动续跑已受控核对。删除tombstone阻止重启自动重导入，同PDF显式重传为新paper无旧审批；共享PDF及旧S4原件保留。29回归与末轮3补检有重叠；生产/受控测试DB隔离；单L05真实试跑亦用独立库，终态已恢复普通main。"
+    },
+    "T1-R15": {
+      "status": "implemented_versioned_review_source_edit_figure_confirmation_controlled_verified_user_trial_pending",
+      "summary": "原页/整图图注、逐版本文字审核与独立图片确认、来源单元重选、标签/备注、补录/删除、409保留草稿及模型proposal不覆盖人工均经受控流程验证。同源展示保留成员各自审批；测试审批仅隔离DB，生产健康时review/annotation各0，不继承S4样本意见。"
+    },
+    "T1-R16": {
+      "status": "implemented_candidate_approved_exports_source_guards_controlled_verified_user_trial_pending",
+      "summary": "逐篇候选/已审核JSONL、CSV、tar.gz证据包已接通，保留28基础字段源版本与独立人工注释。包审计核对文字单独批准不含PNG、另批准图片才含原PNG；PDF缺失/错SHA阻止新抽取及已审核导出，图片单独故障可交已确认文字。本次L05真实空候选的三下载亦成功；未新增业务审批。当前待用户试用/阶段验收，不代表真实业务批准或医学认证。"
+    }
+  },
+  "checks_scope": "Existing owner evidence hashes plus changed documentation/CSV/JSON consistency; no application tests or provider requests rerun by docs owner.",
+  "backend_checks": "29/29 regression;3/3 deletion/restart;1/1 CPU/Pi local mock;1/1 config;tsc0. Counts overlap and are not summed.",
+  "frontend_checks": "前端旧14项测试失败已迁移修复，定向64/64无skip，完整npm test检查点3047/3047无skip；随后历史ID编码修复另做30/30定向、lint/check通过，未声称3049全量重跑。当前lint0错误、7243警告保留；两处复制PDF.js目录精确排除且404文件字节未变。唯一30141已正式build/start，最终4项只读生产浏览器smoke通过、0付费。S5仍待用户试用与阶段验收，旧L01准备未付费执行，单L05换例真实试跑已完成17请求/0候选，额度关闭，见current_L05_real_trial。 其后task-complete显示修复另8/8、lint/check0及重建后L01smoke通过，未重跑全量或14流程。",
+  "baseline_limits": "旧14测试失败和vendor10error已修复/精准排除，不再列作当前失败。7243既有警告保留；3047全量检查点在后续两条编码回归前，最终修复只重跑30项相关检查，不声称3049全量。",
+  "boundaries": [
+    "正式应用模型和医学目录未定；单L05新授权已执行并关闭剩余23请求，普通生产模型已恢复关闭。旧S4及其他历史余额不复用，普通工作台无实验签字表单。后续新调用需有新授权；process.env配置与启动方式见code/README.md。",
+    "All simulated approvals/annotations in isolated test DB; production health snapshot reviews/annotations0; no inherited S4 business approval.",
+    "Actual fresh synthetic PDF CPU/Pi test used2 loopback mock Responses requests and0 paid calls; replay concurrency is not real-provider performance or medical quality.",
+    "Real approved medical catalog unavailable; valid multiselect/invalidation separately nonmedical unit tested; S6/S7 and formal model remain separate."
+  ],
+  "DOCX": [
+    {
+      "path": "方案/子任务T1/T1智能体开发计划.docx",
+      "sha256": "e1da2bbd1dd6a164e6e333a90220ba629c20bbd3f0c8943eb39fa4d716548b64",
+      "paragraphs_added": 0,
+      "changed_paragraphs": [
+        {
+          "paragraph_1_based": 15,
+          "before": "来源/完整语境守卫先于角色分组；主/背景JSONL与CSV完整保留，真实同版本业务人审优先于模型建议，源守卫仍适用。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5可复用既有只读索引收拢展示并保留全部成员与逐版本批准。",
+          "after": "来源/完整语境守卫先于角色分组；主/背景JSONL与CSV完整保留，真实同版本业务人审优先于模型建议，源守卫仍适用。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5已复用既有只读索引收拢展示，全部成员与逐版本批准独立保留。"
+        },
+        {
+          "paragraph_1_based": 30,
+          "before": "S4本轮开发验收已接受（2026-11-09）：本轮15条/38项普通意见已绑定，37看起来正确、1无法判断。用户接受现阶段提取效果并进入S5，进一步抽取优化留最终完整实现后。C02仅确认这条CT血管征定义符合预期；C12/C11、C13/C08、C14/C07为三对同源重复，C15背景必要性保留无法判断。72请求原28成员/strict27及后处理索引保持，未用56关闭，新增调用许可0。本次接受仅为S4开发验收/阶段推进，医学精度和28成员逐条业务批准均未认证，不声明总体准确/召回。证据见code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json；新S5工程完成状态以其执行者实际证据为准。",
+          "after": "S4本轮开发验收已接受（2026-11-09）：本轮15条/38项普通意见已绑定，37看起来正确、1无法判断。用户接受现阶段提取效果并进入S5，进一步抽取优化留最终完整实现后。C02仅确认这条CT血管征定义符合预期；C12/C11、C13/C08、C14/C07为三对同源重复，C15背景必要性保留无法判断。72请求原28成员/strict27及后处理索引保持，未用56关闭，新增调用许可0。本次接受仅为S4开发验收/阶段推进，医学精度和28成员逐条业务批准均未认证，不声明总体准确/召回。证据见code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json；S5核心工作流工程已交付并通过受控验证，待用户试用与阶段验收；抽取优化继续延后。"
+        },
+        {
+          "paragraph_1_based": 34,
+          "before": "历史116工程与失败时点见code/docs/acceptance/s0-s4-recheck-2026-11-08/report.json；历史143轮/69意见及B0选型、当前72轮终态与15项离线后处理分别留证于code/docs/acceptance/output-feedback-2026-11-08/feedback-report.json。当前执行及核验入口见code/docs/acceptance/s4-b0-revalidation-2026-11-08/；工程/医学/完整阶段/S6独立验收不混同。",
+          "after": "历史S4工程、付费结果、反馈和开发验收保留各自原版本。当前S5工程实测和正文/台账同步见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json；启动、模型开关和环境加载方式见code/README.md。工程完成、阶段接受与医学/独立验收分别记录。"
+        },
+        {
+          "paragraph_1_based": 52,
+          "before": "正式主方案已确定为单独智能体B0：共同保守排除明确书目后，论文其余任务范围不经主题正向预筛，由智能体选择完整原文。F仅保留实验实现与历史对照，不作为承诺省费的正式模式、不新增用户开关，也不再要求重复B0/F试验才能继续工程。 历史69项意见中的C11正常黏膜下层T2高信号独立项被用户否定；F同源同context同主角色未抽查，不造F人工负票。同一旧包C17解剖标志背景无法判断且无备注，仍待核，不能推断删除或全正常对照禁用。该历史包C21仅确认历史C14纯结论误列主组的偏差展示清楚，既定“纯结论仅必要背景”不变。已获具体背景安排看起来合理的意见不追认为过度分流错误。 当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5可复用既有只读索引收拢展示并保留全部成员与逐版本批准。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。",
+          "after": "正式主方案已确定为单独智能体B0：共同保守排除明确书目后，论文其余任务范围不经主题正向预筛，由智能体选择完整原文。F仅保留实验实现与历史对照，不作为承诺省费的正式模式、不新增用户开关，也不再要求重复B0/F试验才能继续工程。 历史69项意见中的C11正常黏膜下层T2高信号独立项被用户否定；F同源同context同主角色未抽查，不造F人工负票。同一旧包C17解剖标志背景无法判断且无备注，仍待核，不能推断删除或全正常对照禁用。该历史包C21仅确认历史C14纯结论误列主组的偏差展示清楚，既定“纯结论仅必要背景”不变。已获具体背景安排看起来合理的意见不追认为过度分流错误。 当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5已复用既有只读索引收拢展示，全部成员与逐版本批准独立保留。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。"
+        },
+        {
+          "paragraph_1_based": 54,
+          "before": "Next/pi-web只读基础已交付。",
+          "after": "S5核心工作流工程已实现，受控验证通过，待用户试用与阶段验收。"
+        },
+        {
+          "paragraph_1_based": 55,
+          "before": "S4本轮开发验收已获用户接受，进入S5完整流程工程；既有Next/pi-web只读基础保留。上传/新运行、持久化真实审核/已审核导出、多任务隔离/重连/中断等新增工程完成状态等待S5执行者实证，不提前标通过。S5可复用既有同源只读索引收拢展示并保留所有成员；当前不做新抽取优化或付费调用。",
+          "after": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 正式应用模型和已批准医学目录/关系未定；生产模型默认关闭，当前新增付费许可0。S4旧72及未用56均关闭；普通工作台不使用S4实验签字流程。未来模型/额度另行确认后由服务端process.env配置，普通dev:server不自动载入.env工作台开关/限额；完整加载方式见code/README.md。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。"
+        }
+      ],
+      "all_other_paragraph_XML_and_package_parts_preserved": true
+    },
+    {
+      "path": "方案/子任务T1/T1开发执行说明.docx",
+      "sha256": "a0ed226d555484ae27a68094aa18045f0de2c4d7a0258ebe0081ee7b474bfca6",
+      "paragraphs_added": 0,
+      "changed_paragraphs": [
+        {
+          "paragraph_1_based": 2,
+          "before": "v0.5｜依据主计划v0.7｜2026-11-09 S4本轮开发验收接受，进入S5完整流程工程",
+          "after": "v0.5｜依据主计划v0.7｜2026-11-09 S5核心工作流工程交付，待用户试用与阶段验收"
+        },
+        {
+          "paragraph_1_based": 6,
+          "before": "S4本轮开发验收已接受（2026-11-09）：本轮15条/38项普通意见已绑定，37看起来正确、1无法判断。用户接受现阶段提取效果并进入S5，进一步抽取优化留最终完整实现后。C02仅确认这条CT血管征定义符合预期；C12/C11、C13/C08、C14/C07为三对同源重复，C15背景必要性保留无法判断。72请求原28成员/strict27及后处理索引保持，未用56关闭，新增调用许可0。本次接受仅为S4开发验收/阶段推进，医学精度和28成员逐条业务批准均未认证，不声明总体准确/召回。证据见code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json；新S5工程完成状态以其执行者实际证据为准。",
+          "after": "S4本轮开发验收已接受（2026-11-09）：本轮15条/38项普通意见已绑定，37看起来正确、1无法判断。用户接受现阶段提取效果并进入S5，进一步抽取优化留最终完整实现后。C02仅确认这条CT血管征定义符合预期；C12/C11、C13/C08、C14/C07为三对同源重复，C15背景必要性保留无法判断。72请求原28成员/strict27及后处理索引保持，未用56关闭，新增调用许可0。本次接受仅为S4开发验收/阶段推进，医学精度和28成员逐条业务批准均未认证，不声明总体准确/召回。证据见code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json；S5核心工作流工程已交付并通过受控验证，待用户试用与阶段验收；抽取优化继续延后。"
+        },
+        {
+          "paragraph_1_based": 28,
+          "before": "S4本轮开发验收已获用户接受，进入S5完整流程工程；既有Next/pi-web只读基础保留。上传/新运行、持久化真实审核/已审核导出、多任务隔离/重连/中断等新增工程完成状态等待S5执行者实证，不提前标通过。S5可复用既有同源只读索引收拢展示并保留所有成员；当前不做新抽取优化或付费调用。",
+          "after": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。"
+        },
+        {
+          "paragraph_1_based": 29,
+          "before": "至少两个任务实际重叠执行、隔离与独立取消正确；刷新重连可恢复、人工版本不丢；已审核逐条确认当前内容，文字与图片批准分别记录。",
+          "after": "至少两个任务实际重叠执行、隔离与独立取消正确；刷新重连可恢复、人工版本不丢；已审核逐条确认当前内容，文字与图片批准分别记录。这些流程已在受控环境验证；真实付费模型端到端及正式S5阶段接受尚未完成。"
+        },
+        {
+          "paragraph_1_based": 40,
+          "before": "程序负责范围合法性、任务/源版本绑定、覆盖清单、原文切取、状态/审核权限和导出。Pi仅调用当前任务绑定的受限业务工具；论文内容不变为工具指令，模型不能切换任务、路径、词表信任、审核状态或解析配置。技术配置由开发侧管理。",
+          "after": "程序负责范围合法性、任务/源版本绑定、覆盖清单、原文切取、状态/审核权限和导出。Pi仅调用当前任务绑定的受限业务工具；论文内容不变为工具指令，模型不能切换任务、路径、词表信任、审核状态或解析配置。技术配置由开发侧管理。 正式应用模型和已批准医学目录/关系未定；生产模型默认关闭，当前新增付费许可0。S4旧72及未用56均关闭；普通工作台不使用S4实验签字流程。未来模型/额度另行确认后由服务端process.env配置，普通dev:server不自动载入.env工作台开关/限额；完整加载方式见code/README.md。"
+        },
+        {
+          "paragraph_1_based": 46,
+          "before": "主/背景交付同受来源与完整语境守卫；真实当前版本人审不能被模型覆盖，普通意见不转业务批准。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5可复用既有只读索引收拢展示并保留全部成员与逐版本批准。",
+          "after": "主/背景交付同受来源与完整语境守卫；真实当前版本人审不能被模型覆盖，普通意见不转业务批准。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5已复用既有只读索引收拢展示，全部成员与逐版本批准独立保留。"
+        },
+        {
+          "paragraph_1_based": 70,
+          "before": "原116轮的守卫失败、异常持久化修复和277/277离线组保持历史时点。当前代码最小修正另按新版本留证，不改原143轮和普通意见。当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5可复用既有只读索引收拢展示并保留全部成员与逐版本批准。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。",
+          "after": "原116轮的守卫失败、异常持久化修复和277/277离线组保持历史时点。当前代码最小修正另按新版本留证，不改原143轮和普通意见。当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5已复用既有只读索引收拢展示，全部成员与逐版本批准独立保留。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。"
+        },
+        {
+          "paragraph_1_based": 71,
+          "before": "五、S4验收接受与S5后续实现",
+          "after": "五、S5工程交付、验证与试用"
+        },
+        {
+          "paragraph_1_based": 91,
+          "before": "历史69项意见中的C11正常黏膜下层T2高信号独立项被用户否定；F同源同context同主角色未抽查，不造F人工负票。同一旧包C17解剖标志背景无法判断且无备注，仍待核，不能推断删除或全正常对照禁用。该历史包C21仅确认历史C14纯结论误列主组的偏差展示清楚，既定“纯结论仅必要背景”不变。已获具体背景安排看起来合理的意见不追认为过度分流错误。 当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5可复用既有只读索引收拢展示并保留全部成员与逐版本批准。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。",
+          "after": "历史69项意见中的C11正常黏膜下层T2高信号独立项被用户否定；F同源同context同主角色未抽查，不造F人工负票。同一旧包C17解剖标志背景无法判断且无备注，仍待核，不能推断删除或全正常对照禁用。该历史包C21仅确认历史C14纯结论误列主组的偏差展示清楚，既定“纯结论仅必要背景”不变。已获具体背景安排看起来合理的意见不追认为过度分流错误。 当前默认B0保持；正常组织纯描述/纯结论边界提示及原strict分组随本次72轮执行，具体外观及条件/否定仍要求完整保留；终态后追加的同源待核索引和图号提示只作离线验证。新增向后兼容派生strict_source_groups与unique_source_group_count（source_grouping_policy_version=strict-source-groups-1），仅对本次实际交付成员作严格同源索引。键包含同一run/task/scope、PDF/原文/语境/表格支持及疾病、模态、序列、条件/断言、数字的实际源证据；只同字而临床字段证据不同不并。保留全部逐条record/version、归因/角色/图差异及人审，不任选归因或传播批准，不合并历史CSV/68分母。旧143轮68成员离线复放的strict63与粗跨度62口径不同；本次72轮原28成员为strict27。终态后same-source-review-index-1将L07三对同完整原句/语境列为23个待核索引组，原strict25保持，4内部图号提示不纠正归因；这些组数均非医学有效描述数，S4阶段未做S5分组UI；S5已复用既有只读索引收拢展示，全部成员与逐版本批准独立保留。 scope2与原strict已按本轮72请求真实执行并通过三作业工程门控；后处理索引/图号提示是随后15项离线检查通过的追加，未再调用模型。本轮38项普通意见已绑定，用户已接受本轮S4开发验收，不能用旧143轮/69意见或本轮机械门控宣称新版医学质量通过。"
+        }
+      ],
+      "all_other_paragraph_XML_and_package_parts_preserved": true
+    }
+  ],
+  "current_state_and_row_assertions": [
+    {
+      "path": "开发任务清单.csv#T1-R13/状态 = 开发计划.json#/tasks[id=T1-R13]/status",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R13/工程进度 = 开发计划.json#/tasks[id=T1-R13]/engineering_progress",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R13/工程开工例外 = 开发计划.json#/tasks[id=T1-R13]/engineering_start_exception",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R13/本次工程交付 = 开发计划.json#/tasks[id=T1-R13]/current_progress_evidence",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R14/状态 = 开发计划.json#/tasks[id=T1-R14]/status",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R14/工程进度 = 开发计划.json#/tasks[id=T1-R14]/engineering_progress",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R14/工程开工例外 = 开发计划.json#/tasks[id=T1-R14]/engineering_start_exception",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R14/本次工程交付 = 开发计划.json#/tasks[id=T1-R14]/current_progress_evidence",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R15/状态 = 开发计划.json#/tasks[id=T1-R15]/status",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R15/工程进度 = 开发计划.json#/tasks[id=T1-R15]/engineering_progress",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R15/工程开工例外 = 开发计划.json#/tasks[id=T1-R15]/engineering_start_exception",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R15/本次工程交付 = 开发计划.json#/tasks[id=T1-R15]/current_progress_evidence",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R16/状态 = 开发计划.json#/tasks[id=T1-R16]/status",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R16/工程进度 = 开发计划.json#/tasks[id=T1-R16]/engineering_progress",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R16/工程开工例外 = 开发计划.json#/tasks[id=T1-R16]/engineering_start_exception",
+      "passed": true
+    },
+    {
+      "path": "开发任务清单.csv#T1-R16/本次工程交付 = 开发计划.json#/tasks[id=T1-R16]/current_progress_evidence",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F01/状态 = 质量与性能验收契约.json#/F01/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F01/测量依据 = 质量与性能验收契约.json#/F01/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F02/状态 = 质量与性能验收契约.json#/F02/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F02/测量依据 = 质量与性能验收契约.json#/F02/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F03/状态 = 质量与性能验收契约.json#/F03/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F03/测量依据 = 质量与性能验收契约.json#/F03/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F04/状态 = 质量与性能验收契约.json#/F04/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F04/测量依据 = 质量与性能验收契约.json#/F04/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F06/状态 = 质量与性能验收契约.json#/F06/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F06/测量依据 = 质量与性能验收契约.json#/F06/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F08/状态 = 质量与性能验收契约.json#/F08/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F08/测量依据 = 质量与性能验收契约.json#/F08/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F09/状态 = 质量与性能验收契约.json#/F09/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F09/测量依据 = 质量与性能验收契约.json#/F09/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F12/状态 = 质量与性能验收契约.json#/F12/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F12/测量依据 = 质量与性能验收契约.json#/F12/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F13/状态 = 质量与性能验收契约.json#/F13/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#F13/测量依据 = 质量与性能验收契约.json#/F13/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#R01/状态 = 质量与性能验收契约.json#/R01/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#R01/测量依据 = 质量与性能验收契约.json#/R01/measurement",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#P03/状态 = 质量与性能验收契约.json#/P03/status",
+      "passed": true
+    },
+    {
+      "path": "验收清单.csv#P03/测量依据 = 质量与性能验收契约.json#/P03/measurement",
+      "passed": true
+    },
+    {
+      "path": "方案/子任务T1/开发计划.json#/status,current_improvement,current_S5_workflow_engineering,current_experiment_authorization,current_document_fingerprints",
+      "passed": true
+    },
+    {
+      "path": "方案/子任务T1/当前版本.json#/status,current_improvement,current_S5_workflow_engineering,current_experiment_authorization,current_document_fingerprints",
+      "passed": true
+    },
+    {
+      "path": "方案/子任务T1/质量与性能验收契约.json#/status,current_improvement,current_S5_workflow_engineering,current_experiment_authorization,current_document_fingerprints",
+      "passed": true
+    },
+    {
+      "path": "方案/子任务T1/材料检查结果.json#/status,current_improvement,current_S5_workflow_engineering,current_experiment_authorization,current_document_fingerprints",
+      "passed": true
+    },
+    {
+      "path": "方案/当前版本.json#/latest_t1_scope_revision/current_S5_engineering,current_document_validation,current_DOCX_hashes",
+      "passed": true
+    },
+    {
+      "path": "方案/实施计划.json#/latest_t1_scope_revision/current_S5_engineering,current_document_validation,current_DOCX_hashes",
+      "passed": true
+    },
+    {
+      "path": "方案/材料检查结果.json#/current_T1_sync/current_S5_engineering,current_document_validation,current_DOCX_hashes",
+      "passed": true
+    }
+  ],
+  "stage_state_values": {
+    "S4": "accepted_current_development_iteration",
+    "S5": "engineering_controlled_and_single_real_empty_run_verified_user_acceptance_pending",
+    "S5_stage_passed": false,
+    "production_model_enabled": false,
+    "new_paid_allowance": 0,
+    "ordinary_workbench_experiment_signoff_required": false
+  },
+  "changed_current_documents": [
+    {
+      "path": "code/README.md",
+      "sha256": "e5eb2428025d7a97024f6817f1fc3155807f93631b95ef6551592a61b9c17e8b"
+    },
+    {
+      "path": "方案/子任务T1/T1智能体开发计划.docx",
+      "sha256": "b9ce1c7ddfd5577e3a01e4c3d9fdd52aa640e020815b30c0d21269aae2e7e918"
+    },
+    {
+      "path": "方案/子任务T1/T1开发执行说明.docx",
+      "sha256": "90af8d6c72fdd137c009e00cf1915c5438f5f6551d7f37fb2de766346818a025"
+    },
+    {
+      "path": "方案/子任务T1/开发任务清单.csv",
+      "sha256": "5c8b5ef3055f05966fccb39c5a4ae1f1b48c63235cb9b4821f4db993996fc703"
+    },
+    {
+      "path": "方案/子任务T1/验收清单.csv",
+      "sha256": "865c12bcae47c8762d832fb14e0d43b61a2139e47627e65efc1bb6e95333a5a9"
+    },
+    {
+      "path": "方案/子任务T1/开发阶段与验收.csv",
+      "sha256": "a13df8258d65486d9321915fa5db841da7014e140869a37ebb2e4f2dbe4f18ac"
+    },
+    {
+      "path": "方案/子任务T1/开发计划.json",
+      "sha256": "1bf3ef15a2354d224fbd1b985d53aa3505af59187ceb2ee2e08a62344850ccc4"
+    },
+    {
+      "path": "方案/子任务T1/当前版本.json",
+      "sha256": "6b52a8d042c2ded9d758294dbd7062f99e936df937e0a1e3cbca9fda41565b6a"
+    },
+    {
+      "path": "方案/子任务T1/质量与性能验收契约.json",
+      "sha256": "abd889fd178f48446892c1a9000aca491fd454351a188635967deb451396548f"
+    },
+    {
+      "path": "方案/子任务T1/材料检查结果.json",
+      "sha256": "f88548610551f43d3e790cf4df7bbdb1501c7e40b21a1818dc5af27fa4bc2497"
+    },
+    {
+      "path": "方案/当前版本.json",
+      "sha256": "0e16b95ea0e5c68119192ab35e89d1097ee549e352fd39231fdcc0063224a797"
+    },
+    {
+      "path": "方案/实施计划.json",
+      "sha256": "fd6bd7d5d2bd3b737c302f1ac5a4d56fa1604edecfad7a3f32c1e724317c6799"
+    },
+    {
+      "path": "方案/材料检查结果.json",
+      "sha256": "4f76627de698531830e35529b2ae49cb0ee9aab8b409401484ecbb859f342ceb"
+    }
+  ],
+  "new_provider_requests_by_this_owner": 0,
+  "application_code_changed_by_this_owner": 0,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "additional_formal_reviews": 0,
+  "final_document_verification": {
+    "checked_at_utc": "2026-11-09T02:48:26.456395+00:00",
+    "all13_current_file_and_owner_report_hashes_match": true,
+    "all15_modified_DOCX_paragraphs_match_actual_body": true,
+    "child4_mother3_current_DOCX_pointers_match": true,
+    "S4_accepted_S5_user_acceptance_pending": true,
+    "README_local_links_checked": 20,
+    "README_launchers_ports_and_env_file_command_match_current_entry": true,
+    "S4_feedback_acceptance_and_paid_binding_unchanged": true,
+    "temporary_owned_script_removed": true,
+    "no_application_test_reexecution_or_provider_calls": true,
+    "time_scope": "Initial handoff verification before engineering closeout updates."
+  },
+  "historical_pre_frontend_closeout": {
+    "documentation_sha256_before_update": "da953fdd231135c5716ab204a22b695938b55b69f05889c4854776f295404695",
+    "frontend_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/frontend-report.json",
+      "sha256": "8b7b3fbf731279088201af1637919095a35b38f5a1f1ec78eafae6a53ab629e8"
+    },
+    "frontend_checks_at_initial_handoff": "21/21 focused;4/4 legacy integration;14/14 HTTP browser;typecheck/changed-source lint0;last normal-copy update separately browser/lint checked,14 not rerun.",
+    "baseline_limits_at_initial_handoff": "Full first2854=2789pass65fail;locale regression fixed, affected257=243pass14fail(8 exact auth baseline+6 retired-route references). Full lint10errors in unmodified vendor. Not all-green.",
+    "time_scope": "Original S5 workflow handoff before later baseline migration/production build. Owner reports/logs remain original bytes."
+  },
+  "DOCX_time_scope": "Initial S5 documentation handoff only; current two-paragraph changes are in engineering_closeout_update.DOCX.",
+  "engineering_closeout_update": {
+    "recorded_at_utc": "2026-11-09T03:28:59.893299+00:00",
+    "frontend_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/report.json",
+      "sha256": "ff9890efc282993b62c5c0f4d2ee5fab235e4ed2f8f7b21d09dcb9b3eba0cb04"
+    },
+    "production_smoke": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/production-browser-smoke.json",
+      "sha256": "0c3d6e4a66874d7fd8cfc572ac75e088984e6f64a3176e335ac41fef9a28f788"
+    },
+    "current_frontend_verification": "前端旧14项测试失败已迁移修复，定向64/64无skip，完整npm test检查点3047/3047无skip；随后历史ID编码修复另做30/30定向、lint/check通过，未声称3049全量重跑。当前lint0错误、7243警告保留；两处复制PDF.js目录精确排除且404文件字节未变。唯一30141已正式build/start，最终4项只读生产浏览器smoke通过、0付费。S5仍待用户试用与阶段验收，旧L01准备未付费执行，单L05换例真实试跑已完成17请求/0候选，额度关闭，见current_L05_real_trial。",
+    "DOCX": [
+      {
+        "path": "方案/子任务T1/T1智能体开发计划.docx",
+        "paragraph_1_based": 55,
+        "before": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 正式应用模型和已批准医学目录/关系未定；生产模型默认关闭，当前新增付费许可0。S4旧72及未用56均关闭；普通工作台不使用S4实验签字流程。未来模型/额度另行确认后由服务端process.env配置，普通dev:server不自动载入.env工作台开关/限额；完整加载方式见code/README.md。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。",
+        "after": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 正式应用模型和已批准医学目录/关系未定；生产模型默认关闭，当前新增付费许可0。S4旧72及未用56均关闭；普通工作台不使用S4实验签字流程。未来模型/额度另行确认后由服务端process.env配置，普通dev:server不自动载入.env工作台开关/限额；完整加载方式见code/README.md。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。 前端旧失败已修复，正式生产build/start与只读浏览器smoke通过；最新测试/lint结果及检查点限制见code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/report.json。",
+        "sha256": "604eca604c0b649b93e91b593fa232b97f203caa912642ecb98a839d0bef190b",
+        "other_package_parts_unchanged": true
+      },
+      {
+        "path": "方案/子任务T1/T1开发执行说明.docx",
+        "paragraph_1_based": 28,
+        "before": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。",
+        "after": "S5核心工作流已实现并通过受控验证，待用户试用与阶段验收。逐篇上传、B0运行接口、独立任务/取消、SQLite/SSE恢复、原页/Figure、逐条版本审核/来源重选/补删、独立图片确认及JSONL/CSV/证据包导出已接通；同源组仅收拢展示，成员批准独立。生产工作台http://127.0.0.1:30141，后端3210，模型未启用；未发前端真实付费请求。本地模拟/回放和测试审批只在隔离测试库，不能当用户业务批准、新医学效果或S6验收。 证据见code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json。 前端旧失败已修复，正式生产build/start与只读浏览器smoke通过；最新测试/lint结果及检查点限制见code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/report.json。",
+        "sha256": "cc4260e334d3fc70bbdb915d0f38615837b00876218edc88d061ff6be7b96fd9",
+        "other_package_parts_unchanged": true
+      },
+      {
+        "path": "方案/子任务T1/T1开发执行说明.docx",
+        "paragraph_1_based": 72,
+        "before": "已选输入处理、同次whole-document summary、task_processing_complete、任务范围覆盖与raw PDF限制分别报告。历史116轮L07八批909任务范围原块及summary结束后交付失败的事实保留。本次72轮三个作业均task/summary/assessment/delivery通过；legacy partial仅保留raw parser/OCR限制，不冒称全文医学召回。未重定义产品completed枚举，当前有效新增调用许可0、未用56关闭。",
+        "after": "已选输入处理、同次whole-document summary、task_processing_complete、任务范围覆盖与raw PDF限制分别报告。历史116轮L07八批909任务范围原块及summary结束后交付失败的事实保留。本次72轮三个作业均task/summary/assessment/delivery通过；legacy partial仅保留raw parser/OCR限制，不冒称全文医学召回。未重定义产品completed枚举，当前有效新增调用许可0、未用56关闭。 S5界面仅在coverage.task_processing_complete明确为true且completed/partial终态时显示任务范围处理完成；failed/interrupted/cancelled或未知标志不升级，parser/OCR来源限制单列，不改变原始state/coverage或医学判断。证据见code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/report.json。",
+        "sha256": "cc4260e334d3fc70bbdb915d0f38615837b00876218edc88d061ff6be7b96fd9",
+        "other_package_parts_unchanged": true
+      }
+    ],
+    "old_failure_reports_preserved": true,
+    "no_repeated14_workflow_or_application_tests_by_documentation_owner": true,
+    "new_provider_calls_by_documentation_owner": 0,
+    "S5_user_stage_acceptance": false,
+    "formal_reviews_used": 3,
+    "task_completion_display_followup": {
+      "report": {
+        "path": "code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/report.json",
+        "sha256": "f7b715b97a470a9d1a9f91503c536b4c158e8d9386d9593ce4038ade9f401ffd"
+      },
+      "production_smoke": {
+        "path": "code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/production-smoke.json",
+        "sha256": "4bea81647f737472b41570852cb41a7d3c68096d0149dba174f7518aec91c38f"
+      },
+      "latest_build_id": "kiRKong7YBVjXwSKG5KIv",
+      "tests": "8/8 states+i18n;lint/check0;newbuild/start+actualL01smoke passed",
+      "scope": "UI only; raw state/coverage/human versions unchanged; false/unknown/failed/interrupted/cancelled not upgraded",
+      "full_or14_workflow_repeated": false,
+      "paid_calls": 0
+    },
+    "final_display_followup_recorded_at_utc": "2026-11-09T03:39:36.721123+00:00",
+    "final_document_consistency_check": {
+      "checked_at_utc": "2026-11-09T03:41:04.593652+00:00",
+      "scope": "only current frontend closeout/display followup and frozen real-trial preparation references",
+      "DOCX_current_paragraphs_checked": 3,
+      "R13_F13_F03_S5_csv_JSON_match": true,
+      "child4_mother3_DOCX_hashes_match": true,
+      "current_owner_report_and_old_report_hashes_match": true,
+      "README_local_links_checked": 23,
+      "test_checkpoints_not_collapsed_or_summed": true,
+      "new_real_model_authorization_pending_execution_unstarted": true,
+      "old72_budget_and_unused56_closed": true,
+      "S5_user_acceptance_not_claimed": true,
+      "new_application_tests_or_provider_calls_by_documentation_owner": 0,
+      "temporary_scripts_created_this_round": 0
+    },
+    "historical_L01_trial_preparation_note": "Prepared frozen plan/checks are real_model_trial_preparation; authorization remains pending and execution unstarted.",
+    "current_real_trial": "Changed-case L05 completed once with17 requests/0candidates;all allowance closed;see current_L05_real_trial. Old L01 never paid-executed."
+  },
+  "real_model_trial_preparation": {
+    "status": "L05_plan_executed_and_closed",
+    "plan": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+      "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12"
+    },
+    "authorization": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+      "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154"
+    },
+    "preflight": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/preflight.json",
+      "sha256": "5ab6f03d92af915679f002e1844df0685e28456fc58ef4bf7bf9a3de282cff67"
+    },
+    "result_record": "code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json#/current_L05_real_trial",
+    "previous_L01": "superseded_before_paid_execution"
+  },
+  "updated_at_utc": "2026-11-09T07:37:31.189108+00:00",
+  "historical_L01_preparation_superseded_not_paid": {
+    "status": "ready_pending_new_user_authorization",
+    "plan": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json",
+      "sha256": "6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770"
+    },
+    "checks": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/checks.json",
+      "sha256": "26c7596c4077715452ea283a7c58dd2ea2286cef38940487a9aa2aefe9d973aa"
+    },
+    "single_paper": "L01",
+    "model": "AGICTO gpt-6-luna medium/B0",
+    "scope": "all/all/all",
+    "requested_not_authorized_limits": {
+      "requests": 40,
+      "input_tokens": 1000000,
+      "output_tokens": 60000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "wall_clock": "1800 seconds begins at HTTP run admission before new CPU parsing; retries and summary included",
+    "token_budget_semantics": "Existing budget reserves each request before dispatch (at least 32768 input and 8192 output), settles provider usage including cache classes, and stops future calls on overrun. A provider may report input beyond the local reservation; this is an application budget, not a provider-enforced monetary or hard input-token cap.",
+    "new_paid_authorization_received": false,
+    "new_provider_attempts": 0,
+    "checks_summary": "17/17 offline,tsc0,pins0; unapproved execute exit1 before HTTP/provider",
+    "browser_preview": "saved2 S4 source candidates only; no new CPU/model,0model/0review/0annotation; main restored model-disabled",
+    "production_default_model_enabled": false,
+    "formal_application_model_selected": false,
+    "S5_stage_accepted": false,
+    "superseded_by": "Latest user case-change instruction,main-session selected L05",
+    "actual_paid_execution_occurred": false
+  },
+  "L05_case_change_authorization": {
+    "status": "user_authorized_once_L05_executed_and_closed",
+    "recorded_at_utc": "2026-11-09T04:21:28.924154+00:00",
+    "user_quote": "你可以换一个测试用例，不用 L01 了。继续执行",
+    "source": "Parent authoritative relay of latest real user instruction",
+    "original_user_event_timestamp": null,
+    "original_click_time_unknown": true,
+    "recorded_at_is_not_click_time": true,
+    "selection_actor": "main_session_root",
+    "selected_case": "L05",
+    "user_literally_named_L05": false,
+    "selection_basis": [
+      "L05 is exposed development material,10-page English lung ground-glass CT paper",
+      "Previous L05 used15 requests,within proposed40; no guarantee of output",
+      "L07 previously42 requests exceeds40; L02 has other-paper mixing;MED03 template-like without figures"
+    ],
+    "model": "AGICTO gpt-6-luna medium",
+    "method": "B0",
+    "scope": "all/all/all",
+    "authorized_limits": {
+      "requests": 40,
+      "input_tokens": 1000000,
+      "output_tokens": 60000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "time_anchor": "HTTP run admission before new CPU parsing;1800 seconds includes parse/retries/summary",
+    "token_budget_semantics": "Local pre-dispatch reservations and provider-reported settlement; not provider-enforced absolute input or money cutoff",
+    "one_run_only": true,
+    "unused_allowance_closed_after_run": true,
+    "new_paid_authorization_received": true,
+    "authorized_executor": "/root/s5_backend",
+    "documentation_owner_may_call_provider": false,
+    "planned_directory": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/",
+    "frozen_plan_or_execution_not_yet_reported": false,
+    "actual_attempts_at_authorization_notice": 0,
+    "actual_usage_final": true,
+    "S5_stage_accepted": false,
+    "formal_application_model_selected": false,
+    "medical_catalog_approval_changed": false,
+    "formal_reviews_used": 3,
+    "additional_formal_reviews": 0,
+    "plan": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+      "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12"
+    },
+    "authorization": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+      "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154"
+    },
+    "plan_id": "s5-L05-4daecedc-b122-479b-ad1a-7a75f55dbbc3",
+    "main_session_observed_user_reply_at_utc": "2026-11-09T04:18:11Z",
+    "execution_start_not_yet_reported": false,
+    "last_documentation_observation_at_utc": "2026-11-09T04:35:53.555572+00:00",
+    "preflight": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/preflight.json",
+      "sha256": "5ab6f03d92af915679f002e1844df0685e28456fc58ef4bf7bf9a3de282cff67"
+    },
+    "preflight_owner_report": "6/6 offline + tsc0; CPU adapter,10-page input SHA and truthful empty JSONL/CSV/package availability checked",
+    "startup_observed_at_utc": "2026-11-09T04:25:33Z",
+    "effective_further_paid_permission": 0,
+    "actual_result_reference": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/execution-verification.json",
+    "user_event_or_call_id": null
+  },
+  "authorization_state_updated_at_utc": "2026-11-09T04:35:53.555572+00:00",
+  "current_L05_real_trial": {
+    "status": "single_L05_real_browser_empty_result_completed_allowance_closed",
+    "plan": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+      "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12"
+    },
+    "authorization": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+      "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154"
+    },
+    "preflight": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/preflight.json",
+      "sha256": "5ab6f03d92af915679f002e1844df0685e28456fc58ef4bf7bf9a3de282cff67"
+    },
+    "verification_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/execution-verification.json",
+      "sha256": "8f5d39359d5a1012cd5960a68edc28e1000f88f88bfc530d099a756cf7ce67c4"
+    },
+    "allowance": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/allowance.json",
+      "sha256": "d5d39b1ef0c3965a32d15afd41652e079270e4c07ad7a0f37ec0e2d4bf4a7055"
+    },
+    "ledger": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/request-ledger.json",
+      "sha256": "4dd9db917da36d68c26553ed99cee6d743f5c801ed0245e6ef697fa357906f44"
+    },
+    "HTTP_admitted_at_utc": "2026-11-09T04:26:10.496Z",
+    "deadline_utc": "2026-11-09T04:56:10.496Z",
+    "first_provider_request_at_utc": "2026-11-09T04:26:43.071Z",
+    "last_provider_response_at_utc": "2026-11-09T04:30:01.415Z",
+    "closed_at_utc": "2026-11-09T04:30:02.792Z",
+    "execution_session": 41404,
+    "run_id": "run-c81de6e7-2a4b-47ec-afff-9b75341300c3",
+    "actual_usage": {
+      "requests": 17,
+      "input_tokens": 166091,
+      "output_tokens": 1268,
+      "conservative_missing_usage_requests": 0,
+      "elapsed_seconds": 232.295
+    },
+    "monetary_cost": null,
+    "monetary_cost_status": "unknown_gateway_billing",
+    "candidate_records": 0,
+    "task_scope_processed_source_blocks": 523,
+    "task_scope_source_blocks": 523,
+    "shared_bibliography_excluded_blocks": 92,
+    "whole_document_summary_complete": true,
+    "raw_state": "partial",
+    "parser_unmapped_units": 6,
+    "parser_ambiguous_units": 8,
+    "image_text_unverified_pages": [
+      1,
+      4,
+      5,
+      6,
+      8
+    ],
+    "parser_source_limitations_not_task_failure": true,
+    "downloads": [
+      {
+        "kind": "candidate_jsonl",
+        "bytes": 0
+      },
+      {
+        "kind": "candidate_csv",
+        "bytes": 108
+      },
+      {
+        "kind": "candidate_package",
+        "bytes": 7191
+      }
+    ],
+    "saved_nonempty_candidate_view_verified": false,
+    "empty_output_display_verified": true,
+    "real_nonempty_candidate_or_figure_human_review_verified": false,
+    "business_review_rows": 0,
+    "business_annotation_rows": 0,
+    "ordinary_main_restored_model_enabled": false,
+    "unused_requests_closed": 23,
+    "effective_new_request_allowance": 0,
+    "frontend_build_id": "kiRKong7YBVjXwSKG5KIv",
+    "S5_user_stage_accepted": false,
+    "formal_application_model_selected": false,
+    "medical_quality_approved": false,
+    "does_not_prove_no_omissions": true,
+    "recorded_at_utc": "2026-11-09T04:35:53.555572+00:00",
+    "retained_ordinary_entry": "http://127.0.0.1:30141/?paper=paper-6dce31c5-dcbf-4b0b-861a-233a3919467f&run=run-c81de6e7-2a4b-47ec-afff-9b75341300c3&view=records",
+    "ordinary_retention_source": "Backend sealed production-retention plus actual read-only Chromium retained-view-check passed",
+    "seal": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/seal.json",
+      "sha256": "ab7bdcad7e0aebcecae0a895e010c74d89b12c1d8a619fd13d03834c45dfd7b3"
+    },
+    "production_after": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-after.json",
+      "sha256": "e83c964fec0dccb0b4927114d880043b94eff7248a7c64bc833678d720938b21"
+    },
+    "production_retention": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-retention.json",
+      "sha256": "6a1cfbd7dd596a4a0aa89c799f4d549b9861570988c8b6b5da491f8c4ea6dbd0"
+    },
+    "retained_view_check": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retained-view-check.json",
+      "sha256": "d172fbe87c27b763235d6f1ada7671fe950b816b88375438fc1979f1a564683c"
+    },
+    "zero_candidate_observation": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/zero-candidate-observation.json",
+      "sha256": "624b8287d334558b5ef43f7aabd395cb8d09c309d94567a347a51fa41c03b0ec"
+    },
+    "empty_result_observation": "All5 successful model batches submitted empty candidate lists; no candidate records submitted then rejected by source/context validation. This cannot establish recall or paper contains no eligible evidence.",
+    "final_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/final-report.json",
+      "sha256": "45ecfa24004633dea9e8d81cf51040d8a09eeffe6a55ecea8c84449e04e0aef8"
+    }
+  },
+  "S5_gate_evidence": {
+    "gate_source": "方案/子任务T1/开发计划.json#/progression/stages[id=S5]/gate",
+    "source_gate": "至少两个任务实际重叠执行、隔离与独立取消正确；刷新重连可恢复、人工版本不丢；已审核逐条确认当前内容，文字与图片批准分别记录。",
+    "checked_at_utc": "2026-11-09T04:29:29.797898+00:00",
+    "conditions": [
+      {
+        "condition": "两个任务重叠、隔离与独立取消",
+        "engineering_evidence": "present_controlled_saved_source_workflow",
+        "evidence": [
+          "code/docs/acceptance/s5-workflow-2026-11-09/backend-workflow-report.json#/overlap",
+          "code/docs/acceptance/s5-workflow-2026-11-09/browser/results.json#two_independent_tasks_overlap_and_cancel_one"
+        ],
+        "observation": "02:32:49.958Z observed both extracting; first completed,second cancelled independently",
+        "scope_limit": "Controlled isolated DB with saved-source replay; not provider concurrency performance or medical validation"
+      },
+      {
+        "condition": "刷新重连恢复、人工版本保留",
+        "engineering_evidence": "present_controlled_workflow",
+        "evidence": [
+          "code/docs/acceptance/s5-workflow-2026-11-09/backend-workflow-report.json#/SSE",
+          "code/docs/acceptance/s5-workflow-2026-11-09/backend-workflow-report.json#/restart",
+          "code/docs/acceptance/s5-workflow-2026-11-09/browser/results.json#refresh_restores_running_task_and_saved_candidates_sse"
+        ],
+        "observation": "Persisted SSE cursor74 replayed75; restart preserved approvals/deleted versions and did not auto-resume",
+        "scope_limit": "Test approvals are isolated test data,not actual user product approval"
+      },
+      {
+        "condition": "当前版本逐条文字确认、图片独立批准",
+        "engineering_evidence": "present_controlled_workflow_and_package_audit",
+        "evidence": [
+          "code/docs/acceptance/s5-workflow-2026-11-09/backend-workflow-report.json#/versions_and_exports",
+          "code/docs/acceptance/s5-workflow-2026-11-09/browser/results.json#text_approval_is_individual_and_pending_figures_do_not_block_export",
+          "code/docs/acceptance/s5-workflow-2026-11-09/package-audit.json"
+        ],
+        "observation": "Stale writes409; model proposal preserved human changes; text-only export excluded unapproved PNG,figure approval was separate",
+        "scope_limit": "No production business approval or medical accuracy certificate created"
+      }
+    ],
+    "current_functional_gate_without_evidence": [],
+    "not_a_claim_that_no_bugs_exist": true,
+    "user_stage_acceptance_pending": false,
+    "real_L05_single_provider_chain": "Completed real browser→Next→freshCPU→Pi/B0/provider;empty result and all3downloads verified. Not nonempty candidate human/figure review or medical quality.",
+    "medical_catalog_or_formal_model_selection_changed": false,
+    "S6_independent_quality_performance_passed": false,
+    "terminal_evidence": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/execution-verification.json",
+      "sha256": "8f5d39359d5a1012cd5960a68edc28e1000f88f88bfc530d099a756cf7ce67c4"
+    },
+    "delegated_functional_acceptance_pending": true,
+    "acceptance_authority_update": "code/docs/acceptance/s5-workflow-2026-11-09/documentation-sync.json#/current_UI_polish_and_delegated_S5_review"
+  },
+  "L05_documentation_closeout": {
+    "recorded_at_utc": "2026-11-09T04:33:44.508418+00:00",
+    "DOCX": [
+      {
+        "path": "方案/子任务T1/T1智能体开发计划.docx",
+        "edited_paragraphs_1_based": [
+          15,
+          29,
+          30,
+          48,
+          52,
+          55,
+          62,
+          65
+        ],
+        "sha256": "b9ce1c7ddfd5577e3a01e4c3d9fdd52aa640e020815b30c0d21269aae2e7e918",
+        "all_other_paragraph_XML_and_package_parts_unchanged": true
+      },
+      {
+        "path": "方案/子任务T1/T1开发执行说明.docx",
+        "edited_paragraphs_1_based": [
+          5,
+          6,
+          22,
+          28,
+          40,
+          46,
+          48,
+          70,
+          72,
+          73,
+          88,
+          91,
+          95
+        ],
+        "sha256": "5e12825ec5252f314150727f38cb5021e2b03e125c44debf37a9c3912f16ea3f",
+        "all_other_paragraph_XML_and_package_parts_unchanged": true
+      }
+    ],
+    "current_changed_rows": {
+      "开发任务清单.csv": [
+        "T1-R13.状态/工程进度/工程开工例外",
+        "T1-R14.工程进度/工程开工例外",
+        "T1-R15.工程开工例外",
+        "T1-R16.工程进度/工程开工例外"
+      ],
+      "验收清单.csv": [
+        "F13.测量依据"
+      ],
+      "开发阶段与验收.csv": [
+        "S5.状态/工程进度/工程开工例外"
+      ]
+    },
+    "README": "Scoped once-only L05 authorization,closed allowance,real empty-result chain and remaining limits;old L01 never paid-executed",
+    "application_code_or_tests_by_documentation_owner": 0,
+    "formal_reviews_used": 3,
+    "older_DOCX_sections_time_scope": "DOCX and engineering_closeout_update.DOCX describe earlier S5 checkpoints; current bytes and present wording are L05_documentation_closeout.DOCX.",
+    "final_current_consistency_check": {
+      "checked_at_utc": "2026-11-09T04:37:15.027053+00:00",
+      "scope": "Only edited current S5 prose/IDs/authorization mirrors,Word fingerprints and protected cited artifacts;no application tests",
+      "exact_CSV_JSON_cells": [
+        "T1-R13.状态",
+        "T1-R13.工程进度",
+        "T1-R13.工程开工例外",
+        "T1-R13.本次工程交付",
+        "T1-R14.状态",
+        "T1-R14.工程进度",
+        "T1-R14.工程开工例外",
+        "T1-R14.本次工程交付",
+        "T1-R15.状态",
+        "T1-R15.工程进度",
+        "T1-R15.工程开工例外",
+        "T1-R15.本次工程交付",
+        "T1-R16.状态",
+        "T1-R16.工程进度",
+        "T1-R16.工程开工例外",
+        "T1-R16.本次工程交付",
+        "F13.测量依据",
+        "F13.状态",
+        "S5.状态",
+        "S5.工程进度",
+        "S5.工程开工例外"
+      ],
+      "active_current_JSON_paths_checked": [
+        "方案/子任务T1/开发计划.json#current_experiment_authorization/current_S5_workflow_engineering/current_improvement/model_execution",
+        "方案/子任务T1/当前版本.json#current_experiment_authorization/current_S5_workflow_engineering/current_improvement/model_execution",
+        "方案/子任务T1/质量与性能验收契约.json#current_experiment_authorization/current_S5_workflow_engineering/current_improvement/model_execution",
+        "方案/子任务T1/材料检查结果.json#current_experiment_authorization/current_S5_workflow_engineering/current_improvement/model_execution",
+        "方案/当前版本.json#latest_t1_scope_revision",
+        "方案/实施计划.json#latest_t1_scope_revision",
+        "方案/材料检查结果.json#current_T1_sync",
+        "code/runtime-data/agent-notes/s0-s4-execution-2026-11-04.json#current_authorized_budget/current",
+        "code/runtime-data/agent-notes/current-docs-reconcile-2026-11-04.json#current_authorized_budget/current"
+      ],
+      "Word_current_scope_and_remaining_conditions_passed": true,
+      "child4_mother3_Word_hashes_match": true,
+      "protected_cited_artifacts_unchanged": [
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json",
+          "sha256": "6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model/checks.json",
+          "sha256": "26c7596c4077715452ea283a7c58dd2ea2286cef38940487a9aa2aefe9d973aa"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+          "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+          "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/s4-stage-acceptance.json",
+          "sha256": "cb62798c2b8039b83032d5410b88bd5e3d4e4292f91f48fc5a70b1640d497c74"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/report.json",
+          "sha256": "ff9890efc282993b62c5c0f4d2ee5fab235e4ed2f8f7b21d09dcb9b3eba0cb04"
+        },
+        {
+          "path": "code/docs/acceptance/s5-workflow-2026-11-09/task-completion-display/report.json",
+          "sha256": "f7b715b97a470a9d1a9f91503c536b4c158e8d9386d9593ce4038ade9f401ffd"
+        },
+        {
+          "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/本轮输出核验意见-2026-11-09-01-50-45.json",
+          "sha256": "28416aa3453f505d910a4012a3bcb4103caef875a70c69441759410695dc0930"
+        },
+        {
+          "path": "code/runtime-data/s5-real-workbench/s5-L05-4daecedc-b122-479b-ad1a-7a75f55dbbc3/verification-report.json",
+          "sha256": "8f5d39359d5a1012cd5960a68edc28e1000f88f88bfc530d099a756cf7ce67c4"
+        }
+      ],
+      "README_local_links_checked": 24,
+      "L01_preparation_never_paid_executed_and_superseded": true,
+      "L05_actual_requests17_candidates0_closed_unused23": true,
+      "S5_user_acceptance_not_claimed": true,
+      "medical_or_business_approval_not_claimed": true,
+      "no_new_application_tests_or_provider_calls_by_documentation_owner": true,
+      "temporary_scripts_created": 0,
+      "DOCX_office_visual_render_test_performed": false
+    },
+    "retained_result_entry": "http://127.0.0.1:30141/?paper=paper-6dce31c5-dcbf-4b0b-861a-233a3919467f&run=run-c81de6e7-2a4b-47ec-afff-9b75341300c3&view=records",
+    "final_sealed_references_checked_at_utc": "2026-11-09T04:41:49.396007+00:00",
+    "terminal_artifact_copies_match_runtime_bytes": true,
+    "retained_entry_confirmed_readonly_with_model_disabled": true,
+    "final_report": {
+      "path": "code/docs/acceptance/s5-workflow-2026-11-09/real-model-L05/final-report.json",
+      "sha256": "45ecfa24004633dea9e8d81cf51040d8a09eeffe6a55ecea8c84449e04e0aef8"
+    },
+    "final_reference_only_followup": {
+      "checked_at_utc": "2026-11-09T04:42:51.896793+00:00",
+      "final_report_hash_matches_owner": true,
+      "current_mirror_closed_usage17_and_allowance0_unchanged": true,
+      "retained_entry_confirmed_by_sealed_actual_browser_check": true,
+      "no_extra_application_test_or_provider_call": true
+    },
+    "added_README_final_report_link_exists": true,
+    "temporary_materials": "No temporary scripts created;ownDOCXsync-tmppackagesremovedbyatomicreplace;sharedcontinuityandalloriginalpaid/feedbackevidencepreserved"
+  },
+  "targeted_S5_gate_wording_correction": {
+    "recorded_at_utc": "2026-11-09T04:56:26.348266+00:00",
+    "file": "方案/子任务T1/T1开发执行说明.docx",
+    "paragraph_1_based": 29,
+    "before_tail": "这些流程已在受控环境验证；真实付费模型端到端及正式S5阶段接受尚未完成。",
+    "after_tail": "这些流程已在受控环境验证，单L05真实空结果链已验证；本次真实试跑未验证新非空候选及图文人工审核，S5用户试用与阶段接受仍待完成。",
+    "previous_sha256": "5e12825ec5252f314150727f38cb5021e2b03e125c44debf37a9c3912f16ea3f",
+    "current_sha256": "90af8d6c72fdd137c009e00cf1915c5438f5f6551d7f37fb2de766346818a025",
+    "only_one_paragraph_changed": true,
+    "other_paragraph_XML_and_package_parts_unchanged": true,
+    "corresponding_current_JSON_CSV_obsolete_sentence_matches": 0,
+    "JSON_CSV_business_state_or_scope_changed": false,
+    "fingerprint_pointers_updated_and_checked": [
+      "方案/子任务T1/开发计划.json#/current_document_fingerprints/execution_guide_sha256",
+      "方案/子任务T1/当前版本.json#/current_document_fingerprints/execution_guide_sha256",
+      "方案/子任务T1/质量与性能验收契约.json#/current_document_fingerprints/execution_guide_sha256",
+      "方案/子任务T1/材料检查结果.json#/current_document_fingerprints/execution_guide_sha256",
+      "方案/当前版本.json#/latest_t1_scope_revision/current_execution_guide_sha256",
+      "方案/实施计划.json#/latest_t1_scope_revision/current_execution_guide_sha256",
+      "方案/材料检查结果.json#/current_T1_sync/current_execution_guide_sha256"
+    ],
+    "prior_DOCX_records_time_scope": "Earlier handoff checkpoints;current guide bytes include this one-paragraph correction.",
+    "broad_document_checks_or_application_tests_run": false,
+    "new_provider_calls": 0,
+    "new_stage_tasks": 0,
+    "formal_reviews_used": 3,
+    "additional_formal_reviews": 0
+  },
+  "current_UI_polish_and_delegated_S5_review": {
+    "status": "authorized_UI_polish_and_proxy_functional_review_not_yet_checked",
+    "user_quote": "你直接审核吧。当前UI界面需要美化，可以模仿pi-web的前端页面。",
+    "recorded_at_utc": "2026-11-09T07:37:31.189108+00:00",
+    "source": "Main-session authoritative relay of latest user instruction",
+    "original_user_event_or_click_time": null,
+    "recorded_time_is_not_click_time": true,
+    "UI_implementation_owner": "/root/s5_ui_polish (gpt-6.1-sol,max)",
+    "documentation_owner": "/root/current_output_feedback (gpt-6.1-sol,max)",
+    "functional_review_owner": "/root main session (gpt-6-astra,max)",
+    "expected_UI_report": "code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/report.json",
+    "delegated_proxy_functional_review_authorized": true,
+    "user_personal_trial_required_for_engineering_acceptance": false,
+    "S5_engineering_acceptance_possible_after_actual_UI_checks_and_main_session_review": true,
+    "S5_stage_passed_now": false,
+    "UI_polish_validation_passed_now": false,
+    "new_paid_API_allowance": 0,
+    "old_L05_requests17_unused23_closed": true,
+    "production_medical_or_per_record_business_approval_authorized": false,
+    "S6_or_S7_started": false,
+    "formal_reviews_used": 3,
+    "formal_review_limit": 3,
+    "additional_formal_reviews": 0
+  },
+  "delegated_S5_functional_acceptance_pending": true,
+  "user_personal_trial_optional_not_a_gate": true
+}

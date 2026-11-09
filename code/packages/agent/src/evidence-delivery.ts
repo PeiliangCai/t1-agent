@@ -11,6 +11,8 @@ import { isSourceBoundaryDelimiter, VERBATIM_OUTPUT_POLICY, verbatimOmissionIssu
 import { VISUAL_STATEMENT_POLICY_VERSION, visualStatementIssues } from './visual-evidence-policy.js';
 import { PRIMARY_ASSESSMENT_POLICY_VERSION } from './primary-evidence-assessment.js';
 import { buildStrictSourceGroups, STRICT_SOURCE_GROUPING_POLICY_VERSION, type StrictSourceGroup } from './strict-source-groups.js';
+import { sourceGlyphCheckStatus } from './source-evidence-units.js';
+import { auditLegacySourceGlyphs } from './parser.js';
 
 const clone = <T>(x: T): T => structuredClone(x);
 export const evidenceDigest = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -18,8 +20,8 @@ const hashBytes = (value: Uint8Array) => createHash('sha256').update(value).dige
 const sameBinding = (document: ExtractionDocument, value: { document_id: string; file_sha256: string; text_version: string }) =>
   document.document_id === value.document_id && document.file_sha256 === value.file_sha256 && document.text_version === value.text_version;
 
-function assertLocated(document: ExtractionDocument, fragment: LocatedEvidenceFragment) {
-  const actual = locateEvidenceFragment(document, fragment);
+function assertLocated(document: ExtractionDocument, fragment: LocatedEvidenceFragment, allowUnverifiedGlyphs = false) {
+  const actual = locateEvidenceFragment(document, fragment, allowUnverifiedGlyphs);
   if (!isDeepStrictEqual(fragment, actual)) throw new ContractError('delivery_fragment_source_mismatch');
 }
 export function assertFigureCatalog(document: ExtractionDocument, value: unknown): asserts value is FigureAssetCatalog {
@@ -29,7 +31,9 @@ export function assertFigureCatalog(document: ExtractionDocument, value: unknown
   for (const figure of value.figures) {
     if (figureIds.has(figure.figure_id)) throw new ContractError('duplicate_figure_id');
     figureIds.add(figure.figure_id);
-    for (const caption of figure.caption_segments) assertLocated(document, caption);
+    // Unreliable literal captions remain visible beside their original page,
+    // but cannot grant a verified image association or an approved export.
+    for (const caption of figure.caption_segments) assertLocated(document, caption, figure.verification.status === 'needs_review');
     for (const asset of figure.regions) {
       const page = document.pages.find(p => p.physical_page === asset.physical_page), [left, top, right, bottom] = asset.bbox;
       if (assetIds.has(asset.asset_id) || asset.source_pdf_sha256 !== document.file_sha256 || !page || page.width === null || page.height === null ||
@@ -136,6 +140,7 @@ export interface DeliveredEvidence {
   figure_association: FigureAssociation; review_status: EvidenceRecord['review_status'];
   source_record_sha256: string; text_fingerprint: string; delivery_fingerprint: string;
   supporting_table_evidence?: NonNullable<EvidenceRecord['context']['supporting_table_evidence']>;
+  human_role_selection?: { role: 'primary_candidate' | 'background_suggestion'; actor: string; record_version: number; source: 'versioned_human_annotation' };
   evidence_policy_version?: string; source_evidence_unit_version?: string;
   primary_assessment?: {
     policy_version: typeof PRIMARY_ASSESSMENT_POLICY_VERSION;
@@ -156,6 +161,7 @@ export interface EvidenceDelivery {
   source_grouping_policy_version?: typeof STRICT_SOURCE_GROUPING_POLICY_VERSION;
   strict_source_groups?: StrictSourceGroup[];
   unique_source_group_count?: number;
+  source_glyph_check?: { status: ReturnType<typeof sourceGlyphCheckStatus>; detects_all_font_encoding_errors: false; source_page_review_still_required: true };
 }
 /** Include retained background suggestions in audits and sampling; never improve a denominator by hiding them. */
 export function allDeliveredRecords(delivery: EvidenceDelivery): DeliveredEvidence[] {
@@ -174,7 +180,7 @@ function refreshStrictSourceGroups(delivery: EvidenceDelivery, versions: readonl
   // Group metadata stays outside each member's historical text/delivery fingerprint.
   delivery.strict_source_groups = buildStrictSourceGroups(versions, allDeliveredRecords(delivery).map(record => ({
     record_id: record.record_id, record_version: record.record_version,
-    effective_role: record.primary_assessment?.effective_role ?? 'primary_candidate',
+    effective_role: record.human_role_selection?.role ?? record.primary_assessment?.effective_role ?? 'primary_candidate',
     figure_association: record.figure_association,
     ...(reviews ? { human_confirmation: reviews.get(record.record_id) ?? null } : {}),
   })));
@@ -249,7 +255,9 @@ export function buildEvidenceDelivery(document: ExtractionDocument, versions: re
     ...(records.some(r => r.primary_assessment) ? { primary_assessment_policy_version: PRIMARY_ASSESSMENT_POLICY_VERSION,
       background_records: records.filter(r => r.primary_assessment?.effective_role === 'background_suggestion') } : {}),
     figures: clone(catalog?.figures ?? []),
-    full_recall_claimed: false, medical_quality_approved: false };
+    full_recall_claimed: false, medical_quality_approved: false,
+    ...(sourceGlyphCheckStatus(document) !== 'legacy_not_checked' ? {
+      source_glyph_check: { status: sourceGlyphCheckStatus(document), detects_all_font_encoding_errors: false as const, source_page_review_still_required: true as const } } : {}) };
   refreshStrictSourceGroups(delivery, [...current.values()]);
   return delivery;
 }
@@ -302,7 +310,14 @@ export function auditOutputSample(delivery: EvidenceDelivery, reviews?: OutputSa
 export async function exportEvidenceDelivery(document: ExtractionDocument, versions: readonly EvidenceVersion[], options: {
   codeRoot: string; directory: string; catalog?: FigureAssetCatalog; mode: 'candidates' | 'approved'; reviews?: readonly DeliveryReview[];
   coverage: unknown; sampleReview?: OutputSampleReview;
+  humanRoles?: readonly { record_id: string; record_version: number; role: 'primary_candidate' | 'background_suggestion'; actor: string }[];
 }) {
+  let sourceGlyphAudit: Awaited<ReturnType<typeof auditLegacySourceGlyphs>>['audit'] | undefined;
+  if (options.mode === 'approved' && sourceGlyphCheckStatus(document) === 'legacy_not_checked') {
+    try {
+      const audited = await auditLegacySourceGlyphs(document); document = audited.document; sourceGlyphAudit = audited.audit;
+    } catch { throw new ContractError('source_glyph_check_missing_reparse_required'); }
+  }
   const delivery = buildEvidenceDelivery(document, versions, options.catalog), checked = new Map<string, DeliveryReview>();
   const allRecords = allDeliveredRecords(delivery);
   for (const review of options.reviews ?? []) {
@@ -344,6 +359,23 @@ export async function exportEvidenceDelivery(document: ExtractionDocument, versi
   if (options.mode === 'approved' && delivery.background_records) {
     delivery.records.push(...delivery.background_records.filter(r => r.primary_assessment?.effective_role !== 'background_suggestion'));
     delivery.background_records = delivery.background_records.filter(r => r.primary_assessment?.effective_role === 'background_suggestion');
+  }
+  // Product labels are version-bound human annotations, kept separate from the model's unapproved assessment and source wording.
+  const selectedRoles = new Set<string>();
+  for (const selection of options.humanRoles ?? []) {
+    const record = allRecords.find(r => r.record_id === selection.record_id), version = versions.find(v => v.record.record_id === selection.record_id && v.version === selection.record_version && v.status !== 'proposed');
+    if (!record || record.record_version !== selection.record_version || version?.actor !== 'human' || !selection.actor.trim() ||
+      !['primary_candidate', 'background_suggestion'].includes(selection.role) || selectedRoles.has(selection.record_id)) throw new ContractError('human_role_version_conflict');
+    selectedRoles.add(selection.record_id);
+    record.human_role_selection = { role: selection.role, actor: selection.actor, record_version: selection.record_version, source: 'versioned_human_annotation' };
+    if (record.primary_assessment) record.primary_assessment.effective_role = selection.role;
+    const { delivery_fingerprint: _old, ...value } = record;
+    record.delivery_fingerprint = evidenceDigest({ ...value, figure_content: delivery.figures.filter(f => record.figure_association.proposed_figure_ids.includes(f.figure_id)) });
+  }
+  if (selectedRoles.size) {
+    const effectiveRole = (r: DeliveredEvidence) => r.human_role_selection?.role ?? r.primary_assessment?.effective_role ?? 'primary_candidate';
+    delivery.records = allRecords.filter(r => effectiveRole(r) === 'primary_candidate');
+    delivery.background_records = allRecords.filter(r => effectiveRole(r) === 'background_suggestion');
   }
   refreshStrictSourceGroups(delivery, versions, checked);
   const sample = auditOutputSample(delivery, options.sampleReview);
@@ -388,6 +420,7 @@ export async function exportEvidenceDelivery(document: ExtractionDocument, versi
   await writeFile(resolve(directory, 'delivery.json'), JSON.stringify({ ...delivery, records: exportRecords,
     ...(delivery.background_records ? { background_records: backgroundRecords } : {}) }, null, 2)+'\n', { flag: 'wx' });
   await writeFile(resolve(directory, 'coverage.json'), JSON.stringify(options.coverage, null, 2)+'\n', { flag: 'wx' });
+  if (sourceGlyphAudit) await writeFile(resolve(directory, 'source-glyph-audit.json'), JSON.stringify(sourceGlyphAudit, null, 2)+'\n', { flag: 'wx' });
   await writeFile(resolve(directory, 'sample-audit.json'), JSON.stringify(sample, null, 2)+'\n', { flag: 'wx' });
   await writeFile(resolve(directory, 'reviews.json'), JSON.stringify([...checked.values()], null, 2)+'\n', { flag: 'wx' });
   const manifest = { schema_version: 'verbatim-figure-export-1', mode: options.mode, output_policy: VERBATIM_OUTPUT_POLICY,
@@ -400,7 +433,9 @@ export async function exportEvidenceDelivery(document: ExtractionDocument, versi
     fixture: document.fixture, record_level_human_confirmation: options.mode === 'approved',
     approved_by_model: false, full_recall_claimed: false, medical_quality_approved: false,
     assets: assets.map(({ bytes: _bytes, ...a }) => a), authoritative_description: 'records.jsonl original_fragments; records.csv has one row per fragment',
-    source_ir_fidelity_is_not_medical_approval: true, legacy_records_modified: false };
+    source_ir_fidelity_is_not_medical_approval: true, legacy_records_modified: false,
+    source_glyph_check: delivery.source_glyph_check ?? { status: 'legacy_not_checked', detects_all_font_encoding_errors: false, source_page_review_still_required: true },
+    ...(sourceGlyphAudit ? { source_glyph_audit: 'source-glyph-audit.json', historical_ir_rewritten: false, source_glyph_audit_model_calls: 0 } : {}) };
   await writeFile(resolve(directory, 'manifest.json'), JSON.stringify(manifest, null, 2)+'\n', { flag: 'wx' });
   return { delivery, manifest, sample };
 }

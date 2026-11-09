@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { createJiti } from "jiti";
 
@@ -32,13 +31,9 @@ test("listed until released, once however often the release runs", () => {
   assert.equal(listPageStreams().length, before);
 });
 
-test("terminal streams and file watches register their page, and the page sends it", async () => {
-  const read = (path) => readFile(new URL(path, import.meta.url), "utf8");
-  const terminalRoute = await read("../app/api/terminal/[id]/events/route.ts");
-  assert.match(terminalRoute, /const releasePage = registerPageStream\(pageStreamLabel\("terminal", req\)\);/);
-  assert.match(terminalRoute, /closed = true;\s*releasePage\(\);/, "released with the stream");
-  const filesRoute = await read("../app/api/files/[...path]/route.ts");
-  assert.match(filesRoute, /registerPageStream\(pageStreamLabel\("file-watch", request\)\)/);
-  assert.match(await read("../components/TerminalPanel.tsx"), /new URLSearchParams\(\{ holder: pageId\(\) \}\)/);
-  assert.match(await read("../components/FileViewer.tsx"), /if \(type === "watch"\) searchParams\.set\("holder", pageId\(\)\);/);
+test("T1 permits its own run event stream without publishing terminal or file-watch APIs", async () => {
+  const { isT1ApiMethod } = await jiti.import("../t1/gateway-policy.ts");
+  assert.equal(isT1ApiMethod("/api/t1/workbench/runs/run-1/events", "GET"), true);
+  assert.equal(isT1ApiMethod("/api/terminal/t1/events", "GET"), false);
+  assert.equal(isT1ApiMethod("/api/files/a", "GET"), false);
 });

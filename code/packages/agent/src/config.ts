@@ -6,7 +6,7 @@ export class ModelConfig {
   readonly #apiKey: string;
   constructor(readonly provider: string, readonly baseUrl: string, readonly modelId: string, apiKey: string) { this.#apiKey = apiKey; }
   apiKey(): string { return this.#apiKey; }
-  publicInfo() { return { provider: this.provider, endpoint: this.baseUrl, model_id: this.modelId, api_key_present: Boolean(this.#apiKey), purpose: 'S1_interface_test_only' }; }
+  publicInfo() { return { provider: this.provider, endpoint: this.baseUrl, model_id: this.modelId, api_key_present: Boolean(this.#apiKey) }; }
 }
 export function parseModelConfig(fileText: string, environment: Record<string, string | undefined> = {}): ModelConfig {
   const values = parse(fileText);

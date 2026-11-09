@@ -1,0 +1,116 @@
+id: 1
+event: state
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":1,"type":"state","timestamp":"2026-11-09T09:51:54.785Z","detail":{"state":"queued","medical_quality_approved":false}}
+
+id: 2
+event: execution_slot_acquired
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":2,"type":"execution_slot_acquired","timestamp":"2026-11-09T09:51:54.788Z","detail":{"execution_started_at":"2026-11-09T09:51:54.787Z","queue_wait_ms":4,"runtime_deadline":"2026-11-09T10:21:54.787Z","max_concurrent_runs":2}}
+
+id: 3
+event: state
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":3,"type":"state","timestamp":"2026-11-09T09:51:54.790Z","detail":{"state":"parsing"}}
+
+id: 4
+event: source_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":4,"type":"source_saved","timestamp":"2026-11-09T09:52:01.717Z","detail":{"text_version":"s3v3-27a092acb3ad560f790955a00762f9a1","physical_pages":1,"parser_id":"docling-standard-cpu","controlled_fixture":true}}
+
+id: 5
+event: state
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":5,"type":"state","timestamp":"2026-11-09T09:52:01.731Z","detail":{"state":"extracting"}}
+
+id: 6
+event: coverage_inventory
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":6,"type":"coverage_inventory","timestamp":"2026-11-09T09:52:01.733Z","detail":{"all_source_blocks":3,"assigned_blocks":3,"quarantined_blocks":0,"dispatched_blocks":3,"deferred_blocks":0,"excluded_input_copy_blocks":0,"source_selection_digest":"31d0d8cddfd5e21ce32acb2a5336d2ea89adee970655ec4c08716acf3378fb1a","bibliography_scope_rule_version":"explicit-bibliography-task-scope-1","task_scope_blocks":3,"source_glyph_check_status":"checked_no_detected_gaps","source_glyph_quarantined_block_ids":[],"unselected_is_not_processed":true,"parser_status":"parsed","native_structure_human_verified":false}}
+
+id: 7
+event: model_tool_argument_shape
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":7,"type":"model_tool_argument_shape","timestamp":"2026-11-09T09:52:01.878Z","detail":{"batch_id":"batch-0001","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","protocol":"batch_lines","record_shapes":[]}}
+
+id: 8
+event: tool
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":8,"type":"tool","timestamp":"2026-11-09T09:52:01.881Z","detail":{"batch_id":"batch-0001","call_id":"call-fixture-0-0|fc-fixture-0-0","name":"read_document_blocks","status":"ok"}}
+
+id: 9
+event: model_tool_argument_shape
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":9,"type":"model_tool_argument_shape","timestamp":"2026-11-09T09:52:01.886Z","detail":{"batch_id":"batch-0001","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","protocol":"batch_lines","record_shapes":[{"source_line_count":0,"exact_fragment_count":0,"copied_source_quote_characters":0,"copied_context_quote_characters":0}]}}
+
+id: 10
+event: candidate
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":10,"type":"candidate","timestamp":"2026-11-09T09:52:01.897Z","detail":{"record_id":"ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce","record_version":1,"review_status":"pending","reason":"insert"}}
+
+id: 11
+event: reconciliation
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":11,"type":"reconciliation","timestamp":"2026-11-09T09:52:01.897Z","detail":{"action":"insert","issues":[]}}
+
+id: 12
+event: tool
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":12,"type":"tool","timestamp":"2026-11-09T09:52:01.898Z","detail":{"batch_id":"batch-0001","call_id":"call-fixture-0-1|fc-fixture-0-1","name":"submit_candidate_records","status":"ok"}}
+
+id: 13
+event: batch
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":13,"type":"batch","timestamp":"2026-11-09T09:52:01.902Z","detail":{"batch_id":"batch-0001","assigned_block_ids":["d0fe4dc72d7d755df1b7-p0001-l000000","d0fe4dc72d7d755df1b7-p0001-l000001","d0fe4dc72d7d755df1b7-p0001-l000002"],"context_block_ids":[],"physical_pages":[1],"source_code_points":83,"order_basis":"native_mapped_then_source_fallback","warnings":["reading_order_not_human_verified"],"attempt":0,"status":"completed","read_block_ids":["d0fe4dc72d7d755df1b7-p0001-l000000","d0fe4dc72d7d755df1b7-p0001-l000001","d0fe4dc72d7d755df1b7-p0001-l000002"],"explicit_completion_received":true,"result":{"settled":true,"responses":1,"events":[{"type":"assistant_response","stop_reason":"toolUse"},{"type":"tool_execution_start","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","argument_sha256":"44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a","argument_characters":2,"property_names":[],"selectors":{}},{"type":"tool_execution_end","tool":"read_document_blocks","call_id":"call-fixture-0-0|fc-fixture-0-0","error":false,"result_characters":2660,"result_sha256":"4457934203a1107f3152897cef75309562e77f9b8c4f8ad575a98661d586e89c"},{"type":"tool_execution_start","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","argument_sha256":"f991678255988b2f3588caf322003399172ae074993d070db883f64da5f2d790","argument_characters":227,"property_names":["records","batch_complete"],"selectors":{"records":[{"argument_sha256":"06458e3d43cafc11fef31563d37a9b3f031aa32e891223b050f81f4c0bf14668","argument_characters":191,"property_names":["source_unit_ids","feature_name_raw","feature_category","evidence_type","assertion","origin"],"selectors":{"source_unit_ids":["su-000002"]}}],"batch_complete":true}},{"type":"tool_execution_end","tool":"submit_candidate_records","call_id":"call-fixture-0-1|fc-fixture-0-1","error":false,"result_characters":616,"result_sha256":"85dee90f44078dcb358e127e50783911aeb09086efaf53f0b28cb5434c4b5002"}],"usage":[{"input":100,"output":20,"cacheRead":0,"cacheWrite":0,"reasoning":0,"totalTokens":120,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}}],"request_ids":["137361d3-6bd3-4a16-addf-d7bdf5ea1de2"],"transient_error":false},"tool_calls":[{"call_id":"call-fixture-0-0|fc-fixture-0-0","name":"read_document_blocks","status":"ok"},{"call_id":"call-fixture-0-1|fc-fixture-0-1","name":"submit_candidate_records","status":"ok"}],"issues":[],"candidate_count_so_far":1}}
+
+id: 14
+event: state
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":14,"type":"state","timestamp":"2026-11-09T09:52:01.905Z","detail":{"state":"reconciling"}}
+
+id: 15
+event: summary_model_working_set
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":15,"type":"summary_model_working_set","timestamp":"2026-11-09T09:52:01.914Z","detail":{"original_message_bytes":32965,"projected_message_bytes":32965,"source_window":{"maximum_lines":128,"line_indices":[],"historical_unique_read_count":0,"evicted_lines_require_explicit_reread_for_updates":true,"source_text_truncated":false,"reading_is_not_extraction_or_summary_completion":true},"superseded_source_result_copies":0,"superseded_candidate_packet_copies":0,"candidate_fields_truncated":false,"source_lines_truncated":false}}
+
+id: 16
+event: summary_context_model_view
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":16,"type":"summary_context_model_view","timestamp":"2026-11-09T09:52:01.925Z","detail":{"encoding":"s4-source-fragment-dictionary-1","original_JSON_bytes":4609,"packet_JSON_bytes":4191,"all_candidate_count":1,"source_fragment_count":1,"candidates_truncated":false,"source_or_medical_fields_changed":false}}
+
+id: 17
+event: candidate
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":17,"type":"candidate","timestamp":"2026-11-09T09:52:01.931Z","detail":{"record_id":"ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce","record_version":2,"review_status":"pending","reason":"model_semantic_review_not_human_approval"}}
+
+id: 18
+event: document_summary
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":18,"type":"document_summary","timestamp":"2026-11-09T09:52:01.931Z","detail":{"summary":"S7 container engineering fixture. No medical approval.","strategy":"baseline","candidate_record_ids_read":["ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce"],"reviews":["ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce"],"semantic_audit_case_ids_reviewed":[],"complete":true,"completion_blockers":[],"saved_updates":[],"atomic_submission":true,"medical_approval":false}}
+
+id: 19
+event: state
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":19,"type":"state","timestamp":"2026-11-09T09:52:01.936Z","detail":{"state":"completed"}}
+
+id: 20
+event: deployment_fixture_completed
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":20,"type":"deployment_fixture_completed","timestamp":"2026-11-09T09:52:01.942Z","detail":{"loopback_requests":2,"paid_requests":0,"actual_Docling_CPU":true,"medical_quality_approved":false}}
+
+id: 21
+event: run_result_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":21,"type":"run_result_saved","timestamp":"2026-11-09T09:52:01.946Z","detail":{"coverage_saved":true,"controlled_fixture":true}}
+
+id: 22
+event: human_version
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":22,"type":"human_version","timestamp":"2026-11-09T09:52:02.964Z","detail":{"record_id":"ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce","record_version":3,"reason":"Synthetic deployment persistence test only; no medical approval"}}
+
+id: 23
+event: human_review
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":23,"type":"human_review","timestamp":"2026-11-09T09:52:02.965Z","detail":{"record_id":"ev-0e65fcaaf6b0e582d79b2e96d6366036efc6d8ce","record_version":3,"action":"approve_text","reviewer":"S7 engineering fixture operator","text_approved":true,"figures_approved":false}}
+
+id: 24
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":24,"type":"export_saved","timestamp":"2026-11-09T09:52:02.979Z","detail":{"export_id":"export-9c38b1d2-72d7-4436-9f8b-d10f402513fa","kind":"candidate_jsonl","record_count":1,"controlled_fixture":true}}
+
+id: 25
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":25,"type":"export_saved","timestamp":"2026-11-09T09:52:02.989Z","detail":{"export_id":"export-730f9747-6583-452e-90fe-6932e5f510c7","kind":"candidate_csv","record_count":1,"controlled_fixture":true}}
+
+id: 26
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":26,"type":"export_saved","timestamp":"2026-11-09T09:52:02.998Z","detail":{"export_id":"export-e7fd99b9-08d3-4e6c-8a2d-d2be7705e7ed","kind":"candidate_package","record_count":1,"controlled_fixture":true}}
+
+id: 27
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":27,"type":"export_saved","timestamp":"2026-11-09T09:52:03.015Z","detail":{"export_id":"export-5c48f2ec-9316-405c-bdf4-6ed9284cd2fd","kind":"approved_jsonl","record_count":1,"controlled_fixture":true}}
+
+id: 28
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":28,"type":"export_saved","timestamp":"2026-11-09T09:52:03.026Z","detail":{"export_id":"export-e2937dcb-b80f-4dc3-97e8-69ac256e8f18","kind":"approved_csv","record_count":1,"controlled_fixture":true}}
+
+id: 29
+event: export_saved
+data: {"run_id":"run-45b21c83-78cf-480a-92ac-625eb4d773d3","seq":29,"type":"export_saved","timestamp":"2026-11-09T09:52:03.039Z","detail":{"export_id":"export-a16748fe-7962-4531-b99d-61baf92fa71c","kind":"approved_package","record_count":1,"controlled_fixture":true}}
+

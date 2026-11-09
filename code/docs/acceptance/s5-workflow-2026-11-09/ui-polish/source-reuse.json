@@ -1,0 +1,79 @@
+{
+  "at": "2026-11-09T07:55:50.728090+00:00",
+  "upstream_commit": "f130910abf662b506b2ef2f475fc21a2fe57badc",
+  "archive_sha256": "0d0df9305710dda38eabaf8f2d55f139a0173f05c8ccbbf9c93c03d65063eead",
+  "visual_reference": "code/apps/pi-web/docs/screenshot2.png",
+  "approach": "Use existing original Pi Web shell/Tabs/menu/toast/resize/preview/theme/i18n; scoped T1 markup/styles only. No framework or original shared-component replacement.",
+  "files": [
+    {
+      "path": "code/apps/pi-web/components/AppShell.tsx",
+      "sha256": "8c5da26ec12023a14ca0c2018ebbbc2cca7e6b564b8768343e3141c0ae71144e",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/components/TabBar.tsx",
+      "sha256": "ece52a1e8f705902b85f77956daeb4daec682736244b359afe813cd4e795feb8",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/components/SidebarMenu.tsx",
+      "sha256": "ae2f77737e9e54fdaadae1895a950d4e63c3e369e4283d8f55a50bae56bbd67b",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/components/SidebarToast.tsx",
+      "sha256": "c7e6a421b0eb6feebfc63383d7e19c0b17e0d881d5084fb1917f583bedc39690",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/components/SidebarIcons.tsx",
+      "sha256": "8bbfb5bf25fcac8b28fac0bd0605716d11557f312659cd8322ce68c2ed73a1f4",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/components/ImagePreview.tsx",
+      "sha256": "48d6bf1242ff61a672ee60fad4b77cd5ec5e501a692b49faf489402ca57a8dc6",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/hooks/useResizablePanel.ts",
+      "sha256": "156b009824ba477e24db5afa2e6cad413f79b5778bef90dcc5b621cc8bd54cda",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/hooks/useTheme.ts",
+      "sha256": "15e9e62dfd4cd69c0b8472b7239660626386d1b6716191fbccc99f7c916fce7e",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/hooks/useI18n.tsx",
+      "sha256": "6d6369843895f6a87dc1d990b5fda1566c7b9d6e3b2edaa26d25d3675d66d9d6",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/app/globals.css",
+      "sha256": "636326513d4c37ae4e7f50e0c6fee856d060d5393ae7318b38a90a5683ac7783",
+      "matches_pinned_archive": true
+    },
+    {
+      "path": "code/apps/pi-web/docs/screenshot2.png",
+      "sha256": "f0ba3291be15304f9304804eec3fda7a6b55e0a4dda447501d95ff4c6f004f89",
+      "matches_pinned_archive": true
+    }
+  ],
+  "runtime_reuse": [
+    "TabBar",
+    "SidebarMenu",
+    "SidebarToast",
+    "SidebarIcons",
+    "GenericFileIcon",
+    "useResizablePanel",
+    "ImagePreview",
+    "useTheme",
+    "useI18n",
+    "useIsMobile",
+    "useViewportHeight",
+    "theme tokens"
+  ],
+  "AppShell": "Original byte-identical AppShell retained; route already used T1Workbench before this task and still does. Runtime reuse is the component/hook list above."
+}

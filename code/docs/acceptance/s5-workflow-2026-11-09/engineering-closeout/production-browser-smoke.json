@@ -1,0 +1,50 @@
+{
+  "schema_version": "s5-production-build-browser-smoke-1",
+  "checked_at": "2026-11-09T03:20:03.649Z",
+  "origin": "http://127.0.0.1:30141",
+  "paid_calls": 0,
+  "operations": "GET only; no production mutations",
+  "checks": [
+    {
+      "name": "production_home_and_model_disabled",
+      "passed": true
+    },
+    {
+      "name": "retained_paper_verbatim_and_original_pdf_navigation",
+      "passed": true,
+      "document_id": "L01",
+      "physical_page": 2,
+      "rendered": {
+        "page": 2,
+        "width": 472,
+        "text_length": 1805
+      }
+    },
+    {
+      "name": "fixed_pdfjs_worker_resource",
+      "passed": true
+    },
+    {
+      "name": "retired_routes_remain_blocked_in_built_application",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "unexpected_resources": [],
+  "blocked_external_requests": [],
+  "build_id": "IUAPpylbHMhl5-Mg9gPNJ",
+  "capabilities": {
+    "schema_version": "t1-workbench-capabilities-1",
+    "read_only": false,
+    "paper_upload": true,
+    "extraction_start": false,
+    "persisted_review": true,
+    "approved_export": true,
+    "backend_pi_sdk": "1.4.0",
+    "full_S5_complete": false,
+    "controlled_fixture": false,
+    "max_pdf_bytes": 52428800,
+    "extraction_unavailable_reason": "server_model_not_enabled"
+  },
+  "passed": true
+}

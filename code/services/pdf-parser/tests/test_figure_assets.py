@@ -17,7 +17,7 @@ import pypdfium2 as pdfium
 from PIL import Image
 
 
-def constructed_pdf(path, rotation=0, user_unit=1, second_image=False, note_before=False):
+def constructed_pdf(path, rotation=0, user_unit=1, second_image=False, note_before=False, split_caption=False):
     writer = PdfWriter(); page = writer.add_blank_page(width=300, height=220)
     page.cropbox.lower_left = (20, 10); page.cropbox.upper_right = (280, 210)
     page[NameObject('/Rotate')] = NumberObject(rotation)
@@ -32,7 +32,9 @@ def constructed_pdf(path, rotation=0, user_unit=1, second_image=False, note_befo
     stream = DecodedStreamObject(); stream.set_data(b'q 120 0 0 80 70 70 cm /Im0 Do Q\n' +
       (b'q 20 0 0 80 190 70 cm /Im0 Do Q\n' if second_image else b'') +
       (b'BT /F1 8 Tf 65 58 Td (Note: (a) no pleural invasion;) Tj 0 -10 Td (no metastasis is observed.) Tj ET\n' if note_before else b'') +
-      (b'BT /F1 9 Tf 75 33 Td (Fig. 1 CT source fixture.) Tj ET' if note_before else b'BT /F1 9 Tf 75 45 Td (Fig. 1 CT source fixture.) Tj ET'))
+      (b'BT /F1 9 Tf 75 33 Td (Fig. 1 CT source fixture.) Tj ET' if note_before else
+       b'BT /F1 8 Tf 65 55 Td (Fig. 1) Tj 0 -10 Td (First literal caption line.) Tj 0 -10 Td (Second literal caption line.) Tj ET' if split_caption else
+       b'BT /F1 9 Tf 75 45 Td (Fig. 1 CT source fixture.) Tj ET'))
     page[NameObject('/Contents')] = writer._add_object(stream)
     writer.write(path)
 
@@ -73,6 +75,21 @@ class FigureAssetTests(unittest.TestCase):
 
     def tearDown(self):
         self.tmp.cleanup()
+
+    def test_split_caption_and_detector_panel_use_complete_original_bitmap_without_auto_confirmation(self):
+        path = self.root/'split-caption.pdf'; constructed_pdf(path, split_caption=True)
+        document, image_box = source_ir(path, 'split-caption-fixture')
+        picture = document['structure']['pictures'][0]
+        unit = next(u for u in document['structure']['units'] if u['unit_id'] == picture['picture_id'])
+        unit['provenance'][0]['bbox'] = [(image_box[0]+image_box[2])/2, image_box[1], image_box[2], image_box[3]]
+        catalog = extract_catalog(document, self.root/'split-caption-output')
+        figure = next(f for f in catalog['figures'] if f['figure_number'] == '1')
+        self.assertEqual([s['exact_quote'] for s in figure['caption_segments']],
+                         ['Fig. 1', 'First literal caption line.', 'Second literal caption line.'])
+        self.assertEqual(figure['verification']['status'], 'needs_review')
+        self.assertEqual(len(figure['regions']), 1)
+        for actual, expected in zip(figure['regions'][0]['bbox'], image_box):
+            self.assertAlmostEqual(actual, expected, delta=.01)
 
     def test_rotated_cropped_userunit_object_coordinates_preserve_all_image_quadrants(self):
         for rotation in [0, 90, 180, 270]:

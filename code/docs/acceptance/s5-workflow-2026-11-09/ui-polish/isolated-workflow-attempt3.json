@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-09T07:58:05.612Z",
+  "model_calls": 0,
+  "production_mutations": 0,
+  "isolated_backend": "http://127.0.0.1:3211",
+  "checks": [],
+  "browser_errors": [],
+  "external_requests": [],
+  "unexpected_5xx": [],
+  "mutations": [],
+  "passed": false,
+  "error": "apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3211\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3211/api/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at data (/home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:10:58)\n    at open (/home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:11:57)\n    at /home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:21:22"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "s6-new-authorization-1",
+  "source": "user_four_hour_delegation_relayed_by_root",
+  "recorded_at": "2026-11-09T08:23:29.054717+00:00",
+  "user_instruction": "接下来4小时内自行执行，需要决策自行决定，最后告知重要决策；完成所有S，未完成如实总结。",
+  "root_exact_protocol_received": true,
+  "window_start_utc": "2026-11-09T07:53:56Z",
+  "deadline_utc": "2026-11-09T11:53:56Z",
+  "authorized_sources": [
+    "IN01",
+    "IN02",
+    "IN03"
+  ],
+  "authorized_runs": 3,
+  "method": "B0",
+  "model": {
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses",
+    "exact_confirmed_alias_policy_unchanged": true
+  },
+  "maximum_requests": 120,
+  "maximum_input_tokens": 1800000,
+  "maximum_output_tokens": 120000,
+  "maximum_seconds": 3600,
+  "per_paper": {
+    "requests": 40,
+    "input_tokens": 600000,
+    "output_tokens": 40000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "transient_retries": 2,
+    "max_output_tokens": 8192
+  },
+  "concurrency": 2,
+  "sampling": {
+    "seed": "t1-s6-20261109-v1",
+    "per_paper_max": 10,
+    "total_max": 30,
+    "population": "all delivered current primary and background candidate records",
+    "zero_output_denominator": null,
+    "directed_risks_separate": true
+  },
+  "reviewer_kind": "delegated_ai_operator",
+  "medical_quality_approved": false,
+  "product_record_approvals_authorized": false,
+  "old_allowance_reused": false,
+  "no_output_based_replacement": true,
+  "no_whole_run_retry_or_auto_resume": true,
+  "paid_repair_revalidation_requires_root_decision": true,
+  "budget_boundary_acknowledged_by_root": "Application admission and in-flight reservations are hard gates. Provider hidden usage may exceed local reservation; report overrun as failure and stop later calls. Not a provider monetary or absolute token ceiling."
+}

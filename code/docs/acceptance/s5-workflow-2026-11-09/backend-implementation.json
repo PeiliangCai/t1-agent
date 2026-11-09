@@ -1,0 +1,223 @@
+{
+  "schema_version": "s5-backend-implementation-1",
+  "completed_at": "2026-11-09T02:34:39.432505+00:00",
+  "scope": "S5 backend engineering complete for user trial/phase acceptance; new external provider calls remain unauthorized",
+  "modified_application_files": [
+    {
+      "path": "apps/server/src/app.ts",
+      "sha256": "f0f12eb3d74985c6c5d17133fe8aeef027f1f00066b830ae28b8cba50ecd3b79"
+    },
+    {
+      "path": "apps/server/src/main.ts",
+      "sha256": "28a7c453e42b20519898f13d79fc2bb08d31e2c0b41e1f032e513c9dc32e9525"
+    },
+    {
+      "path": "apps/server/src/workbench.ts",
+      "sha256": "b21979c06cdb9a507d41f35d711e30d43e336b35bfaae97dad7b887befcfd079"
+    },
+    {
+      "path": "apps/server/src/workflow.ts",
+      "sha256": "8c251c06760dfc6c9e4684ed5e6a6e33f2d8511e169b9c3fafe8ca279e07dfca"
+    },
+    {
+      "path": "apps/server/src/workflow-runner.ts",
+      "sha256": "e413396e2595ce0c537d3725a27a7772b1d3245a2ae9cb2d3744a0f35f5f2723"
+    },
+    {
+      "path": "apps/server/test/workflow.test.ts",
+      "sha256": "463eda1d78a9321d3cbd4b426bae0ade67ef9c62d805f1dd491ad89829fa3451"
+    },
+    {
+      "path": "apps/server/test/cpu-pi.test.ts",
+      "sha256": "a7caee3371464742c9d867f670643c14d9bc47eb18b104fa00843c689fe40119"
+    },
+    {
+      "path": "apps/server/test/controlled-fixture.ts",
+      "sha256": "898bb10039f07f9bf545dcbe0cd569efdf30baf6266fad87228db8588c1d88a3"
+    },
+    {
+      "path": "apps/server/test/controlled-server.ts",
+      "sha256": "f6181844f28c3f569f33cbec48e2ee8928bef778a29ac0eba09f587b762ab055"
+    },
+    {
+      "path": "packages/contracts/src/workbench.ts",
+      "sha256": "e84cf5ee8bc166e277d3b163cb995a942925c11480190329880590f794c4a3f5"
+    },
+    {
+      "path": "packages/agent/src/extraction-run.ts",
+      "sha256": "386a7bac80346b47b1a0e4acbf0e89936e9ccfcfdd70640fb6f505fc0b55e63a"
+    },
+    {
+      "path": "packages/agent/src/extraction-store.ts",
+      "sha256": "e480cfb83f807bd78fc63b86fac0d2310c2d95df08980c8a1ae29d7d8c1485b4"
+    },
+    {
+      "path": "packages/agent/src/evidence-delivery.ts",
+      "sha256": "a78a94195d986753a06a33d1b37ae5f2bdf5744e963d77dd3540309a0b0a111e"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "b97e0550828cd7cdcd2772a6e50a3beebf26b9e49294d3a790fdcf71cae1d23b"
+    }
+  ],
+  "checks": [
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" npx tsx --test apps/server/test/workflow.test.ts tests/integration/workbench.test.ts tests/extraction/reconciliation.test.ts tests/extraction/verbatim-delivery.test.ts",
+      "passed": 29,
+      "failed": 0,
+      "log": "backend-tests-final.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" npx tsx --test apps/server/test/workflow.test.ts",
+      "purpose": "final targeted paper-deletion/restart and explicit same-PDF reupload guard",
+      "passed": 3,
+      "failed": 0,
+      "log": "backend-deletion-final.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" npx tsx --test apps/server/test/cpu-pi.test.ts",
+      "passed": 1,
+      "failed": 0,
+      "log": "cpu-pi-loopback.log",
+      "synthetic_pdf": true,
+      "actual_fresh_Docling_CPU": true,
+      "actual_Pi_B0_runtime": true,
+      "local_Responses_requests": 2,
+      "paid_requests": 0
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" npx tsc --noEmit",
+      "exit_code": 0,
+      "log": "backend-typecheck.log"
+    },
+    {
+      "command": "PATH=\"$PWD/.tools/node/bin:$PATH\" npx tsx --test --test-name-pattern=\"server defaults do not authorize model calls\" apps/server/test/workflow.test.ts",
+      "purpose": "process-environment enable/configuration validation only; no model request",
+      "passed": 1,
+      "failed": 0,
+      "log": "backend-config-final.log"
+    }
+  ],
+  "notes_on_counts": "29 regression checks and final 3 targeted checks overlap; they are not 33 unique medical-quality checks. CPU/Pi test is engineering only.",
+  "artifacts": {
+    "backend-workflow-report.json": {
+      "sha256": "537ec7b3757cecc66601526b29ed99f7455cddbbb36df85caa8a138e754726b2"
+    },
+    "cpu-pi-loopback-report.json": {
+      "sha256": "43b32af36ad96677b5891f3c36cd76f1933f86011efd0ae508e56cd531d807b7"
+    },
+    "backend-tests-final.log": {
+      "sha256": "70e287484918a689e9e35002c302934107c8b3301433612749e90e13b7e3a376"
+    },
+    "backend-deletion-final.log": {
+      "sha256": "e5ad862ab5bfece42c1a527bc2285437a4de6f094bb7dba272280e7dd94a4a79"
+    },
+    "cpu-pi-loopback.log": {
+      "sha256": "5418fdc01274ae6ac60cbfe66b076b1686cb55e01d8c92e6b1a493e0f7007e78"
+    },
+    "backend-typecheck.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "backend-config-final.log": {
+      "sha256": "302d8a2e03191d064d4d6086b5e8e08abec15416b719375f6d862faaa56a11fc"
+    }
+  },
+  "production": {
+    "entrypoint": "apps/server/src/main.ts",
+    "backend": "http://127.0.0.1:3210",
+    "health": "http://127.0.0.1:3210/health",
+    "database": "runtime-data/t1.sqlite",
+    "file_volume": "runtime-data/workbench",
+    "model_enabled": false,
+    "current_capabilities": {
+      "schema_version": "t1-workbench-capabilities-1",
+      "read_only": false,
+      "paper_upload": true,
+      "extraction_start": false,
+      "persisted_review": true,
+      "approved_export": true,
+      "backend_pi_sdk": "1.4.0",
+      "full_S5_complete": false,
+      "controlled_fixture": false,
+      "max_pdf_bytes": 52428800,
+      "extraction_unavailable_reason": "server_model_not_enabled"
+    },
+    "workbench_runs": 8,
+    "controlled_runs": 0,
+    "business_review_rows": 0,
+    "business_annotation_rows": 0,
+    "existing_credentials_modified": false,
+    "secret_values_written": false
+  },
+  "controlled_preview": {
+    "entrypoint": "apps/server/test/controlled-server.ts",
+    "stopped": true,
+    "database": "runtime-data/s5-controlled-browser/workflow.sqlite",
+    "saved_for_evidence": true,
+    "isolated_from_production": true,
+    "all_synthetic_business_reviews_in_test_database_only": true
+  },
+  "server_model_configuration": {
+    "enabled_flag": "T1_WORKBENCH_MODEL_ENABLED=true is required; currently false",
+    "credential_names_only": [
+      "T1_MODEL_PROVIDER",
+      "T1_MODEL_BASE_URL",
+      "T1_MODEL_ID",
+      "T1_MODEL_API_KEY"
+    ],
+    "browser_may_change_provider_model_endpoint_limits": false,
+    "per_run_defaults": {
+      "requests": 80,
+      "input_tokens": 2000000,
+      "output_tokens": 120000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "transient_retries": 2,
+      "batch_max_responses": 16,
+      "batch": {
+        "maxCodePoints": 8500,
+        "maxBlocks": 128,
+        "contextBlocks": 6
+      }
+    },
+    "new_run_method": "B0 only",
+    "parser": "configured Docling 2.145.0 CPU + exact raw docling-parse anchors",
+    "new_budget_ledger_per_run": true,
+    "old_S4_budget_reused": false,
+    "normal_user_action": "one click after server model/limits are enabled; no per-task experiment approval form",
+    "example_file": ".env.example",
+    "example_has_selected_model": false,
+    "example_key_blank": true,
+    "configuration_loading": "Workbench flags/limits read process.env; node --env-file=.env --import tsx apps/server/src/main.ts loads the complete file. Alternatively export variables in the service environment. The normal npm dev:server path only reads model credential fields from .env.",
+    "enabled_currently": false
+  },
+  "fixed_compatibility": {
+    "actual_initial_error": "workbench_delivery_changed on registered L01 (and dependent HTTP view) after later strict group fields were added",
+    "permitted_absent_additive_keys_only": [
+      "strict_source_groups",
+      "source_grouping_policy_version",
+      "unique_source_group_count"
+    ],
+    "all_existing_core_fields_checked": true,
+    "tampered_original_text_still_rejected": true,
+    "old_source_or_output_bytes_modified": false
+  },
+  "lifecycle": {
+    "deleted_registered_paper_tombstone_blocks_restart_reimport": true,
+    "explicit_identical_PDF_reupload": "new paper id, no old runs or approvals",
+    "shared_PDF_assets_retained": true,
+    "retained_S4_source_files_never_deleted": true
+  },
+  "unverified": [
+    "No new external/paid model end-to-end task; current authorization remains 0.",
+    "Formal application model and approved medical catalog/relations remain undecided; unavailable catalog permits only all/all/all.",
+    "Controlled saved-source parallelism is not a real-provider performance or medical quality claim.",
+    "Independent S6 quality/performance thresholds and corpus acceptance remain separate."
+  ],
+  "formal_review": "Existing S4 3/3 preserved; no new or reset formal round.",
+  "final_targeted_checks_after_paper_tombstone": {
+    "passed": 3,
+    "failed": 0,
+    "log": "backend-deletion-final.log"
+  }
+}

@@ -9,7 +9,7 @@ import { reconcileEvidence } from './reconciliation.js';
 import { IndexedEvidenceSchema, expandIndexedEvidence, BatchLineEvidenceSchema, expandBatchLineEvidence,
   StatementEvidenceSchema, FeatureNameRawSchema, FEATURE_NAME_RAW_RULE, STATEMENT_SELECTOR_RULE, STRUCTURE_HINT_RULE,
   TABLE_SUPPORT_RULE, SOURCE_UNIT_BOUNDARY_RULE, statementIndexRule, type IndexedEvidence, type BatchLineEvidence, type StatementEvidence } from './extraction-protocol.js';
-import { buildSourceEvidenceUnits, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
+import { buildSourceEvidenceUnits, sourceGlyphQuarantine, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
 import { PRIMARY_SCOPE_RULE } from './primary-evidence-assessment.js';
 import { VISUAL_STATEMENT_POLICY_VERSION } from './visual-evidence-policy.js';
 import { buildDocumentStructureContext, checkedSourceGrid } from './document-structure-context.js';
@@ -53,6 +53,7 @@ export class ExtractionTools {
         scope: this.context.input.scope, catalog_version: this.catalog.catalog_version, catalog_status: this.catalog.status,
         batch: this.batch, title: this.context.metadata.bibliographic_identity?.title ?? this.document.title,
         source_policy: { authoritative: 'individual_decoded_source_fragments', composite_quote: 'display_only',
+          source_glyph_quarantined_block_ids: sourceGlyphQuarantine(this.document), quarantine_is_unresolved_coverage_gap: true,
           native_relations_trusted: false, geometry_precision: 'whole_textline', medical_or_human_approval: false } };
       else if (name === 'read_document_blocks') {
         const ids = (p.block_ids as string[] | undefined)?.length ? p.block_ids as string[] : this.allowed();

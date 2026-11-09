@@ -1,0 +1,129 @@
+{
+  "schema_version": "final-disabled-copy-only-patch-1",
+  "completed_at": "2026-11-09T10:59:53.074136+00:00",
+  "status": "passed",
+  "changed_file": "apps/pi-web/t1/messages.mjs",
+  "message_key": "t1.extractionUnavailable",
+  "changes": [
+    {
+      "line": 138,
+      "before": "  extractionUnavailable: [\"The production model is not configured. Upload, saved evidence review and exports remain available. No paid model request is started.\", \"正式应用模型尚未配置。可上传、核对已保存成果及导出；当前不会发起付费模型请求。\", \"正式應用模型尚未設定。可上傳、核對已儲存成果及匯出；目前不會發起付費模型請求。\"],",
+      "after": "  extractionUnavailable: [\"Automatic extraction is currently disabled. You can upload papers, review saved results and export them. Actions on this page do not call the model.\", \"自动抽取当前未启用。可上传论文、核对已保存成果及导出；页面操作不会调用模型。\", \"自動擷取目前未啟用。可上傳論文、核對已儲存成果及匯出；頁面操作不會呼叫模型。\"],"
+    }
+  ],
+  "message_file_sha256": "736dedaac0ce9d66602cc0e5598f6dad336ce06c7eaf823e37947fc40880c38d",
+  "runtime_logic_layout_model_policy_changed": false,
+  "model_calls": 0,
+  "build": {
+    "exit_code": 0,
+    "log": "build.log"
+  },
+  "actual_ordinary_browser": {
+    "started_at": "2026-11-09T10:59:05.203Z",
+    "ordinary_origin": "http://127.0.0.1:30141",
+    "mocked_responses": false,
+    "model_calls": 0,
+    "write_requests": [],
+    "errors": [],
+    "checks": [
+      {
+        "locale": "zh-CN",
+        "copy": "自动抽取当前未启用。可上传论文、核对已保存成果及导出；页面操作不会调用模型。",
+        "start_disabled": true,
+        "caps": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "controlled_fixture": false,
+          "max_concurrent_runs": 2,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        },
+        "positive_model_configuration_not_invented": true
+      },
+      {
+        "actual_L07_history_readable": true,
+        "clicked_start": false,
+        "source_and_history_not_written": true
+      },
+      {
+        "locale": "en",
+        "copy": "Automatic extraction is currently disabled. You can upload papers, review saved results and export them. Actions on this page do not call the model.",
+        "start_disabled": true,
+        "caps": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "controlled_fixture": false,
+          "max_concurrent_runs": 2,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        },
+        "positive_model_configuration_not_invented": true
+      },
+      {
+        "locale": "zh-TW",
+        "copy": "自動擷取目前未啟用。可上傳論文、核對已儲存成果及匯出；頁面操作不會呼叫模型。",
+        "start_disabled": true,
+        "caps": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "controlled_fixture": false,
+          "max_concurrent_runs": 2,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        },
+        "positive_model_configuration_not_invented": true
+      }
+    ],
+    "passed": true,
+    "finished_at": "2026-11-09T10:59:09.384Z"
+  },
+  "next": {
+    "at": "2026-11-09T10:58:28.303468+00:00",
+    "pid": 241098,
+    "build_id": "q0ZH5X6nMB65GnlTNReQG",
+    "origin": "http://127.0.0.1:30141",
+    "detached": true,
+    "backend_pid": 239075,
+    "backend_model_enabled": false
+  },
+  "frozen_experiments": {
+    "old119_plan": "../s7/post-fix-IN04-regression/plan.json",
+    "old119_plan_sha256": "4857d7d9e880245ed892ee3bfb189232ac04663ee60bd7ba65d9bfe79058ea9d",
+    "original_snapshots_and_reports_modified": false,
+    "original149_sealed_files_verified": 149,
+    "sealed_mismatches": [],
+    "current_working_tree_matches_all119_pins": false,
+    "current_copy_only_differences": [
+      {
+        "path": "apps/pi-web/t1/messages.mjs",
+        "frozen_sha256": "c394b26afc67b6d0ed33f341f1dc39187a9e089cdb320284a6ea33f13ecc92a4",
+        "current_sha256": "736dedaac0ce9d66602cc0e5598f6dad336ce06c7eaf823e37947fc40880c38d"
+      }
+    ],
+    "other118_runtime_pins_unchanged": true
+  },
+  "production": {
+    "table_count": 13,
+    "all_tables_same_as_original_S5_baseline": true,
+    "source_data_restored": false,
+    "backend_model_enabled": false,
+    "controlled_fixture": false,
+    "backend_pid": 239075
+  },
+  "docker": "Backend owner will rebuild the final copy-only image layer and check default health/disabled without model calls; original failed regression image/plan/seal retained."
+}

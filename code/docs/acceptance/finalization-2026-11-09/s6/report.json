@@ -1,0 +1,373 @@
+{
+  "schema_version": "s6-final-stage-report-1",
+  "reported_at": "2026-11-09T10:46:02.949803+00:00",
+  "stage": "S6 independent evaluation engineering",
+  "stage_passed": false,
+  "status": "independent_trials_failed_or_unavailable; source repairs and bounded-argument regression separately evidenced",
+  "human_reviewed_count": 0,
+  "clinician_reviewed_count": 0,
+  "medical_quality_approved": false,
+  "production_record_approvals": 0,
+  "formal_reviews": {
+    "used": 3,
+    "limit": 3,
+    "new_rounds_opened": 0
+  },
+  "sampling": {
+    "seed": "t1-s6-20261109-v1",
+    "rule": "Per paper sample min(10,N) from all delivered current records, primary/background separately labeled. Directed risks remain separate. No outputs gives N/A; unavailable paper is not an empty-output success.",
+    "default_primary_bucket_is_medical_classification": false,
+    "full_recall_measured": false,
+    "precision_or_clinical_accuracy_claimed": false
+  },
+  "initial_independent_attempt": {
+    "result": "failed",
+    "frozen_plan": {
+      "path": "plan.json",
+      "sha256": "9b5d81eac047552a2ae56375dd2e6bdba49b4cf57bccbd620bfd511750420141"
+    },
+    "raw_final_seal": {
+      "path": "initial-final-seal.json",
+      "sha256": "bb30f1e0b196bc13fb54c2903b380974a30e9f804819c2c68659ae827735a20f"
+    },
+    "original_summary": {
+      "path": "execution-summary.json",
+      "sha256": "90f9918ba43d1ef80a2109d47b3c0479788a0be6832da9325af1ed495d26ad8d"
+    },
+    "offline_postprocessing_recovery": {
+      "path": "postprocessing-recovery.json",
+      "sha256": "7fe9da078e3094f1a5048c4ce036f808f676b21935b94e9a24ddac67884a31c4"
+    },
+    "failure": "Driver called exportEvidenceDelivery before creating its parent directory: realpath ENOENT after IN02 terminal; peer IN01 cancelled; IN03 not admitted. Fixed driver parent creation/timing persistence without model rerun.",
+    "new_model_calls_during_recovery": 0,
+    "actual_usage": {
+      "requests": 47,
+      "input_tokens": 671695,
+      "output_tokens": 37114
+    },
+    "papers": [
+      {
+        "source_id": "IN01",
+        "result": {
+          "path": "IN01-result.json",
+          "sha256": "da5e3be603b407db3c06c38aee3e9f6150be5effcdfd23556029511d5e069825"
+        },
+        "state": "cancelled",
+        "processed_task_blocks": 512,
+        "task_blocks": 575,
+        "output_count": 19,
+        "delivered_buckets": {
+          "primary": 19,
+          "background": 0
+        },
+        "random_sample_count": 10,
+        "source_fidelity_result": "FAILED original PDF has two visible micro signs decoded as Latin m; IR-byte equality does not validate PDF glyph fidelity.",
+        "figure_result": "Initial missing/clipped whole figures and incomplete captions; failed original image-engineering coverage.",
+        "usage": {
+          "requests": 20,
+          "input_tokens": 316981,
+          "output_tokens": 25976
+        },
+        "timing": {
+          "http_admission_seconds": null,
+          "http_admission_note": "Client-side timer was lost when package export threw before result persistence; no invented value.",
+          "first_progress_seconds": 0.009,
+          "first_candidate_seconds": 71.08,
+          "terminal_seconds": 405.335,
+          "anchor": "Observed SSE receipt minus backend admission; original client POST timestamp unavailable.",
+          "population_p95": null
+        }
+      },
+      {
+        "source_id": "IN02",
+        "result": {
+          "path": "IN02-result.json",
+          "sha256": "3da5b1bd0abd2b54de0d4ccfbc9280effd9cf5b2c330a9e8b77c01958b03cbf1"
+        },
+        "state": "partial",
+        "processed_task_blocks": 678,
+        "task_blocks": 678,
+        "summary_complete": true,
+        "parser_partial": true,
+        "output_count": 10,
+        "delivered_buckets": {
+          "primary": 5,
+          "background": 5
+        },
+        "random_sample_count": 10,
+        "figure_result": "Initial Figure1 a/b/c caption source lines omitted; source-engineering gap retained in original failure.",
+        "usage": {
+          "requests": 27,
+          "input_tokens": 354714,
+          "output_tokens": 11138
+        },
+        "timing": {
+          "http_admission_seconds": null,
+          "http_admission_note": "Client-side timer was lost when package export threw before result persistence; no invented value.",
+          "first_progress_seconds": 0.006,
+          "first_candidate_seconds": 95.534,
+          "terminal_seconds": 404.11,
+          "anchor": "Observed SSE receipt minus backend admission; original client POST timestamp unavailable.",
+          "population_p95": null
+        }
+      },
+      {
+        "source_id": "IN03",
+        "state": "not_admitted",
+        "requests": 0,
+        "reason": "Initial trial closed after postprocessing driver failure; later dedicated repaired-version holdout listed separately."
+      }
+    ],
+    "two_task_concurrency": {
+      "observed_overlap": true,
+      "evidence": "postprocessing-recovery.json plus original SSE/admission events",
+      "original_summary_false_overlap_reason": "Original driver postprocessing failure skipped normal result persistence; original summary unchanged.",
+      "HTTP_admission_measurements": null,
+      "HTTP_note": "Original client POST timestamps lost; recovered SSE timings use backend-admission anchors only, no fabricated HTTP duration or population P95."
+    }
+  },
+  "source_font_figure_repairs": {
+    "report": {
+      "path": "parser-regression/report.json",
+      "sha256": "eb12adda481b58b6db416c4470e81bca3f3f452a27137c3f22f465388dac3359"
+    },
+    "original_source_bytes_rewritten": false,
+    "semantic_unit_correction": false,
+    "glyph_policy": "Sparse embedded fonts without reliable Unicode mapping: exact suspicious spans flagged, affected complete literal units isolated before model input/reread/summary, retained as explicit unresolved coverage gaps; unreliable citations/approved exports denied. No m-to-micro guessing. Legacy identical-SHA sources can receive a local no-model audit without rewriting history.",
+    "narrow_guard_is_universal_Unicode_verification": false,
+    "impact": [
+      {
+        "paper": "IN01",
+        "source_sha256": "dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a",
+        "all_blocks": 575,
+        "all_literal_units": 436,
+        "direct_suspect_blocks": 5,
+        "quarantined_transport_blocks": 7,
+        "affected_literal_units": 5,
+        "previously_complete_sentences": 3,
+        "previously_unverified_units": 2,
+        "proven_micro_glyph_errors": 2,
+        "other_suspected_characters_not_proven_errors": 3,
+        "cost": "These retained source blocks are unavailable to model extraction until source verification; counted as unresolved coverage, not completed/excluded or an error rate."
+      },
+      {
+        "paper": "IN02",
+        "source_sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe",
+        "all_blocks": 678,
+        "all_literal_units": 502,
+        "direct_suspect_blocks": 19,
+        "quarantined_transport_blocks": 40,
+        "affected_literal_units": 12,
+        "previously_complete_sentences": 8,
+        "previously_unverified_units": 4,
+        "proven_micro_glyph_errors": 0,
+        "other_suspected_characters_not_proven_errors": 26,
+        "cost": "These retained source blocks are unavailable to model extraction until source verification; counted as unresolved coverage, not completed/excluded or an error rate."
+      }
+    ],
+    "figure_scope": "Three engineering defects addressed: missing Figure registration, clipped whole-original bitmap regions, incomplete literal caption lines. IN01 Figures1–4 and IN02 Figure1 actual crops compared by delegated AI operator; all remain needs_review, no human or medical approval. Detailed source-line counts/caption hashes in regression report.",
+    "validation_before_new_holdouts": {
+      "extraction": 311,
+      "python_parser": 54,
+      "driver": 7,
+      "status": "passed at parser repair checkpoint; not asserted as rerun after later metadata patch"
+    },
+    "cost": "Suspected punctuation/hyphen warnings are not proven source errors; quarantining these units can omit extractable material and prevents complete-source claims."
+  },
+  "repaired_version_independent_attempts": [
+    {
+      "source_id": "IN03",
+      "result": "FAILED summary incomplete",
+      "report": {
+        "path": "repaired-holdout-IN03/report.json",
+        "sha256": "8e7833531e685c4996bd1d0ad5a5028d45766d404f1d1c379a1b99d9589d496e"
+      },
+      "plan": {
+        "path": "repaired-holdout-IN03/plan.json",
+        "sha256": "438a32a0df7ce808ca3db67b38fe7db800d137808b6e0d9de28e0f7ab4fe4267"
+      },
+      "usage": {
+        "requests": 14,
+        "input_tokens": 163208,
+        "output_tokens": 6629
+      },
+      "task_blocks_processed": 270,
+      "task_blocks_total": 270,
+      "whole_document_summary_complete": false,
+      "full_task_processing_complete": false,
+      "output_count": 3,
+      "random_sample_count": 3,
+      "delivered_default_primary_bucket": 3,
+      "summary_primary_assessment": "not_performed",
+      "failure": "feature_name_raw 对比度 is not the literal source 对比 + newline + 度; strict validation rejected the summary atomically. No independent rerun.",
+      "performance": {
+        "timing": {
+          "admission_seconds": 0.017,
+          "first_progress_seconds": 0.02,
+          "first_candidate_seconds": 84.656,
+          "terminal_seconds": 209.115,
+          "admission_pass": true,
+          "first_progress_pass": true,
+          "first_candidate_pass": true,
+          "terminal_pass": true,
+          "observation_count": 1,
+          "population_p95": null
+        },
+        "parse_seconds": 13.089,
+        "peak_sampled_process_tree_rss_bytes": 1850261504,
+        "resource_sample_count": 419,
+        "resource_sample_interval_ms": 500,
+        "actual_two_task_overlap": false,
+        "no_two_task_concurrency_claim": true,
+        "no_OOM_observed": true,
+        "cold_definition": "Fresh process/first PDF parse; pretrained weights present, OS caches not cleared.",
+        "shared_environment": "S7 Docker build started09:33:45Z during model/summary. Parse09:32:23.579–09:32:36.668Z had no S7 heavy CPU. Not pure machine cold-cache or population P95."
+      },
+      "ordinary_source_review": {
+        "path": "repaired-holdout-IN03/root-source-review.json",
+        "sha256": "ce20425f6747bc91096084806f5bc9f7896d628756e34b892395ee61ffbdc9ff"
+      }
+    },
+    {
+      "source_id": "IN04",
+      "environment": "S7 isolated real-provider container, not host baseline",
+      "result": "FAILED summary incomplete; source glyph gaps remain",
+      "plan": {
+        "path": "../s7/real-provider-IN04/plan.json",
+        "sha256": "683710f01a34b80456f974c28fbea34e34baee289d8d6de1ca4b8de78505e05c"
+      },
+      "ledger_and_state": {
+        "path": "../s7/real-provider-IN04/allowance-ledger-and-state.json",
+        "sha256": "c8b10eec2d1c67459ce5b78722b24961b00aff80a4a93028f57e8cf31a00583d"
+      },
+      "minimal_failure": {
+        "path": "../s7/real-provider-IN04/summary-minimal-failure.json",
+        "sha256": "e2019e89c46a6ccce583e8f12738a5075fd38cc4904183ec43999e75dc121fef"
+      },
+      "frozen_runtime": {
+        "path": "../s7/real-provider-IN04/runtime-snapshot.tar.gz",
+        "sha256": "5905987331d2bd6c3ee6e2f33bb17e0f96f27797f4027dae355f711c017d6937"
+      },
+      "usage_observed_in_owned_ledger": {
+        "requests": 15,
+        "input_tokens": 158624,
+        "output_tokens": 9837,
+        "all_settled": true
+      },
+      "output_count": 6,
+      "whole_document_summary_complete": false,
+      "unresolved_glyph_transport_blocks": 14,
+      "failure": "schema_validation_failed then update_target_feature_mismatch; actual original target/name arguments were not retained. Do not infer missing values from hashes.",
+      "source_only_review_status": "Root/doc-owner evidence is separate; no human/medical approval granted."
+    },
+    {
+      "source_id": "IN05",
+      "result": "unavailable_not_admitted",
+      "authorization_closure": {
+        "path": "repaired-holdout-IN05/authorization-closure.json",
+        "sha256": "59cbcdab40c3a71543b9b5a9b1a698419087c064cb9245072a4722c31fe9d10c"
+      },
+      "intake_audit": {
+        "path": "intake-new-after-repair/metadata-audit.json",
+        "sha256": "e50d944989ba7edef8e0d523804977c9a80aeb0c42a3c59b7ce522754c909c09"
+      },
+      "requests": 0,
+      "downloaded_PDF": false,
+      "source_registered": false,
+      "parser_started": false,
+      "random_sample_denominator": null,
+      "reason": "Publisher returned HTML, normal PMC access presented CAPTCHA (not bypassed), EuropePMC returned403. Root closed unactivated budget; no paper substitution or further download attempts."
+    }
+  ],
+  "delegated_source_review": {
+    "reviewer_kind": "delegated_ai_operator",
+    "original20_record_review": {
+      "path": "root-delegated-review.json",
+      "sha256": "d757d7671e5a7f60d89c123b2fff4868a717ca87d676f36d3b2c974c12f47466"
+    },
+    "IN03_all3_review": {
+      "path": "repaired-holdout-IN03/root-source-review.json",
+      "sha256": "ce20425f6747bc91096084806f5bc9f7896d628756e34b892395ee61ffbdc9ff"
+    },
+    "original_review_scope": "Literal/source/page/context/image matching only; one proven glyph source defect affects two sampled records. Context/author chronology uncertainties are listed separately.",
+    "actual_human_count": 0,
+    "medical_approval": false,
+    "AI_source_review_is_human_review": false
+  },
+  "parser_layer_limits_clarification": {
+    "original_IR_or_limits_overwritten": false,
+    "raw_anchor_layer": {
+      "id": "docling-parse-text",
+      "version": "7.24.2",
+      "role": "Decode original PDF text/line geometry for verbatim source anchoring; this layer alone does not establish table/header/footnote/caption semantic relationships.",
+      "meaning_of_recorded_no_table_association": "A limitation inherited from the raw anchor, not a statement that the complete pipeline does no structural work.",
+      "line_order": "Original backend textline order retained, not a human-certified multi-column reading order."
+    },
+    "actual_outer_Docling": {
+      "backend": "docling-standard-cpu2.145.0",
+      "IN03_tables": 2,
+      "table_cells": 81,
+      "table_title_caption_units": 2,
+      "pictures": 0,
+      "ambiguous_mapping_units": 4,
+      "source_grids_geometry_checked": 2,
+      "paragraph_geometry_continuations": 6
+    },
+    "meaning": "Recorded No table/header/footnote or caption association and unverified backend line order apply to raw text-anchor decoding. The full parser does produce Docling structure candidates and geometry-bound source maps; processed native text never replaces literal quotations. Neither layer proves universal reading order, Unicode/OCR accuracy, semantic table headers or approved Figure pairing.",
+    "task_summary_failure_separate_from_parser_partial": true
+  },
+  "post_holdout_minimal_metadata_repair": {
+    "report": {
+      "path": "post-holdout-raw-name-repair/report.json",
+      "sha256": "d68d3bb449de527992f3314120e2062667e7fa02dc25a9dd0b1463d90a686986"
+    },
+    "freeze": {
+      "path": "post-holdout-raw-name-repair/source-freeze.json",
+      "sha256": "059a33fdd23922f26d2513a2c4e81d810e13dca11f3415cb3f71841962fe06c8"
+    },
+    "exposure_receipt": {
+      "path": "post-holdout-raw-name-repair/regression-exposure.json",
+      "sha256": "9207593f5504a947bb9f5a1008f7cbb503358cd96f6a93161ecdc56861f0475b"
+    },
+    "tests": {
+      "actual_SDK_serialization_to_classifier_to_bounded_recovery": 9,
+      "related_summary_time_budget_glyph": 59,
+      "reconciliation_primary_verbatim": 29,
+      "failed": 0
+    },
+    "rules": "Two narrowly authorized diagnostics only, after existing strict validation and current same-run/source/version target checks; original source unchanged, reconciliation replacement remains rejected/atomic, model explicitly corrects parameters, no host rewrite. Existing shared two-correction limit/request budgets unchanged; other identity/source/version/glyph failures stay fatal.",
+    "independent_failures_erased": false,
+    "IN03_IN04_now_regression_exposed": true,
+    "later_paid_regression_owner": "backend; separate post-fix-IN04-regression plan/ledger/report, not a new independent sample or S6 full pass",
+    "later_regression_usage_included_here": false
+  },
+  "production_and_UI": {
+    "S5_UI_acceptance_report": "../../s5-workflow-2026-11-09/ui-polish/report.json",
+    "last_readonly_check": {
+      "path": "post-holdout-raw-name-repair/production-db-check.json",
+      "sha256": "dd9e413a9d8e845bfc271eb18df918b496b655d18d6e44d2f303d803edfdf6b8"
+    },
+    "all_13_logical_tables_unchanged_at_check": true,
+    "current_Next": {
+      "pid": 226457,
+      "build_id": "wlYctYjApmkJM0ec6RjJF",
+      "started_at": "2026-11-09T10:39:43.428037+00:00",
+      "host": "127.0.0.1",
+      "port": 30141,
+      "server_log": "/home/ecs-user/projects/t1-agent/code/docs/acceptance/finalization-2026-11-09/s6/post-holdout-raw-name-repair/next-server.log"
+    },
+    "ordinary_backend_reload_owned_by": "backend",
+    "UI_postpatch_readonly": {
+      "path": "post-holdout-raw-name-repair/ui-model-runtime-result.json",
+      "sha256": "5887f7842fc05856cb139f9cea8a7476b70d1d01b509e982abca12b1b580ac55"
+    }
+  },
+  "uncompleted": [
+    "Complete independent engineering pass across fixed sources is not achieved.",
+    "No human or clinical review/approval, clinical accuracy, precision or full recall established.",
+    "Glyph quarantine is conservative and incomplete; remaining source gaps/unknown Figure identity prevent all-source completeness claims.",
+    "Post-fix IN04 test is only regression; its later outcome cannot change original independent failures.",
+    "Optional research/full-gold legacy entry retirement remains separate from frozen runtime and independent experiment."
+  ],
+  "money_and_window_usage": "Use original per-round ledgers and backend/doc-owner consolidated window account; no currency estimate or rewriting prior reports."
+}

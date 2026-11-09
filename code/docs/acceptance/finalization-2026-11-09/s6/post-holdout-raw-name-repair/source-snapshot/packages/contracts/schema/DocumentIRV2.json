@@ -1,0 +1,887 @@
+{
+  "title": "DocumentIRV2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document_id",
+    "file_sha256",
+    "fixture",
+    "evidence_kind",
+    "title",
+    "source",
+    "parser",
+    "text_version",
+    "raw_text_version",
+    "offset_unit",
+    "offset_interval",
+    "normalization_version",
+    "pages",
+    "blocks",
+    "coverage",
+    "metrics"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2"
+    },
+    "document_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "fixture": {
+      "type": "boolean"
+    },
+    "evidence_kind": {
+      "enum": [
+        "engineering_fixture",
+        "real_paper"
+      ]
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "file_reference",
+        "bytes",
+        "original_modified"
+      ],
+      "properties": {
+        "file_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "original_modified": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "parser": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "status",
+        "config",
+        "config_digest"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "status": {
+          "enum": [
+            "parsed",
+            "partial",
+            "unsupported"
+          ]
+        },
+        "config": {
+          "type": "object",
+          "required": [
+            "adapter_version",
+            "adapter_sha256",
+            "config_revision",
+            "normalization_version",
+            "do_sanitization",
+            "keep_glyphs",
+            "ocr_enabled",
+            "table_reconstruction",
+            "reading_order",
+            "metadata_backend"
+          ],
+          "properties": {
+            "adapter_version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "adapter_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "config_revision": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "normalization_version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "do_sanitization": {
+              "type": "boolean",
+              "const": false
+            },
+            "keep_glyphs": {
+              "type": "boolean",
+              "const": false
+            },
+            "ocr_enabled": {
+              "type": "boolean",
+              "const": false
+            },
+            "table_reconstruction": {
+              "type": "boolean",
+              "const": false
+            },
+            "reading_order": {
+              "type": "string",
+              "const": "backend_textline_order_unverified"
+            },
+            "metadata_backend": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "font_glyph_guard_version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "font_glyph_guard_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        },
+        "config_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "text_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "raw_text_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "offset_unit": {
+      "type": "string",
+      "const": "unicode_code_point"
+    },
+    "offset_interval": {
+      "type": "string",
+      "const": "[start,end)"
+    },
+    "normalization_version": {
+      "type": "string",
+      "const": "line-endings-only-1"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "physical_page",
+          "printed_label",
+          "ocr",
+          "width",
+          "height",
+          "rotation",
+          "coordinate_unit",
+          "geometry",
+          "status",
+          "text_layer_present",
+          "bitmap_count",
+          "ocr_requirement",
+          "error",
+          "duration_seconds"
+        ],
+        "properties": {
+          "physical_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "printed_label": {
+            "type": "null"
+          },
+          "ocr": {
+            "type": "boolean",
+            "const": false
+          },
+          "width": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rotation": {
+            "type": "number"
+          },
+          "coordinate_unit": {
+            "type": "string",
+            "const": "pt"
+          },
+          "geometry": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "width",
+                  "height",
+                  "rotation",
+                  "coordinate_unit",
+                  "coordinate_system",
+                  "pdf_user_unit",
+                  "pdf_crop_box",
+                  "pdf_media_box",
+                  "backend_to_pdf",
+                  "canonical_to_pdf",
+                  "backend_coordinate_system",
+                  "conversion_version"
+                ],
+                "properties": {
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "rotation": {
+                    "enum": [
+                      0,
+                      90,
+                      180,
+                      270
+                    ]
+                  },
+                  "coordinate_unit": {
+                    "type": "string",
+                    "const": "pt"
+                  },
+                  "coordinate_system": {
+                    "type": "string",
+                    "const": "crop_rotated_top_left"
+                  },
+                  "pdf_user_unit": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "pdf_crop_box": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "pdf_media_box": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 4,
+                    "maxItems": 4
+                  },
+                  "backend_to_pdf": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 6,
+                    "maxItems": 6
+                  },
+                  "canonical_to_pdf": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 6,
+                    "maxItems": 6
+                  },
+                  "backend_coordinate_system": {
+                    "type": "string",
+                    "const": "docling_crop_rotated_bottom_left_pdf_user_units"
+                  },
+                  "conversion_version": {
+                    "type": "string",
+                    "const": "docling-crop-rotation-userunit-1"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "backend_dimension": {
+            "type": "object",
+            "patternProperties": {
+              "^.*$": {}
+            }
+          },
+          "status": {
+            "enum": [
+              "failed",
+              "text_layer_extracted_images_unverified",
+              "text_layer_extracted_fidelity_unverified",
+              "ocr_required_no_text_layer",
+              "blank_or_vector_page_unverified"
+            ]
+          },
+          "text_layer_present": {
+            "type": "boolean"
+          },
+          "bitmap_count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ocr_requirement": {
+            "enum": [
+              "unknown",
+              "possible_image_text_unverified",
+              "required",
+              "not_detected"
+            ]
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "code",
+                  "exception_type"
+                ],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "exception_type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "duration_seconds": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "document_id",
+          "text_version",
+          "text",
+          "raw_text",
+          "backend_text",
+          "raw_text_source",
+          "normalization_map",
+          "page",
+          "type",
+          "semantic_type_status",
+          "reading_order",
+          "bbox",
+          "source_geometry",
+          "backend_cell_index"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "document_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "text_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "text": {
+            "type": "string"
+          },
+          "raw_text": {
+            "type": "string"
+          },
+          "backend_text": {
+            "type": "string"
+          },
+          "raw_text_source": {
+            "type": "string",
+            "const": "backend_cell_orig"
+          },
+          "normalization_map": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "raw_start",
+                "raw_end",
+                "normalized_start",
+                "normalized_end",
+                "kind"
+              ],
+              "properties": {
+                "raw_start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "raw_end": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "normalized_start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "normalized_end": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "kind": {
+                  "enum": [
+                    "identity",
+                    "newline"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "type": "string",
+            "const": "text"
+          },
+          "semantic_type_status": {
+            "type": "string",
+            "const": "unclassified_textline"
+          },
+          "reading_order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "bbox": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          },
+          "source_geometry": {
+            "type": "object",
+            "required": [
+              "coordinate_system",
+              "bbox",
+              "polygon",
+              "pdf_bbox",
+              "precision"
+            ],
+            "properties": {
+              "coordinate_system": {
+                "type": "string",
+                "const": "docling_crop_rotated_bottom_left_pdf_user_units"
+              },
+              "bbox": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "polygon": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 8,
+                "maxItems": 8
+              },
+              "pdf_bbox": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "precision": {
+                "type": "string",
+                "const": "whole_textline_not_exact_glyph"
+              }
+            },
+            "additionalProperties": false
+          },
+          "backend_cell_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_glyph_issues": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "code",
+                "start",
+                "end",
+                "font_name",
+                "font_program_sha256",
+                "pdf_character_code",
+                "precision"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "const": "sparse_embedded_font_without_unicode_mapping"
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "end": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "font_name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "font_program_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "pdf_character_code": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "precision": {
+                  "enum": [
+                    "glyph_offset",
+                    "whole_textline_fallback"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "expected_block_ids",
+        "processed_block_ids",
+        "failed_block_ids",
+        "excluded",
+        "scope",
+        "physical_pages_expected",
+        "decoded_pages",
+        "text_layer_pages",
+        "failed_pages",
+        "pages_without_text",
+        "image_text_unverified_pages",
+        "page_enumeration_complete",
+        "text_layer_decode_complete",
+        "full_content_coverage_verified",
+        "fidelity_human_verified",
+        "table_structure",
+        "reading_order",
+        "limitations"
+      ],
+      "properties": {
+        "expected_block_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        },
+        "processed_block_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        },
+        "failed_block_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "uniqueItems": true
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "reason"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "scope": {
+          "type": "string",
+          "const": "emitted_text_layer_blocks_only"
+        },
+        "physical_pages_expected": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        },
+        "decoded_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        },
+        "text_layer_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        },
+        "failed_pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "physical_page",
+              "code"
+            ],
+            "properties": {
+              "physical_page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "code": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "pages_without_text": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        },
+        "image_text_unverified_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true
+        },
+        "page_enumeration_complete": {
+          "type": "boolean"
+        },
+        "text_layer_decode_complete": {
+          "type": "boolean"
+        },
+        "full_content_coverage_verified": {
+          "type": "boolean",
+          "const": false
+        },
+        "fidelity_human_verified": {
+          "type": "boolean",
+          "const": false
+        },
+        "table_structure": {
+          "type": "string",
+          "const": "not_reconstructed"
+        },
+        "reading_order": {
+          "type": "string",
+          "const": "backend_textline_order_unverified"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "file_check_seconds",
+        "backend_init_seconds",
+        "first_text_seconds",
+        "total_seconds",
+        "cpu_user_seconds",
+        "cpu_system_seconds",
+        "peak_rss_bytes",
+        "peak_rss_scope",
+        "gpu_peak_memory_bytes",
+        "network_document_uploads",
+        "llm_calls"
+      ],
+      "properties": {
+        "file_check_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "backend_init_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "first_text_seconds": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "total_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cpu_user_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cpu_system_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "peak_rss_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "peak_rss_scope": {
+          "type": "string",
+          "const": "current_process_lifetime_linux_ru_maxrss"
+        },
+        "gpu_peak_memory_bytes": {
+          "type": "null"
+        },
+        "network_document_uploads": {
+          "type": "number",
+          "const": 0
+        },
+        "llm_calls": {
+          "type": "number",
+          "const": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

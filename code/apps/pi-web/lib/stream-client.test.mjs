@@ -46,8 +46,10 @@ test("both from a request's headers", () => {
   assert.deepEqual(describeStreamClient(new Headers()), { address: null, client: null });
 });
 
-test("the events route labels each stream with them", async () => {
-  const { readFile } = await import("node:fs/promises");
-  const route = await readFile(new URL("../app/api/agent/[id]/events/route.ts", import.meta.url), "utf8");
-  assert.match(route, /createAgentEventStream\(req, id, sessionPromise, \{ holder, \.\.\.describeStreamClient\(req\.headers\) \}\)/);
+test("client metadata remains a library concern and cannot open retired agent streams", async () => {
+  const { isT1ApiMethod, t1BackendPath } = await jiti.import("../t1/gateway-policy.ts");
+  const request = new Request("http://localhost/api/t1/workbench/runs/run-1/events", { headers: { "user-agent": UA.macChrome } });
+  assert.deepEqual(describeStreamClient(request.headers), { address: null, client: "Chrome · macOS" });
+  assert.equal(isT1ApiMethod("/api/agent/session-1/events", "GET"), false);
+  assert.equal(t1BackendPath(["workbench", "runs", "run:1", "events"]), "/api/workbench/runs/run%3A1/events");
 });

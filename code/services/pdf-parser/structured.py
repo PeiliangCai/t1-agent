@@ -698,6 +698,8 @@ def build_ir(source, native, candidate_id, native_metrics, native_errors, native
               'candidate_id': candidate_id, 'device': 'cpu', 'cpu_threads': 4, 'ocr_mode': 'pdf_text_layer',
               'paid_llm_enabled': False, 'source_parser': source['parser'], 'source_alignment_method': METHOD,
               'native_processed_text_authoritative': False, 'native_config': native_metrics.get('configuration', {})}
+    config.update({key: source['parser']['config'][key] for key in
+                   ['font_glyph_guard_version', 'font_glyph_guard_sha256'] if key in source['parser']['config']})
     from source_geometry import SourceGeometry, CONFIG as SOURCE_GEOMETRY_CONFIG
     from source_tables import restore_table
     from source_continuations import restore_continuations

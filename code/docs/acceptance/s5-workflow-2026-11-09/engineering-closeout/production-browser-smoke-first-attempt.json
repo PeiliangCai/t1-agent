@@ -1,0 +1,32 @@
+{
+  "schema_version": "s5-production-build-browser-smoke-1",
+  "checked_at": "2026-11-09T03:15:03.209Z",
+  "origin": "http://127.0.0.1:30141",
+  "paid_calls": 0,
+  "operations": "GET only; no production mutations",
+  "checks": [
+    {
+      "name": "production_home_and_model_disabled",
+      "passed": true
+    }
+  ],
+  "browser_errors": [],
+  "unexpected_resources": [],
+  "blocked_external_requests": [],
+  "build_id": "dBSoXBOiizu4LfJ-G8UGm",
+  "capabilities": {
+    "schema_version": "t1-workbench-capabilities-1",
+    "read_only": false,
+    "paper_upload": true,
+    "extraction_start": false,
+    "persisted_review": true,
+    "approved_export": true,
+    "backend_pi_sdk": "1.4.0",
+    "full_S5_complete": false,
+    "controlled_fixture": false,
+    "max_pdf_bytes": 52428800,
+    "extraction_unavailable_reason": "server_model_not_enabled"
+  },
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L01\n\n404 !== 200\n\n    at api (file:///home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/production-smoke.mjs:20:110)\n    at async file:///home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/engineering-closeout/production-smoke.mjs:30:18"
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-09T08:27:28.128937+00:00",
+  "first_plan_sha256": "1b062681a3569cdd999ec609d1b1691bfbef32c704c18ce11ff04528524ca63b",
+  "failure": "Generic .env selectedgpt-4.1-mini; preflight expected the newly authorizedgpt-6-luna and rejected before any request.",
+  "fix": "Use explicit in-process authorized provider/endpoint/model override while reading the existing private API key, identical pattern to prior S5 realConfig. No .env/production/core changes.",
+  "model_requests_before_fix": 0,
+  "budget_reset_or_extra_runs": false,
+  "first_attempt_preserved": "preflight-attempt1",
+  "regression_test": "independent execution binds its newly authorized model even when generic application settings select another model"
+}

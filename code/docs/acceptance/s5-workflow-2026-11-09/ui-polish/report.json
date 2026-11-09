@@ -1,0 +1,243 @@
+{
+  "schema_version": "s5-ui-polish-functional-audit-1",
+  "status": "ui_polish_and_functional_audit_complete",
+  "completed_at": "2026-11-09T08:02:31.713443+00:00",
+  "owner": "GPT-6.1-Sol max execution agent",
+  "formal_review_count": "3/3 unchanged; no new formal Astra review",
+  "scope": "Same S5 continuation: actual Pi Web UI polish and functional review; overall stage acceptance is owned by the parent session/documentation owner.",
+  "production_url": "http://127.0.0.1:30141/?paper=L07&run=b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07&view=records",
+  "production": {
+    "at": "2026-11-09T08:01:13.712734+00:00",
+    "next_url": "http://127.0.0.1:30141/",
+    "next_pid": 122242,
+    "next_build_id": "ew0z7dxdGqC2-0rf2b3vn",
+    "next_status": 200,
+    "next_process_state": "R (running)",
+    "backend_pid": 98717,
+    "backend": {
+      "status": "ok",
+      "stage": "S5",
+      "workflow_implemented": true,
+      "controlled_fixture": false,
+      "new_paid_run_verified": false
+    },
+    "capabilities": {
+      "schema_version": "t1-workbench-capabilities-1",
+      "read_only": false,
+      "paper_upload": true,
+      "extraction_start": false,
+      "persisted_review": true,
+      "approved_export": true,
+      "backend_pi_sdk": "1.4.0",
+      "full_S5_complete": false,
+      "controlled_fixture": false,
+      "max_pdf_bytes": 52428800,
+      "extraction_unavailable_reason": "server_model_not_enabled"
+    },
+    "isolated3211_stopped": true,
+    "launch": "detached process, loopback only; no system deployment manager installed"
+  },
+  "changes": [
+    "Compact original Pi Web gray sidebar with original file/stroke icons, blue selection rule, paper names/pages and no internal paper UUID in the row.",
+    "One visible task status, source limitation summary, collapsed scope/details and same-source members; verbatim source is moved ahead of auxiliary cards.",
+    "15px source text, consistent controls and spacing, distinct original/context/review sections, candidate and approved export groups.",
+    "Source-text search, previous/next record and nearby Locate in PDF; first source page follows a changed record once and polling does not override manual page navigation.",
+    "Saved review note initializes from record.review_reason for the current version when no same-version browser draft exists; old-version review notes and approvals never become current after source changes.",
+    "Keep all four review confirmations, separate image approval, explicit unavailable model/medical catalog, source integrity blocking and pending/rejected status."
+  ],
+  "application_files_changed": [
+    {
+      "path": "code/apps/pi-web/t1/T1Workbench.tsx",
+      "sha256": "e9a6269eaffbeea5ea6352e05ae53f58bbd1acbca1cd710b7b8a41c5d5888fdc"
+    },
+    {
+      "path": "code/apps/pi-web/t1/RecordReview.tsx",
+      "sha256": "48a1d756a35a06d944db1648bdfeb2e493275b530ecac6af63171102281fbde3"
+    },
+    {
+      "path": "code/apps/pi-web/t1/SameSourceMembers.tsx",
+      "sha256": "2f99e1cae46b71dfbfbc701a501c9f6e3ec39a808da0bcf10aaec4696123b9be"
+    },
+    {
+      "path": "code/apps/pi-web/t1/messages.mjs",
+      "sha256": "45fb90756d731ec1d75a6baf6e932243f843510ee65be018631d3fdb6c077b3b"
+    },
+    {
+      "path": "code/apps/pi-web/t1/workbench.css",
+      "sha256": "e58365ae02af6eee49044f8ca3a2a1a56f8385f59127cb5ba6a4c4e850fba552"
+    }
+  ],
+  "upstream_reuse": {
+    "report": "source-reuse.json",
+    "pinned_commit": "f130910abf662b506b2ef2f475fc21a2fe57badc",
+    "original_files_byte_equal_to_archive": 11,
+    "runtime_components_hooks": [
+      "TabBar",
+      "SidebarMenu",
+      "SidebarToast",
+      "SidebarIcons",
+      "GenericFileIcon",
+      "useResizablePanel",
+      "ImagePreview",
+      "useTheme",
+      "useI18n",
+      "useIsMobile",
+      "useViewportHeight"
+    ],
+    "AppShell": "Retained byte-identical; existing runtime page already uses T1Workbench. No claim that the AppShell component is newly mounted."
+  },
+  "validation": {
+    "typecheck": {
+      "exit_code": 0,
+      "log": "typecheck.log"
+    },
+    "changed_source_lint": {
+      "exit_code": 0,
+      "errors": 0,
+      "warnings": 0,
+      "log": "changed-lint.log"
+    },
+    "focused_tests": {
+      "passed": 13,
+      "failed": 0,
+      "skipped": 0,
+      "log": "focused-tests.log",
+      "files": [
+        "lib/t1-workflow.test.mjs",
+        "lib/t1-run-presentation.test.mjs",
+        "lib/i18n/registry.test.mjs"
+      ]
+    },
+    "production_builds": {
+      "first_exit_code": 0,
+      "final_exit_code": 0,
+      "logs": [
+        "build.log",
+        "build-final.log"
+      ],
+      "serialized_next_stop_build_start": true
+    },
+    "isolated_http_browser": {
+      "passed": 9,
+      "failed": 0,
+      "browser_errors": [],
+      "unexpected_5xx": [],
+      "external_requests": [],
+      "report": "isolated-workflow.json",
+      "checks": [
+        "saved_note_reload_and_original_content_unchanged",
+        "source_page_zoom_record_navigation_search_and_poll_does_not_steal_page",
+        "text_approval_note_persists_and_same_source_members_stay_unapproved",
+        "draft_refresh_reject_and_pending_save_visible_notes",
+        "candidate_and_approved_downloads_text_without_images_are_independent",
+        "whole_figure_caption_preview_and_independent_image_approval",
+        "source_reselection_context_and_version_change_invalidate_old_review",
+        "two_pages_conflict_keeps_draft_and_requires_explicit_latest_version",
+        "manual_add_and_delete_use_only_retained_source"
+      ]
+    },
+    "real_production_read_only_visual": {
+      "passed": true,
+      "report": "after-visual.json",
+      "main_case": "L07 real historical26 candidates and7 figures",
+      "empty_case": "L05 retained real run with0 candidates",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "locales": [
+        "en",
+        "zh-CN",
+        "zh-TW"
+      ],
+      "widths": [
+        1512,
+        390
+      ],
+      "production_mutations": 0
+    },
+    "mobile_all_combinations": {
+      "passed": 6,
+      "failed": 0,
+      "width": 390,
+      "four_review_checks_retained": true,
+      "overflow": false,
+      "report": "responsive-check.json"
+    },
+    "full_3047_suite_rerun_in_this_task": false,
+    "prior_14_workflow_suite_rerun_in_this_task": false,
+    "prior_coverage_reference": "../browser/results.json (prior checkpoint only: upload/overlap/cancel/reconnect/source recovery; not relabeled as a new pass)"
+  },
+  "fixed_defect": {
+    "issue": "API current-version review_reason saved but browser reset it to empty after reload.",
+    "actual_before_reproduction": "note-reproduction.json",
+    "before_screenshot": "before-note-reproduction.png",
+    "after_validation": "isolated-workflow.json: saved_note_reload_and_original_content_unchanged, text_approval_note_persists_and_same_source_members_stay_unapproved, source_reselection_context_and_version_change_invalidate_old_review"
+  },
+  "protected_data": {
+    "production_db_all_13_tables_unchanged": true,
+    "runs": 9,
+    "s4_record_versions": 262,
+    "reviews_before_and_after": 0,
+    "annotations_before_and_after": 0,
+    "exports_before_and_after": 3,
+    "before": "production-db-before.json",
+    "after": "production-db-after.json",
+    "pinned_source_artifacts_checked": 49,
+    "all_source_hashes_match": true,
+    "source_report": "production-source-integrity.json",
+    "no_snapshot_restored_to_production": true,
+    "mutation_tests": "Dedicated SQLite clone on3211; every browser /api/t1 request intercepted to3211, no configured runner. Source files read-only; new Figure checks and exports write under runtime-data/s5-ui-audit/workbench.",
+    "pdf_restore_or_paper_delete_retested_in_this_task": false,
+    "reason": "File-changing source recovery/paper deletion was already covered previously and was not repeated against shared production paths. Record add/delete is isolated DB-only.",
+    "isolated_test_service_stopped": true,
+    "isolated_fixture_report": "isolated-fixture.json"
+  },
+  "failed_attempts_retained": [
+    {
+      "report": "isolated-workflow-attempt1.json",
+      "cause": "Test used wrong accessible name for existing physical-page selector; corrected to 原件物理页.",
+      "product_change_required": false
+    },
+    {
+      "report": "isolated-workflow-attempt2.json",
+      "cause": "Nine operations passed, then harness addInitScript read localStorage on originless download documents. Added storage exception guard and replayed cleanly.",
+      "product_change_required": false
+    },
+    {
+      "report": "isolated-workflow-attempt3.json",
+      "cause": "Test ran before isolated Fastify startup and got ECONNREFUSED; added bounded readiness wait. No mutation executed in that attempt.",
+      "product_change_required": false
+    }
+  ],
+  "screenshots": {
+    "before": [
+      "before-L07-desktop.png",
+      "before-L07-review.png",
+      "before-L07-figure.png",
+      "before-L07-mobile.png"
+    ],
+    "after": [
+      "after-L07-desktop.png",
+      "after-L07-review.png",
+      "after-L07-figure.png",
+      "after-L07-dark.png",
+      "after-L07-english.png",
+      "after-L07-mobile.png",
+      "after-L07-mobile-en-dark.png",
+      "after-L07-mobile-zh-TW-dark.png",
+      "after-L05-empty.png",
+      "after-new-task.png"
+    ]
+  },
+  "model_calls": 0,
+  "medical_or_production_record_approvals": 0,
+  "unverified_or_later_scope": [
+    "Formal application model and approved medical catalog remain unset; production extraction_start=false.",
+    "This audit does not certify medical correctness, independent recall/precision, or new nonempty provider/model effectiveness.",
+    "New end-to-end extraction, upload/overlap/cancel and destructive file recovery were not repeated in this UI-only pass; prior evidence stays separate.",
+    "Detached production process is healthy at handoff; S7 process supervision/container deployment is handled by the backend owner."
+  ],
+  "known_unresolved_ui_defects_in_tested_scope": [],
+  "handoff": "Application source frozen; backend S7 owner notified and permitted to build current frontend snapshot. No further visual iteration planned."
+}

@@ -1,0 +1,176 @@
+{
+  "at": "2026-11-09T07:55:27.928Z",
+  "model_calls": 0,
+  "production_mutations": 0,
+  "isolated_backend": "http://127.0.0.1:3211",
+  "checks": [
+    {
+      "name": "saved_note_reload_and_original_content_unchanged",
+      "status": "passed",
+      "ms": 20,
+      "detail": {
+        "saved_reason": "UI隔离测试：已保存备注应在刷新后回显",
+        "source_fragments": 4,
+        "source_preserved": true
+      }
+    },
+    {
+      "name": "source_page_zoom_record_navigation_search_and_poll_does_not_steal_page",
+      "status": "passed",
+      "ms": 4876,
+      "detail": {
+        "auto_located_page": 5,
+        "manual_page_survived_poll": true,
+        "zoom": true,
+        "previous_next": true,
+        "search": true
+      }
+    },
+    {
+      "name": "text_approval_note_persists_and_same_source_members_stay_unapproved",
+      "status": "passed",
+      "ms": 2406,
+      "detail": {
+        "record": "ev-176eaf128d826f3065e1c62b922999b065c881c9",
+        "version": 5,
+        "figure_approved": false,
+        "other_members_unchanged": [
+          "ev-b9efc51d87835997469bc10dc9d10d4b3a837c06"
+        ]
+      }
+    },
+    {
+      "name": "draft_refresh_reject_and_pending_save_visible_notes",
+      "status": "passed",
+      "ms": 4740,
+      "detail": {
+        "record": "ev-33176aa19ef49b743090b30236766ae31b3b98dc",
+        "rejected_then_pending": true,
+        "draft_and_saved_reason_survive_reload": true
+      }
+    },
+    {
+      "name": "candidate_and_approved_downloads_text_without_images_are_independent",
+      "status": "passed",
+      "ms": 12526,
+      "detail": {
+        "formats": [
+          "candidate_jsonl",
+          "candidate_csv",
+          "candidate_package",
+          "approved_jsonl",
+          "approved_csv",
+          "approved_package"
+        ],
+        "text_only_approved_records": 1,
+        "package_pngs": 0
+      }
+    },
+    {
+      "name": "whole_figure_caption_preview_and_independent_image_approval",
+      "status": "passed",
+      "ms": 5526,
+      "detail": {
+        "record": "controlled-ev-6cf1d5536824377888dcabd2ed2a3e11616d7364",
+        "separate_text_and_image_actions": true,
+        "whole_figure_preview": true,
+        "caption_original": true,
+        "figure_check_does_not_approve_records": true
+      }
+    },
+    {
+      "name": "source_reselection_context_and_version_change_invalidate_old_review",
+      "status": "passed",
+      "ms": 4039,
+      "detail": {
+        "source_changed": true,
+        "context_fragments": 4,
+        "approval_invalidated": true,
+        "old_reason_not_displayed_as_current": true,
+        "context_pdf_page": 5
+      }
+    },
+    {
+      "name": "two_pages_conflict_keeps_draft_and_requires_explicit_latest_version",
+      "status": "passed",
+      "ms": 16440,
+      "detail": {
+        "http409": true,
+        "draft_survives_reload": true,
+        "latest_version_explicitly_loaded": true
+      }
+    },
+    {
+      "name": "manual_add_and_delete_use_only_retained_source",
+      "status": "passed",
+      "ms": 4508,
+      "detail": {
+        "added_then_deleted": "manual-533b842a-02dd-4671-81a8-1b8c1993baf2",
+        "unapproved_add": true,
+        "source_text_rewrite": false
+      }
+    }
+  ],
+  "browser_errors": [
+    "SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\n    at <anonymous>:2:98\n    at <anonymous>:3:7",
+    "SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\n    at <anonymous>:2:98\n    at <anonymous>:3:7"
+  ],
+  "external_requests": [],
+  "unexpected_5xx": [],
+  "mutations": [
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9/review"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-33176aa19ef49b743090b30236766ae31b3b98dc/review"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-33176aa19ef49b743090b30236766ae31b3b98dc/review"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/run-8c7ac0c1-b83c-4587-b264-5242c7132039/records/controlled-ev-6cf1d5536824377888dcabd2ed2a3e11616d7364/review"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/run-8c7ac0c1-b83c-4587-b264-5242c7132039/records/controlled-ev-6cf1d5536824377888dcabd2ed2a3e11616d7364/review"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/run-8c7ac0c1-b83c-4587-b264-5242c7132039/figures/figure-feda211a5502ecb992848bb3/verify"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/ev-176eaf128d826f3065e1c62b922999b065c881c9"
+    },
+    {
+      "method": "POST",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records"
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/t1/workbench/runs/b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07/records/manual-533b842a-02dd-4671-81a8-1b8c1993baf2"
+    }
+  ],
+  "passed": false,
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   \"SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\\n\" +\n+     '    at <anonymous>:2:98\\n' +\n+     '    at <anonymous>:3:7',\n+   \"SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\\n\" +\n+     '    at <anonymous>:2:98\\n' +\n+     '    at <anonymous>:3:7'\n+ ]\n- []\n\n    at file:///home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:31:9"
+}

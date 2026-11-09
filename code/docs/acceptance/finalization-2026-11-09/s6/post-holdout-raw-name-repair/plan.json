@@ -1,0 +1,32 @@
+{
+  "schema_version": "post-holdout-zero-api-repair-plan-1",
+  "prepared_at": "2026-11-09T09:53:41.895009+00:00",
+  "status": "design_only_shared_runtime_unchanged_until_IN04_terminal",
+  "authorization": "Root ordinary delegation: after IN04/05 terminal permit minimum raw-name-only bounded correction; no formalreview round/no paid remeasurement. IN05 nowclosed0requests.",
+  "original_IN03_retained": "../repaired-holdout-IN03/report.json",
+  "root_source_review": {
+    "path": "../repaired-holdout-IN03/root-source-review.json",
+    "sha256": "ce20425f6747bc91096084806f5bc9f7896d628756e34b892395ee61ffbdc9ff"
+  },
+  "invariants": [
+    "Strict feature_name_raw must be literal including original newline, ornull; continuous normalized term may not replace raw evidence.",
+    "No source PDF/IR/quote/context bytes or source version rewritten. No hidden argument repair by host.",
+    "Only exact sole reject feature_name_not_in_evidence at feature_name_raw and valid source/identity/current version qualify. Other summary validation failures remain fatal.",
+    "Use existing maximum2 distinct metered correction turns; repeated invalidarguments stop; every actual provider request counts against unchanged runlimits.",
+    "Original failed paid round/ledger/sample remains immutable. New test uses isolated synthetic/local-only execution and compares original hashes."
+  ],
+  "test_cases": [
+    "Accepted existing IN03 record3 round-trip withrawnull reproduces original acceptance.",
+    "Change onlyrawname tocontinuous 对比度 while literal source has 对比 newline 度: reject, atomicstore/currentversion unchanged.",
+    "Rawname null oractual newline stays literal; no normalization of original quote; required source reads/currentversions stillenforced.",
+    "Sole raw-name reject can receive atmost2 distinct correction opportunities; repeated exactbadcall pauses; no budgets increased.",
+    "Any other reject (source binding/identity/notread/sourceglyph/targetmissing/featureidentity/version) remains fatal even whenraw-name reject alsoexists.",
+    "Corrected metadata only; original_fragments/context/sourceSHA/textversion and imageassociation remain exact.",
+    "No human approval/medical quality/precision/recall claim; no external model requests."
+  ],
+  "research_entry_readonly_audit": {
+    "prepare_s2_materials": "Standalone historical preparation script; not referenced by current package scripts/README or production API; docstring says cancelled fulltextreference templates notgenerated.",
+    "scoring_rules_draft": "Still lists full human gold as optionalresearch scoring real_gate, not current product acceptance. Plan to mark optional_research_only/full_gold_is_product_prerequisite=false and retire default destructive/regenerative script entry; retain historical scoring formulas/data.",
+    "defer_until_IN04_closed": true
+  }
+}

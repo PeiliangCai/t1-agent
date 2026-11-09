@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "required": [
+    "record_id",
+    "record_version",
+    "review_scope",
+    "text_fingerprint",
+    "delivery_fingerprint",
+    "decision",
+    "actor",
+    "reviewed_at",
+    "source_text_checked",
+    "relevance_checked",
+    "context_checked",
+    "figure_pairing_checked",
+    "reason"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "record_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "review_scope": {
+      "enum": [
+        "text_only",
+        "text_and_figures"
+      ]
+    },
+    "text_fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "delivery_fingerprint": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "decision": {
+      "enum": [
+        "approved",
+        "rejected",
+        "needs_context"
+      ]
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "reviewed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_text_checked": {
+      "type": "boolean"
+    },
+    "relevance_checked": {
+      "type": "boolean"
+    },
+    "context_checked": {
+      "type": "boolean"
+    },
+    "figure_pairing_checked": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

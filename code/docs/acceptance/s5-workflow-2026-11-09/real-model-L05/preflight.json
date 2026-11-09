@@ -1,0 +1,61 @@
+{
+  "schema_version": "s5-L05-preflight-1",
+  "observed_at": "2026-11-09T04:25:29.407285+00:00",
+  "status": "passed_ready_for_authorized_one_run",
+  "plan_path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+  "plan_sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12",
+  "authorization_sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154",
+  "source": {
+    "path": "evaluation/corpus/development-candidates/L05.pdf",
+    "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "physical_pages": 10
+  },
+  "case_selected_by_main_not_user_verbatim": true,
+  "limits": {
+    "requests": 40,
+    "input_tokens": 1000000,
+    "output_tokens": 60000,
+    "seconds": 1800,
+    "request_seconds": 120,
+    "document_seconds": 1800,
+    "transient_retries": 2,
+    "response_output_tokens": 8192,
+    "batch_responses": 16
+  },
+  "code_input_runtime_pins": 65,
+  "offline_tests": {
+    "passed": 6,
+    "failed": 0,
+    "sha256": "19fa5724c8ba741e60bf8a891b0e19693afa97a82da3611515db07192417b162"
+  },
+  "typecheck": {
+    "exit_code": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "frontend_BUILD_ID": "kiRKong7YBVjXwSKG5KIv",
+  "frontend_http_status": 200,
+  "ordinary_backend_capabilities": {
+    "schema_version": "t1-workbench-capabilities-1",
+    "read_only": false,
+    "paper_upload": true,
+    "extraction_start": false,
+    "persisted_review": true,
+    "approved_export": true,
+    "backend_pi_sdk": "1.4.0",
+    "full_S5_complete": false,
+    "controlled_fixture": false,
+    "max_pdf_bytes": 52428800,
+    "extraction_unavailable_reason": "server_model_not_enabled"
+  },
+  "production_before_sha256": "1fe6b9301bbda8a475010c1eed99e8aeb586721cfc6a2f66d8ba27e5e5e01109",
+  "old_L01_actual_directory_exists": false,
+  "new_actual_model_requests_so_far": 0,
+  "empty_output": {
+    "previous_S4_L05_records": 0,
+    "empty_candidate_JSONL_CSV_package_offline_verified": true,
+    "existing_UI_export_section_is_outside_nonempty_record_branch": true,
+    "no_candidate_forcing_or_prompt_change": true
+  },
+  "old_S4_ledger_not_reused": true,
+  "formal_review_rounds_unchanged": "3/3"
+}

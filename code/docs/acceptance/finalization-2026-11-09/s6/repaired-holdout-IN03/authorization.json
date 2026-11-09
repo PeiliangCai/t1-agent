@@ -1,0 +1,45 @@
+{
+  "schema_version": "s6-repaired-holdout-authorization-1",
+  "source": "user_four_hour_delegation_relayed_by_root",
+  "recorded_at": "2026-11-09T09:26:38.969159+00:00",
+  "user_delegation_window": [
+    "2026-11-09T07:53:56Z",
+    "2026-11-09T11:53:56Z"
+  ],
+  "deadline_utc": "2026-11-09T11:20:00Z",
+  "root_decision": "One new-version IN03 independent run only after source glyph/caption/whole-bitmap repairs, regression and source freeze; no IN01/IN02 model rerun. Original47-request trial closed, no unused credit borrowed.",
+  "authorized_sources": [
+    "IN03"
+  ],
+  "authorized_runs": 1,
+  "maximum_requests": 24,
+  "maximum_input_tokens": 400000,
+  "maximum_output_tokens": 20000,
+  "maximum_seconds": 900,
+  "per_paper": {
+    "requests": 24,
+    "input_tokens": 400000,
+    "output_tokens": 20000,
+    "seconds": 900,
+    "request_seconds": 120,
+    "transient_retries": 2,
+    "max_output_tokens": 8192
+  },
+  "model": {
+    "provider": "agicto",
+    "model_id": "gpt-6-luna",
+    "reasoning_effort": "medium",
+    "api": "openai-responses",
+    "existing_exact_alias_policy_unchanged": true
+  },
+  "scope": "B0/all cancers/all image types/all features",
+  "concurrency": 1,
+  "seed": "t1-s6-20261109-v1",
+  "sample": "All delivered current primary/background candidates, min(10,N); N=0 denominator N/A; directed risks separate.",
+  "budget_boundary": "Hard local admission and in-flight reservation. Hidden provider tokens cannot be guaranteed by application; actual overrun disclosed and blocks later calls. All retries count.",
+  "no_whole_round_retry": true,
+  "reviewer_kind": "delegated_ai_operator",
+  "actual_human_reviewed_count": 0,
+  "production_approvals_authorized": false,
+  "medical_quality_approved": false
+}

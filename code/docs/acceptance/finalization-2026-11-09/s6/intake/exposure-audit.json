@@ -1,0 +1,69 @@
+{
+  "schema_version": "s6-independent-identity-exposure-audit-1",
+  "at": "2026-11-09T08:07:46.372273+00:00",
+  "purpose": "Identity/holdout intake only; never used for tuning, method selection, regression or output-based source replacement.",
+  "historical_sources": 14,
+  "historical_families": 13,
+  "historical_identity_collisions": [],
+  "workspace_root": "/home/ecs-user/projects/t1-agent",
+  "workspace_text_marker_hits": [
+    "code/runtime-data/agent-notes/s6-independent-2026-11-09.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/download-provenance.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/IN01-publisher-metadata.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/IN01-registration-metadata.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/pdf-identity-and-physical-pages.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/audit-intake.py",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/IN02-registration-metadata.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/IN03-registration-metadata.json",
+    "code/docs/acceptance/finalization-2026-11-09/s6/intake/IN02-publisher-metadata.json"
+  ],
+  "unexpected_workspace_text_hits": [],
+  "pdfs_hashed": 152,
+  "matching_pdfs": [
+    {
+      "source_id": "IN01",
+      "path": "code/runtime-data/s6-independent/intake/IN01.pdf",
+      "sha256": "dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a"
+    },
+    {
+      "source_id": "IN02",
+      "path": "code/runtime-data/s6-independent/intake/IN02.pdf",
+      "sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe"
+    },
+    {
+      "source_id": "IN03",
+      "path": "code/runtime-data/s6-independent/intake/IN03.pdf",
+      "sha256": "95ea226e2b6fc301af9bac9e158da1af838fc0d3b1cdb210892b8f551ea9481e"
+    }
+  ],
+  "unexpected_preexisting_pdf_copies": [],
+  "office_archives_inspected": 45,
+  "office_xml_identity_hits": [],
+  "excluded": "Dependency/tool/Next build trees, git objects and immutable upstream source archive; project application/evaluation/runtime/evidence/research/plan text and PDF files are included.",
+  "new_identity_inputs": [
+    {
+      "source_id": "IN01",
+      "article_family_id": "doi:10.3389/fonc.2024.1515240",
+      "doi": "10.3389/fonc.2024.1515240",
+      "title": "Case report: Aggressive NSCLC with partial BRG-1 deficiency and KRAS G12C mutation: a case study and treatment challenges",
+      "source_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2024.1515240/pdf"
+    },
+    {
+      "source_id": "IN02",
+      "article_family_id": "doi:10.3389/fonc.2025.1680308",
+      "doi": "10.3389/fonc.2025.1680308",
+      "title": "Complete remission of advanced MSI-H rectal cancer in a young patient treated with nivolumab: a case report and critical appraisal of the literature",
+      "source_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2025.1680308/pdf"
+    },
+    {
+      "source_id": "IN03",
+      "article_family_id": "yxyjyy:2024:8:19:152-154:hongyafei",
+      "doi": null,
+      "title": "磁共振成像应用于直肠癌诊断中的价值研究",
+      "source_url": "https://www.yxyjzz.com/public/static/index/uploads/att/20241030/1237ebe75c7566fe12d90ff4a07855e1.pdf"
+    }
+  ],
+  "passed": true,
+  "paid_model_requests": 0,
+  "medical_quality_approved": false
+}

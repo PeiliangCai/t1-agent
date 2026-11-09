@@ -30,6 +30,7 @@ export function assertParsedDocument(document: Exclude<DocumentIR, { schema_vers
     if (block.document_id !== document.document_id || block.text_version !== document.text_version || block.reading_order !== index ||
       !validPages.has(block.page)) throw new LocalParserError('invalid_document_ir');
     const raw = Array.from(block.raw_text), normalized = Array.from(block.text);
+    if (block.source_glyph_issues?.some(g => g.start >= g.end || g.end > normalized.length)) throw new LocalParserError('invalid_source_glyph_issue');
     let rawEnd = 0, normalizedEnd = 0;
     for (const run of block.normalization_map) {
       const a = raw.slice(run.raw_start, run.raw_end).join(''), b = normalized.slice(run.normalized_start, run.normalized_end).join('');
@@ -106,7 +107,7 @@ export function assertParsedDocument(document: Exclude<DocumentIR, { schema_vers
   const unmapped = document.structure.units.filter(u => ['unmapped', 'partial'].includes(u.mapping.status)).map(u => u.unit_id);
   const ambiguous = document.structure.units.filter(u => u.mapping.status === 'ambiguous').map(u => u.unit_id);
   const expectedStatus = !ids.length ? 'unsupported' : failed.length || noText.length || images.length ||
-    document.coverage.native_errors.length || unmapped.length || ambiguous.length || !same(document.coverage.native_pages, pages) ? 'partial' : 'parsed';
+    document.coverage.native_errors.length || unmapped.length || ambiguous.length || blocks.some(b => b.source_glyph_issues?.length) || !same(document.coverage.native_pages, pages) ? 'partial' : 'parsed';
   if (!same(textPages, document.coverage.text_layer_pages) || !same(failed, document.coverage.failed_pages) ||
     !same(noText, document.coverage.pages_without_text) || !same(images, document.coverage.image_text_unverified_pages) ||
     !same([...validPages], document.coverage.decoded_pages) || !same(unmapped, document.coverage.unmapped_unit_ids) ||
@@ -193,6 +194,37 @@ export class LocalPythonParserAdapter implements ParserAdapter {
       return payload;
     }, signal);
   }
+}
+
+/** Model-free check of a historical IR against the identical PDF. Old IR bytes,
+ * text versions and approvals are never rewritten. A changed decoder/line layout
+ * requires re-parsing instead of guessing a new alignment for existing quotes. */
+export async function auditLegacySourceGlyphs(document: Exclude<DocumentIR, { schema_version: '1' }>) {
+  if (document.fixture) throw new LocalParserError('source_glyph_audit_requires_real_pdf');
+  const checked = await new LocalPythonParserAdapter({ timeoutMs: 30_000 }).parse({
+    run_id: 'local-source-glyph-audit', document_id: document.document_id,
+    file_reference: document.source.file_reference, file_sha256: document.file_sha256, fixture: false,
+  });
+  if (checked.parser.config.font_glyph_guard_version !== 'sparse-embedded-font-no-unicode-1' ||
+    checked.blocks.length !== document.blocks.length || checked.pages.length !== document.pages.length || checked.coverage.failed_pages.length)
+    throw new LocalParserError('source_glyph_audit_alignment_failed');
+  const source = new Map(checked.blocks.map(b => [b.page + ':' + b.backend_cell_index, b]));
+  const copy = structuredClone(document);
+  for (const block of copy.blocks) {
+    const fresh = source.get(block.page + ':' + block.backend_cell_index);
+    if (!fresh || fresh.raw_text !== block.raw_text || fresh.text !== block.text ||
+      fresh.bbox.some((v, i) => Math.abs(v - block.bbox[i]!) > 1e-6)) throw new LocalParserError('source_glyph_audit_alignment_failed');
+    if (fresh.source_glyph_issues?.length) block.source_glyph_issues = structuredClone(fresh.source_glyph_issues);
+  }
+  copy.parser.config = { ...copy.parser.config, font_glyph_guard_version: checked.parser.config.font_glyph_guard_version,
+    font_glyph_guard_sha256: checked.parser.config.font_glyph_guard_sha256 };
+  const audit = { schema_version: 'source-font-glyph-audit-1', document_id: document.document_id,
+    file_sha256: document.file_sha256, historical_text_version: document.text_version,
+    guard_version: checked.parser.config.font_glyph_guard_version, guard_sha256: checked.parser.config.font_glyph_guard_sha256,
+    compared_source_blocks: copy.blocks.length, original_ir_rewritten: false, model_calls: 0,
+    all_font_encoding_errors_detected: false, source_page_review_still_required: true,
+    uncertain_source_spans: copy.blocks.flatMap(b => (b.source_glyph_issues ?? []).map(issue => ({ block_id: b.block_id, ...issue }))) };
+  return { document: copy, audit };
 }
 
 /** Explicit backend primitive; createConfiguredPdfParserAdapter applies the trusted formal selection. */

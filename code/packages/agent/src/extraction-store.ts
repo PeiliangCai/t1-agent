@@ -66,9 +66,10 @@ export class ExtractionStore {
     return this.db.prepare('SELECT envelope_json FROM s4_versions WHERE run_id=? ORDER BY record_id,version').all(runId).map(r => JSON.parse(r.envelope_json as string));
   }
   current(runId: string): StoredEvidenceVersion[] {
-    const records = new Map<string, StoredEvidenceVersion>();
-    for (const value of this.versions(runId)) if (value.status !== 'proposed') records.set(value.record.record_id, value);
-    return [...records.values()];
+    return this.db.prepare(`SELECT v.envelope_json FROM s4_versions v JOIN
+      (SELECT record_id,MAX(version) version FROM s4_versions WHERE run_id=? AND COALESCE(json_extract(envelope_json,'$.status'),'active')<>'proposed' GROUP BY record_id) current
+      ON v.record_id=current.record_id AND v.version=current.version WHERE v.run_id=? ORDER BY v.record_id`)
+      .all(runId, runId).map(r => JSON.parse(r.envelope_json as string));
   }
   batches(runId: string): Array<Record<string, unknown>> { return this.db.prepare('SELECT payload_json FROM s4_batches WHERE run_id=? ORDER BY batch_id').all(runId).map(r => JSON.parse(r.payload_json as string)); }
   batch(runId: string, batchId: string, detail: Record<string, unknown>) {
@@ -141,6 +142,35 @@ export class ExtractionStore {
       ...(primaryAssessment ? { primary_assessment: primaryAssessment, assessment_policy_version: 'model-primary-assessment-1' as const } : {}) };
     if (issueCodes.length) { record.review_status = 'needs_context'; record.evidence_validation.warnings.push(...issueCodes); }
     return this.atomic(() => this.append(runId, record, expected, old.actor === 'human' ? 'proposed' : 'active', 'model_semantic_review_not_human_approval'));
+  }
+  /** Host-only workflow import preserves the original record bytes and source/run identity. */
+  retainVersions(runId: string, versions: readonly EvidenceVersion[]) {
+    return this.atomic(() => {
+      for (const value of versions) {
+        assertSchema(EvidenceRecordSchema, value.record);
+        const input = this.snapshot(runId).input;
+        if (value.record.extraction_trace.run_id !== runId || value.record.document_id !== input.document_id || value.record.source_version.file_sha256 !== input.file_sha256) throw new ContractError('s4_cross_run_evidence');
+        const stored = { ...value, status: value.status ?? 'active', created_at: new Date().toISOString(), reason: 'retained_historical_evidence' };
+        this.db.prepare('INSERT INTO s4_versions VALUES(?,?,?,?)').run(runId, value.record.record_id, value.version, JSON.stringify(stored));
+      }
+      this.insertEvent(runId, 'retained_evidence_imported', { historical: true, human_approval_added: false });
+    });
+  }
+  /** Human content and review writes use the same active envelopes as extraction tools, so later model writes become proposals. */
+  humanVersion(runId: string, record: EvidenceRecord, expected: number | null, reason: string) {
+    return this.atomic(() => {
+      assertSchema(EvidenceRecordSchema, record);
+      const input = this.snapshot(runId).input;
+      if (record.extraction_trace.run_id !== runId || record.document_id !== input.document_id || record.source_version.file_sha256 !== input.file_sha256 ||
+        !isDeepStrictEqual(record.extraction_trace.scope, input.scope)) throw new ContractError('s4_cross_run_evidence');
+      const all = this.versions(runId).filter(v => v.record.record_id === record.record_id), current = all.filter(v => v.status !== 'proposed').at(-1);
+      if ((current?.version ?? null) !== expected) throw new ContractError('evidence_version_conflict');
+      const value: StoredEvidenceVersion = { record: structuredClone(record), version: (all.at(-1)?.version ?? 0) + 1,
+        actor: 'human', status: 'active', created_at: new Date().toISOString(), reason };
+      this.db.prepare('INSERT INTO s4_versions VALUES(?,?,?,?)').run(runId, record.record_id, value.version, JSON.stringify(value));
+      this.insertEvent(runId, 'human_version', { record_id: record.record_id, record_version: value.version, reason });
+      return value;
+    });
   }
   close() { this.db.close(); }
 }

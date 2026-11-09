@@ -1,0 +1,75 @@
+{
+  "capabilities": {
+    "schema_version": "t1-workbench-capabilities-1",
+    "read_only": false,
+    "paper_upload": true,
+    "extraction_start": false,
+    "persisted_review": true,
+    "approved_export": true,
+    "backend_pi_sdk": "1.4.0",
+    "full_S5_complete": false,
+    "controlled_fixture": false,
+    "max_pdf_bytes": 52428800,
+    "extraction_unavailable_reason": "server_model_not_enabled"
+  },
+  "papers": {
+    "papers": []
+  },
+  "runs": {
+    "runs": []
+  },
+  "health": {
+    "status": "ok",
+    "stage": "S5",
+    "workflow_implemented": true,
+    "controlled_fixture": false,
+    "new_paid_run_verified": false
+  },
+  "container": {
+    "id": "b174a07e6e2ade9094fd008bfd60d74481cc637e41543edcfb10e28dd99e5dd1",
+    "image": "sha256:619a8365dbe44724595ed416646e73c36b776ccec233a479d4f09439bea9e889",
+    "user": "10001:10001",
+    "read_only_root": true,
+    "drop_caps": [
+      "ALL"
+    ],
+    "memory": 8589934592,
+    "cpus": 4.0,
+    "pids_limit": 512,
+    "log_config": {
+      "Type": "json-file",
+      "Config": {
+        "max-file": "3",
+        "max-size": "10m"
+      }
+    },
+    "ports": {
+      "30141/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "30142"
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "type": "volume",
+        "target": "/app/runtime-data",
+        "rw": true
+      },
+      {
+        "type": "bind",
+        "target": "/app/.tools/pdf-parser/models",
+        "rw": false
+      }
+    ],
+    "model_key_present": false,
+    "model_enabled": "false"
+  },
+  "recorded_at": "2026-11-09T08:33:14.121719+00:00",
+  "passed": true,
+  "ordinary_host_services_touched": false,
+  "new_model_requests": 0,
+  "endpoint": "http://127.0.0.1:30142",
+  "next_health_probe": "/api/t1/workbench/capabilities"
+}

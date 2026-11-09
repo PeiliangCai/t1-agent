@@ -1,0 +1,250 @@
+[
+  {
+    "package": "approved_package-mw8n5csh.tar.gz",
+    "sha256": "6d87d707baa15f2ea13d7ee72fb337340d4c67c867c12e9dc28adecd8b4db30e",
+    "bytes": 14350,
+    "members": [
+      ".",
+      "./sample-audit.json",
+      "./background-records.csv",
+      "./records.csv",
+      "./delivery.json",
+      "./human-annotations.json",
+      "./records.jsonl",
+      "./background-records.jsonl",
+      "./manifest.json",
+      "./coverage.json",
+      "./reviews.json",
+      "./source-record-versions.jsonl"
+    ],
+    "metadata": [
+      {
+        "path": "./manifest.json",
+        "content": {
+          "schema_version": "verbatim-figure-export-1",
+          "mode": "approved",
+          "output_policy": "verbatim-fragments-1",
+          "document_id": "paper-0bc91117-c44f-4936-bcc2-fc9bbd083274",
+          "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "record_count": 1,
+          "total_output_count": 1,
+          "primary_candidate_count": 1,
+          "background_suggestion_count": 0,
+          "unique_source_group_count": 1,
+          "same_source_duplicate_member_count": 0,
+          "source_grouping_is_not_medical_deduplication": true,
+          "model_classification_is_not_quality_improvement": true,
+          "source_grouping_policy_version": "strict-source-groups-1",
+          "source_groups": "delivery.json strict_source_groups; records.jsonl/CSV retain every original member and fragment",
+          "primary_assessment_policy_version": "model-primary-assessment-1",
+          "background_suggestions": "background-records.jsonl / background-records.csv; only background suggested, not human confirmed",
+          "fixture": false,
+          "record_level_human_confirmation": true,
+          "approved_by_model": false,
+          "full_recall_claimed": false,
+          "medical_quality_approved": false,
+          "assets": [],
+          "authoritative_description": "records.jsonl original_fragments; records.csv has one row per fragment",
+          "source_ir_fidelity_is_not_medical_approval": true,
+          "legacy_records_modified": false,
+          "controlled_fixture": true,
+          "origin": "controlled_fixture",
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "source_ir_sha256": "b91cddd4537ee2a7c62fac065a2a4ddd3e3cc570d695e2b8aa6f3ec7c9047e11",
+          "figure_catalog_sha256": "2b9574c0ff56c46a2c29bad3cf6840a0920ebdf11881417e3c0aaec73fc64bdf",
+          "original_28_field_records": "source-record-versions.jsonl; human-annotations.json is separate from paper text"
+        }
+      },
+      {
+        "path": "./coverage.json",
+        "content": {
+          "controlled_saved_source_replay": true,
+          "copied_record_count": 26,
+          "whole_document_summary_complete": false,
+          "task_processing_complete": false,
+          "new_model_requests": 0,
+          "medical_quality_approved": false,
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "state": "completed",
+          "controlled_fixture": true,
+          "automatic_resume": false
+        }
+      }
+    ]
+  },
+  {
+    "package": "approved_package_with_figures-mw8n5csh.tar.gz",
+    "sha256": "acc0f4626f27bab0ab9cdc2d1d88ea4896f82c43a2d989ff914979e176571f1f",
+    "bytes": 484694,
+    "members": [
+      ".",
+      "./sample-audit.json",
+      "./figures",
+      "./figures/07369308a968f53d007273079bb2b82e.png",
+      "./background-records.csv",
+      "./records.csv",
+      "./delivery.json",
+      "./human-annotations.json",
+      "./records.jsonl",
+      "./background-records.jsonl",
+      "./manifest.json",
+      "./coverage.json",
+      "./reviews.json",
+      "./source-record-versions.jsonl"
+    ],
+    "metadata": [
+      {
+        "path": "./manifest.json",
+        "content": {
+          "schema_version": "verbatim-figure-export-1",
+          "mode": "approved",
+          "output_policy": "verbatim-fragments-1",
+          "document_id": "paper-0bc91117-c44f-4936-bcc2-fc9bbd083274",
+          "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "record_count": 1,
+          "total_output_count": 1,
+          "primary_candidate_count": 1,
+          "background_suggestion_count": 0,
+          "unique_source_group_count": 1,
+          "same_source_duplicate_member_count": 0,
+          "source_grouping_is_not_medical_deduplication": true,
+          "model_classification_is_not_quality_improvement": true,
+          "source_grouping_policy_version": "strict-source-groups-1",
+          "source_groups": "delivery.json strict_source_groups; records.jsonl/CSV retain every original member and fragment",
+          "primary_assessment_policy_version": "model-primary-assessment-1",
+          "background_suggestions": "background-records.jsonl / background-records.csv; only background suggested, not human confirmed",
+          "fixture": false,
+          "record_level_human_confirmation": true,
+          "approved_by_model": false,
+          "full_recall_claimed": false,
+          "medical_quality_approved": false,
+          "assets": [
+            {
+              "asset_id": "figure-d27c34012b81ea974679bc66-0",
+              "source_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-d27c34012b81ea974679bc66-p4-0.png",
+              "package_path": "figures/07369308a968f53d007273079bb2b82e.png",
+              "sha256": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145"
+            }
+          ],
+          "authoritative_description": "records.jsonl original_fragments; records.csv has one row per fragment",
+          "source_ir_fidelity_is_not_medical_approval": true,
+          "legacy_records_modified": false,
+          "controlled_fixture": true,
+          "origin": "controlled_fixture",
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "source_ir_sha256": "b91cddd4537ee2a7c62fac065a2a4ddd3e3cc570d695e2b8aa6f3ec7c9047e11",
+          "figure_catalog_sha256": "2b9574c0ff56c46a2c29bad3cf6840a0920ebdf11881417e3c0aaec73fc64bdf",
+          "original_28_field_records": "source-record-versions.jsonl; human-annotations.json is separate from paper text"
+        }
+      },
+      {
+        "path": "./coverage.json",
+        "content": {
+          "controlled_saved_source_replay": true,
+          "copied_record_count": 26,
+          "whole_document_summary_complete": false,
+          "task_processing_complete": false,
+          "new_model_requests": 0,
+          "medical_quality_approved": false,
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "state": "completed",
+          "controlled_fixture": true,
+          "automatic_resume": false
+        }
+      }
+    ]
+  },
+  {
+    "package": "candidate_package-mw8n5csh.tar.gz",
+    "sha256": "8666ded7751b7ef6cac3ec9e9b70e91798d64da50cd1dc4a95c6e9818df2cb1c",
+    "bytes": 730427,
+    "members": [
+      ".",
+      "./sample-audit.json",
+      "./figures",
+      "./figures/07369308a968f53d007273079bb2b82e.png",
+      "./background-records.csv",
+      "./records.csv",
+      "./delivery.json",
+      "./human-annotations.json",
+      "./records.jsonl",
+      "./background-records.jsonl",
+      "./review-materials",
+      "./review-materials/49f4ec25120cb35d69720a5d87eea267.png",
+      "./manifest.json",
+      "./coverage.json",
+      "./reviews.json",
+      "./source-record-versions.jsonl"
+    ],
+    "metadata": [
+      {
+        "path": "./manifest.json",
+        "content": {
+          "schema_version": "verbatim-figure-export-1",
+          "mode": "candidates",
+          "output_policy": "verbatim-fragments-1",
+          "document_id": "paper-0bc91117-c44f-4936-bcc2-fc9bbd083274",
+          "file_sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+          "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+          "record_count": 26,
+          "total_output_count": 26,
+          "primary_candidate_count": 22,
+          "background_suggestion_count": 4,
+          "unique_source_group_count": 25,
+          "same_source_duplicate_member_count": 1,
+          "source_grouping_is_not_medical_deduplication": true,
+          "model_classification_is_not_quality_improvement": true,
+          "source_grouping_policy_version": "strict-source-groups-1",
+          "source_groups": "delivery.json strict_source_groups; records.jsonl/CSV retain every original member and fragment",
+          "primary_assessment_policy_version": "model-primary-assessment-1",
+          "background_suggestions": "background-records.jsonl / background-records.csv; only background suggested, not human confirmed",
+          "fixture": false,
+          "record_level_human_confirmation": false,
+          "approved_by_model": false,
+          "full_recall_claimed": false,
+          "medical_quality_approved": false,
+          "assets": [
+            {
+              "asset_id": "figure-d27c34012b81ea974679bc66-0",
+              "source_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-d27c34012b81ea974679bc66-p4-0.png",
+              "package_path": "figures/07369308a968f53d007273079bb2b82e.png",
+              "sha256": "55a9a2241324174a720221c918e013a8da008db9baf1ef50510c6b319b691145"
+            },
+            {
+              "asset_id": "figure-505a46fc6b413830ca0b8070-0",
+              "source_path": "docs/acceptance/s0-s4-recheck-2026-11-08/production/L07/figure-assets/figure-505a46fc6b413830ca0b8070-p6-0.png",
+              "package_path": "review-materials/49f4ec25120cb35d69720a5d87eea267.png",
+              "sha256": "dae3c2ca8da3bbb32bf395dbf29e476c50ebbd33a5ede0ac00f2bd9bb9f13c1b"
+            }
+          ],
+          "authoritative_description": "records.jsonl original_fragments; records.csv has one row per fragment",
+          "source_ir_fidelity_is_not_medical_approval": true,
+          "legacy_records_modified": false,
+          "controlled_fixture": true,
+          "origin": "controlled_fixture",
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "source_ir_sha256": "b91cddd4537ee2a7c62fac065a2a4ddd3e3cc570d695e2b8aa6f3ec7c9047e11",
+          "figure_catalog_sha256": "2b9574c0ff56c46a2c29bad3cf6840a0920ebdf11881417e3c0aaec73fc64bdf",
+          "original_28_field_records": "source-record-versions.jsonl; human-annotations.json is separate from paper text"
+        }
+      },
+      {
+        "path": "./coverage.json",
+        "content": {
+          "controlled_saved_source_replay": true,
+          "copied_record_count": 26,
+          "whole_document_summary_complete": false,
+          "task_processing_complete": false,
+          "new_model_requests": 0,
+          "medical_quality_approved": false,
+          "run_id": "run-8c7ac0c1-b83c-4587-b264-5242c7132039",
+          "state": "completed",
+          "controlled_fixture": true,
+          "automatic_resume": false
+        }
+      }
+    ]
+  }
+]

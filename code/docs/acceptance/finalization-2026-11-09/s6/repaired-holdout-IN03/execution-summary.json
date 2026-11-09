@@ -1,0 +1,161 @@
+{
+  "schema_version": "s6-independent-execution-1",
+  "plan_sha256": "438a32a0df7ce808ca3db67b38fe7db800d137808b6e0d9de28e0f7ab4fe4267",
+  "started_at": "2026-11-09T09:32:23.215Z",
+  "ended_at": "2026-11-09T09:35:52.788Z",
+  "elapsed_seconds": 209.573,
+  "sources": [
+    {
+      "source_id": "IN03",
+      "paper_id": "paper-bf3d9cc2-1350-485a-bc77-4d73860501d7",
+      "run_id": "run-1c9a5b8e-f671-4a70-be9e-fc4ea2d33ebc",
+      "status": "partial",
+      "admitted_at": "2026-11-09T09:32:23.557Z",
+      "terminal_at": "2026-11-09T09:35:52.672Z",
+      "parse_started_at": "2026-11-09T09:32:23.579Z",
+      "parse_finished_at": "2026-11-09T09:32:36.668Z",
+      "model_started_at": "2026-11-09T09:32:37.213Z",
+      "model_finished_at": "2026-11-09T09:35:52.403Z",
+      "timing": {
+        "admission_seconds": 0.017,
+        "first_progress_seconds": 0.02,
+        "first_candidate_seconds": 84.656,
+        "terminal_seconds": 209.115,
+        "admission_pass": true,
+        "first_progress_pass": true,
+        "first_candidate_pass": true,
+        "terminal_pass": true,
+        "observation_count": 1,
+        "population_p95": null
+      },
+      "upload_http_seconds": 0.016,
+      "usage": {
+        "requests": 14,
+        "input_tokens": 163208,
+        "output_tokens": 6629,
+        "conservative_missing_usage_requests": 0,
+        "elapsed_seconds": 209.218
+      },
+      "ledger": "runtime-data/s6-independent/repaired-holdout-IN03/workbench/runs/run-1c9a5b8e-f671-4a70-be9e-fc4ea2d33ebc/request-ledger.json",
+      "source_status": "valid",
+      "page_states": [
+        {
+          "physical_page": 1,
+          "status": "text_layer_extracted_fidelity_unverified",
+          "error": null,
+          "ocr_requirement": "not_detected"
+        },
+        {
+          "physical_page": 2,
+          "status": "text_layer_extracted_fidelity_unverified",
+          "error": null,
+          "ocr_requirement": "not_detected"
+        },
+        {
+          "physical_page": 3,
+          "status": "text_layer_extracted_fidelity_unverified",
+          "error": null,
+          "ocr_requirement": "not_detected"
+        }
+      ],
+      "parser_status": "partial",
+      "parser_limits": [
+        "No OCR or text burned into images",
+        "No table/header/footnote or caption association",
+        "Backend line order preserved; multi-column reading order unverified",
+        "Whole textline coordinates; exact glyph highlighting not implemented",
+        "Decoded text, Unicode, units, superscripts and omissions require human PDF comparison",
+        "Native structure/text is a candidate output, not literal source quotation",
+        "Table/page continuations are not inferred; image/OCR coverage remains explicitly unverified"
+      ],
+      "parser_metrics": {
+        "source_anchor_seconds": 0.617468,
+        "native_seconds": 11.268986462000612,
+        "mapping_seconds": 0.5897962870003539,
+        "total_seconds": 12.476251624000724,
+        "native_metrics": {
+          "parser_version": "2.145.0",
+          "total_seconds": 11.268986462000612,
+          "cpu_user_seconds": 25.217743000000002,
+          "cpu_system_seconds": 3.043272,
+          "peak_rss_bytes_process_lifetime": 1490444288,
+          "first_call_in_process": true,
+          "configuration": {
+            "device": "cpu",
+            "threads": 4,
+            "ocr": false,
+            "table_structure": true,
+            "layout_model": "docling-project/docling-layout-heron@8f39ad3c0b4c58e9c2d2c84a38465abf757272d8",
+            "table_model": "docling-project/docling-models@fc0f2d45e2218ea24bce5045f58a389aed16dc23",
+            "remote_services": false,
+            "gpu_available": false
+          },
+          "pid": 184318,
+          "status": "success",
+          "document_result_cache_used": false,
+          "model_instance_reused": false,
+          "cache_policy": "Direct local parser API on original PDF bytes every call; no document library/result-cache lookup"
+        },
+        "host_metrics": {
+          "file_check_seconds": 0.001571,
+          "backend_init_seconds": 0.007279,
+          "first_text_seconds": 0.512521,
+          "total_seconds": 0.617468,
+          "cpu_user_seconds": 0.916432,
+          "cpu_system_seconds": 0.274617,
+          "peak_rss_bytes": 178864128,
+          "peak_rss_scope": "current_process_lifetime_linux_ru_maxrss",
+          "gpu_peak_memory_bytes": null,
+          "network_document_uploads": 0,
+          "llm_calls": 0
+        },
+        "remote_document_uploads": 0,
+        "llm_calls": 0
+      },
+      "task_processing_complete": false,
+      "unprocessed_block_ids": [],
+      "failed_block_ids": [],
+      "output_count": 3,
+      "primary_count": 3,
+      "background_count": 0,
+      "figure_count": 0,
+      "random_sample_count": 3,
+      "random_denominator": 3,
+      "mechanical_passed": true,
+      "raw_ir": {
+        "path": "runtime-data/s6-independent/repaired-holdout-IN03/workbench/runs/run-1c9a5b8e-f671-4a70-be9e-fc4ea2d33ebc/document-ir.json",
+        "sha256": "96322cd0c46838f85484960de3cbc9a76f61b6063f65213bc379e19b415b565d"
+      },
+      "figure_catalog": {
+        "path": "runtime-data/s6-independent/repaired-holdout-IN03/workbench/runs/run-1c9a5b8e-f671-4a70-be9e-fc4ea2d33ebc/figure-catalog.json",
+        "sha256": "65fb80bbed95f85d8f157bee91fd1db732de561bfbbafd5f53a6bb77219ef752"
+      },
+      "candidate_package": "runtime-data/s6-independent/repaired-holdout-IN03/candidate-packages/IN03",
+      "source_pdf_modified": false,
+      "medical_quality_approved": false,
+      "actual_human_reviewed_count": 0
+    }
+  ],
+  "peak_active_tasks": 1,
+  "actual_two_task_overlap": false,
+  "actual_usage": {
+    "requests": 14,
+    "input_tokens": 163208,
+    "output_tokens": 6629
+  },
+  "provider_token_overrun": false,
+  "stop_reason": "s6_unrecovered_task_incomplete",
+  "budget_closed": true,
+  "unused_allowance_closed": true,
+  "sampled_process_tree_peak_rss_bytes": 1850261504,
+  "resource_sample_interval_ms": 500,
+  "observation_count": 1,
+  "population_p95": null,
+  "monetary_cost": null,
+  "cost_status": "unknown_gateway_billing",
+  "production_mutations": 0,
+  "production_record_approvals": 0,
+  "medical_quality_approved": false,
+  "delegated_source_review_status": "pending",
+  "independent_experiment_complete": false
+}

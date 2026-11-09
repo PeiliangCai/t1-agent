@@ -1,0 +1,249 @@
+{
+  "schema_version": "s5-real-model-preparation-checks-1",
+  "status": "ready_pending_new_user_authorization",
+  "prepared_at": "2026-11-09T03:31:56.492571+00:00",
+  "plan_path": "docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json",
+  "plan_sha256": "6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770",
+  "code_input_runtime_pins": 64,
+  "current_new_paid_permission": 0,
+  "new_real_provider_attempts": 0,
+  "real_execution_directory_exists": false,
+  "checks": {
+    "offline_tests": {
+      "passed": 17,
+      "failed": 0,
+      "path": "offline-tests.log",
+      "sha256": "5c3e5c39708de0f85ce6f330e87d46dd8c6f55b17ba99c21d1ebe46bd1ddd633"
+    },
+    "typescript": {
+      "exit_code": 0,
+      "path": "typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pins_check": {
+      "exit_code": 0,
+      "path": "pins-check.log",
+      "sha256": "b5b6713afa7ee713669774e9b48411057162209f907899832c09a6141fb6da74"
+    },
+    "unapproved_execute": {
+      "expected_exit_code": 1,
+      "stopped_before_any_HTTP_or_provider_action": true,
+      "path": "unapproved-execute-check.log",
+      "sha256": "6a1967d526d35429569e445483f64f73b68ef8f61ac76fb00dcb150b15d130ae"
+    }
+  },
+  "dry_run_attempts": [
+    {
+      "path": "runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-e288c3d8-a35f-4170-81bd-4b53ecccb335/verification-report.json",
+      "sha256": "dee7b39fa787bcc57eefd53914f2a4917050f82dda76175283dae67d4d9ef899",
+      "phase": "stopped",
+      "plan_sha256": "041e16d326bdaf50ffb135f6c6902b8fefba2e33c9cb7f894a7dadd5269182b9",
+      "paper_id": null,
+      "run_id": null,
+      "requests": 0,
+      "actual_new_provider_run": false,
+      "diagnostic": "Initial generic error only; no run admitted and no diagnostic captured.",
+      "ordinary_main_restored": {
+        "restored_pid": 78890,
+        "health": {
+          "status": "ok",
+          "stage": "S5",
+          "workflow_implemented": true,
+          "controlled_fixture": false,
+          "new_paid_run_verified": false
+        },
+        "capabilities": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "full_S5_complete": false,
+          "controlled_fixture": false,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        }
+      },
+      "report_file_modified_at": "2026-11-09T03:25:41.914384+00:00"
+    },
+    {
+      "path": "runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-6b2e7056-8df3-4ff0-b82a-fa5bfc78edb6/verification-report.json",
+      "sha256": "125bd621f58fb6d215f10972dd59690f62d4d8b77f398bbae024240d0fbf7484",
+      "phase": "stopped",
+      "plan_sha256": "5802f88b7ecd1e6ea5f26e146c658b95da278d44e130b51f474ab73e88fa84d6",
+      "paper_id": null,
+      "run_id": null,
+      "requests": 0,
+      "actual_new_provider_run": false,
+      "diagnostic": "response.json: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n    at executePlan (/home/ecs-user/projects/t1-agent/code/scripts/verify-s5-workbench.ts:175:33)\n    at async <anonymous> (/home/ecs-user/projects/t1-agent/code/scripts/verify-s5-workbench.ts:225:73)",
+      "ordinary_main_restored": {
+        "restored_pid": 79648,
+        "health": {
+          "status": "ok",
+          "stage": "S5",
+          "workflow_implemented": true,
+          "controlled_fixture": false,
+          "new_paid_run_verified": false
+        },
+        "capabilities": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "full_S5_complete": false,
+          "controlled_fixture": false,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        }
+      },
+      "report_file_modified_at": "2026-11-09T03:26:52.964919+00:00"
+    },
+    {
+      "path": "runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-561605c9-1b49-467e-875b-5905f7e2d503/verification-report.json",
+      "sha256": "5122ffe0f2ac158dd15499ebd2eba603fa0898ce8dcdc126d4da076396d44dda",
+      "phase": "finished",
+      "plan_sha256": "6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770",
+      "paper_id": "paper-310dd7b2-eb97-4518-a609-ca86a5ff990c",
+      "run_id": "run-8e4c5cfc-cb41-4148-b40d-46846ad175a0",
+      "requests": 0,
+      "actual_new_provider_run": false,
+      "diagnostic": null,
+      "ordinary_main_restored": {
+        "restored_pid": 80611,
+        "health": {
+          "status": "ok",
+          "stage": "S5",
+          "workflow_implemented": true,
+          "controlled_fixture": false,
+          "new_paid_run_verified": false
+        },
+        "capabilities": {
+          "schema_version": "t1-workbench-capabilities-1",
+          "read_only": false,
+          "paper_upload": true,
+          "extraction_start": false,
+          "persisted_review": true,
+          "approved_export": true,
+          "backend_pi_sdk": "1.4.0",
+          "full_S5_complete": false,
+          "controlled_fixture": false,
+          "max_pdf_bytes": 52428800,
+          "extraction_unavailable_reason": "server_model_not_enabled"
+        }
+      },
+      "report_file_modified_at": "2026-11-09T03:28:19.872573+00:00"
+    }
+  ],
+  "passing_browser_preview": {
+    "report_path": "runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-561605c9-1b49-467e-875b-5905f7e2d503/verification-report.json",
+    "report_sha256": "5122ffe0f2ac158dd15499ebd2eba603fa0898ce8dcdc126d4da076396d44dda",
+    "existing_Next_real_browser_upload_start_original_page_saved_candidate_view": true,
+    "actual_UI_candidate_download_buttons": [
+      "JSONL",
+      "CSV",
+      "tar.gz"
+    ],
+    "records_from_saved_S4_replay": 2,
+    "new_CPU_or_model_execution": false,
+    "provider_requests": 0,
+    "human_review_rows": 0,
+    "human_annotation_rows": 0,
+    "cleanup": [
+      "closed",
+      "closed"
+    ],
+    "normal_main_restored": {
+      "restored_pid": 80611,
+      "health": {
+        "status": "ok",
+        "stage": "S5",
+        "workflow_implemented": true,
+        "controlled_fixture": false,
+        "new_paid_run_verified": false
+      },
+      "capabilities": {
+        "schema_version": "t1-workbench-capabilities-1",
+        "read_only": false,
+        "paper_upload": true,
+        "extraction_start": false,
+        "persisted_review": true,
+        "approved_export": true,
+        "backend_pi_sdk": "1.4.0",
+        "full_S5_complete": false,
+        "controlled_fixture": false,
+        "max_pdf_bytes": 52428800,
+        "extraction_unavailable_reason": "server_model_not_enabled"
+      }
+    }
+  },
+  "production_after_preview": {
+    "backend": "http://127.0.0.1:3210",
+    "caps": {
+      "schema_version": "t1-workbench-capabilities-1",
+      "read_only": false,
+      "paper_upload": true,
+      "extraction_start": false,
+      "persisted_review": true,
+      "approved_export": true,
+      "backend_pi_sdk": "1.4.0",
+      "full_S5_complete": false,
+      "controlled_fixture": false,
+      "max_pdf_bytes": 52428800,
+      "extraction_unavailable_reason": "server_model_not_enabled"
+    },
+    "database_counts": {
+      "workbench_runs": 8,
+      "workbench_reviews": 0,
+      "workbench_annotations": 0
+    },
+    "no_test_reviews_copied_to_production": true
+  },
+  "frontend": {
+    "preview_build_id": "IUAPpylbHMhl5-Mg9gPNJ",
+    "final_build_id_will_be_recorded_before_authorized_execution": true,
+    "pending_display_only_fix": "frontend owner is fixing raw partial vs explicit task_processing_complete display; no backend/input pin changes"
+  },
+  "requested_scope": {
+    "one_existing_L01": true,
+    "fresh_CPU_then_B0": true,
+    "model": {
+      "provider": "agicto",
+      "endpoint": "https://api.agicto.cn/v1",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "api": "openai-responses"
+    },
+    "limits": {
+      "requests": 40,
+      "input_tokens": 1000000,
+      "output_tokens": 60000,
+      "seconds": 1800,
+      "request_seconds": 120,
+      "document_seconds": 1800,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 16
+    },
+    "unrestricted": true,
+    "all_retries_and_summary_count": true,
+    "entire_round_retry_allowed": false,
+    "unused_allowance_closed": true,
+    "money_known": false
+  },
+  "operator_commands": {
+    "preflight": "cd code && bash scripts/with-node.sh npx tsx scripts/verify-s5-workbench.ts check docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json",
+    "after_new_user_approval_only": "After coordinating the unique frontend and stopping only the verified current ordinary main PID on3210: cd code && bash scripts/with-node.sh npx tsx scripts/verify-s5-workbench.ts execute docs/acceptance/s5-workflow-2026-11-09/real-model/plan.json --new-user-approved-plan-sha256 6f316da05978ece9f62aad9a07c8272ade21ffd56b186dc9f7d74dfb214f1770",
+    "cleanup": "Harness finally closes trial service and restores ordinary model-disabled main with health recorded; separate trial DB/files remain as unapproved new-source evidence."
+  },
+  "unverified": [
+    "Actual new L01 fresh DoclingCPU -> external AGICTO model/Pi/B0 through the browser remains unexecuted pending new user authorization.",
+    "A completed engineering path is not model selection, statistical medical quality or S6 acceptance.",
+    "Token limits are local pre-dispatch reservations and post-response provider accounting; not a guaranteed provider monetary/hard-input cap."
+  ],
+  "formal_reviews": "Existing S4 3/3 unchanged; no extra review round."
+}

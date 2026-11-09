@@ -36,6 +36,12 @@ export const BlockV2Schema = Type.Object({
   page: Type.Integer({ minimum: 1 }), type: Type.Literal('text'), semantic_type_status: Type.Literal('unclassified_textline'),
   reading_order: Type.Integer({ minimum: 0 }), bbox: box, source_geometry: SourceGeometrySchema,
   backend_cell_index: Type.Integer({ minimum: 0 }),
+  source_glyph_issues: Type.Optional(Type.Array(Type.Object({
+    code: Type.Literal('sparse_embedded_font_without_unicode_mapping'),
+    start: Type.Integer({ minimum: 0 }), end: Type.Integer({ minimum: 1 }),
+    font_name: id, font_program_sha256: hash, pdf_character_code: Type.Integer({ minimum: 0 }),
+    precision: Type.Enum(['glyph_offset', 'whole_textline_fallback']),
+  }, closed))),
 }, closed);
 export type BlockV2 = Static<typeof BlockV2Schema>;
 
@@ -48,7 +54,8 @@ export const DocumentIRV2Schema = Type.Object({
   parser: Type.Object({ id, version: id, status: Type.Enum(['parsed', 'partial', 'unsupported']),
     config: Type.Object({ adapter_version: id, adapter_sha256: hash, config_revision: id, normalization_version: id,
       do_sanitization: Type.Literal(false), keep_glyphs: Type.Literal(false), ocr_enabled: Type.Literal(false),
-      table_reconstruction: Type.Literal(false), reading_order: Type.Literal('backend_textline_order_unverified'), metadata_backend: id }, closed),
+      table_reconstruction: Type.Literal(false), reading_order: Type.Literal('backend_textline_order_unverified'), metadata_backend: id,
+      font_glyph_guard_version: Type.Optional(id), font_glyph_guard_sha256: Type.Optional(hash) }, closed),
     config_digest: hash,
   }, closed),
   text_version: id, raw_text_version: id, offset_unit: Type.Literal('unicode_code_point'), offset_interval: Type.Literal('[start,end)'),
@@ -105,6 +112,7 @@ export function documentIRV2Issues(document: DocumentIRV2): string[] {
   for (const [i, block] of document.blocks.entries()) {
     if (block.document_id !== document.document_id || block.text_version !== document.text_version || !validPages.has(block.page) || block.reading_order !== i) issues.push('block_binding_mismatch');
     const raw = Array.from(block.raw_text), normalized = Array.from(block.text);
+    if (block.source_glyph_issues?.some(g => g.start >= g.end || g.end > normalized.length)) issues.push('invalid_source_glyph_issue');
     let rawEnd = 0, normalizedEnd = 0;
     for (const run of block.normalization_map) {
       const a = raw.slice(run.raw_start, run.raw_end).join(''), b = normalized.slice(run.normalized_start, run.normalized_end).join('');
@@ -118,7 +126,7 @@ export function documentIRV2Issues(document: DocumentIRV2): string[] {
   const noText = document.pages.filter(p => p.status !== 'failed' && !p.text_layer_present).map(p => p.physical_page);
   const images = document.pages.filter(p => p.bitmap_count).map(p => p.physical_page);
   const failed = document.pages.filter(p => p.status === 'failed').map(p => ({ physical_page: p.physical_page, code: p.error?.code }));
-  const state = !ids.length ? 'unsupported' : failed.length || noText.length || images.length ? 'partial' : 'parsed';
+  const state = !ids.length ? 'unsupported' : failed.length || noText.length || images.length || document.blocks.some(b => b.source_glyph_issues?.length) ? 'partial' : 'parsed';
   if (!same(textPages, document.coverage.text_layer_pages) || !same(failed, document.coverage.failed_pages) || !same(noText, document.coverage.pages_without_text) ||
     !same(images, document.coverage.image_text_unverified_pages) || document.coverage.text_layer_decode_complete !== (textPages.length === pages.length) ||
     document.parser.status !== state) issues.push('page_coverage_mismatch');

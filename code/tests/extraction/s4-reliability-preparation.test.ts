@@ -1,3 +1,4 @@
+import { freshPreparedSource } from './fixtures/current-parser.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
@@ -26,6 +27,7 @@ test('current runner prepares two independent B0/F smoke jobs with exact current
   const directory = await mkdtemp(resolve('runtime-data/reliability-prepare-fixture-'));
   try {
     const { config } = await fixture(), configPath = join(directory, 'config.json'), prepared = join(directory, 'prepared');
+    config.papers = [freshPreparedSource('L05', directory)];
     await writeFile(configPath, JSON.stringify(config));
     const result = JSON.parse(cli(['prepare', '--directory', relative(code, prepared), '--config', relative(code, configPath)]));
     assert.equal(result.paid_calls, 0); assert.deepEqual(result.execution_job_ids, ['L05-B0', 'L05-F']);

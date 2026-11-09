@@ -9,7 +9,6 @@ import ts from "typescript";
 
 const jiti = createJiti(import.meta.url, { alias: { "@": fileURLToPath(new URL("../", import.meta.url)) } });
 const { createTerminal, getTerminalCwd, hasTerminal, killTerminal, subscribeTerminal, TERMINAL_RECONNECT_MS } = await jiti.import("./terminal-manager.ts");
-const { GET } = await jiti.import("../app/api/terminal/[id]/events/route.ts");
 // The vm harnesses below require() terminal-manager's imports; the SDK is ESM-only, so they get this stub.
 const piSdkStub = { getPowerShellConfig() { throw new Error("No PowerShell executable found."); } };
 
@@ -205,40 +204,31 @@ test("unclaimed creations expire without requiring a browser cleanup request", (
   assert.equal(hasTerminal(id), false);
 });
 
-test("SSE resumes from Last-Event-ID and cancellation releases the connection lease", async (t) => {
+test("retained terminal subscriptions replay an offset and release their connection lease", (t) => {
   const id = createTerminal(process.cwd(), 80, 24);
   t.after(() => killTerminal(id));
   const record = globalThis.__piWebTerminals.get(id);
   record.backlog = "old\r\nnew\r\n";
   record.offset = record.backlog.length;
-  const request = new Request("http://localhost/events?after=0", { headers: { "Last-Event-ID": "5" } });
-  const response = await GET(request, { params: Promise.resolve({ id }) });
-  const reader = response.body.getReader();
-  await reader.read();
-  const replay = new TextDecoder().decode((await reader.read()).value);
-  assert.match(replay, /id: 10\n/);
-  assert.deepEqual(JSON.parse(replay.split("data: ")[1]), { type: "output", data: "new\r\n", offset: 10, reset: false });
-  await reader.cancel();
+  const subscription = subscribeTerminal(id, () => {}, 5);
+  assert.deepEqual(subscription.output, { type: "output", data: "new\r\n", offset: 10, reset: false });
+  assert.equal(record.listeners.size, 1);
+  subscription.unsubscribe();
   assert.equal(record.listeners.size, 0);
   assert.ok(record.cleanupTimer);
 });
 
-test("expired output cursors reset bounded history, while explicit close ends connected streams", async (t) => {
+test("expired cursors reset bounded library history and closing notifies connected subscribers", (t) => {
   const id = createTerminal(process.cwd(), 80, 24);
   t.after(() => killTerminal(id));
   const record = globalThis.__piWebTerminals.get(id);
   record.backlog = "tail";
   record.offset = 100;
-  const subscription = subscribeTerminal(id, () => {}, 10);
+  const events = [];
+  const subscription = subscribeTerminal(id, event => events.push(event), 10);
   assert.deepEqual(subscription.output, { type: "output", data: "tail", offset: 100, reset: true });
-  subscription.unsubscribe();
-  const response = await GET(new Request("http://localhost/events"), { params: Promise.resolve({ id }) });
-  const reader = response.body.getReader();
-  await reader.read();
-  await reader.read();
   killTerminal(id);
-  assert.match(new TextDecoder().decode((await reader.read()).value), /"type":"closed"/);
-  assert.equal((await reader.read()).done, true);
+  assert.deepEqual(events, [{ type: "closed" }]);
   assert.equal(record.listeners.size, 0);
   assert.equal(hasTerminal(id), false);
 });

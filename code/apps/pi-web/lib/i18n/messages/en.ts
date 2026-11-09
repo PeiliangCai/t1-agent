@@ -1,3 +1,4 @@
+import { t1En } from "../../../t1/messages.mjs";
 import type { LocalePlugin } from "../types";
 
 /** Pi Web 内置英语语言包。 */
@@ -5,6 +6,7 @@ export const enLocale: LocalePlugin = {
   id: "en",
   label: "English",
   messages: {
+    ...t1En,
     "common.ok": "OK",
     "common.language": "Language",
     "common.models": "Models",

@@ -1,0 +1,649 @@
+{
+  "type": "object",
+  "required": [
+    "binding",
+    "source_fragments",
+    "context_fragments",
+    "display_joiner",
+    "feature_binding_id",
+    "feature_name_raw",
+    "feature_category",
+    "evidence_type",
+    "disease_or_lesion",
+    "modality",
+    "sequence_or_phase",
+    "assertion",
+    "applicability",
+    "numeric_expressions",
+    "provenance",
+    "translation_zh"
+  ],
+  "properties": {
+    "binding": {
+      "type": "object",
+      "required": [
+        "task_id",
+        "run_id",
+        "document_id",
+        "file_sha256",
+        "source_version",
+        "text_version"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "document_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "file_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "text_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "exact_quote"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "exact_quote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "occurrence": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 64
+    },
+    "context_fragments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "exact_quote"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "exact_quote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "occurrence": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "maxItems": 128
+    },
+    "display_joiner": {
+      "type": "string",
+      "maxLength": 8
+    },
+    "feature_binding_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "feature_name_raw": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "feature_category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "evidence_type": {
+      "enum": [
+        "feature_mention",
+        "definition",
+        "imaging_observation",
+        "interpretive_condition",
+        "association_conclusion"
+      ]
+    },
+    "disease_or_lesion": {
+      "type": "object",
+      "required": [
+        "value",
+        "status",
+        "evidence"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "unknown",
+            "source_observed"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "exact_quote"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "modality": {
+      "type": "object",
+      "required": [
+        "value",
+        "status",
+        "evidence"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "unknown",
+            "source_observed"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "exact_quote"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sequence_or_phase": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "value",
+            "status",
+            "evidence"
+          ],
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "enum": [
+                "unknown",
+                "source_observed"
+              ]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "block_id",
+                  "exact_quote"
+                ],
+                "properties": {
+                  "block_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "exact_quote": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "occurrence": {
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "assertion": {
+      "type": "object",
+      "required": [
+        "value",
+        "original_wording",
+        "evidence"
+      ],
+      "properties": {
+        "value": {
+          "enum": [
+            "affirmed",
+            "negated",
+            "uncertain",
+            "conditional",
+            "comparative",
+            "unknown"
+          ]
+        },
+        "original_wording": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "exact_quote"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "applicability": {
+      "type": "object",
+      "required": [
+        "status",
+        "original_wording",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "specified",
+            "unknown"
+          ]
+        },
+        "original_wording": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "exact_quote"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "numeric_expressions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "original_text",
+          "unit_original",
+          "evidence"
+        ],
+        "properties": {
+          "original_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit_original": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "block_id",
+                "exact_quote"
+              ],
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exact_quote": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "occurrence": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "origin",
+        "cited_references",
+        "evidence"
+      ],
+      "properties": {
+        "origin": {
+          "enum": [
+            "study_authors",
+            "cited_research",
+            "background_definition",
+            "unclear"
+          ]
+        },
+        "cited_references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "block_id",
+              "exact_quote"
+            ],
+            "properties": {
+              "block_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "exact_quote": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "translation_zh": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "structure_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "id",
+          "relationship_used"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "table",
+              "picture",
+              "unit"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "relationship_used": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "supporting_table_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "table_id",
+          "reference_fragments",
+          "value_fragments"
+        ],
+        "properties": {
+          "table_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "reference_fragments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "block_id",
+                "exact_quote"
+              ],
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exact_quote": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "occurrence": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 64
+          },
+          "value_fragments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "block_id",
+                "exact_quote"
+              ],
+              "properties": {
+                "block_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exact_quote": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "occurrence": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 64
+          }
+        },
+        "additionalProperties": false
+      },
+      "maxItems": 16
+    },
+    "updates_record_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    }
+  },
+  "additionalProperties": false
+}

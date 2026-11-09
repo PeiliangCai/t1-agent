@@ -3,7 +3,12 @@ import typescript from "eslint-config-next/typescript";
 
 const eslintConfig = [
   // demo/ is a separate Next.js project with its own lint config.
-  { ignores: ["demo/**"] },
+  { ignores: [
+    "demo/**",
+    // Byte-for-byte copied PDF.js distributions, not application source.
+    "public/t1-assets/pdfjs/**",
+    "public/output-review/pdfjs/**",
+  ] },
   ...coreWebVitals,
   ...typescript,
   {

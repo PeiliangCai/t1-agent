@@ -11,7 +11,7 @@ const executable = command === 'check'
   : resolve(frontend, 'node_modules/next/dist/bin/next');
 const args = command === 'check' ? ['--noEmit']
   : command === 'build' ? ['build', '--webpack']
-  : ['dev', 'start'].includes(command) ? [command, '--hostname', '127.0.0.1', '--port', '5173'] : null;
+  : ['dev', 'start'].includes(command) ? [command, '--hostname', '127.0.0.1', '--port', '30141'] : null;
 if (!args) throw new Error('Use pi-web.mjs dev|build|start|check');
 if (command === 'dev' || command === 'build') {
   const pdf = resolve(frontend, 'node_modules/pdfjs-dist');

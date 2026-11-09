@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import { resolve, join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { writeFile } from 'node:fs/promises';
+const code=resolve('.'),base=join(code,'docs/acceptance/finalization-2026-11-09/s6/parser-regression'),origin='http://127.0.0.1:30141';
+process.env.PLAYWRIGHT_BROWSERS_PATH=join(code,'.tools/annotation-browser/browsers');
+process.env.LD_LIBRARY_PATH=[join(code,'.tools/annotation-browser/sysroot/usr/lib/x86_64-linux-gnu'),process.env.LD_LIBRARY_PATH].filter(Boolean).join(':');
+const {chromium}=await import(pathToFileURL(join(code,'.tools/annotation-browser/node_modules/playwright/index.mjs')).href);
+const browser=await chromium.launch({headless:true,channel:'chromium',chromiumSandbox:false});const report={errors:[],mutations:[],checks:[]};
+try {for(const locale of ['zh-CN','en','zh-TW']) {
+ const context=await browser.newContext({viewport:{width:1512,height:1050}});
+ await context.addInitScript(locale=>{localStorage.setItem('pi-locale',locale);localStorage.setItem('pi-theme','light');},locale);
+ await context.route(/^https?:\/\//,route=>{const r=route.request();assert.equal(new URL(r.url()).origin,origin);if(!['GET','HEAD'].includes(r.method())){report.mutations.push(r.method());return route.abort();}return route.continue();});
+ const page=await context.newPage();page.on('pageerror',e=>report.errors.push(String(e)));
+ await page.goto(origin+'/?paper=L07&run=b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07&view=records');
+ await page.locator('.t1-evidence-card').waitFor();await page.locator('.t1-exports').scrollIntoViewIfNeeded();
+ const hint=await page.locator('.t1-exports [role="note"]').innerText();assert.ok(hint.length>15);assert.ok(!hint.includes('t1.'));
+ report.checks.push({locale,legacy_hint:hint,original_records_readable:true});if(locale==='zh-CN')await page.screenshot({path:join(base,'legacy-export-hint-zh-CN.png'),fullPage:true});await context.close();
+}assert.deepEqual(report.errors,[]);assert.deepEqual(report.mutations,[]);report.passed=true;
+}finally{await browser.close();await writeFile(join(base,'ui-readonly-result.json'),JSON.stringify(report,null,2)+'\n');}console.log(JSON.stringify(report));

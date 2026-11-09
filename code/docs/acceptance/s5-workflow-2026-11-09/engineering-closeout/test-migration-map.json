@@ -1,0 +1,82 @@
+{
+  "reproduction": {
+    "executed": 50,
+    "passed": 36,
+    "failed": 14,
+    "log": "reproduced-legacy-failures.log"
+  },
+  "targeted_after_fix": {
+    "executed": 64,
+    "passed": 64,
+    "failed": 0,
+    "skipped": 0,
+    "log": "targeted-tests-final.log"
+  },
+  "full_after_fix": {
+    "executed": 3047,
+    "passed": 3047,
+    "failed": 0,
+    "skipped": 0,
+    "log": "full-npm-test.log",
+    "source_checkpoint": "after legacy-test migration, before two encoded-ID regression tests"
+  },
+  "comparison_to_first_full_run": {
+    "first_full_tests": 2854,
+    "new_full_tests": 3047,
+    "difference": 193,
+    "interpretation": "Not 193 new tests. The old run had locale-alias module-load errors plus two retired-route import failures that prevented whole test modules from running; those modules now run their retained cases. This round rewrites obsolete route expectations, preserves valid library tests, and adds one explicit static-asset allowlist case."
+  },
+  "declared_test_call_counts": [
+    {
+      "file": "apps/pi-web/lib/model-discovery.test.mjs",
+      "old_declared_test_calls": 7,
+      "after_legacy_migration_declared_calls": 7,
+      "final_declared_test_calls": 7
+    },
+    {
+      "file": "apps/pi-web/lib/page-stream-registry.test.mjs",
+      "old_declared_test_calls": 3,
+      "after_legacy_migration_declared_calls": 3,
+      "final_declared_test_calls": 3
+    },
+    {
+      "file": "apps/pi-web/lib/project-trust.test.mjs",
+      "old_declared_test_calls": 25,
+      "after_legacy_migration_declared_calls": 25,
+      "final_declared_test_calls": 25
+    },
+    {
+      "file": "apps/pi-web/lib/session-membership.integration.test.mjs",
+      "old_declared_test_calls": 1,
+      "after_legacy_migration_declared_calls": 1,
+      "final_declared_test_calls": 1
+    },
+    {
+      "file": "apps/pi-web/lib/stream-client.test.mjs",
+      "old_declared_test_calls": 4,
+      "after_legacy_migration_declared_calls": 4,
+      "final_declared_test_calls": 4
+    },
+    {
+      "file": "apps/pi-web/lib/terminal-manager.test.mjs",
+      "old_declared_test_calls": 13,
+      "after_legacy_migration_declared_calls": 13,
+      "final_declared_test_calls": 13
+    },
+    {
+      "file": "apps/pi-web/lib/web-auth-proxy.test.mjs",
+      "old_declared_test_calls": 9,
+      "after_legacy_migration_declared_calls": 10,
+      "final_declared_test_calls": 11
+    }
+  ],
+  "notes": "Session membership uses two parameterized directory-presence cases per one declared test call. No skip/TODO or suite-wide exclusion was introduced.",
+  "final_encoded_id_fix": {
+    "targeted_tests": 30,
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "full_suite_repeated": false,
+    "new_regression_tests_added_after_full_checkpoint": 2
+  }
+}

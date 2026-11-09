@@ -1,0 +1,177 @@
+{
+  "schema_version": "s7-container-runtime-verification-1",
+  "started_at": "2026-11-09T08:33:40.247Z",
+  "controlled_synthetic": true,
+  "paid_requests": 0,
+  "production_writes": false,
+  "checks": [
+    {
+      "name": "image contains code and fresh locked dependencies without host data/credentials",
+      "passed": true,
+      "detail": {
+        "uid": 10001,
+        "node": "v24.22.2",
+        "forbidden": [],
+        "docs": [
+          "s3",
+          "s4"
+        ]
+      },
+      "at": "2026-11-09T08:33:40.843Z"
+    }
+  ],
+  "unverified": [],
+  "ordinary_before": {
+    "/health": "2557455f53f8f5bfb472ec1dc0385a562522f2a3bba28d092d4f8cb844c68943",
+    "/api/workbench/papers": "b889cfbf673d058b1387876981d690430db6ce0c11b3e42fd5b60b9a6667a1be",
+    "/api/workbench/runs": "47eae282646cc6c09a49093f40c1d48fe01d57e49546cc9247ac52cb610ab3cd",
+    "database_tables": [
+      {
+        "table": "events",
+        "rows": 5,
+        "sha256": "33b07c5ce1c17a922ede28d08776ecadc62cc8355b7c889fe99126172ba30ce1"
+      },
+      {
+        "table": "records",
+        "rows": 1,
+        "sha256": "d082b71eef8a504007dfd4779ad4d0c0f424e28e41c410281ce73f7e29ba46f5"
+      },
+      {
+        "table": "runs",
+        "rows": 1,
+        "sha256": "e25d932b9dcb541c6a830ad1607109541f6e865df67206c35ff72b1dc3c312a7"
+      },
+      {
+        "table": "s4_batches",
+        "rows": 5,
+        "sha256": "d29562ec9fef38f5fb97155556d456fd54d311d9208320e15b53ac24351f0b3b"
+      },
+      {
+        "table": "s4_events",
+        "rows": 67,
+        "sha256": "7ce350db3b5bb3ee118d6d558f6b29e29f51671b820d27986fce99f4440b7fc3"
+      },
+      {
+        "table": "s4_runs",
+        "rows": 9,
+        "sha256": "8ad86e5aaf216c87b2596b9e972ec79e7d118b399c447d25787764791816ddc3"
+      },
+      {
+        "table": "s4_versions",
+        "rows": 262,
+        "sha256": "a3fa04dc028c526da4bcbbe1ab436ff53fbd01ec55b58f2c9344e3db0c27b730"
+      },
+      {
+        "table": "workbench_annotations",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_deleted_sources",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_exports",
+        "rows": 3,
+        "sha256": "e0499e5425d965ee0b61d0d8b20b08f2a219b65f79b6b04cecaf958dc7d1d352"
+      },
+      {
+        "table": "workbench_papers",
+        "rows": 6,
+        "sha256": "32736106d2f28f9ae2a916d2f07f7017be1f438a1723d0ff0fba97f293f173ff"
+      },
+      {
+        "table": "workbench_reviews",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_runs",
+        "rows": 9,
+        "sha256": "263bb4c50f8dacdf0cb19910bd18e8d7da7c83d4b3d3dbfa62e5a2918402f3ab"
+      }
+    ]
+  },
+  "status": "failed",
+  "failure": {
+    "message": "fetch failed",
+    "stack": [
+      "TypeError: fetch failed"
+    ]
+  },
+  "ordinary_after": {
+    "/health": "2557455f53f8f5bfb472ec1dc0385a562522f2a3bba28d092d4f8cb844c68943",
+    "/api/workbench/papers": "b889cfbf673d058b1387876981d690430db6ce0c11b3e42fd5b60b9a6667a1be",
+    "/api/workbench/runs": "47eae282646cc6c09a49093f40c1d48fe01d57e49546cc9247ac52cb610ab3cd",
+    "database_tables": [
+      {
+        "table": "events",
+        "rows": 5,
+        "sha256": "33b07c5ce1c17a922ede28d08776ecadc62cc8355b7c889fe99126172ba30ce1"
+      },
+      {
+        "table": "records",
+        "rows": 1,
+        "sha256": "d082b71eef8a504007dfd4779ad4d0c0f424e28e41c410281ce73f7e29ba46f5"
+      },
+      {
+        "table": "runs",
+        "rows": 1,
+        "sha256": "e25d932b9dcb541c6a830ad1607109541f6e865df67206c35ff72b1dc3c312a7"
+      },
+      {
+        "table": "s4_batches",
+        "rows": 5,
+        "sha256": "d29562ec9fef38f5fb97155556d456fd54d311d9208320e15b53ac24351f0b3b"
+      },
+      {
+        "table": "s4_events",
+        "rows": 67,
+        "sha256": "7ce350db3b5bb3ee118d6d558f6b29e29f51671b820d27986fce99f4440b7fc3"
+      },
+      {
+        "table": "s4_runs",
+        "rows": 9,
+        "sha256": "8ad86e5aaf216c87b2596b9e972ec79e7d118b399c447d25787764791816ddc3"
+      },
+      {
+        "table": "s4_versions",
+        "rows": 262,
+        "sha256": "a3fa04dc028c526da4bcbbe1ab436ff53fbd01ec55b58f2c9344e3db0c27b730"
+      },
+      {
+        "table": "workbench_annotations",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_deleted_sources",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_exports",
+        "rows": 3,
+        "sha256": "e0499e5425d965ee0b61d0d8b20b08f2a219b65f79b6b04cecaf958dc7d1d352"
+      },
+      {
+        "table": "workbench_papers",
+        "rows": 6,
+        "sha256": "32736106d2f28f9ae2a916d2f07f7017be1f438a1723d0ff0fba97f293f173ff"
+      },
+      {
+        "table": "workbench_reviews",
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "table": "workbench_runs",
+        "rows": 9,
+        "sha256": "263bb4c50f8dacdf0cb19910bd18e8d7da7c83d4b3d3dbfa62e5a2918402f3ab"
+      }
+    ]
+  },
+  "ordinary_preserved": true,
+  "finished_at": "2026-11-09T08:33:47.180Z"
+}

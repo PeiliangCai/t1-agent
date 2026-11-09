@@ -1,0 +1,32 @@
+{
+  "at": "2026-11-09T07:52:25.723Z",
+  "model_calls": 0,
+  "production_mutations": 0,
+  "isolated_backend": "http://127.0.0.1:3211",
+  "checks": [
+    {
+      "name": "saved_note_reload_and_original_content_unchanged",
+      "status": "passed",
+      "ms": 49,
+      "detail": {
+        "saved_reason": "UI隔离测试：已保存备注应在刷新后回显",
+        "source_fragments": 4,
+        "source_preserved": true
+      }
+    },
+    {
+      "name": "source_page_zoom_record_navigation_search_and_poll_does_not_steal_page",
+      "status": "failed",
+      "ms": 30182,
+      "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('选择物理页', { exact: true })\u001b[22m\n\n    at /home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:23:272\n    at async check (/home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:9:67)\n    at async file:///home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:23:2"
+    }
+  ],
+  "browser_errors": [
+    "SecurityError: Failed to read the 'localStorage' property from 'Window': Access is denied for this document.\n    at <anonymous>:2:98\n    at <anonymous>:3:7"
+  ],
+  "external_requests": [],
+  "unexpected_5xx": [],
+  "mutations": [],
+  "passed": false,
+  "error": "locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('选择物理页', { exact: true })\u001b[22m\n\n    at /home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:23:272\n    at async check (/home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:9:67)\n    at async file:///home/ecs-user/projects/t1-agent/code/docs/acceptance/s5-workflow-2026-11-09/ui-polish/isolated-workflow.mjs:23:2"
+}

@@ -56,7 +56,8 @@ test('read-only HTTP views serve exact original assets and preserve unavailable 
   const store = new RunStore(), app = buildApp(store);
   try {
     const caps = (await app.inject('/api/workbench/capabilities')).json();
-    for (const key of ['paper_upload', 'extraction_start', 'persisted_review', 'approved_export', 'full_S5_complete']) assert.equal(caps[key], false);
+    for (const key of ['paper_upload', 'extraction_start', 'persisted_review', 'approved_export']) assert.equal(caps[key], false);
+    assert.equal('full_S5_complete' in caps, false);
     assert.equal(caps.backend_pi_sdk, '1.4.0'); assert.equal('annotation_url' in caps, false);
     assert.deepEqual((await app.inject('/api/workbench/runs')).json(), { runs: [] });
     assert.equal((await app.inject('/api/workbench/papers/unknown')).statusCode, 404);

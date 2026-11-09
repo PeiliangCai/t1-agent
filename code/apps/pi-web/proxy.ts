@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isApiRequestAllowed, isApiRequestHostAllowed } from "@/lib/request-security";
-import { isT1ApiPath } from "@/t1/gateway-policy";
+import { isT1ApiMethod, isT1ApiPath } from "@/t1/gateway-policy";
 
 /** Mandatory entry boundary: archived upstream coding routes are unreachable. */
 export function proxy(request: NextRequest) {
@@ -16,8 +16,8 @@ export function proxy(request: NextRequest) {
       || /^\/icons\/[A-Za-z0-9_.-]+\.(?:png|svg|ico)$/.test(path) || path === "/favicon.ico";
   const tabIcon = /^\/icons\/catppuccin\/(?:latte|mocha)\/_file\.svg$/.test(path);
   if (!allowed && !tabIcon) return NextResponse.json({ error: "t1_route_unavailable" }, { status: 404 });
-  if (request.method !== "GET" && request.method !== "HEAD" && !path.startsWith("/_next/")) {
-    return NextResponse.json({ error: "t1_read_only" }, { status: 405, headers: { Allow: "GET, HEAD" } });
+  if (!path.startsWith("/_next/") && (api ? !isT1ApiMethod(path, request.method) : request.method !== "GET" && request.method !== "HEAD")) {
+    return NextResponse.json({ error: "t1_method_unavailable" }, { status: 405 });
   }
   return NextResponse.next();
 }

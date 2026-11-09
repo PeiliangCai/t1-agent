@@ -1,0 +1,49 @@
+{
+  "schema_version": "s6-original-page-source-observations-1",
+  "at": "2026-11-09T08:33:48.716770+00:00",
+  "reviewer_kind": "delegated_ai_operator",
+  "reviewer": "root / GPT-6-Astra max",
+  "evidence": "Root read-only comparison of new IR/Figure catalogs to rendered original pages; not a medical judgment.",
+  "changes_during_frozen_run": false,
+  "findings": [
+    {
+      "source_id": "IN01",
+      "figure": "1",
+      "physical_page": null,
+      "issue": "Original whole Figure1 is absent from the catalog.",
+      "severity": "source-completeness-defect"
+    },
+    {
+      "source_id": "IN01",
+      "figure": "unassigned-region",
+      "physical_page": 3,
+      "issue": "An unassigned source region retains only the right CT panel instead of the original complete Figure on that page.",
+      "severity": "source-completeness-defect"
+    },
+    {
+      "source_id": "IN01",
+      "figure": "2/3",
+      "physical_page": null,
+      "issue": "Catalog has figure-number caption segments but no regions; original whole figures and captions exist on source pages.",
+      "severity": "source-completeness-defect"
+    },
+    {
+      "source_id": "IN02",
+      "figure": "1",
+      "physical_page": null,
+      "issue": "Whole source region includes all three panels, but caption_segments contain only FIGURE1; actual a/b/c caption lines are omitted.",
+      "severity": "source-caption-completeness-defect"
+    },
+    {
+      "source_id": "IN02",
+      "figure": "2",
+      "physical_page": null,
+      "issue": "Caption only retains the number; this source figure is a flowchart and must not be treated as a medical image pairing.",
+      "severity": "source-caption-completeness-and-type-boundary"
+    }
+  ],
+  "Q08_complete_figure_and_caption_gate": "failed_in_initial_independent_source_probe",
+  "hash_or_range_check_is_not_completeness": true,
+  "medical_quality_approved": false,
+  "next": "Preserve frozen trial; any subsequent offline parser repair is a separate regression boundary and not a rewrite of initial independence results."
+}

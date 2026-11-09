@@ -1,0 +1,60 @@
+{
+  "source_id": "IN02",
+  "paper_id": "paper-d30282a8-9748-4c18-b0f3-da23f51993bc",
+  "run_id": "run-d9bfe79b-d432-4cd3-b531-1279d83cd6ca",
+  "status": "partial",
+  "admitted_at": "2026-11-09T08:28:54.265Z",
+  "terminal_at": "2026-11-09T08:35:38.375Z",
+  "task_processing_complete": true,
+  "timing": {
+    "http_admission_seconds": null,
+    "http_admission_note": "Client-side timer was lost when package export threw before result persistence; no invented value.",
+    "first_progress_seconds": 0.006,
+    "first_candidate_seconds": 95.534,
+    "terminal_seconds": 404.11,
+    "anchor": "Observed SSE receipt minus backend admission; original client POST timestamp unavailable.",
+    "population_p95": null
+  },
+  "parse_started_at": "2026-11-09T08:28:54.283Z",
+  "parse_finished_at": "2026-11-09T08:29:20.203Z",
+  "fresh_parse_seconds": 25.92,
+  "usage": {
+    "requests": 27,
+    "input_tokens": 354714,
+    "output_tokens": 11138
+  },
+  "ledger": "runtime-data/s6-independent/execution/workbench/runs/run-d9bfe79b-d432-4cd3-b531-1279d83cd6ca/request-ledger.json",
+  "parser_status": "partial",
+  "parser_limits": [
+    "No OCR or text burned into images",
+    "No table/header/footnote or caption association",
+    "Backend line order preserved; multi-column reading order unverified",
+    "Whole textline coordinates; exact glyph highlighting not implemented",
+    "Decoded text, Unicode, units, superscripts and omissions require human PDF comparison",
+    "Native structure/text is a candidate output, not literal source quotation",
+    "Table/page continuations are not inferred; image/OCR coverage remains explicitly unverified"
+  ],
+  "output_count": 10,
+  "primary_count": 5,
+  "background_count": 5,
+  "figure_count": 3,
+  "random_sample_count": 10,
+  "random_denominator": 10,
+  "unprocessed_block_ids": [],
+  "failed_block_ids": [],
+  "processed_block_count": 678,
+  "task_block_count": 678,
+  "candidate_package": "runtime-data/s6-independent/execution/candidate-packages/IN02",
+  "raw_ir": {
+    "path": "runtime-data/s6-independent/execution/workbench/runs/run-d9bfe79b-d432-4cd3-b531-1279d83cd6ca/document-ir.json",
+    "sha256": "1b5ac5dae8d4ff13258e7641f555fbe0e3495d24d9cd5b736b1112595d2ccb72"
+  },
+  "figure_catalog": {
+    "path": "runtime-data/s6-independent/execution/workbench/runs/run-d9bfe79b-d432-4cd3-b531-1279d83cd6ca/figure-catalog.json",
+    "sha256": "dd6395de3dbaec09b93cb91816ddd0c08c365172c2084d2b3bf0f670108f5cef"
+  },
+  "postprocessing_recovered_after_stop": true,
+  "model_calls_during_recovery": 0,
+  "medical_quality_approved": false,
+  "actual_human_reviewed_count": 0
+}

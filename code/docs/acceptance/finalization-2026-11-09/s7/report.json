@@ -1,0 +1,357 @@
+{
+  "schema_version": "s7-deployment-report-1",
+  "updated_at": "2026-11-09T11:02:16.398699+00:00",
+  "status": "engineering_delivered_real_workflow_gate_not_met",
+  "stage_passed": false,
+  "autonomous_window": {
+    "observed_start": "2026-11-09T07:53:56Z",
+    "deadline": "2026-11-09T11:53:56Z",
+    "original_click_time": null
+  },
+  "formal_review": "existing3/3; no reset or new review",
+  "S7_paid_provider_requests": 20,
+  "S7_provider_reported_input_tokens": 207249,
+  "S7_provider_reported_output_tokens": 12484,
+  "all_S7_allowances_closed": true,
+  "remaining_model_permission": 0,
+  "prior_S5_S6_allowances": "Separate closed ledgers; no balance inherited. No further model call or whole-run retry.",
+  "decision": "Keep ordinary model disabled after the unconfirmed response model name caused guard-stop. Do not silently expand exact alias policy. Deployment/recovery/UI capability passes are separate from the failed real complete workflow.",
+  "implementation": {
+    "guide": {
+      "path": "deploy/README.md",
+      "sha256": "c7dabd28c9621aa71dbe6d177b6ca381629a79dab384697eb3aa911cf896a101"
+    },
+    "Dockerfile": "Dockerfile",
+    "compose": "compose.yaml",
+    "topology": "One nonroot application container: Next + Fastify + Docling CPU subprocess; publish only127.0.0.1:30142. Ordinary30141/3210 retain their own database.",
+    "data": "Separate named runtime volume; read-only pinned CPU models; SQLite single writer",
+    "secrets": "No credentials/data/evaluation/cache copied into build. Real verification used private read-only secret mount and removed host copy. Host .env original bytes preserved.",
+    "system_impact": {
+      "path": "docs/acceptance/finalization-2026-11-09/s7/system-impact.json",
+      "sha256": "d8a74b917356fa1e27876c24c9c042b25472a924c1e58f3609e99a4e76556d74"
+    },
+    "T2_contract": {
+      "path": "deploy/t2-evidence-contract.json",
+      "sha256": "5ea170da39ef3aed1a38304df869f3e845a8b815cbf0d64c888e898ee7049b51"
+    },
+    "models": "10 pinned SHA files529895165bytes mounted read-only; cold download/verify command documented; image is not fully self-contained offline.",
+    "configured_default": {
+      "provider": "agicto",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "api": "openai-responses",
+      "basis": "D02 compatibility and low-cost direction; no medical optimum claim",
+      "enabled": false,
+      "per_run_limits": {
+        "requests": 80,
+        "input_tokens": 2000000,
+        "output_tokens": 120000,
+        "execution_seconds": 1800
+      },
+      "concurrency": 2,
+      "queue": "FIFO queued state durable/cancellable; wait time excluded;30min starts at execution-slot acquisition and includes parse/model/summary; interrupted work never auto resumes"
+    },
+    "medical_catalog": {
+      "configuration": "T1_WORKBENCH_CATALOG_FILE, trusted operator read-only JSON, EvidenceCatalogSchema",
+      "currently_configured": false,
+      "status": "unavailable",
+      "three_dimensions_default": "all",
+      "production_fixture_or_development_catalog_rejected": true,
+      "invalid_config_stops_startup": true,
+      "same_version_forwarded_to_real_B0_runner": true,
+      "no_production_vocabulary_created_or_approved": true
+    },
+    "modified_areas": [
+      "Dockerfile/compose/.dockerignore/ops scripts and guide",
+      "apps/server/src main/runtime-config/catalog-config/app/workbench/workflow/workflow-runner",
+      "packages/contracts/src/workbench.ts for queue/result_ready/public runtime metadata",
+      "packages/agent/src/config.ts public diagnostic purpose removal only",
+      "server targeted tests and deployment allowance/coverage/browser/restore tools",
+      ".env.example safe-disabled configurable defaults"
+    ]
+  },
+  "checks": {
+    "controlled_container_full_core": {
+      "passed": true,
+      "count": 21,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/final-controlled/runtime-verification.json",
+        "sha256": "5b6942b39ce5fca3d2cbc364a816d5e1958829cd1bc18c76ecff326aa2fabcb6"
+      },
+      "scope": "Fresh synthetic PDF→actual CPU→installed Pi/B0 local Responses→candidate/manual text approval/separate figure approval/6 exports; restart/SSE/child exits; backup→empty-volume restore/refuse nonempty. Engineering data only, not medical validation.",
+      "version": "Full21 on pre-postfix b729 image; unchanged supervisor/backup helpers retained. Not claimed rerun21 on final copy image."
+    },
+    "active_container_interruption": {
+      "passed": true,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/container-interruption.json",
+        "sha256": "1939ccad84771a3de83467647ae5a69eea26f2016b3cf3718a9a16b3cd43b2f2"
+      },
+      "scope": "Candidate preserved/interrupted after restart/no auto resume/new explicit run from original PDF/independent cancellation"
+    },
+    "postfix_backend_targeted": {
+      "passed": true,
+      "count": 9,
+      "log": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/backend-checks.log",
+        "sha256": "bb8a05a378ece84bda73a15e2fdaebb530717eece16755d3ec1b10b2cd82dbd1"
+      },
+      "scope": "2 catalog including actual helper+loopback Pi,3 queue/cancel/restart/clock,3 runtime/public info,1 finalization/cache/export race"
+    },
+    "postfix_budget_clock_and_completion": {
+      "passed": true,
+      "count": 2,
+      "log": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/allowance-coverage-checks.log",
+        "sha256": "13ef2a7ed9580ff158cf3a567ca463e927de3de74c80c4f39277d7f040a080e5"
+      }
+    },
+    "typechecks": {
+      "root_exit_code": 0,
+      "deploy_exit_code": 0,
+      "root_log": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/typecheck.log",
+        "sha256": "1e90e037ffcba4704e27fdd05e56ec6f23f74e81ee110c354d51040ddf34d597"
+      },
+      "deploy_log": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/deploy-typecheck.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "postfix_same_browser_synthetic": {
+      "passed": true,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/zero-api-browser/execution-report.json",
+        "sha256": "b8dca31295a423a6f052283e81dda6be14b6eb36c1216daa5e5765299dc54b1d"
+      },
+      "scope": "Actual browser upload/start/original page/3 UI download buttons/final coverage/approved-without-review refusal;0paid/ordinary unchanged"
+    },
+    "real_container_model_notice": {
+      "passed": true,
+      "scope": "Before actual start, actual Luna/medium/24req/600k/32k/900s visible and equals server capability, no endpoint/key exposed. Not ordinary enabled80req verification."
+    },
+    "terminal_coverage_actual_failure_case": {
+      "passed": true,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/post-run-integrity.json",
+        "sha256": "7f8dec65fe13c879dfa332ea27d73fbac4e935733625eeeb0840814caa6e659f"
+      },
+      "scope": "Real guard-stopped task final coverage is nonnull/result_ready=true and exactly matches downloaded package; does not turn failure into pass"
+    },
+    "final_copy_only_image_health": {
+      "passed": true,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/delivery-default-health.json",
+        "sha256": "d78c07e6330fcc6b5c01b1183a0910cc773d81935c16c5632af802813daabbc0"
+      },
+      "model_calls": 0,
+      "scope": "119 delivery image pins; new isolated empty volume; default healthy/false/uncontrolled; no source parsing or approvals"
+    },
+    "ordinary_reload": {
+      "passed": true,
+      "evidence": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/production-final.json",
+        "sha256": "48a625cdda83d751a1610a0ae96a126407b16795d9a69735e7ae8024136308a4"
+      },
+      "sqlite_tables_unchanged": 13,
+      "private_env_unchanged": true,
+      "model_calls": 0
+    }
+  },
+  "real_attempts": [
+    {
+      "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04",
+      "plan_sha256": "683710f01a34b80456f974c28fbea34e34baee289d8d6de1ca4b8de78505e05c",
+      "image_id": "sha256:b7296921e49f1d7a720ae22d039c754872ef7cde6f3410bdbbabe6dae49e29a8",
+      "run_id": "run-c526c0ca-b15b-44c1-a77b-4af3029156bb",
+      "paper_id": "paper-4c341987-37d6-405d-925d-aa0d911839e8",
+      "HTTP_admitted_at": "2026-11-09T10:03:35.208Z",
+      "deadline": "2026-11-09T10:33:35.208Z",
+      "allowance_closed_at": "2026-11-09T10:10:49.767Z",
+      "requests": 15,
+      "input_tokens": 158624,
+      "output_tokens": 9837,
+      "provider_reported_requests": 15,
+      "unknown_usage_requests": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "candidates": 6,
+      "business_reviews": 0,
+      "human_annotations": 0,
+      "passed": false,
+      "unused_allowance_closed": true,
+      "container_stopped": true,
+      "private_key_removed": true,
+      "ordinary_database_unchanged": true,
+      "report": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/execution-report.json",
+        "sha256": "5a0b2150f19808c6e04ef9cffbce91ce467910e432b50808b81671f53071fb15"
+      },
+      "ledger": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/allowance-ledger-and-state.json",
+        "sha256": "c8b10eec2d1c67459ce5b78722b24961b00aff80a4a93028f57e8cf31a00583d"
+      },
+      "downloads": [
+        {
+          "kind": "candidate_jsonl",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/candidate_jsonl.jsonl",
+          "sha256": "62d6dbb2d858662a94171622e04ff60c4d7f396c86f0689a83dfcd73c555ccfc",
+          "bytes": 14364
+        },
+        {
+          "kind": "candidate_csv",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/candidate_csv.csv",
+          "sha256": "d8a5e30430e1d993c4f5899de676ab73c800084f3d359924571a0bba334acb76",
+          "bytes": 2994
+        },
+        {
+          "kind": "candidate_package",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/candidate_package.tar.gz",
+          "sha256": "a7c4e765782362dc8d87e8c193655009656f9702cdc73a6b92966acc13edf540",
+          "bytes": 1778662
+        }
+      ],
+      "failure": "summary tool schema validation then update_target_feature_mismatch; final saved summary incomplete",
+      "final_coverage_recovery": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/recovered-final-exports/recovery.json",
+        "sha256": "6c962d6f06d7decd3e95db99ac62c022e93359f69d706514b76fa34f3f7af62c"
+      },
+      "coverage_first_observation": "Original browser observed null before final persistence; frozen first exports unchanged. Saved final false summary confirmed by separate0API recovery.",
+      "source_review": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/real-provider-IN04/root-source-review.json",
+        "sha256": "c2ec0ce3ac8557263c57f1b782b7df3ba21c0a1a5c35437545f5d4f255de4445"
+      },
+      "medical_or_business_approval": false
+    },
+    {
+      "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression",
+      "plan_sha256": "4857d7d9e880245ed892ee3bfb189232ac04663ee60bd7ba65d9bfe79058ea9d",
+      "image_id": "sha256:a21885691cda28be3cda2f48357cf9990bdfd5a607f66621ed524c1df59fa0c6",
+      "run_id": "run-668e010a-aa8d-4936-b5d4-a1173c5b3dc5",
+      "paper_id": "paper-08d33aa2-931a-45b4-ba2c-71128a68106d",
+      "HTTP_admitted_at": "2026-11-09T10:47:41.702Z",
+      "deadline": "2026-11-09T11:02:41.702Z",
+      "allowance_closed_at": "2026-11-09T10:50:49.653Z",
+      "requests": 5,
+      "input_tokens": 48625,
+      "output_tokens": 2647,
+      "provider_reported_requests": 5,
+      "unknown_usage_requests": 0,
+      "actual_cost": null,
+      "cost_status": "unknown_gateway_billing",
+      "candidates": 5,
+      "business_reviews": 0,
+      "human_annotations": 0,
+      "passed": false,
+      "unused_allowance_closed": true,
+      "container_stopped": true,
+      "private_key_removed": true,
+      "ordinary_database_unchanged": true,
+      "report": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/execution-report.json",
+        "sha256": "549fb9299a29779dd79bc7990c80e5222bf195700c7a8229a45f24257cb0e416"
+      },
+      "ledger": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/allowance-ledger-and-state.json",
+        "sha256": "5bfa07e620aed9e9f5bde32afda3e6a54ba9c2570de1ebaf1e2935bf0ce9d0c5"
+      },
+      "downloads": [
+        {
+          "kind": "candidate_jsonl",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/candidate_jsonl.jsonl",
+          "sha256": "484ecd5010f91005589d172987a896b6661bb171a1333555cedadaa9782dcb26",
+          "bytes": 12518
+        },
+        {
+          "kind": "candidate_csv",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/candidate_csv.csv",
+          "sha256": "9114c0225a12b284f4b3d0580d4c777a9a312758691189e65b119550a8f1a62a",
+          "bytes": 2844
+        },
+        {
+          "kind": "candidate_package",
+          "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/candidate_package.tar.gz",
+          "sha256": "c98b385939686ba3c5db000b5fe399322af0937d5a5aa1298125ea2f34d13824",
+          "bytes": 814281
+        }
+      ],
+      "purpose": "Same exposed IN04 post-fix deployment regression, new independent samples=0",
+      "failure": "response_model_identity_mismatch",
+      "requested_model": "gpt-6-luna",
+      "last_reported_model": "data-zone-standard-gpt-6-luna",
+      "alias_policy_expanded": false,
+      "whole_document_summary_started": false,
+      "whole_document_summary_complete": false,
+      "selected_processable_scope_complete": false,
+      "task_processing_complete": false,
+      "parser_status": "partial",
+      "source_blocks": 403,
+      "model_authorized_blocks": 389,
+      "completed_blocks": 128,
+      "failed_blocks": 128,
+      "unprocessed_blocks": 147,
+      "glyph_quarantined_blocks": 14,
+      "glyph_quarantine_not_delivered": true,
+      "task_processing_blockers": [
+        "selected_input_processing_incomplete",
+        "source_glyph_quarantine_unresolved",
+        "summary_incomplete",
+        "unrecovered_batch_failure_stopped"
+      ],
+      "candidate_roles": "Pre-summary default pending roles, not final primary/background assessments.",
+      "terminal_coverage_persisted_and_equals_package": true,
+      "identity_failure": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/identity-failure.json",
+        "sha256": "4c7535b31787fb11c896d601c87f8d9b43bf51a92349a97a1eee3cbedf3af655"
+      },
+      "integrity": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/post-run-integrity.json",
+        "sha256": "7f8dec65fe13c879dfa332ea27d73fbac4e935733625eeeb0840814caa6e659f"
+      },
+      "seal": {
+        "path": "docs/acceptance/finalization-2026-11-09/s7/post-fix-IN04-regression/seal.json",
+        "sha256": "a1dfdf93c52349ed2639387bb281644ae43b1283fe87f718dba1510d279ff0bd"
+      }
+    }
+  ],
+  "delivery": {
+    "final_image_tag": "t1-workbench:s7-delivery-20261109",
+    "final_image_id": "sha256:980140eddaecee95c6ffb74443b5ee8194dca9705ca6e4124e6c15e65c3ac3bd",
+    "real_regression_image_id": "sha256:a21885691cda28be3cda2f48357cf9990bdfd5a607f66621ed524c1df59fa0c6",
+    "copy_only_change": {
+      "path": "docs/acceptance/finalization-2026-11-09/s7/delivery-copy-only-diff.json",
+      "sha256": "457c009e0fade2b51489e6cdd38a44f279e5247ffe0b7a9df80e820b52b4860a"
+    },
+    "delivery_source_pins": {
+      "path": "docs/acceptance/finalization-2026-11-09/s7/delivery-source-pins.json",
+      "sha256": "02abb0a0c9a9fa58fc6926afebebccf82b42302317c1290cffef7fc873a1c3fb"
+    },
+    "frozen_real_source_pins_unchanged_in_original_evidence": true,
+    "current_source_delta": "Only the one three-language disabled explanatory message changed after real run; backend/agent/parser118other pins unchanged. Operator docs updated. No model retry.",
+    "user_url": "http://127.0.0.1:30141/",
+    "ordinary_backend": "http://127.0.0.1:3210",
+    "ordinary_backend_pid": 239075,
+    "ordinary_frontend_pid": 241098,
+    "ordinary_frontend_build_id": "q0ZH5X6nMB65GnlTNReQG",
+    "ordinary_model_enabled": false,
+    "ordinary_controlled_fixture": false,
+    "ordinary_workbench_reviews_added": 0,
+    "test_results_imported_to_ordinary": false,
+    "test_apps_running": false,
+    "test_volumes_retained": true,
+    "private_verification_keys_removed": true,
+    "product_settings": "deploy/local/workbench.env now false; .env untouched",
+    "host_start": "sh deploy/start-host.sh",
+    "container_start": "docker compose build && docker compose up -d --wait (fresh isolated volume, defaults model off)",
+    "backup_restore": "sh deploy/backup.sh PRIVATE.tar.gz; T1_DATA_VOLUME=NEW_EMPTY_VOLUME sh deploy/restore.sh PRIVATE.tar.gz"
+  },
+  "remaining_unverified": [
+    "S7 complete real upload→all selected processable blocks→successful whole-document summary→final exports did not pass. First failed summary; post-fix run stopped at new unconfirmed supplier model name before summary.",
+    "Two narrow summary corrections passed offline SDK checks but successful post-fix real summary was not reached.",
+    "No additional supplier model alias/name confirmation or network probe was performed. Existing exact policy remains.",
+    "Ordinary enabled model80/2m/120k product configuration is prepared but intentionally disabled; actual enabled ordinary browser start not verified.",
+    "No medical/business approval, all-paper recall, hospital accuracy or paired-figure clinical validation is claimed.",
+    "A fresh cold host build plus model download is documented; actual tests reused SHA-verified host model cache. No public deployment/TLS/login/multitenancy or implemented T2 consumer."
+  ],
+  "stop_state": "All paid allowances closed; no additional model requests permitted by this task; ordinary model false, data preserved, no test container left running."
+}

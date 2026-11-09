@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { Value } from 'typebox/value';
-import { RunInputSchema } from '../../contracts/src/index.js';
+import { ContractError, RunInputSchema } from '../../contracts/src/index.js';
 import { EvidenceRecordSchema, EvidenceSubmissionSchema, type EvidenceFragment, type EvidenceRecord,
   type EvidenceSubmission, type EvidenceValidationContext, type EvidenceValidationResult, type LocatedEvidenceFragment,
   type ScopeMatch, type ValidationIssue } from '../../contracts/src/extraction-evidence.js';
@@ -20,7 +20,7 @@ const wordingsContain = (fragments: LocatedEvidenceFragment[], value: string, jo
   fragments.some(f => f.exact_quote.includes(value)) || fragments.map(f => f.exact_quote).join(joiner) === value;
 
 /** Exact code-point matching, including overlapping occurrences; UTF-16 offsets are never exposed. */
-export function locateEvidenceFragment(document: EvidenceValidationContext['document'], fragment: EvidenceFragment): LocatedEvidenceFragment {
+export function locateEvidenceFragment(document: EvidenceValidationContext['document'], fragment: EvidenceFragment, allowUnverifiedSourceGlyphs = false): LocatedEvidenceFragment {
   const blocks = document.blocks.filter(b => b.block_id === fragment.block_id);
   if (blocks.length !== 1) throw new Error(blocks.length ? 'duplicate_source_block_id' : 'source_block_not_found');
   const block = blocks[0]!;
@@ -35,6 +35,10 @@ export function locateEvidenceFragment(document: EvidenceValidationContext['docu
   const occurrence = fragment.occurrence ?? 0;
   const start = matches[occurrence];
   if (start === undefined) throw new Error('quote_occurrence_out_of_range');
+  if (!allowUnverifiedSourceGlyphs && block.source_glyph_issues?.some(issue =>
+    issue.start < start + quote.length && start < issue.end || issue.start >= issue.end || issue.end > source.length)) {
+    throw new ContractError('source_glyph_fidelity_unverified');
+  }
   return { block_id: block.block_id, text_version: block.text_version, start, end: start + quote.length,
     exact_quote: fragment.exact_quote, occurrence, physical_page: block.page, bbox: [...block.bbox],
     location_precision: 'whole_textline_not_exact_glyph' };

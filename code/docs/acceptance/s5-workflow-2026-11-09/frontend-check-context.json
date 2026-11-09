@@ -1,0 +1,98 @@
+{
+  "baseline_commit": "5de3d8fd2579a5e1515f3d40f79bb2863ef3c22e",
+  "proxy_baseline_sha256": "730a9e2d1f3ff2fe89716b693c67a22ad9df09d7e4a5dcf58091f45b684f1cc9",
+  "initial_tracked_pi_web_status": "clean before task; earliest initial tool git status recorded only untracked review feedback file",
+  "full_first_run": {
+    "tests": 2854,
+    "passed": 2789,
+    "failed": 65,
+    "exit": 1
+  },
+  "introduced_locale_alias_regression": "fixed by explicit relative messages.mjs; i18n registry+T1 focused7/7 pass",
+  "failed_file_subset_rerun": {
+    "files": 29,
+    "tests": 257,
+    "passed": 243,
+    "failed": 14,
+    "exit": 1
+  },
+  "remaining_failure_files": [
+    {
+      "path": "apps/pi-web/lib/model-discovery.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/page-stream-registry.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/project-trust.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/session-membership.integration.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/stream-client.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/terminal-manager.test.mjs",
+      "diff_empty": true
+    },
+    {
+      "path": "apps/pi-web/lib/web-auth-proxy.test.mjs",
+      "diff_empty": true
+    }
+  ],
+  "auth_baseline_replay": {
+    "tests": 9,
+    "passed": 1,
+    "failed": 8,
+    "source": "exact HEAD proxy and gateway isolated copies, original auth test redirected to copy; temporary files removed"
+  },
+  "full_lint": {
+    "errors": 10,
+    "warnings": 15746,
+    "all_error_paths": [
+      "public/output-review/pdfjs/pdf.worker.min.mjs",
+      "public/t1-assets/pdfjs/pdf.worker.min.mjs"
+    ],
+    "vendor_bytes_not_changed": true
+  },
+  "retired_endpoint_baseline": [
+    {
+      "path": "code/apps/pi-web/app/api/models-config/discover/route.ts",
+      "present_in_baseline_tree": false,
+      "present_in_current_workspace": false
+    },
+    {
+      "path": "code/apps/pi-web/app/api/terminal/[id]/events/route.ts",
+      "present_in_baseline_tree": false,
+      "present_in_current_workspace": false
+    },
+    {
+      "path": "code/apps/pi-web/app/api/models/route.ts",
+      "present_in_baseline_tree": false,
+      "present_in_current_workspace": false
+    },
+    {
+      "path": "code/apps/pi-web/app/api/sessions/route.ts",
+      "present_in_baseline_tree": false,
+      "present_in_current_workspace": false
+    },
+    {
+      "path": "code/apps/pi-web/app/api/agent/[id]/events/route.ts",
+      "present_in_baseline_tree": false,
+      "present_in_current_workspace": false
+    }
+  ],
+  "baseline_replay_note": "At task start tracked pi-web was clean; only an untracked feedback JSON was listed. HEAD here is 5de3d8fd2579a5e1515f3d40f79bb2863ef3c22e. The isolated auth replay used that exact proxy/gateway, without replacing live workspace files.",
+  "focused_checks": {
+    "request_security_scope_gateway_i18n": "21/21 passed",
+    "legacy_workbench_integration": "4/4 passed",
+    "latest_typecheck_exit": 0,
+    "latest_changed_source_lint_exit": 0
+  }
+}

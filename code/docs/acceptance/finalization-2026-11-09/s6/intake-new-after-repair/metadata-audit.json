@@ -1,0 +1,1276 @@
+{
+  "schema_version": "new-repaired-independent-intake-metadata-audit-1",
+  "status": "source_preparation_completed_per_source_readiness",
+  "created_at_utc": "2026-11-09T09:32:36.135943+00:00",
+  "preselection_recorded_at_utc": "2026-11-09T09:29:36.330751+00:00",
+  "preselected_before_new_model_outputs_reported_by_root": true,
+  "selection_not_based_on_model_results": true,
+  "registration_owner": "/root/s5_ui_polish",
+  "independent_intake_registry_modified": false,
+  "staging_reason": "ExistingregisterCLIexclusivewritescanonicalpath;unifiedregistrationwillcopyexactbytesandcleanupownstaging",
+  "no_production_parse_or_IR_or_model": true,
+  "paid_model_requests": 0,
+  "papers": [
+    {
+      "source_id": "IN04",
+      "doi": "10.3389/fonc.2025.1603084",
+      "title": "Case Report: Controversies in managing pulmonary enteric adenocarcinoma: reflections from an early-stage case",
+      "url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2025.1603084/pdf",
+      "expected_pages": 6,
+      "expected_license": "CC BY",
+      "download_started_at_utc": "2026-11-09T09:32:33.154006+00:00",
+      "http_status": 200,
+      "resolved_url": "https://www.frontiersin.org/journals/oncology/articles/10.3389/fonc.2025.1603084/pdf",
+      "content_type": "application/pdf",
+      "path": "code/docs/acceptance/finalization-2026-11-09/s6/intake-new-after-repair/IN04.pdf",
+      "canonical_target": "code/evaluation/corpus/independent-sealed/IN04.pdf",
+      "canonical_not_written_to_avoid_exclusive_register_conflict": true,
+      "sha256": "50427f2871550116a3ef9530b09fe5a8591299f6352ab58af1aaa46273437a3b",
+      "bytes": 6260595,
+      "physical_pages": 6,
+      "page_text_characters": [
+        3525,
+        3820,
+        2645,
+        4112,
+        5813,
+        2585
+      ],
+      "text_layer_on_all_pages": true,
+      "title_match_first_page": true,
+      "doi_match_in_PDF": true,
+      "license_label_verified": "CC BY",
+      "license_check": true,
+      "PDF_header": "%PDF-1.4",
+      "metadata_title": "Case Report: Controversies in managing pulmonary enteric adenocarcinoma: reflections from an early-stage case",
+      "metadata_author": "Yuchen Bao",
+      "identity_and_text_layer_passed": true,
+      "document_body_or_model_readiness_not_asserted": true,
+      "Docling_or_IR_parser_run": false,
+      "download_finished_at_utc": "2026-11-09T09:32:35.283613+00:00",
+      "exposure_clearance": true,
+      "ready_for_owner_registration": true
+    },
+    {
+      "source_id": "IN05",
+      "doi": "10.1186/s13256-025-05223-0",
+      "title": "Advance imaging with magnetic resonance neurography for the diagnosis of unusual extensive pelvic perineural spread in colorectal cancer: a case report",
+      "url": "https://link.springer.com/content/pdf/10.1186/s13256-025-05223-0.pdf",
+      "expected_pages": 4,
+      "expected_license": "CC BY-NC-ND 4.0",
+      "download_started_at_utc": "2026-11-09T09:32:33.154506+00:00",
+      "http_status": 200,
+      "resolved_url": "https://link.springer.com/content/pdf/10.1186/s13256-025-05223-0.pdf",
+      "content_type": "text/html; charset=utf-8",
+      "identity_and_text_layer_passed": false,
+      "download_or_identity_error": "ValueError:ResponseisnotPDFbytes",
+      "stop_source_no_substitution": true,
+      "download_finished_at_utc": "2026-11-09T09:32:36.134714+00:00",
+      "exposure_clearance": true,
+      "ready_for_owner_registration": false,
+      "normal_public_mirror_attempts": [
+        {
+          "requested_url": "https://europepmc.org/articles/PMC12023425?pdf=render",
+          "at_utc": "2026-11-09T09:48:49.125251+00:00",
+          "root_authorized_same_paper_mirror": true,
+          "challenge_bypass_or_tokens_used": false,
+          "status": 403,
+          "resolved_url": "https://europepmc.org/articles/PMC12023425?pdf=render",
+          "content_type": "text/html; charset=UTF-8",
+          "error": "HTTPError:403 Client Error: Forbidden for url: https://europepmc.org/articles/PMC12023425?pdf=render",
+          "outcome": "public_download_failed_stop"
+        }
+      ]
+    }
+  ],
+  "exposure_audit_status": "completed",
+  "medical_quality_approved": false,
+  "exposure_audit": {
+    "audited_at_utc": "2026-11-09T09:40:28.092093+00:00",
+    "old_audit_reference": "code/docs/acceptance/finalization-2026-11-09/s6/intake/exposure-audit.json",
+    "old_audit_sha256": "218fe961acd727007e7e03244bf29d53b979c1bded898f93ddaa53c7b5a7c5b4",
+    "old_frozen_PDF_count": 152,
+    "old_frozen_office_count": 45,
+    "historical_source_count": 14,
+    "historical_family_count": 13,
+    "historical_identity_collisions": [],
+    "workspace_text_marker_hits": [
+      "code/runtime-data/agent-notes/four-hour-completion-2026-11-09.json",
+      "code/docs/acceptance/finalization-2026-11-09/s6/intake-new-after-repair/metadata-audit.json"
+    ],
+    "expected_new_preselection_preparation_context_prefixes": [
+      "code/docs/acceptance/finalization-2026-11-09/",
+      "code/runtime-data/agent-notes/",
+      "code/runtime-data/s6-independent/",
+      "code/runtime-data/s7-",
+      "code/evaluation/manifests/independent-intake.json"
+    ],
+    "unexpected_workspace_text_hits": [],
+    "existing_PDFs_hashed_after_excluding_own_new_staging": 166,
+    "unique_existing_PDF_bodies_inspected": 45,
+    "existing_PDF_sha_inventory": [
+      {
+        "path": "code/runtime-data/s5-real-workbench/s5-L05-4daecedc-b122-479b-ad1a-7a75f55dbbc3/pdf/bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/runtime-data/s6-independent/execution/workbench/pdf/5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe.pdf",
+        "sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe",
+        "bytes": 8021158
+      },
+      {
+        "path": "code/runtime-data/s6-independent/execution/workbench/pdf/dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a.pdf",
+        "sha256": "dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a",
+        "bytes": 2814680
+      },
+      {
+        "path": "code/evaluation/corpus/development-candidates/MED03.pdf",
+        "sha256": "36038f5e0ad453343334326a3ba03e6c94e3687ca88574640d54be7056ffa760",
+        "bytes": 507555
+      },
+      {
+        "path": "code/evaluation/corpus/development-candidates/L01.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/evaluation/corpus/development-candidates/L05.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/evaluation/corpus/development-candidates/L07.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/evaluation/corpus/development-candidates/L02.pdf",
+        "sha256": "14a37c26847110e3dce0fad50e95cec4459348b0c6da7ef793a1d333bd6e1c12",
+        "bytes": 1341516
+      },
+      {
+        "path": "code/evaluation/corpus/independent-sealed/IN01.pdf",
+        "sha256": "dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a",
+        "bytes": 2814680
+      },
+      {
+        "path": "code/evaluation/corpus/independent-sealed/IN02.pdf",
+        "sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe",
+        "bytes": 8021158
+      },
+      {
+        "path": "code/evaluation/corpus/independent-sealed/IN03.pdf",
+        "sha256": "95ea226e2b6fc301af9bac9e158da1af838fc0d3b1cdb210892b8f551ea9481e",
+        "bytes": 1304436
+      },
+      {
+        "path": "code/runtime-data/s6-independent/repaired-holdout-IN03/workbench/pdf/95ea226e2b6fc301af9bac9e158da1af838fc0d3b1cdb210892b8f551ea9481e.pdf",
+        "sha256": "95ea226e2b6fc301af9bac9e158da1af838fc0d3b1cdb210892b8f551ea9481e",
+        "bytes": 1304436
+      },
+      {
+        "path": "code/runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-e288c3d8-a35f-4170-81bd-4b53ecccb335/pdf/8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-561605c9-1b49-467e-875b-5905f7e2d503/pdf/8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/runtime-data/s5-real-workbench/s5-L01-62240e12-0dca-4181-9da4-011a5b743b9b-dry-run-6b2e7056-8df3-4ff0-b82a-fa5bfc78edb6/pdf/8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/apps/pi-web/public/input-review/assets/bd60db7e7fe5c7950ac8.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/apps/pi-web/public/input-review/assets/b7850a291694e3c7018f.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/apps/pi-web/public/input-review/assets/8f5e38ac6575cd776469.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/runtime-data/s5-controlled-browser/pdf/b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/runtime-data/s5-controlled-browser/pdf/8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/apps/pi-web/public/output-review/pdf/L01.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/apps/pi-web/public/output-review/pdf/L05.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/runtime-data/s3-probe/rotation-270.pdf",
+        "sha256": "9815d0daf92f731be23d0f9cafc38f581f1674b5de9f9f0f5c6fb273c7e8b29a",
+        "bytes": 968
+      },
+      {
+        "path": "code/runtime-data/s3-probe/rotation-90.pdf",
+        "sha256": "8f421fe9d8d86ebd8a1b375986cd455958ae520c99ef1f638027086ad9605aa4",
+        "bytes": 967
+      },
+      {
+        "path": "code/runtime-data/s3-probe/rotation-0.pdf",
+        "sha256": "cac835887d5bdafd2f6fa1e43e88e32a5782cdf38fec745d2424b921111456f4",
+        "bytes": 966
+      },
+      {
+        "path": "code/runtime-data/s3-probe/rotation-180.pdf",
+        "sha256": "03befdf23ce3f97892f436a4c30fe5de926c3347d036591af752b26ccef28694",
+        "bytes": 968
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/assets/b7850a291694e3c7018f1acb.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/assets/bd60db7e7fe5c7950ac85264.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/assets/8f5e38ac6575cd776469506f.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/docs/acceptance/output-feedback-2026-11-08/output-review/assets/b7850a291694e3c7018f1acb.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/docs/acceptance/output-feedback-2026-11-08/output-review/assets/bd60db7e7fe5c7950ac85264.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/docs/acceptance/output-feedback-2026-11-08/output-review/assets/8f5e38ac6575cd776469506f.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/docs/acceptance/finalization-2026-11-09/s7/synthetic.pdf",
+        "sha256": "336662c73c13ee509608978d72dc61afb30a378674ea9ff7ec31f761589d4ef7",
+        "bytes": 1446
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/input-snapshot/evaluation/corpus/development-candidates/L01.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/input-snapshot/evaluation/corpus/development-candidates/L05.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/input-snapshot/evaluation/corpus/development-candidates/L07.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/docs/acceptance/s0-s4-recheck-2026-11-08/output-review/assets/b7850a291694e3c7018f1acb.pdf",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "bytes": 1820152
+      },
+      {
+        "path": "code/docs/acceptance/s0-s4-recheck-2026-11-08/output-review/assets/bd60db7e7fe5c7950ac85264.pdf",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "bytes": 1552277
+      },
+      {
+        "path": "code/docs/acceptance/s0-s4-recheck-2026-11-08/output-review/assets/8f5e38ac6575cd776469506f.pdf",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "bytes": 1487660
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/text-scan-mixed-blank.pdf",
+        "sha256": "103463caedabeab41ec34d4c5d984fc5dc7945390c538b2986546fa2fa7accb7",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "5536300ec80e7bcb3066c265ae7a6cba74cb473ad79f2d01371a22ab43e72741",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/text-scan-mixed-blank.pdf",
+        "sha256": "8057ccf6debaf1cbb4f892d69ba94cb3c56da854399663d20e6d85e987dd85b3",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "a9392bf3d4b99a8fa53f4dce3999a43a9b2248ff4e341daab535fb6c3ea17d81",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/text-scan-mixed-blank.pdf",
+        "sha256": "26381d4f1320c9d2900e91e37c4be6bacfec50fc85e0ccba165f901673d801b7",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "2cd9eb8d9b8fbc29ad73d4e28d850f41783ebf5052511d40639be19c2fb67666",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/text-scan-mixed-blank.pdf",
+        "sha256": "f487a3486120e4c99aa279e3a5b3823ed53a149f3c5dea1c00f7335c25d30975",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "d35e2519b4210d732c1e213889851708bf7be7cbfeac917a24c3343291b5c271",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/text-scan-mixed-blank.pdf",
+        "sha256": "a17d7a2aa0b6172dd903186366517ac3113c65dd4ad50b82d8baec722da5f468",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "e02fecccad97eb425ec7fd77b9c5a26c596354644b857ecf4b0ce8213b4d804f",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/text-scan-mixed-blank.pdf",
+        "sha256": "3df309534553fb36e35ff73f0b8832e4bbb185ac9e36d2873c8cbde540ee49ef",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "ebd079da271c5bc2447bbc25b04e955fa5a5a8a07816c76bfa29a5db4cba3384",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/text-scan-mixed-blank.pdf",
+        "sha256": "330ad9b166b11a12fe1ee1cafa0e7527644efcd0dbbdd8e797523fbc97582ead",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "28b5a5496e781117ce900d21b4211d7227583cae76a2e7e71714a56292bd233b",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/text-scan-mixed-blank.pdf",
+        "sha256": "5f73e5b2b798e1f0ad6fd75bdcb13b9f8dc46dbbcf83f799ffbabe373cca0e7f",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "b9912c0a1015317f004675d18b0ad71c933b4dbccdc793c2f4948df2719b8e29",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/text-scan-mixed-blank.pdf",
+        "sha256": "1b4e6a5be40d17b2749cced1896dd45953af868f85ac374f2b863a67a5771593",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/unicode-text.pdf",
+        "sha256": "6495280b8034cf8417db413ae41cfc8f1968d8b60a197ed92c49aa016af6c85d",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/text-scan-mixed-blank.pdf",
+        "sha256": "a5eba4a76a2d510968ab0b19c1979bb1d0b3c6ec71142e6aca49715ae7dc94ab",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "bd9d9b549783f3940ed9c707d1b1ebf9e748423c9d149db5109af4a8ea4fe8f0",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/text-scan-mixed-blank.pdf",
+        "sha256": "e783d52cf054054b2a65aaa03737a2e214a526b193ecc7a4892583fbf901bbd8",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "2ef949ef9534e9e5323e65869e78e4d6b2f19d7db2f45eaa2df4948602504749",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/text-scan-mixed-blank.pdf",
+        "sha256": "b9b8bc25de610f059f76e0f12ac2ff806b54540748151a48aa3daf8cf3865795",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "87ef807f3dd9afef177c6825d7d900dbd82383c4502911d3665f9507020b95db",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/unsupported-crop-one-page.pdf",
+        "sha256": "a39b9f9246b704cf3a2e22f0e9dc6b66d7b8f27781c7ee8e1a378284dba5c0c3",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/text-scan-mixed-blank.pdf",
+        "sha256": "fc683e841652c21c544398b290ea6d7a37502c072e00617f0115c834353b60c9",
+        "bytes": 3101
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/scan-only.pdf",
+        "sha256": "bcc38cfad7256617dd373b4c8415cf7f743c5135eed3e59dd4457ca1205c92e1",
+        "bytes": 1254
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/unicode-text.pdf",
+        "sha256": "155b051b8cf9688c27caca8bd0d6d160bbe752fd97dd873e1a2a23094c7ef5f3",
+        "bytes": 23755
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/cropped-rotated-userunit.pdf",
+        "sha256": "72a95dbef12e45fbf676b1090312c9a21bdb8a8c683df7fae2755b629ebc7f7f",
+        "bytes": 2476
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/unicode-generated-reportlab-original.pdf",
+        "sha256": "b814804885acec5d542a9ace51cc384fb6fd98e2b7fa76bf46a18e5abfaef9b6",
+        "bytes": 23045
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-01-56-093823Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-01-56-093823Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T15-23-14-748905Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T15-23-14-748905Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-01-05-924946Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-01-05-924946Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-02-20-949989Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-02-20-949989Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T13-55-11-804082Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T13-55-11-804082Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-31-45-636062Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-31-45-636062Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T16-02-10-935989Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T16-02-10-935989Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-09T09-18-08-739863Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-09T09-18-08-739863Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T15-57-07-389684Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T15-57-07-389684Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-02-21-285113Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-02-21-285113Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-00-38-188193Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-00-38-188193Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-11-54-140892Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "bytes": 827
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-11-54-140892Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "bytes": 26
+      }
+    ],
+    "matching_preexisting_PDF_hashes": [],
+    "existing_PDF_body_title_DOI_hits": [],
+    "PDF_body_reader": "pypdf",
+    "PDF_read_errors_non_source_test_cache": [],
+    "PDF_read_errors_unresolved": [],
+    "office_archives_inspected": 46,
+    "office_xml_title_DOI_hits": [],
+    "office_archive_read_errors": [],
+    "coverage_statement": "166existingworkspacePDFshashed,includingprior152strategy;45uniquePDFbodiesattempted,2knownconstructednegativefixturehashesintentionallyunreadableandvisible;allotherreadablebodies/46Officearchives/workspacetextshowednotargetidentityhit. NotproductionparseorPDFfidelitycertification.",
+    "exclusions": "Dependencies/node/tools/Nextbuild/git/immutablethirdpartysoftwarearchiveperprioraudit;ownnewstagingexcludedfrompriorPDFmatching.",
+    "PDF_read_errors_known_constructed_negative_fixtures": [
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-11-34-061559Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T13-55-04-845792Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T16-02-19-094215Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-01-03-327429Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T15-22-54-993262Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-47-07-608146Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T15-57-03-049286Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-07T16-01-50-911746Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-38-25-692210Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-08T03-31-24-179632Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-04T16-02-16-860472Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-02T14-40-47-801751Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/constructed/2026-11-09T09-17-47-826134Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-01-56-093823Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-01-56-093823Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T15-23-14-748905Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T15-23-14-748905Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-01-05-924946Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-01-05-924946Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-02-20-949989Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-02T16-02-20-949989Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T13-55-11-804082Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T13-55-11-804082Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-31-45-636062Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-31-45-636062Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T16-02-10-935989Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-07T16-02-10-935989Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-09T09-18-08-739863Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-09T09-18-08-739863Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T15-57-07-389684Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T15-57-07-389684Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-02-21-285113Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-02-21-285113Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-00-38-188193Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-04T16-00-38-188193Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-11-54-140892Z/encrypted.pdf",
+        "sha256": "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309",
+        "kind": "PDF_body_read_failure",
+        "error": "FileNotDecryptedError:File has not been decrypted"
+      },
+      {
+        "path": "code/docs/acceptance/s3/comparison-2026-11-02/validation/constructed-2026-11-08T03-11-54-140892Z/damaged.pdf",
+        "sha256": "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "kind": "PDF_body_read_failure",
+        "error": "PdfStreamError:Stream has ended unexpectedly"
+      }
+    ],
+    "negative_fixture_classification": {
+      "basis": "S6ownerconfirmed2knownengineeringfixturehashes/constructedpaths;notunreadscholarlysources",
+      "unique_hashes": [
+        "602e4731b1a7cfae3221be9ca06427aea919d62e67068ab09bd14be0b67e1732",
+        "899889901d027d55af018a7610ca9e87ce3a2ca15cab5c9ddc464347b52e9309"
+      ],
+      "all_PDFs_readable_claim": false,
+      "hash_scan_includes_these_files": true,
+      "normalized_body_scan_excludes_only_the_intentionally_unreadable_negative_fixture_bodies": true,
+      "actual_origin_proof": {
+        "path": "code/docs/acceptance/finalization-2026-11-09/s6/intake-new-after-repair/negative-fixture-origin-proof.json",
+        "sha256": "665ae98fd62cc0a37e4b1b1e66c5d5cf27d2d513fc7074a070842552e092ea21"
+      },
+      "generator_identity": [
+        "code/services/pdf-parser/tests/test_structured.py:165-166 test_structured_cli_returns_real_preparse_errors_without_model_inference",
+        "code/services/pdf-parser/tests/test_adapter.py:207-212 test_encrypted_damaged_changed_sha_and_outside_root_return_structured_errors"
+      ]
+    }
+  },
+  "completed_at_utc": "2026-11-09T09:45:14.509491+00:00",
+  "updated_at_utc": "2026-11-09T09:48:49.873398+00:00"
+}

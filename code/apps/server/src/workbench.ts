@@ -9,8 +9,8 @@ import { allDeliveredRecords, assertFigureCatalog, buildEvidenceDelivery } from 
 import type { ExtractionDocument } from '../../../packages/agent/src/article-scope.js';
 import type { WorkbenchCapabilities, WorkbenchFigure, WorkbenchPaper, WorkbenchPaperDetail } from '../../../packages/contracts/src/workbench.js';
 
-interface Artifact { path: string; sha256: string }
-interface RegisteredPaper {
+export interface Artifact { path: string; sha256: string }
+export interface RegisteredPaper {
   id: string; pdf: Artifact; ir: Artifact; catalog: Artifact;
   metadata: { title: string; language: string; pages: number; note: string };
   assets: Array<Artifact & { asset_id: string }>;
@@ -18,10 +18,18 @@ interface RegisteredPaper {
 }
 interface Registry { schema_version: string; papers: RegisteredPaper[] }
 const sha256 = (bytes: Uint8Array) => createHash('sha256').update(bytes).digest('hex');
+/** Three later, read-only group fields were absent from the pinned legacy delivery. All original bytes/fields still must match. */
+function assertHistoricalDeliveryCompatible(current: ReturnType<typeof buildEvidenceDelivery>, recorded: Record<string, unknown>) {
+  const comparable = { ...current } as Record<string, unknown>;
+  for (const key of ['strict_source_groups', 'source_grouping_policy_version', 'unique_source_group_count']) {
+    if (!Object.hasOwn(recorded, key)) delete comparable[key];
+  }
+  if (!isDeepStrictEqual(comparable, recorded)) throw new ContractError('workbench_delivery_changed');
+}
 export const WORKBENCH_CAPABILITIES: WorkbenchCapabilities = {
   schema_version: 't1-workbench-capabilities-1', read_only: true, paper_upload: false,
   extraction_start: false, persisted_review: false, approved_export: false,
-  backend_pi_sdk: '1.4.0', full_S5_complete: false,
+  backend_pi_sdk: '1.4.0',
 };
 
 /** Fixed retained sources, not an arbitrary file API. Every read rechecks the pinned bytes. */
@@ -52,6 +60,57 @@ export class WorkbenchSources {
     return { id: row.id, ...row.metadata, sha256: row.pdf.sha256, output_ids: row.outputs.map(o => o.id) };
   }
   async papers() { return (await this.registry()).papers.map(row => this.summary(row)); }
+  /** Import immutable retained evidence once into the workflow store. A missing PDF is reported separately. */
+  async retained(includeCurrent = false) {
+    const values = [];
+    for (const row of (await this.registry()).papers) {
+      const parsed = JSON.parse((await this.readPinned(row.ir)).toString()) as { document: ExtractionDocument };
+      assertParsedDocument(parsed.document);
+      if (parsed.document.document_id !== row.id || parsed.document.file_sha256 !== row.pdf.sha256) throw new ContractError('workbench_ir_binding_mismatch');
+      const catalog = JSON.parse((await this.readPinned(row.catalog)).toString()) as FigureAssetCatalog;
+      assertFigureCatalog(parsed.document, catalog);
+      const outputs = [];
+      for (const output of row.outputs) {
+        const result = JSON.parse((await this.readPinned(output.result)).toString()) as { state: string; run_id?: string; records: EvidenceVersion[]; versions?: EvidenceVersion[]; coverage?: unknown; scope?: import('@t1/contracts').Scope; summary?: string };
+        assertHistoricalDeliveryCompatible(buildEvidenceDelivery(parsed.document, result.records, catalog), JSON.parse((await this.readPinned(output.delivery)).toString()));
+        outputs.push({ ...output, result });
+      }
+      values.push({ row, document: parsed.document, catalog, outputs });
+    }
+    if (includeCurrent && this.registryPath === 'config/pi-web-workbench.json') {
+      const bindingPath = 'docs/acceptance/s4-b0-revalidation-2026-11-08/output-binding.json';
+      const binding = JSON.parse((await this.readPinned({ path: bindingPath, sha256: '77571cdec58805e18ddfc7ec79e735310c1da50c34b3dfdb08fe0bfb21b43826' })).toString());
+      if (binding.finalized !== true || binding.schema_version !== 'b0-finalized-output-binding-1') throw new ContractError('current_output_binding_invalid');
+      const plan = JSON.parse((await this.readPinned({ path: binding.plan_path, sha256: binding.plan_sha256 })).toString());
+      for (const job of binding.jobs) {
+        const paper = plan.papers.find((p: { document_id: string }) => p.document_id === job.document_id);
+        if (!paper) throw new ContractError('current_output_source_missing');
+        const document = JSON.parse((await this.readPinned({ path: paper.ir_path, sha256: paper.ir_sha256 })).toString()).document as ExtractionDocument;
+        assertParsedDocument(document);
+        if (document.document_id !== paper.document_id || document.file_sha256 !== paper.pdf_sha256 || document.text_version !== paper.text_version) throw new ContractError('current_output_source_mismatch');
+        const catalog = JSON.parse((await this.readPinned({ path: paper.figure_catalog_path, sha256: paper.figure_catalog_sha256 })).toString()) as FigureAssetCatalog;
+        assertFigureCatalog(document, catalog);
+        const result = JSON.parse((await this.readPinned({ path: job.result_path, sha256: job.result_sha256 })).toString());
+        const exported = JSON.parse((await this.readPinned({ path: job.candidate_export.delivery_path, sha256: job.candidate_export.delivery_sha256 })).toString());
+        for (const record of [...exported.records, ...(exported.background_records ?? [])]) {
+          if (record.export_review_status !== 'candidate' || record.human_confirmation !== null || record.legacy_text_review_events?.length) throw new ContractError('current_output_unexpected_approval');
+          delete record.export_review_status; delete record.human_confirmation; delete record.legacy_text_review_events;
+        }
+        for (const group of exported.strict_source_groups ?? []) for (const member of group.members) {
+          if (member.human_confirmation !== null) throw new ContractError('current_output_unexpected_approval'); delete member.human_confirmation;
+        }
+        assertHistoricalDeliveryCompatible(buildEvidenceDelivery(document, result.records, catalog), exported);
+        const output = { id: 'current-S4-' + job.job_id, strategy: 'B0', result: { path: job.result_path, sha256: job.result_sha256 },
+          delivery: { path: job.candidate_export.delivery_path, sha256: job.candidate_export.delivery_sha256 } };
+        const old = values.find(p => p.row.id === paper.document_id);
+        const row: RegisteredPaper = { id: paper.document_id, pdf: { path: paper.pdf_path, sha256: paper.pdf_sha256 }, ir: { path: paper.ir_path, sha256: paper.ir_sha256 },
+          catalog: { path: paper.figure_catalog_path, sha256: paper.figure_catalog_sha256 }, metadata: old?.row.metadata ?? { title: paper.document_id, language: paper.language, pages: document.pages.length, note: 'Retained current S4 output; no business approval inherited.' },
+          assets: catalog.figures.flatMap(f => f.regions.map(a => ({ path: a.path, sha256: a.sha256, asset_id: a.asset_id }))), outputs: [output] };
+        values.push({ row, document, catalog, outputs: [{ ...output, result: { ...result, scope: plan.config.scope } }] });
+      }
+    }
+    return values;
+  }
 
   private async source(row: RegisteredPaper) {
     await this.readPinned(row.pdf);
@@ -82,7 +141,7 @@ export class WorkbenchSources {
       if (result.document_id !== id) throw new ContractError('workbench_output_binding_mismatch');
       const delivery = buildEvidenceDelivery(document, result.records, catalog);
       const recorded = JSON.parse((await this.readPinned(output.delivery)).toString());
-      if (!isDeepStrictEqual(delivery, recorded)) throw new ContractError('workbench_delivery_changed');
+      assertHistoricalDeliveryCompatible(delivery, recorded);
       outputs.push({ id: output.id, strategy: output.strategy, state: result.state, origin: 'historical_compatibility_replay' as const,
         full_recall_claimed: false as const, medical_quality_approved: false as const,
         records: allDeliveredRecords(delivery).map(record => ({ id: record.record_id, version: record.record_version, run_id: record.run_id,

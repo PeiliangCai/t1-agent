@@ -1,0 +1,252 @@
+{
+  "schema_version": "s5-real-L05-final-report-1",
+  "status": "authorized_single_real_browser_pipeline_finished_empty_output_retained",
+  "completed_at": "2026-11-09T04:41:46.461020+00:00",
+  "case": "L05; main-session replacement selection delegated by user, not user verbatim selection",
+  "authorization": {
+    "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+    "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154",
+    "user_verbatim": "你可以换一个测试用例，不用 L01 了。继续执行",
+    "observed_at_utc": "2026-11-09 04:18:11 UTC",
+    "original_click_time": null,
+    "authorized_runs": 1,
+    "additional_real_runs": 0,
+    "unused_allowance_closed": true,
+    "old_S4_or_superseded_L01_permission_reused": false
+  },
+  "plan": {
+    "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+    "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12",
+    "input": {
+      "path": "evaluation/corpus/development-candidates/L05.pdf",
+      "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+      "physical_pages": 10
+    },
+    "model": {
+      "provider": "agicto",
+      "endpoint": "https://api.agicto.cn/v1",
+      "model_id": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "api": "openai-responses"
+    },
+    "method": "B0",
+    "scope": "all/all/all"
+  },
+  "real_run": {
+    "paper_id": "paper-6dce31c5-dcbf-4b0b-861a-233a3919467f",
+    "run_id": "run-c81de6e7-2a4b-47ec-afff-9b75341300c3",
+    "origin": "workbench_run",
+    "controlled_fixture": false,
+    "HTTP_started_at": "2026-11-09T04:26:10.496Z",
+    "original_deadline": "2026-11-09T04:56:10.496Z",
+    "closed_at": "2026-11-09T04:30:02.792Z",
+    "HTTP_to_browser_download_seconds": 232.295,
+    "parser_seconds": 30.038216289000047,
+    "extraction_and_summary_seconds": 198.51970550100003,
+    "browser_through_existing_Next_gateway": true,
+    "frontend_BUILD_ID": "kiRKong7YBVjXwSKG5KIv",
+    "new_actual_Docling_CPU_inference": true,
+    "parser_version": "2.145.0",
+    "raw_anchor_version": "7.24.2",
+    "document_result_cache_used": false,
+    "source_pdf_sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+    "text_version": "s3v3-f80e893bdf2015331129f7d3d2aebc05"
+  },
+  "usage": {
+    "requests": 17,
+    "input_tokens": 166091,
+    "output_tokens_including_reasoning": 1268,
+    "missing_provider_usage": 0,
+    "HTTP_status_counts": {
+      "200": 17
+    },
+    "response_model_counts": {
+      "gpt-6-luna": 17
+    },
+    "identity_mismatches": 0,
+    "transient_retry_attempts": 0,
+    "money_cost": null,
+    "money_cost_status": "unknown_gateway_billing",
+    "unused_requests_closed": 23,
+    "no_new_requests_after_terminal": true
+  },
+  "task_processing": {
+    "task_processing_complete": true,
+    "task_scope_source_blocks": 523,
+    "processed_task_blocks": 523,
+    "failed_or_unprocessed_task_blocks": 0,
+    "shared_explicit_bibliography_excluded_blocks": 92,
+    "whole_document_summary_complete": true,
+    "delivery_validation": "passed",
+    "human_recall_or_quality_approval": false
+  },
+  "source_limits_separate_from_task_processing": {
+    "raw_run_state": "partial",
+    "parser_status": "partial",
+    "physical_pages": 10,
+    "text_layer_decode_complete": true,
+    "failed_pages": [],
+    "pages_without_text": [],
+    "image_text_unverified_pages": [
+      1,
+      4,
+      5,
+      6,
+      8
+    ],
+    "unmapped_structure_units": 6,
+    "ambiguous_structure_units": 8,
+    "native_errors": [],
+    "not_a_whole_document_medical_recall_claim": true
+  },
+  "output": {
+    "candidate_records": 0,
+    "persisted_candidate_versions": 0,
+    "human_reviews_or_annotations": 0,
+    "where_zero_happened": "Model submitted empty candidate lists in all five successfully completed batches; no candidate submissions were rejected by source/context validation. See zero-candidate-observation.json.",
+    "nonempty_candidate_path_tested_in_this_real_run": false,
+    "figure_pairing_or_human_approval_tested_in_this_real_run": false,
+    "empty_output_display_verified": true,
+    "three_actual_UI_downloads": [
+      {
+        "kind": "candidate_jsonl",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "kind": "candidate_csv",
+        "bytes": 108,
+        "sha256": "fda0b6b60b31aa2378e11e03f6d304064b6d3b8b0b22f96ab25e2f8c291605d8"
+      },
+      {
+        "kind": "candidate_package",
+        "bytes": 7191,
+        "sha256": "ce67ee6b8dcfd661929881bedb188e501f3ca36e52e147943c8597765e1abf65"
+      }
+    ],
+    "does_not_prove_paper_has_no_target_evidence": true
+  },
+  "retention": {
+    "production_transaction_and_idempotence_passed": true,
+    "preexisting_production_rows_unchanged": true,
+    "production_runs_before": 8,
+    "production_runs_after": 9,
+    "production_candidate_version_rows_before_and_after": 262,
+    "production_human_reviews": 0,
+    "production_human_annotations": 0,
+    "source_database_unchanged": true,
+    "original_run_source_and_version_identity_preserved": true,
+    "source_files_retained_as_sealed_evidence": true,
+    "lifecycle_metadata_only_changes": [
+      "paper uploaded=false marks retained source",
+      "run directory empty protects sealed files from later UI deletion"
+    ]
+  },
+  "user_links": {
+    "this_actual_L05_run": "http://127.0.0.1:30141/?paper=paper-6dce31c5-dcbf-4b0b-861a-233a3919467f&run=run-c81de6e7-2a4b-47ec-afff-9b75341300c3&view=records",
+    "original_PDF": "http://127.0.0.1:30141/api/t1/workbench/papers/paper-6dce31c5-dcbf-4b0b-861a-233a3919467f/pdf",
+    "candidate_JSONL": "http://127.0.0.1:30141/api/t1/workbench/runs/run-c81de6e7-2a4b-47ec-afff-9b75341300c3/exports/candidate_jsonl",
+    "candidate_CSV": "http://127.0.0.1:30141/api/t1/workbench/runs/run-c81de6e7-2a4b-47ec-afff-9b75341300c3/exports/candidate_csv",
+    "candidate_package": "http://127.0.0.1:30141/api/t1/workbench/runs/run-c81de6e7-2a4b-47ec-afff-9b75341300c3/exports/candidate_package",
+    "optional_historical_L07_for_nonempty_review_experience": "http://127.0.0.1:30141/?paper=L07&run=b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f%3Asource-L07&view=records",
+    "L07_is_separate_old_S4_result_not_this_run": true
+  },
+  "ordinary_service": {
+    "health": {
+      "status": "ok",
+      "stage": "S5",
+      "workflow_implemented": true,
+      "controlled_fixture": false,
+      "new_paid_run_verified": false
+    },
+    "model_enabled": false,
+    "controlled_fixture": false,
+    "health_static_new_paid_run_verified_flag_explanation": "The ordinary main health response contains a static false marker; it is not calculated from retained runs. This actual model verification ran in the isolated temporary backend and its original evidence is retained separately. No code was changed for this marker."
+  },
+  "checks": {
+    "case_specific_offline": {
+      "passed": 6,
+      "failed": 0,
+      "log": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/offline-tests.log"
+    },
+    "typescript_exit_code": 0,
+    "retention_check": "temporary target first import + byte-identical idempotent repeat, then production import + repeat; no model calls",
+    "final_read_only_browser": "passed; no mutations or external browser requests; task complete + source limits + empty result + original PDF + download controls visible"
+  },
+  "artifacts": {
+    "authorization.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/authorization.json",
+      "sha256": "0feb8ef4190693ca589311ab65e3a2d57747c2633e8727018879687e7f163154"
+    },
+    "plan.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/plan.json",
+      "sha256": "c9b02b6102b22f0e5eea43a32fec5070b8bccd774b4ceab59ad84215cf0ade12"
+    },
+    "preflight.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/preflight.json",
+      "sha256": "5ab6f03d92af915679f002e1844df0685e28456fc58ef4bf7bf9a3de282cff67"
+    },
+    "execution-verification.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/execution-verification.json",
+      "sha256": "8f5d39359d5a1012cd5960a68edc28e1000f88f88bfc530d099a756cf7ce67c4"
+    },
+    "allowance.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/allowance.json",
+      "sha256": "d5d39b1ef0c3965a32d15afd41652e079270e4c07ad7a0f37ec0e2d4bf4a7055"
+    },
+    "request-ledger.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/request-ledger.json",
+      "sha256": "4dd9db917da36d68c26553ed99cee6d743f5c801ed0245e6ef697fa357906f44"
+    },
+    "seal.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/seal.json",
+      "sha256": "ab7bdcad7e0aebcecae0a895e010c74d89b12c1d8a619fd13d03834c45dfd7b3"
+    },
+    "zero-candidate-observation.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/zero-candidate-observation.json",
+      "sha256": "624b8287d334558b5ef43f7aabd395cb8d09c309d94567a347a51fa41c03b0ec"
+    },
+    "production-before.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-before.json",
+      "sha256": "1fe6b9301bbda8a475010c1eed99e8aeb586721cfc6a2f66d8ba27e5e5e01109"
+    },
+    "production-after.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-after.json",
+      "sha256": "e83c964fec0dccb0b4927114d880043b94eff7248a7c64bc833678d720938b21"
+    },
+    "production-retention.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-retention.json",
+      "sha256": "6a1cfbd7dd596a4a0aa89c799f4d549b9861570988c8b6b5da491f8c4ea6dbd0"
+    },
+    "production-retention-idempotence.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/production-retention-idempotence.json",
+      "sha256": "0b77a87eef3095f3e8606f595d325dd25a87235d11dd068d11b3f3899ebf2e63"
+    },
+    "retained-view-check.json": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retained-view-check.json",
+      "sha256": "d172fbe87c27b763235d6f1ada7671fe950b816b88375438fc1979f1a564683c"
+    },
+    "retained-L05-user-view.png": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retained-L05-user-view.png",
+      "sha256": "30de0c724e6107a21114069ce781e1bcf371ff1c2ea0e7d6240eec6b0df770fc"
+    },
+    "offline-tests.log": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/offline-tests.log",
+      "sha256": "19fa5724c8ba741e60bf8a891b0e19693afa97a82da3611515db07192417b162"
+    },
+    "typecheck.log": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "retention-check.log": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retention-check.log",
+      "sha256": "d69c13fd34f368f0449ac2a5cab261709d08cddca4d66ea2738889ddb4663519"
+    },
+    "retention-typecheck.log": {
+      "path": "docs/acceptance/s5-workflow-2026-11-09/real-model-L05/retention-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "remaining_scope": "No further model run authorized; formal application model/catalog, nonempty real candidate/figure review and independent S6 medical quality/performance acceptance remain separate.",
+  "formal_reviews": "Existing S4 3/3 unchanged; no new or reset review round."
+}

@@ -114,14 +114,9 @@ test("resolves the effective base URL and API for the requested provider", async
   assert.equal(builtin.api, "openai-completions");
 });
 
-test("asks for a Base URL when a custom provider has none and pi ships no endpoint", async () => {
-  const { createJiti } = await import("jiti");
-  const { POST } = await createJiti(import.meta.url, { tsconfigPaths: true })
-    .import("../app/api/models-config/discover/route.ts");
-  const response = await POST(new Request("http://localhost/api/models-config/discover", {
-    method: "POST",
-    body: JSON.stringify({ providerName: "pi-web-no-baseurl-test", provider: {} }),
-  }));
-  assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { error: "Base URL is required" });
+test("the SDK rejects incomplete custom providers and T1 keeps discovery APIs retired", async () => {
+  await assert.rejects(resolveModelDiscoveryAuth("pi-web-no-baseurl-test", {}), /no "api" specified/);
+  const { isT1ApiPath } = await loadSubject("../t1/gateway-policy.ts");
+  assert.equal(isT1ApiPath("/api/models-config/discover"), false);
+  assert.equal(isT1ApiPath("/api/t1/models-config/discover"), false);
 });

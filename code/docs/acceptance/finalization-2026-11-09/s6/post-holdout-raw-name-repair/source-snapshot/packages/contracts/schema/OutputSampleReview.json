@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sample_id",
+    "selection_method",
+    "reviewer",
+    "reviewed_at",
+    "entries"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "output-sample-review-1"
+    },
+    "sample_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "selection_method": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "reviewed_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "record_id",
+          "record_version",
+          "delivery_fingerprint",
+          "relevance",
+          "context",
+          "figure_pairing",
+          "notes"
+        ],
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "record_version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "delivery_fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "relevance": {
+            "enum": [
+              "pass",
+              "fail",
+              "uncertain"
+            ]
+          },
+          "context": {
+            "enum": [
+              "pass",
+              "fail",
+              "uncertain"
+            ]
+          },
+          "figure_pairing": {
+            "enum": [
+              "pass",
+              "fail",
+              "uncertain",
+              "not_applicable"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

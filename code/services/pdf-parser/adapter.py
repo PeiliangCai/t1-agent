@@ -16,6 +16,7 @@ import os
 import re
 import resource
 import time
+from source_font_fidelity import VERSION as FONT_GLYPH_GUARD_VERSION, sparse_unmapped_fonts, mark_line_glyph_issues
 
 CODE = Path(__file__).resolve().parents[2]
 ADAPTER_VERSION = 's3-text-adapter-1'
@@ -256,6 +257,8 @@ class DoclingParseTextAdapter:
                   'config_revision': self.config_revision, 'normalization_version': NORMALIZATION_VERSION,
                   'do_sanitization': False, 'keep_glyphs': False, 'ocr_enabled': False, 'table_reconstruction': False,
                   'reading_order': 'backend_textline_order_unverified', 'metadata_backend': 'pypdf-' + version('pypdf')}
+        config.update({'font_glyph_guard_version': FONT_GLYPH_GUARD_VERSION,
+                       'font_glyph_guard_sha256': sha256(Path(__file__).with_name('source_font_fidelity.py').read_bytes()).hexdigest()})
         backend_version = version('docling-parse')
         config_digest = sha256(json.dumps(config, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
         backend_started = time.monotonic()
@@ -264,7 +267,7 @@ class DoclingParseTextAdapter:
                 parser = DoclingPdfParser(loglevel='fatal')
                 backend = parser.load(path_or_stream=BytesIO(raw), lazy=True,
                                       decode_config=DecodeConfig(do_sanitization=False, keep_glyphs=False),
-                                      content_config=ContentConfig(char_cells_content_level=ContentLevel.SKIP,
+                                      content_config=ContentConfig(char_cells_content_level=ContentLevel.COMPUTE_AND_MATERIALIZE,
                                                                   word_cells_content_level=ContentLevel.SKIP,
                                                                   line_cells_content_level=ContentLevel.COMPUTE_AND_MATERIALIZE,
                                                                   shapes_content_level=ContentLevel.SKIP,
@@ -292,6 +295,13 @@ class DoclingParseTextAdapter:
                     geometry = page_geometry(reader.pages[physical_page - 1])
                     with native_stdout_to_stderr():
                         page = backend.get_page(physical_page)
+                    suspicious_fonts = sparse_unmapped_fonts(reader.pages[physical_page - 1])
+                    glyphs = []
+                    if suspicious_fonts:
+                        for glyph in page.char_cells:
+                            glyph_box, _ = geometry_for_cell(glyph, geometry)
+                            glyphs.append({'index': glyph.index, 'text': glyph.orig if isinstance(glyph.orig, str) else glyph.text,
+                                           'bbox': glyph_box, 'font': glyph.font_name})
                     for index, cell in enumerate(page.textline_cells):
                         raw_text = cell.orig if isinstance(cell.orig, str) else cell.text
                         if raw_text == '':
@@ -305,6 +315,9 @@ class DoclingParseTextAdapter:
                                             'semantic_type_status': 'unclassified_textline',
                                             'reading_order': len(blocks) + len(page_blocks), 'bbox': bbox,
                                             'source_geometry': source_geometry, 'backend_cell_index': index})
+                        glyph_issues = mark_line_glyph_issues(page_blocks[-1], glyphs, suspicious_fonts)
+                        if glyph_issues:
+                            page_blocks[-1]['source_glyph_issues'] = glyph_issues
                     bitmaps, has_text = len(page.bitmap_resources), any(b['text'].strip() for b in page_blocks)
                     if has_text and first_text_seconds is None:
                         first_text_seconds = time.monotonic() - started
@@ -331,7 +344,8 @@ class DoclingParseTextAdapter:
         text_pages = [p['physical_page'] for p in pages if p['text_layer_present']]
         no_text = [p['physical_page'] for p in pages if p['status'] != 'failed' and not p['text_layer_present']]
         image_unverified = [p['physical_page'] for p in pages if p['bitmap_count']]
-        state = 'unsupported' if not blocks else 'partial' if failures or no_text or image_unverified else 'parsed'
+        glyph_unverified = any(b.get('source_glyph_issues') for b in blocks)
+        state = 'unsupported' if not blocks else 'partial' if failures or no_text or image_unverified or glyph_unverified else 'parsed'
         usage_after = resource.getrusage(resource.RUSAGE_SELF)
         ids = [b['block_id'] for b in blocks]
         return {
@@ -351,7 +365,8 @@ class DoclingParseTextAdapter:
                          'limitations': ['No OCR or text burned into images', 'No table/header/footnote or caption association',
                                          'Backend line order preserved; multi-column reading order unverified',
                                          'Whole textline coordinates; exact glyph highlighting not implemented',
-                                         'Decoded text, Unicode, units, superscripts and omissions require human PDF comparison']},
+                                         'Decoded text, Unicode, units, superscripts and omissions require human PDF comparison'] +
+                                        (['Sparse embedded font lacks ToUnicode: marked source glyph spans are unreliable and must not enter approved evidence; inspect the original PDF.'] if glyph_unverified else [])},
             'metrics': {'file_check_seconds': round(file_check_seconds, 6), 'backend_init_seconds': round(backend_init_seconds, 6),
                         'first_text_seconds': round(first_text_seconds, 6) if first_text_seconds is not None else None,
                         'total_seconds': round(time.monotonic() - started, 6),

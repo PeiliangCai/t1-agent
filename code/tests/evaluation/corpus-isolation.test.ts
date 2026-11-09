@@ -17,9 +17,10 @@ function fixture(): IndependentCorpus {
   const p = paper(); p.seal = { actor: 'fixture-checker', sealed_at: '2026-11-04T00:00:00Z', identity_sha256: independentIdentityDigest(p) };
   return { schema_version: 'independent-corpus-1', purpose: 'new_unexposed_papers_only', formal_sample_count: null, medical_quality_approved: false, papers: [p] };
 }
-test('the current independent intake is empty; exposed historical papers are not a holdout', () => {
+test('the current independent intake is valid; exposed historical papers are not a holdout', () => {
   const current = JSON.parse(readFileSync(new URL('../../evaluation/manifests/independent-intake.json', import.meta.url), 'utf8'));
-  assert.deepEqual(independentCorpusIssues(current, historical), []); assert.deepEqual(current.papers, []);
+  assert.deepEqual(independentCorpusIssues(current, historical), []);
+  assert.equal(current.medical_quality_approved, false);
   for (const collision of ['id', 'family', 'sha', 'doi'] as const) {
     const c = fixture(), p = c.papers[0]!, old = historical.sources.find(s => s.doi && s.access.sha256)!;
     if (collision === 'id') { p.source_id = old.source_id; p.file.path = `evaluation/corpus/independent-sealed/${p.source_id}.pdf`; }

@@ -90,6 +90,7 @@ export function buildDocumentStructureContext(document: Document, windowIds: rea
   };
   if (document.schema_version !== '3') return { ...empty, available: false as const, reason: 'source_has_no_native_structure' };
   const units = new Map(document.structure.units.map(u => [u.unit_id, u]));
+  const glyphUnsafe = (u?: StructureUnit) => u?.source_segments.some(s => document.blocks.find(b => b.block_id === s.block_id)?.source_glyph_issues?.length);
   const readingIndex = new Map(document.structure.reading_order.map((id, i) => [id, i]));
   const touched = document.structure.units.filter(u => u.source_segments.some(s => visible.has(s.block_id)));
   const paragraphs = touched.filter(u => ['text', 'list_item', 'caption', 'footnote', 'section_header', 'other'].includes(u.kind));
@@ -183,7 +184,8 @@ export function buildDocumentStructureContext(document: Document, windowIds: rea
   }));
   return { ...empty, available: true as const, paragraphs: paragraphs.slice(0, cap).map(describe), omitted_paragraph_hints: Math.max(0, paragraphs.length - cap),
     headings: headingPaths.filter(h => headingIds.has(h.unit_id)).slice(-headingCap).map(h => ({ ...h, line_spans: spans(units.get(h.unit_id)?.source_segments ?? []),
-      native_title_display: Array.from(units.get(h.unit_id)?.native_text ?? '').slice(0, 320).join(''),
+      native_title_display: glyphUnsafe(units.get(h.unit_id)) ? '' : Array.from(units.get(h.unit_id)?.native_text ?? '').slice(0, 320).join(''),
+      ...(glyphUnsafe(units.get(h.unit_id)) ? { native_title_withheld_source_glyph_unverified: true } : {}),
       native_title_display_truncated: Array.from(units.get(h.unit_id)?.native_text ?? '').length > 320,
       title_display_role: 'processed_native_context_not_literal_quote_or_read_source',
       required_line_indices: required(units.get(h.unit_id)?.source_segments ?? []), source_text_in_window: units.get(h.unit_id)?.source_segments.every(s => visible.has(s.block_id)) ?? false })),

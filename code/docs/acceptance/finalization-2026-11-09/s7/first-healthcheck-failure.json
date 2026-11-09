@@ -1,0 +1,9 @@
+{
+  "observed_at": "2026-11-09T08:26:26Z",
+  "cause": "S7 healthcheck incorrectly assumed Next exposes /api/t1/health; existing gateway intentionally allows only T1 business endpoints, returns404. Fastify/Next and /api/t1/workbench/capabilities were actually running200.",
+  "fix": "Probe Fastify /health internally and Next allowlisted workbench/capabilities. No frontend/agent/parser modification.",
+  "paid_requests": 0,
+  "production_touched": false,
+  "first_image": "a7c9701d3dde1d6b7c62ccf9e4538588d24f1268dbad2cab1d3c49ade2f3a834",
+  "status": "deployment probe corrected; rebuild/runtime retest pending"
+}

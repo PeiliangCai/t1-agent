@@ -1,0 +1,72 @@
+{
+  "schema_version": "s7-provider-identity-stop-1",
+  "observed_at": "2026-11-09T10:52:55.760890+00:00",
+  "request_ordinal": 5,
+  "request_id": "faca2590-7795-4834-a38d-edf8b2c7e8d3",
+  "status": 200,
+  "requested_model": "gpt-6-luna",
+  "actual_reported_model": "data-zone-standard-gpt-6-luna",
+  "evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+  "observations": [
+    {
+      "source": "provider_stream_event.response.model",
+      "event_type": "response.created",
+      "observed_at": "2026-11-09T10:50:48.481Z",
+      "expected_model": "gpt-6-luna",
+      "status": "mismatch",
+      "actual_model": "data-zone-standard-gpt-6-luna"
+    },
+    {
+      "source": "provider_stream_event.response.model",
+      "event_type": "response.in_progress",
+      "observed_at": "2026-11-09T10:50:48.482Z",
+      "expected_model": "gpt-6-luna",
+      "status": "mismatch",
+      "actual_model": "data-zone-standard-gpt-6-luna"
+    },
+    {
+      "source": "provider_stream_event.response.model",
+      "event_type": "response.completed",
+      "observed_at": "2026-11-09T10:50:49.205Z",
+      "expected_model": "gpt-6-luna",
+      "status": "mismatch",
+      "actual_model": "data-zone-standard-gpt-6-luna"
+    }
+  ],
+  "wire_body_sha256": "a4630d6e31dbb9fc3118716723f0f24b95d98c2dfa98346eafe08aeb1bc9d982",
+  "wire_hash_scope": "complete_decoded_HTTP_body",
+  "policy": {
+    "policy_id": "user-relayed-agicto-deployment-region-luna-20261103",
+    "source": "code/docs/acceptance/s4/selection-optimization/continuation-2026-11-03/supplier-alias-confirmation.json",
+    "recorded_at": "2026-11-03T14:35:44.675264+00:00",
+    "exact_pairs": [
+      {
+        "requested_model": "gpt-6-luna",
+        "response_model": "igpt-6-luna"
+      },
+      {
+        "requested_model": "igpt-6-luna",
+        "response_model": "gpt-6-luna"
+      }
+    ]
+  },
+  "halted": "response_model_identity_mismatch",
+  "classification": "Unconfirmed supplier-reported model name; weight identity cannot be inferred. No wildcard/alias expansion performed.",
+  "stop_behavior": "No retry or summary after nontransient identity stop; remainderclosed; no additional model request authorized.",
+  "retained_candidates": 5,
+  "candidate_role_note": "Pre-summary default pending roles, not final primary/background assessment or medical confirmation.",
+  "coverage": {
+    "all_source_blocks": 403,
+    "model_authorized_source_blocks": 389,
+    "completed_source_blocks": 128,
+    "failed_source_blocks": 128,
+    "task_unprocessed": 147,
+    "glyph_quarantined": 14,
+    "summary": false,
+    "selected_processing": false,
+    "parser_status": "partial"
+  },
+  "source_glyph_quarantine_not_delivered": true,
+  "paid_retry_performed": false,
+  "ordinary_model_enabled": false
+}

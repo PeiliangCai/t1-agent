@@ -45,6 +45,8 @@ export async function readPreparedExtractionSources(papers: readonly PreparedExt
     if (document.document_id !== source.source_id || document.file_sha256 !== source.access.sha256 || document.fixture || document.schema_version !== '3' ||
       document.parser.id !== selected.default_candidate_id || document.parser.version !== selected.primary.parser_version ||
       document.parser.config.adapter_sha256 !== sourceBytesDigest(await readFile('services/pdf-parser/structured.py')) ||
+      document.parser.config.font_glyph_guard_version !== 'sparse-embedded-font-no-unicode-1' ||
+      document.parser.config.font_glyph_guard_sha256 !== sourceBytesDigest(await readFile('services/pdf-parser/source_font_fidelity.py')) ||
       !auxiliary || typeof auxiliary !== 'object' || Array.isArray(auxiliary) || Object.keys(auxiliary).length !== PDF_AUXILIARY_MODULES.length ||
       PDF_AUXILIARY_MODULES.some(name => auxiliary[name] !== currentAuxiliaryHashes[name]) ||
       document.source_extraction.parser_id !== selected.primary.source_anchor.id || document.source_extraction.parser_version !== selected.primary.source_anchor.version ||
@@ -85,7 +87,7 @@ export async function extractionRuntimeSourceHashes(options: {
   const files = (await Promise.all(['packages/agent/src', 'packages/contracts/src', 'evaluation/src'].map(async folder =>
     (await readdir(folder)).filter(name => name.endsWith('.ts')).map(name => folder + '/' + name)))).flat();
   files.push(...options.scripts, 'services/pdf-parser/structured.py', 'services/pdf-parser/adapter.py',
-    'services/pdf-parser/native_worker.py', 'services/pdf-parser/figure_assets.py', 'config/pdf-parser.json', 'package.json', 'package-lock.json', 'evaluation/rules/output-sampling.json');
+    'services/pdf-parser/native_worker.py', 'services/pdf-parser/figure_assets.py', 'services/pdf-parser/source_font_fidelity.py', 'config/pdf-parser.json', 'package.json', 'package-lock.json', 'evaluation/rules/output-sampling.json');
   files.push(...PDF_AUXILIARY_MODULES.map(name => 'services/pdf-parser/' + name), ...(options.extraPaths ?? []));
   const aliasPath = await confirmedAliasEvidencePath(options.responseModelAliasPolicy); if (aliasPath) files.push(aliasPath);
   return Object.fromEntries(await Promise.all([...new Set(files)].sort().map(async path => [path, sourceBytesDigest(await readFile(await insideCode(path)))])));

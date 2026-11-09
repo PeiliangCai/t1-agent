@@ -1,0 +1,56 @@
+name: t1_compose_project-t1-workbench
+networks:
+  default:
+    name: t1_compose_project-t1-workbench_default
+services:
+  app:
+    build:
+      context: /home/ecs-user/projects/t1-agent/code
+      dockerfile: Dockerfile
+    cap_drop:
+      - ALL
+    cpus: 4
+    environment:
+      T1_IMPORT_RETAINED: "false"
+      T1_MODEL_API_KEY: ${T1_DEPLOY_MODEL_API_KEY:-}
+      T1_MODEL_BASE_URL: ${T1_DEPLOY_MODEL_BASE_URL:-}
+      T1_MODEL_ID: ${T1_DEPLOY_MODEL_ID:-}
+      T1_MODEL_PROVIDER: ${T1_DEPLOY_MODEL_PROVIDER:-}
+      T1_WORKBENCH_MAX_INPUT_TOKENS: ${T1_DEPLOY_MAX_INPUT_TOKENS:-2000000}
+      T1_WORKBENCH_MAX_OUTPUT_TOKENS: ${T1_DEPLOY_MAX_OUTPUT_TOKENS:-120000}
+      T1_WORKBENCH_MAX_REQUESTS: ${T1_DEPLOY_MAX_REQUESTS:-80}
+      T1_WORKBENCH_MODEL_ENABLED: ${T1_DEPLOY_MODEL_ENABLED:-false}
+    image: ${T1_IMAGE:-t1-workbench:local}
+    init: true
+    logging:
+      driver: json-file
+      options:
+        max-file: "3"
+        max-size: 10m
+    mem_limit: 8g
+    networks:
+      default: null
+    pids_limit: 512
+    ports:
+      - 127.0.0.1:${T1_WEB_PORT:-30142}:30141
+    read_only: true
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 75s
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    volumes:
+      - source: data
+        target: /app/runtime-data
+        type: volume
+        volume: {}
+      - bind:
+          create_host_path: false
+        read_only: true
+        source: /home/ecs-user/projects/t1-agent/code/${T1_DOCLING_MODELS:-./.tools/pdf-parser/models}
+        target: /app/.tools/pdf-parser/models
+        type: bind
+volumes:
+  data:
+    name: ${T1_DATA_VOLUME:-${COMPOSE_PROJECT_NAME:-t1-workbench}-data}

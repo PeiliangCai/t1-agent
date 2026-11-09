@@ -1,0 +1,295 @@
+{
+  "at": "2026-11-09T03:15:04.182957+00:00",
+  "capabilities": {
+    "schema_version": "t1-workbench-capabilities-1",
+    "read_only": false,
+    "paper_upload": true,
+    "extraction_start": false,
+    "persisted_review": true,
+    "approved_export": true,
+    "backend_pi_sdk": "1.4.0",
+    "full_S5_complete": false,
+    "controlled_fixture": false,
+    "max_pdf_bytes": 52428800,
+    "extraction_unavailable_reason": "server_model_not_enabled"
+  },
+  "papers": {
+    "papers": [
+      {
+        "id": "MED03",
+        "title": "Structured reporting of computed tomography in the staging of colon cancer: a Delphi consensus proposal",
+        "sha256": "36038f5e0ad453343334326a3ba03e6c94e3687ca88574640d54be7056ffa760",
+        "uploaded": false,
+        "language": "en",
+        "pages": 9,
+        "note": "共识报告条目、扫描协议项与具体视觉描述/影像测量应区分；不自动当作病例观察结果。",
+        "output_ids": []
+      },
+      {
+        "id": "L07",
+        "title": "Rectal cancer lexicon 2023 revised and updated consensus statement from the Society of Abdominal Radiology Colorectal and Anal Cancer Disease-Focused Panel",
+        "sha256": "b7850a291694e3c7018f1acbe29c0a31333442f1b1b35154de30ac44662719ff",
+        "uploaded": false,
+        "language": "en",
+        "pages": 15,
+        "note": "与MED04为同一论文族，仅附L07一份；共识定义与建议不自动当作本研究观察结果。",
+        "output_ids": [
+          "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L07"
+        ]
+      },
+      {
+        "id": "L05",
+        "title": "CT imaging features of lung ground-glass nodule patients with upgraded intraoperative frozen pathology",
+        "sha256": "bd60db7e7fe5c7950ac85264c653f48feeb9c503eca76147da26d297f830535f",
+        "uploaded": false,
+        "language": "en",
+        "pages": 10,
+        "note": "肺结节研究对象不自动等同于全部已确诊肺癌；请按原文保留病灶与病理分组。",
+        "output_ids": [
+          "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L05",
+          "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-R",
+          "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-F",
+          "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-B0"
+        ]
+      },
+      {
+        "id": "L02",
+        "title": "磁共振动态增强扫描在直肠癌患者新辅助放化疗效果评估中的应用价值及影像学指标分析",
+        "sha256": "14a37c26847110e3dce0fad50e95cec4459348b0c6da7ef793a1d333bd6e1c12",
+        "uploaded": false,
+        "language": "zh",
+        "pages": 3,
+        "note": "第3物理页含“上接第38页”的另一篇续文并与本篇内容混排；请先核对本篇边界，该续文暂不自动算本篇。",
+        "output_ids": []
+      },
+      {
+        "id": "L01",
+        "title": "CT影像特征在预测非小细胞肺癌免疫治疗中的价值",
+        "sha256": "8f5e38ac6575cd776469506fece887e85acb95bf4df0d61ae489cc88cf0de267",
+        "uploaded": false,
+        "language": "zh",
+        "pages": 4,
+        "note": "按原文记录研究对象与治疗条件，不扩展论文断言。",
+        "output_ids": [
+          "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L01",
+          "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L01-F",
+          "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L01-B0"
+        ]
+      }
+    ]
+  },
+  "runs": {
+    "runs": [
+      {
+        "run_id": "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L05",
+        "document_id": "L05",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 0,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "exact-explicit-synonyms-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.980Z"
+      },
+      {
+        "run_id": "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L01",
+        "document_id": "L01",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 2,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "exact-explicit-synonyms-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.921Z"
+      },
+      {
+        "run_id": "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L07",
+        "document_id": "L07",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 26,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "exact-explicit-synonyms-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.828Z"
+      },
+      {
+        "run_id": "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-R",
+        "document_id": "L05",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 23,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "source-grounded-exact-rules-s4-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.475Z"
+      },
+      {
+        "run_id": "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-F",
+        "document_id": "L05",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 20,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "source-grounded-exact-rules-s4-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.324Z"
+      },
+      {
+        "run_id": "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L05-B0",
+        "document_id": "L05",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 21,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "source-grounded-exact-rules-s4-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.157Z"
+      },
+      {
+        "run_id": "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L01-F",
+        "document_id": "L01",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 34,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "source-grounded-exact-rules-s4-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:05.011Z"
+      },
+      {
+        "run_id": "selection-continuation-2026-11-03T14-41-44-166Z-96fcfca2:reliability-v2-main:L01-B0",
+        "document_id": "L01",
+        "state": "partial",
+        "fixture": false,
+        "candidate_count": 21,
+        "scope": {
+          "scope_version": "1",
+          "cancers": {
+            "mode": "all",
+            "ids": []
+          },
+          "image_types": {
+            "mode": "all",
+            "ids": []
+          },
+          "features": {
+            "mode": "all",
+            "binding_ids": []
+          },
+          "catalog_version": "medical-unavailable-1",
+          "matching_policy_version": "source-grounded-exact-rules-s4-1"
+        },
+        "origin": "historical_compatibility_replay",
+        "created_at": "2026-11-09T02:33:04.824Z"
+      }
+    ]
+  },
+  "same_papers_as_before": true,
+  "same_runs_as_before": true
+}

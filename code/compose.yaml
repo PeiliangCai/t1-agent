@@ -1,0 +1,47 @@
+name: ${T1_COMPOSE_PROJECT:-t1-workbench}
+services:
+  app:
+    image: ${T1_IMAGE:-t1-workbench:local}
+    build:
+      context: .
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 75s
+    ports:
+      - "127.0.0.1:${T1_WEB_PORT:-30142}:30141"
+    environment:
+      T1_IMPORT_RETAINED: "false"
+      # Separate deployment namespace prevents the existing host .env credentials/switch
+      # from silently configuring this fresh service.
+      T1_WORKBENCH_MODEL_ENABLED: ${T1_DEPLOY_MODEL_ENABLED:-false}
+      T1_WORKBENCH_MAX_REQUESTS: ${T1_DEPLOY_MAX_REQUESTS:-80}
+      T1_WORKBENCH_MAX_INPUT_TOKENS: ${T1_DEPLOY_MAX_INPUT_TOKENS:-2000000}
+      T1_WORKBENCH_MAX_OUTPUT_TOKENS: ${T1_DEPLOY_MAX_OUTPUT_TOKENS:-120000}
+      T1_MODEL_PROVIDER: ${T1_DEPLOY_MODEL_PROVIDER:-}
+      T1_MODEL_BASE_URL: ${T1_DEPLOY_MODEL_BASE_URL:-}
+      T1_MODEL_ID: ${T1_DEPLOY_MODEL_ID:-}
+      T1_MODEL_API_KEY: ${T1_DEPLOY_MODEL_API_KEY:-}
+    volumes:
+      - data:/app/runtime-data
+      - type: bind
+        source: ${T1_DOCLING_MODELS:-./.tools/pdf-parser/models}
+        target: /app/.tools/pdf-parser/models
+        read_only: true
+        bind:
+          create_host_path: false
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 512
+    mem_limit: 8g
+    cpus: 4
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+volumes:
+  data:
+    name: ${T1_DATA_VOLUME:-${COMPOSE_PROJECT_NAME:-t1-workbench}-data}

@@ -1,0 +1,317 @@
+{
+  "schema_version": "source-font-figure-repair-regression-1",
+  "completed_at": "2026-11-09T09:31:43.921376+00:00",
+  "engineering_checks_passed": true,
+  "status": "engineering_regression_passed_with_explicit_fidelity_and_caption_limits",
+  "initial_independent_trial": "failed;47 requests closed;IN01 cancelled,IN02 task-terminal/partial parser,IN03 unadmitted;never relabeled as repaired independent pass",
+  "formal_reviews_used": 3,
+  "formal_reviews_maximum": 3,
+  "new_provider_requests": 0,
+  "source_scope_or_prompt_tuned": false,
+  "B0_F_selection_version_unchanged": "s4-explainable-source-selection-3",
+  "source_glyph_guard_version": "sparse-embedded-font-no-unicode-1",
+  "source_glyph_guard_sha256": "8656373967c241f69b9da18e80f9315cb1c22129d7567a20e803e26bc497bd63",
+  "cause": {
+    "known_error": "IN01 physical p4 Fig3 two visible micro glyphs decoded as Latin m",
+    "font": "/JFAPKP+AdvOT3f84ef53",
+    "font_program_sha256": "c1b3d51d3cfb5aea54e1130eefb6c4e6bc4b01776a0ecc26ba1837a4f64e0a54",
+    "code": 109,
+    "ToUnicode": false,
+    "CFF_glyph_name": "m",
+    "diagnostic": "../font-encoding-diagnostic.json",
+    "reliable_unicode_reconstruction_available": false,
+    "semantic_unit_replacement_performed": false
+  },
+  "behavior": [
+    "Preserve PDF and raw decoded text; exact glyph offsets carry uncertainty. No LLM/semantic m-to-micro repair.",
+    "Quarantine affected complete literal source units at block transport boundary before batch, tool reread and summary; retain explicit unprocessed task coverage gaps.",
+    "Reject unreliable fragment delivery/approved export and verified-image captions. Unknown images and newly grouped captions remain needs_review.",
+    "Historical candidates/pages/versions remain readable and byte-identical. Approved export performs a local no-model same-SHA font audit; every source line/text/bbox must match, otherwise reject for reparse.",
+    "Glyph check is narrow: sparse embedded fonts lacking ToUnicode. Passing the check does not establish all Unicode accuracy; source page review remains required."
+  ],
+  "glyph_impact": [
+    {
+      "paper": "IN01",
+      "source_sha256": "dccc780e5c842fb98236bd400b1bdbfde0de54b98b99e25776cf6c2db127fe1a",
+      "all_blocks": 575,
+      "all_literal_units": 436,
+      "direct_suspect_blocks": 5,
+      "quarantined_transport_blocks": 7,
+      "affected_literal_units": 5,
+      "previously_complete_sentences": 3,
+      "previously_unverified_units": 2,
+      "proven_micro_glyph_errors": 2,
+      "other_suspected_characters_not_proven_errors": 3,
+      "cost": "These retained source blocks are unavailable to model extraction until source verification; counted as unresolved coverage, not completed/excluded or an error rate."
+    },
+    {
+      "paper": "IN02",
+      "source_sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe",
+      "all_blocks": 678,
+      "all_literal_units": 502,
+      "direct_suspect_blocks": 19,
+      "quarantined_transport_blocks": 40,
+      "affected_literal_units": 12,
+      "previously_complete_sentences": 8,
+      "previously_unverified_units": 4,
+      "proven_micro_glyph_errors": 0,
+      "other_suspected_characters_not_proven_errors": 26,
+      "cost": "These retained source blocks are unavailable to model extraction until source verification; counted as unresolved coverage, not completed/excluded or an error rate."
+    }
+  ],
+  "figure_regression": [
+    {
+      "paper": "IN01",
+      "new_text_version": "s3v3-e66447753f4bd992fa3a72b3ef60e37e",
+      "source_anchor_fresh": true,
+      "native_artifact_reused": true,
+      "decoded_text_bytes_unchanged": true,
+      "figures": [
+        {
+          "number": "2",
+          "caption_source_line_count": 3,
+          "caption_utf8_sha256": "20ce8d2a4214b10d79fd9e51c83fcb0ed50412bd58aa5c5d1b3e8d0aa9dd4e14",
+          "region_count": 1,
+          "asset_sha256": [
+            "0714a9887f246fbdc623266187578fbeb465386b4da6b4c79c42e3b873baded8"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        },
+        {
+          "number": "3",
+          "caption_source_line_count": 10,
+          "caption_utf8_sha256": "b4486e2034f51702cf680eaec42385b0cd2a9f78da11958ec280fd371e111ba0",
+          "region_count": 1,
+          "asset_sha256": [
+            "2f1d95f9c5377fcada65f75474c58d1f1adacd10f5a2ad8f5006a3693dbd66ed"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        },
+        {
+          "number": "4",
+          "caption_source_line_count": 7,
+          "caption_utf8_sha256": "284a2ac5927055e9def817c3742be3811fafdadccfe1d997879aefa62413c1fe",
+          "region_count": 1,
+          "asset_sha256": [
+            "890a1db2593c41c73c0f77c7e6aaf103660a660e02df77db3a16b487e85ef438"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        },
+        {
+          "number": "1",
+          "caption_source_line_count": 3,
+          "caption_utf8_sha256": "9165aed4b9d8c08749254f19e8aadc03ee5784ad5346945a355b21188939721a",
+          "region_count": 1,
+          "asset_sha256": [
+            "a08aded3ad676d422821f028a692156acf61c942347ccd36421fd6473eea34a1"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        }
+      ]
+    },
+    {
+      "paper": "IN02",
+      "new_text_version": "s3v3-b573cbb5e7d4d6d830b372ac14c594e7",
+      "source_anchor_fresh": true,
+      "native_artifact_reused": true,
+      "decoded_text_bytes_unchanged": true,
+      "figures": [
+        {
+          "number": "1",
+          "caption_source_line_count": 4,
+          "caption_utf8_sha256": "f033a3c59429ec51809dc61c9434b4db4cb210aeb34b6574106d49e93db385c1",
+          "region_count": 1,
+          "asset_sha256": [
+            "6d9fd11347ffd09d1febd6c934d47d25a51b287a9c8dce68bb14d41530299f6f"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        },
+        {
+          "number": "2",
+          "caption_source_line_count": 2,
+          "caption_utf8_sha256": "e07793d9f34225a95879b3bd6af58fceb439e40d7c1a1d9212711636acd26c5a",
+          "region_count": 1,
+          "asset_sha256": [
+            "84aae32b045d5ac8b969704d0b388b2f29405f2649085c59654eb4e5efce87eb"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        },
+        {
+          "number": "3",
+          "caption_source_line_count": 2,
+          "caption_utf8_sha256": "457466433c2f7a15afdee0eb12f12e4354eeed20f8997aa2d8cb8af6c92c1b7a",
+          "region_count": 1,
+          "asset_sha256": [
+            "36b29c114fc8b70a2906ec946443a4ccb26b22d6b5cc58dbb647d761314f9246"
+          ],
+          "status": "needs_review",
+          "human_approved": false
+        }
+      ]
+    }
+  ],
+  "root_crop_observation": {
+    "reviewer_kind": "delegated_ai_operator",
+    "original_page_comparison": "Root viewed IN01 Fig1/2/3/4 and IN02 Fig1 candidate crops; visible panels/letters/arrows retained. This is an engineering geometry observation only.",
+    "actual_human_reviewed_count": 0,
+    "medical_approval": false,
+    "whole_figure_certification_granted": false
+  },
+  "validation": {
+    "extraction_tests": {
+      "passed": 311,
+      "failed": 0,
+      "log": "../extraction-regression-final.log"
+    },
+    "python_parser_tests": {
+      "passed": 54,
+      "failed": 0,
+      "log": "../parser-python-tests.log"
+    },
+    "driver_tests": {
+      "passed": 7,
+      "failed": 0,
+      "log": "../driver-final-tests.log"
+    },
+    "root_typecheck": {
+      "exit_code": 0,
+      "log": "../driver-final-typecheck.log"
+    },
+    "frontend_typecheck": {
+      "exit_code": 0,
+      "log": "../glyph-ui-typecheck.log"
+    },
+    "changed_frontend_lint": {
+      "exit_code": 0,
+      "log": "../glyph-ui-lint.log"
+    },
+    "next_build": {
+      "exit_code": 0,
+      "log": "next-build.log"
+    },
+    "readonly_browser_three_locales": {
+      "errors": [],
+      "mutations": [],
+      "checks": [
+        {
+          "locale": "zh-CN",
+          "legacy_hint": "历史来源的字形尚未检查；已审核导出前会对同一 PDF 做本地核验，不调用模型。",
+          "original_records_readable": true
+        },
+        {
+          "locale": "en",
+          "legacy_hint": "Historical source glyphs have not been checked. Approved export will check the identical PDF locally, without a model call.",
+          "original_records_readable": true
+        },
+        {
+          "locale": "zh-TW",
+          "legacy_hint": "歷史來源的字形尚未檢查；已審核匯出前會對相同 PDF 做本機核驗，不呼叫模型。",
+          "original_records_readable": true
+        }
+      ],
+      "passed": true
+    },
+    "positive_real_source_coverage": "Fresh L05 source-anchor parse plus hash-bound unchanged native reuse; actual B0/F offline prepare/preflight and unapproved-run rejection pass; normal real source fragment citable and temporary synthetic approved text export pass. No production or medical approval."
+  },
+  "failed_attempts_retained": [
+    "../extraction-regression-tests.log (301/310 before version-boundary fixes)",
+    "../figure-regression-attempt1.log (legacy region fingerprint changed before preserving rounding bounds)"
+  ],
+  "original_raw_seal": {
+    "path": "../initial-final-seal.json",
+    "sha256": "bb30f1e0b196bc13fb54c2903b380974a30e9f804819c2c68659ae827735a20f",
+    "files_verified": 149,
+    "mismatches": 0
+  },
+  "delegated_original_review": {
+    "path": "../root-delegated-review.json",
+    "sha256": "d757d7671e5a7f60d89c123b2fff4868a717ca87d676f36d3b2c974c12f47466",
+    "medical_quality_approved": false
+  },
+  "production": {
+    "at": "2026-11-09T09:26:59.827827+00:00",
+    "old_pid": 122242,
+    "old_build_id": "ew0z7dxdGqC2-0rf2b3vn",
+    "new_pid": 181812,
+    "new_build_id": "eY4nJ45pdHbrx5nIg7bMf",
+    "origin": "http://127.0.0.1:30141",
+    "health_http": 200,
+    "detached_session": true,
+    "log": "docs/acceptance/finalization-2026-11-09/s6/parser-regression/next-production.log"
+  },
+  "production_data": {
+    "at": "2026-11-09T09:27:36.735620+00:00",
+    "tables": {
+      "events": {
+        "rows": 5,
+        "sha256": "0cce36023a57a5d15170afecc3948a61f8f6e060ca0370d92295d93c088976a4"
+      },
+      "records": {
+        "rows": 1,
+        "sha256": "f76d61870bf7a125fce7418afc751fa4603d923dc1cffe6305dd35b5d5e6e89a"
+      },
+      "runs": {
+        "rows": 1,
+        "sha256": "d9b9fdf5eff6120aae042947b77a3f01d4df2c4111cf9090b344a6631a18bbc4"
+      },
+      "s4_batches": {
+        "rows": 5,
+        "sha256": "366e375ebb6ee0c55a9b03b065933be9d27014e26cb597752904714ad4001dd8"
+      },
+      "s4_events": {
+        "rows": 67,
+        "sha256": "4b941cfee62301a4ea60ed5fcf258b51ce07cb2697037f295fc53364fb77ef11"
+      },
+      "s4_runs": {
+        "rows": 9,
+        "sha256": "fdff5bf01c4d611899b46ac0ae0301f5484d07dfe9743f7e92823aa80d528ecf"
+      },
+      "s4_versions": {
+        "rows": 262,
+        "sha256": "cb1df409a6d115e139ca34608344af7179e47fe3e29729e0cdf793cc0724cb6b"
+      },
+      "workbench_annotations": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "workbench_deleted_sources": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "workbench_exports": {
+        "rows": 3,
+        "sha256": "ba7eb6d2da6133f520abbd7e8101fe19f133f64743abb9fbe873d49ead338a69"
+      },
+      "workbench_papers": {
+        "rows": 6,
+        "sha256": "dab83f9a279b579c48976f5c789b5ce291ff8bc9596238f594e08169d9a4c7d5"
+      },
+      "workbench_reviews": {
+        "rows": 0,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "workbench_runs": {
+        "rows": 9,
+        "sha256": "92b22fcf2482104319dd823a549fd19af532ad2240b46db34787b57162902428"
+      }
+    },
+    "same_as_delivered_S5_snapshot": true,
+    "changed_tables": [],
+    "readonly_transaction": true
+  },
+  "limitations": [
+    "The two proven micro glyphs remain undecidable in decoded text and are quarantined, not corrected.",
+    "Sparse-font warnings include punctuation/hyphens that may be correct; false positive isolation costs are reported, not called proven errors.",
+    "Fonts with broader/custom encodings, Form XObjects, scanned text and other unknown glyph defects are not exhaustively verified.",
+    "Caption grouping and complete original bitmap review regions improve source geometry but do not establish medical image type/identity or permission to approve any record.",
+    "IN01/IN02 are now regression-exposed and cannot be used to claim new independent acceptance. IN03/04/05 model tests use new separately frozen authorizations."
+  ],
+  "medical_quality_approved": false,
+  "production_record_approvals": 0
+}

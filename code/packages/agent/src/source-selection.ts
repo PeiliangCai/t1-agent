@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { ContractError } from '@t1/contracts';
 import type { ArticleScopeManifest, ExtractionDocument } from './article-scope.js';
-import { buildSourceEvidenceUnits } from './source-evidence-units.js';
+import { buildSourceEvidenceUnits, sourceGlyphQuarantine } from './source-evidence-units.js';
 
 export const SOURCE_SELECTION_CONDITIONS = ['B0', 'F'] as const;
 export type SourceSelectionCondition = typeof SOURCE_SELECTION_CONDITIONS[number];
@@ -23,6 +23,7 @@ export interface SourceSelectionManifest<
   schema_version: 's4-source-selection-1'; rule_version: string; condition: Condition;
   /** Absent on historical manifests, which remain readable. */
   bibliography_scope_rule_version?: string;
+  source_glyph_guard_version?: string;
   document_id: string; file_sha256: string; text_version: string; article_scope_digest: string;
   entries: SourceSelectionEntry[]; kept_block_ids: string[]; deferred_block_ids: string[]; excluded_block_ids: string[];
   counts: Record<SourceSelectionState, number>; code_points: Record<SourceSelectionState, number>;
@@ -138,7 +139,7 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
   if (!isSourceSelectionCondition(condition)) throw new ContractError('invalid_source_selection_condition');
   if (document.document_id !== article.document_id || document.file_sha256 !== article.file_sha256 || document.text_version !== article.text_version)
     throw new ContractError('source_selection_binding_mismatch');
-  const eligible = new Set(article.included_block_ids);
+  const eligible = new Set(article.included_block_ids), glyphQuarantine = new Set(sourceGlyphQuarantine(document));
   const structural = new Map<string, string[]>(), protectedIds = new Set<string>(), sectionHeaders = new Set<string>(), furnitureIds = new Set<string>();
   if (document.schema_version === '3') {
     for (const u of document.structure.units) {
@@ -215,6 +216,7 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
     const raw = b.text.trim(), isProtected = protectedIds.has(b.block_id) || figureTable.test(raw), unitChoice = unitChoices.get(b.block_id);
     if (!eligible.has(b.block_id)) { state = 'deferred'; add('ARTICLE_QUARANTINE', 'Article membership is pending human review; not dispatched.'); }
     else if (bibliography.has(i)) { state = 'excluded'; add('TASK_BIBLIOGRAPHY_EXCLUDED', 'Complete explicit bibliography is outside this extraction task for both B0 and F; original article membership, PDF and source spans are preserved. Model reread/citation is unavailable.'); }
+    else if (glyphQuarantine.has(b.block_id)) { state = 'deferred'; add('SOURCE_GLYPH_QUARANTINE', 'A literal source sentence contains an undecidable embedded-font glyph. Preserved for original-page review; no model read/citation, not completed coverage.'); }
     else if (condition === 'B0') add('B0_ALL_ELIGIBLE', 'All remaining task-scope source blocks; no topic filter.');
     else if (isProtected) add('KEEP_STRUCTURE_OR_FIGURE_TABLE', 'Figure/table/note or uncertain structural mapping; preserve source context.');
     else if (unitChoice) { state = unitChoice.state; add(unitChoice.rule, unitChoice.reason); }
@@ -239,7 +241,7 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
     for (const seed of seeds) {
       for (let i = Math.max(0, seed.document_line_index - 2); i <= Math.min(entries.length - 1, seed.document_line_index + 2); i++) {
         const e = entries[i]!;
-        if (!e.article_eligible || e.block_id === seed.block_id || unitChoices.has(e.block_id)) continue;
+        if (!e.article_eligible || glyphQuarantine.has(e.block_id) || e.block_id === seed.block_id || unitChoices.has(e.block_id)) continue;
         // Explicit bibliography/boilerplate is a boundary, not a missing clinical qualifier.
         if (e.rule_ids.some(r => /BIBLIOGRAPHY|BOILERPLATE/.test(r))) continue;
         if (e.state === 'deferred') { e.state = 'kept'; e.rule_ids.push('KEEP_CONTEXT_NEIGHBOR'); e.reasons.push('Restored two-line boundary context around a retrieval seed.'); }
@@ -249,7 +251,7 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
         ['exact', 'normalized_alignment'].includes(u.mapping.status) && u.source_segments.some(s => s.block_id === seed.block_id))) {
         for (const s of unit.source_segments) {
           const e = entries.find(x => x.block_id === s.block_id);
-          if (!e?.article_eligible || unitChoices.has(e.block_id) || e.rule_ids.some(r => /BIBLIOGRAPHY|BOILERPLATE/.test(r))) continue;
+          if (!e?.article_eligible || glyphQuarantine.has(e.block_id) || unitChoices.has(e.block_id) || e.rule_ids.some(r => /BIBLIOGRAPHY|BOILERPLATE/.test(r))) continue;
           if (e.state === 'deferred') { e.state = 'kept'; e.rule_ids.push('KEEP_MAPPED_UNIT_CONTEXT'); e.reasons.push('All exact/aligned source lines of the same native unit are retained as context; relation is unverified.'); }
           if (e.block_id !== seed.block_id && !e.context_of_block_ids.includes(seed.block_id)) e.context_of_block_ids.push(seed.block_id);
         }
@@ -260,6 +262,7 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
   const counts = Object.fromEntries(['kept', 'deferred', 'excluded'].map(state => [state, entries.filter(e => e.state === state).length])) as Record<SourceSelectionState, number>;
   const codePoints = Object.fromEntries(['kept', 'deferred', 'excluded'].map(state => [state, entries.filter(e => e.state === state).reduce((n, e) => n + e.code_points, 0)])) as Record<SourceSelectionState, number>;
   const manifest = { schema_version: 's4-source-selection-1' as const, rule_version: SOURCE_SELECTION_VERSION, condition,
+    ...(typeof document.parser.config.font_glyph_guard_version === 'string' ? { source_glyph_guard_version: document.parser.config.font_glyph_guard_version } : {}),
     bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION,
     document_id: document.document_id, file_sha256: document.file_sha256, text_version: document.text_version, article_scope_digest: article.digest,
     entries, kept_block_ids: ids('kept'), deferred_block_ids: ids('deferred'), excluded_block_ids: ids('excluded'), counts, code_points: codePoints,
@@ -271,7 +274,8 @@ export function selectSourceBlocks(document: ExtractionDocument, article: Articl
  * input-copy exclusions are not a grant to bypass the current bibliography scope. */
 export function taskSourceBlockIds(document: ExtractionDocument, article: ArticleScopeManifest): string[] {
   const excluded = new Set(selectSourceBlocks(document, article, 'B0').excluded_block_ids);
-  return article.included_block_ids.filter(id => !excluded.has(id));
+  const unsafe = new Set(sourceGlyphQuarantine(document));
+  return article.included_block_ids.filter(id => !excluded.has(id) && !unsafe.has(id));
 }
 
 /** Fail closed if an existing candidate/audit packet would expose excluded text. */

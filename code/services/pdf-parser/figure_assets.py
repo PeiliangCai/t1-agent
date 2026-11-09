@@ -134,7 +134,9 @@ def supplemental_caption_columns(document, captions, components):
     blocks = {b['block_id']: b for b in document['blocks']}
     proposals = []
     for caption in captions:
-        left = units[caption['unit_id']]
+        left = units.get(caption['unit_id'])
+        if not left:
+            continue
         if len({s['physical_page'] for s in caption['segments']}) != 1:
             continue
         page = caption['segments'][0]['physical_page']
@@ -175,7 +177,40 @@ def supplemental_caption_columns(document, captions, components):
     return result
 
 
-def discover_figures(document):
+def raw_caption_segments(document, label):
+    """Retain a standalone printed Figure label and tight same-style lines.
+
+    This is source geometry, never a semantic repair of the vendor structure.
+    A new paragraph, column, competing line, label or font-size change stops it.
+    Newly grouped captions always require review, even when one bitmap exists.
+    """
+    def located(block):
+        return {'block_id': block['block_id'], 'text_version': document['text_version'], 'start': 0,
+                'end': len(block['text']), 'exact_quote': block['text'], 'occurrence': 0,
+                'physical_page': block['page'], 'bbox': list(block['bbox']), 'location_precision': 'whole_textline_not_exact_glyph'}
+    result, previous, line_height = [located(label)], label, None
+    for _ in range(24):
+        candidates = [b for b in document['blocks'] if b['page'] == label['page'] and b['text'].strip()
+                      and b['bbox'][1] >= previous['bbox'][3] - 0.25
+                      and 0 <= b['bbox'][1] - previous['bbox'][3] <= 6
+                      and abs(b['bbox'][0] - label['bbox'][0]) <= 3]
+        if not candidates:
+            break
+        candidates.sort(key=lambda b: b['bbox'][1])
+        following = candidates[0]
+        if sum(abs(b['bbox'][1] - following['bbox'][1]) <= 1 for b in candidates) != 1:
+            break
+        height = following['bbox'][3] - following['bbox'][1]
+        if (re.match(r'^\s*(?:fig(?:ure)?\.?\s*\d|table\s*\d|[图表]\s*\d)', following['text'], re.I)
+                or height <= 0 or height > (line_height or (label['bbox'][3]-label['bbox'][1])) * 1.4
+                or line_height and abs(height-line_height) > max(.8, line_height*.15)):
+            break
+        line_height = line_height or height
+        result.append(located(following)); previous = following
+    return result
+
+
+def discover_figures(document, image_inventory=None):
     if document['schema_version'] != '3':
         return []
     units = {u['unit_id']: u for u in document['structure']['units']}
@@ -185,6 +220,28 @@ def discover_figures(document):
             box = p['bbox']
             if box and box[2] - box[0] >= 48 and box[3] - box[1] >= 36 and (box[2]-box[0])*(box[3]-box[1]) >= 2400:
                 pictures.append({'id': picture['picture_id'], 'page': p['physical_page'], 'bbox': box})
+    # A complete original bitmap is a better review region than a detector's
+    # partial panel. It remains unverified; this never infers medical identity.
+    if image_inventory is not None:
+        source_pictures = []
+        for page, objects in image_inventory.items():
+            for index, obj in enumerate(objects):
+                box = obj['bbox']
+                if not obj['top_level'] or (box[2]-box[0])*(box[3]-box[1]) < 2400 or box[2]-box[0] < 48 or box[3]-box[1] < 36:
+                    continue
+                owned = [p for p in pictures if p['page'] == page and overlap(p['bbox'], box) >=
+                         (p['bbox'][2]-p['bbox'][0])*(p['bbox'][3]-p['bbox'][1])*.95]
+                owners = [p['id'] for p in owned]
+                region = list(box)
+                if owned:
+                    detected = union([p['bbox'] for p in owned])
+                    if (overlap(detected, box) >= (box[2]-box[0])*(box[3]-box[1])*.98
+                            and max(0, detected[0]-box[0], detected[1]-box[1], box[2]-detected[2], box[3]-detected[3]) <= 8):
+                        region = union([box, detected])
+                source_pictures.append({'id': owners[0] if owners else f'original-bitmap-p{page}-{index}',
+                                        'ids': owners, 'page': page, 'bbox': region})
+        pictures = source_pictures + [p for p in pictures if not any(q['page'] == p['page'] and overlap(q['bbox'], p['bbox']) >=
+                     (p['bbox'][2]-p['bbox'][0])*(p['bbox'][3]-p['bbox'][1])*.95 for q in source_pictures)]
     # Geometry components keep a multi-panel group intact instead of cropping a guessed panel.
     components = []
     unseen = list(pictures)
@@ -196,7 +253,8 @@ def discover_figures(document):
             for p in list(unseen):
                 if any(q['page'] == p['page'] and distance(q['bbox'], p['bbox']) <= 24 for q in group):
                     group.append(p); unseen.remove(p); changed = True
-        components.append({'page': group[0]['page'], 'bbox': union([p['bbox'] for p in group]), 'ids': [p['id'] for p in group]})
+        components.append({'page': group[0]['page'], 'bbox': union([p['bbox'] for p in group]),
+                           'ids': list(dict.fromkeys(identifier for p in group for identifier in p.get('ids', [p['id']])) )})
     captions = []
     seen_segments = set()
     for unit in document['structure']['units']:
@@ -214,6 +272,20 @@ def discover_figures(document):
             continue
         seen_segments.add(key)
         captions.append({'number': marker[1], 'segments': segments, 'text': original, 'unit_id': unit['unit_id']})
+    # A native paragraph can incorrectly absorb a distant Figure label. A raw
+    # standalone label supplies the literal identity without rewriting that IR.
+    for block in document['blocks']:
+        marker = FIGURE_START.fullmatch(block['text'].strip())
+        if not marker:
+            continue
+        segments = raw_caption_segments(document, block)
+        existing = [c for c in captions if any(s['block_id'] == block['block_id'] for s in c['segments'])]
+        if existing:
+            if len(existing) == 1 and len(existing[0]['segments']) == 1 and len(segments) > 1:
+                existing[0].update(segments=segments, text='\n'.join(s['exact_quote'] for s in segments), raw_geometry_caption=True)
+            continue
+        captions.append({'number': marker[1], 'segments': segments, 'text': '\n'.join(s['exact_quote'] for s in segments),
+                         'unit_id': None, 'raw_geometry_caption': True})
     continued = supplemental_caption_columns(document, captions, components)
     for caption in captions:
         extra = continued[id(caption)]
@@ -261,9 +333,10 @@ def discover_figures(document):
         figures.append({'figure_id': 'figure-' + identity, 'figure_number': caption['number'], 'caption_segments': caption['segments'],
                         'panel_labels': panel_labels(caption['text']), 'native_picture_ids': [i for c in selected for i in c['ids']],
                         'region_specs': [{'physical_page': c['page'], 'bbox': c['bbox']} for c in selected],
-                        'caption_continuation_unverified': bool(continued[id(caption)]),
+                        'caption_continuation_unverified': bool(continued[id(caption)]) or caption.get('raw_geometry_caption', False),
                         'verification': {'status': 'needs_review', 'method': 'native_candidate_only', 'actor': None, 'checked_at': None,
-                         'notes': ('Same-band cross-column caption continuation retained as separate source segments; relation and caption completeness remain unverified. ' if continued[id(caption)] else '') +
+                         'notes': ('Standalone original label and adjoining same-style caption lines retained by source geometry; relation and completeness require original-page review. ' if caption.get('raw_geometry_caption') else '') +
+                                  ('Same-band cross-column caption continuation retained as separate source segments; relation and caption completeness remain unverified. ' if continued[id(caption)] else '') +
                                   ('Separately parsed explicit Note retained as source segments after unique native-link and same-page geometry checks; Note/caption relation remains unverified. ' if extra else '') +
                                   ('Independent numbered source caption + unique connected picture region + adjacency + no paragraph barrier; whole-Figure/panel completeness still needs source-page check.' if unique else
                                    'No unique compatible whole-Figure region; caption retained and no rectangle guessed.'),
@@ -337,6 +410,12 @@ def complete_bitmap_render_bounds(figure, image_objects, page_info, document=Non
 
 
 def mechanically_check(figure, candidate, all_candidates, image_objects, page_info, document=None, external_paths=()):
+    if document:
+        blocks = {b['block_id']: b for b in document['blocks']}
+        if any(g['start'] < s['end'] and s['start'] < g['end']
+               for s in candidate['caption_segments'] for g in blocks[s['block_id']].get('source_glyph_issues', [])):
+            figure['verification']['notes'] += ' Source caption has an undecidable embedded-font glyph; original-page review required.'
+            return
     # A newly grouped native Note is review context, never automatic proof of
     # caption identity, complete panels or suitability as a medical image.
     if candidate.get('caption_continuation_unverified') or any(NOTE_START.match(s['exact_quote']) for s in candidate['caption_segments']):
@@ -399,7 +478,16 @@ def extract_catalog(document, output_directory, *, scale=2):
         validate_structured(document)
     pdf = pdfium.PdfDocument(pdf_path)
     try:
-        candidates = discover_figures(document)
+        image_inventory = {}
+        for info in document['pages']:
+            if info['status'] == 'failed':
+                continue
+            page = pdf[info['physical_page']-1]
+            try:
+                image_inventory[info['physical_page']] = original_image_objects(page, info)
+            finally:
+                page.close()
+        candidates = discover_figures(document, image_inventory)
         for candidate in candidates:
             figure = deepcopy(candidate)
             figure.pop('caption_continuation_unverified', None)

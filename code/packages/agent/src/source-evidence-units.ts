@@ -2,6 +2,11 @@ import type { DocumentIR, LocatedEvidenceFragment } from '@t1/contracts';
 import { isTableSourceSpan, checkedTableCaptionContains, checkedTableFootnoteContains, checkedSourceGrid } from './document-structure-context.js';
 
 type Document = Exclude<DocumentIR, { schema_version: '1' }>;
+export function sourceGlyphCheckStatus(document: Document): 'engineering_fixture' | 'checked_with_gaps' | 'checked_no_detected_gaps' | 'legacy_not_checked' {
+  if (document.fixture) return 'engineering_fixture';
+  if (document.parser.config.font_glyph_guard_version !== 'sparse-embedded-font-no-unicode-1') return 'legacy_not_checked';
+  return document.blocks.some(b => b.source_glyph_issues?.length) ? 'checked_with_gaps' : 'checked_no_detected_gaps';
+}
 export const SOURCE_EVIDENCE_UNIT_VERSION = 'literal-source-sentences-4' as const;
 export type SourceSpan = Pick<LocatedEvidenceFragment, 'block_id' | 'text_version' | 'start' | 'end'>;
 export type SourceEvidenceType = 'body' | 'figure_caption' | 'table' | 'table_caption' | 'footnote' | 'unknown';
@@ -190,7 +195,23 @@ export function buildSourceEvidenceUnits(document: Document): SourceEvidenceUnit
     }
   }
   raw.sort((a, b) => byId.get(a.segments[0]!.block_id)!.reading_order - byId.get(b.segments[0]!.block_id)!.reading_order || a.segments[0]!.start - b.segments[0]!.start);
-  return raw.map((u, i) => ({ unit_id: 'su-' + String(i + 1).padStart(6, '0'), ...u }));
+  return raw.map((u, i) => {
+    const unsafe = u.segments.some(s => byId.get(s.block_id)?.source_glyph_issues?.some(g => g.start < s.end && s.start < g.end));
+    return { unit_id: 'su-' + String(i + 1).padStart(6, '0'), ...u,
+      ...(unsafe ? { completeness: 'unverified' as const, boundary_reasons: unique([...u.boundary_reasons, 'source_glyph_fidelity_unverified']) } : {}) };
+  });
+}
+
+/** Whole affected literal sentences stay out of model input. Blocks are the
+ * transport atom: preserve their source bytes and expose the omitted IDs as gaps,
+ * never join the surviving text across them into a replacement statement. */
+export function sourceGlyphQuarantine(document: Document): string[] {
+  const unsafe = new Set(document.blocks.filter(b => b.source_glyph_issues?.length).map(b => b.block_id));
+  if (!unsafe.size) return [];
+  for (const unit of buildSourceEvidenceUnits(document)) {
+    if (unit.boundary_reasons.includes('source_glyph_fidelity_unverified')) unit.segments.forEach(s => unsafe.add(s.block_id));
+  }
+  return document.blocks.filter(b => unsafe.has(b.block_id)).map(b => b.block_id);
 }
 
 function missingSpans(expected: readonly SourceSpan[], selected: readonly SourceSpan[]): SourceSpan[] {

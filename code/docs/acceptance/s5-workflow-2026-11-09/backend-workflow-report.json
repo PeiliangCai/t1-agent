@@ -1,0 +1,54 @@
+{
+  "all_workflow_assertions_passed": true,
+  "controlled_fixture": true,
+  "new_paid_provider_calls": 0,
+  "source": "pinned real S4 saved records; local replay only",
+  "latest_S4_import": {
+    "L07": 26,
+    "same_source_multi_member_groups": 3,
+    "inherited_business_approvals": 0
+  },
+  "overlap": {
+    "both_extracting_observed_at": "2026-11-09T02:32:49.958Z",
+    "first": "run-d0a6d31b-ff1b-452a-a482-52168618e740",
+    "second": "run-508a2a19-d153-4e9d-9ce1-2bb9c6b7ccd3",
+    "first_state": "completed",
+    "second_state": "cancelled",
+    "independent_cancellation": true
+  },
+  "versions_and_exports": {
+    "stale_write_409": true,
+    "model_proposal_preserved_human": true,
+    "exact_source_reselection": true,
+    "manual_add_delete": true,
+    "text_only_approval_without_figures": true,
+    "downloadable_jsonl_csv_gzip": true
+  },
+  "separate_figure_confirmation": true,
+  "missing_image_fault_injection_keeps_confirmed_text": true,
+  "versioned_source_figure_check_before_record_approval": true,
+  "SSE": {
+    "persisted_cursor": 74,
+    "first_replayed_seq": 75,
+    "run_isolated": true
+  },
+  "restart": {
+    "interrupted_run": "run-8a66bd65-64c8-4ac9-a627-f4b6d11cc84f",
+    "no_auto_resume": true,
+    "approvals_and_deleted_versions_preserved": true,
+    "import_idempotent": true
+  },
+  "source_integrity": {
+    "missing_pdf_blocked": true,
+    "wrong_pdf_sha_blocked": true,
+    "wrong_ir_sha_blocked": true,
+    "history_remains_viewable": true,
+    "identical_pdf_restore": true,
+    "shared_pdf_reference_retained": true
+  },
+  "paper_deletion_restart": {
+    "automatic_reimport_blocked": true,
+    "original_S4_files_retained": true,
+    "explicit_same_PDF_upload_creates_new_paper_without_old_approvals": true
+  }
+}

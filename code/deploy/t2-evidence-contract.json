@@ -1,0 +1,60 @@
+{
+  "schema_version": "t1-t2-evidence-exit-1",
+  "producer": "T1 B0 workbench",
+  "consumer_implementation": "T2 remains a separate task; this file defines the evidence boundary only",
+  "download_route": "/api/t1/workbench/runs/{run_id}/exports/{kind}",
+  "candidate_kinds": [
+    "candidate_jsonl",
+    "candidate_csv",
+    "candidate_package"
+  ],
+  "approved_kinds": [
+    "approved_jsonl",
+    "approved_csv",
+    "approved_package"
+  ],
+  "package_schema": "verbatim-figure-export-1",
+  "package_files": [
+    "manifest.json",
+    "delivery.json",
+    "records.jsonl",
+    "records.csv",
+    "coverage.json",
+    "reviews.json",
+    "human-annotations.json",
+    "source-record-versions.jsonl",
+    "sample-audit.json"
+  ],
+  "optional_package_files": [
+    "background-records.jsonl",
+    "background-records.csv",
+    "assets/"
+  ],
+  "source_identity": [
+    "document_id",
+    "file_sha256",
+    "text_version",
+    "source_ir_sha256",
+    "figure_catalog_sha256",
+    "run_id",
+    "origin",
+    "fixture",
+    "controlled_fixture"
+  ],
+  "record_identity": [
+    "record_id",
+    "record_version",
+    "text_fingerprint",
+    "delivery_fingerprint"
+  ],
+  "authoritative_text": "original_fragments, exact original fragments and their separate page/bbox/text anchors; CSV is one row per fragment",
+  "figure_semantics": "Whole figure assets/captions and explicit pairing remain distinct from pending/proposed pairing. Never infer image approval from text approval.",
+  "approval_rule": "Only current version and fingerprint-bound human confirmation is approved. Candidate, background, model assessment and source fidelity are not medical approval.",
+  "source_guard": "Missing/changed PDF or IR prevents new extraction and approved exports. A changed/unavailable figure invalidates image confirmation while unchanged approved text may remain exportable without that image.",
+  "group_rule": "Same-source review groups are read-only hints. Keep every member/version; no automatic merge or approval propagation.",
+  "consumer_rule": "Read manifest/coverage/reviews first; preserve origin, fixture and scope completeness. Only approved text can become confirmed evidence; only separately approved figure relations can constrain visual use. Do not fill gaps or paraphrase source text.",
+  "full_recall_claimed": false,
+  "medical_quality_approved": false,
+  "source_glyph_rule": "New runs require the source glyph check; quarantined blocks are neither delivered nor counted complete. Read source_glyph_check and coverage. Legacy unchecked IR remains viewable but approved export is conservative; no automatic approval migration.",
+  "finalization_rule": "Only result_ready final snapshots/coverage describe terminal processing. A downloadable partial candidate package is not completed extraction or medical approval."
+}

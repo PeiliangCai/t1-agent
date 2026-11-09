@@ -1,0 +1,53 @@
+{
+  "schema_version": "s7-new-conditional-provider-authorization-1",
+  "recorded_observation_utc": "2026-11-09T09:19:06.043592+00:00",
+  "authority": "Parent architect allocation under user four-hour self-directed authorization",
+  "user_authorization_quote": "接下来4小时内你就自行执行（需要决策的你自己决定，最后将重要决策告诉我即可），完成所有S的内容，有未完成最后在总结中给出即可。",
+  "user_click_time": null,
+  "window_observed_start": "2026-11-09T07:53:56Z",
+  "window_deadline": "2026-11-09T11:53:56Z",
+  "case_selected_by": "parent architect, not a verbatim user choice",
+  "source_id": "IN02",
+  "input_path": "evaluation/corpus/independent-sealed/IN02.pdf",
+  "input_sha256": "5a776f1d8b14a249f1b34280043788dde2e4dce0b39578cf106ce6c3b167aabe",
+  "physical_pages": 7,
+  "authorized_runs": 1,
+  "provider": "agicto",
+  "endpoint": "https://api.agicto.cn/v1",
+  "model_id": "gpt-6-luna",
+  "reasoning_effort": "medium",
+  "api": "openai-responses",
+  "method": "B0",
+  "scope": "three levels all/unrestricted",
+  "limits": {
+    "physical_requests": 40,
+    "input_tokens": 1000000,
+    "output_tokens": 60000,
+    "HTTP_start_seconds": 1800,
+    "request_seconds": 120,
+    "transient_retries_maximum": 2,
+    "response_output_tokens": 8192
+  },
+  "hard_stop_utc": "2026-11-09T11:20:00Z",
+  "token_semantics": "Application reservation before dispatch, supplier reported actual usage and unknown/conservative reservations reported separately; not an absolute provider bill cutoff",
+  "prerequisites": [
+    "S6 owner glyph/caption/whole-figure/legacy audit fixes and tests complete; shared source frozen",
+    "Final Docker image built and relevant safe-default/controlled checks passed",
+    "New plan plus input/source/image/code pins and authorization saved; offline preflight passed",
+    "Notify architect freeze SHA and observed start; no additional confirmation needed once all conditions hold"
+  ],
+  "prohibitions": [
+    "No old allowance reuse",
+    "No automatic whole-run retry",
+    "No medical approval",
+    "No independent-sample claim (IN02 already exposed)",
+    "Isolated volume/private readonly key secret; do not modify production DB"
+  ],
+  "status": "superseded_unexecuted",
+  "provider_requests_so_far": 0,
+  "superseded_observed_at_utc": "2026-11-09T09:29:11.960901+00:00",
+  "superseded_by": "IN04 conditional replacement; actual PDF SHA and independent seal still pending",
+  "authorization_sha256_before_supersession": "648399f88df5a05d6a26ab7729334e2086973f60ac1acc95c103cd2fb785ddf7",
+  "execution_started": false,
+  "remaining_permission_for_IN02": 0
+}

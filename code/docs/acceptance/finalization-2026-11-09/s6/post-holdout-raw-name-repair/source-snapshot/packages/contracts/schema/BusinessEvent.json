@@ -1,0 +1,61 @@
+{
+  "title": "BusinessEvent",
+  "type": "object",
+  "required": [
+    "run_id",
+    "seq",
+    "type",
+    "timestamp",
+    "stage",
+    "summary",
+    "fixture"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "queued",
+        "parsing",
+        "extracting",
+        "reconciling",
+        "completed",
+        "partial",
+        "failed",
+        "cancelled",
+        "interrupted"
+      ]
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "record_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "summary": {
+      "type": "string"
+    },
+    "fixture": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

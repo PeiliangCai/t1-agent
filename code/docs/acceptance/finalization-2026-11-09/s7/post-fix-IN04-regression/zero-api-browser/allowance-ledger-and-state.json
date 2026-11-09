@@ -1,0 +1,156 @@
+{
+  "workbench/runs/run-f562314b-501b-4180-8c09-8c129650953f/loopback-ledger.json": {
+    "schema_version": "s4-call-ledger-1",
+    "experiment_started_at": "2026-11-09T10:47:01.238Z",
+    "requests": [
+      {
+        "id": "d76c9885-6f48-4cf9-8f98-5ccda50c8e97",
+        "model_id": "s4-synthetic-responses",
+        "purpose": "run-f562314b-501b-4180-8c09-8c129650953f:batch-0001",
+        "attempt": 0,
+        "started_at": "2026-11-09T10:47:01.238Z",
+        "payload_sha256": "9665965d7e97b239b17549e331610d65f2e864d10c9b83cf79cf0849c7f4fa9f",
+        "payload_bytes": 26859,
+        "input_ceiling": 32768,
+        "output_ceiling": 8192,
+        "usage_status": "provider_reported",
+        "local_payload_estimate": 27371,
+        "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+        "response_model_identity_status": "matched",
+        "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "requested_max_output_tokens": 8192,
+        "requested_reasoning_effort": "medium",
+        "application_context_estimate": 7546,
+        "model_context_window_metadata": 1050000,
+        "configured_deadline_ms": 120000,
+        "status": 200,
+        "request_id": "fixture-request-0",
+        "stream_event_count": 10,
+        "first_stream_event_at": "2026-11-09T10:47:01.261Z",
+        "last_stream_event_at": "2026-11-09T10:47:01.263Z",
+        "provider_response_id": "resp-fixture-0",
+        "response_model_observations": [
+          {
+            "source": "provider_stream_event.response.model",
+            "event_type": "response.created",
+            "observed_at": "2026-11-09T10:47:01.261Z",
+            "expected_model": "s4-synthetic-responses",
+            "status": "unknown"
+          },
+          {
+            "source": "provider_stream_event.response.model",
+            "event_type": "response.completed",
+            "observed_at": "2026-11-09T10:47:01.263Z",
+            "expected_model": "s4-synthetic-responses",
+            "status": "matched",
+            "actual_model": "s4-synthetic-responses"
+          }
+        ],
+        "tool_argument_delta_characters": 229,
+        "provider_usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "total_tokens": 120
+        },
+        "provider_response_model": "s4-synthetic-responses",
+        "response_stream_sha256": "a84f4e34f5b007647bbd9651815717447c836367e89f1f7cfca9dba0fb777a74",
+        "response_hash_scope": "complete_decoded_HTTP_body",
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0,
+        "provider_input_exceeds_local_estimate": false,
+        "input_reservation_exceeded": false,
+        "finished_at": "2026-11-09T10:47:01.278Z"
+      },
+      {
+        "id": "f09b4902-2f7d-4afa-90f3-22ea82965189",
+        "model_id": "s4-synthetic-responses",
+        "purpose": "run-f562314b-501b-4180-8c09-8c129650953f:whole-document-summary",
+        "attempt": 0,
+        "started_at": "2026-11-09T10:47:01.322Z",
+        "payload_sha256": "f68edec64f6379f33168eb43ec3fb99d3d0e2aa2a4e03c182c908117bdc427b3",
+        "payload_bytes": 33162,
+        "input_ceiling": 33674,
+        "output_ceiling": 8192,
+        "usage_status": "provider_reported",
+        "local_payload_estimate": 33674,
+        "reservation_policy": "trusted_profile_context_quota_not_provider_hard_limit",
+        "response_model_identity_status": "matched",
+        "response_model_identity_evidence_scope": "provider_reported_name_only_not_weight_identity_or_HTTP_body_replay",
+        "actual_cost": null,
+        "cost_status": "unknown_gateway_billing",
+        "requested_max_output_tokens": 8192,
+        "requested_reasoning_effort": "medium",
+        "application_context_estimate": 9357,
+        "model_context_window_metadata": 1050000,
+        "configured_deadline_ms": 120000,
+        "status": 200,
+        "request_id": "fixture-request-1",
+        "stream_event_count": 10,
+        "first_stream_event_at": "2026-11-09T10:47:01.325Z",
+        "last_stream_event_at": "2026-11-09T10:47:01.326Z",
+        "provider_response_id": "resp-fixture-1",
+        "response_model_observations": [
+          {
+            "source": "provider_stream_event.response.model",
+            "event_type": "response.created",
+            "observed_at": "2026-11-09T10:47:01.325Z",
+            "expected_model": "s4-synthetic-responses",
+            "status": "unknown"
+          },
+          {
+            "source": "provider_stream_event.response.model",
+            "event_type": "response.completed",
+            "observed_at": "2026-11-09T10:47:01.326Z",
+            "expected_model": "s4-synthetic-responses",
+            "status": "matched",
+            "actual_model": "s4-synthetic-responses"
+          }
+        ],
+        "tool_argument_delta_characters": 261,
+        "provider_usage": {
+          "input_tokens": 100,
+          "output_tokens": 20,
+          "total_tokens": 120
+        },
+        "provider_response_model": "s4-synthetic-responses",
+        "response_stream_sha256": "65cc3220d9d6118c2ed5b0ad80ae41abb6ac999a30caa93f2ea4f123bed4792b",
+        "response_hash_scope": "complete_decoded_HTTP_body",
+        "input_tokens": 100,
+        "output_tokens": 20,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "reasoning_tokens": 0,
+        "provider_input_exceeds_local_estimate": false,
+        "input_reservation_exceeded": false,
+        "finished_at": "2026-11-09T10:47:01.327Z"
+      }
+    ],
+    "limits": {
+      "requests": 400,
+      "input_tokens": 2000000,
+      "output_tokens": 400000,
+      "seconds": 7200,
+      "request_seconds": 120,
+      "document_seconds": 900,
+      "transient_retries": 2,
+      "response_output_tokens": 8192,
+      "batch_responses": 8
+    },
+    "halted": null,
+    "actual_cost": null,
+    "cost_status": "unknown_gateway_billing"
+  },
+  "reviews": 0,
+  "annotations": 0,
+  "runs": [
+    {
+      "id": "run-f562314b-501b-4180-8c09-8c129650953f",
+      "state": "completed"
+    }
+  ]
+}

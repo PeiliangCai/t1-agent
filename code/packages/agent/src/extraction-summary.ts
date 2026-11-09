@@ -1,16 +1,17 @@
 import { Type } from 'typebox';
 import { defineTool, type ToolDefinition } from '@earendil-works/pi-coding-agent';
 import type { AgentMessage } from '@earendil-works/pi-agent-core';
-import { assertSchema, EvidenceSubmissionSchema, PrimaryAssessmentSchema, ContractError, type PrimaryAssessment, type EvidenceValidationContext, type LocatedEvidenceFragment } from '@t1/contracts';
+import { isDeepStrictEqual } from 'node:util';
+import { assertSchema, EvidenceSubmissionSchema, PrimaryAssessmentSchema, ContractError, type PrimaryAssessment, type EvidenceValidationContext, type LocatedEvidenceFragment, type EvidenceSubmission, type ValidationIssue, type EvidenceVersion } from '@t1/contracts';
 import type { ExtractionStore } from './extraction-store.js';
 import type { ArticleScopeManifest, ExtractionDocument } from './article-scope.js';
-import { validateEvidenceSubmission } from './evidence-validation.js';
+import { locateEvidenceFragment, validateEvidenceSubmission } from './evidence-validation.js';
 import { reconcileEvidence } from './reconciliation.js';
 import { TOOL_NAMES } from './tools.js';
 import { DocumentLineEvidenceSchema, StatementDocumentEvidenceSchema, expandBatchLineEvidence,
   FEATURE_NAME_RAW_RULE, STATEMENT_SELECTOR_RULE, STRUCTURE_HINT_RULE, TABLE_SUPPORT_RULE, SOURCE_UNIT_BOUNDARY_RULE, statementIndexRule,
   type DocumentLineEvidence, type StatementDocumentEvidence } from './extraction-protocol.js';
-import { buildSourceEvidenceUnits, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
+import { buildSourceEvidenceUnits, sourceGlyphQuarantine, SOURCE_EVIDENCE_UNIT_VERSION } from './source-evidence-units.js';
 import { VISUAL_STATEMENT_POLICY_VERSION } from './visual-evidence-policy.js';
 import { packSummaryModelContext } from './summary-model-view.js';
 import { taskSourceBlockIds, assertTaskSourceAccess, BIBLIOGRAPHY_SCOPE_RULE_VERSION, type SourceSelectionManifest } from './source-selection.js';
@@ -99,6 +100,7 @@ export class ExtractionSummaryTools {
       immutable_scope: this.context.input.scope, catalog_status: this.context.catalog.status,
       all_assigned_batches: this.store.batches(this.ids().run_id).map(b => ({ batch_id: b.batch_id, status: b.status })),
       article_scope: { quarantined_blocks: this.articleScope.quarantined_block_ids.length, warnings: this.articleScope.warnings },
+      source_glyph_quarantined_block_ids: sourceGlyphQuarantine(this.document), quarantine_is_unresolved_coverage_gap: true,
       input_selection: this.selection ? { initially_dispatched_blocks: this.selection.kept_block_ids.length,
         initially_omitted_blocks: this.selection.deferred_block_ids.length + this.selection.excluded_block_ids.length,
         bibliography_scope_rule_version: BIBLIOGRAPHY_SCOPE_RULE_VERSION, outside_task_scope_blocks: this.taskExcludedIds.size,
@@ -188,9 +190,44 @@ export class ExtractionSummaryTools {
         evidence_changes_saved: false, error_code: error instanceof ContractError ? error.code : 'summary_submission_failed',
         validation_issues: error && typeof error === 'object' && 'validation_issues' in error ? error.validation_issues : [],
         validation_diagnostic: error && typeof error === 'object' && 'validation_diagnostic' in error ? error.validation_diagnostic : null,
+        target_conflict_diagnostic: error && typeof error === 'object' && 'target_conflict_diagnostic' in error ? error.target_conflict_diagnostic : null,
         current_versions: this.store.current(this.ids().run_id).map(v => ({ record_id: v.record.record_id, version: v.version })) });
       throw error;
     }
+  }
+  /** Only a raw label on an unchanged, read, current automatic record may ask
+   * for a metered argument correction. Source/identity errors still stop. No
+   * input is rewritten: the model must explicitly choose a literal name/null. */
+  private currentCorrectionTarget(value: Pick<EvidenceSubmission, 'updates_record_id'>): EvidenceVersion | undefined {
+    if (!value.updates_record_id) return;
+    const current = this.store.current(this.ids().run_id).find(v => v.record.record_id === value.updates_record_id);
+    if (!current || current.actor !== 'automatic' || current.record.review_events.length ||
+      ['approved', 'rejected'].includes(current.record.review_status) || this.visibleVersions.get(current.record.record_id) !== current.version) return;
+    const old = current.record;
+    if (old.document_id !== this.document.document_id || old.text_version !== this.document.text_version ||
+      old.article_family_id !== this.context.metadata.article_family_id ||
+      old.source_version.file_sha256 !== this.document.file_sha256 || old.source_version.version !== this.context.metadata.source_version.version ||
+      old.extraction_trace.run_id !== this.ids().run_id || old.extraction_trace.task_id !== this.context.metadata.task_id ||
+      !isDeepStrictEqual(old.extraction_trace.scope, this.context.input.scope)) return;
+    return current;
+  }
+  private rawNameCorrectionAllowed(value: EvidenceSubmission, issues: readonly ValidationIssue[]): boolean {
+    const rejects = issues.filter(i => i.severity === 'reject');
+    if (rejects.length !== 1 || rejects[0]!.code !== 'feature_name_not_in_evidence' || rejects[0]!.path !== 'feature_name_raw' ||
+      typeof value.feature_name_raw !== 'string' || !value.updates_record_id || value.supporting_table_evidence?.length) return false;
+    const current = this.currentCorrectionTarget(value);
+    if (!current) return false;
+    const old = current.record;
+    try {
+      const located = (fragments: EvidenceSubmission['source_fragments']) => fragments.map(f => locateEvidenceFragment(this.document, f));
+      if (!isDeepStrictEqual(located(value.source_fragments), old.quote_span.segments) ||
+        !isDeepStrictEqual(located(value.context_fragments), old.context.fragments)) return false;
+      const existing = [...old.quote_span.segments, ...old.context.fragments];
+      const fields = [value.disease_or_lesion, value.modality, value.sequence_or_phase, value.assertion,
+        value.applicability, value.provenance, ...value.numeric_expressions].flatMap(f => f?.evidence ?? []);
+      return located(fields).every(f => this.sourceWindow.has(f.block_id) && existing.some(s =>
+        s.block_id === f.block_id && s.text_version === f.text_version && s.start <= f.start && s.end >= f.end));
+    } catch { return false; }
   }
   private submit(p: Record<string, unknown>, callId: string) {
     const savedUpdates: Array<Record<string, unknown>> = [];
@@ -224,10 +261,28 @@ export class ExtractionSummaryTools {
     for (const [inputUpdateIndex, update] of updates.entries()) {
       const validation = validateEvidenceSubmission(update, { ...this.context, allowedBlockIds: this.taskAllowedIds,
         readBlockIds: [...this.sourceWindow], quarantinedBlockIds: this.articleScope.quarantined_block_ids, toolCallId: callId });
-      if (!validation.accepted || !validation.record) throw Object.assign(new ContractError('summary_update_validation_failed'), {
+      if (!validation.accepted || !validation.record) throw Object.assign(new ContractError(
+        this.rawNameCorrectionAllowed(update as EvidenceSubmission, validation.issues) ? 'summary_raw_name_requires_literal_source' : 'summary_update_validation_failed'), {
         validation_issues: validation.issues.map(({ code, path, severity }) => ({ code, path, severity })),
         validation_diagnostic: validationFailureDiagnostic(update, validation.issues, this.document, this.sourceWindow, `updates[${inputUpdateIndex}]`) });
-      const reconciliation = reconcileEvidence(validation.record, this.store.versions(this.ids().run_id));
+      let reconciliation: ReturnType<typeof reconcileEvidence>;
+      try { reconciliation = reconcileEvidence(validation.record, this.store.versions(this.ids().run_id)); }
+      catch (cause) {
+        // The reconciliation guard still rejects the attempted replacement.
+        // A validated same-paper, current automatic target may explicitly keep
+        // its existing feature or become a separate candidate on a later call.
+        const target = this.currentCorrectionTarget(update as EvidenceSubmission);
+        if (cause instanceof ContractError && cause.code === 'update_target_feature_mismatch' && target) {
+          const preview = (value: string | null) => value === null ? null : Array.from(value).slice(0, 80).join('');
+          throw Object.assign(new ContractError('summary_target_feature_requires_explicit_choice'), {
+            target_conflict_diagnostic: { target_record_id: target.record.record_id, current_version: target.version,
+              existing_feature_name_raw: preview(target.record.feature_name_raw),
+              proposed_feature_name_raw: preview(validation.record.feature_name_raw),
+              original_guard: 'update_target_feature_mismatch', replacement_saved: false, parameters_rewritten: false },
+          });
+        }
+        throw cause;
+      }
       const saved = this.store.apply(this.ids().run_id, reconciliation);
       savedUpdates.push({ record_id: reconciliation.record.record_id, action: reconciliation.action, issues: reconciliation.issues,
         versions: saved.map(v => ({ version: v.version, status: v.status })) });

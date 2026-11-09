@@ -1,0 +1,105 @@
+{
+  "schema_version": "s5-task-completion-display-fix-1",
+  "completed_at": "2026-11-09T03:37:29.091460+00:00",
+  "problem": "An already completed task scope was displayed as partial/stopped solely from legacy raw run.state, encouraging an unnecessary repeat extraction.",
+  "actual_bound_source": {
+    "run_id": "b0-revalidation-2151bbfc-5883-49c4-9e17-d3b600f92a9f:source-L01",
+    "raw_state": "partial",
+    "task_processing_complete": true,
+    "whole_document_summary_complete": true,
+    "parser_status": "partial",
+    "image_text_unverified_pages": [
+      2
+    ],
+    "source_status": "valid",
+    "snapshot": "bound-L01-coverage-before.json"
+  },
+  "change": {
+    "scope": "UI only; no backend/input/model/DB changes",
+    "files": [
+      "apps/pi-web/t1/run-presentation.ts",
+      "apps/pi-web/t1/T1Workbench.tsx",
+      "apps/pi-web/t1/messages.mjs",
+      "apps/pi-web/lib/t1-run-presentation.test.mjs"
+    ],
+    "rules": [
+      "Only explicit task_processing_complete===true on completed/partial terminal states displays task-scope processing complete and pending review.",
+      "Failed, interrupted and cancelled states retain their actual outcome even if a stale coverage flag is true.",
+      "False or missing/malformed completion flags never infer completion from parser.partial, summary flags, or a raw completed state.",
+      "Parser/OCR/structure limitations are displayed separately. Task exclusions such as explicit bibliography alone do not invent parser failure.",
+      "Dropdown, progress banner and loaded task-history rows use the same coverage-aware label. Unknown unloaded scopes remain unverified.",
+      "Ordinary cancel/review/export/source-integrity controls continue using unchanged raw state and existing guards."
+    ]
+  },
+  "validation": {
+    "status_and_i18n_tests": {
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "log": "status-and-i18n-tests.log"
+    },
+    "targeted_lint": {
+      "exit_code": 0,
+      "log": "lint.log"
+    },
+    "check": {
+      "command": "npm run check",
+      "exit_code": 0,
+      "log": "check.log"
+    },
+    "production_build": {
+      "command": "npm run build:web",
+      "exit_code": 0,
+      "log": "build.log"
+    },
+    "production_start": {
+      "command": "npm run start:web",
+      "ready": true,
+      "log": "start.log"
+    },
+    "actual_production_browser": {
+      "passed": true,
+      "report": "production-smoke.json",
+      "source_state_coverage_and_review_versions_unchanged": true,
+      "incorrect_rerun_hint_absent": true,
+      "source_limits_separate": true,
+      "dropdown_and_history_consistent": true,
+      "original_pdf_page": 2,
+      "browser_errors": 0,
+      "external_requests": 0
+    }
+  },
+  "runtime": {
+    "url": "http://127.0.0.1:30141",
+    "mode": "single Next production start",
+    "build_id": "kiRKong7YBVjXwSKG5KIv",
+    "next_process": {
+      "pid": 84209,
+      "command": "next-server (v16.4.4)"
+    },
+    "tool_session_id": 69649,
+    "backend": "http://127.0.0.1:3210",
+    "backend_restarted_by_frontend": false,
+    "controlled_fixture": false,
+    "extraction_start": false
+  },
+  "source_and_human_review_preservation": {
+    "before": "L01-state-and-review-before.json",
+    "after": "L01-state-and-review-after.json",
+    "equal": true,
+    "production_mutations": 0
+  },
+  "screenshot": "L01-task-complete-with-source-limits.png",
+  "paid_api_calls": 0,
+  "limits": [
+    "This is task-scope processing completion, not medical approval or full recall.",
+    "No full suite or14-step browser rerun; the earlier3047/30-test engineering evidence remains its original checkpoint.",
+    "No backend/input runtime pins, medical vocabulary, extraction policy, or paid authorization changed."
+  ],
+  "prior_immutable_reports": {
+    "engineering-closeout/report.json": "ff9890efc282993b62c5c0f4d2ee5fab235e4ed2f8f7b21d09dcb9b3eba0cb04",
+    "frontend-report.json": "8b7b3fbf731279088201af1637919095a35b38f5a1f1ec78eafae6a53ab629e8"
+  },
+  "formal_review_count": "S4 3/3 unchanged; no new formal review"
+}

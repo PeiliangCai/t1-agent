@@ -1,3 +1,4 @@
+import { t1ZhTW } from "../../../t1/messages.mjs";
 import type { LocalePlugin } from "../types";
 
 /** Pi Web 內建繁體中文語系。 */
@@ -5,6 +6,7 @@ export const zhTWLocale: LocalePlugin = {
   id: "zh-TW",
   label: "繁體中文",
   messages: {
+    ...t1ZhTW,
     "common.ok": "確定",
     "common.language": "語言",
     "common.models": "模型",

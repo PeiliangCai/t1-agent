@@ -1,0 +1,65 @@
+{
+  "schema_version": "s6-intake-registration-and-seal-1",
+  "at": "2026-11-09T08:08:13.620256+00:00",
+  "sealed_sources": 3,
+  "independent_families": 3,
+  "physical_pages": 17,
+  "intake_manifest": "evaluation/manifests/independent-intake.json",
+  "manifest_sha256": "3bd7fec73a6bad3be04243a897a721e8190cf0083b84f75e7c99ced7532c2142",
+  "seal_identity_sha256": {
+    "IN01": "fa80508efdf125f611df81639463b8beb3569afc9d77a992ea6f28baaae52aeb",
+    "IN02": "6d986be73482236e6883a9363a1c6cc1cdbcd4d434867a5b06c4ecd13bee4956",
+    "IN03": "d8432569fe5ffd36a7673291affaf0c0ded662995e5914467ae3c795ccd27588"
+  },
+  "actions": [
+    {
+      "source_id": "IN01",
+      "action": "register",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"register\",\"registered\":1,\"sealed\":0,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    },
+    {
+      "source_id": "IN01",
+      "action": "seal",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"seal\",\"registered\":1,\"sealed\":1,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    },
+    {
+      "source_id": "IN02",
+      "action": "register",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"register\",\"registered\":2,\"sealed\":1,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    },
+    {
+      "source_id": "IN02",
+      "action": "seal",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"seal\",\"registered\":2,\"sealed\":2,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    },
+    {
+      "source_id": "IN03",
+      "action": "register",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"register\",\"registered\":3,\"sealed\":2,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    },
+    {
+      "source_id": "IN03",
+      "action": "seal",
+      "exit_code": 0,
+      "stdout": "{\"action\":\"seal\",\"registered\":3,\"sealed\":3,\"exposed\":0,\"formal_sample_count\":null,\"medical_quality_approved\":false,\"paid_calls\":0}",
+      "stderr": ""
+    }
+  ],
+  "staged_duplicate_pdfs_removed_after_byte_equality": true,
+  "output_count_used_for_selection": false,
+  "source_set_frozen_before_first_model_request": true,
+  "selection_rule": "Keep IN01/IN02/IN03 even if any produces zero candidates; no tuning or source replacement during acceptance.",
+  "model_requests": 0,
+  "medical_quality_approved": false,
+  "next": "Await parent new API budget and fixed acceptance/sampling protocol; do not reuse older allowances."
+}

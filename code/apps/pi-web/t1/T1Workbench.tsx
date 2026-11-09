@@ -3,161 +3,303 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { TabBar, type Tab } from "@/components/TabBar";
-import { ImagePreview } from "@/components/ImagePreview";
 import { SidebarMenu, type SidebarMenuAnchor } from "@/components/SidebarMenu";
 import { SidebarToast, type SidebarToastData } from "@/components/SidebarToast";
+import { PlusIcon, RefreshIcon, SearchIcon, ChevronIcon, CloseIcon, EyeIcon, MessageIcon, OpenInNewTabIcon } from "@/components/SidebarIcons";
+import { GenericFileIcon } from "@/components/FileIcons";
 import { useResizablePanel } from "@/hooks/useResizablePanel";
 import { useTheme } from "@/hooks/useTheme";
+import { useI18n } from "@/hooks/useI18n";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { useViewportHeight } from "@/hooks/useViewportHeight";
 import { movePanelTab } from "@/lib/panel-tab-order";
 import { getRightPanelMaxWidth, getSidebarMaxWidth } from "@/lib/panel-layout";
 import { useRunEvents } from "./useRunEvents";
-import type { WorkbenchCapabilities, WorkbenchFigure, WorkbenchFragment, WorkbenchPaper, WorkbenchPaperDetail, WorkbenchRun } from "../../../packages/contracts/src/workbench";
+import { api, jsonBody, request, WorkbenchError } from "./api";
+import { ScopeEditor, ScopeSummary } from "./ScopeEditor";
+import { scopeProblems, type ScopeCatalog } from "./scope";
+import { FigureView, Fragments } from "./EvidenceSource";
+import { RecordReview } from "./RecordReview";
+import { SourceEditor } from "./SourceEditor";
+import { FigureVerification } from "./FigureVerification";
+import { SameSourceMembers } from "./SameSourceMembers";
+import { ModelRuntimeNotice } from "./ModelRuntimeNotice";
+import { runPresentation } from "./run-presentation";
+import type { Scope } from "../../../packages/contracts/src/index";
+import type { WorkbenchCapabilities, WorkbenchExportKind, WorkbenchPaper, WorkbenchPaperDetail, WorkbenchRun, WorkbenchRunDetail, WorkbenchScopeCatalog } from "../../../packages/contracts/src/workbench";
+
 const PdfSource = dynamic(() => import("./PdfSource").then(module => module.PdfSource), { ssr: false });
-
-async function api<T>(path: string, signal?: AbortSignal): Promise<T> {
-  const response = await fetch(`/api/t1/${path}`, { signal, cache: "no-store" });
-  if (!response.ok) throw new Error(response.status === 404 ? "未找到所选论文或任务" : response.status === 502 ? "尚未连接到 T1 服务" : "来源核验或数据读取失败");
-  return response.json();
-}
-const initialTabs: Tab[] = [
-  { id: "evidence", label: "原文片段", filePath: "已保留的历史候选原文" },
-  { id: "figures", label: "原 Figure 目录", filePath: "独立图源目录，不代表与某条原文相关" },
-  { id: "inspector", label: "工程任务", filePath: "S1 状态与业务事件" },
-];
-
-function Fragments({ fragments, onPage }: { fragments: WorkbenchFragment[]; onPage: (page: number) => void }) {
-  return <div className="t1-fragments">{fragments.map((fragment, index) => <div className="t1-fragment" key={`${fragment.block_id}:${fragment.start}:${index}`}>
-    <div className="t1-fragment-location"><button onClick={() => onPage(fragment.physical_page)}>第 {fragment.physical_page} 物理页 ↗</button><span>{fragment.block_id} · {fragment.start}–{fragment.end}</span></div>
-    <p className="t1-verbatim">{fragment.exact_quote}</p>
-  </div>)}</div>;
-}
-
-function FigureView({ figure, onPage, relation = "已明确关联此条原文 · 待人工核对" }: { figure: WorkbenchFigure; onPage: (page: number) => void; relation?: string }) {
-  return <section className="t1-figure" aria-label={`原 Figure ${figure.number ?? "待核"}`}>
-    <p className="t1-footnote">{relation}</p>
-    <div className="t1-section-title"><strong>Figure {figure.number ?? "编号待核"}</strong><span>{figure.verification === "needs_review" ? "完整性待核 · 不作为配图" : "整幅来源已做工程核验 · 医学关联待人工核对"}</span></div>
-    {figure.assets.map(asset => <div key={asset.id}>
-      <ImagePreview src={asset.url} alt={`Figure ${figure.number ?? "待核"} · 第${asset.page}物理页`}><img src={asset.url} alt={`整幅原 Figure ${figure.number ?? "待核"}`} width={asset.width} height={asset.height} /></ImagePreview>
-      <button className="t1-link" onClick={() => onPage(asset.page)}>查看第 {asset.page} 物理页</button>
-    </div>)}
-    <div className="t1-caption"><span>原图注 · 各原文段分别保留</span><Fragments fragments={figure.caption} onPage={onPage} /></div>
-  </section>;
-}
+const terminal = new Set(["completed", "partial", "failed", "cancelled", "interrupted"]);
+type RunDetail = WorkbenchRunDetail;
+const exportKinds: WorkbenchExportKind[] = ["candidate_jsonl", "candidate_csv", "candidate_package", "approved_jsonl", "approved_csv", "approved_package"];
 
 export function T1Workbench() {
+  const { t, locale, setLocale, supportedLocales } = useI18n();
   const { preference, setThemePreference } = useTheme();
   const mobile = useIsMobile(); useViewportHeight();
-  const [papers, setPapers] = useState<WorkbenchPaper[]>([]);
-  const [capabilities, setCapabilities] = useState<WorkbenchCapabilities | null>(null);
-  const [runs, setRuns] = useState<WorkbenchRun[]>([]);
-  const [paperId, setPaperId] = useState("L01");
-  const [detail, setDetail] = useState<WorkbenchPaperDetail | null>(null);
-  const [outputId, setOutputId] = useState("");
-  const [recordIndex, setRecordIndex] = useState(0);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(true), [error, setError] = useState("");
-  const [detailError, setDetailError] = useState(""), [revision, setRevision] = useState(0);
-  const [tabs, setTabs] = useState(initialTabs), [activeTab, setActiveTab] = useState("evidence");
-  const [runInput, setRunInput] = useState(""), [runId, setRunId] = useState<string | null>(null);
-  const [runError, setRunError] = useState(""), [runState, setRunState] = useState("");
+  const [papers, setPapers] = useState<WorkbenchPaper[]>([]), [runs, setRuns] = useState<WorkbenchRun[]>([]);
+  const [capabilities, setCapabilities] = useState<WorkbenchCapabilities | null>(null), [catalog, setCatalog] = useState<ScopeCatalog | null>(null), [scope, setScope] = useState<Scope | null>(null);
+  const [paperId, setPaperId] = useState(""), [runId, setRunId] = useState<string | null>(null), [historyId, setHistoryId] = useState(""), [recordId, setRecordId] = useState("");
+  const [detail, setDetail] = useState<WorkbenchPaperDetail | null>(null), [runDetail, setRunDetail] = useState<RunDetail | null>(null);
+  const [page, setPage] = useState(1), [revision, setRevision] = useState(0), [recordQuery, setRecordQuery] = useState("");
+  const [loading, setLoading] = useState(true), [error, setError] = useState(""), [detailError, setDetailError] = useState("");
+  const [activeTab, setActiveTab] = useState("newTask"), [tabIds, setTabIds] = useState(["newTask", "records", "figures", "tasks"]);
   const [showSource, setShowSource] = useState(true), [showSidebar, setShowSidebar] = useState(true);
-  const [menu, setMenu] = useState<SidebarMenuAnchor | null>(null);
-  const [toast, setToast] = useState<SidebarToastData | null>(null);
-  const sidebarWidth = useRef(260), sourceWidth = useRef(520);
+  const [menu, setMenu] = useState<SidebarMenuAnchor | null>(null), [toast, setToast] = useState<SidebarToastData | null>(null);
+  const [file, setFile] = useState<File | null>(null), [title, setTitle] = useState(""), [uploading, setUploading] = useState(false), [starting, setStarting] = useState(false), [actionError, setActionError] = useState("");
+  const [restoreFile, setRestoreFile] = useState<File | null>(null), [restoreBusy, setRestoreBusy] = useState(false), [deletePaperConfirm, setDeletePaperConfirm] = useState(false);
+  const [editor, setEditor] = useState<{ run: string; record: string | null } | null>(null), [download, setDownload] = useState("");
+  const refreshRunRef = useRef<(() => Promise<void>) | null>(null);
+  const locatedRecordRef = useRef("");
+  const initialized = useRef(false), fileInput = useRef<HTMLInputElement>(null), sidebarWidth = useRef(260), sourceWidth = useRef(520);
   const sidebarMax = useCallback(() => getSidebarMaxWidth({ viewportWidth: window.innerWidth, rightPanelOpen: showSource, rightPanelWidth: sourceWidth.current }), [showSource]);
   const sourceMax = useCallback(() => getRightPanelMaxWidth({ viewportWidth: window.innerWidth, sidebarOpen: showSidebar, sidebarWidth: sidebarWidth.current }), [showSidebar]);
-  const sidebar = useResizablePanel({ ariaLabel: "调整论文导航宽度", cssVariable: "--t1-sidebar-width", defaultWidth: 260,
-    getMaxWidth: sidebarMax, growthDirection: "right", minWidth: 180, maxWidth: 480, storageKey: "t1:pi-web:sidebar-width", widthRef: sidebarWidth });
-  const source = useResizablePanel({ ariaLabel: "调整原文阅读器宽度", cssVariable: "--t1-source-width", defaultWidth: 520,
-    getMaxWidth: sourceMax, growthDirection: "left", minWidth: 300, maxWidth: 1000, storageKey: "t1:pi-web:source-width", widthRef: sourceWidth });
-  const { events, connection } = useRunEvents(runId);
+  const sidebar = useResizablePanel({ ariaLabel: t("t1.resizeNav"), cssVariable: "--t1-sidebar-width", defaultWidth: 260, getMaxWidth: sidebarMax, growthDirection: "right", minWidth: 180, maxWidth: 480, storageKey: "t1:pi-web:sidebar-width", widthRef: sidebarWidth });
+  const source = useResizablePanel({ ariaLabel: t("t1.resizeSource"), cssVariable: "--t1-source-width", defaultWidth: 520, getMaxWidth: sourceMax, growthDirection: "left", minWidth: 300, maxWidth: 1000, storageKey: "t1:pi-web:source-width", widthRef: sourceWidth });
+  const { events, connection } = useRunEvents(runId, true);
+  const tabs: Tab[] = tabIds.map(id => ({ id, label: t(`t1.${id}`), filePath: t(`t1.${id}`) }));
+  const selectedRun = runs.find(run => run.run_id === runId);
+  const currentRun = runDetail?.run.run_id === runId ? runDetail : null;
+  const currentPaper = detail?.paper.id === paperId ? detail : null;
+  const output = runId ? currentRun?.output : currentPaper?.outputs.find(item => item.id === historyId);
+  const glyphCoverage = output?.coverage && typeof output.coverage === "object" ? output.coverage as Record<string, unknown> : null;
+  const legacyGlyphCheck = Boolean(output && output.fixture !== true && output.origin !== "controlled_fixture" && !glyphCoverage?.source_glyph_check_status);
+  const records = output?.records.filter(record => !record.deleted) ?? [];
+  const query = recordQuery.trim().toLocaleLowerCase();
+  const visibleRecords = query ? records.filter(item => [...item.fragments, ...item.context].some(fragment => fragment.exact_quote.toLocaleLowerCase().includes(query))) : records;
+  const record = visibleRecords.find(item => item.id === recordId) ?? visibleRecords[0];
+  const selectedRecordId = record?.id;
+  const recordPosition = record ? visibleRecords.indexOf(record) : -1;
+  const firstSourcePage = record?.fragments[0]?.physical_page;
+  const paper = currentRun?.paper ?? currentPaper?.paper ?? papers.find(item => item.id === paperId);
+  const figures = currentRun?.figures ?? currentPaper?.figures ?? [];
+  const sourceStatus = currentRun?.source_status ?? currentPaper?.source_status ?? (currentPaper?.source_verified ? "valid" : "not_parsed");
+  const sourceIssues = currentRun?.source_issues ?? currentPaper?.source_issues ?? [];
+  const sourceBlocked = sourceStatus === "missing" || sourceStatus === "mismatch";
+  const pdfUrl = currentRun?.pdf_url ?? currentPaper?.pdf_url;
+  const units = currentRun?.source_units ?? currentPaper?.source_units ?? [];
+  const editable = Boolean(runId && currentRun && capabilities?.persisted_review);
+  const paperRuns = runs.filter(run => run.document_id === paperId);
+
+  useEffect(() => { if (mobile) setShowSidebar(false); }, [mobile]);
+  useEffect(() => { setRecordQuery(""); }, [paperId, runId, historyId]);
+  // Follow a newly selected record once; polling and version updates must not
+  // steal a page the reviewer selected manually.
+  useEffect(() => {
+    if (!selectedRecordId || !firstSourcePage) return;
+    const key = `${paperId}:${runId ?? historyId}:${selectedRecordId}`;
+    if (locatedRecordRef.current !== key) { locatedRecordRef.current = key; setPage(firstSourcePage); }
+  }, [paperId, runId, historyId, selectedRecordId, firstSourcePage]);
+
+  function errorText(cause: unknown) {
+    if (cause instanceof WorkbenchError && cause.code.includes("source_glyph_check_missing")) return t("t1.sourceGlyphLegacy");
+    if (cause instanceof WorkbenchError && cause.code.includes("source_glyph_fidelity_unverified")) return t("t1.sourceGlyphUnreliable");
+    if (cause instanceof WorkbenchError && cause.code === "restore_requires_identical_pdf") return t("t1.restoreMismatch");
+    if (cause instanceof WorkbenchError && cause.code === "paper_has_active_runs") return t("t1.activePaperDelete");
+    if (cause instanceof WorkbenchError && cause.code.startsWith("source_integrity_blocked")) return t("t1.sourceProblem");
+    if (cause instanceof WorkbenchError) return cause.status === 502 ? t("t1.backendUnavailable") : cause.status === 404 ? t("t1.notFound") : cause.status === 409 ? t("t1.conflict") : cause.code;
+    return cause instanceof Error ? cause.message : t("t1.requestFailed");
+  }
+  function openTab(id: string) { setTabIds(current => current.includes(id) ? current : [...current, id]); setActiveTab(id); }
+  function selectPaper(id: string) { setDeletePaperConfirm(false); setRestoreFile(null); setPaperId(id); setRunId(runs.find(run => run.document_id === id)?.run_id ?? null); setHistoryId(""); setRecordId(""); setRunDetail(null); setPage(1); setActionError(""); openTab("records"); if (mobile) setShowSidebar(false); }
+  function selectRun(run: WorkbenchRun) { setDeletePaperConfirm(false); setRestoreFile(null); setPaperId(run.document_id); setRunId(run.run_id); setHistoryId(""); setRecordId(""); setPage(1); setActionError(""); openTab("records"); }
+  function sourcePage(value: number) { setPage(value); setShowSource(true); }
+  const refresh = () => setRevision(value => value + 1);
+  const reloadCurrent = async () => { await refreshRunRef.current?.(); };
+
 
   useEffect(() => {
-    const controller = new AbortController(); setLoading(true); setError("");
-    Promise.all([api<WorkbenchCapabilities>("workbench/capabilities", controller.signal), api<{ papers: WorkbenchPaper[] }>("workbench/papers", controller.signal), api<{ runs: WorkbenchRun[] }>("workbench/runs", controller.signal)])
-      .then(([caps, listed, inspected]) => { setCapabilities(caps); setPapers(listed.papers); setRuns(inspected.runs); })
-      .catch(cause => { if (!controller.signal.aborted) setError(cause.message); })
-      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    const controller = new AbortController();
+    Promise.all([api<WorkbenchCapabilities>("workbench/capabilities", { signal: controller.signal }), api<{ papers: WorkbenchPaper[] }>("workbench/papers", { signal: controller.signal }), api<{ runs: WorkbenchRun[] }>("workbench/runs", { signal: controller.signal }), api<WorkbenchScopeCatalog>("workbench/catalog", { signal: controller.signal })])
+      .then(([caps, listed, tasks, rawChoices]) => {
+        const choices: ScopeCatalog = { ...rawChoices, catalog: rawChoices };
+        setCapabilities(caps); setPapers(listed.papers); setRuns(tasks.runs); setCatalog(choices); setScope(current => current ?? choices.default_scope); setError("");
+        if (!initialized.current) {
+          const params = new URLSearchParams(window.location.search), savedRun = params.get("run"), savedPaper = params.get("paper");
+          const run = tasks.runs.find(item => item.run_id === savedRun);
+          setPaperId(run?.document_id ?? (listed.papers.some(item => item.id === savedPaper) ? savedPaper! : listed.papers[0]?.id ?? ""));
+          setRunId(run?.run_id ?? null); setHistoryId(params.get("history") ?? ""); setRecordId(params.get("record") ?? "");
+          setActiveTab(["newTask", "records", "figures", "tasks"].includes(params.get("view") ?? "") ? params.get("view")! : run ? "records" : "newTask");
+          initialized.current = true;
+        }
+      }).catch(cause => { if (!controller.signal.aborted) setError(errorText(cause)); }).finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
+    // Locale changes do not restart task I/O.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [revision]);
 
   useEffect(() => {
-    const controller = new AbortController(); setDetail(null); setDetailError(""); setPage(1); setRecordIndex(0);
-    api<WorkbenchPaperDetail>(`workbench/papers/${encodeURIComponent(paperId)}`, controller.signal).then(value => {
-      setDetail(value); setOutputId(value.outputs.find(output => output.strategy === "B0")?.id ?? value.outputs[0]?.id ?? "");
-    }).catch(cause => { if (!controller.signal.aborted) setDetailError(cause.message); });
+    if (!paperId) return;
+    const controller = new AbortController(); setDetailError("");
+    api<WorkbenchPaperDetail>(`workbench/papers/${encodeURIComponent(paperId)}`, { signal: controller.signal }).then(value => {
+      setDetail(value); setHistoryId(current => value.outputs.some(item => item.id === current) ? current : value.outputs.find(item => item.strategy === "B0")?.id ?? value.outputs[0]?.id ?? "");
+    }).catch(cause => { if (!controller.signal.aborted) setDetailError(errorText(cause)); });
     return () => controller.abort();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paperId, revision]);
+  useEffect(() => {
+    if (!runId) { refreshRunRef.current = null; return; }
+    const controller = new AbortController(); let flight: Promise<void> | null = null, dirty = false;
+    setDetailError("");
+    async function load() {
+      if (controller.signal.aborted) return;
+      if (flight) { dirty = true; return flight; }
+      flight = (async () => {
+        do {
+          dirty = false;
+          try {
+            const value = await api<RunDetail>(`workbench/runs/${encodeURIComponent(runId!)}`, { signal: controller.signal });
+            if (!controller.signal.aborted) { setRunDetail(value); setDetailError(""); setPapers(current => current.map(paper => paper.id === value.paper.id ? value.paper : paper)); }
+          } catch (cause) { if (!controller.signal.aborted) setDetailError(errorText(cause)); }
+        } while (dirty && !controller.signal.aborted);
+      })();
+      try { await flight; } finally { flight = null; }
+    }
+    refreshRunRef.current = load; void load();
+    const timer = window.setInterval(() => { if (document.visibilityState === "visible") void load(); }, 10000);
+    return () => { controller.abort(); window.clearInterval(timer); if (refreshRunRef.current === load) refreshRunRef.current = null; };
+    // Selection changes abort their own reads. Events and polling coalesce behind one request.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [runId, revision]);
+  useEffect(() => {
+    if (!initialized.current) return;
+    const params = new URLSearchParams();
+    if (paperId) params.set("paper", paperId);
+    if (runId) params.set("run", runId); else if (historyId) params.set("history", historyId);
+    if (recordId) params.set("record", recordId);
+    params.set("view", activeTab);
+    window.history.replaceState(null, "", `/?${params}`);
+  }, [paperId, runId, historyId, recordId, activeTab]);
+  const lastEvent = events.at(-1)?.seq ?? 0;
+  useEffect(() => {
+    if (!lastEvent) return;
+    const timer = window.setTimeout(() => { void refreshRunRef.current?.(); }, 350);
+    return () => clearTimeout(timer);
+  }, [lastEvent]);
+  useEffect(() => {
+    const controller = new AbortController(); let busy = false;
+    const timer = window.setInterval(async () => {
+      if (busy || document.visibilityState !== "visible") return;
+      busy = true;
+      try { const listed = await api<{ runs: WorkbenchRun[] }>("workbench/runs", { signal: controller.signal }); if (!controller.signal.aborted) setRuns(listed.runs); }
+      catch { /* The selected run has its own visible connection and read errors. */ }
+      finally { busy = false; }
+    }, 10000);
+    return () => { controller.abort(); clearInterval(timer); };
+  }, []);
 
-  useEffect(() => { if (events.length) setRunState(events.at(-1)!.stage); }, [events]);
-  const output = detail?.outputs.find(item => item.id === outputId), record = output?.records[recordIndex];
-  const paper = detail?.paper ?? papers.find(item => item.id === paperId);
-  function openTab(id: string) {
-    if (!tabs.some(tab => tab.id === id)) setTabs(current => [...current, initialTabs.find(tab => tab.id === id)!]);
-    setActiveTab(id);
-  }
-  async function inspectRun(id: string) {
-    setRunId(null); setRunError(""); setRunState("");
+
+  async function uploadPaper() {
+    if (!file || !/\.pdf$/i.test(file.name) || file.size > 50 * 1024 * 1024 || !file.size) { setActionError(t("t1.invalidPdf")); return; }
+    setUploading(true); setActionError("");
     try {
-      const value = await api<{ state: string }>(`runs/${encodeURIComponent(id)}`);
-      setRunState(value.state); setRunId(id); setRunInput(id);
-    } catch (cause) { setRunError(cause instanceof Error ? cause.message : "任务读取失败"); }
+      const value = await api<{ paper: WorkbenchPaper }>("workbench/papers", { method: "POST", headers: { "content-type": "application/pdf", "x-t1-filename": encodeURIComponent(file.name), ...(title.trim() ? { "x-t1-title": encodeURIComponent(title.trim()) } : {}) }, body: file });
+      setPaperId(value.paper.id); setRunId(null); setFile(null); setTitle(""); if (fileInput.current) fileInput.current.value = ""; refresh(); setToast({ id: Date.now(), message: t("t1.saved"), actions: [] });
+    } catch (cause) { setActionError(errorText(cause)); } finally { setUploading(false); }
   }
-  function sourcePage(value: number) { setPage(value); setShowSource(true); }
-  function refresh() { setRevision(value => value + 1); setToast({ id: Date.now(), message: "正在重新读取并核验来源", actions: [] }); }
+  async function startRun() {
+    if (!paperId || !scope || !catalog || scopeProblems(scope, catalog).length) return;
+    setStarting(true); setActionError("");
+    try {
+      const value = await api<{ run: WorkbenchRun }>(`workbench/papers/${encodeURIComponent(paperId)}/runs`, jsonBody("POST", { scope }));
+      selectRun(value.run); refresh();
+    } catch (cause) { setActionError(errorText(cause)); } finally { setStarting(false); }
+  }
+  async function cancelRun(id: string) {
+    try { setActionError(""); await api(`workbench/runs/${encodeURIComponent(id)}/cancel`, jsonBody("POST", {})); await reloadCurrent(); } catch (cause) { setActionError(errorText(cause)); }
+  }
+  async function downloadExport(kind: WorkbenchExportKind) {
+    if (!runId) return;
+    setDownload(kind); setActionError("");
+    try {
+      const response = await request(`workbench/runs/${encodeURIComponent(runId)}/exports/${kind}`), blob = await response.blob();
+      const url = URL.createObjectURL(blob), anchor = document.createElement("a"); anchor.href = url;
+      anchor.download = `${paperId}-${runId}-${kind}.${kind.endsWith("package") ? "tar.gz" : kind.endsWith("csv") ? "csv" : "jsonl"}`;
+      anchor.click(); window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (cause) { setActionError(errorText(cause)); } finally { setDownload(""); }
+  }
+  async function restoreOriginal() {
+    if (!restoreFile || restoreFile.size > 50 * 1024 * 1024) return;
+    setRestoreBusy(true); setActionError("");
+    try { await api(`workbench/papers/${encodeURIComponent(paperId)}/pdf`, { method: "PUT", headers: { "content-type": "application/pdf" }, body: restoreFile }); setRestoreFile(null); await reloadCurrent(); }
+    catch (cause) { setActionError(errorText(cause)); } finally { setRestoreBusy(false); }
+  }
+  async function deletePaper() {
+    try { await api(`workbench/papers/${encodeURIComponent(paperId)}`, jsonBody("DELETE", {})); setPaperId(""); setRunId(null); setDetail(null); setRunDetail(null); setDeletePaperConfirm(false); openTab("newTask"); refresh(); }
+    catch (cause) { setActionError(errorText(cause)); }
+  }
+  function sourceIssueText(issue: string) {
+    return t(issue.startsWith("pdf_") ? issue.includes("missing") ? "t1.pdfMissing" : "t1.pdfChanged" : issue.startsWith("ir_") ? "t1.irProblem" : "t1.bindingProblem");
+  }
+  const state = currentRun?.run.state ?? selectedRun?.state ?? output?.state;
+  const presentation = runPresentation(state, output?.coverage);
+  function runLabel(run: WorkbenchRun) {
+    const saved = currentRun?.run.run_id === run.run_id ? currentRun.output : currentPaper?.outputs.find(item => item.id === run.run_id);
+    return t(`t1.${runPresentation(run.state, saved?.coverage).statusKey}`);
+  }
+  const selectedEditorRecord = editor?.record ? records.find(item => item.id === editor.record) ?? null : null;
 
   return <div className="t1-workbench" ref={sidebar.panelRef}>
-    <header className="t1-topbar"><div className="t1-brand"><span>T1</span><strong>论文原文工作台</strong><small>基于 Pi Web</small></div>
-      <div className="t1-top-actions"><button onClick={refresh} aria-label="刷新工作台">↻</button>
-        <button aria-label="界面主题" onClick={event => { const rect = event.currentTarget.getBoundingClientRect(); setMenu({ kind: "rect", rect, align: "end" }); }}>◐</button>
-      </div>
+    <header className="t1-topbar"><div className="t1-brand"><span>T1</span><strong>{t("t1.title")}</strong><small>{t("t1.basedOn")}</small></div>
+      <div className="t1-top-actions"><select aria-label={t("t1.language")} value={locale} onChange={e => setLocale(e.target.value as typeof locale)}>{supportedLocales.map(item => <option value={item.id} key={item.id}>{item.label}</option>)}</select><button onClick={refresh} aria-label={t("t1.refresh")} title={t("t1.refresh")}><RefreshIcon size={16} /></button><button aria-label={t("t1.theme")} title={t("t1.theme")} onClick={event => { const rect = event.currentTarget.getBoundingClientRect(); setMenu({ kind: "rect", rect, align: "end" }); }}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.1 9 9 0 1 0 20.8 13.2Z" /></svg></button></div>
     </header>
     <div className="t1-body" ref={source.panelRef}>
-      {showSidebar && <><aside className="t1-sidebar" aria-label="论文导航">
-        <div className="t1-sidebar-heading"><strong>论文</strong><span>{papers.length ? `${papers.length} 篇已登记` : "等待数据"}</span><button className="t1-sidebar-close" aria-label="关闭论文导航" onClick={() => setShowSidebar(false)}>×</button></div>
-        <p className="t1-sidebar-note">既有开发材料 · 只读查看</p>
-        <div className="t1-paper-list">{papers.map(item => <button key={item.id} aria-label={`${item.id} ${item.title}`} className={paperId === item.id ? "selected" : ""} onClick={() => { setPaperId(item.id); openTab("evidence"); if (mobile) setShowSidebar(false); }}>
-          <span><b>{item.id}</b><small>{item.language === "zh" ? "中文" : "English"} · {item.pages} 页</small></span><strong>{item.title}</strong><em>{item.output_ids.length ? `${item.output_ids.length} 份历史候选` : "暂无抽取结果"}</em>
-        </button>)}</div>
-        <div className="t1-sidebar-bottom"><button onClick={() => openTab("inspector")}>◉ 工程任务与事件</button><p>候选尚未人工审核。<br />浏览与工程核验不会批准医学结论。</p><span>Pi Web 0.15.0 · T1 Pi SDK 1.4.0</span></div>
-        <SidebarToast toast={toast} onDismiss={() => setToast(null)} dismissLabel="关闭提示" />
-      </aside><div className="t1-resize" {...sidebar.separatorProps} /></>}
-
-      <main className="t1-main"><div className="t1-workspace-bar"><button onClick={() => setShowSidebar(value => !value)} aria-label="切换论文导航">☰</button><span>{paper?.id ?? paperId} <b> / </b>{paper?.title ?? "读取论文"}</span><button className="t1-source-toggle" onClick={() => setShowSource(value => !value)}>{showSource ? "收起原件" : "查看原件"}</button>{detail && <a className="t1-mobile-source" href={`${detail.pdf_url}#page=${page}`} target="_blank" rel="noreferrer">原件 ↗</a>}</div>
-        <TabBar tabs={tabs} activeTabId={activeTab} onSelectTab={setActiveTab} onCloseTab={id => { const next = tabs.filter(tab => tab.id !== id); setTabs(next); if (activeTab === id) setActiveTab(next[0]?.id ?? ""); }} onReorderTab={(from, to, after) => setTabs(current => movePanelTab(current.map(tab => tab.id), from, to, after).map(id => current.find(tab => tab.id === id)!))} />
+      {showSidebar && <><aside className="t1-sidebar" aria-label={t("t1.paperNav")}><div className="t1-sidebar-heading"><strong>{t("t1.papers")}</strong><span>{papers.length}</span><button className="t1-sidebar-close" aria-label={t("t1.close")} onClick={() => setShowSidebar(false)}><CloseIcon size={18} /></button></div>
+        <button className="t1-new-task" onClick={() => { openTab("newTask"); if (mobile) setShowSidebar(false); }}><PlusIcon size={16} />{t("t1.newTask")}</button>
+        <div className="t1-paper-list">{papers.map(item => <button key={item.id} className={paperId === item.id ? "selected" : ""} aria-current={paperId === item.id ? "page" : undefined} title={item.title} onClick={() => selectPaper(item.id)}><span className="t1-paper-label"><GenericFileIcon size={14} /><b>{item.uploaded || item.id.startsWith("paper-") ? t("t1.uploadedPaper") : item.id}</b><small>{item.pages || "—"} {t("t1.pagesShort")}</small></span><strong>{item.title}</strong><em>{item.uploaded ? "PDF" : t("t1.historical")}</em></button>)}</div>
+        <div className="t1-sidebar-bottom"><button onClick={() => openTab("tasks")}><MessageIcon size={15} />{t("t1.tasks")}</button><p>{t("t1.separateTasks")}</p><details><summary>{t("t1.aboutWorkbench")}</summary><span>Pi Web 0.15.0 · T1 Pi SDK 1.4.0</span></details></div>
+        <SidebarToast toast={toast} onDismiss={() => setToast(null)} dismissLabel={t("t1.close")} /></aside><div className="t1-resize" {...sidebar.separatorProps} /></>}
+      <main className="t1-main"><div className="t1-workspace-bar"><button onClick={() => setShowSidebar(value => !value)} aria-label={t("t1.toggleNav")} title={t("t1.toggleNav")} aria-expanded={showSidebar}><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M9 4v16" /></svg></button><span title={paper?.title}>{paper?.title ?? t("t1.newTask")}</span><button className="t1-source-toggle" aria-pressed={showSource} onClick={() => setShowSource(value => !value)}><EyeIcon size={15} />{t(showSource ? "t1.hideOriginal" : "t1.showOriginal")}</button>{pdfUrl && <a className="t1-mobile-source" href={`${pdfUrl}#page=${page}`} target="_blank" rel="noreferrer"><OpenInNewTabIcon size={14} />{t("t1.openOriginal")}</a>}</div>
+        <TabBar tabs={tabs} activeTabId={activeTab} onSelectTab={setActiveTab} onCloseTab={id => { const next = tabIds.filter(tab => tab !== id); setTabIds(next); if (activeTab === id) setActiveTab(next[0] ?? ""); }} onReorderTab={(from, to, after) => setTabIds(current => movePanelTab(current, from, to, after))} />
         <div className="t1-content">
-          {loading && <p className="t1-status" role="status">正在连接 T1 服务…</p>}
-          {error && <div className="t1-alert" role="alert"><strong>{error}</strong><p>请启动本地 T1 服务后重试；请确认后台启动状态后重试。</p><button onClick={refresh}>重新连接</button></div>}
-          {detailError && activeTab !== "inspector" && <div className="t1-alert" role="alert"><strong>{detailError}</strong><button onClick={refresh}>重新读取来源</button></div>}
-          {!activeTab && <div className="t1-empty"><h1>选择工作视图</h1><p>页签已关闭。可随时重新打开。</p>{initialTabs.map(tab => <button key={tab.id} onClick={() => openTab(tab.id)}>{tab.label}</button>)}</div>}
-          {activeTab === "evidence" && detail && <>
-            <div className="t1-heading"><div><span className="t1-eyebrow">ORIGINAL SOURCE</span><h1>原文片段</h1></div><span className="t1-badge">候选 · 待人工审核</span></div>
-            <p className="t1-lead">历史抽取结果按现行原文规则重新核验后展示。各段保留原文、页码与位置，不改写或补全。</p>
-            <div className="t1-output-toolbar"><label>历史策略 <select aria-label="历史策略" value={outputId} onChange={event => { setOutputId(event.target.value); setRecordIndex(0); }}>{detail.outputs.length ? detail.outputs.map(item => <option value={item.id} key={item.id}>{item.strategy} · {item.records.length} 条候选</option>) : <option value="">无历史结果</option>}</select></label><span>B0 为默认；F / R / FR 仍为可比较策略，当前只展示已保留的独立结果。</span></div>
-            {!output?.records.length ? <div className="t1-empty"><h2>此论文暂无已接入的抽取结果</h2><p>已登记原PDF与图源。当前不会启动新的模型抽取，也不会将空结果解释为“没有证据”。</p><button onClick={() => openTab("figures")}>查看图源目录</button></div> : <>
-              <div className="t1-record-nav"><label>原文记录 <select aria-label="原文记录" value={recordIndex} onChange={event => setRecordIndex(Number(event.target.value))}>{output.records.map((item, index) => <option key={item.id} value={index}>{String(index + 1).padStart(2, "0")} · {item.fragments[0]?.exact_quote.slice(0, 72)}</option>)}</select></label><span>共 {output.records.length} 条 · 原运行状态 {output.state}</span></div>
-              {record && <article className="t1-evidence-card"><div className="t1-record-meta"><b>记录 {recordIndex + 1}</b><code>{record.id}</code><span>版本 {record.version}</span></div>{record.evidence_role === "background_suggestion" && <p className="t1-badge">仅背景建议，未人工确认 · 不计为独立主目标</p>}<Fragments fragments={record.fragments} onPage={sourcePage} />
-                {!!record.context.length && <details className="t1-context"><summary>查看原文上下文 · {record.context.length} 段</summary><Fragments fragments={record.context} onPage={sourcePage} /></details>}
-                <div className={`t1-association ${record.association}`}><strong>{record.association === "paired" ? "有明确原文关联的原 Figure" : record.association === "pending" ? "配图待核 · 保留文字" : record.association === "not_checked" ? "配图尚未检查" : "此条未确认明确配图关联"}</strong>{record.reasons.map((reason, index) => <p key={index}>{reason}</p>)}{record.association === "paired" && record.figure_ids.map(id => { const figure = detail.figures.find(item => item.id === id); return figure ? <FigureView key={id} figure={figure} onPage={sourcePage} /> : null; })}</div>
+          {loading && <p className="t1-status" role="status">{t("t1.loading")}</p>}
+          {error && <div className="t1-alert" role="alert">{error}<button onClick={refresh}>{t("t1.retry")}</button></div>}
+          {actionError && <div className="t1-alert" role="alert">{actionError}</div>}
+          {detailError && activeTab !== "newTask" && <div className="t1-alert" role="alert">{detailError}<button onClick={refresh}>{t("t1.retry")}</button></div>}
+          {sourceBlocked && <div className="t1-alert" role="alert">{t("t1.sourceProblem")}{[...new Set(sourceIssues.map(sourceIssueText))].map((issue, i) => <p key={i}>{issue}</p>)}<details><summary>{t("t1.sourceVersion")}</summary>{sourceIssues.join(" · ")}</details></div>}
+          {sourceBlocked && paper && <section className="t1-source-recovery"><p>{t("t1.restoreHelp")}</p><label className="t1-field">{t("t1.selectRestorePdf")}<input type="file" accept="application/pdf,.pdf" aria-label={t("t1.selectRestorePdf")} onChange={e => setRestoreFile(e.target.files?.[0] ?? null)} /></label><button className="t1-primary" disabled={!restoreFile || restoreBusy} onClick={() => void restoreOriginal()}>{t("t1.restorePdf")}</button></section>}
+          {capabilities?.controlled_fixture && <p className="t1-fixture-banner">{t("t1.fixture")}</p>}
+          {!activeTab && <div className="t1-empty">{["newTask", "records", "figures", "tasks"].map(id => <button key={id} onClick={() => openTab(id)}>{t(`t1.${id}`)}</button>)}</div>}
+          {activeTab === "newTask" && <><div className="t1-heading"><h1>{t("t1.newTask")}</h1><span className="t1-badge">B0</span></div>
+            <section className="t1-upload"><h2>{t("t1.uploadTitle")}</h2><p className="t1-lead">{t("t1.uploadHelp")}</p><label className="t1-field">{t("t1.choosePdf")}<input aria-label={t("t1.choosePdf")} type="file" accept="application/pdf,.pdf" ref={fileInput} onChange={e => { setFile(e.target.files?.[0] ?? null); setActionError(""); }} /></label><label className="t1-field">{t("t1.paperTitle")}<input aria-label={t("t1.paperTitle")} value={title} onChange={e => setTitle(e.target.value)} maxLength={500} /></label><button className="t1-primary" disabled={!file || uploading || !capabilities?.paper_upload} onClick={() => void uploadPaper()}>{t(uploading ? "t1.uploading" : "t1.upload")}</button></section>
+            <label className="t1-field">{t("t1.selectPaper")}<select aria-label={t("t1.selectPaper")} value={paperId} onChange={e => { setPaperId(e.target.value); setRunId(null); setRunDetail(null); }}><option value="">{t("t1.choosePaper")}</option>{papers.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label>
+            {scope && catalog && <ScopeEditor scope={scope} data={catalog} onChange={setScope} />}
+            {!capabilities?.extraction_start && <p className="t1-notice">{t("t1.extractionUnavailable")}{capabilities?.extraction_unavailable_reason && capabilities.extraction_unavailable_reason !== "server_model_not_enabled" && <small>{capabilities.extraction_unavailable_reason}</small>}</p>}
+            <button className="t1-primary t1-start" disabled={starting || !paperId || !scope || !catalog || !capabilities?.extraction_start || sourceBlocked || scopeProblems(scope, catalog).length > 0} onClick={() => void startRun()}>{t(starting ? "t1.starting" : "t1.start")}</button>
+            <ModelRuntimeNotice runtime={capabilities?.model_runtime} maxConcurrent={capabilities?.max_concurrent_runs} />
+          </>}
+          {activeTab === "records" && <><div className="t1-heading"><h1>{t("t1.records")}</h1>{output && <span className="t1-badge">{t(output.origin === "historical_compatibility_replay" ? "t1.historical" : output.fixture ? "t1.fixture" : "t1.pending")}</span>}</div>
+            <p className="t1-review-intro">{t("t1.reviewGuide")}</p>
+            <div className="t1-output-toolbar"><label>{t("t1.task")}<select aria-label={t("t1.task")} value={runId ? `run:${runId}` : `history:${historyId}`} onChange={e => { const value = e.target.value; setRecordId(""); if (value.startsWith("run:")) { setRunId(value.slice(4)); setHistoryId(""); } else { setRunId(null); setHistoryId(value.slice(8)); } }}>
+              {!paperRuns.length && !currentPaper?.outputs.length && <option value="history:">{t("t1.noTasks")}</option>}{paperRuns.map(run => <option key={run.run_id} value={`run:${run.run_id}`}>{run.created_at ? new Date(run.created_at).toLocaleString(locale) : t("t1.task")} · B0{run.fixture ? ` · ${t("t1.controlledTask")}` : ""}</option>)}{currentPaper?.outputs.filter(item => item.origin === "historical_compatibility_replay" && !paperRuns.some(run => run.run_id === item.id)).map(item => <option key={item.id} value={`history:${item.id}`}>{t("t1.historical")} · {item.strategy} · {item.records.length}</option>)}</select></label></div>
+            {state && <div className="t1-task-progress" role="status" data-state={state}><strong><span className="t1-status-dot" />{t(`t1.${presentation.statusKey}`)}</strong><span>{t("t1.recordCount", { count: records.length })}</span>{runId && !terminal.has(state) && <button onClick={() => void cancelRun(runId)}>{t("t1.cancel")}</button>}</div>}
+            {presentation.sourceLimited && <details className="t1-notice t1-source-limits"><summary><strong>{t("t1.sourceLimitsTitle")}</strong><span>{t("t1.viewDetails")}</span></summary><p>{t("t1.sourceLimitsHint")}</p></details>}
+            {(runId || output?.scope) && <details className="t1-task-details"><summary>{t("t1.taskDetails")}</summary><p className="t1-footnote">{t("t1.disclaimer")}</p>{runId && <><p className="t1-footnote">{t(`t1.${presentation.hintKey}`)}</p><p className="t1-stream-status">{t(`t1.${connection}`)}</p></>}{output?.scope && <><h2>{t("t1.runScope")}</h2><ScopeSummary scope={output.scope} data={catalog} /></>}</details>}
+            {!records.length ? <div className="t1-empty"><p>{t(output ? "t1.noRecords" : "t1.noRun")}</p><button onClick={() => openTab("newTask")}>{t("t1.newTask")}</button></div> : <>
+              <div className="t1-record-nav"><label className="t1-record-search"><SearchIcon size={15} /><input type="search" aria-label={t("t1.findRecord")} placeholder={t("t1.findRecord")} value={recordQuery} onChange={e => setRecordQuery(e.target.value)} /></label><div className="t1-record-step"><label><span className="t1-sr-only">{t("t1.record")}</span><select aria-label={t("t1.record")} value={record?.id ?? ""} onChange={e => setRecordId(e.target.value)}>{!visibleRecords.length && <option value="">{t("t1.noMatchingRecords")}</option>}{visibleRecords.map(item => <option key={item.id} value={item.id}>{records.indexOf(item) + 1} · {item.text_approved ? "✓ " : ""}{item.fragments[0]?.exact_quote.slice(0, 82)}</option>)}</select></label><span className="t1-record-position">{recordPosition + 1} / {visibleRecords.length}</span><button aria-label={t("t1.previousRecord")} title={t("t1.previousRecord")} disabled={recordPosition <= 0} onClick={() => setRecordId(visibleRecords[recordPosition - 1].id)}><ChevronIcon size={15} className="t1-chevron-back" /></button><button aria-label={t("t1.nextRecord")} title={t("t1.nextRecord")} disabled={recordPosition < 0 || recordPosition >= visibleRecords.length - 1} onClick={() => setRecordId(visibleRecords[recordPosition + 1].id)}><ChevronIcon size={15} /></button></div></div>
+              {!visibleRecords.length && <p className="t1-empty t1-search-empty" role="status">{t("t1.noMatchingRecords")}</p>}
+              {record && <article className="t1-evidence-card" data-record-id={record.id} data-record-version={record.version}><div className="t1-record-meta"><b>{t("t1.record")} {records.indexOf(record) + 1}</b><span>{t("t1.version", { version: record.version })}</span><span className="t1-badge" title={t("t1.evidenceRoleHelp")}>{t(record.evidence_role === "background_suggestion" ? "t1.background" : "t1.primary")}</span></div><div className="t1-section-title t1-evidence-title"><h2>{t("t1.verbatim")}</h2>{firstSourcePage && <button className="t1-locate" onClick={() => sourcePage(firstSourcePage)}><EyeIcon size={14} />{t("t1.locateSource")}</button>}</div><p className="t1-field-hint">{t("t1.fragmentsSeparate")}</p><Fragments fragments={record.fragments} onPage={sourcePage} />
+                {!!record.context.length && <details className="t1-context"><summary>{t("t1.context", { count: record.context.length })}</summary><Fragments fragments={record.context} onPage={sourcePage} /></details>}
+                <SameSourceMembers index={output?.same_source_review_index} record={record} records={records} onSelect={setRecordId} />
+                {record.labels?.comment && <aside className="t1-reviewer-comment"><strong>{t("t1.comment")}</strong><p>{record.labels.comment}</p></aside>}
+                <div className="t1-association" data-pairing={record.association}><strong>{t(record.association === "paired" ? "t1.paired" : record.association === "pending" ? "t1.pendingPair" : record.association === "not_checked" ? "t1.notChecked" : "t1.noPair")}</strong>{record.reasons.map((reason, i) => <p key={i}>{reason}</p>)}{record.association === "paired" && record.figure_ids.map(id => { const figure = figures.find(item => item.id === id); return figure ? <FigureView key={id} figure={figure} onPage={sourcePage} paired /> : null; })}</div>
+                <details className="t1-context"><summary>{t("t1.sourceVersion")}</summary><code>{record.id} · {record.run_id} · {record.text_fingerprint}</code>{record.model_primary_assessment && <pre>{JSON.stringify(record.model_primary_assessment, null, 2)}</pre>}{record.labels && <pre>{JSON.stringify(record.labels, null, 2)}</pre>}</details>
+                {editable && !sourceBlocked && <><RecordReview key={`${runId}:${record.id}:${record.version}`} runId={runId!} record={record} canReviewFigures={record.association === "paired" && record.figure_ids.length > 0} onSaved={reloadCurrent} /><button onClick={() => setEditor({ run: runId!, record: record.id })}>{t("t1.edit")}</button></>}
               </article>}
-              <p className="t1-footnote">这是旧合同结果的离线兼容回放；未进行新的模型实验，不证明策略优劣、全文召回或医学质量。当前没有已审核导出。</p>
             </>}
+            {editable && !sourceBlocked && <button onClick={() => setEditor({ run: runId!, record: null })}>{t("t1.add")}</button>}
+            {editor && editor.run === runId && (editor.record === null || selectedEditorRecord && editor.record === record?.id) && !sourceBlocked && <SourceEditor key={`${editor.run}:${editor.record ?? "new"}`} runId={editor.run} record={selectedEditorRecord} units={units} onPage={sourcePage} onSaved={reloadCurrent} onClose={() => setEditor(null)} />}
+            {runId && currentRun && <section className="t1-exports"><h2>{t("t1.exportTitle")}</h2><p className="t1-footnote">{t("t1.exportHelp")}</p>{legacyGlyphCheck && <p className="t1-footnote" role="note">{t("t1.sourceGlyphExportHint")}</p>}<div className="t1-export-groups">{(["candidate", "approved"] as const).map(group => <div className="t1-export-group" key={group}><strong>{t(group === "candidate" ? "t1.candidateDownloads" : "t1.approvedDownloads")}</strong><div className="t1-actions">{exportKinds.filter(kind => kind.startsWith(group)).map(kind => <button key={kind} disabled={Boolean(download) || group === "approved" && (sourceBlocked || !capabilities?.approved_export)} onClick={() => void downloadExport(kind)}>{t(`t1.${kind}`)}</button>)}</div></div>)}</div>{download && <p role="status">{t("t1.downloading")}</p>}</section>}
           </>}
-          {activeTab === "figures" && detail && <><div className="t1-heading"><div><span className="t1-eyebrow">SOURCE FIGURES</span><h1>原 Figure 目录</h1></div><span className="t1-badge">独立图源核对</span></div><p className="t1-lead">此目录用于查看来源。出现在目录中不代表与某条原文相关；只有原文明确关联、整幅来源已核验的图，才进入该条的配图区域。流程图、示意图等图源不会自动认定为肿瘤影像。</p>{!detail.figures.length ? <div className="t1-empty"><h2>暂未取得可用 Figure 条目</h2><p>不代表论文没有图。请在右侧原PDF中核对。</p></div> : detail.figures.map(figure => <FigureView key={figure.id} figure={figure} onPage={sourcePage} relation={detail.outputs.some(output => output.records.some(record => record.figure_ids.includes(figure.id))) ? "历史候选中有明确原文对应 · 关联仍待人工审核" : detail.outputs.some(output => output.records.some(record => record.proposed_figure_ids.includes(figure.id))) ? "待核候选 · 尚未确认原文对应" : "独立图源 · 无明确原文对应"} />)}</>}
-          {activeTab === "inspector" && <><div className="t1-heading"><div><span className="t1-eyebrow">BUSINESS EVENTS</span><h1>工程任务与事件</h1></div><span className="t1-badge">S1 检查器</span></div><p className="t1-lead">只读连接已有任务。工程 fixture 与论文抽取结果分开显示；没有任务时不会生成或模拟运行。</p>
-            <form className="t1-run-form" onSubmit={event => { event.preventDefault(); if (runInput.trim()) void inspectRun(runInput.trim()); }}><label>已有任务 ID<input aria-label="已有任务 ID" value={runInput} onChange={event => setRunInput(event.target.value)} placeholder="输入任务 ID" /></label><button type="submit">查看任务</button></form>
-            <div className="t1-run-list">{runs.length ? runs.map(run => <button key={run.run_id} onClick={() => void inspectRun(run.run_id)}><strong>{run.document_id}</strong><span>{run.state} · {run.fixture ? "工程 fixture" : "原PDF工程探测"}</span><code>{run.run_id}</code></button>) : <p>当前没有已登记的 S1 工程任务。</p>}</div>
-            {runError && <p role="alert" className="t1-alert">{runError}</p>}
-            <div className="t1-stream-status" role="status">{connection}{runState && ` · 状态 ${runState}`}</div>
-            {runId && <ol className="t1-events">{events.map(event => <li key={event.seq}><span>#{event.seq} · {event.type} · {event.fixture ? "fixture" : "工程探测"}</span><p>{event.summary}</p><time>{event.timestamp}</time></li>)}</ol>}
+          {activeTab === "figures" && <><div className="t1-heading"><h1>{t("t1.figures")}</h1></div><p className="t1-lead">{t("t1.independentFigure")}</p>{figures.length ? figures.map(figure => <FigureView key={figure.id} figure={figure} onPage={sourcePage} review={editable && !sourceBlocked && currentRun?.figure_catalog_sha256 ? <FigureVerification key={`${runId}:${figure.id}:${currentRun.figure_catalog_sha256}`} runId={runId!} figureId={figure.id} catalogSha={currentRun.figure_catalog_sha256} onSaved={reloadCurrent} /> : undefined} />) : <p className="t1-empty">{t("t1.noFigures")}</p>}</>}
+          {activeTab === "tasks" && <><div className="t1-heading"><h1>{t("t1.tasks")}</h1></div><p className="t1-lead">{t("t1.separateTasks")}</p><div className="t1-run-list">{runs.length ? runs.map(run => <div className="t1-task-row" key={run.run_id}><button onClick={() => selectRun(run)}><strong>{papers.find(item => item.id === run.document_id)?.title ?? run.document_id}</strong><span>{runLabel(run)} · {run.candidate_count}{run.fixture && " · fixture"}</span><small>{run.created_at ? new Date(run.created_at).toLocaleString(locale) : ""}</small></button>{!terminal.has(run.state) && <button onClick={() => void cancelRun(run.run_id)}>{t("t1.cancel")}</button>}<details><summary>{t("t1.sourceVersion")}</summary><code>{run.run_id}</code></details></div>) : <p>{t("t1.noTasks")}</p>}</div>
+            {paper && <details className="t1-context"><summary>{t("t1.deletePaper")}</summary><p>{t("t1.deletePaperHelp")}</p><button onClick={() => setDeletePaperConfirm(true)}>{t("t1.deletePaper")}</button>{deletePaperConfirm && <button onClick={() => void deletePaper()}>{t("t1.confirmDeletePaper")}</button>}</details>}
+            <h2>{t("t1.events")}</h2><div className="t1-stream-status" role="status">{t(`t1.${connection}`)}</div>{events.length ? <ol className="t1-events">{events.map(event => <li key={event.seq}><span>#{event.seq} · {event.type}</span><p>{event.summary}</p><time>{event.timestamp}</time></li>)}</ol> : <p>{t("t1.noEvents")}</p>}
           </>}
-          {capabilities && <section className="t1-capabilities"><strong>本轮可用</strong><p>原PDF、原文候选与图源只读查看；已有工程任务与事件。</p><span>论文上传、启动新抽取、真实审核与已审核导出尚未接通。完整 S5 尚未完成。</span></section>}
         </div>
       </main>
-      {showSource && detail && <><div className="t1-resize" {...source.separatorProps} /><aside className="t1-source" aria-label="原PDF查看器"><div className="t1-source-heading"><div><strong>原 PDF</strong><span>{detail.paper.id} · {detail.paper.pages} 物理页</span></div><a href={`${detail.pdf_url}#page=${page}`} target="_blank" rel="noreferrer">单独打开 ↗</a></div><p>原文定位请求：第 {page} 物理页 · 文件身份已核验</p><PdfSource key={detail.paper.id} url={detail.pdf_url} sha256={detail.paper.sha256} page={page} pages={detail.paper.pages} onPage={sourcePage} /><div className="t1-source-footer"><span>SHA256 {detail.paper.sha256.slice(0, 16)}…</span><small>原件保留；阅读不会自动标记已审核。</small></div></aside></>}
+      {showSource && paper && pdfUrl && <><div className="t1-resize" {...source.separatorProps} /><aside className="t1-source" aria-label={t("t1.originalPdf")}><div className="t1-source-heading"><strong><GenericFileIcon size={15} />{t("t1.originalPdf")}</strong><a href={`${pdfUrl}#page=${page}`} target="_blank" rel="noreferrer">{t("t1.openOriginal")}<OpenInNewTabIcon size={13} /></a></div>{sourceBlocked ? <p className="t1-alert">{t("t1.sourceProblem")}</p> : <PdfSource key={`${paper.id}:${paper.sha256}`} url={pdfUrl} sha256={paper.sha256} page={page} pages={paper.pages} onPage={sourcePage} />}<div className="t1-source-footer"><small>{t("t1.sourceUnchanged")}</small><details><summary>{t("t1.sourceVersion")}</summary><code>SHA256 {paper.sha256}</code></details></div></aside></>}
     </div>
-    <SidebarMenu open={menu !== null} anchor={menu} sheet={mobile} ariaLabel="界面主题" title="界面主题" cancelLabel="取消" onClose={() => setMenu(null)} items={([['auto', '跟随系统'], ['light', '浅色'], ['dark', '深色']] as const).map(([id, label]) => ({ type: "item", id, label, checked: preference === id, onSelect: () => setThemePreference(id) }))} />
+    <SidebarMenu open={menu !== null} anchor={menu} sheet={mobile} ariaLabel={t("t1.theme")} title={t("t1.theme")} cancelLabel={t("t1.close")} onClose={() => setMenu(null)} items={([['auto', 'system'], ['light', 'light'], ['dark', 'dark']] as const).map(([id, key]) => ({ type: "item", id, label: t(`t1.${key}`), checked: preference === id, onSelect: () => setThemePreference(id) }))} />
   </div>;
 }

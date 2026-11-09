@@ -9,3 +9,11 @@ coverage/
 __pycache__/
 .venv/
 *.tsbuildinfo
+# Local service switches, credentials and private backups are operator state.
+/deploy/local/
+/deploy/backups/
+# Private restore drills and runtime snapshots stay local; retain their reports.
+/docs/acceptance/**/isolated-backup.tar.gz
+/docs/acceptance/**/isolated-backup.tar.gz.sha256
+/docs/acceptance/**/runtime-snapshot.tar.gz
+/docs/acceptance/**/runtime-snapshot.tar.gz.sha256

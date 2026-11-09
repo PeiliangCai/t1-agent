@@ -1,0 +1,219 @@
+{
+  "schema_version": "s5-frontend-engineering-closeout-1",
+  "completed_at": "2026-11-09T03:24:34.053010+00:00",
+  "status": "requested_engineering_cleanup_and_production_build_verified;user_stage_acceptance_and_real_model_trial_not_claimed",
+  "authority": "user continue relayed by root; GPT-6.1-Sol max existing executor; S4 formal review count3/3 unchanged",
+  "scope": "apps/pi-web tests/config and necessary T1 encoded-ID gateway fix; local build/start; no backend, plan documents, medical vocabulary, extraction optimization, or paid API changes",
+  "changes": [
+    {
+      "files": [
+        "lib/web-auth-proxy.test.mjs"
+      ],
+      "change": "Replace upstream browser-password/session-route expectations with actual T1 page/static/business method allowlist, Host/Origin, configured hostname, credential/header non-bypass and retired-route rejection; add raw encoded historical-ID safety regression."
+    },
+    {
+      "files": [
+        "lib/model-discovery.test.mjs"
+      ],
+      "change": "Keep model list/auth library cases; validate SDK rejection of incomplete provider configuration and deny retired discovery paths instead of importing deleted route."
+    },
+    {
+      "files": [
+        "lib/page-stream-registry.test.mjs",
+        "lib/stream-client.test.mjs"
+      ],
+      "change": "Keep registry release and client metadata units; replace deleted terminal/agent route source-text assertions with the current T1 stream path and retirement boundary."
+    },
+    {
+      "files": [
+        "lib/project-trust.test.mjs"
+      ],
+      "change": "Preserve all25 declared trust tests and assertions on retained RPC/skills loaders; remove only nonexistent API-source assertions and require those APIs remain retired."
+    },
+    {
+      "files": [
+        "lib/session-membership.integration.test.mjs"
+      ],
+      "change": "Exercise existing session-reader listing/version library directly with independent SDK file creation/deletion, preserving both present/absent-directory cases; no restored session APIs."
+    },
+    {
+      "files": [
+        "lib/terminal-manager.test.mjs"
+      ],
+      "change": "Keep all13 terminal library tests; test offset replay, lease release and close notification via subscribeTerminal directly instead of importing retired terminal SSE route."
+    },
+    {
+      "files": [
+        "eslint.config.mjs"
+      ],
+      "change": "Ignore only public/t1-assets/pdfjs/** and public/output-review/pdfjs/** copied third-party distribution trees;404 files all match installed pdfjs-dist6.5.438, unchanged after both builds. Application source/legacy generated application scripts remain linted."
+    },
+    {
+      "files": [
+        "package.json"
+      ],
+      "change": "Add npm run check = tsc --noEmit; retain full existing npm test and lint discovery."
+    },
+    {
+      "files": [
+        "t1/gateway-policy.ts",
+        "lib/t1-workflow.test.mjs",
+        "lib/web-auth-proxy.test.mjs"
+      ],
+      "change": "Actual production smoke found raw %3A historical ID rejection. Normalize only %3A/%2C, the encoded punctuation from the permitted ID alphabet; every other percent encoding remains rejected. Preserve methods and reject encoded separators, double encoding and path escape."
+    }
+  ],
+  "checks": {
+    "legacy_failure_reproduction": {
+      "tests": 50,
+      "passed": 36,
+      "failed": 14,
+      "log": "reproduced-legacy-failures.log"
+    },
+    "targeted_after_legacy_migration": {
+      "tests": 64,
+      "passed": 64,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "log": "targeted-tests-final.log"
+    },
+    "full_npm_test_checkpoint": {
+      "cwd": "code/apps/pi-web",
+      "command": "npm test",
+      "tests": 3047,
+      "passed": 3047,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0,
+      "exit_code": 0,
+      "log": "full-npm-test.log",
+      "source_checkpoint": "after legacy test migration, before two later encoded-ID regression tests"
+    },
+    "full_npm_lint_checkpoint": {
+      "cwd": "code/apps/pi-web",
+      "command": "npm run lint",
+      "errors": 0,
+      "warnings": 7243,
+      "exit_code": 0,
+      "log": "full-npm-lint.log",
+      "warnings_suppressed": false
+    },
+    "full_npm_check_checkpoint": {
+      "cwd": "code/apps/pi-web",
+      "command": "npm run check",
+      "exit_code": 0,
+      "log": "full-npm-check.log"
+    },
+    "encoded_id_fix_final_targeted": {
+      "command": "node --experimental-strip-types --test lib/t1-workflow.test.mjs lib/web-auth-proxy.test.mjs lib/request-security.test.mjs",
+      "tests": 30,
+      "passed": 30,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "log": "encoded-id-targeted-tests.log",
+      "lint_exit_code": 0,
+      "lint_log": "encoded-id-targeted-lint.log",
+      "check_exit_code": 0,
+      "check_log": "encoded-id-check.log",
+      "entire_suite_repeated": false
+    },
+    "vendor_integrity": {
+      "files": 404,
+      "all_files_match_installed_package": true,
+      "all_bytes_unchanged_after_final_build": true,
+      "reports": [
+        "vendor-source-and-byte-audit.json",
+        "vendor-byte-check-final.json"
+      ]
+    },
+    "production_browser": {
+      "passed": true,
+      "checks": 4,
+      "browser_errors": 0,
+      "unexpected_resources": 0,
+      "external_requests": 0,
+      "report": "production-browser-smoke.json",
+      "script": "production-smoke.mjs",
+      "build_id": "IUAPpylbHMhl5-Mg9gPNJ",
+      "operations": "read-only; no upload/review/delete or model execution"
+    },
+    "encoding_real_http_after_final_build": {
+      "valid_encoded_history_id": 200,
+      "encoded_slash": 404,
+      "encoded_backslash": 404,
+      "double_encoded_colon": 404,
+      "double_encoded_slash": 404,
+      "encoded_dot_escape": 404,
+      "report": "encoded-id-reproduction-after-fix.json"
+    }
+  },
+  "test_count_explanation": "3047 versus original2854 is not193 newly added tests. Earlier locale-alias and retired-route import failures stopped entire modules before their retained cases ran. Source declaration mapping is in test-migration-map.json; the legacy migration adds one explicit static-asset boundary case, preserving the other declared library cases. Two encoded-ID regressions were added only after the3047 full-suite checkpoint and were included in final30/30 targeted validation; no unexecuted3049/3049 claim is made.",
+  "production_sequence": [
+    {
+      "step": "verify and SIGTERM sole Next dev PID16124; wait for exit",
+      "report": "next-service-transition.json"
+    },
+    {
+      "step": "npm run build:web, real Next16.4.4 webpack/TypeScript/prerender/tracing",
+      "exit_code": 0,
+      "log": "next-production-build.log"
+    },
+    {
+      "step": "npm run start:web on127.0.0.1:30141",
+      "ready": true,
+      "log": "next-production-start.log"
+    },
+    {
+      "step": "first actual production smoke exposes encoded-colon historical run404",
+      "report": "production-browser-smoke-first-attempt.json",
+      "build_failure": false
+    },
+    {
+      "step": "minimal ID normalization and final30-test/lint/check; stop exact first production PID70039"
+    },
+    {
+      "step": "necessary npm run build:web after production process exited",
+      "exit_code": 0,
+      "log": "next-production-build-final.log"
+    },
+    {
+      "step": "npm run start:web at same30141; actual production browser smoke passed",
+      "log": "next-production-start-final.log",
+      "report": "production-browser-smoke.json"
+    }
+  ],
+  "runtime": {
+    "url": "http://127.0.0.1:30141",
+    "mode": "Next production start, not dev",
+    "single_next_server": true,
+    "production_pid": 74801,
+    "tool_session_id": 54719,
+    "backend": "http://127.0.0.1:3210",
+    "backend_process_restarted_by_frontend": false,
+    "controlled_fixture": false,
+    "extraction_start": false,
+    "backend_papers_and_runs_unchanged": true,
+    "snapshot": "backend-snapshot-after-final-smoke.json"
+  },
+  "historical_evidence": {
+    "original_frontend_report": "../frontend-report.json",
+    "original_sha256": "8b7b3fbf731279088201af1637919095a35b38f5a1f1ec78eafae6a53ab629e8",
+    "original_report_bytes_preserved": true,
+    "old2854_first_full_and257_subset_reports_preserved": true,
+    "old_vendor_lint10errors_report_preserved": true,
+    "prior14_browser_checks_repeated": false,
+    "initial_wrong_cwd_reproduction_retained": "reproduction-wrong-cwd.log"
+  },
+  "limits": [
+    "7243 existing application/legacy generated-script lint warnings remain visible; zero errors is not zero warnings.",
+    "No paid provider request, new-model effectiveness, approved medical catalog, formal user S5 acceptance, S6 quality/performance or external S7 deployment is claimed.",
+    "This is a local production-build/start check;3210 real data is preserved and no production approval/deletion was performed."
+  ],
+  "paid_api_calls": 0,
+  "screenshots": [
+    "production-home.png",
+    "production-retained-source.png"
+  ]
+}

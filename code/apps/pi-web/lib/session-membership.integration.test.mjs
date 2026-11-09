@@ -8,22 +8,18 @@ import test from 'node:test';
 import { createJiti } from 'jiti';
 
 const jiti = createJiti(import.meta.url, { alias: { '@': process.cwd() }, moduleCache: false });
-const { invalidateSessionListCache } = await jiti.import('./session-reader.ts');
-const { GET: list } = await jiti.import('../app/api/sessions/route.ts');
-const { GET: running } = await jiti.import('../app/api/agent/running/route.ts');
+const { invalidateSessionListCache, getSessionListVersion, listAllSessions } = await jiti.import('./session-reader.ts');
+const { isT1ApiPath } = await jiti.import('../t1/gateway-policy.ts');
 const sdk = pathToFileURL(join(process.cwd(), 'node_modules/@earendil-works/pi-coding-agent/dist/index.js')).href;
 
-for (const mode of ['sessions-dir-present', 'sessions-dir-absent']) test(`independent SDK writes refresh cached lists (${mode})`, { timeout: 15000 }, async (t) => {
+for (const mode of ['sessions-dir-present', 'sessions-dir-absent']) test(`retained session-reader library observes independent SDK writes (${mode})`, { timeout: 15000 }, async (t) => {
   const existingRoot = mode === 'sessions-dir-present';
   const dir = await mkdtemp(join(tmpdir(), 'pi-membership-api-'));
   const previous = process.env.PI_CODING_AGENT_DIR;
   process.env.PI_CODING_AGENT_DIR = dir;
   invalidateSessionListCache();
-  const requestList = async () => {
-    const response = await list(new Request('http://test/api/sessions'));
-    assert.equal(response.status, 200);
-    return response.json();
-  };
+  const requestList = async () => ({ sessions: await listAllSessions(), sessionListVersion: getSessionListVersion() });
+
   try {
     if (existingRoot) await mkdir(join(dir, 'sessions'));
     const initial = await requestList();
@@ -40,22 +36,23 @@ for (const mode of ['sessions-dir-present', 'sessions-dir-absent']) test(`indepe
     let snapshot;
     const deadline = Date.now() + 3000;
     do {
-      snapshot = await (await running()).json();
+      snapshot = { sessionListVersion: getSessionListVersion() };
       if (snapshot.sessionListVersion > initial.sessionListVersion) break;
       await new Promise(resolve => setTimeout(resolve, 50));
     } while (Date.now() < deadline);
     assert.ok(snapshot.sessionListVersion > initial.sessionListVersion, 'disk change must advance the version without force refresh');
     t.diagnostic(`new file observed ${Date.now() - persistedAt}ms after external writer exited`);
-    assert.deepEqual(snapshot.runningSessionIds, [], 'external SDK is not registered or started by Web');
+    assert.equal(isT1ApiPath('/api/sessions'), false, 'retained cache does not reopen the session API');
+    assert.equal(isT1ApiPath('/api/agent/running'), false, 'SDK file writes do not publish an agent API');
     const updated = await requestList();
     assert.equal(updated.sessions.find(s => s.id === id)?.firstMessage, 'external SDK writer');
     const stable = updated.sessionListVersion;
     await new Promise(resolve => setTimeout(resolve, 400));
-    assert.equal((await (await running()).json()).sessionListVersion, stable, 'reads must not create an invalidation loop');
+    assert.equal(getSessionListVersion(), stable, 'reads must not create an invalidation loop');
     if (existingRoot) {
       const file = updated.sessions.find(s => s.id === id).path;
       for (const operation of ['append', 'delete']) {
-        const before = (await (await running()).json()).sessionListVersion;
+        const before = getSessionListVersion();
         const source = operation === 'append'
           ? `import { SessionManager } from ${JSON.stringify(sdk)}; SessionManager.open(${JSON.stringify(file)}).appendMessage({role:'user',content:'second message',timestamp:Date.now()});`
           : `import { unlinkSync } from 'node:fs'; unlinkSync(${JSON.stringify(file)});`;
@@ -63,13 +60,13 @@ for (const mode of ['sessions-dir-present', 'sessions-dir-absent']) test(`indepe
         assert.equal(writer.status, 0, writer.stderr);
         if (operation === 'append') {
           await new Promise(resolve => setTimeout(resolve, 500));
-          assert.equal((await (await running()).json()).sessionListVersion, before, 'appending output does not invalidate the catalogue');
+          assert.equal(getSessionListVersion(), before, 'appending output does not invalidate the catalogue');
         } else {
           const until = Date.now() + 3000;
-          while ((await (await running()).json()).sessionListVersion === before && Date.now() < until) {
+          while (getSessionListVersion() === before && Date.now() < until) {
             await new Promise(resolve => setTimeout(resolve, 50));
           }
-          assert.ok((await (await running()).json()).sessionListVersion > before);
+          assert.ok(getSessionListVersion() > before);
           assert.equal((await requestList()).sessions.find(s => s.id === id), undefined);
         }
       }

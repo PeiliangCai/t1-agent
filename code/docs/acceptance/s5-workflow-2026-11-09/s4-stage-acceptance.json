@@ -1,0 +1,843 @@
+{
+  "schema_version": "S4-development-stage-acceptance-1",
+  "recorded_at_utc": "2026-11-09T02:06:15.912428+00:00",
+  "status": "S4_current_development_iteration_accepted_proceed_S5",
+  "user_instruction": {
+    "quote": "已审核完毕，本轮验收后就准备进入下一阶段吧。当前的提取效果我觉得还凑合，可以在最终完整实现后再考虑进一步优化。",
+    "source": "Parent relay of latest real user instruction",
+    "original_message_id": null,
+    "original_click_time_unknown": true,
+    "recorded_at_is_not_user_click_time": true
+  },
+  "acceptance": {
+    "stage": "S4",
+    "accepted": true,
+    "stage_passed": true,
+    "acceptance_scope": "current_development_iteration_and_progression_to_S5",
+    "current_effect_accepted_for_progression": true,
+    "optimization_deferred_until_after_complete_implementation": true,
+    "formal_application_model_selected": false,
+    "medical_quality_certified": false,
+    "population_precision_or_recall_claimed": false,
+    "all28_record_business_approval": false,
+    "business_record_approvals": 0,
+    "S5_accepted": false,
+    "S5_implementation_authorized": true,
+    "new_paid_calls_authorized": false,
+    "effective_new_request_allowance": 0
+  },
+  "feedback": {
+    "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/本轮输出核验意见-2026-11-09-01-50-45.json",
+    "sha256": "28416aa3453f505d910a4012a3bcb4103caef875a70c69441759410695dc0930",
+    "pack_id": "b0-revalidation-2026-11-08-702d57baa5bc",
+    "pack_sha256": "d49e0a3f41891a2deb30694cab9859f30ea76ad2eb570c0fa90d1634de13c3f9",
+    "exported_at": "2026-11-09T01:50:45.014Z",
+    "reviewed_cases": 15,
+    "opinion_points": 38,
+    "verdicts": {
+      "looks_correct": 37,
+      "cannot_judge": 1
+    },
+    "source_scope": "15 sampled ordinary output records;8 base+7 directed;not full population or independent medical acceptance",
+    "strata": {
+      "job": {
+        "L01-B0": {
+          "cases": 2,
+          "points": 5,
+          "verdicts": {
+            "looks_correct": 5
+          }
+        },
+        "L07-B0": {
+          "cases": 13,
+          "points": 33,
+          "verdicts": {
+            "looks_correct": 32,
+            "cannot_judge": 1
+          }
+        }
+      },
+      "sampling": {
+        "fixed_seed_development_sample": {
+          "cases": 8,
+          "points": 20,
+          "verdicts": {
+            "looks_correct": 20
+          }
+        },
+        "directed_risk_not_random_sample": {
+          "cases": 7,
+          "points": 18,
+          "verdicts": {
+            "looks_correct": 17,
+            "cannot_judge": 1
+          }
+        }
+      },
+      "semantics": {
+        "literal_source_and_context": {
+          "cases": 15,
+          "points": 15,
+          "verdicts": {
+            "looks_correct": 15
+          }
+        },
+        "independent_target_suitability": {
+          "cases": 14,
+          "points": 14,
+          "verdicts": {
+            "looks_correct": 14
+          }
+        },
+        "figure_correspondence_and_completeness": {
+          "cases": 8,
+          "points": 8,
+          "verdicts": {
+            "looks_correct": 8
+          }
+        },
+        "background_retention_suitability": {
+          "cases": 1,
+          "points": 1,
+          "verdicts": {
+            "cannot_judge": 1
+          }
+        }
+      },
+      "role": {
+        "primary_candidate": {
+          "cases": 14,
+          "points": 35,
+          "verdicts": {
+            "looks_correct": 35
+          }
+        },
+        "background_suggestion": {
+          "cases": 1,
+          "points": 3,
+          "verdicts": {
+            "looks_correct": 2,
+            "cannot_judge": 1
+          }
+        }
+      }
+    }
+  },
+  "binding_verification": {
+    "status": "passed",
+    "existing_verifier_command": "python3 code/scripts/build-current-output-review.py --root code/docs/acceptance/s4-b0-revalidation-2026-11-08 --verify-opinions code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/本轮输出核验意见-2026-11-09-01-50-45.json",
+    "existing_verifier_exit_code": 0,
+    "unique_case_question_pairs": 38,
+    "answered_points": 38,
+    "complete_expected_case_question_set": true,
+    "pack_and_all15_case_canonical_hashes_match": true,
+    "all_source_bindings_and_question_purposes_match": true,
+    "immutable_page_asset_files_checked": 30,
+    "fixed_source_artifact_files_checked": 161,
+    "frozen_runtime_source_snapshots_checked": 66,
+    "current_runtime_hashes_not_reused_as_feedback_validity_gate": true,
+    "current_code_paths_excluded_from_frozen_source_check": 59,
+    "PDF_IR_catalog_result_manifest_delivery_record_version_fingerprint_group_projection_and_literal_IR_spans_verified": true,
+    "all28_member_index_and_counts_verified": {
+      "primary": 24,
+      "background": 4,
+      "raw_members": 28,
+      "strict_groups": 27,
+      "readonly_source_context_groups": 25
+    },
+    "optional_absent_background_exports_with_explicit_null_hash": [
+      "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/L05-B0/candidate-export/background-records.jsonl",
+      "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/L05-B0/candidate-export/background-records.csv"
+    ],
+    "initial_checker_assumptions_corrected": "The initial read-only checker assumed optional background files/arrays always existed. The final checker verifies absent files for explicit null hashes and uses the declared zero count for absent optional arrays; no application/frozen artifact changed."
+  },
+  "duplicate_notes": [
+    {
+      "noted_case": "C12-ec952045fbd9",
+      "reference_case": "C11-6f49b66f31bd",
+      "record_ids": [
+        "ev-5b6869e04977756b0fa3127846d55b25df6c9211-ce6f1d587e52",
+        "ev-5b6869e04977756b0fa3127846d55b25df6c9211"
+      ],
+      "record_versions": [
+        3,
+        5
+      ],
+      "note_exact": "其与候选11一模一样，似乎重复了？",
+      "verdict_preserved": "looks_correct",
+      "same_complete_original_quote": true,
+      "full_original_quote": " C Tumor at the level of the anterior peri-\ntoneal reflection extends posterior and laterally, involving the MRF\nonly.",
+      "same_selected_context_fragments": true,
+      "full_contexts": [
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000052",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 28,
+                "end": 71,
+                "exact_quote": " C Tumor at the level of the anterior peri-",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  335.06428930699997,
+                  544.2106015310001,
+                  343.8167272216919
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000053",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 68,
+                "exact_quote": "toneal reflection extends posterior and laterally, involving the MRF",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  345.1792893069999,
+                  544.275201534247,
+                  353.4795268436568
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000054",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 5,
+                "exact_quote": "only.",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  355.05628930699993,
+                  544.2369515342468,
+                  363.80872722169187
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "study_authors",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000052",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 28,
+                "end": 71,
+                "exact_quote": " C Tumor at the level of the anterior peri-",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  335.06428930699997,
+                  544.2106015310001,
+                  343.8167272216919
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000053",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 68,
+                "exact_quote": "toneal reflection extends posterior and laterally, involving the MRF",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  345.1792893069999,
+                  544.275201534247,
+                  353.4795268436568
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0006-l000054",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 5,
+                "exact_quote": "only.",
+                "occurrence": 0,
+                "physical_page": 6,
+                "bbox": [
+                  306.14260153099997,
+                  355.05628930699993,
+                  544.2369515342468,
+                  363.80872722169187
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        }
+      ],
+      "same_figure_association": true,
+      "same_strict_group": true,
+      "same_readonly_review_index_group_id": "source-review-eb069279f94d8c26579724ef1aea7e40337432361494a57772bb4e2030621aa3",
+      "unresolved_field_differences_retained": [
+        "feature_category"
+      ],
+      "handling": "S5 may gather existing same-source members for display, keeping all records/versions/approvals and metadata differences; extraction optimization is deferred; no automatic clinical deduplication."
+    },
+    {
+      "noted_case": "C13-9ab8efd43c70",
+      "reference_case": "C08-5bd3117b281a",
+      "record_ids": [
+        "ev-b5b1624db7c57f67e56988fe7acdb31e1483ffd0",
+        "ev-93e8cebed7500d0387589c2d74b59bbcd75a30a6"
+      ],
+      "record_versions": [
+        3,
+        4
+      ],
+      "note_exact": "其与候选8一模一样，似乎重复了。",
+      "verdict_preserved": "looks_correct",
+      "same_complete_original_quote": true,
+      "full_original_quote": "Mucin-containing rectal cancer Mucin-containing rectal\ncancers demonstrate high signal intensity on T2WI and\nmay present in two possible forms [26].",
+      "same_selected_context_fragments": true,
+      "full_contexts": [
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "unclear",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000092",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 56,
+                "exact_quote": "Mucin-containing rectal cancer Mucin-containing rectal",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  306.141693115,
+                  608.346996639884,
+                  544.2378149448198,
+                  618.3147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000093",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 53,
+                "exact_quote": "cancers demonstrate high signal intensity on T2WI and",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  621.049802491,
+                  544.2328149409999,
+                  630.8147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000094",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 39,
+                "exact_quote": "may present in two possible forms [26].",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  633.549802491,
+                  544.2628149409999,
+                  643.3147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "cited_research",
+            "cited_references": [
+              "[26]"
+            ],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000092",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 56,
+                "exact_quote": "Mucin-containing rectal cancer Mucin-containing rectal",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  306.141693115,
+                  608.346996639884,
+                  544.2378149448198,
+                  618.3147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000093",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 53,
+                "exact_quote": "cancers demonstrate high signal intensity on T2WI and",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  621.049802491,
+                  544.2328149409999,
+                  630.8147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000094",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 39,
+                "exact_quote": "may present in two possible forms [26].",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  633.549802491,
+                  544.2628149409999,
+                  643.3147878282434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        }
+      ],
+      "same_figure_association": true,
+      "same_strict_group": false,
+      "same_readonly_review_index_group_id": "source-review-3f6f124514ac9329fee6866d33928b4971d0aa2f109daaf8f6db720cc895ba45",
+      "unresolved_field_differences_retained": [
+        "disease_or_lesion",
+        "source_attribution",
+        "feature_category"
+      ],
+      "handling": "S5 may gather existing same-source members for display, keeping all records/versions/approvals and metadata differences; extraction optimization is deferred; no automatic clinical deduplication."
+    },
+    {
+      "noted_case": "C14-31b8f8735707",
+      "reference_case": "C07-838322bd0797",
+      "record_ids": [
+        "ev-b9efc51d87835997469bc10dc9d10d4b3a837c06",
+        "ev-176eaf128d826f3065e1c62b922999b065c881c9"
+      ],
+      "record_versions": [
+        3,
+        3
+      ],
+      "note_exact": "其与候选7一模一样，似乎重复了。",
+      "verdict_preserved": "looks_correct",
+      "same_complete_original_quote": true,
+      "full_original_quote": "Partly annular/semicircumferential Partly annular/semi-\ncircumferential tumors only partially involve the circum-\nference of the lumen, often greater than 90° but less than\n360°.",
+      "same_selected_context_fragments": true,
+      "full_contexts": [
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "background_definition",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000063",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 57,
+                "exact_quote": "Partly annular/semicircumferential Partly annular/semi-",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  306.141693115,
+                  208.34699663988397,
+                  544.1678149791587,
+                  218.3147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000064",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 57,
+                "exact_quote": "circumferential tumors only partially involve the circum-",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  221.04977197300002,
+                  544.0738149562601,
+                  230.8147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000065",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 58,
+                "exact_quote": "ference of the lumen, often greater than 90° but less than",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  233.54977197300002,
+                  544.4228149238392,
+                  243.3147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000066",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 5,
+                "exact_quote": "360°.",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  246.04977197300002,
+                  544.1178149467297,
+                  255.8147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        },
+        {
+          "before": "",
+          "after": "",
+          "status": "needs_context",
+          "fragments": [],
+          "source_attribution": {
+            "origin": "background_definition",
+            "cited_references": [],
+            "evidence": [
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000063",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 2,
+                "end": 57,
+                "exact_quote": "Partly annular/semicircumferential Partly annular/semi-",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  306.141693115,
+                  208.34699663988397,
+                  544.1678149791587,
+                  218.3147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000064",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 57,
+                "exact_quote": "circumferential tumors only partially involve the circum-",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  221.04977197300002,
+                  544.0738149562601,
+                  230.8147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000065",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 58,
+                "exact_quote": "ference of the lumen, often greater than 90° but less than",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  233.54977197300002,
+                  544.4228149238392,
+                  243.3147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              },
+              {
+                "block_id": "e21bc46051b0ea3513d7-p0005-l000066",
+                "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+                "start": 0,
+                "end": 5,
+                "exact_quote": "360°.",
+                "occurrence": 0,
+                "physical_page": 5,
+                "bbox": [
+                  319.322814941,
+                  246.04977197300002,
+                  544.1178149467297,
+                  255.8147573102434
+                ],
+                "location_precision": "whole_textline_not_exact_glyph"
+              }
+            ]
+          },
+          "structure_references": [],
+          "article_scope_status": "within_provided_scope"
+        }
+      ],
+      "same_figure_association": true,
+      "same_strict_group": false,
+      "same_readonly_review_index_group_id": "source-review-a900579a05e4ed20744c234ee2e7fa7c79a5be1cb3409589cbc315435032653c",
+      "unresolved_field_differences_retained": [
+        "disease_or_lesion",
+        "numeric_expressions"
+      ],
+      "handling": "S5 may gather existing same-source members for display, keeping all records/versions/approvals and metadata differences; extraction optimization is deferred; no automatic clinical deduplication."
+    }
+  ],
+  "case_C02": {
+    "case_id": "C02-364de3f7b6d0",
+    "record_id": "ev-459b87bb80863f511ba80a6f0ae036f1d1ef3a72",
+    "record_version": 2,
+    "quote": "CT 血管征定义为肺肿瘤在生长活跃过程中，血管、\n血运丰富，其周围的大、小血管增多、迂曲、扩张及增\n粗，供血血管受到压迫，出现局部的切迹 [22] 。",
+    "verdict": "looks_correct",
+    "note_exact": "这个是CT血管征的定义，不过也符合预期。",
+    "interpretation": "Only this CT vascular-sign definition is accepted as expected; no new permission for all formulas or definitions."
+  },
+  "case_C15": {
+    "case_id": "C15-b19738970c07",
+    "record_id": "ev-bc0545d876704b87f52d03268c32e0b443433d92",
+    "record_version": 2,
+    "quote": " As the MRF runs over the surface of the levator ani\ninferiorly, low rectal tumors contacting or located within\n1 mm of the MRF over the surface of the levator ani are\nconsidered MRF-involved tumors (Fig. 3).",
+    "context": {
+      "before": "",
+      "after": "",
+      "status": "needs_context",
+      "fragments": [],
+      "source_attribution": {
+        "origin": "study_authors",
+        "cited_references": [
+          "Fig. 3"
+        ],
+        "evidence": [
+          {
+            "block_id": "e21bc46051b0ea3513d7-p0005-l000049",
+            "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+            "start": 4,
+            "end": 56,
+            "exact_quote": " As the MRF runs over the surface of the levator ani",
+            "occurrence": 0,
+            "physical_page": 5,
+            "bbox": [
+              64.224699375,
+              670.255796143,
+              289.15469937500023,
+              680.0207814802434
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          },
+          {
+            "block_id": "e21bc46051b0ea3513d7-p0005-l000050",
+            "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+            "start": 0,
+            "end": 58,
+            "exact_quote": "inferiorly, low rectal tumors contacting or located within",
+            "occurrence": 0,
+            "physical_page": 5,
+            "bbox": [
+              64.224699375,
+              682.755796143,
+              289.2846993997897,
+              692.5207814802434
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          },
+          {
+            "block_id": "e21bc46051b0ea3513d7-p0005-l000051",
+            "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+            "start": 0,
+            "end": 55,
+            "exact_quote": "1 mm of the MRF over the surface of the levator ani are",
+            "occurrence": 0,
+            "physical_page": 5,
+            "bbox": [
+              64.224699375,
+              695.255796143,
+              289.19069937500035,
+              705.0207814802434
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          },
+          {
+            "block_id": "e21bc46051b0ea3513d7-p0005-l000052",
+            "text_version": "s3v3-d02234726f7eb16e37bb5143199a21ee",
+            "start": 0,
+            "end": 40,
+            "exact_quote": "considered MRF-involved tumors (Fig. 3).",
+            "occurrence": 0,
+            "physical_page": 5,
+            "bbox": [
+              64.224699375,
+              707.755796143,
+              235.15469937500004,
+              717.5207814802434
+            ],
+            "location_precision": "whole_textline_not_exact_glyph"
+          }
+        ]
+      },
+      "structure_references": [],
+      "article_scope_status": "within_provided_scope"
+    },
+    "model_role": {
+      "policy_version": "model-primary-assessment-1",
+      "value": "context_only_suggested",
+      "status": "reviewed_unapproved",
+      "model_id": "gpt-6-luna",
+      "record_version": 2,
+      "source_record_sha256": "34f6a2432d8c2bd30c453567326459d27655f765a7932e2bb879278074d28b77",
+      "record_actor": "automatic",
+      "effective_role": "background_suggestion",
+      "human_approved": false
+    },
+    "figure_association": {
+      "status": "pending",
+      "figure_ids": [],
+      "proposed_figure_ids": [
+        "figure-505a46fc6b413830ca0b8070"
+      ],
+      "exact_markers": [
+        {
+          "number": "3",
+          "panel": null,
+          "exact_marker": "Fig. 3",
+          "complex": false
+        }
+      ],
+      "reasons": [
+        "Figure 3: complete Figure region/panels and caption identity need source-page verification."
+      ],
+      "no_figure_claimed": false,
+      "human_approved": false
+    },
+    "question_semantics": "background_retention_suitability",
+    "verdict": "cannot_judge",
+    "problem_types_preserved": [
+      "background_unnecessary"
+    ],
+    "note_exact": "",
+    "handling": "cannot_judge takes precedence; background_unnecessary is not a confirmed negative. Retain unknown and original background; no automatic delete/promotion/medical decision."
+  },
+  "deferred_after_complete_implementation": [
+    "model generation of same-source repeated candidates/metadata differences",
+    "background necessity uncertainty including currentC15",
+    "model/tool-call efficiency and extraction quality refinement"
+  ],
+  "S5_handling_boundary": {
+    "reuse_existing_readonly_source_index_to_avoid_independent_count_appearance": true,
+    "keep_all_member_record_versions_and_approval_guards": true,
+    "no_automatic_medical_merge_or_group_approval_propagation": true,
+    "no_new_extraction_scheme_experiment_or_parameter_optimization": true,
+    "S5_engineering_completion_requires_actual_new_executor_evidence": true
+  },
+  "paid_round": {
+    "requests": 72,
+    "input_tokens": 1019869,
+    "output_tokens": 40302,
+    "status": "closed",
+    "unused56_requests_closed": true,
+    "new_allowance": 0,
+    "frozen_paid_result_stage_passed_false_is_creation_time_history": true
+  },
+  "artifacts": {
+    "prepared/plan.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/plan.json",
+      "sha256": "702d57baa5bcf68e6b1d8f7e91b859a67286210c728d207b50cf2a34b7316026"
+    },
+    "prepared/execution/report.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/prepared/execution/report.json",
+      "sha256": "a40248f07a00453127fc798034fe741277eb275c6c966c4d7d193f74d48964e0"
+    },
+    "output-binding.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-binding.json",
+      "sha256": "77571cdec58805e18ddfc7ec79e735310c1da50c34b3dfdb08fe0bfb21b43826"
+    },
+    "execution-audit.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/execution-audit.json",
+      "sha256": "db6043a1de6bbb31f7ba6ba1f6102e56ee976f8b746f11caa29a42ba2729728e"
+    },
+    "source-observations-audit.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/source-observations-audit.json",
+      "sha256": "1ccfe7f8b48a5590d834528c76770052ea3eee26d41edc058c8f9791fb8c1bae"
+    },
+    "postprocessing/binding.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/binding.json",
+      "sha256": "160bb61879aa4154c2071c52bd64957711370a33119619dfb1d8613fe394833a"
+    },
+    "postprocessing/same-source-review-index.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/postprocessing/same-source-review-index.json",
+      "sha256": "f79bb67d500ebf330bb0fd71ab0adb0e216d9a71c303841419bc6dec1630f9ea"
+    },
+    "output-review/data.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/data.json",
+      "sha256": "04d122e89085a0f876965a7f8cb61ccbf40357fe536d425d9bcf6c72ea93247d"
+    },
+    "output-review/manifest.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/manifest.json",
+      "sha256": "b67c7ac551f952f4900e2ade347f6ae048068f7049ace83686f4fc8b4f9a628b"
+    },
+    "output-review/browser-verification.json": {
+      "path": "code/docs/acceptance/s4-b0-revalidation-2026-11-08/output-review/browser-verification.json",
+      "sha256": "f01cf0a12251badb53bc3731be6bb180b985a5fdf52b2df8ad72bd5fe43e2302"
+    }
+  },
+  "new_provider_requests_by_feedback_and_docs_owner": 0,
+  "formal_reviews_used": 3,
+  "formal_review_limit": 3,
+  "additional_formal_reviews": 0
+}
